@@ -3,24 +3,24 @@
 # Ashuganj 450 MW CCPP Power System Analysis & Protection Studies
 # ==============================================================================
 
-# Treat all HTML manuals, presentation portals, and web assets as documentation
-# (prevents documentation from dominating the repository code language stats)
-*.html linguist-documentation
-*.htm linguist-documentation
-*.css linguist-documentation
-*.js linguist-documentation
+# Mark all HTML manuals, presentation portals, and web assets as non-detectable documentation
+# (ensures interactive HTML manuals do not dominate the repository language breakdown)
+*.html linguist-documentation=true
+*.html -linguist-detectable
+*.htm linguist-documentation=true
+*.htm -linguist-detectable
+*.css linguist-documentation=true
+*.css -linguist-detectable
+*.js linguist-documentation=true
+*.js -linguist-detectable
 
-# Mark build and conversion utility scripts as documentation/vendored so MATLAB remains dominant
-build_*.py linguist-documentation
-upgrade_*.py linguist-documentation
-update_*.py linguist-documentation
-generate_*.py linguist-documentation
-add_closeups_*.py linguist-documentation
-check_fonts.py linguist-documentation
-verify_all.py linguist-documentation
-scratch_*.py linguist-documentation
+# Helper and build scripts marked as documentation
+*.py linguist-documentation=true
+*.py -linguist-detectable
+*.ps1 linguist-documentation=true
+*.ps1 -linguist-detectable
 
-# Primary codebase: MATLAB
+# Core programming language: MATLAB
 *.m linguist-language=MATLAB
 *.m linguist-detectable=true
 Simulation_Workspace/matlab/** linguist-language=MATLAB
