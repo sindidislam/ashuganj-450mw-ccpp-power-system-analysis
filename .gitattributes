@@ -1,0 +1,27 @@
+# ==============================================================================
+# GitHub Linguist Language Configuration
+# Ashuganj 450 MW CCPP Power System Analysis & Protection Studies
+# ==============================================================================
+
+# Treat all HTML manuals, presentation portals, and web assets as documentation
+# (prevents documentation from dominating the repository code language stats)
+*.html linguist-documentation
+*.htm linguist-documentation
+*.css linguist-documentation
+*.js linguist-documentation
+
+# Mark build and conversion utility scripts as documentation/vendored so MATLAB remains dominant
+build_*.py linguist-documentation
+upgrade_*.py linguist-documentation
+update_*.py linguist-documentation
+generate_*.py linguist-documentation
+add_closeups_*.py linguist-documentation
+check_fonts.py linguist-documentation
+verify_all.py linguist-documentation
+scratch_*.py linguist-documentation
+
+# Primary codebase: MATLAB
+*.m linguist-language=MATLAB
+*.m linguist-detectable=true
+Simulation_Workspace/matlab/** linguist-language=MATLAB
+Simulation_Workspace/Phase6/** linguist-language=MATLAB
