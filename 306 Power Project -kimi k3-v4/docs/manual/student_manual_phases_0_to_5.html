@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ashuganj 450 MW — Complete Student Manual, Phase 0 to Phase 5</title>
+<style>
+:root{--ink:#1a2332;--mut:#5b6b82;--line:#d7e0ec;--bg:#f4f7fb;--card:#fff;
+--green:#0e7c3e;--greenbg:#e6f4ec;--amber:#9a6200;--amberbg:#fdf3e0;
+--red:#b3261e;--redbg:#fbeae9;--blue:#0b5cad;--bluebg:#e8f1fc;--pur:#4b2fb3;--purbg:#efe9fb;
+--mono:Consolas,"Courier New",monospace}
+*{box-sizing:border-box}
+body{font-family:"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);margin:0;line-height:1.65}
+header.hero{background:linear-gradient(135deg,#0b2a4a,#0b5cad 60%,#4b2fb3);color:#fff;padding:46px 28px 36px}
+header.hero h1{margin:0 0 8px;font-size:30px}
+header.hero p{margin:4px 0;opacity:.93}
+.badges{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 12px;border-radius:999px;font-size:13px;font-weight:600;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.45)}
+.badge.ok{background:#0e7c3e;border-color:#0e7c3e}.badge.info{background:#fff;color:#0b2a4a;border-color:#fff}
+nav.toc{position:sticky;top:0;z-index:5;background:#0b2a4a;padding:8px 18px;display:flex;flex-wrap:wrap;gap:4px 12px}
+nav.toc a{color:#cfe2f7;text-decoration:none;font-size:13px}nav.toc a:hover{color:#fff;text-decoration:underline}
+main{max-width:1020px;margin:0 auto;padding:26px 20px 60px}
+section.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 26px;margin:0 0 22px;box-shadow:0 1px 3px rgba(11,42,74,.06)}
+h2{margin:0 0 6px;font-size:23px;color:#0b2a4a;border-bottom:3px solid #0b5cad;padding-bottom:8px}
+h3{color:#0b2a4a;margin:20px 0 8px;font-size:17px}
+h4{color:var(--pur);margin:16px 0 6px}
+.secnum{color:#fff;background:#0b5cad;border-radius:6px;padding:1px 9px;margin-right:8px;font-size:16px}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#0b2a4a;color:#fff}tr:nth-child(even) td{background:#f6f9fd}
+code{font-family:var(--mono);font-size:13px;background:#eef2f7;padding:1px 6px;border-radius:4px}
+pre{background:#0b2a4a;color:#d7e9ff;padding:14px 16px;border-radius:8px;overflow-x:auto;font-size:13px}
+pre .c{color:#8fb8e8}
+.callout{border-left:5px solid var(--blue);background:var(--bluebg);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14px}
+.warn{border-left:5px solid var(--amber);background:var(--amberbg);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14px}
+.good{border-left:5px solid var(--green);background:var(--greenbg);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14px}
+.eq{background:#f6f9fd;border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:10px 0;font-size:15px;overflow-x:auto}
+.eq .lbl{float:right;color:var(--mut);font-size:12.5px}
+.analogy{background:var(--purbg);border:1px dashed var(--pur);border-radius:8px;padding:10px 14px;margin:12px 0;font-size:14px}
+details.quiz{border:1px solid var(--line);border-radius:8px;margin:10px 0;background:#fbfcfe}
+details.quiz summary{cursor:pointer;padding:10px 14px;font-weight:600;color:#0b2a4a}
+details.quiz div{padding:0 14px 12px;font-size:14px}
+figure{margin:14px 0;text-align:center}
+figure img{max-width:100%;border:1px solid var(--line);border-radius:8px;background:#fff}
+figcaption{font-size:13px;color:var(--mut);margin-top:6px}
+svg.diagram{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+.pill{display:inline-block;padding:1px 10px;border-radius:999px;font-size:12.5px;font-weight:600}
+.p-src{background:var(--bluebg);color:var(--blue)}.p-der{background:#e9e4fb;color:var(--pur)}
+.p-eng{background:var(--amberbg);color:var(--amber)}.p-mis{background:var(--redbg);color:var(--red)}
+footer{max-width:1020px;margin:0 auto;padding:0 20px 40px;color:var(--mut);font-size:13px}
+@media print{nav.toc{display:none}section.card{break-inside:avoid}}
+</style>
+<script>
+window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']], processEscapes: true },
+chtml: { scale: 1.02 } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.mathnote{font-size:12.5px;color:var(--mut)}
+table.nums td:nth-child(n+2){font-family:var(--mono);font-size:13px}
+svg text{user-select:none}
+</style>
+</head>
+<body>
+<header class="hero">
+<h1>Ashuganj 450 MW Power Plant — Student Manual, Phase 0 → Phase 5</h1>
+<p>Written for a student with very basic EEE knowledge. No prior power-system course assumed: every idea is built from zero, then connected to the real project files and numbers.</p>
+<p>Current dynamic model: <a href="../../Phase6/docs/SIMULINK_USER_MANUAL.html" style="color:inherit">v4 Simulink User Manual</a> · Run <code>Phase6/START_PHASE6.m</code> from the project root. This page retains the earlier Phase 0–5 study and its historical results.</p>
+<p>Companion technical report: <a href="../PHASE5_FINAL_REPORT.md" style="color:inherit">PHASE5_FINAL_REPORT.md</a> · Final results: <code>results/phase5_protection_v2/</code></p>
+<div class="badges"><span class="badge ok">Historical Phase-5b tests 528 / 0</span><span class="badge ok">Historical validation 14 / 14</span><span class="badge info">Preliminary engineering study</span><span class="badge info">Phase-4 reference</span></div>
+</header>
+<nav class="toc">
+<a href="#c0">0 · First ideas</a><a href="#pu">Per-unit</a><a href="#p0">Phase 0</a><a href="#p12">Phases 1–2</a>
+<a href="#p3">Phase 3</a><a href="#p4">Phase 4</a><a href="#p5">Phase 5/5b</a><a href="#run">Run guide</a><a href="#gloss">Glossary</a>
+</nav>
+<main>
+
+<section class="card" id="c0">
+<h2><span class="secnum">0</span>First ideas: electricity, the plant, and why protection exists</h2>
+<h3>0.1 Voltage, current, power — in one paragraph</h3>
+<p><b>Voltage</b> is electrical pressure, <b>current</b> is the flow of charge, and <b>power</b> is pressure × flow: P = V × I. Bangladesh’s grid moves power at <b>230,000 V (230 kV)</b> because high voltage means low current for the same power — and low current means thin wires and small losses. Your phone charger does the reverse: it steps voltage back down.</p>
+<div class="analogy"><b>Plumbing analogy (used through this manual):</b> voltage = water pressure, current = litres/second, a transformer = a pressure-exchange station, a circuit breaker = a valve that can slam shut under full pressure, a disconnector = a cap you unscrew only when the pipe is already empty.</div>
+<h3>0.2 AC and three phases</h3>
+<p>Grid power is <b>AC</b>: the pressure flips direction 50 times per second (50 Hz). It is <b>three-phase</b>: three pressures taking turns, 120° apart, sharing one job — like three people pushing a merry-go-round in rotation. Three wires carry smoother, stronger power than one. A <b>short circuit (fault)</b> is when phases touch each other (or earth) where they shouldn’t: pressure collapses there, and enormous current rushes in — tens of thousands of amperes. Our F1 fault reaches <b>126,210 A</b>.</p>
+<h3>0.3 The plant in one sentence</h3>
+<p><b>One gas turbine + one steam turbine on one shaft → one 458 MVA generator at 22 kV → giant step-up transformer (GSUT) → 230 kV switchyard → national grid</b>, with a side branch (UAT/GAT) stepping back down to 6.6 kV to run the plant’s own pumps and fans (the <i>auxiliary</i> load). “Combined cycle” just means the steam turbine re-uses the gas turbine’s exhaust heat.</p>
+<h3>0.4 Why protection exists</h3>
+<p>A fault melts metal in seconds. <b>Protection</b> is the plant’s reflex system: <b>current transformers (CTs)</b> shrink kilo-amperes to ~1 A so relays can measure safely; <b>relays</b> decide “fault or not” in milliseconds; <b>circuit breakers</b> interrupt the current; <b>disconnectors</b> only isolate dead equipment (never interrupt). Fast, selective primary protection (differentials: 87G/87B/7SD) clears first; slower <b>backup overcurrent (51/51N)</b> catches whatever the primary misses. This whole project is the engineering behind those reflexes.</p>
+<details class="quiz"><summary>Check yourself 0-A: A 230 MW load at 230 kV draws roughly what current? (Assume 3-phase, power factor 1.)</summary><div>I = P/(√3·V) = 230e6/(1.732·230e3) ≈ <b>577 A</b>. Our generator’s 12,019 A at 22 kV is the same idea at lower voltage — that’s why generator currents are huge.</div></details>
+<details class="quiz"><summary>Check yourself 0-B: Why can’t a disconnector replace a circuit breaker?</summary><div>A disconnector has no arc-quenching: opening it under load draws a sustained arc. Breakers (Q0, 52G) are built to kill the arc; disconnectors (Q1/Q2/Q9) operate only dead. That’s why duty is never assigned to them.</div></details>
+</section>
+
+<section class="card" id="pu">
+<h2><span class="secnum">✎</span>Toolbox: the per-unit system (with worked example)</h2>
+<p>Power engineers divide every quantity by a chosen <b>base</b> so a 22 kV generator and a 230 kV grid can share one set of equations. This project uses <b>S<sub>base</sub> = 100 MVA, V<sub>base</sub> = 230 kV</b>.</p>
+<div class="eq"><b>Base quantities (one base, whole plant).</b> Pick \(S_{base}=100\,\mathrm{MVA}\). At each voltage level \(V_{base}\):
+\[ Z_{base}=\frac{V_{base}^2}{S_{base}},\qquad I_{base}=\frac{S_{base}}{\sqrt{3}\,V_{base}} \]
+So at 230 kV: \(Z_{base}=230^2/100=\mathbf{529\,\Omega}\), \(I_{base}=100/(\sqrt{3}\cdot230)=\mathbf{0.251\,kA}\).
+At 22 kV: \(Z_{base}=22^2/100=\mathbf{4.84\,\Omega}\), \(I_{base}=\mathbf{2.62\,kA}\). <span class="lbl">same physics, two rulers</span></div>
+<div class="eq"><b>Worked example — rated current and per-unit power.</b>
+\[ I_{rated}=\frac{458\times10^6}{\sqrt{3}\times22\times10^3}=\mathbf{12{,}019\,A},\qquad
+S_{pu}=\frac{458}{100}=\mathbf{4.58\,pu},\qquad X_{d,sat}''=22.48\%=\mathbf{0.2248\,pu} \]
+A transformer at “16%” is simply \(0.16\,\mathrm{pu}\) — volts and amps reappear only when you multiply back by base.
+<span class="lbl">try it: GSUT 515 MVA → 5.15 pu</span></div>
+<div class="eq"><b>Moving impedance across bases (used for every reactance in Phase 3).</b>
+\[ Z_{pu,new}=Z_{pu,old}\times\frac{S_{new}}{S_{old}}\times\left(\frac{V_{old}}{V_{new}}\right)^2 \]
+Forget the voltage-squared term and a 22 kV device lands on the 230 kV base <b>109×</b> too small — the classic beginner bug this project’s tests guard against. <span class="lbl">base-conversion tests</span></div>
+<div class="analogy"><b>Analogy:</b> per-unit is like quoting heights in “door-heights” instead of centimetres — a child and a basketball player can be compared with the same number line.</div>
+<details class="quiz"><summary>Check yourself PU: A 0.7 km line has 0.1426 Ω reactance. What is it in pu on the 529 Ω base?</summary><div>X<sub>pu</sub> = 0.1426/529 ≈ <b>0.00027 pu</b>. Small numbers are normal in pu — that’s the point: the math stays well-behaved.</div></details>
+</section>
+<section class="card" id="p0">
+<h2><span class="secnum">P0</span>Phase 0 — Setup, tools and data (the expedition phase)</h2>
+<p><b>Tried:</b> assemble everything before modelling — install the toolchain, gather drawings/datasheets (Siemens BD1015 report, GSUT/UAT/GAT plates, GIS one-line, APSCL forms), and reconcile contradictions (e.g. generator CT 16000/1 on the old SLD vs <b>15000/1 on Rev-03 + Siemens report</b> — Rev-03 wins).</p>
+<p><b>Got:</b> a versioned source set (<code>fwdtechnicaldatasldrequestforbueteeetermproject/</code>), a conflict ledger (<code>docs/validation/conflicting_parameters.md</code>), and one hard rule that still governs today: <b>missing data is labelled MISSING, never invented</b>.</p>
+<p><b>Means:</b> every number in later phases can be traced to a page. Your first engineering skill is therefore not math — it’s <i>provenance</i>: write down <b>where each number came from</b>.</p>
+<h3>Tools you will touch</h3>
+<table><tr><th>Tool</th><th>Job</th></tr>
+<tr><td>MATLAB R2024a</td><td>The standalone numerical studies use MATLAB. <code>addpath(genpath('matlab'))</code> sets up their functions. The current physical model also requires Simulink, Simscape and Simscape Electrical with Specialized Power Systems; use the linked v4 manual for setup.</td></tr>
+<tr><td><code>matlab/data/ashuganj_*.m</code></td><td>Frozen network data — read-only. If your numbers disagree with the report, your code is wrong, not the data.</td></tr>
+<tr><td><code>run_*_tests.m</code> + <code>t_case</code></td><td>Every claim has a test that fails loudly if behaviour changes. Green suite = permission to continue.</td></tr></table>
+<details class="quiz"><summary>Check yourself P0: Two drawings disagree on a CT ratio. What do you do?</summary><div>Record both with revision numbers, pick the newer/corroborated one, fence the old one as LEGACY sensitivity — exactly what happened with 16000/1 vs 15000/1. Never silently average them.</div></details>
+</section>
+
+<section class="card" id="p12">
+<h2><span class="secnum">P1–2</span>Phases 1–2 — Build the model, run the load flow</h2>
+<h3>What is a load flow? (the plumbing calculation)</h3>
+<p>Given the generator’s push (P megawatts, Q megavars) and every load’s sip, compute the <b>pressure (voltage) at every bus</b> and the <b>flow on every branch</b>. It must balance: <i>power in = power out + losses</i>, checked at every bus (KCL, residuals &lt; 0.05 MVA here). It must come first because <b>every fault study starts from the pre-fault voltages</b> — you can’t short-circuit a network you haven’t solved.</p>
+<div class="eq"><b>Three-phase power (the only load-flow formula you need first).</b>
+\[ P=\sqrt{3}\,V_{LL}\,I\cos\phi,\qquad Q=\sqrt{3}\,V_{LL}\,I\sin\phi,\qquad S=\sqrt{P^2+Q^2} \]
+Check: \(S=\sqrt{360^2+27.83^2}\approx\mathbf{361.1\,MVA}\ll458\,\mathrm{MVA}\) — the 360 MW dispatch sips only ~79% of the machine. Load flow then enforces, at <i>every</i> bus: \(\sum P_{in}=\sum P_{out}+P_{losses}\) (same for \(Q\)), i.e. KCL in power form. <span class="lbl">conservation gate 6/6</span></div>
+<div class="analogy"><b>P vs Q in one line:</b> P (megawatts) does the real work — heat, motion. Q (megavars) builds the magnetic fields motors and transformers need to function. Generators must supply both, inside their capability curve.</div>
+<h3>What this project did</h3>
+<ul>
+<li>Modelled generator (458 MVA, capability curve with 6 points), GSUT 515 MVA, UAT/GAT 25 MVA, 0.7 km line, grid equivalent, 14 MW aux load.</li>
+<li>Primary dispatch <b>360 MW</b> (an operating point — <i>not</i> the 458 MVA nameplate, <i>not</i> the 389.3 MW Siemens rated power). A capacity guard rejects dispatches above 360 MW.</li>
+<li>Solved two prefault states: <b>LF360_GAT_OUT</b> (B22 22.0 kV ∠−22.78°, Q 27.83 MVAr) and <b>LF360_GAT_IN</b> (Q 23.67 MVAr) — kept separate because their internal voltages differ.</li>
+<li>Closed with <b>1331/0 tests</b> and a frozen network both later phases inherit untouched.</li>
+</ul>
+<figure><img src="Load_Flow_LF1_Annotated.png" alt="Annotated load-flow result"><figcaption>Fig. 1 — Annotated load-flow result (LF1): bus voltages and branch flows. If any bus pressure looks wrong here, nothing downstream can be trusted — that’s why load flow comes first.</figcaption></figure>
+<details class="quiz"><summary>Check yourself P2: The generator makes 360 MW but its nameplate says 458 MVA. Contradiction?</summary><div>No. MVA is <i>capacity</i> (P and Q combined: S = √(P²+Q²)); 360 MW is today’s <i>dispatch</i>. A truck rated for 10 tons carrying 7 tons is not a contradiction.</div></details>
+</section>
+<section class="card" id="p3">
+<h2><span class="secnum">P3</span>Phase 3 — Freeze the network (pour the concrete)</h2>
+<p><b>Tried:</b> lock every network parameter so fault math can never silently shift: 0.7 km lumped dual-circuit line (R 0.0278 Ω, X 0.1426 Ω), transformer impedances/taps, grid Thevenin equivalent, machine reactances (Xd″<sub>sat</sub> 0.2248 — the <i>saturated</i> value the fault current actually follows).</p>
+<p><b>Got:</b> a hash-frozen network + the LF360_OUT/IN solved states, re-verified at every later gate (PHASE3 report stays exactly 45504 bytes).</p>
+<p><b>Means:</b> a matching hash proves that the recorded network files have not changed. It does not prove the model or its assumptions are physically correct. Investigate unexpected results against the source data, network representation and calculation logic while preserving the frozen comparison.</p>
+</section>
+
+<section class="card" id="p4">
+<h2><span class="secnum">P4</span>Phase 4 — Fault analysis (the short-circuit laboratory)</h2>
+<h3>The four fault types (learn this diagram)</h3>
+<figure>
+<svg class="diagram" viewBox="0 0 1000 240" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI,Arial" font-size="13">
+<rect x="10" y="10" width="230" height="220" rx="8" fill="#fff" stroke="#0b2a4a" stroke-width="2"/><text x="125" y="34" text-anchor="middle" font-weight="bold">LLL · 3-phase</text>
+<line x1="60" y1="200" x2="60" y2="80" stroke="#b3261e" stroke-width="3"/><line x1="125" y1="200" x2="125" y2="80" stroke="#b3261e" stroke-width="3"/><line x1="190" y1="200" x2="190" y2="80" stroke="#b3261e" stroke-width="3"/>
+<line x1="40" y1="80" x2="210" y2="80" stroke="#0b2a4a" stroke-width="4"/><text x="125" y="110" text-anchor="middle">all 3 join</text><text x="125" y="130" text-anchor="middle" font-weight="bold">F1: 126.21 kA</text><text x="125" y="150" text-anchor="middle">balanced, worst heat</text>
+<rect x="260" y="10" width="230" height="220" rx="8" fill="#fff" stroke="#0b2a4a" stroke-width="2"/><text x="375" y="34" text-anchor="middle" font-weight="bold">LG · line-to-ground</text>
+<line x1="310" y1="200" x2="310" y2="80" stroke="#b3261e" stroke-width="3"/><line x1="375" y1="200" x2="375" y2="140" stroke="#999" stroke-width="2" stroke-dasharray="5 4"/><line x1="440" y1="200" x2="440" y2="140" stroke="#999" stroke-width="2" stroke-dasharray="5 4"/>
+<line x1="310" y1="80" x2="310" y2="55" stroke="#0b2a4a" stroke-width="4"/><line x1="280" y1="55" x2="470" y2="55" stroke="#0b2a4a" stroke-width="4"/><text x="375" y="48" text-anchor="middle">earth</text><text x="375" y="130" text-anchor="middle" font-weight="bold">F1: 7.27 A (!!)</text><text x="375" y="150" text-anchor="middle">NER-choked</text>
+<rect x="510" y="10" width="230" height="220" rx="8" fill="#fff" stroke="#0b2a4a" stroke-width="2"/><text x="625" y="34" text-anchor="middle" font-weight="bold">LL · line-to-line</text>
+<line x1="560" y1="200" x2="560" y2="140" stroke="#999" stroke-width="2" stroke-dasharray="5 4"/><line x1="625" y1="200" x2="625" y2="80" stroke="#b3261e" stroke-width="3"/><line x1="690" y1="200" x2="690" y2="80" stroke="#b3261e" stroke-width="3"/>
+<line x1="625" y1="80" x2="690" y2="80" stroke="#0b2a4a" stroke-width="4"/><text x="625" y="110" text-anchor="middle">B–C join</text><text x="625" y="130" text-anchor="middle" font-weight="bold">F1: 109.3 kA</text><text x="625" y="150" text-anchor="middle">unbalanced</text>
+<rect x="760" y="10" width="230" height="220" rx="8" fill="#fff" stroke="#0b2a4a" stroke-width="2"/><text x="875" y="34" text-anchor="middle" font-weight="bold">LLG · double-line-ground</text>
+<line x1="810" y1="200" x2="810" y2="140" stroke="#999" stroke-width="2" stroke-dasharray="5 4"/><line x1="875" y1="200" x2="875" y2="80" stroke="#b3261e" stroke-width="3"/><line x1="940" y1="200" x2="940" y2="80" stroke="#b3261e" stroke-width="3"/>
+<line x1="875" y1="80" x2="940" y2="80" stroke="#0b2a4a" stroke-width="4"/><line x1="907" y1="80" x2="907" y2="55" stroke="#0b2a4a" stroke-width="4"/><line x1="877" y1="55" x2="967" y2="55" stroke="#0b2a4a" stroke-width="4"/><text x="875" y="48" text-anchor="middle">earth</text><text x="875" y="130" text-anchor="middle" font-weight="bold">F1: 109.3 kA</text><text x="875" y="150" text-anchor="middle">B–C + earth</text>
+</svg>
+<figcaption>Fig. 2 — The four fault types with our F1 (OUT) results. LG’s 7.27 A vs LLL’s 126,210 A is the NER resistor doing its job.</figcaption>
+</figure>
+<h3>Symmetrical components in one paragraph</h3>
+<p>Unbalanced faults (LG/LL/LLG) are hard in phase coordinates, so engineers split them into three <i>balanced</i> worlds — <b>positive, negative, zero sequence</b> — solve each (they’re just ordinary circuits), then add them back (Fortescue). The <b>zero-sequence</b> world is where grounding lives: our generator neutral resistor (NER ≈ 1750 Ω, i.e. 3Z<sub>N</sub> ≈ 5252 Ω) makes the zero world so “stiff” that only 7.27 A flows for an F1 ground fault. Count that impedance exactly once — the classic student trap is counting it twice.</p>
+<div class="eq"><b>Hand-check the 7.27 A:</b> I<sub>0</sub> ≈ V<sub>ph</sub> / 3Z<sub>N</sub> = 12701.7 / 5252.3 ≈ 2.418 mA per sequence → faulted phase 3I<sub>0</sub> ≈ <b>7.25 A</b> (code: 7.272 A ✓) <span class="lbl">you can do this on a calculator</span></div>
+<h3>Locations &amp; results (OUT case)</h3>
+<table><tr><th>Loc</th><th>LLL</th><th>LG</th><th>LL</th><th>LLG</th><th>Meaning</th></tr>
+<tr><td>F1 B22</td><td>126.21 kA</td><td>7.27 A</td><td>109.3 kA</td><td>109.3 kA</td><td>Machine-fed; earth choked by NER</td></tr>
+<tr><td>F2</td><td colspan="4">= F1 (same node, own label)</td><td>No fake impedance added to force a difference</td></tr>
+<tr><td>F3 GIS</td><td>50.53 kA</td><td>45.74 kA</td><td>43.76 kA</td><td>48.50 kA</td><td>Grid-fed; beside the 50 kA equipment datum</td></tr>
+<tr><td>F4 m=0.5</td><td>51.06 kA</td><td>46.12 kA</td><td>44.22 kA</td><td>48.97 kA</td><td>Mid-line; B1/B2 per-circuit split kept</td></tr>
+<tr><td>F5 remote</td><td>53.11 kA</td><td>48.61 kA</td><td>45.97 kA</td><td>51.18 kA</td><td>Almost pure grid infeed</td></tr></table>
+<h3>How the three sequence worlds rejoin (the heart of Phase 4)</h3>
+<p>Each fault type stitches the sequence networks together differently. \(E''\) is the pre-fault internal voltage, \(Z_1, Z_2, Z_0\) the sequence impedances seen from the fault:</p>
+<div class="eq">
+<b>LLL</b> (only the positive world): \(\displaystyle I_{1}=\frac{E''}{Z_1}\), \(I_2=I_0=0\) &nbsp;·&nbsp;
+<b>LG</b> (all three in <i>series</i>): \(\displaystyle I_0=I_1=I_2=\frac{E''}{Z_0+Z_1+Z_2}\), faulted phase \(I_a=3I_0\) &nbsp;·&nbsp;
+<b>LL</b>: \(\displaystyle I_1=-I_2=\frac{E''}{Z_1+Z_2}\), \(I_0=0\) &nbsp;·&nbsp;
+<b>LLG</b>: \(Z_1\) in series with \(Z_2\parallel Z_0\) (parallel split, then series).
+<span class="lbl">Fortescue both directions, tested to 3e-14</span></div>
+<figure>
+<svg class="diagram" viewBox="0 0 1000 250" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI,Arial" font-size="12.5">
+<rect x="10" y="10" width="235" height="230" rx="8" fill="#fff" stroke="#0b2a4a" stroke-width="2"/>
+<text x="127" y="32" text-anchor="middle" font-weight="bold">LLL: Z1 alone</text>
+<rect x="60" y="60" width="130" height="40" rx="5" fill="#e8f1fc" stroke="#0b5cad"/><text x="125" y="85" text-anchor="middle">E″ → [ Z1 ]</text>
+<text x="127" y="130" text-anchor="middle">I1 = E″/Z1</text><text x="127" y="150" text-anchor="middle">I2 = I0 = 0</text>
+<text x="127" y="180" text-anchor="middle" font-weight="bold">F1: 126.21 kA</text><text x="127" y="200" text-anchor="middle">balanced</text>
+<rect x="258" y="10" width="235" height="230" rx="8" fill="#fff" stroke="#0b2a4a" stroke-width="2"/>
+<text x="375" y="32" text-anchor="middle" font-weight="bold">LG: Z0+Z1+Z2 series</text>
+<rect x="283" y="60" width="70" height="36" rx="5" fill="#e8f1fc" stroke="#0b5cad"/><text x="318" y="83" text-anchor="middle">Z1</text>
+<rect x="358" y="60" width="70" height="36" rx="5" fill="#e8f1fc" stroke="#0b5cad"/><text x="393" y="83" text-anchor="middle">Z2</text>
+<rect x="433" y="60" width="45" height="36" rx="5" fill="#fbeae9" stroke="#b3261e"/><text x="455" y="83" text-anchor="middle">Z0</text>
+<line x1="283" y1="115" x2="478" y2="115" stroke="#0b2a4a" stroke-width="2"/>
+<text x="375" y="140" text-anchor="middle">I0=I1=I2=E″/ΣZ</text><text x="375" y="160" text-anchor="middle">Ia = 3I0</text>
+<text x="375" y="190" text-anchor="middle" font-weight="bold">F1: 7.272 A</text><text x="375" y="210" text-anchor="middle">3Zₙ≈5252 Ω chokes it</text>
+<rect x="506" y="10" width="235" height="230" rx="8" fill="#fff" stroke="#0b2a4a" stroke-width="2"/>
+<text x="623" y="32" text-anchor="middle" font-weight="bold">LL: Z1+Z2 series</text>
+<rect x="541" y="60" width="70" height="36" rx="5" fill="#e8f1fc" stroke="#0b5cad"/><text x="576" y="83" text-anchor="middle">Z1</text>
+<rect x="616" y="60" width="70" height="36" rx="5" fill="#e8f1fc" stroke="#0b5cad"/><text x="651" y="83" text-anchor="middle">Z2</text>
+<line x1="541" y1="115" x2="686" y2="115" stroke="#0b2a4a" stroke-width="2"/>
+<text x="623" y="140" text-anchor="middle">I1=−I2, I0=0</text><text x="623" y="160" text-anchor="middle">Ib = −Ic (B–C)</text>
+<text x="623" y="190" text-anchor="middle" font-weight="bold">F1: 109.3 kA</text><text x="623" y="210" text-anchor="middle">no earth path</text>
+<rect x="754" y="10" width="236" height="230" rx="8" fill="#fff" stroke="#0b2a4a" stroke-width="2"/>
+<text x="872" y="32" text-anchor="middle" font-weight="bold">LLG: Z1 + (Z2‖Z0)</text>
+<rect x="779" y="60" width="70" height="36" rx="5" fill="#e8f1fc" stroke="#0b5cad"/><text x="814" y="83" text-anchor="middle">Z1</text>
+<rect x="854" y="48" width="60" height="30" rx="5" fill="#e8f1fc" stroke="#0b5cad"/><text x="884" y="68" text-anchor="middle">Z2</text>
+<rect x="854" y="82" width="60" height="30" rx="5" fill="#fbeae9" stroke="#b3261e"/><text x="884" y="102" text-anchor="middle">Z0</text>
+<line x1="849" y1="65" x2="854" y2="65" stroke="#0b2a4a" stroke-width="2"/><line x1="849" y1="95" x2="854" y2="95" stroke="#0b2a4a" stroke-width="2"/>
+<line x1="914" y1="65" x2="925" y2="65" stroke="#0b2a4a" stroke-width="2"/><line x1="914" y1="95" x2="925" y2="95" stroke="#0b2a4a" stroke-width="2"/><line x1="925" y1="65" x2="925" y2="95" stroke="#0b2a4a" stroke-width="2"/>
+<text x="872" y="140" text-anchor="middle">parallel split, then series</text>
+<text x="872" y="170" text-anchor="middle" font-weight="bold">F1: 109.3 kA</text><text x="872" y="190" text-anchor="middle">earth + B–C</text>
+</svg>
+<figcaption>Fig. 3 — Sequence-network stitching per fault type (F1 OUT values). The red Z0 box is where the NER lives — count it once.</figcaption>
+</figure>
+<div class="eq"><b>Peak and duration extras (design-defined, informational).</b>
+First-peak estimate \(i_p=\kappa\sqrt{2}\,I_k''\) with \(\kappa(r)=1.02+0.98e^{-3r}\), \(r=R_1/X_1\) (borrowed-shape curve, <i>not</i> an IEC claim).
+Breaker-window current \(I_b\) uses \(t_{break}=0.06\,\mathrm{s}\) study reference. Neither ever enters duty or margin arithmetic. <span class="lbl">phase4_kappa / phase4_stages</span></div>
+<div class="warn"><b>Branch vs total (the #1 student trap).</b> A relay sees its <i>branch</i> current, not the bus total. On F1 LG the GEN branch carries <b>8,414 A</b> while the net earth fault is 7.27 A — the branches vectorially cancel (KCL ~1e-12). Leg tables store |Ia| only, so LL/LLG (B–C faults) needed phasor recovery (|Ib| = 51.79 kA on F1 LL!). Never use a bus total as a relay current.</div>
+<details class="quiz"><summary>Check yourself P4: F1 LG total is 7.27 A but GEN_Q branch is 8,414 A. Broken math?</summary><div>No — KCL closes on <i>signed phasors</i>, and magnitudes don’t sum. The branches carry large circulating currents that cancel to 7.27 mA-sequence at the fault node (residuals ~1e-12 prove it). The CT on the generator breaker really sees ~8.4 kA.</div></details>
+</section>
+<section class="card" id="p5">
+<h2><span class="secnum">P5</span>Phase 5/5b — Final protection engineering study</h2>
+<div class="callout">This section uses the final corrected Phase-5b outputs. The study has complete numerical settings and explicit assumptions. It does not establish commissioned relay settings or unconditional breaker-duty compliance. The earlier Phase 0–4 sections describe the frozen upstream work.</div>
+<h3>The cast, simply</h3>
+<table><tr><th>Device</th><th>Student translation</th><th>Our value</th></tr>
+<tr><td>Phase CT / dedicated neutral CT</td><td>Scale primary current into a relay input.</td><td>Generator phase 15000/1; GSUT study 1600/1 (1500/1 documentary sensitivity); generator neutral 20/1 study assumption.</td></tr>
+<tr><td>51 / 51N</td><td>Above pickup, larger current produces a shorter inverse operating time.</td><td>GEN-51 17170.8 A; GEN-51N 4 A; GSUT-51 1380 A; Q0-51 1500 A.</td></tr>
+<tr><td>87G / 87T / 87B / 7SD</td><td>Differential protection compares currents at a protected zone's boundaries.</td><td>Study thresholds: 2403.8 / 387.84 / 320 / 320 A on the specified device bases. The implemented checks are detectability proxies.</td></tr>
+<tr><td>GEN definite-time comparator</td><td>Above pickup, wait a fixed time.</td><td>17171 A / 3 s, SENSITIVITY only; this is not a verified Siemens setting.</td></tr>
+<tr><td>52G / GSUT-bay Q0</td><td>Breakers interrupt their own physical branch currents.</td><td>100-kA GCB rating; conditional 50-kA transformer-bay Q0 mapping. Both duty results remain initial-symmetrical-current screenings.</td></tr></table>
+<h3>How an inverse relay thinks (TCC concept)</h3>
+<figure>
+<img src="../../results/phase5_protection_v2/plots/tcc_study.png" alt="Final inverse-time curves with GEN-51 TMS 0.10, GSUT-51 0.55 and Q0-51 0.80; current referred to 230 kV">
+<figcaption>Fig. 4 — Final production TCC. All curves use a common 230-kV current reference. A fault's actual relay times still use its separate physical branch currents.</figcaption>
+</figure>
+<h3>The three standard inverse curves</h3>
+<div class="eq">
+\[ t = \mathrm{TMS}\times\frac{k}{M^{\alpha}-1},\qquad M=\frac{I}{I_s}>1\;\;(\text{else }t=\infty) \]
+<table class="nums"><tr><th>Family</th><th>\(k\)</th><th>\(\alpha\)</th><th>Example: \(M=10\), TMS = 0.10</th></tr>
+<tr><td>SI (Standard Inverse — production family)</td><td>0.14</td><td>0.02</td><td>0.297 s</td></tr>
+<tr><td>VI (Very Inverse)</td><td>13.5</td><td>1.0</td><td>0.150 s</td></tr>
+<tr><td>EI (Extremely Inverse)</td><td>80</td><td>2.0</td><td>0.081 s</td></tr></table>
+For SI at \(M=2\), TMS 0.10 gives \(0.10\times0.14/(2^{0.02}-1)\approx1.003\,s\). Current and pickup must use the same primary or secondary base. Use each device's own TMS below.</div>
+<h3>Differential protection in one equation</h3>
+<div class="eq">
+\[ I_{op}=|I_{in}+I_{out}|,\qquad I_{res}=\frac{|I_{in}|+|I_{out}|}{2},\qquad \text{trip if } I_{op}>\max(I_{pickup},\, \mathrm{slope}\times I_{res}) \]
+This is a simplified teaching characteristic with signed currents into the zone, after ratio and vector-group compensation. A complete relay model also needs CT errors, restraint, saturation and through-fault stability. Phase 5 does not implement that manufacturer algorithm: its 87G/87T/87B/7SD results are <b>CONDITIONAL-DETECTABILITY</b>. The 45-ms generator/transformer and 35-ms bus/line detection times are explicit study proxies, not measured clearing times.</div>
+<h3>Coordination timeline (what “margin” means physically)</h3>
+<figure>
+<svg class="diagram" viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI,Arial" font-size="13">
+<line x1="60" y1="60" x2="960" y2="60" stroke="#0b2a4a" stroke-width="2"/>
+<text x="60" y="35" font-weight="bold">F1 LLL, LF360_GAT_OUT: calculated relay operating times</text>
+<line x1="195" y1="60" x2="195" y2="165" stroke="#0b5cad" stroke-width="3"/><text x="195" y="185" text-anchor="middle">GEN-51: 0.594 s</text>
+<line x1="595" y1="60" x2="595" y2="165" stroke="#0e7c3e" stroke-width="3"/><text x="595" y="185" text-anchor="middle">GSUT-51: 2.354 s</text>
+<line x1="880" y1="60" x2="880" y2="165" stroke="#9a6200" stroke-width="3"/><text x="880" y="185" text-anchor="middle">Q0-51: 3.615 s</text>
+<line x1="195" y1="112" x2="595" y2="112" stroke="#0e7c3e" stroke-width="2"/>
+<text x="395" y="100" text-anchor="middle" fill="#0e7c3e">margin 1.761 s: PRIMARY PASS</text>
+<text x="745" y="145" text-anchor="middle" fill="#9a6200">1.260 s: CONDITIONAL-PASS</text>
+</svg>
+<figcaption>Fig. 5 — Both margins exceed the 0.30-s study criterion. Q0 remains conditional on the transformer-bay mapping. These are relay times under the calculated fault currents, not a dynamic breaker-clearing simulation.</figcaption>
+</figure>
+<h3>Final settings and numerical results</h3>
+<table class="nums"><tr><th>Device</th><th>Primary pickup</th><th>CT</th><th>Secondary pickup</th><th>TMS / curve</th></tr>
+<tr><td>GEN-51</td><td>17170.8 A</td><td>15000/1</td><td>1.14472 A</td><td>0.10 / SI</td></tr>
+<tr><td>GEN-51N</td><td>4 A</td><td>20/1 study</td><td>0.20 A</td><td>0.15 / SI</td></tr>
+<tr><td>GSUT-HV-51</td><td>1380 A</td><td>1600/1 study</td><td>0.8625 A</td><td>0.55 / SI</td></tr>
+<tr><td>GIS-Q0-51</td><td>1500 A</td><td>1600/1 conditional</td><td>0.9375 A</td><td>0.80 / SI</td></tr></table>
+<p>GSUT nameplate current is 1292.8 A on 515 MVA / 230 kV. The separate 458-MVA maximum-through-load anchor is 1149.680101 A; applying 1.20 and rounding gives the 1380-A pickup.</p>
+<table><tr><th>Final output</th><th>Result</th></tr>
+<tr><td>Coordination, 96 rows</td><td>12 PRIMARY PASS · 12 CONDITIONAL-PASS · 0 FAIL · 24 NO-TRIP · 48 NO-PAIR.</td></tr>
+<tr><td>Effectiveness, 40 central rows</td><td>28 CONDITIONAL-DETECTABILITY · 4 NO-TRIP · 8 NO-PAIR/OUT-OF-ZONE. Eight DT sensitivity rows are separate.</td></tr>
+<tr><td>Breaker duty</td><td>Q0 maximum 6.897015 / 50 kA = 0.137940; 52G maximum 55.048710 / 100 kA = 0.550487. No exceedance in the conditional Ik″ screening.</td></tr>
+<tr><td>Parameter and sensitivity registers</td><td>188 finite numerical parameters; 1793 numerical sensitivity metric rows in 14 families.</td></tr></table>
+<div class="warn"><b>Current-base correction:</b> the archived Phase-4 branch currents use the fault's voltage base. Phase 5 recovers the faulted B/C phases for LL/LLG, then converts by V<sub>fault</sub>/V<sub>device</sub>. Approximately 72.11 kA on a 22-kV fault base corresponds to 6.897 kA at 230 kV. Compare that physical branch current with Q0's conditional 50-kA rating. The separate 50.53-kA system-reference NOTE row is not Q0 branch duty.</div>
+<h3>Sensitivity: what changes when an assumption changes?</h3>
+<p>At a fixed 0.20-A neutral secondary pickup, CT ratios 10/1, 20/1 and 25/1 give primary thresholds of 2, 4 and 5 A. A separate pickup sweep compares 4 and 5 A with the 20/1 CT held fixed. The 4-A, 20/1 case remains central. GSUT sensitivities compare 1500/1 and 1600/1 both with retained primary pickup and with a fixed secondary dial.</p>
+<p>The central preliminary grid is 45.01 kA / X/R 10.99, giving Zth = 2.950246 Ω at c = 1. Grid strength 30/40/45.01/50 kA, X/R 5/10.99/20, Z0/Z1 2/3/4, reported Z = 3.25 Ω, GSUT impedance/loss, motor ILR/Ir 4/5/6, neutral resistance, CT saturation and breaker rating are separate numerical screenings. They do not regenerate the frozen Phase-4 fault backbone.</p>
+<h3>Protection proxies and functional trips</h3>
+<p>F1/F2 single-line-to-ground (LG) faults use the approximately 7.27-A neutral residual for the proxy checks. The 87G and 87T starts are not reached; both are NO-TRIP for these rows. Dedicated 51N and the assumed 64G function provide the study's earth-protection representation. A conditional detectability result for another fault does not prove actual manufacturer relay operation.</p>
+<p>The functional trip matrix specifies generator lockout/52G and excitation actions, transformer lockout/52G/Q0 actions, affected-bus breaker sets, and local/remote line-end equivalents. Exact commissioned wiring remains unverified. Q0 is the qualified GSUT transformer-bay identity; a line-end breaker is not silently mapped onto it.</p>
+<p>Distance backup reaches are 0.0448+j0.196, 0.0672+j0.294 and 0.112+j0.490 Ω, with 0/0.30/0.80-s study timers. Breaker-failure timers are 0.15 s at 230 kV and 0.12 s at 22 kV. The 64G study defaults are 1 V / 10 mA, 20-Ω trip / 100-Ω alarm, 1-s trip / 10-s alarm and 0° correction; manufacturer-default origin awaits the local manual and primary-injection verification.</p>
+<details class="quiz"><summary>Check yourself P5: why does NO-PAIR not necessarily mean no protection?</summary><div>For F1 LG with GAT out, GEN-51N sees 7.272 A / 20 = 0.3636 A secondary, above its 0.20-A pickup. Its calculated SI time is 1.746 s. The coordination row is NO-PAIR because no upstream residual relay is modeled across the YNd1 delta. This is distinct from NO-TRIP, and neither verdict proves installed plant performance.</div></details>
+</section>
+
+<section class="card" id="run">
+<h2><span class="secnum">▶</span>Run guide, validation &amp; what’s next</h2>
+<pre>addpath(genpath('matlab'))
+run_phase5b_production('final-engineering','overwrite',true)
+<span class="c">% regenerates final CSVs, plots, reports and hashes; runs 528 tests</span>
+[NP,NF] = run_phase5b_tests(); assert(NF == 0)
+phase5b_verify_baseline()    <span class="c">% checks all 55 protected upstream files</span>
+phase5b_verify_artifacts()   <span class="c">% checks final files against their manifest</span></pre>
+<p><b>Validation:</b> 528 passing checks, zero failures; 14/14 implementation legs. Every finite coordination time is independently checked against the IEC equation. Passing implementation checks establish the stated study calculations; installed settings and commissioning remain separate verification work.</p>
+<p><b>Phase-5 next action:</b> review the final report and source audit, then replace study assumptions only when installed relay files, CT core/tap/burden data, Q0 bay/nameplate details, PGCB sequence equivalents, NGT/resistor tests and actual trip wiring become available. For the connected v4 dynamic model, run <code>Phase6/START_PHASE6.m</code> from this project and follow the <a href="../../Phase6/docs/SIMULINK_USER_MANUAL.html">v4 Simulink user manual</a> for component explanations, fault reruns, editable protection settings and measured outputs.</p>
+</section>
+
+<section class="card" id="gloss">
+<h2><span class="secnum">✎</span>Glossary (30-second definitions)</h2>
+<table><tr><th>Term</th><th>Means</th></tr>
+<tr><td>Bus / bay / switchyard</td><td>Junction bar / one circuit’s equipment set / the outdoor 230 kV yard</td></tr>
+<tr><td>pu (per-unit)</td><td>Actual ÷ base. 0.16 pu = 16% impedance.</td></tr>
+<tr><td>KCL</td><td>Currents entering a node = currents leaving. Our audits close at ~1e-12.</td></tr>
+<tr><td>NER</td><td>Neutral grounding resistance limiting the modeled F1/F2 single-line-to-ground current to about 7.27 A.</td></tr>
+<tr><td>Ik″ / Ip / CTI / TMS</td><td>Initial symmetrical RMS / first peak (info only) / grading criterion 0.30 s / device-specific inverse-curve time multiplier.</td></tr>
+<tr><td>87 / 51 / 50BF / 86</td><td>Differential / inverse OC / breaker-failure / lockout relay.</td></tr>
+<tr><td>NO-TRIP / NO-PAIR</td><td>No modeled operation / no applicable coordination pair. Neither means an unresolved numerical setting.</td></tr>
+<tr><td>Installed value unverified</td><td>A numerical study value is present, but the actual commissioned value has not been established.</td></tr></table>
+</section>
+</main>
+<footer>Student manual · Phase-5 section synchronized with final-engineering outputs on 2026-09-21 · Phase 0–4 sections retain their upstream context · final CSVs govern Phase-5 numerical results.</footer>
+</body>
+</html>

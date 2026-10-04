@@ -1,0 +1,21 @@
+Location,Fault_type,Case,Ik_kA,ip_kA,Fault_MVA,Level_kV,Footnote
+F1,LLL,LF360_GAT_OUT,126.214141,348.2551,4809.405,22.0,bolted-baseline reference; ZfMode=bolted
+F1,LG,LF360_GAT_OUT,0.007272,0.0201,0.277,22.0,bolted-baseline reference; ZfMode=bolted
+F1,LL,LF360_GAT_OUT,109.251634,301.4514,4163.046,22.0,bolted-baseline reference; ZfMode=bolted
+F1,LLG,LF360_GAT_OUT,109.253451,301.4565,4163.116,22.0,LLG single-earth path; bolted-baseline comparison; ZfMode=bolted
+F2,LLL,LF360_GAT_OUT,126.214141,348.2551,4809.405,22.0,bolted-baseline reference; ZfMode=bolted
+F2,LG,LF360_GAT_OUT,0.007272,0.0201,0.277,22.0,bolted-baseline reference; ZfMode=bolted
+F2,LL,LF360_GAT_OUT,109.251634,301.4514,4163.046,22.0,bolted-baseline reference; ZfMode=bolted
+F2,LLG,LF360_GAT_OUT,109.253451,301.4565,4163.116,22.0,LLG single-earth path; bolted-baseline comparison; ZfMode=bolted
+F3,LLL,LF360_GAT_OUT,50.530885,129.7647,20130.074,230.0,bolted-baseline reference; ZfMode=bolted
+F3,LG,LF360_GAT_OUT,45.737747,117.4558,18220.623,230.0,bolted-baseline reference; ZfMode=bolted
+F3,LL,LF360_GAT_OUT,43.75886,112.3739,17432.291,230.0,bolted-baseline reference; ZfMode=bolted
+F3,LLG,LF360_GAT_OUT,48.503662,124.5587,19322.486,230.0,LLG single-earth path; bolted-baseline comparison; ZfMode=bolted
+F4,LLL,LF360_GAT_OUT,51.057596,131.309,20339.901,230.0,bolted-baseline reference; ZfMode=bolted
+F4,LG,LF360_GAT_OUT,46.117009,118.6029,18371.711,230.0,bolted-baseline reference; ZfMode=bolted
+F4,LL,LF360_GAT_OUT,44.2151,113.7116,17614.044,230.0,bolted-baseline reference; ZfMode=bolted
+F4,LLG,LF360_GAT_OUT,48.966335,125.9307,19506.802,230.0,LLG single-earth path; bolted-baseline comparison; ZfMode=bolted
+F5,LLL,LF360_GAT_OUT,53.087007,137.3996,21148.36,230.0,bolted-baseline reference; ZfMode=bolted
+F5,LG,LF360_GAT_OUT,48.466764,125.4415,19307.787,230.0,bolted-baseline reference; ZfMode=bolted
+F5,LL,LF360_GAT_OUT,45.97258,118.986,18314.174,230.0,bolted-baseline reference; ZfMode=bolted
+F5,LLG,LF360_GAT_OUT,51.177498,132.4574,20387.666,230.0,LLG single-earth path; bolted-baseline comparison; ZfMode=bolted

@@ -1,0 +1,20 @@
+{
+  "params_csv": "C:\\Users\\sindi\\Downloads\\306 Power Project -kimi k3\\306 Power Project -kimi k3-v4\\Phase6\\results\\regression_233a16cf-ef7a-4286-a9d4-e55ff0aa9b10\\closed_loop_trip_params.csv",
+  "model_src": "C:\\Users\\sindi\\Downloads\\306 Power Project -kimi k3\\306 Power Project -kimi k3-v4\\Phase6\\model\\PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL.slx",
+  "model_dst": "C:\\Users\\sindi\\Downloads\\306 Power Project -kimi k3\\306 Power Project -kimi k3-v4\\Phase6\\PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP.slx",
+  "model_copied": true,
+  "model_note": "base model copied to closed-loop target.",
+  "insertion_status": "inserted: hook subsystem placed via add_block/add_line with inv_top->SI_integrator->TRIP_out skeleton (placeholder, unconnected at top level; SPS port mapping pending).",
+  "t_op_66_s": 0.31704525930493893,
+  "t_op_22_s": 1.1877626905978413,
+  "t_inst_s": 0.04,
+  "Iload_66_A": 1440.8028108119004,
+  "Ipick_66_A": 1728.9633729742804,
+  "assumptions": [
+    "Analytical IEC SI times via phase5_time (same-side primary A).",
+    "6.6kV feeder fault 15 kA is a Task-8 study level, not a frozen fault-study value.",
+    "GEN backup TMS 0.20 is a Task-8 sensitivity (frozen GEN-51 TMS 0.10).",
+    "Instant 0.040 s is a Task-8 proxy (frozen 87G operate proxy 0.045 s).",
+    "Hook insertion is a placeholder subsystem; closed-loop evidence is analytical synthesis."
+  ]
+}

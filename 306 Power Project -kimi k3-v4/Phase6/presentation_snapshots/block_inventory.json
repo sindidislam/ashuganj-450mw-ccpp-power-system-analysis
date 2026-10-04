@@ -1,0 +1,5878 @@
+[
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      840,
+      485,
+      1060,
+      595
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Auxiliary bus CT and VT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      375,
+      377,
+      430,
+      453
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Auxiliary bus CT and VT current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      395,
+      345,
+      515,
+      365
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Auxiliary bus CT and VT voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      395,
+      320,
+      515,
+      340
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Auxiliary bus fault",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Fault",
+    "position": [
+      855,
+      482,
+      915,
+      538
+    ],
+    "reference": "spsThreePhaseFaultLib/Three-Phase Fault"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Auxiliary bus fault measurement",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      715,
+      392,
+      775,
+      448
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Auxiliary bus fault measurement current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      735,
+      360,
+      855,
+      380
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Auxiliary bus fault measurement voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      735,
+      335,
+      855,
+      355
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      167,
+      325,
+      343,
+      360
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus/A1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      100,
+      60,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus/B1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      160,
+      60,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus/C1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      220,
+      60,
+      240
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus/A2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      100,
+      250,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus/B2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      160,
+      250,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus/C2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B6.6 Auxiliary 6.6 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      220,
+      250,
+      240
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/GAT 10BBT20",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Transformer (Two Windings)",
+    "position": [
+      604,
+      195,
+      701,
+      290
+    ],
+    "reference": "spsThreePhaseTransformerTwoWindingsLib/Three-Phase\nTransformer\n(Two Windings)"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/GAT command",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      495,
+      42,
+      600,
+      68
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/GAT earth",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMComponent",
+    "mask_type": "Ground",
+    "position": [
+      795,
+      285,
+      815,
+      310
+    ],
+    "reference": "spsGroundLib/Ground"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/GAT incomer",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Breaker",
+    "position": [
+      619,
+      85,
+      686,
+      145
+    ],
+    "reference": "spsThreePhaseBreakerLib/Three-Phase Breaker"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/GAT neutral resistor",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMComponent",
+    "mask_type": "Series RLC Branch",
+    "position": [
+      705,
+      280,
+      770,
+      310
+    ],
+    "reference": "spsSeriesRLCBranchLib/Series RLC Branch"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/MV BUS aux group",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMComponent",
+    "mask_type": "Three-Phase Parallel RLC Load",
+    "position": [
+      122,
+      590,
+      228,
+      660
+    ],
+    "reference": "spsThreePhaseParallelRLCLoadLib/Three-Phase\nParallel RLC Load"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/UAT 10BBT10",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Transformer (Two Windings)",
+    "position": [
+      214,
+      195,
+      311,
+      290
+    ],
+    "reference": "spsThreePhaseTransformerTwoWindingsLib/Three-Phase\nTransformer\n(Two Windings)"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/UAT earth",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMComponent",
+    "mask_type": "Ground",
+    "position": [
+      405,
+      285,
+      425,
+      310
+    ],
+    "reference": "spsGroundLib/Ground"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/UAT neutral resistor",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMComponent",
+    "mask_type": "Series RLC Branch",
+    "position": [
+      315,
+      280,
+      380,
+      310
+    ],
+    "reference": "spsSeriesRLCBranchLib/Series RLC Branch"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Water intake - motor group 1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMComponent",
+    "mask_type": "Three-Phase Parallel RLC Load",
+    "position": [
+      352,
+      590,
+      458,
+      660
+    ],
+    "reference": "spsThreePhaseParallelRLCLoadLib/Three-Phase\nParallel RLC Load"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Water intake - motor group 2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMComponent",
+    "mask_type": "Three-Phase Parallel RLC Load",
+    "position": [
+      582,
+      590,
+      688,
+      660
+    ],
+    "reference": "spsThreePhaseParallelRLCLoadLib/Three-Phase\nParallel RLC Load"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Unit 22 kV A",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      125,
+      60,
+      145
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Unit 22 kV B",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      160,
+      60,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/Unit 22 kV C",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      195,
+      60,
+      215
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/GIS 230 kV A",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      815,
+      125,
+      835,
+      145
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/GIS 230 kV B",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      815,
+      160,
+      835,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/GIS 230 kV C",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      815,
+      195,
+      835,
+      215
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliary kV",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      651,
+      1730,
+      679
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      417,
+      745,
+      663,
+      780
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus/A1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      100,
+      60,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus/B1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      160,
+      60,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus/C1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      220,
+      60,
+      240
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus/A2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      100,
+      250,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus/B2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      160,
+      250,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus/C2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22 Generator 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      220,
+      250,
+      240
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      395,
+      565,
+      705,
+      605
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus/A1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      100,
+      60,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus/B1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      160,
+      60,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus/C1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      220,
+      60,
+      240
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus/A2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      100,
+      250,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus/B2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      160,
+      250,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus/C2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B_22_UNIT Unit 22 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      220,
+      250,
+      240
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Battery SOC percent",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      746,
+      1730,
+      774
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      1140,
+      1025,
+      1360,
+      1105
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/Breaker indications",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      850,
+      365,
+      1040,
+      395
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/DC healthy",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      275,
+      190,
+      340,
+      220
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/DC supply status",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      40,
+      190,
+      240,
+      220
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/DC trip path and mechanism",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "M-S-Function",
+    "mask_type": "",
+    "position": [
+      380,
+      80,
+      615,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/GAT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      680,
+      260,
+      745,
+      290
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/GAT output",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      835,
+      260,
+      1000,
+      290
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/GCB",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      680,
+      40,
+      745,
+      70
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/GCB output",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      835,
+      40,
+      1000,
+      70
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/LineLocal",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      680,
+      150,
+      745,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/LineLocal output",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      835,
+      150,
+      1000,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/LineRemote",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      680,
+      205,
+      745,
+      235
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/LineRemote output",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      835,
+      205,
+      1000,
+      235
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/Protection requests",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      40,
+      60,
+      240,
+      90
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/Q0",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      680,
+      95,
+      745,
+      125
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/Q0 output",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      835,
+      95,
+      1000,
+      125
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/UNIT_TRIP",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      680,
+      315,
+      745,
+      345
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/UNIT_TRIP output",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      835,
+      315,
+      1000,
+      345
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control/phase6_breakers",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Breaker Control",
+    "type": "ToWorkspace",
+    "mask_type": "",
+    "position": [
+      385,
+      290,
+      590,
+      320
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Bus voltage kV",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      561,
+      1730,
+      589
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      830,
+      1025,
+      1050,
+      1105
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply/AC supply magnitude",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply",
+    "type": "Fcn",
+    "mask_type": "",
+    "position": [
+      395,
+      75,
+      595,
+      115
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply/Auxiliary AC measurements",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      80,
+      205,
+      110
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply/Auxiliary phase voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      270,
+      75,
+      335,
+      115
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply/Battery charger and DC bus",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply",
+    "type": "M-S-Function",
+    "mask_type": "",
+    "position": [
+      690,
+      82,
+      920,
+      193
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply/DC measurements and alarms",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      1000,
+      102,
+      1190,
+      138
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply/DC voltage current and SOC",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply",
+    "type": "Scope",
+    "mask_type": "",
+    "position": [
+      1020,
+      277,
+      1110,
+      333
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply/Protection trip demand",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      205,
+      220,
+      235
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply/Trip coil demand",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply",
+    "type": "Fcn",
+    "mask_type": "",
+    "position": [
+      395,
+      207,
+      595,
+      243
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply/phase6_dc",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC Supply",
+    "type": "ToWorkspace",
+    "mask_type": "",
+    "position": [
+      1000,
+      190,
+      1190,
+      220
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC healthy",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      791,
+      1730,
+      819
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/DC voltage V",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      701,
+      1730,
+      729
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Fault current kA",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      881,
+      1730,
+      909
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Frequency Hz",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      471,
+      1730,
+      499
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/GCB closed",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      931,
+      1730,
+      959
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/GCB command",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      290,
+      662,
+      420,
+      688
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      430,
+      795,
+      610,
+      915
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Field voltage input",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      130,
+      65,
+      230,
+      95
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Generator fault",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Fault",
+    "position": [
+      310,
+      542,
+      370,
+      598
+    ],
+    "reference": "spsThreePhaseFaultLib/Three-Phase Fault"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Generator fault measurement",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      310,
+      337,
+      370,
+      393
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Generator fault measurement current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      300,
+      300,
+      420,
+      320
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Generator fault measurement voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      300,
+      265,
+      420,
+      285
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Generator inner CT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      270,
+      172,
+      320,
+      248
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Generator inner CT current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      290,
+      140,
+      410,
+      160
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Generator inner CT voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      290,
+      115,
+      410,
+      135
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Generator terminal CT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      425,
+      172,
+      475,
+      248
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Generator terminal CT current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      445,
+      140,
+      565,
+      160
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Generator terminal CT voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      445,
+      115,
+      565,
+      135
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Machine states",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      260,
+      87,
+      390,
+      113
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Machine zero-sequence equivalent",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "SubSystem",
+    "mask_type": "Grounding Transformer",
+    "position": [
+      400,
+      405,
+      510,
+      465
+    ],
+    "reference": "spsGroundingTransformerLib/Grounding\nTransformer "
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Mechanical power input",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      10,
+      65,
+      110,
+      95
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Neutral current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "SubSystem",
+    "mask_type": "Current Measurement",
+    "position": [
+      545,
+      414,
+      575,
+      441
+    ],
+    "reference": "spsCurrentMeasurementLib/Current Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Neutral current tag",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      705,
+      607,
+      815,
+      633
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Neutral current vector",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Mux",
+    "mask_type": "",
+    "position": [
+      650,
+      584,
+      655,
+      656
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Neutral earth",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "PMComponent",
+    "mask_type": "Ground",
+    "position": [
+      735,
+      440,
+      755,
+      460
+    ],
+    "reference": "spsGroundLib/Ground"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Neutral padding",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Constant",
+    "mask_type": "",
+    "position": [
+      550,
+      542,
+      610,
+      568
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Neutral resistor",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "PMComponent",
+    "mask_type": "Series RLC Branch",
+    "position": [
+      620,
+      437,
+      685,
+      473
+    ],
+    "reference": "spsSeriesRLCBranchLib/Series RLC Branch"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Neutral voltage tag",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      660,
+      537,
+      775,
+      563
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Numerical terminal shunt",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "PMComponent",
+    "mask_type": "Three-Phase Parallel RLC Load",
+    "position": [
+      250,
+      430,
+      340,
+      495
+    ],
+    "reference": "spsThreePhaseParallelRLCLoadLib/Three-Phase\nParallel RLC Load"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Synchronous machine",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "SubSystem",
+    "mask_type": "Synchronous Machine",
+    "position": [
+      70,
+      172,
+      210,
+      313
+    ],
+    "reference": "spsSynchronousMachinepuStandardLib/Synchronous Machine\npu Standard"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/Zero",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "Constant",
+    "mask_type": "",
+    "position": [
+      555,
+      665,
+      610,
+      685
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/22 kV A",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      630,
+      170,
+      650,
+      190
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/22 kV B",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      630,
+      205,
+      650,
+      225
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator/22 kV C",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      630,
+      240,
+      650,
+      260
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator Breaker",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Breaker",
+    "position": [
+      480,
+      645,
+      560,
+      705
+    ],
+    "reference": "spsThreePhaseBreakerLib/Three-Phase Breaker"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator MVAr",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      331,
+      1730,
+      359
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator MW",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      286,
+      1730,
+      314
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator kA",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      421,
+      1730,
+      449
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator kV",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      376,
+      1730,
+      404
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      1210,
+      120,
+      1370,
+      210
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      65,
+      142,
+      100,
+      268
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus/A1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      100,
+      60,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus/B1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      160,
+      60,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus/C1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      220,
+      60,
+      240
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus/A2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      100,
+      250,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus/B2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      160,
+      250,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus/C2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/BGRID_230 PGCB 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      220,
+      250,
+      240
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/Grid CT and VT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      125,
+      155,
+      180,
+      225
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/Grid CT and VT current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      145,
+      125,
+      265,
+      145
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/Grid CT and VT voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      145,
+      100,
+      265,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/Grid sequence impedance",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "PMComponent",
+    "mask_type": "Three-Phase Mutual Inductance Z1-Z0",
+    "position": [
+      300,
+      155,
+      420,
+      225
+    ],
+    "reference": "spsThreePhaseMutualInductanceZ1Z0Lib/Three-Phase\nMutual Inductance\nZ1-Z0"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/PGCB voltage source",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Source",
+    "position": [
+      515,
+      150,
+      625,
+      230
+    ],
+    "reference": "spsThreePhaseSourceLib/Three-Phase Source"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/Remote bus fault",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Fault",
+    "position": [
+      315,
+      407,
+      375,
+      463
+    ],
+    "reference": "spsThreePhaseFaultLib/Three-Phase Fault"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/Remote bus fault measurement",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      175,
+      317,
+      235,
+      373
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/Remote bus fault measurement current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      195,
+      285,
+      315,
+      305
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/Remote bus fault measurement voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      195,
+      260,
+      315,
+      280
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/230 kV A",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      25,
+      180,
+      45,
+      200
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/230 kV B",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      25,
+      215,
+      45,
+      235
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/230 kV C",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      25,
+      250,
+      45,
+      270
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid current kA",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      606,
+      1730,
+      634
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Line local closed",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      1021,
+      1730,
+      1049
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Line remote closed",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      1066,
+      1730,
+      1094
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      1430,
+      297,
+      1450,
+      1118
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Actual plant summary",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      30,
+      42,
+      170,
+      68
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      85,
+      300,
+      115
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 10",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      470,
+      300,
+      500
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 11",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      800,
+      300,
+      830
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 13",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      745,
+      300,
+      775
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 14",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      855,
+      300,
+      885
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 15",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      910,
+      300,
+      940
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 16",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      965,
+      300,
+      995
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 17",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      1020,
+      300,
+      1050
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 18",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      580,
+      300,
+      610
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 19",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      635,
+      300,
+      665
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      140,
+      300,
+      170
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 20",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      690,
+      300,
+      720
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 21",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      525,
+      300,
+      555
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 3",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      195,
+      300,
+      225
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 4",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      250,
+      300,
+      280
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 5",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      305,
+      300,
+      335
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 8",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      360,
+      300,
+      390
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Channel 9",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      245,
+      415,
+      300,
+      445
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      90,
+      420,
+      110
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      145,
+      420,
+      165
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 3",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      200,
+      420,
+      220
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 4",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      255,
+      420,
+      275
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 5",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      310,
+      420,
+      330
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 6",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      365,
+      420,
+      385
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 7",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      420,
+      420,
+      440
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 8",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      475,
+      420,
+      495
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 9",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      530,
+      420,
+      550
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 10",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      585,
+      420,
+      605
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 11",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      640,
+      420,
+      660
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 12",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      695,
+      420,
+      715
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 13",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      750,
+      420,
+      770
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 14",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      805,
+      420,
+      825
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 15",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      860,
+      420,
+      880
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 16",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      915,
+      420,
+      935
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 17",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      970,
+      420,
+      990
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals/Meter 18",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Meter Signals",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      390,
+      1025,
+      420,
+      1045
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Live Three Phase Measurements",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      830,
+      855,
+      1050,
+      920
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      830,
+      735,
+      1050,
+      815
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/All measured channels",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "Mux",
+    "mask_type": "",
+    "position": [
+      360,
+      87,
+      365,
+      523
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      50,
+      342,
+      270,
+      418
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral/Voltage and current channels",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral",
+    "type": "Mux",
+    "mask_type": "",
+    "position": [
+      340,
+      35,
+      345,
+      275
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral/aux current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      70,
+      190,
+      90
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral/aux voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      40,
+      190,
+      60
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral/grid current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      150,
+      190,
+      170
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral/grid voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      120,
+      190,
+      140
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral/neutral current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      230,
+      190,
+      250
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral/neutral voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      200,
+      190,
+      220
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral/Measured abc",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Auxiliary and neutral",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      460,
+      100,
+      490,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/CT measurement test factors",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      435,
+      220,
+      560,
+      280
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      50,
+      477,
+      270,
+      553
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/Voltage and current channels",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "Mux",
+    "mask_type": "",
+    "position": [
+      340,
+      37,
+      345,
+      538
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultAUX current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      550,
+      190,
+      570
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultAUX voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      520,
+      190,
+      540
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultGEN current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      70,
+      190,
+      90
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultGEN voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      40,
+      190,
+      60
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultGIS current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      310,
+      190,
+      330
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultGIS voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      280,
+      190,
+      300
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultGRID current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      470,
+      190,
+      490
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultGRID voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      440,
+      190,
+      460
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultHV current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      230,
+      190,
+      250
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultHV voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      200,
+      190,
+      220
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultLINE current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      390,
+      190,
+      410
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultLINE voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      360,
+      190,
+      380
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultLV current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      150,
+      190,
+      170
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/faultLV voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      120,
+      190,
+      140
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents/Measured abc",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Fault currents",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      460,
+      100,
+      490,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      50,
+      72,
+      270,
+      148
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer/Voltage and current channels",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer",
+    "type": "Mux",
+    "mask_type": "",
+    "position": [
+      340,
+      37,
+      345,
+      343
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer/genInner current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      70,
+      190,
+      90
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer/genInner voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      40,
+      190,
+      60
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer/genTerminal current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      150,
+      190,
+      170
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer/genTerminal voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      120,
+      190,
+      140
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer/gsutHV current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      310,
+      190,
+      330
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer/gsutHV voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      280,
+      190,
+      300
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer/gsutLV current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      230,
+      190,
+      250
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer/gsutLV voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      200,
+      190,
+      220
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer/Measured abc",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Generator and transformer",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      460,
+      100,
+      490,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      1130,
+      400,
+      1350,
+      475
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Auxiliary",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      745,
+      397,
+      875,
+      523
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Bus incoming",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      285,
+      727,
+      415,
+      853
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Bus outgoing",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      285,
+      892,
+      415,
+      1018
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Fault auxiliary",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1205,
+      727,
+      1335,
+      853
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Fault bus",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1205,
+      232,
+      1335,
+      358
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Fault generator",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      745,
+      892,
+      875,
+      1018
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Fault grid",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1205,
+      562,
+      1335,
+      688
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Fault line",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1205,
+      397,
+      1335,
+      523
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Fault transformer HV",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1205,
+      67,
+      1335,
+      193
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Fault unit LV",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      745,
+      1057,
+      875,
+      1183
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/GAT HV",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      285,
+      1057,
+      415,
+      1183
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Generator inner",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      285,
+      67,
+      415,
+      193
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Generator terminal",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      285,
+      232,
+      415,
+      358
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Grid",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      745,
+      562,
+      875,
+      688
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Line local",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      745,
+      67,
+      875,
+      193
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Line remote",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      745,
+      232,
+      875,
+      358
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Neutral",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      745,
+      727,
+      875,
+      853
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      220,
+      85,
+      250,
+      125
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 10",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      680,
+      415,
+      710,
+      455
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 11",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      680,
+      580,
+      710,
+      620
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 12",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      680,
+      745,
+      710,
+      785
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 13",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      680,
+      910,
+      710,
+      950
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 14",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      680,
+      1075,
+      710,
+      1115
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 15",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      1140,
+      85,
+      1170,
+      125
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 16",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      1140,
+      250,
+      1170,
+      290
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 17",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      1140,
+      415,
+      1170,
+      455
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 18",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      1140,
+      580,
+      1170,
+      620
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 19",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      1140,
+      745,
+      1170,
+      785
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      220,
+      250,
+      250,
+      290
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 3",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      220,
+      415,
+      250,
+      455
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 4",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      220,
+      580,
+      250,
+      620
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 5",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      220,
+      745,
+      250,
+      785
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 6",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      220,
+      910,
+      250,
+      950
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 7",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      220,
+      1075,
+      250,
+      1115
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 8",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      680,
+      85,
+      710,
+      125
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Phase matrix 9",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Reshape",
+    "mask_type": "",
+    "position": [
+      680,
+      250,
+      710,
+      290
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      125,
+      85,
+      155,
+      125
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 10",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      585,
+      415,
+      615,
+      455
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 11",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      585,
+      580,
+      615,
+      620
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 12",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      585,
+      745,
+      615,
+      785
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 13",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      585,
+      910,
+      615,
+      950
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 14",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      585,
+      1075,
+      615,
+      1115
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 15",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      1045,
+      85,
+      1075,
+      125
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 16",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      1045,
+      250,
+      1075,
+      290
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 17",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      1045,
+      415,
+      1075,
+      455
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 18",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      1045,
+      580,
+      1075,
+      620
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 19",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      1045,
+      745,
+      1075,
+      785
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      125,
+      250,
+      155,
+      290
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 3",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      125,
+      415,
+      155,
+      455
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 4",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      125,
+      580,
+      155,
+      620
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 5",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      125,
+      745,
+      155,
+      785
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 6",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      125,
+      910,
+      155,
+      950
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 7",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      125,
+      1075,
+      155,
+      1115
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 8",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      585,
+      85,
+      615,
+      125
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Select 9",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      585,
+      250,
+      615,
+      290
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      25,
+      85,
+      100,
+      105
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 10",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      485,
+      415,
+      560,
+      435
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 11",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      485,
+      580,
+      560,
+      600
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 12",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      485,
+      745,
+      560,
+      765
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 13",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      485,
+      910,
+      560,
+      930
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 14",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      485,
+      1075,
+      560,
+      1095
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 15",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      945,
+      85,
+      1020,
+      105
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 16",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      945,
+      250,
+      1020,
+      270
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 17",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      945,
+      415,
+      1020,
+      435
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 18",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      945,
+      580,
+      1020,
+      600
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 19",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      945,
+      745,
+      1020,
+      765
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      25,
+      250,
+      100,
+      270
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 3",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      25,
+      415,
+      100,
+      435
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 4",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      25,
+      580,
+      100,
+      600
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 5",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      25,
+      745,
+      100,
+      765
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 6",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      25,
+      910,
+      100,
+      930
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 7",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      25,
+      1075,
+      100,
+      1095
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 8",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      485,
+      85,
+      560,
+      105
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Source 9",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      485,
+      250,
+      560,
+      270
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Transformer HV",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      285,
+      562,
+      415,
+      688
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Transformer LV",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      285,
+      397,
+      415,
+      523
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      175,
+      87,
+      210,
+      133
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 10",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      635,
+      417,
+      670,
+      463
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 11",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      635,
+      582,
+      670,
+      628
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 12",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      635,
+      747,
+      670,
+      793
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 13",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      635,
+      912,
+      670,
+      958
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 14",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      635,
+      1077,
+      670,
+      1123
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 15",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      1095,
+      87,
+      1130,
+      133
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 16",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      1095,
+      252,
+      1130,
+      298
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 17",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      1095,
+      417,
+      1130,
+      463
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 18",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      1095,
+      582,
+      1130,
+      628
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 19",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      1095,
+      747,
+      1130,
+      793
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      175,
+      252,
+      210,
+      298
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 3",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      175,
+      417,
+      210,
+      463
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 4",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      175,
+      582,
+      210,
+      628
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 5",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      175,
+      747,
+      210,
+      793
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 6",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      175,
+      912,
+      210,
+      958
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 7",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      175,
+      1077,
+      210,
+      1123
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 8",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      635,
+      87,
+      670,
+      133
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings/Units 9",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Live RMS Readings",
+    "type": "Gain",
+    "mask_type": "",
+    "position": [
+      635,
+      252,
+      670,
+      298
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Measurement ready",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      940,
+      295,
+      1100,
+      325
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Primary phasors",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      940,
+      195,
+      1100,
+      225
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      50,
+      207,
+      270,
+      283
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/Voltage and current channels",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "Mux",
+    "mask_type": "",
+    "position": [
+      340,
+      37,
+      345,
+      408
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/busIn current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      70,
+      190,
+      90
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/busIn voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      40,
+      190,
+      60
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/busOut current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      150,
+      190,
+      170
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/busOut voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      120,
+      190,
+      140
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/gatHV current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      230,
+      190,
+      250
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/gatHV voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      200,
+      190,
+      220
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/lineLocal current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      310,
+      190,
+      330
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/lineLocal voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      280,
+      190,
+      300
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/lineRemote current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      390,
+      190,
+      410
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/lineRemote voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      35,
+      360,
+      190,
+      380
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line/Measured abc",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Switchyard and line",
+    "type": "Outport",
+    "mask_type": "",
+    "position": [
+      460,
+      100,
+      490,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Synchronized RMS and phasors",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "M-S-Function",
+    "mask_type": "",
+    "position": [
+      650,
+      200,
+      860,
+      310
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/Waveform RMS",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      940,
+      245,
+      1100,
+      275
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/phase6_phasors",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "ToWorkspace",
+    "mask_type": "",
+    "position": [
+      930,
+      375,
+      1090,
+      405
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/phase6_raw",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "ToWorkspace",
+    "mask_type": "",
+    "position": [
+      430,
+      390,
+      595,
+      420
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements/phase6_rms",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Measurements",
+    "type": "ToWorkspace",
+    "mask_type": "",
+    "position": [
+      930,
+      435,
+      1090,
+      465
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      430,
+      1025,
+      650,
+      1105
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection/CT phasors",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      30,
+      70,
+      195,
+      100
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection/Measurement ready",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      30,
+      130,
+      195,
+      160
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection/Pickup and relay timing",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection",
+    "type": "M-S-Function",
+    "mask_type": "",
+    "position": [
+      305,
+      77,
+      520,
+      173
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection/Relay indications",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      615,
+      70,
+      770,
+      100
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection/Relay pickup and timing",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection",
+    "type": "Scope",
+    "mask_type": "",
+    "position": [
+      625,
+      285,
+      710,
+      335
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection/Trip requests",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      615,
+      135,
+      770,
+      165
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection/phase6_relay",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Protection",
+    "type": "ToWorkspace",
+    "mask_type": "",
+    "position": [
+      615,
+      205,
+      790,
+      235
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Q0 closed",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      976,
+      1730,
+      1004
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Relay trip",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      836,
+      1730,
+      864
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      1140,
+      735,
+      1360,
+      815
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results/BREAKERS",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      45,
+      240,
+      250,
+      270
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results/DC",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      45,
+      305,
+      250,
+      335
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results/Dynamic response",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results",
+    "type": "Scope",
+    "mask_type": "",
+    "position": [
+      690,
+      247,
+      790,
+      313
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results/MACHINE_RECORD",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      45,
+      110,
+      250,
+      140
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results/PHASORS",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      45,
+      45,
+      250,
+      75
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results/Plant quantities",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results",
+    "type": "M-S-Function",
+    "mask_type": "",
+    "position": [
+      370,
+      72,
+      575,
+      248
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results/Plant summary",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      690,
+      80,
+      870,
+      110
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results/RELAY",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      45,
+      175,
+      250,
+      205
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results/phase6_summary",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Results",
+    "type": "ToWorkspace",
+    "mask_type": "",
+    "position": [
+      690,
+      150,
+      890,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Scenario",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      45,
+      165,
+      265,
+      230
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      430,
+      122,
+      620,
+      213
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      352,
+      275,
+      528,
+      315
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus/A1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      100,
+      60,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus/B1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      160,
+      60,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus/C1",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      220,
+      60,
+      240
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus/A2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      100,
+      250,
+      120
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus/B2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      160,
+      250,
+      180
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus/C2",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B_230 GIS 230 kV bus",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      230,
+      220,
+      250,
+      240
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/Bus incoming CT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      255,
+      165,
+      305,
+      245
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/Bus incoming CT current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      275,
+      135,
+      395,
+      155
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/Bus incoming CT voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      275,
+      110,
+      395,
+      130
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GAT feeder CT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      570,
+      345,
+      620,
+      415
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GAT feeder CT current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      590,
+      315,
+      710,
+      335
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GAT feeder CT voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      590,
+      290,
+      710,
+      310
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GIS bus fault",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Fault",
+    "position": [
+      455,
+      522,
+      515,
+      578
+    ],
+    "reference": "spsThreePhaseFaultLib/Three-Phase Fault"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GIS bus fault measurement",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      315,
+      432,
+      375,
+      488
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GIS bus fault measurement current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      335,
+      400,
+      455,
+      420
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GIS bus fault measurement voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      335,
+      375,
+      455,
+      395
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GSUT breaker Q0",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Breaker",
+    "position": [
+      140,
+      165,
+      210,
+      245
+    ],
+    "reference": "spsThreePhaseBreakerLib/Three-Phase Breaker"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/Line feeder CT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      570,
+      97,
+      620,
+      173
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/Line feeder CT current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      590,
+      65,
+      710,
+      85
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/Line feeder CT voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      590,
+      40,
+      710,
+      60
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/Q0 command",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      20,
+      122,
+      125,
+      148
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GSUT A",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      195,
+      60,
+      215
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GSUT B",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      230,
+      60,
+      250
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GSUT C",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      40,
+      265,
+      60,
+      285
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/Line A",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      740,
+      115,
+      760,
+      135
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/Line B",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      740,
+      150,
+      760,
+      170
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/Line C",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      740,
+      185,
+      760,
+      205
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GAT A",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      740,
+      365,
+      760,
+      385
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GAT B",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      740,
+      400,
+      760,
+      420
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/GAT C",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      740,
+      435,
+      760,
+      455
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      440,
+      345,
+      600,
+      465
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/GSUT 10BAT10",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Transformer (Two Windings)",
+    "position": [
+      290,
+      220,
+      390,
+      315
+    ],
+    "reference": "spsThreePhaseTransformerTwoWindingsLib/Three-Phase\nTransformer\n(Two Windings)"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/HV CT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      180,
+      87,
+      230,
+      153
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/HV CT current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      200,
+      55,
+      320,
+      75
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/HV CT voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      200,
+      30,
+      320,
+      50
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/HV winding equivalent fault",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Fault",
+    "position": [
+      510,
+      162,
+      570,
+      218
+    ],
+    "reference": "spsThreePhaseFaultLib/Three-Phase Fault"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/HV winding equivalent fault measurement",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      370,
+      72,
+      430,
+      128
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/HV winding equivalent fault measurement current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      390,
+      40,
+      510,
+      60
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/HV winding equivalent fault measurement voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      390,
+      15,
+      510,
+      35
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/LV CT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      480,
+      365,
+      530,
+      425
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/LV CT current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      500,
+      335,
+      620,
+      355
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/LV CT voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      500,
+      310,
+      620,
+      330
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/LV connection fault",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Fault",
+    "position": [
+      480,
+      547,
+      535,
+      603
+    ],
+    "reference": "spsThreePhaseFaultLib/Three-Phase Fault"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/LV connection fault measurement",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      340,
+      457,
+      395,
+      513
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/LV connection fault measurement current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      360,
+      425,
+      480,
+      445
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/LV connection fault measurement voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      360,
+      400,
+      480,
+      420
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/230 kV A",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      70,
+      85,
+      90,
+      105
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/230 kV B",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      70,
+      120,
+      90,
+      140
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/230 kV C",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      70,
+      155,
+      90,
+      175
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/22 kV A",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      650,
+      365,
+      670,
+      385
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/22 kV B",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      650,
+      400,
+      670,
+      420
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer/22 kV C",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      650,
+      435,
+      670,
+      455
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer HV kA",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "Display",
+    "mask_type": "",
+    "position": [
+      1570,
+      516,
+      1730,
+      544
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      830,
+      120,
+      1030,
+      210
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Circuit 1 - plant half",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "PMComponent",
+    "mask_type": "Three-Phase PI Section Line",
+    "position": [
+      365,
+      112,
+      475,
+      188
+    ],
+    "reference": "spsThreePhasePISectionLineLib/Three-Phase\nPI Section Line"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Circuit 1 - remote half",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "PMComponent",
+    "mask_type": "Three-Phase PI Section Line",
+    "position": [
+      600,
+      112,
+      710,
+      188
+    ],
+    "reference": "spsThreePhasePISectionLineLib/Three-Phase\nPI Section Line"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Circuit 2 - plant half",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "PMComponent",
+    "mask_type": "Three-Phase PI Section Line",
+    "position": [
+      365,
+      452,
+      475,
+      528
+    ],
+    "reference": "spsThreePhasePISectionLineLib/Three-Phase\nPI Section Line"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Circuit 2 - remote half",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "PMComponent",
+    "mask_type": "Three-Phase PI Section Line",
+    "position": [
+      600,
+      452,
+      710,
+      528
+    ],
+    "reference": "spsThreePhasePISectionLineLib/Three-Phase\nPI Section Line"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Line midpoint fault",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Fault",
+    "position": [
+      585,
+      342,
+      640,
+      398
+    ],
+    "reference": "spsThreePhaseFaultLib/Three-Phase Fault"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Line midpoint fault measurement",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      445,
+      252,
+      500,
+      308
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Line midpoint fault measurement current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      465,
+      220,
+      585,
+      240
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Line midpoint fault measurement voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      465,
+      195,
+      585,
+      215
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/LineLocal command",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      -5,
+      202,
+      100,
+      228
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/LineRemote command",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      980,
+      357,
+      1110,
+      383
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Local line CT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      225,
+      240,
+      275,
+      320
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Local line CT current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      245,
+      210,
+      365,
+      230
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Local line CT voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      245,
+      185,
+      365,
+      205
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Local line breaker",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Breaker",
+    "position": [
+      115,
+      247,
+      180,
+      323
+    ],
+    "reference": "spsThreePhaseBreakerLib/Three-Phase Breaker"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Remote line CT",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase VI Measurement",
+    "position": [
+      840,
+      240,
+      890,
+      320
+    ],
+    "reference": "spsThreePhaseVIMeasurementLib/Three-Phase\nV-I Measurement"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Remote line CT current",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      860,
+      210,
+      980,
+      230
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Remote line CT voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      860,
+      185,
+      980,
+      205
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Remote line breaker",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "SubSystem",
+    "mask_type": "Three-Phase Breaker",
+    "position": [
+      965,
+      247,
+      1030,
+      323
+    ],
+    "reference": "spsThreePhaseBreakerLib/Three-Phase Breaker"
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Plant A",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      30,
+      260,
+      50,
+      280
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Plant B",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      30,
+      295,
+      50,
+      315
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Plant C",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      30,
+      330,
+      50,
+      350
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Remote A",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      1130,
+      260,
+      1150,
+      280
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Remote B",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      1130,
+      295,
+      1150,
+      315
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line/Remote C",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line",
+    "type": "PMIOPort",
+    "mask_type": "",
+    "position": [
+      1130,
+      330,
+      1150,
+      350
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "",
+    "position": [
+      50,
+      1025,
+      280,
+      1105
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Controller measurements",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "Mux",
+    "mask_type": "",
+    "position": [
+      560,
+      87,
+      565,
+      273
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Excitation input",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      1045,
+      210,
+      1185,
+      250
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Field voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      920,
+      210,
+      985,
+      250
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Governor turbine and AVR",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "M-S-Function",
+    "mask_type": "",
+    "position": [
+      645,
+      127,
+      860,
+      223
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Machine measurements",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      30,
+      117,
+      175,
+      153
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Machine state record",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "Mux",
+    "mask_type": "",
+    "position": [
+      330,
+      387,
+      335,
+      543
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Machine state record tag",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      440,
+      420,
+      660,
+      450
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Machine voltage and speed",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "BusSelector",
+    "mask_type": "",
+    "position": [
+      220,
+      87,
+      225,
+      228
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Mechanical input",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "Goto",
+    "mask_type": "",
+    "position": [
+      1045,
+      105,
+      1185,
+      145
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Mechanical power",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "Selector",
+    "mask_type": "",
+    "position": [
+      920,
+      105,
+      985,
+      145
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Terminal voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "Fcn",
+    "mask_type": "",
+    "position": [
+      365,
+      145,
+      490,
+      185
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/Unit trip",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "From",
+    "mask_type": "",
+    "position": [
+      325,
+      250,
+      490,
+      280
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/dq voltage",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "Mux",
+    "mask_type": "",
+    "position": [
+      300,
+      147,
+      305,
+      198
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR/phase6_machine",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Turbine and AVR",
+    "type": "ToWorkspace",
+    "mask_type": "",
+    "position": [
+      440,
+      500,
+      660,
+      530
+    ],
+    "reference": ""
+  },
+  {
+    "path": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/powergui",
+    "parent": "PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP",
+    "type": "SubSystem",
+    "mask_type": "PSB option menu block",
+    "position": [
+      55,
+      45,
+      185,
+      85
+    ],
+    "reference": "sps_lib/powergui"
+  }
+]

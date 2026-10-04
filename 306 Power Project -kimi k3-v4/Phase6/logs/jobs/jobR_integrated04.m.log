@@ -1,0 +1,12 @@
+INTEGRATED_MODEL_BUILD_PASS
+Error using save
+Cannot create 'integrated_normal.mat' because 'Phase6\logs' does not exist.
+
+Error in jobR_integrated04 (line 5)
+save('Phase6/logs/integrated_normal.mat','info','out','-v7.3');
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

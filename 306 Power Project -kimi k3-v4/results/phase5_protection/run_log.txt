@@ -1,0 +1,26 @@
+run_phase5_production production written 2026-09-19T09:15:04 (local)
+input production manifest SHA-256: fb71e83201977af1923ff0833f1ccec6c8e9ce73c4cc2a9102fbf5df9e56ad77
+settings (T6 production path; study settings, never tuned-to-pass):
+  GEN-51 phase pickup 15023.75 A-primary (1.25x rated 12019 A; above-rated-below-min-phase-fault:1.25xrated-12019A=15023.75A-primary)
+  GEN-51N earth pickup 5.00 A-primary (SENSITIVE; must-detect-F1-LG-7.27A-primary:5A-with-margin-1.45)
+  GSUT-HV-51 phase pickup 1380.00 A-primary (1.2x max(rated 1150 A, GSUT_HV anchor 870.7726 A); DERIVED-study-setting:1.2x-load-anchor)
+  GIS-Q0-51 phase pickup 1043.9480 A-primary (PRODUCTION 1.2x LINE_Q9 FL_anchor 869.956652 A from phase4_ct_data.csv; never 2400 A rated-proxy)
+  FL anchors (phase4_ct_data.csv FL_anchor_kA, frozen flows): GEN_Q 9.4757, GSUT_HV 0.87077, GRID_Q 0.87007, LINE_Q9 0.869957 kA
+  Imin anchors: phase 43758.86 A (LLL/LL/LLG totals min); earth 7.27013 A (LG totals min per T6 EF contract; LLG 3I0 below-pickup outcomes live honestly in the matrix)
+  TMS study defaults (ENGINEERING_ASSUMPTION, registry NaN): GEN 0.1 / GSUT 0.2 / GIS 0.3; curve SI (STUDY constants, never manufacturer)
+  CTI 0.3 s (ENGINEERING_ASSUMPTION study threshold); primary CT 15000/1 SOURCE-BACKED, 16000/1 LEGACY fenced sensitivity only
+  Breaker duty: Q0 (52-1) only; Q1/Q2/Q9 disconnectors never duty; peak r_kappa_ip borrowed-shape informational only, never duty input
+  CSV dialect: RFC-4180 comma-separated; text fields with commas are double-quoted (notably the GSUT-HV-51 basis cell). MATLAB readers must use readtable(fp,'Delimiter',',') because the auto-delimiter sniffer misparses quoted-comma rows.
+  TCC plots regenerated via phase5_tcc: C:\Users\sindi\Downloads\306 Power Project -union alpha\results\phase5_protection\plots\tcc_gen.png, C:\Users\sindi\Downloads\306 Power Project -union alpha\results\phase5_protection\plots\tcc_grid.png
+rows phase5_device_registry_csv = 7
+rows phase5_relay_settings_csv = 7
+rows phase5_fault_inputs_csv = 40
+rows phase5_relay_currents_csv = 108
+rows phase5_coordination_matrix_csv = 96
+rows phase5_coordination_margins_csv = 96
+rows phase5_breaker_duty_csv = 41
+rows phase5_sensitivity_csv = 60
+rows phase5_validation_csv = 16
+validation live phase5_validate: 16/16 (live phase5_validate 16/16 legs pass (R0,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,V14,V15))
+tests run_phase5_tests: NP=344 NF=0
+sha256.txt written after this log; it covers the 9 CSVs + manifest.json + this log.

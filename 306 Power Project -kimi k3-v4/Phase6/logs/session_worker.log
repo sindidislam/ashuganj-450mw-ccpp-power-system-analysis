@@ -1,0 +1,576 @@
+PHASE6_WORKER_READY MATLAB 24.1.0.2537033 (R2024a)
+
+JOB_START 001_probe.m
+Error using run (line 112)
+Error: Invalid text character. Check for unsupported symbol, invisible character, or pasting of non-ASCII characters.
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END 001_probe.m success=0
+
+JOB_START job001_probe.m
+MATLAB=24.1.0.2537033 (R2024a)
+       Name: 'Simulink'
+    Version: '24.1'
+    Release: '(R2024a)'
+       Date: '19-Nov-2023'
+
+       Name: 'Simscape Electrical'
+    Version: '24.1'
+    Release: '(R2024a)'
+       Date: '19-Nov-2023'
+
+
+BLOCK syncmachine Synchronous Machine
+PresetModel=No
+MechanicalLoad=Mechanical power Pm
+ShowDetailedParameters=on
+RotorType=Salient-pole
+Units=per unit standard parameters
+MeasurementBus=off
+NominalParameters=[6e+04 400 50]
+Reactances1=[ 1.81, 0.3, 0.23, 1.76, 0.65, 0.25, 0.15 ]
+Reactances2=[2.24 0.17 0.12 1.02 0.13 0.08]
+dAxisTimeConstants=Short-circuit
+qAxisTimeConstants=Short-circuit
+TimeConstants1=[ 4.4849  0.0681  0.1  ]
+TimeConstants2=[ 8.0, 0.03, 1.0, 0.07 ]
+TimeConstants3=[  4.49  0.0681  0.0513  ]
+TimeConstants4=[ 8.0, 0.03, 0.3371, 0.0295 ]
+TimeConstants5=[ 1.01, 0.053, 0.1 ]
+TimeConstants6=[ 1.3201, 0.023, 1.0, 0.07 ]
+TimeConstants7=[0.012 0.003 0.003]
+TimeConstants8=[ 1.3201, 0.0231, 0.3371, 0.0295 ]
+StatorResistance=0.037875
+Mechanical=[0.1028 0.02056 2]
+PolePairs=20
+InitialConditions=[ 0  0  0  0  0  0  0  0  1 ] 
+SetSaturation=on
+Saturation=[0.6404,0.7127,0.8441,0.9214,0.9956,1.082,1.19,1.316,1.457;0.7,0.7698,0.8872,0.9466,0.9969,1.046,1.1,1.151,1.201]
+LoadFlowParameters=[1,0,0,0,0]
+TsPowergui=0
+TsBlock=-1
+IterativeModel=Trapezoidal non iterative
+IterativeDiscreteModel=Trapezoidal non iterative
+BusType=PV
+Pref=0
+Qref=0
+Qmin=-inf
+Qmax=inf
+PLF=0
+QLF=0
+      Inport: [1.1630e+03 1.1660e+03]
+     Outport: 5.2410e+03
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: []
+       RConn: [5.2320e+03 5.2350e+03 5.2380e+03]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK breaker Three-Phase Breaker
+InitialState=open
+SwitchA=on
+SwitchB=on
+SwitchC=on
+SwitchTimes=[1/60  5/60]
+External=off
+BreakerResistance=0.01
+SnubberResistance=1e6
+SnubberCapacitance=inf
+Measurements=None
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [5.5230e+03 5.5260e+03 5.5290e+03]
+       RConn: [5.5320e+03 5.5350e+03 5.5380e+03]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK fault Three-Phase Fault
+InitialStates=0
+FaultA=on
+FaultB=on
+FaultC=on
+GroundFault=on
+SwitchTimes=[1/60  5/60]
+External=off
+SwitchStatus=NaN
+FaultResistance=0.001
+GroundResistance=0.01
+SnubberResistance=1e6
+SnubberCapacitance=inf
+Measurements=None
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [5.8810e+03 5.8840e+03 5.8870e+03]
+       RConn: []
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK vimeas Three-Phase VI Measurement
+VoltageMeasurement=phase-to-ground
+SetLabelV=off
+LabelV=Vabc
+Vpu=off
+VpuLL=off
+CurrentMeasurement=yes
+SetLabelI=off
+LabelI=Iabc
+Ipu=off
+Pbase=100e6
+Vbase=500e3
+OutputType=Complex
+PhasorSimulation=off
+PSBequivalent=0
+      Inport: []
+     Outport: [6.4010e+03 6.4020e+03]
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [6.3830e+03 6.3860e+03 6.3890e+03]
+       RConn: [6.3920e+03 6.3950e+03 6.3980e+03]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK pisection Three-Phase PI Section Line
+Length=100
+Frequency=60
+Resistances=[ 0.01273 0.3864] 
+Inductances=[ 0.9337e-3  4.1264e-3] 
+Capacitances=[12.74e-9 7.751e-9]
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [6.4240e+03 6.4250e+03 6.4290e+03]
+       RConn: [6.4300e+03 6.4310e+03 6.4320e+03]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK source Three-Phase Source
+InternalConnection=Yg
+VoltagePhases=off
+Voltage=25e3
+PhaseAngle=0
+Voltage_phases=[25e3 25e3 25e3]/sqrt(3)
+PhaseAngles_phases=[0 -120 +120]
+Frequency=60
+NonIdealSource=on
+SpecifyImpedance=off
+Resistance=0.8929
+Inductance=16.58e-3
+ShortCircuitLevel=100e6
+BaseVoltage=25e3
+XRratio=7
+BusType=swing
+Pref=10e3
+Qref=0
+Prefabc=[10e3, 10e3, 10e3]
+Qrefabc=[0, 0, 0]
+Qmin=-inf
+Qmax=inf
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: []
+       RConn: [6.5490e+03 6.5520e+03 6.5550e+03]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK tx2 Three-Phase Transformer (Two Windings)
+Winding1Connection=Yg
+Winding2Connection=Yg
+CoreType=Three single-phase transformers
+SetSaturation=off
+Hysteresis=off
+DataFile='hysteresis'
+SetInitialFlux=off
+Measurements=None
+UNITS=pu
+NominalPower=[ 250e6 , 60 ]
+Winding1=[ 735e3 , 0.002 , 0.08 ]
+Winding2=[ 315e3 , 0.002 , 0.08 ]
+Rm=500
+Lm=500
+L0=0.5
+Saturation=[ 0,0 ; 0.0024,1.2 ; 1.0,1.52 ]
+InitialFluxes=[ 0.8 , -0.8 , 0.7 ]
+BreakLoop=off
+DiscreteSolver=Trapezoidal iterative
+DataType=off
+TransfoNumber=1
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [7.0846e+04 7.1383e+04 7.1392e+04]
+       RConn: [7.1401e+04 7.1410e+04 1.0740e+05]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK load Three-Phase Parallel RLC Load
+Configuration=Y (grounded)
+NominalVoltage=1000 
+Vabc=[1e3 1e3 1e3]
+Vabcp=[1e3 1e3 1e3]
+NominalFrequency=60
+UnbalancedPower=off
+ActivePower=10e3
+InductivePower=100
+CapacitivePower=100
+Pabc=[10e3 9e3 11e3]
+QLabc=[100 90 110]
+QCabc=[100 90 110]
+Pabcp=[10e3 9e3 11e3]
+QLabcp=[100 90 110]
+QCabcp=[100 90 110]
+Measurements=None
+LoadType=constant Z
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [1.0747e+05 1.0747e+05 1.0747e+05]
+       RConn: []
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK powergui PSB option menu block
+SimulationMode=Continuous
+SampleTime=50e-6
+frequency=60
+Iterations=50
+frequencyindice=60
+Pbase=100e6
+ErrMax=1e-4
+UnitsV=kV
+UnitsW=MW
+buscounter=0
+FunctionMessages=off
+echomessages=off
+EnableUseOfTLC=off
+CurrentSourceSwitches=off
+DisableSnubberDevices=off
+DisableRonSwitches=off
+DisableVfSwitches=off
+DisplayEquations=off
+AutomaticDiscreteSolvers=off
+SolverType=Tustin/Backward Euler (TBE)
+Interpol=off
+ExternalGateDelay=off
+methode=off
+Ts=100
+x0status=blocks
+SPID=on
+SwTol=0
+HookPort=off
+NonlinearTolerance=1e-4
+nMaxIteration=100
+ContinueOnMaxIteration=off
+RestoreLinks=warning
+ResistiveCurrentMeasurement=off
+Frange=[0:2:500]
+Ylog=off
+Xlog=on
+ShowGrid=off
+save=off
+variable=ZData
+structure=0
+ZoomFFT=off
+StartTime=0.0
+cycles=1
+DisplayStyle=1
+fundamental=60
+FreqAxis=off
+MaxFrequency=1000
+frequencyindicesteady=1
+RmsSteady=1
+display=off
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: []
+       RConn: []
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+LOADFLOW FUNCTIONS
+C:\Program Files\MATLAB\R2024a\toolbox\physmod\powersys\powersys\power_loadflow.m
+  POWER_LOADFLOW Computes the load flow of a Simscape Electrical Specialized Power Systems model.
+ 
+    LF = POWER_LOADFLOW(SYS,'solve') computes the load flow of SYS using the default load flow parameters. 
+    The model is initialized with the load flow solution. 
+ 
+    LF = POWER_LOADFLOW(SYS,'parameters') returns the load flow parameters
+    of SYS. LF can be edited to customize new load flow solution.
+ 
+    LF = POWER_LOADFLOW(SYS,'solve',LF)computes the load flow of SYS with the load
+    flow parameters defined in LF structure. LF is augmented with the load flow results.
+    The model is initialized with the load flow solution.
+ 
+    POWER_LOADFLOW(SYS,'solve','report',FNAME) computes the load flow 
+    then save detailed information in FNAME MATLAB file.
+ 
+    POWER_LOADFLOW(SYS,'solve','ExcelReport',FNAME) computes the load flow 
+    then save detailed information in FNAME Excel file.
+
+    Documentation for power_loadflow
+       doc power_loadflow
+
+
+JOB_END job001_probe.m success=1
+
+JOB_START job002_original_and_ports.m
+ORIGINAL_MODEL C:\Users\sindi\Downloads\306 Power Project -kimi k3\simulink\main\Ashuganj_South_Main.slx
+Ashuganj_South_Main/BUS COUPLER | SubSystem | Three-Phase Breaker
+Ashuganj_South_Main/EXT GRID | SubSystem | Three-Phase Source
+Ashuganj_South_Main/G1 | SubSystem | Three-Phase Source
+Ashuganj_South_Main/GAT 10BBT20 | SubSystem | Three-Phase Transformer (Two Windings)
+Ashuganj_South_Main/GAT BAY CB | SubSystem | Three-Phase Breaker
+Ashuganj_South_Main/GSUT 10BAT10 | SubSystem | Three-Phase Transformer (Two Windings)
+Ashuganj_South_Main/LOAD_B6_6 | PMComponent | Three-Phase Parallel RLC Load
+Ashuganj_South_Main/LOAD_B6_6_WI1 | PMComponent | Three-Phase Parallel RLC Load
+Ashuganj_South_Main/LOAD_B6_6_WI2 | PMComponent | Three-Phase Parallel RLC Load
+Ashuganj_South_Main/UAT 10BBT10 | SubSystem | Three-Phase Transformer (Two Windings)
+Ashuganj_South_Main/ZGRID | PMComponent | Three-Phase Series RLC Branch
+Ashuganj_South_Main/powergui | SubSystem | PSB option menu block
+PreLoadFcn=
+PostLoadFcn=
+InitFcn=
+StartFcn=
+StopFcn=
+ORIGINAL solver=ode23tb mode=Continuous
+Error using job002_original_and_ports (line 13)
+A new block named 'Ѥ/A' cannot be added
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+Caused by:
+    Error using job002_original_and_ports (line 13)
+    Unable to find block 'Ѥ'.
+    
+    Error in run (line 112)
+    evalin('caller', strcat(scriptStem, ';'));
+    
+    Error in phase6_session_worker (line 21)
+                evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job002_original_and_ports.m success=0
+
+JOB_START job003_machine_options.m
+PresetModel | visible=on | Preset  model: | No
+MechanicalLoad | visible=on | Mechanical input: | Mechanical power Pm
+ShowDetailedParameters | visible=off | Show detailed parameters  | on
+RotorType | visible=on | Rotor type: | Round
+Units | visible=off | Mask units: | per unit standard parameters
+MeasurementBus | visible=on | Use signal names to identify bus labels | on
+NominalParameters | visible=on | Nominal power, line-to-line voltage, frequency [ Pn(VA)  Vn(Vrms)  fn(Hz) ]: | [6e+04 400 50]
+Reactances1 | visible=on | Reactances [ Xd  Xd'  Xd''  Xq  Xq'  Xq''  Xl ] (pu): | [ 1.81, 0.3, 0.23, 1.76, 0.65, 0.25, 0.15 ]
+Reactances2 | visible=off | Reactances [ Xd  Xd'  Xd''  Xq  Xq''  Xl ] (pu): | [2.24 0.17 0.12 1.02 0.13 0.08]
+dAxisTimeConstants | visible=on | d axis: | Open-circuit
+qAxisTimeConstants | visible=on | q axis: | Open-circuit
+TimeConstants1 | visible=off | [ Tdo'  Tdo''  Tqo'' ] (s): | [ 4.4849  0.0681  0.1  ]
+TimeConstants2 | visible=on | [ Tdo'  Tdo''  Tqo'  Tqo'' ] (s): | [ 8.0, 0.03, 1.0, 0.07 ]
+TimeConstants3 | visible=off | [ Tdo'  Tdo''  Tq'' ] (s): | [  4.49  0.0681  0.0513  ]
+TimeConstants4 | visible=off | [ Tdo'  Tdo''  Tq'  Tq'' ] (s): | [ 8.0, 0.03, 0.3371, 0.0295 ]
+TimeConstants5 | visible=off | [ Td'  Td''  Tqo'' ] (s): | [ 1.01, 0.053, 0.1 ]
+TimeConstants6 | visible=off | [ Td'  Td''  Tqo'  Tqo'' ] (s): | [ 1.3201, 0.023, 1.0, 0.07 ]
+TimeConstants7 | visible=off | [ Td'  Td''  Tq'' ] (s): | [0.012 0.003 0.003]
+TimeConstants8 | visible=off | [ Td'  Td''  Tq'  Tq'' ] (s): | [ 1.3201, 0.0231, 0.3371, 0.0295 ]
+StatorResistance | visible=on | Stator resistance Rs (pu): | 0.037875
+Mechanical | visible=on | Inertia coefficient, friction factor, pole pairs [ H(s)  F(pu)  p()]: | [0.1028 0.02056 2]
+PolePairs | visible=off | Pole pairs p (): | 20
+InitialConditions | visible=on | Initial conditions [ dw(%)  th(deg)  ia,ib,ic(pu)  pha,phb,phc(deg)  Vf(pu) ]: | [ 0  0  0  0  0  0  0  0  1 ] 
+SetSaturation | visible=on | Simulate saturation | off
+Saturation | visible=on | [ ifd; vt] (pu): | [0.6404,0.7127,0.8441,0.9214,0.9956,1.082,1.19,1.316,1.457;0.7,0.7698,0.8872,0.9466,0.9969,1.046,1.1,1.151,1.201]
+LoadFlowParameters | visible=off | Load Flow:   [Bus Type, Active Power,  UAB, phase of UAN ] | [1,0,0,0,0]
+TsPowergui | visible=off | Sample time of powergui block | 0
+TsBlock | visible=on | Sample time (-1 for inherited) | -1
+IterativeModel | visible=on |  | Trapezoidal non iterative
+IterativeDiscreteModel | visible=on | Discrete solver model | Trapezoidal non iterative
+BusType | visible=on | Generator type | PV
+Pref | visible=on | Active power generation P (W) | 0
+Qref | visible=off | Reactive power generation Q (var) | 0
+Qmin | visible=on | Minimum reactive power Qmin (var) | -inf
+Qmax | visible=on | Maximum reactive power Qmax (var) | inf
+PLF | visible=off | Load flow solution:  P_LF (W) | 0
+QLF | visible=off | Load flow solution:  Q_LF (var) | 0
+Error using job003_machine_options (line 6)
+Error in 'P6_MACHINE_OPTIONS/Machine': Failed to evaluate mask initialization commands.
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+Caused by:
+    Error using job003_machine_options (line 6)
+    The diagram must contain a powergui block. The block should be named 'powergui' and should be located at the highest level of your diagram
+    where Simscape Electrical Specialized Power Systems blocks are found.
+    
+    Error in run (line 112)
+    evalin('caller', strcat(scriptStem, ';'));
+    
+    Error in phase6_session_worker (line 21)
+                evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job003_machine_options.m success=0
+
+JOB_START job004_connection_options.m
+Port
+1
+Side
+Left
+Orientation
+right
+ConnectionType
+Inherit: auto
+Position
+    15    15    65    65
+
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: []
+       RConn: 4.2270e+03
+    Ifaction: []
+       Reset: []
+       Event: []
+
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: 4.2280e+03
+       RConn: []
+    Ifaction: []
+       Reset: []
+       Event: []
+
+ Simulink.BlockDiagram.createSubsystem - Create subsystem containing specified set of blocks
+    This MATLAB function creates a subsystem and moves the specified blocks
+    into it.
+
+    Syntax
+      Simulink.BlockDiagram.createSubsystem(blocks)
+      Simulink.BlockDiagram.createSubsystem()
+      Simulink.BlockDiagram.createSubsystem(___,Name,Value)
+
+    Input Arguments
+      blocks - Block handles
+        numeric array
+
+    Name-Value Arguments
+      Name - Name of new subsystem
+        character vector | string scalar
+      MakeNameUnique - Option to make subsystem name unique
+        'on' (default) | 'off'
+
+    Examples
+      openExample('simulink/CreateSubsystemFromModelExample')
+      openExample('simulink/CreateSubsystemFromModelWithCustomNameExample')
+
+    See also Simulink.BlockDiagram.copyContentsToSubsystem,
+      Simulink.BlockDiagram.deleteContents,
+      Simulink.SubSystem.convertToModelReference,
+      Simulink.SubSystem.copyContentsToBlockDiagram
+
+    Introduced in Simulink in R2009a
+    Documentation for Simulink.BlockDiagram.createSubsystem
+       doc Simulink.BlockDiagram.createSubsystem
+
+
+JOB_END job004_connection_options.m success=1
+
+JOB_START job005_machine_circuit.m
+             model: 'P6_MACHINE_CIRCUIT'
+         frequency: 50
+         basePower: 100000000
+         tolerance: 1.0000e-07
+          Networks: [1x1 struct]
+            status: 1
+        iterations: 2
+             error: ''
+             Ybus1: [3x3 double]
+               bus: [1x3 struct]
+                sm: [1x1 struct]
+               asm: []
+              vsrc: [1x1 struct]
+            pqload: []
+           rlcload: []
+    LoadFlowSolver: 'PositiveSequence'
+
+           handle: 4.2320e+03
+        busNumber: 2
+            busID: '*2*'
+    generatorType: 'PV'
+             Pnom: 458000000
+             Vnom: 22000
+                P: 360000000
+                Q: 0
+             Qmin: -Inf
+             Qmax: Inf
+                S: 3.6000 + 0.1975i
+                I: 0.7094 - 0.3412i
+             Pmec: 3.6024e+08
+               Vt: 0.9236 - 0.3834i
+               Vf: 1.7678
+              th0: -60.5649
+              dw0: 0
+
+IC=[0 -60.5649 0.787208 0.787208 0.787208 -25.6822 -145.682 94.3178 1.76776]
+Pm=0.78655 Vf=1.7678
+Error using job005_machine_circuit (line 19)
+The following two blocks cannot be connected in series:
+
+Block 1: 'A: Machine'
+Block 2: 'transfo_1_winding_2: Transformer'
+
+The first block, modeled as a current source, cannot be connected in series with the inductive element of the second block.
+Add a high-value resistance in parallel with one of the two block.
+You can also specify high-value resistive snubbers if the blocks have a snubber device.You can avoid the use of the snubber by selecting
+the 'Continuous' simulation type in the Solver tab of the Powergui and deselecting the 'Disable ideal switching' option in the Preferences
+tab of Powergui block.
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job005_machine_circuit.m success=0

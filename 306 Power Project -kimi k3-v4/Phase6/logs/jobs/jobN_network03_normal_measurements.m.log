@@ -1,0 +1,11 @@
+Error using assert
+Normal terminal voltage outside 0.95-1.05pu.
+
+Error in jobN_network03_normal_measurements (line 32)
+assert(all(vn>12000 & vn<13400),'Normal terminal voltage outside 0.95-1.05pu.');
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

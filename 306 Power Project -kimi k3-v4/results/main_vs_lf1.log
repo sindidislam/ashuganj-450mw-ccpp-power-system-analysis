@@ -1,0 +1,51 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+LF.vsrc fields: handle, busNumber, busID, generatorType, Vnom, P, Q, Qmin, Qmax, S, I, Vt, Vint
+
+==============================================================
+ Ashuganj_South_Main   (status 1, 2 iterations)
+==============================================================
+ bus ID                    vbase V   type      |V| pu       V volts   angle deg
+ *1*                       2.3e+05     PQ    0.957864   220308.7451    +4.33212
+ *2*                          6600     PQ    1.001390     6609.1759    +4.33472
+ *3*                       2.2e+04     PV    1.000000    22000.0000   -22.22509
+ *4*                       2.3e+05  swing    1.000000   230000.0000    +0.00000
+ *5*                       2.3e+05     PQ    0.998686   229697.7033    +1.07868
+
+==============================================================
+ Load_Flow_LF1   (status 1, 2 iterations)
+==============================================================
+ bus ID                    vbase V   type      |V| pu       V volts   angle deg
+ *1*                       2.3e+05     PQ    0.957864   220308.7451    +4.33212
+ *2*                          6600     PQ    1.001390     6609.1759    +4.33472
+ *3*                       2.2e+04     PV    1.000000    22000.0000   -22.22509
+ *4*                       2.3e+05  swing    1.000000   230000.0000    +0.00000
+ *5*                       2.3e+05     PQ    0.998686   229697.7033    +1.07868
+
+==============================================================
+ VERDICT: matched on VOLTS and ANGLE, sorted, base-independent
+==============================================================
+         main V          LF1 V           dV |    main deg     LF1 deg        ddeg
+      6609.1759      6609.1759            0 |    +4.33472    +4.33472           0
+     22000.0000     22000.0000            0 |   -22.22509   -22.22509           0
+    220308.7451    220308.7451            0 |    +4.33212    +4.33212           0
+    229697.7033    229697.7033            0 |    +1.07868    +1.07868           0
+    230000.0000    230000.0000            0 |    +0.00000    +0.00000           0
+
+ worst node mismatch: 0 V, 0 deg
+ => IDENTICAL. simulink/main/Ashuganj_South_Main.slx IS case LF1,
+    and it solves on its own. The live demo can be run on the
+    READABLE diagram, not just on the generated study models.
+
+==============================================================
+ WHY THE BUS IDs READ *1*..*5* IN THE MAIN MODEL
+==============================================================
+ main SLD IDs : *1*, *2*, *3*, *4*, *5*
+ LF1 IDs      : *1*, *2*, *3*, *4*, *5*
+
+ An unlabelled node gets a *n* placeholder. This is a READABILITY
+ difference in the powergui Load Flow report, not an electrical one -
+ the volts and angles above are identical either way.
+
+PROBE COMPLETE

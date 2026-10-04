@@ -1,0 +1,26 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+--- environment -----------------------------------------------
+  MATLAB          : 24.1.0.2537033 (R2024a)
+  platform        : PCWIN64
+  project root    : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+
+--- required ------------------------------------------------
+  present  powergui         Simscape Electrical - Specialized Power Systems
+  present  power_loadflow   the load flow engine this study calls
+  present  sim              Simulink
+
+--- on disk --------------------------------------------------
+  2026-08-21 19:19  simulink\main\Ashuganj_South_Main.slx                presentation diagram
+  2026-08-21 19:19  results\load_flow\system_summary.csv                 solved case summary
+  2026-08-21 19:20  results\plots\power_balance.png                      result plots
+  2026-08-21 19:20  results\diagrams\Load_Flow_LF1_Annotated.png         annotated diagrams
+  2026-08-21 20:51  docs\manual\USER_MANUAL.html                         this manual
+  2026-08-21 20:36  docs\manual\PROJECT_UPDATE.html                      project update
+
+--- can write results/ --------------------------------------
+  yes
+
+Nothing was changed. Type 'ashuganj' to run the study.

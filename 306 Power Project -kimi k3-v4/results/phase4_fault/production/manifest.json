@@ -1,0 +1,314 @@
+{
+  "tag": "production",
+  "timestamp_local": "2026-09-19T00:22:18",
+  "baseDescriptor": {
+    "caseID": "LF360_GAT_OUT",
+    "ds": "P",
+    "XoR_P": 15,
+    "k0g": 1.5,
+    "kR": 3.5,
+    "kX": 2.75,
+    "kB": 0.725,
+    "XdRole": "sat",
+    "gatLeg": "H1",
+    "lambda_T": 1,
+    "gatZ0sel": "nominal",
+    "ner": "primary",
+    "lineScale": 1,
+    "ZfMode": "bolted",
+    "coupler": "closed",
+    "source": "phase4_sensitivity H1-base descriptor (transcribed)"
+  },
+  "scope": {
+    "legs": [
+      "base",
+      "GAT-IN",
+      "A-XoR10",
+      "A-XoR20",
+      "A-S",
+      "A-k0g1.0",
+      "A-k0g2.0",
+      "B-0.5",
+      "B-1.0",
+      "C-LOW",
+      "C-HIGH",
+      "C-X1",
+      "D1",
+      "E2",
+      "F-earth",
+      "F-phase",
+      "G-open",
+      "H0",
+      "H2",
+      "LAM05",
+      "LAM20",
+      "GZ0low",
+      "GZ0high",
+      "E5a",
+      "H3a",
+      "H3b",
+      "H3HV",
+      "E5H3joint"
+    ],
+    "locs": [
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "types": [
+      "LLL",
+      "LG",
+      "LL",
+      "LLG"
+    ],
+    "stages": [
+      "Ikpp",
+      "ip",
+      "Ib",
+      "Isteady"
+    ],
+    "segments": [
+      {
+        "name": "backbone",
+        "legs": [
+          "base",
+          "GAT-IN"
+        ],
+        "locs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5"
+        ],
+        "types": [
+          "LLL",
+          "LG",
+          "LL",
+          "LLG"
+        ],
+        "stages": [
+          "Ikpp",
+          "ip"
+        ],
+        "solves": 80
+      },
+      {
+        "name": "ofat",
+        "legs": [
+          "A-XoR10",
+          "A-XoR20",
+          "A-S",
+          "A-k0g1.0",
+          "A-k0g2.0",
+          "B-0.5",
+          "B-1.0",
+          "C-LOW",
+          "C-HIGH",
+          "C-X1",
+          "D1",
+          "E2",
+          "F-earth",
+          "F-phase",
+          "G-open",
+          "H0",
+          "H2",
+          "LAM05",
+          "LAM20",
+          "GZ0low",
+          "GZ0high",
+          "E5a",
+          "H3a",
+          "H3b",
+          "H3HV",
+          "E5H3joint"
+        ],
+        "locs": [
+          "F3",
+          "F4",
+          "F5"
+        ],
+        "types": [
+          "LG",
+          "LLG"
+        ],
+        "stages": [
+          "Ikpp",
+          "ip"
+        ],
+        "solves": 312
+      },
+      {
+        "name": "anchors",
+        "legs": [
+          "base",
+          "GAT-IN"
+        ],
+        "locs": [
+          "F3"
+        ],
+        "types": [
+          "LLL",
+          "LG"
+        ],
+        "stages": [
+          "Ib",
+          "Isteady"
+        ],
+        "solves": 8
+      }
+    ],
+    "f4mValues": [
+      0,
+      0.25,
+      0.75,
+      1
+    ],
+    "f4mCases": [
+      "LF360_GAT_OUT",
+      "LF360_GAT_IN"
+    ],
+    "f4mTypes": [
+      "LLL",
+      "LG",
+      "LL",
+      "LLG"
+    ],
+    "analyticLegs": [
+      "E1",
+      "E3",
+      "D4",
+      "D4+E-JOINT",
+      "D2",
+      "D3",
+      "D5"
+    ]
+  },
+  "rowCounts": {
+    "phase4_fault_currents_csv": 464,
+    "phase4_contributions_csv": 204,
+    "phase4_bands_csv": 20,
+    "phase4_ct_data_csv": 2040,
+    "analytic_bounds_csv": 33
+  },
+  "files": [
+    "phase4_fault_currents.csv",
+    "phase4_contributions.csv",
+    "phase4_bands.csv",
+    "phase4_ct_data.csv",
+    "analytic_bounds.csv",
+    "manifest.json",
+    "run_log.txt",
+    "sha256.txt"
+  ],
+  "codeHashes": [
+    {
+      "file": "phase4_contrib.m",
+      "sha256": "400f0286f29d38a3b93367086679edd883e4250d33a1d3308d9e02ec26a3e8ed"
+    },
+    {
+      "file": "phase4_grounding.m",
+      "sha256": "5fd1615d485afd483e68be6659b96d1594b0d07502535b17d484a30abae64b17"
+    },
+    {
+      "file": "phase4_handoff.m",
+      "sha256": "64c0f869b1d854e3e14d5908e2a60873b74f9072824677c184c14352b493e799"
+    },
+    {
+      "file": "phase4_kappa.m",
+      "sha256": "1edf1d62605b395c34c887aaca94359aca1fc88385467466619edfc07e4c0029"
+    },
+    {
+      "file": "phase4_prefault.m",
+      "sha256": "de3590313b8b667a01ea81f7e711c9b1d7db9a8943e3625a04a32133df6b60c4"
+    },
+    {
+      "file": "phase4_registry.m",
+      "sha256": "7c06fa3ef491c5a64af31607e383b46b86a3e8009db29dbb874101812edcd8f6"
+    },
+    {
+      "file": "phase4_review_gate.m",
+      "sha256": "758e2af6d6e4c9813cc792b70980bc4173f0a2e91e17dfadf1f30b52a4a836a0"
+    },
+    {
+      "file": "phase4_sanity.m",
+      "sha256": "31d834096322775018dc6e78c10e5a542c3f0ff8ca892fd3c395ed6ea40c05b0"
+    },
+    {
+      "file": "phase4_sensitivity.m",
+      "sha256": "f096332b2fdf7d7f7cd56ec4b1c07f42aea73a42c0d22f354ba2e35fcaebeff6"
+    },
+    {
+      "file": "phase4_seqPN.m",
+      "sha256": "d503776ef08544dca4c65a4ce5499ff31662d61e3e9dd44c35028705599125fa"
+    },
+    {
+      "file": "phase4_seqZ.m",
+      "sha256": "85a1ed9e7c1f9ee5ce0a5ce846c858b0bd561aa49ab6cfa66bccf388c490e6e6"
+    },
+    {
+      "file": "phase4_solve.m",
+      "sha256": "2cf266c84158c0970bdbdebb58a3ebadba765427f77339a2228bf5a4a30f7730"
+    },
+    {
+      "file": "phase4_sources.m",
+      "sha256": "0e255459c6f753af397d407b8fa579a25f74f9bb64d73ad1cdd3aab87c116286"
+    },
+    {
+      "file": "phase4_stages.m",
+      "sha256": "a78ab6ed2578c617fdda09c4ade0122afc8ceb94e3d5740de20c1eb28fdc9c7c"
+    },
+    {
+      "file": "phase4_topology.m",
+      "sha256": "6f7d68d450039f40758fb8670e04a9835b08d8e137d450c735a39de4ee6efcb2"
+    },
+    {
+      "file": "phase4_validate.m",
+      "sha256": "3be2b522a5d073bc1543dcc74094e9318000846a241748a7d4f201bcd1d25f55"
+    },
+    {
+      "file": "run_phase4_matrix.m",
+      "sha256": "341524f70a46153b227e3877b1a6f2acfd78bf1489d59ec07c68b7a606cadba0"
+    },
+    {
+      "file": "run_phase4_production.m",
+      "sha256": "7f9001d3019c3de51039495699dfa9acc0070611fa3fecc140028b8ad8ffa980"
+    },
+    {
+      "file": "run_phase4_tests.m",
+      "sha256": "78ca5f582729216b42dff82aa8aacc921413942e24c4ad71e242e3cac6846795"
+    }
+  ],
+  "tolerances": {
+    "T_RT": 1E-9,
+    "T_AN": 1E-6,
+    "T_KCL": 1E-6,
+    "T_DEAD": 0.001,
+    "T_CONT": 0.05,
+    "T_DET": 1E-12,
+    "T_STRUCT": 0.5,
+    "T_SYM": 1E-6,
+    "T_PRE": 0.1,
+    "T_B66": 0.05,
+    "T_TAP": 1E-12,
+    "settings": "ds=P XoR_P=15 stage=Ikpp bolted Zf=0 (unless noted) sat primary closed",
+    "source": "phase4_validate.m adopted tolerances (transcribed)"
+  },
+  "validation": {
+    "runner": "phase4_validate",
+    "reference": "27/27",
+    "pass": 27,
+    "total": 27,
+    "note": "live phase4_validate runID=production 27/27 legs pass in 3.5 s"
+  },
+  "notes": [
+    "Analytic bounds (E1/E3/D4-joint/D2/D3/D5) recomputed from phase4_sensitivity analytic locals; labelled EXACT/APPROXIMATION, never nodal runs.",
+    "Ib rows use t_break=0.06 s chosen study reference time (not a measured breaker clearing time); constant-E-prime reference approximation.",
+    "F4 matrix rows use m=0.5 single section (matrix subset guard); full m-set block appended to currents table via base-opts phase4_solve rows.",
+    "F4 m-section block is currents-table only: the per-leg split helper is matrix-internal and legs are never redefined.",
+    "Per-leg IN-case OFAT (H/G legs under IN case) is not expressible via run_phase4_matrix (case fixed per leg); only the backbone and E5H3joint carry IN scope, and E5H3joint rows carry caseID LF360_GAT_IN.",
+    "No relay/TMS/grading/duty/verdict content; no substation names; no compliance claims."
+  ]
+}

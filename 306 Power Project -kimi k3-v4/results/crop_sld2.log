@@ -1,0 +1,11 @@
+source F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\tmp\pdfs\south_sld_page2.png  4525x3200
+
+chain_left         1200..2000 x 1230..2000  z2 -> 1602x1542  10BFT40 + 10BFT10 LV wires down to their 400 V bus
+chain_mid          1950..2750 x 1230..2000  z2 -> 1602x1542  10BFT20 LV wire down to its 400 V bus
+chain_right        2700..3550 x 1230..2000  z2 -> 1702x1542  10BFT30 LV wire down to 10BFA30 STATION SWGR
+bus400_far_left    1150..1900 x 1550..1800  z3 -> 2253x 753  is there a 400 V bus LEFT of 10BFA10 (i.e. 10BME)?
+bma10_edg          1500..2400 x 1600..2250  z2 -> 1802x1302  10BMA10 ESSENTIAL bus + 10BMV10 EDG connection
+wi_full            3380..4525 x 1380..2450  z2 -> 2292x2142  water intake: 00BBA10/20, 00BFT10, 00BFA10 chain
+gis_incomers        240..1700 x   60.. 760  z2 -> 2922x1402  the two To-230-kV-GIS exits and what feeds them
+
+CROP2 COMPLETE

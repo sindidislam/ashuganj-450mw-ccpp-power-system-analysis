@@ -1,0 +1,69 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+--- solve LF2 (no write, no model save) ---
+
+============================================================================
+  ASHUGANJ 450 MW CCPP (SOUTH) - PHASE 12 BALANCED LOAD FLOW STUDY
+============================================================================
+  system base   : 100 MVA
+  frequency     : 50 Hz  (Bangladesh grid - the prior CYME model used 60)
+  cases         : LF2
+  reporting base: 100 MVA (Q11a); transformer loading against every cooling stage
+
+============================================================================
+  CASE LF2
+============================================================================
+  Rated dispatch, GAT in service
+  G1 389.30 MW (rated) | GAT IN | coupler CLOSED | looped | aux 14.000 MW + j8.676 MVAr
+  solved in 12.2 s, 2 iterations, worst KCL residual 6.14e-04 MVA
+  P_gen 389.3000 MW | aux 14.0000 MW | losses 0.83342 MW | export 374.4666 MW
+  Q_gen 27.4610 MVAr | export -33.7044 MVAr | branch losses 0.83340 MW
+  verdict: OK
+
+  BUS       LABEL                                    TYPE     |V| pu   ang deg       P MW     Q MVAr
+  BGRID230  EXT GRID 230 kV                         swing   1.000000    0.0000  -374.4666    33.7044
+  B22       22 kV GEN BUS                              PV   1.000000  -22.3292   389.3000    27.4610
+  B6_6      6.6 kV MV BUS                              PQ   1.020280    2.7965   -14.0000    -8.6764
+  B6_6_WI1  6.6 kV WI-1  [= B6_6]                      PQ   1.020280    2.7965        NaN        NaN
+  B6_6_WI2  6.6 kV WI-2  [= B6_6]                      PQ   1.020280    2.7965        NaN        NaN
+  B230_1    230 kV BUS 1 + BUS 2 (coupler closed)      PQ   0.998485    1.0789     0.0000     0.0000
+  B230_2    230 kV BUS 2  [= B230_1]                   PQ   0.998485    1.0789        NaN        NaN
+  GAT_HV    GAT_HV                                     PQ   0.998487    1.0790    -0.0000    -0.0000
+  (3 of 8 register buses are the SAME solved node as another and show NaN injection;
+   their allocated load shares are in the P_load_alloc columns of bus_results.csv)
+
+============================================================================
+  STUDY SUMMARY
+============================================================================
+  CASE  DESCRIPTION                         P_gen MW  P_exp MW Q_gen MVA   Loss MW     ITER  CHECKS
+  LF2   Rated dispatch, GAT in service      389.3000  374.4666   27.4610   0.83342        2  OK
+
+  All 1 cases converged and passed every cross-check.
+
+
+--- rebuild LF2 WITH results, no save ---
+
+--- stamped result annotations ---
+  [ 1540   984  1839  1034]
+      | Case LF2.  Converged, 2 iterations.  KCL residual 6.1e-04 MVA.
+      | G1 389.30 MW  +27.46 MVAr   ->   export 374.47 MW  -33.70 MVAr
+      | Aux 14.00 MW   losses 0.833 MW (0.21 % of generation)
+      | * GSUT at 104 % of 355 MVA ONAN - forced cooling REQUIRED
+      | * GAT closed: 5.90 MW circulates, UAT at 110 % of 19 MVA ONAN
+      | Full precision and reasoning: results/load_flow/, docs/report/
+  [ 1678   654  1836   678]
+      | 5.90 MW   7.75 MVA   loss 0.0344 MW
+      | 40.8 % of 19 MVA (ONAN stage)
+  [  538   642   706   666]
+      | 19.90 MW   20.82 MVA   loss 0.0829 MW
+      | 109.6 % of 19 MVA (ONAN stage)
+  [  258   362   436   386]
+      | 369.31 MW   369.95 MVA   loss 0.7160 MW
+      | 104.2 % of 355 MVA (ONAN stage)
+
+  exported F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\tmp\simulink\layout_res.png (468 kB)

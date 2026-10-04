@@ -1,0 +1,41 @@
+case,quantity,OLD_value,NEW_value,delta_NEW_minus_OLD,unit,note
+LF360_GAT_OUT,Gen_P_MW,360.000000,360.000000,0.000000,MW,dispatch fixed by operating profile
+LF360_GAT_OUT,Gen_Q_MVAr,28.170239,27.832638,-0.337601,MVAr,machine holds 22 kV; Q redispatches around added line X + charging
+LF360_GAT_OUT,Gen_S_MVA,361.100488,361.074308,-0.026180,MVA,
+LF360_GAT_OUT,Grid_P_export_MW,345.270149,345.207254,-0.062895,MW,delta equals L_LINE 3I2R loss 0.062928 within 3.3e-05
+LF360_GAT_OUT,Grid_Q_export_MVAr,-25.819339,-26.267474,-0.448135,MVAr,negative = import; plant imports more Q to feed line series X minus charging
+LF360_GAT_OUT,Total_P_loss_MW,0.729851,0.792747,0.062896,MW,delta equals L_LINE P loss; no other loss moved more than 3.1e-05
+LF360_GAT_OUT,Total_Q_loss_MVAr,45.313158,45.423693,0.110535,MVAr,line net +0.115169 minus small redistribution on ZGRID/GSUT
+LF360_GAT_OUT,Line_P_loss_MW,n/a,0.062928,,MW,NEW-only branch; hand check 3I2R = 0.0630 agrees
+LF360_GAT_OUT,Line_Q_loss_MVAr,n/a,0.115169,,MVAr,NEW-only branch; hand check 3I2X-V2B = 0.116 agrees
+LF360_GAT_OUT,Vgen_kV,22.000000,22.000000,0.000000,kV,PV hold unchanged
+LF360_GAT_OUT,V230_1_kV,229.736460,229.760477,0.024017,kV,+0.010 pct; charging support outweighs series drop at plant end
+LF360_GAT_OUT,V6_6_kV,6.605999,6.605999,0.000000,kV,unchanged to 6 figures
+LF360_GAT_OUT,V_REMOTE_kV,n/a,229.731274,,kV,NEW-only node; from bus_results V_kV (validator V_REMOTE_kV column mis-scaled, see Task 9 report)
+LF360_GAT_OUT,GSUT_loading_pct,67.261,67.258,-0.003,pct of 515 MVA,substantively unchanged
+LF360_GAT_OUT,UAT_loading_pct,69.227,69.227,0.000,pct of 25 MVA,unchanged
+LF360_GAT_OUT,GAT_loading_pct,0.000,0.263,0.263,pct of 25 MVA,back-energised magnetising only; both ~0 (see report note)
+LF360_GAT_OUT,Line_loading_pct,n/a,n/a,,pct,thermal rating MISSING so loading NaN; line current ~869 A NEW-only
+LF360_GAT_OUT,Iterations,2,2,0,count,solver path unchanged
+LF360_GAT_OUT,Worst_KCL_MVA,6.066541e-08,3.267024e-05,3.260957e-05,MVA,both far below 0.05 gate
+LF360_GAT_OUT,Verdict,OK,OK,,flag,all balances < 1e-3
+LF360_GAT_IN,Gen_P_MW,360.000000,360.000000,0.000000,MW,dispatch fixed by operating profile
+LF360_GAT_IN,Gen_Q_MVAr,23.987427,23.668784,-0.318643,MVAr,same mechanism as GAT_OUT
+LF360_GAT_IN,Gen_S_MVA,360.798277,360.777232,-0.021045,MVA,
+LF360_GAT_IN,Grid_P_export_MW,345.257563,345.194542,-0.063021,MW,delta equals L_LINE 3I2R loss 0.063035 within 1.4e-05
+LF360_GAT_IN,Grid_Q_export_MVAr,-29.599351,-30.029544,-0.430193,MVAr,same mechanism as GAT_OUT
+LF360_GAT_IN,Total_P_loss_MW,0.742441,0.805447,0.063006,MW,delta equals L_LINE P loss
+LF360_GAT_IN,Total_Q_loss_MVAr,44.910381,45.021907,0.111526,MVAr,line net +0.115799 minus small redistribution
+LF360_GAT_IN,Line_P_loss_MW,n/a,0.063035,,MW,NEW-only branch
+LF360_GAT_IN,Line_Q_loss_MVAr,n/a,0.115799,,MVAr,NEW-only branch
+LF360_GAT_IN,Vgen_kV,22.000000,22.000000,0.000000,kV,PV hold unchanged
+LF360_GAT_IN,V230_1_kV,229.692816,229.714716,0.021900,kV,+0.010 pct; same mechanism as GAT_OUT
+LF360_GAT_IN,V6_6_kV,6.736104,6.736419,0.000315,kV,+0.005 pct via loop redispatch; negligible
+LF360_GAT_IN,V_REMOTE_kV,n/a,229.687837,,kV,NEW-only node; from bus_results V_kV
+LF360_GAT_IN,GSUT_loading_pct,66.304,66.301,-0.003,pct of 515 MVA,substantively unchanged
+LF360_GAT_IN,UAT_loading_pct,79.477,79.462,-0.015,pct of 25 MVA,loop recirculation slightly reduced
+LF360_GAT_IN,GAT_loading_pct,27.972,28.001,0.029,pct of 25 MVA,loop flow substantively unchanged
+LF360_GAT_IN,Line_loading_pct,n/a,n/a,,pct,thermal rating MISSING so loading NaN; line current 869.8 A NEW-only
+LF360_GAT_IN,Iterations,2,2,0,count,solver path unchanged
+LF360_GAT_IN,Worst_KCL_MVA,5.383838e-04,5.772916e-04,3.890780e-05,MVA,both far below 0.05 gate; looped cases carry larger snubber residual in both eras
+LF360_GAT_IN,Verdict,OK,OK,,flag,all balances < 1e-3

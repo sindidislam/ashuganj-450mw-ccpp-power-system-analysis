@@ -1,0 +1,8 @@
+[Warning: Name is nonexistent or not a directory: C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\logs\jobs\Phase6\scripts\tests] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)
+In jobR_actuators01 (line 1)
+In run (line 112)
+In phase6_session_worker (line 21)] 
+PHASE6_ACTUATOR_TESTS_PASS

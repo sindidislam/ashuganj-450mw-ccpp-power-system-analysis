@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Cover Photo Studio — Ashuganj South 450 MW CCPP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-bg: #070e17;
+    --card-bg: #0d1a29;
+    --card-border: #1e3550;
+    --cyan: #00e5ff;
+    --cyan-dim: rgba(0, 229, 255, 0.15);
+    --gold: #ffb703;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--navy-bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    text-align: center;
+    max-width: 900px;
+    margin-bottom: 24px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--cyan-dim);
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  p.sub {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+  }
+  @media (max-width: 1024px) {
+    .container { grid-template-columns: 1fr; }
+  }
+  .preview-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .canvas-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 229, 255, 0.2);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    background: #000;
+  }
+  canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .toolbar {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0, 180, 216, 0.4);
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #00e5ff, #0096c7);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 229, 255, 0.5);
+  }
+  .btn-secondary {
+    background: #1e293b;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+  }
+  .btn-secondary:hover {
+    background: #334155;
+    color: #fff;
+  }
+  .controls-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 22px;
+    height: fit-content;
+  }
+  .controls-card h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .form-group {
+    margin-bottom: 14px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 8px;
+    background: #08111d;
+    border: 1px solid #1e3550;
+    color: #fff;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--cyan);
+  }
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .checkbox-group input {
+    width: auto;
+    accent-color: var(--cyan);
+  }
+  .pill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.06);
+    color: #cbd5e1;
+    font-family: 'JetBrains Mono', monospace;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="badge">EEE 306 Capstone · Video Thumbnail Studio</span>
+  <h1>Ashuganj South 450 MW CCPP Demonstration Cover</h1>
+  <p class="sub">16:9 Broadcast Quality Video Cover Image. You can export the pure original artwork or add custom presenter/student identification overlays below.</p>
+</div>
+
+<div class="container">
+  <div class="preview-card">
+    <div class="canvas-wrapper">
+      <canvas id="coverCanvas" width="1920" height="1080"></canvas>
+    </div>
+    <div class="toolbar">
+      <div>
+        <span style="font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">1920 &times; 1080 (16:9 Full HD)</span>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button class="btn btn-secondary" onclick="resetToRaw()">Reset Overlay</button>
+        <button class="btn btn-primary" onclick="downloadImage()">⬇️ Download Cover (PNG/JPG)</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls-card">
+    <h3>⚙️ Thumbnail Customizer</h3>
+    
+    <div class="form-group">
+      <label>Presenter / Team Names</label>
+      <input type="text" id="inputPresenter" placeholder="e.g. Sindid & Team" oninput="render()">
+    </div>
+
+    <div class="form-group">
+      <label>Student ID / Roll Numbers</label>
+      <input type="text" id="inputIds" placeholder="e.g. ID: 21020xx / Section 2" oninput="render()">
+    </div>
+
+    <div class="form-group">
+      <label>Course Subtitle</label>
+      <input type="text" id="inputSubtitle" value="EEE 306 · Power System Analysis & Protection" oninput="render()">
+    </div>
+
+    <div class="form-group">
+      <label>Feature Tag Badge</label>
+      <select id="selectBadge" onchange="render()">
+        <option value="SIMULINK 2024b · COMPLETE POWER SYSTEM MODEL">SIMULINK 2024b · COMPLETE POWER SYSTEM MODEL</option>
+        <option value="LOAD FLOW & FAULT DYNAMICS (3-PHASE & UNBALANCED)">LOAD FLOW & FAULT DYNAMICS (3-PHASE & UNBALANCED)</option>
+        <option value="FULL VIDEO DEMONSTRATION & TEACHER DEFENSE">FULL VIDEO DEMONSTRATION & TEACHER DEFENSE</option>
+        <option value="NONE">None</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="checkbox-group">
+        <input type="checkbox" id="checkGlowOverlay" checked onchange="render()">
+        <span>Show bottom credentials banner</span>
+      </label>
+    </div>
+
+    <div class="pill-tags">
+      <span class="tag">450 MW CCPP</span>
+      <span class="tag">230 kV Grid</span>
+      <span class="tag">Bolted 3-Phase</span>
+      <span class="tag">SLG / LL / DLG</span>
+      <span class="tag">Simulink</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const canvas = document.getElementById('coverCanvas');
+  const ctx = canvas.getContext('2d');
+  const baseImg = new Image();
+  baseImg.src = 'PROJECT_DEMO_VIDEO_COVER_PHOTO.jpg';
+
+  baseImg.onload = () => {
+    render();
+  };
+
+  function render() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw base background image
+    ctx.drawImage(baseImg, 0, 0, canvas.width, canvas.height);
+
+    const showOverlay = document.getElementById('checkGlowOverlay').checked;
+    const presenter = document.getElementById('inputPresenter').value.trim();
+    const ids = document.getElementById('inputIds').value.trim();
+    const subtitle = document.getElementById('inputSubtitle').value.trim();
+    const badgeText = document.getElementById('selectBadge').value;
+
+    if (!showOverlay && !presenter && !ids && badgeText === 'NONE') {
+      return;
+    }
+
+    if (badgeText !== 'NONE') {
+      // Top right badge
+      ctx.save();
+      const badgeX = canvas.width - 40;
+      const badgeY = 60;
+      ctx.font = 'bold 22px "JetBrains Mono", monospace';
+      const textWidth = ctx.measureText(badgeText).width;
+      const paddingX = 20;
+      const boxW = textWidth + paddingX * 2;
+      const boxH = 46;
+
+      ctx.fillStyle = 'rgba(7, 21, 32, 0.85)';
+      ctx.strokeStyle = '#00e5ff';
+      ctx.lineWidth = 2.5;
+      
+      ctx.beginPath();
+      ctx.roundRect(badgeX - boxW, badgeY, boxW, boxH, 10);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#00e5ff';
+      ctx.fillText(badgeText, badgeX - boxW + paddingX, badgeY + 31);
+      ctx.restore();
+    }
+
+    if (showOverlay && (presenter || ids || subtitle)) {
+      ctx.save();
+      // Bottom banner gradient
+      const bannerH = 100;
+      const bannerY = canvas.height - bannerH;
+      const grad = ctx.createLinearGradient(0, bannerY, 0, canvas.height);
+      grad.addColorStop(0, 'rgba(5, 12, 22, 0)');
+      grad.addColorStop(0.3, 'rgba(5, 12, 22, 0.88)');
+      grad.addColorStop(1, 'rgba(3, 7, 15, 0.98)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, bannerY, canvas.width, bannerH);
+
+      // Cyan accent border line
+      ctx.strokeStyle = 'rgba(0, 229, 255, 0.6)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(40, bannerY + 20);
+      ctx.lineTo(canvas.width - 40, bannerY + 20);
+      ctx.stroke();
+
+      // Subtitle (left side)
+      if (subtitle) {
+        ctx.fillStyle = '#00e5ff';
+        ctx.font = '700 24px "Inter", sans-serif';
+        ctx.fillText(subtitle, 50, bannerY + 62);
+      }
+
+      // Presenter & IDs (right side)
+      if (presenter || ids) {
+        ctx.textAlign = 'right';
+        if (presenter) {
+          ctx.fillStyle = '#ffffff';
+          ctx.font = '800 24px "Inter", sans-serif';
+          ctx.fillText(presenter, canvas.width - 50, bannerY + 54);
+        }
+        if (ids) {
+          ctx.fillStyle = '#ffb703';
+          ctx.font = '600 20px "JetBrains Mono", monospace';
+          ctx.fillText(ids, canvas.width - 50, bannerY + 84);
+        }
+      }
+      ctx.restore();
+    }
+  }
+
+  function resetToRaw() {
+    document.getElementById('inputPresenter').value = '';
+    document.getElementById('inputIds').value = '';
+    document.getElementById('selectBadge').value = 'NONE';
+    document.getElementById('checkGlowOverlay').checked = false;
+    render();
+  }
+
+  function downloadImage() {
+    const link = document.createElement('a');
+    link.download = 'ASHUGANJ_450MW_VIDEO_COVER_1080P.png';
+    link.href = canvas.toDataURL('image/png', 1.0);
+    link.click();
+  }
+</script>
+</body>
+</html>

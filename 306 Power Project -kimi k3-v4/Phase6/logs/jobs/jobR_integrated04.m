@@ -1,0 +1,12 @@
+setup_phase6_workspace();clear build_phase6_model phase6_add_controls phase6_add_network phase6_electrical_profile phase6_control_sfun phase6_breaker_sfun phase6_monitor_sfun;rehash;
+info=build_phase6_model('Scenario',struct('stopTime_s',.3));
+fprintf('INTEGRATED_MODEL_BUILD_PASS\n');
+out=sim(info.model,'ReturnWorkspaceOutputs','on');
+save('Phase6/logs/integrated_normal.mat','info','out','-v7.3');
+q=out.phase6_summary;idx=q.Time>.2;disp(array2table(mean(q.Data(idx,:),1),'VariableNames',info.controls.summaryNames));
+r=out.phase6_relay;disp(max(r.Data(:,1:14),[],1));
+assert(all(isfinite(q.Data),'all'),'Nonfinite model measurements');
+assert(max(abs(q.Data(idx,3)-22))<.1,'Generator voltage drift');
+assert(max(abs(q.Data(idx,5)-50))<.01,'Machine speed drift');
+assert(~any(r.Data(:,8:14),'all'),'Spurious normal relay trip');
+fprintf('INTEGRATED_NORMAL_SIM_PASS\n');

@@ -1,0 +1,32 @@
+{
+  "generated": "2026-09-25T19:08:10+06:00",
+  "root": "306 Power Project -kimi k3-v4",
+  "originals": {
+    "checked": 643,
+    "changed": [],
+    "missing": []
+  },
+  "sections": {
+    "phase4": {
+      "tables": 4,
+      "rows": 207,
+      "figures": 4
+    },
+    "phase5": {
+      "tables": 4,
+      "rows": 190,
+      "figures": 4
+    },
+    "phase6": {
+      "tables": 6,
+      "rows": 1150,
+      "figures": 4
+    },
+    "emergency": {
+      "tables": 10,
+      "rows": 104,
+      "figures": 3
+    }
+  },
+  "html_sha256": "9b0ceb23795c8afaca7d2f218ce344f7a7c41015af99522cb13f29bb85fc991b"
+}

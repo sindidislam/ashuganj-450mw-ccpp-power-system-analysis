@@ -1,0 +1,6 @@
+Rev2 Rev2-2026-09-10-Phase1 Date 2026-09-10 Sbase 100MVA f 50Hz
+Gen 458MVA/22kV/360MW H5.287 Xd1.783 Xdp0.3256 XdppSAT0.2248 SENS0.2608 X2_0.2242 X0_0.128 Ra0.00089ohm solid(B)
+GSUT 515MVA 22/230 YNd1 Z0.1663 R0.001771 X0.16629 own(B/D) stages355/460/515
+UAT 19/25 Dyn11 10.5%/0.4% GAT 19/25 Zps12%/0.5% a_LV0.9565 (nameplate B; §24 generic superseded)
+Aux 12+j5MVA B11(C) Grid 45.01kA/17.93GVA R0.268 X2.94 X/R10.99(B/C) line07 0.7km2ckt C-electrics
+All C labelled; GIS50kA withstand only.

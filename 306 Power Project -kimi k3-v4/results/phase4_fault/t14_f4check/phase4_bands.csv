@@ -1,0 +1,2 @@
+group,fault_type,min_Ik_kA,max_Ik_kA,min_leg,max_leg,mid_Ik_kA,mid_leg,incomplete,note
+F4_LLL_t14_f4check,LLL,51.0575960885088,51.0575960885088,base,base,51.0575960885088,base,1,"point without band: single-leg group, no spread band"

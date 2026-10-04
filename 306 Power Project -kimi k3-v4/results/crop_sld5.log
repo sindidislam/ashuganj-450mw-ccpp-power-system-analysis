@@ -1,0 +1,7 @@
+source F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\tmp\pdfs\south_sld_page2.png  4525x3200
+
+bft40_a      1080..1560 x 1240..1880  z3 -> 1443x1923  10BFT40 body + LV drop past 10BFA10
+bft40_b      1080..1560 x 1830..2450  z3 -> 1443x1863  the drop continuing down to the 10BME busbar
+bme_label    1060..1500 x 2280..2460  z4 -> 1764x 724  the full 10BME tag (pass 4 clipped it)
+
+CROP5 COMPLETE

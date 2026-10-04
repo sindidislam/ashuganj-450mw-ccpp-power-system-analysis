@@ -1,0 +1,9 @@
+Signal,Width,Samples,First_time_s,Last_time_s,Median_step_s
+phase6_raw,114,2501,0,0.5,0.000200000000000001
+phase6_phasors,228,501,0,0.5,0.001
+phase6_rms,114,501,0,0.5,0.001
+phase6_relay,43,501,0,0.5,0.001
+phase6_dc,12,501,0,0.5,0.001
+phase6_breakers,6,501,0,0.5,0.001
+phase6_machine,4,10001,0,0.5,4.99999999999945e-05
+phase6_summary,24,501,0,0.5,0.001

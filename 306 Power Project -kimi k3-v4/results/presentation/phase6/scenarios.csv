@@ -1,0 +1,26 @@
+Scenario,Fault_location,Phases,Profile,Freq_Hz
+bus_3ph,GIS230,3ph,actual logged simulation samples,50
+charger_unavailable,GIS230,A,logged samples,50
+dc_late_recovery_bus_3ph,GIS230,3ph,actual logged simulation samples,50
+dc_loss_bus_3ph,GIS230,3ph,logged samples,50
+dc_recovery_bus_3ph,GIS230,3ph,logged samples,50
+generator_3ph,GEN,3ph,logged samples,50
+generator_slg,GEN,A,logged samples,50
+generator_slg_timed,GEN,A,logged samples,50
+grid_external_ll,GRID230,3ph,logged samples,50
+interactive_bus_trip,GIS230,3ph,actual logged simulation samples,50
+line_slg,LINE230,A,logged samples,50
+manual_bus_default,GIS230,3ph,actual logged simulation samples,50
+manual_bus_delay_100ms,GIS230,3ph,actual logged simulation samples,50
+normal,GIS230,A,actual logged simulation samples,50
+protection_disabled,GIS230,3ph,logged samples,50
+reduced_180MW,GIS230,A,actual logged simulation samples,50
+regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35,GIS230,3ph,actual logged simulation samples,50
+regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75,GIS230,3ph,actual logged simulation samples,50
+reset_normal,GIS230,A,logged samples,50
+transformer_hv_llg,GSUT_HV,3ph,logged samples,50
+transformer_lv_ll,GSUT_LV,3ph,logged samples,50
+v4_gen_3ph,GEN,3ph,actual logged simulation samples,50
+v4_gsut_hv_3ph,GSUT_HV,3ph,actual logged simulation samples,50
+v4_line230_3ph,LINE230,3ph,actual logged simulation samples,50
+v4_normal,GIS230,A,actual logged simulation samples,50

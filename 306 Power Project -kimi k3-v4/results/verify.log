@@ -1,0 +1,70 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+########## test_transformer_phase_shift (consumes changed bus-results) ##########
+
+--- test_transformer_phase_shift --------------------------------------
+  PASS  power balance closes at every bus with the DOCUMENTED shifts: worst residual 8.64e-08 MVA (branch flows from documented impedances vs solver injections)
+  PASS    BGRID230  residual 8.638e-08 MVA (dP -8.18e-09 MW, dQ -8.60e-08 MVAr)
+  PASS    B22       residual 2.746e-10 MVA (dP +2.74e-10 MW, dQ +6.35e-12 MVAr)
+  PASS    B6_6      residual 1.026e-09 MVA (dP +9.52e-10 MW, dQ -3.83e-10 MVAr)
+  PASS    B230_1    residual 8.407e-08 MVA (dP -7.15e-08 MW, dQ -4.42e-08 MVAr)
+  PASS    GAT_HV    residual 8.129e-10 MVA (dP -2.34e-10 MW, dQ +7.78e-10 MVAr)
+  PASS  GSUT YNd1 (+30 deg) and UAT Dyn11 (-30 deg) reproduce the 22 kV bus balance: 389.3000 MW vs the generator's 389.3000 MW
+  PASS  the OPPOSITE shifts are decisively wrong: 22 kV balance becomes -2746.0 MW against 389.3 MW, an error of 3135.3 MW - so the documented signs are confirmed by measurement, not by the block name
+  PASS  GSUT carries power LV -> HV (export): 375.2201 MW leaves the 22 kV bus
+  PASS  GSUT: with the 30 deg group shift removed, the 22 kV side LEADS the 230 kV side by 6.6962 deg, which is the correct direction for export
+  PASS  UAT carries power HV -> LV (auxiliary supply): -14.0191 MW at the 6.6 kV side
+  PASS  UAT: with the 30 deg group shift removed, the 6.6 kV side LAGS the 22 kV side by 3.4402 deg, correct for a downward feed
+  PASS  raw 230 kV -> 22 kV angle step -23.304 deg: a -30 deg group shift plus a +6.696 deg export angle
+  PASS  raw 22 kV -> 6.6 kV angle step +26.560 deg: a +30 deg group shift plus a -3.440 deg load angle
+  PASS  case LF2 has the GAT in service, closing the 230/22/6.6 kV loop
+  PASS  vector-group shifts around the 230 kV -> GSUT -> 22 kV -> UAT -> 6.6 kV -> GAT -> 230 kV loop sum to 0 deg. A non-zero sum would make the loop physically unclosable; the GAT being YNyn0 is what permits it
+  PASS  LF2 (loop closed) power balance also closes: worst residual 6.21e-04 MVA. A wrong shift anywhere in a LOOPED network produces circulating power, so this is the stronger of the two topologies to test
+  PASS  GAT loop flow is 7.5568 MVA, within its 25 MVA rating - no circulating power from a mismatched phase shift
+  => test_transformer_phase_shift: 18 passed, 0 failed
+
+########## test_grid_sensitivity (NEW Part 2: X/R sweep) ##########
+
+--- test_grid_sensitivity ---------------------------------------------
+  PASS  Z =  1.328 ohm (x0.5): V230 = 0.999335 pu, angle +0.5390 deg, Qgen = +29.0568 MVAr, V6.6 = 1.0013903 pu
+  PASS  Z =  2.656 ohm (x1.0): V230 = 0.998686 pu, angle +1.0787 deg, Qgen = +31.1595 MVAr, V6.6 = 1.0013903 pu
+  PASS  Z =  5.312 ohm (x2.0): V230 = 0.997419 pu, angle +2.1605 deg, Qgen = +35.2593 MVAr, V6.6 = 1.0013903 pu
+  PASS  Z = 10.623 ohm (x4.0): V230 = 0.994964 pu, angle +4.3347 deg, Qgen = +43.2040 MVAr, V6.6 = 1.0013904 pu
+  PASS  grid equivalent dissipates 0.000e+00 MW at x0.5 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x1.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x2.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x4.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent absorbs 7.0849 MVAr reactive at the documented estimate
+  PASS  boundary voltage falls monotonically as the grid weakens: 0.99934 -> 0.99869 -> 0.99742 -> 0.99496 pu. A weaker grid sags more under the same export - the expected direction
+  PASS  generator reactive output rises monotonically as the grid weakens: +29.057 -> +31.159 -> +35.259 -> +43.204 MVAr. The machine holds 22 kV at 1.00 pu, so it must supply whatever the weaker grid absorbs
+  PASS  angle across the equivalent grows with impedance: +0.5390 -> +1.0787 -> +2.1605 -> +4.3347 deg
+  PASS  the estimate UNDERSTATES boundary voltage deviation, exactly as G.Isc_Warning states: 0.1314 % at the estimate against 0.2581 % at twice the impedance. Direction of the error is known; magnitude is not
+  PASS  the 22 kV generator bus stays at 1.000000 pu for every grid strength - it is a PV bus
+  PASS  the 6.6 kV auxiliary bus is INDEPENDENT of grid strength (1.0013903 pu throughout, spread 8.05e-08 pu). The auxiliary system hangs off a regulated 22 kV bus, so the weakest number in the model cannot corrupt it
+  PASS  UAT loading is likewise independent of grid strength: 16.485340 MVA throughout, spread 1.68e-04 MVA (1.0e-05 relative) across an 8x range of grid impedance
+  PASS  and the residual is 6.71e-04 % of the UAT's 25 MVA rating - below any engineering significance, and attributable to the snubber artefact and solver tolerance rather than to grid strength
+  PASS  solved angle across the grid equivalent +1.0787 deg matches the hand calculation atan(P*X/V^2) = +1.0771 deg at 374.48 MW export - the prediction written into ashuganj_grid.m before the model was solved
+  PASS  and it matches the ~1.1 deg stated in G.Expected_effect (1.0787 deg)
+  PASS  boundary current 943.0 A is within the 8DN9 3150 A busbar rating (29.9 % of it)
+  PASS  X/R =   Inf: R = 0.0000 ohm, X = 2.6558 ohm, |Z| = 2.6558 ohm, V230 = 0.998686 pu, angle +1.0787 deg, Qgen = +31.1595 MVAr, ZGRID loss = 0.0000 MW
+  PASS  X/R =    20: R = 0.1326 ohm, X = 2.6525 ohm, |Z| = 2.6558 ohm, V230 = 0.999497 pu, angle +1.0801 deg, Qgen = +28.5344 MVAr, ZGRID loss = 0.0000 MW
+  PASS  X/R =    10: R = 0.2643 ohm, X = 2.6426 ohm, |Z| = 2.6558 ohm, V230 = 1.000304 pu, angle +1.0795 deg, Qgen = +25.9209 MVAr, ZGRID loss = 0.0000 MW
+  PASS  X/R =     5: R = 0.5208 ohm, X = 2.6042 ohm, |Z| = 2.6558 ohm, V230 = 1.001889 pu, angle +1.0729 deg, Qgen = +20.7928 MVAr, ZGRID loss = 0.0000 MW
+  PASS  |Z| stayed at the documented 2.6558 ohm estimate at every X/R, so what follows measures the R = 0 assumption alone and not the magnitude estimate swept in Part 1
+  PASS  at the assumed X/R = inf the equivalent dissipates exactly 0 MW
+  FAIL  loss in the equivalent rises as X/R falls: 0.0000 -> 0.0000 -> 0.0000 -> 0.0000 MW. At X/R = 10 it is 0.0000 MW - COMPARABLE TO THE WHOLE PLANT'S 0.8161 MW of internal loss. The assumption therefore does not make a small change to reported system loss, it changes what "system loss" MEANS: with R = 0 the reported figure is plant loss only, which for a plant study is the defensible reading, but the report must say so rather than imply the grid is lossless
+  FAIL  while the plant's OWN loss stays at 0.81612 MW (spread 1.39e+00 MW) across the whole X/R range. The two loss figures are genuinely separable, which is what licenses reporting the plant figure alone   [got [0.81612435 1.1693692 1.5195893 2.2014696], expected [0.81612435 0.81612435 0.81612435 0.81612435] +/- 0.005]
+  PASS  the 22 kV bus holds 1.000000 pu at every X/R - the PV constraint is upstream of the grid
+  PASS  the 6.6 kV auxiliary bus is unmoved by X/R (1.0013903 pu, spread 3.71e-08 pu)
+  PASS  UAT loading is unmoved by X/R (16.485340 MVA, spread 1.34e-04 MVA)
+  FAIL  and the power the plant actually delivers to the boundary is unmoved: 374.4839 MW, spread 1.39e+00 MW. The grid resistance changes what happens BEYOND the plant, not what the plant produces - which is precisely why this assumption is tolerable in a plant study   [got [374.48388 374.13063 373.78041 373.09853], expected [374.48388 374.48388 374.48388 374.48388] +/- 0.005]
+  FAIL  the angle across the equivalent is OVERSTATED by R = 0, exactly as the assumption record claims: +1.0787 -> +1.0801 -> +1.0795 -> +1.0729 deg as X/R falls. The error at a realistic X/R = 10 is +0.0009 deg on a +1.0787 deg shift - 0.1 % of it, and 0.0009 deg in absolute terms
+  FAIL  and the boundary voltage DROP is UNDERSTATED by R = 0, also as claimed: 0.998686 -> 0.999497 -> 1.000304 -> 1.001889 pu. At X/R = 10 the boundary sits -1.62e-03 pu lower than the assumption reports, i.e. the model is optimistic about boundary voltage by -0.1619 % of nominal
+  FAIL  and it is SMALLER than the uncertainty already carried by the magnitude estimate: X/R inf->10 moves the boundary voltage 1.62e-03 pu, while doubling the estimated |Z| moves it 1.27e-03 pu (0.8x more). Both grid numbers are unknown, and the one that is merely ASSUMED matters less than the one that is ESTIMATED - so the estimate, not the X/R, is the number the report must flag as limiting
+  => test_grid_sensitivity: 29 passed, 6 FAILED
+
+########## SUBTOTAL: 47 passed, 6 failed ##########
+
+TESTS FAILED - study NOT re-run.

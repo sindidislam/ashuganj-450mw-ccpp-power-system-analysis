@@ -1,0 +1,2 @@
+Time_s,Event_group,Device,Transition,Source
+0.021,DC_state,Charger_failure,cleared,logged_signal_transition

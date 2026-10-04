@@ -1,0 +1,21 @@
+ORIGINAL_GENERATOR_FIELDS total=140 unchanged=134 changed=6
+    {'Qmin_MVAr'    }
+    {'Qmax_MVAr'    }
+    {'Qlim_Status'  }
+    {'Qlim_Note'    }
+    {'Qcurve_Status'}
+    {'Qcurve_Note'  }
+
+ADDED_GENERATOR_FIELDS=3
+    {'Qlim_P_MW'         }
+    {'Qlim_Source_status'}
+    {'capabilityCurve'   }
+
+PRIMARY_IDENTITY_OK fields=30
+PROVENANCE_IDENTITY_OK records=40
+LEGACY_IDENTITY_OK
+MASTER_NON_GENERATOR_IDENTITY_OK
+BASELINE_ARCHIVE_OK tests=915/0 cases=4/4_OK CASE_RECORD_IDENTITY=4/4
+FROZEN_SETPOINTS_AND_AUX_OK gen=1.00 grid=1.00 aux_MW=14 PF=0.85
+PHYSICAL_Q_AT_360_MW lower=-189.546472564389717 upper=253.796192609182526 MVAr
+TASK1_IDENTITY_OK NO_LOAD_FLOW_RERUN

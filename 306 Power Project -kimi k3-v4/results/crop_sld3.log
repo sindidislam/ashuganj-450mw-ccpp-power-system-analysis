@@ -1,0 +1,10 @@
+source F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\tmp\pdfs\south_sld_page2.png  4525x3200
+
+wi_incomer     3250..4100 x  820..1500  z2 -> 1702x1362  Q1 origin of the 00BBA10 incomer
+bft40_dest     1200..2000 x 1820..2900  z2 -> 1602x2162  Q2 where 10BFT40 LV lands
+mvbus_taps_l    680..2050 x 1090..1340  z3 -> 4113x 753  Q3 10BBA10 tap-offs, left half
+mvbus_taps_r   2000..3560 x 1090..1340  z3 -> 4683x 753  Q3 10BBA10 tap-offs, right half
+uat_ner         640..1560 x  440..1200  z2 -> 1842x1522  Q4 10BBW10 on the UAT 6.9 kV winding
+gat_ner        2880..3950 x  820..1500  z2 -> 2142x1362  Q4 10BBW20 on the GAT 6.9 kV winding
+
+CROP3 COMPLETE

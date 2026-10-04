@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashuganj South 450 MW — Video Demo Speech Script & Teacher Defense Guide</title>
+<meta name="description" content="Easy, natural video demonstration script following exact requested sequence: Intro -> Phases -> Real Engineer PDFs -> Simulink Model -> Phase-by-Phase Results -> Teacher Defense -> Conclusion.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&family=Crimson+Pro:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0b1e2d;
+  --navy-light: #16364e;
+  --navy-dark: #071520;
+  --teal: #087f7b;
+  --teal-dark: #065e5b;
+  --teal-light: #e6f7f6;
+  --blue: #1558d6;
+  --blue-light: #eaf1fd;
+  --red: #c5221f;
+  --red-light: #fce8e6;
+  --amber: #b45309;
+  --amber-light: #fef7ee;
+  --green: #0d8a59;
+  --green-light: #ebfbf3;
+  --purple: #7033c9;
+  --purple-light: #f4ecfd;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --line: #cbd5e1;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --font-scale: 1.15;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: calc(16px * var(--font-scale));
+}
+
+.shell { display: flex; min-height: 100vh; }
+
+/* SIDEBAR */
+.sidebar {
+  width: 350px;
+  background: var(--navy);
+  color: #fff;
+  padding: 24px 18px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.sidebar h2 {
+  font-size: calc(16px * var(--font-scale));
+  margin: 0 0 4px 0;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+.sidebar small {
+  display: block;
+  color: #94a3b8;
+  margin-bottom: 18px;
+  font-size: calc(12px * var(--font-scale));
+}
+.nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 7px;
+  margin-bottom: 4px;
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 500;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+}
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.nav a.active {
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+}
+.nav a .nav-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  opacity: 0.85;
+  background: rgba(0,0,0,0.25);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.sidebar-box {
+  margin-top: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+  padding: 13px;
+  font-size: calc(11.8px * var(--font-scale));
+  color: #94a3b8;
+  line-height: 1.55;
+}
+.sidebar-box b { color: #f1f5f9; }
+
+/* MAIN CONTENT */
+.main {
+  flex: 1;
+  padding: 36px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+html.full-width .main { max-width: 100%; }
+
+/* PRESENTATION TOOLBAR */
+.presentation-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 18px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 16px rgba(15, 43, 60, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: calc(13.5px * var(--font-scale));
+}
+.pbar-badge {
+  background: var(--teal-light);
+  color: var(--teal);
+  border: 1px solid var(--teal);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: calc(11px * var(--font-scale));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.pbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pbar-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: calc(12.5px * var(--font-scale));
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.pbar-btn:hover {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+.pbar-btn.active {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+
+.eyebrow {
+  color: var(--teal);
+  text-transform: uppercase;
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0 0 6px 0;
+}
+h1 {
+  font-size: calc(32px * var(--font-scale));
+  color: var(--navy);
+  margin: 0 0 12px 0;
+  line-height: 1.25;
+  font-weight: 900;
+}
+.lead {
+  font-size: calc(16.5px * var(--font-scale));
+  color: #475569;
+  margin-bottom: 28px;
+  max-width: 1150px;
+  line-height: 1.75;
+}
+
+/* CARDS */
+.card {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 28px 34px;
+  margin-bottom: 30px;
+  box-shadow: 0 3px 12px rgba(15, 43, 60, 0.05);
+}
+.card h2 {
+  font-size: calc(22px * var(--font-scale));
+  color: var(--navy);
+  margin: 0 0 14px 0;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.card-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: calc(13px * var(--font-scale));
+  color: var(--teal);
+  background: var(--teal-light);
+  border: 1px solid var(--teal);
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+/* SCREEN CUE BOXES */
+.screen-cue {
+  background: #f0f7ff;
+  border: 1.5px solid #b9d7fb;
+  border-left: 5px solid var(--blue);
+  border-radius: 8px;
+  padding: 13px 18px;
+  margin: 16px 0 20px 0;
+  font-size: calc(14px * var(--font-scale));
+  color: #1e3a8a;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.screen-cue b {
+  color: #1d4ed8;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 0.6px;
+  background: #dbeafe;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* SPEECH TELEPROMPTER BLOCKS (NATURAL & EASY TO READ) */
+.speech-bubble {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-left: 6px solid var(--teal);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin: 18px 0;
+  font-size: calc(17.5px * var(--font-scale));
+  line-height: 1.85;
+  color: #0f2b3c;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  position: relative;
+}
+.speech-bubble p {
+  margin: 0 0 16px 0;
+}
+.speech-bubble p:last-child {
+  margin-bottom: 0;
+}
+.speech-tag {
+  display: inline-block;
+  font-size: calc(11.5px * var(--font-scale));
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--teal-dark);
+  background: var(--teal-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.speech-bubble strong {
+  color: var(--navy);
+  font-weight: 750;
+}
+
+/* DATASHEET CHIPS & GRID */
+.pdf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+.pdf-card {
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: calc(13px * var(--font-scale));
+}
+.pdf-title {
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pdf-param {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 1px 5px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 3px;
+}
+
+/* SPOTLIGHT BOX FOR TEACHER QUESTION */
+.spotlight-card {
+  border: 2.5px solid var(--red);
+  background: #fffafa;
+  border-radius: 14px;
+  padding: 30px 36px;
+  margin: 32px 0;
+  box-shadow: 0 4px 18px rgba(197, 34, 31, 0.08);
+}
+.spotlight-card h2 {
+  color: var(--red);
+  border-bottom: 2px solid #fecaca;
+}
+.teacher-quote {
+  background: #fee2e2;
+  border-left: 4px solid var(--red);
+  padding: 12px 18px;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  font-weight: 600;
+  color: #991b1b;
+  margin-bottom: 18px;
+}
+
+/* EQUATION BLOCKS */
+.eq-box {
+  background: #f1f5f9;
+  border-left: 4px solid var(--navy-light);
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: calc(18px * var(--font-scale));
+  color: #0f172a;
+  overflow-x: auto;
+}
+.eq-title {
+  font-family: 'Inter', sans-serif;
+  font-size: calc(12px * var(--font-scale));
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #475569;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* KEY METRICS GRID */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+.metric-box {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+.metric-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: calc(22px * var(--font-scale));
+  font-weight: 800;
+  color: var(--navy);
+}
+.metric-desc {
+  font-size: calc(12px * var(--font-scale));
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* TABLES */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 20px 0;
+  font-size: calc(13.8px * var(--font-scale));
+}
+th {
+  background: var(--navy);
+  color: #fff;
+  text-align: left;
+  padding: 11px 13px;
+  font-weight: 700;
+}
+td {
+  padding: 10px 13px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #f1f5f9; }
+
+/* COPY BUTTON */
+.btn-copy {
+  float: right;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-copy:hover {
+  background: var(--teal);
+  color: white;
+  border-color: var(--teal);
+}
+
+@media print {
+  .sidebar, .presentation-bar, .btn-copy { display: none !important; }
+  .main { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+  body { font-size: 11pt !important; background: #fff !important; }
+  .card { box-shadow: none !important; border: 1px solid #ccc !important; page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <!-- SIDEBAR NAVIGATION: EXACT USER-REQUESTED SEQUENCE -->
+  <aside class="sidebar">
+    <h2>Video Script & Defense</h2>
+    <small>Ashuganj South 450 MW · EEE 306</small>
+    <nav class="nav">
+      <a href="#intro" class="active"><span>1 · Introduction</span> <span class="nav-time">0:00–0:30</span></a>
+      <a href="#phases"><span>2 · The Project Phases</span> <span class="nav-time">0:30–1:00</span></a>
+      <a href="#datasheets"><span>3 · Real Engineer Data</span> <span class="nav-time">1:00–1:45</span></a>
+      <a href="#simulink"><span>4 · Simulink Model</span> <span class="nav-time">1:45–2:45</span></a>
+      <a href="#loadflow"><span>5 · Load Flow Results</span> <span class="nav-time">2:45–3:15</span></a>
+      <a href="#faults"><span>6 · Fault Analysis Results</span> <span class="nav-time">3:15–3:55</span></a>
+      <a href="#teacher-spotlight" style="color:#f87171; font-weight:700;"><span>⚡ Teacher Defense: V=0</span> <span class="nav-time">DEFENSE</span></a>
+      <a href="#protection"><span>7 · Protection & Breakers</span> <span class="nav-time">3:55–4:25</span></a>
+      <a href="#dynamic-dc"><span>8 · Dynamic Trips & DC</span> <span class="nav-time">4:25–4:55</span></a>
+      <a href="#conclusion"><span>9 · Key Takeaways & End</span> <span class="nav-time">4:55–5:25</span></a>
+      <a href="#qna-cheatsheet"><span>📋 Rapid Viva Defense</span> <span class="nav-time">VIVA</span></a>
+    </nav>
+    <div class="sidebar-box">
+      <b>Your Video Sequence:</b><br>
+      • <b>1. Intro:</b> Welcome & project title.<br>
+      • <b>2. Phases:</b> What phases we did.<br>
+      • <b>3. Real Data:</b> Show engineer PDFs on screen.<br>
+      • <b>4. Simulink:</b> Explain model blocks.<br>
+      • <b>5. Results:</b> Phase-by-phase findings.<br>
+      • <b>6. Defense:</b> Why voltage is 0 V in bolted fault.
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <!-- PRESENTATION TOOLBAR -->
+    <div class="presentation-bar">
+      <div class="pbar-left">
+        <span class="pbar-badge">Video Teleprompter</span>
+        <span>Text Size:</span>
+      </div>
+      <div class="pbar-actions">
+        <button class="pbar-btn" id="btn-scale-1" onclick="setFontScale(1.0, this)">Normal</button>
+        <button class="pbar-btn active" id="btn-scale-2" onclick="setFontScale(1.18, this)">Large (Recommended)</button>
+        <button class="pbar-btn" id="btn-scale-3" onclick="setFontScale(1.38, this)">📽️ Projector</button>
+        <button class="pbar-btn" id="btn-scale-4" onclick="setFontScale(1.60, this)">🔍 Big Text</button>
+        <button class="pbar-btn" id="btn-full-width" onclick="toggleFullWidth(this)">⛶ Full Width</button>
+        <button class="pbar-btn" onclick="window.print()">🖨️ Print / PDF</button>
+      </div>
+    </div>
+
+    <p class="eyebrow">EEE 306 Power System Analysis & Protection · Demonstration Video</p>
+    <h1>Ashuganj South 450 MW CCPP: Natural Spoken Video Script & Defense</h1>
+    <p class="lead">Arranged in your exact requested order: <b>1. Intro $\rightarrow$ 2. Project Phases $\rightarrow$ 3. Real Engineer PDFs $\rightarrow$ 4. Simulink Model $\rightarrow$ 5. Phase-by-Phase Results & Defense</b>. Follow the blue <b>[Screen Action]</b> boxes while recording.</p>
+
+    <!-- STEP 1: INTRODUCTION -->
+    <section id="intro" class="card">
+      <h2>
+        <span>Step 1: Introduction</span>
+        <span class="card-time">0:00 – 0:30 (30 sec)</span>
+      </h2>
+      
+      <div class="screen-cue">
+        <b>Screen Action</b>
+        <span>Show the Title Screen or Title Slide for Ashuganj South 450 MW CCPP.</span>
+      </div>
+
+      <div class="speech-bubble">
+        <button class="btn-copy" onclick="copySpeech(this)">Copy Speech</button>
+        <span class="speech-tag">🗣️ Spoken Words</span>
+        <p>"Hello everyone, and welcome!</p>
+        <p>In this video, I'm going to demonstrate our complete power system analysis, short-circuit calculations, and protection design for the <strong>Ashuganj South 450 Megawatt Combined Cycle Power Plant</strong>.</p>
+        <p>I will first outline the engineering phases we carried out, show you the genuine factory datasheets we collected from plant engineers, walk you through our Simulink simulation file, and then present our phase-by-phase results and key findings."</p>
+      </div>
+    </section>
+
+    <!-- STEP 2: THE PROJECT PHASES ROADMAP -->
+    <section id="phases" class="card">
+      <h2>
+        <span>Step 2: What Phases We Executed (The Project Roadmap)</span>
+        <span class="card-time">0:30 – 1:00 (30 sec)</span>
+      </h2>
+
+      <div class="screen-cue">
+        <b>Screen Action</b>
+        <span>Show the Master Plant Overview Diagram (<span style="font-family:'JetBrains Mono'; font-weight:600;">Phase 5 Docs/snapshots/000_Plant_overview.png</span>) or the Phase Summary Slide.</span>
+      </div>
+
+      <div class="speech-bubble">
+        <button class="btn-copy" onclick="copySpeech(this)">Copy Speech</button>
+        <span class="speech-tag">🗣️ Spoken Words</span>
+        <p>"Our project is organized across six distinct engineering phases:</p>
+        <p>• In <strong>Phases 0 and 1</strong>, we audited the plant's official single-line diagram and verified all electrical parameters and per-unit bases.<br>
+        • In <strong>Phases 2 and 3</strong>, we ran steady-state load flow at our primary 360 Megawatt operating point and modeled the physical 0.7-kilometer 230 kV transmission line.<br>
+        • In <strong>Phase 4</strong>, we calculated 3-phase and ground fault currents across 5 strategic locations according to IEC 60909.<br>
+        • In <strong>Phase 5</strong>, we coordinated our unit differential and overcurrent relays, and verified that all circuit breakers operate well within their certified ratings.<br>
+        • And in <strong>Phase 6</strong>, we brought everything together into a closed-loop dynamic simulation in Simulink to see the relays trip the breakers in real time, backed by the station DC battery."</p>
+      </div>
+    </section>
+
+    <!-- STEP 3: REAL INDUSTRIAL DATA & ENGINEER PDFS -->
+    <section id="datasheets" class="card">
+      <h2>
+        <span>Step 3: Real Industrial Data & Engineer PDFs Showcase</span>
+        <span class="card-time">1:00 – 1:45 (45 sec)</span>
+      </h2>
+      
+      <div class="screen-cue">
+        <b>Screen Action</b>
+        <span>
+          Open your PDF viewer or the folder <span style="font-family:'JetBrains Mono'; font-weight:700;">fwdtechnicaldatasldrequestforbueteeetermproject</span>. Show these 4 files on screen:
+          <br>1. <b>Single Line Diagram_South.pdf</b> (Official factory As-Built SLD Rev 04)
+          <br>2. <b>Generator Name Plate_South.pdf</b> (Siemens machine plate)
+          <br>3. <b>GSUT Data Sheet_South.pdf</b> (515 MVA step-up transformer)
+          <br>4. <b>Google Sheet Form_Filled Up By APSCL.pdf</b> (Official 360 MW dispatch form)
+        </span>
+      </div>
+
+      <div class="pdf-grid">
+        <div class="pdf-card">
+          <div class="pdf-title">📄 Single Line Diagram_South.pdf</div>
+          <div>Official Factory As-Built SLD Rev 04</div>
+          <div class="pdf-param">Gen 10MKA10 · GCB 10BAC10 · 230kV GIS</div>
+        </div>
+        <div class="pdf-card">
+          <div class="pdf-title">📄 Generator Name Plate_South.pdf</div>
+          <div>Siemens SGen5-2000H Certified Plate</div>
+          <div class="pdf-param">458 MVA · 22 kV · 0.85 pf · Xd"=0.2248</div>
+        </div>
+        <div class="pdf-card">
+          <div class="pdf-title">📄 GSUT Data Sheet_South.pdf</div>
+          <div>Siemens Main Step-Up Transformer</div>
+          <div class="pdf-param">515 MVA · 230/22 kV YNd1 · Z=16%</div>
+        </div>
+        <div class="pdf-card">
+          <div class="pdf-title">📄 Form Filled Up By APSCL.pdf</div>
+          <div>APSCL Official Operational Data</div>
+          <div class="pdf-param">360 MW Base Dispatch · 14 MW Aux</div>
+        </div>
+      </div>
+
+      <div class="speech-bubble">
+        <button class="btn-copy" onclick="copySpeech(this)">Copy Speech</button>
+        <span class="speech-tag">🗣️ Spoken Words</span>
+        <p>"Before we look at the simulation, I want to show you the real engineering documents that make our study authentic: <strong>every single number we used comes directly from real factory drawings and data sheets collected from the engineers at Ashuganj Power Station Company Limited (APSCL)</strong>.</p>
+        
+        <p>Let me quickly show these on my screen:</p>
+        
+        <p>• <strong>Here is the official Single Line Diagram</strong> (`INEL-112070-REV3`), showing the whole electrical corridor—from the generator `10MKA10`, through the generator circuit breaker, into the main step-up transformer, and out to the 230 kV switchyard.<br>
+        • <strong>Here is the Siemens Generator Nameplate</strong>, certifying our machine ratings: <strong>458 MVA, 22 kV, 50 Hertz, 0.85 power factor</strong>, and an exact subtransient reactance of <strong>0.2248 per-unit</strong>.<br>
+        • <strong>Here is the GSUT Transformer Datasheet</strong>, confirming its <strong>515 MVA capacity, 230-to-22 kV step-up, and 16% impedance</strong>.<br>
+        • <strong>And here is the official APSCL Form B3</strong>, confirming our primary base continuous dispatch of <strong>360 Megawatts</strong>, with <strong>14 Megawatts</strong> powering internal plant auxiliaries.</p>
+        
+        <p>Because we built our model using these genuine documents, our simulation behaves just like the real power plant."</p>
+      </div>
+    </section>
+
+    <!-- STEP 4: SIMULINK MODEL WALKTHROUGH -->
+    <section id="simulink" class="card">
+      <h2>
+        <span>Step 4: The Simulink Model Walkthrough</span>
+        <span class="card-time">1:45 – 2:45 (60 sec)</span>
+      </h2>
+
+      <div class="screen-cue">
+        <b>Screen Action</b>
+        <span>Switch to MATLAB/Simulink. Open <span style="font-family:'JetBrains Mono'; font-weight:600;">PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP.slx</span>. Fit to screen, then zoom smoothly into each colored block as you talk about it.</span>
+      </div>
+
+      <div class="speech-bubble">
+        <button class="btn-copy" onclick="copySpeech(this)">Copy Speech</button>
+        <span class="speech-tag">🗣️ Spoken Words</span>
+        <p>"Now, let's open our Simulink model. The power flows from left to right, organized in clean color-coded blocks that match the plant drawings we just saw:</p>
+        
+        <p>1. <strong>The Generator Island (Orange block on the left):</strong><br>
+        This is our 458 MVA, 22 kV Siemens generator. Notice the neutral is connected to a <strong>1,750 Ohm resistor</strong>—that is our Neutral Earthing Resistor. The generator connects through the busduct to our 100 kA Generator Circuit Breaker.</p>
+        
+        <p>2. <strong>The Main Step-Up Transformer (GSUT):</strong><br>
+        This steps the voltage up from 22 kV to 230 kV. It has a Delta connection on the generator side and a solidly grounded Wye on the high-voltage side.</p>
+        
+        <p>3. <strong>The 230 kV Switchyard (Blue block):</strong><br>
+        This models the Siemens SF6 Gas-Insulated Switchgear. It uses a double-busbar scheme with Bus 1 and Bus 2, tied by a bus coupler breaker and the bay breaker `Q0`.</p>
+        
+        <p>4. <strong>The Transmission Line & Grid:</strong><br>
+        From the switchyard, power travels through our <strong>0.7-kilometer dual-circuit overhead line</strong> directly into the national grid equivalent.</p>
+        
+        <p>5. <strong>Plant Auxiliaries (Magenta block):</strong><br>
+        This is the 14 Megawatt internal plant load. Normally, it gets power from the generator through the Unit Auxiliary Transformer (UAT). If the generator is offline, it draws power from the grid through the Grid Auxiliary Transformer (GAT).</p>
+        
+        <p>6. <strong>Protection & Station DC Battery (Green blocks down below):</strong><br>
+        Down here, we have our multi-zone protection relays and our <strong>110 Volt, 200 Amp-hour station battery bank</strong>, ensuring breakers can only trip when healthy DC power is present."</p>
+      </div>
+    </section>
+
+    <!-- STEP 5: LOAD FLOW RESULTS -->
+    <section id="loadflow" class="card">
+      <h2>
+        <span>Step 5: Load Flow Results (Phases 2 & 3)</span>
+        <span class="card-time">2:45 – 3:15 (30 sec)</span>
+      </h2>
+
+      <div class="screen-cue">
+        <b>Screen Action</b>
+        <span>Show the Load Flow result table or open the generator power and voltage Display blocks in Simulink.</span>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-box">
+          <div class="metric-num" style="color:var(--teal);">360.0 MW</div>
+          <div class="metric-desc">Gross Generation</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num" style="color:var(--blue);">345.2 MW</div>
+          <div class="metric-desc">Net Grid Export</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num" style="color:var(--navy);">229.7 kV</div>
+          <div class="metric-desc">Switchyard Bus (0.999 pu)</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num" style="color:var(--green);">63.0 kW</div>
+          <div class="metric-desc">0.7 km Line Losses</div>
+        </div>
+      </div>
+
+      <div class="speech-bubble">
+        <button class="btn-copy" onclick="copySpeech(this)">Copy Speech</button>
+        <span class="speech-tag">🗣️ Spoken Words</span>
+        <p>"Now let's examine our results, starting with steady-state load flow:</p>
+        <p>• At our base dispatch of <strong>360 Megawatts</strong>, 14 Megawatts powers the internal plant auxiliaries, and <strong>345.2 Megawatts</strong> is cleanly exported into the national grid at 230 kV.<br>
+        • The generator operates at <strong>27.8 MVAr lagging</strong>, giving an operating power factor of <strong>0.997</strong>. Looking at the capability curve, the generator has over <strong>213 MVAr of reactive reserve margin</strong>.<br>
+        • Both 230 kV switchyard buses stay right at <strong>229.7 kV</strong>, which is 0.999 per-unit—well inside the grid code's plus-minus 5% limit.<br>
+        • And real power losses on the 0.7-kilometer line are tiny—only <strong>63 Kilowatts</strong> with an imperceptible 29-Volt drop."</p>
+      </div>
+    </section>
+
+    <!-- STEP 6: SHORT-CIRCUIT FAULTS -->
+    <section id="faults" class="card">
+      <h2>
+        <span>Step 6: Short-Circuit Fault Results Across 5 Locations</span>
+        <span class="card-time">3:15 – 3:55 (40 sec)</span>
+      </h2>
+
+      <div class="screen-cue">
+        <b>Screen Action</b>
+        <span>Show the Single Line Diagram with marked fault locations F1 to F5 (<span style="font-family:'JetBrains Mono'; font-weight:600;">Phase 4 Docs/snapshots/sld_fault_locations_marked.png</span>) or the Fault Summary Table.</span>
+      </div>
+
+      <div class="speech-bubble">
+        <button class="btn-copy" onclick="copySpeech(this)">Copy Speech</button>
+        <span class="speech-tag">🗣️ Spoken Words</span>
+        <p>"Next, in Phase 4, we simulated short-circuit faults across five strategic locations, from F1 at the generator terminals all the way to F5 at the remote grid:</p>
+        
+        <p>• <strong>The Maximum Stator Fault (F1 & F2):</strong><br>
+        A 3-phase fault right at the 22 kV generator bus reaches <strong>126.2 kA RMS</strong>, with a massive first half-cycle peak current of <strong>348 kA</strong>. That is the highest mechanical shock anywhere in the plant, limited only by the generator's subtransient reactance.</p>
+        
+        <p>• <strong>The Big Ground Fault Discovery:</strong><br>
+        Now look at the huge contrast with ground faults. While the 3-phase fault is 126,000 Amps, a single line-to-ground fault at the generator terminals is choked down to just <strong>7.27 Amps</strong>! That's because our 1,750 Ohm grounding resistor absorbs the ground fault potential, completely protecting the generator stator iron from burning and melting.</p>
+        
+        <p>• <strong>Switchyard Faults (F3):</strong><br>
+        Up at the 230 kV switchyard, because the grid and transformer neutrals are solidly grounded, the 3-phase fault is <strong>50.5 kA</strong> and the ground fault is <strong>45.7 kA</strong>."</p>
+      </div>
+    </section>
+
+    <!-- SPECIAL TEACHER DEFENSE SPOTLIGHT (V=0 & LLL VS LLG) -->
+    <section id="teacher-spotlight" class="spotlight-card">
+      <h2>
+        <span>⚡ Teacher Defense: Why Voltage is Zero in Bolted LLL/LLLG Faults</span>
+        <span class="card-time" style="background:#fee2e2; border-color:var(--red); color:var(--red);">CRITICAL QUESTION ANSWERED</span>
+      </h2>
+
+      <div class="teacher-quote">
+        "Sir's Question: 'Why is voltage zero in the LLL / LLLG fault? Voltage should not be zero! Show the physics and calculations.'"
+      </div>
+
+      <div class="screen-cue" style="background:#fef2f2; border-color:#fca5a5; color:#991b1b;">
+        <b>Screen Action</b>
+        <span>Show the math derivation slide or the Sequence Network diagram from Chapter 5 of the Report Writing Manual.</span>
+      </div>
+
+      <div class="speech-bubble" style="border-left-color: var(--red);">
+        <button class="btn-copy" onclick="copySpeech(this)">Copy Speech</button>
+        <span class="speech-tag" style="background:#fee2e2; color:var(--red);">🗣️ Spoken Words (Natural & Clear Explanation)</span>
+        <p>"Now, I want to specifically address an important technical point our course teacher pointed out: <strong>'Why does voltage become zero during an LLL or LLLG fault? Shouldn't there be some voltage left?'</strong></p>
+        
+        <p>The answer is very clear and comes down to two simple things:</p>
+
+        <p><strong>1. In fault analysis, we assume a 'Bolted' Fault ($Z_f = 0$):</strong><br>
+        When testing switchgear ratings under IEC 60909, we must test the absolute worst-case scenario. That means we assume the three phases touch each other and ground directly with <em>zero contact resistance</em>—what power engineers call a 'bolted fault' ($Z_f = 0$).<br>
+        By basic Ohm's law:
+        $$\text{Voltage} = \text{Current} \times \text{Resistance}$$
+        If the resistance between the conductors is zero, the voltage across them *must mathematically drop to zero*!</p>
+
+        <p>In sequence networks, the positive-sequence bus voltage is:
+        $$V_k^{(1)} = V_{\text{prefault}} - Z_{kk} \times I_{\text{fault}}$$
+        Because the fault current is $I_{\text{fault}} = \frac{V_{\text{prefault}}}{Z_{kk}}$, substituting it gives:
+        $$V_k^{(1)} = V_{\text{prefault}} - Z_{kk} \left(\frac{V_{\text{prefault}}}{Z_{kk}}\right) = V_{\text{prefault}} - V_{\text{prefault}} = \mathbf{0.000\text{ Volts}}$$
+        So right at the bolted fault bus, the voltage collapses completely to zero.</p>
+
+        <p><strong>2. So why do people sometimes expect voltage NOT to be zero?</strong><br>
+        In real life, voltage is only non-zero for two reasons:<br>
+        • <strong>Arc Resistance:</strong> In a real flashover, the electric arc isn't solid metal; it has about 10 to 50 milli-ohms of arc resistance. Across 126 kA, that arc drops around 2,500 Volts (roughly 10% to 15% voltage).<br>
+        • <strong>Distance from the fault:</strong> Voltage is zero <em>only right at the fault bus</em>. If you measure at an adjacent substation bus or behind a transformer, the voltage recovers to 30%, 50%, or 70% based on the impedance divider.<br>
+        Because our simulation probe was placed directly on the bolted fault node, measuring exactly 0.000 per-unit confirms our model strictly satisfies standard IEC 60909 boundary conditions."</p>
+      </div>
+
+      <div class="eq-box">
+        <div class="eq-title">Bonus Answer: Can LLG Fault Current Ever Be Higher Than 3-Phase (LLL)?</div>
+        <b>Yes, it can!</b> In power systems, when the <b>Zero-Sequence Impedance is smaller than Positive-Sequence Impedance ($Z_0 < Z_1$)</b>, the parallel combination $Z_2 \parallel Z_0$ is smaller than $Z_1$. That actually makes the LLG phase current <b>higher than the 3-phase fault current</b>! This happens in solidly grounded switchyards near big Delta-Wye transformers.
+        <br>However, in our 22 kV generator island, because of our 1,750 $\Omega$ grounding resistor, $Z_0$ is enormous, so 3-phase fault ($126.2\text{ kA}$) is way larger than any ground fault.
+      </div>
+    </section>
+
+    <!-- STEP 7: PROTECTION SPEEDS & BREAKER DUTY -->
+    <section id="protection" class="card">
+      <h2>
+        <span>Step 7: Protection Speeds & Circuit Breaker Ratings</span>
+        <span class="card-time">3:55 – 4:25 (30 sec)</span>
+      </h2>
+
+      <div class="screen-cue">
+        <b>Screen Action</b>
+        <span>Show the Relay Trip Speeds and Circuit Breaker Duty tables (<span style="font-family:'JetBrains Mono'; font-weight:600;">Phase 5 Docs/tables/breaker_duties.png</span>).</span>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-box">
+          <div class="metric-num" style="color:var(--teal);">35 ms</div>
+          <div class="metric-desc">87B Busbar Relay</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num" style="color:var(--blue);">45 ms</div>
+          <div class="metric-desc">87G Generator Relay</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num" style="color:var(--green);">55.0%</div>
+          <div class="metric-desc">GCB Duty (PASS)</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num" style="color:var(--green);">13.8%</div>
+          <div class="metric-desc">230 kV GIS Duty (PASS)</div>
+        </div>
+      </div>
+
+      <div class="speech-bubble">
+        <button class="btn-copy" onclick="copySpeech(this)">Copy Speech</button>
+        <span class="speech-tag">🗣️ Spoken Words</span>
+        <p>"In Phase 5, we checked our relay speeds and breaker duties:</p>
+        
+        <p>• <strong>Fast Differential Relays (ANSI 87):</strong><br>
+        Our busbar differential relay (87B) trips in <strong>35 milliseconds</strong>, the line differential (87L) in <strong>40 milliseconds</strong>, and the generator and transformer differential relays (87G and 87T) in <strong>45 milliseconds</strong>.<br>
+        Adding the breaker's 50 ms mechanical opening delay gives a <strong>total fault clearing time of 85 to 95 milliseconds</strong>. That is strictly faster than the 100 ms stability limit, which guarantees our generator never loses synchronism with the national grid.</p>
+        
+        <p>• <strong>Circuit Breaker Withstand Ratings:</strong><br>
+        Our Siemens Generator Circuit Breaker (GCB) is certified for 100 kA, and the worst fault it ever has to interrupt is 55.05 kA coming from the grid. That gives a <strong>55% duty ratio</strong> and a very safe <strong>45% safety margin</strong>. The 230 kV GIS breaker operates at only <strong>13.8% duty</strong>.<br>
+        <strong>Verdict:</strong> Zero over-duty. All breakers comfortably pass."</p>
+      </div>
+    </section>
+
+    <!-- STEP 8: DYNAMIC CLOSED-LOOP TRIPS & STATION DC -->
+    <section id="dynamic-dc" class="card">
+      <h2>
+        <span>Step 8: Dynamic Trips & Station DC Battery Interlocking</span>
+        <span class="card-time">4:25 – 4:55 (30 sec)</span>
+      </h2>
+
+      <div class="screen-cue">
+        <b>Screen Action</b>
+        <span>Open the dynamic Scope window showing the 4 traces: Fault Injection $\rightarrow$ Relay Trip Pulse $\rightarrow$ Breaker Current Interruption $\rightarrow$ DC Battery Bus Voltage.</span>
+      </div>
+
+      <div class="speech-bubble">
+        <button class="btn-copy" onclick="copySpeech(this)">Copy Speech</button>
+        <span class="speech-tag">🗣️ Spoken Words</span>
+        <p>"In Phase 6, we set up dynamic simulations to watch the breakers trip in real time:</p>
+        
+        <p>• A relay can't just trip a breaker on its own—it needs electrical power from the station battery. So we built the real-world interlock logic:
+        $$\text{Trip Demand} = \text{Relay Trip Signal} \text{ AND } \text{DC Battery Healthy}$$
+        If the DC battery voltage ever drops below 88 Volts, the breaker won't trip.</p>
+        
+        <p>• When the trip coil energizes with a <strong>2-Kilowatt pulse</strong>, the 110-Volt battery bus dips by <strong>less than 1 Volt</strong>, proving the DC supply is rock solid.<br>
+        • Exactly 50 milliseconds after the trip pulse, the breaker contacts open and the fault current drops cleanly to zero.<br>
+        • And under a complete station blackout, our 200 Amp-hour battery keeps the protection and controls running for <strong>over 9 hours</strong>, meeting IEEE 485."</p>
+      </div>
+    </section>
+
+    <!-- STEP 9: CONCLUSION & SUMMARY -->
+    <section id="conclusion" class="card" style="border: 2px solid var(--green); background: #fbfdfc;">
+      <h2>
+        <span>Step 9: Key Takeaways & Final Wrap-Up</span>
+        <span class="card-time" style="background:var(--green-light); border-color:var(--green); color:var(--green);">4:55 – 5:25 (30 sec)</span>
+      </h2>
+
+      <div class="screen-cue">
+        <b>Screen Action</b>
+        <span>Switch back to the Executive KPI Dashboard or final conclusion slide.</span>
+      </div>
+
+      <div class="speech-bubble" style="border-left-color: var(--green);">
+        <button class="btn-copy" onclick="copySpeech(this)">Copy Speech</button>
+        <span class="speech-tag" style="background:var(--green-light); color:var(--green);">🗣️ Spoken Words</span>
+        <p>"To wrap up, here are the three big takeaways from our study:</p>
+        
+        <p>1. <strong>Equipment is completely protected:</strong> Our 1,750 Ohm grounding resistor saves the generator stator iron from melting, and fast differential relays prevent transformer explosions.<br>
+        2. <strong>The grid stays stable:</strong> Clearing all internal faults in under 95 milliseconds keeps the generator stable and avoids cascade blackouts.<br>
+        3. <strong>100% verified engineering:</strong> Every single number came from official Siemens and APSCL datasheets, and our simulation passed all <strong>447 automated verification tests with zero errors</strong>.</p>
+        
+        <p>Thank you very much for your time, and I am now ready to answer any questions!"</p>
+      </div>
+    </section>
+
+    <!-- STEP 10: QUICK VIVA CHEAT SHEET -->
+    <section id="qna-cheatsheet" class="card">
+      <h2>
+        <span>📋 Rapid Viva Defense Cheat Sheet</span>
+        <span class="card-time">QUICK ANSWERS</span>
+      </h2>
+      <p>Keep these short, natural answers in mind if the examiners ask you quick questions right after your video:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width:30%;">Teacher Question</th>
+            <th>Your Natural 1-Sentence Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>"Where did you get your data?"</b></td>
+            <td>"Directly from the Siemens factory drawings, nameplates, and APSCL technical sheets that we showed at the beginning of the video."</td>
+          </tr>
+          <tr>
+            <td><b>"Why 360 MW instead of 450 MW?"</b></td>
+            <td>"450 MW is the plant's nominal marketing name, but official APSCL Form B3 specifies 360 MW as the continuous base dispatch, with 458 MVA being the generator's gross rating."</td>
+          </tr>
+          <tr>
+            <td><b>"Why is ground fault only 7.27 A at 22 kV?"</b></td>
+            <td>"Because our 1,750 Ohm Neutral Earthing Resistor absorbs the ground potential and strictly limits stator ground fault current."</td>
+          </tr>
+          <tr>
+            <td><b>"Why is ground fault 45.7 kA at 230 kV?"</b></td>
+            <td>"Because the 230 kV grid and the transformer neutrals are solidly grounded with zero series neutral resistance."</td>
+          </tr>
+          <tr>
+            <td><b>"Why is GCB duty only 55%?"</b></td>
+            <td>"The GCB is rated for 100 kA, but the worst fault it ever has to interrupt is 55.05 kA fed from the grid through the transformer, so it has a safe 45% margin."</td>
+          </tr>
+          <tr>
+            <td><b>"Why do you need DC tripping logic?"</b></td>
+            <td>"In real substations, relays only send a low-power contact signal. The actual breaker opening mechanism needs 110 V DC power from the station battery to energize the trip coil."</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function setFontScale(scale, btn) {
+  document.documentElement.style.setProperty('--font-scale', scale);
+  document.querySelectorAll('.pbar-btn').forEach(b => {
+    if (b.id !== 'btn-full-width') b.classList.remove('active');
+  });
+  if (btn) btn.classList.add('active');
+  localStorage.setItem('speechFontScale', scale);
+}
+
+function toggleFullWidth(btn) {
+  document.documentElement.classList.toggle('full-width');
+  const isFull = document.documentElement.classList.contains('full-width');
+  btn.classList.toggle('active', isFull);
+  localStorage.setItem('speechFullWidth', isFull ? '1' : '0');
+}
+
+function copySpeech(btn) {
+  const bubble = btn.parentElement;
+  const paragraphs = bubble.querySelectorAll('p');
+  let fullText = '';
+  paragraphs.forEach(p => fullText += p.innerText + '\n\n');
+  navigator.clipboard.writeText(fullText.trim()).then(() => {
+    const originalText = btn.innerText;
+    btn.innerText = 'Copied! ✓';
+    btn.style.background = '#10b981';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.innerText = originalText;
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 2000);
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedScale = localStorage.getItem('speechFontScale');
+  if (savedScale) {
+    const s = parseFloat(savedScale);
+    let target = document.getElementById('btn-scale-2');
+    if (s <= 1.05) target = document.getElementById('btn-scale-1');
+    else if (s >= 1.5) target = document.getElementById('btn-scale-4');
+    else if (s >= 1.3) target = document.getElementById('btn-scale-3');
+    setFontScale(s, target);
+  }
+  const savedFull = localStorage.getItem('speechFullWidth');
+  if (savedFull === '1') toggleFullWidth(document.getElementById('btn-full-width'));
+});
+</script>
+</body>
+</html>

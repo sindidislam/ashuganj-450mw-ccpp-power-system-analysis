@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EEE 306 Term Project - Ashuganj South Load Flow</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:#1a1a1a;background:#fff;-webkit-font-smoothing:antialiased}
+header,nav,section,footer{max-width:1000px;margin:0 auto;padding:0 32px}
+header{padding-top:56px;padding-bottom:32px;border-bottom:3px solid #1a1a1a}
+.course{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#666;font-weight:600}
+h1{font-size:31px;line-height:1.25;margin:14px 0 12px;font-weight:700;letter-spacing:-.015em}
+.sub{font-size:17px;color:#333}
+.meta{font-size:12.5px;color:#777;margin-top:10px;font-variant-numeric:tabular-nums}
+nav{margin:32px auto;padding:20px 32px;background:#f7f7f5;border-radius:6px}
+nav b{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#666}
+nav ol{margin:10px 0 0;padding-left:22px;columns:2;column-gap:36px}
+nav li{margin:3px 0}
+nav a{color:#1a1a1a;text-decoration:none;border-bottom:1px solid #ccc}
+nav a:hover{border-bottom-color:#1a1a1a}
+section{padding-top:40px;padding-bottom:8px}
+h2{font-size:23px;margin:0 0 18px;padding-bottom:9px;border-bottom:2px solid #e0e0dc;font-weight:700;letter-spacing:-.01em}
+h3{font-size:16.5px;margin:30px 0 9px;font-weight:650}
+h4{font-size:14.5px;margin:22px 0 6px;font-weight:650}
+p{margin:11px 0}
+.why{color:#666;font-size:14px;margin:4px 0 12px}
+code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f2f2ef;
+  padding:1.5px 5px;border-radius:3px}
+pre.code{background:#1c1c1a;color:#e8e8e3;padding:16px 20px;border-radius:6px;overflow-x:auto;
+  font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+th{text-align:left;font-weight:650;padding:8px 11px;background:#f2f2ef;border-bottom:2px solid #d8d8d3;
+  font-size:12px;letter-spacing:.03em}
+td{padding:8px 11px;border-bottom:1px solid #ecece8;vertical-align:top}
+tr:last-child td{border-bottom:none}
+table.num td,table.num th{text-align:right;font-variant-numeric:tabular-nums}
+table.num td:first-child,table.num th:first-child,
+table.num td:nth-child(2),table.num th:nth-child(2){text-align:left}
+table.files td:first-child{width:38%;white-space:nowrap}
+td.tag{font:12.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:nowrap}
+td.bad{color:#a81b1b;font-weight:700}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+.card{background:#f7f7f5;border-radius:6px;padding:15px 16px}
+.cl{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#777;font-weight:650}
+.cv{font-size:22px;font-weight:700;margin:5px 0 3px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cn{font-size:12px;color:#666;line-height:1.45}
+p.note{background:#f7f7f5;border-left:3px solid #b8b8b0;padding:12px 16px;border-radius:0 4px 4px 0;font-size:13.5px}
+p.warn{background:#fdf6ec;border-left:3px solid #d99b3d;padding:12px 16px;border-radius:0 4px 4px 0;font-size:13.5px}
+ol,ul{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+figure{margin:20px 0}
+figure img{width:100%;display:block;border:1px solid #e0e0dc;border-radius:5px;background:#fff}
+figcaption{font-size:12.5px;color:#666;margin-top:8px;line-height:1.5}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:18px 0}
+.grid2 figure{margin:0}
+.snip{margin:20px 0}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-bottom:6px}
+.sh span{font-size:12.5px;color:#666;text-align:right}
+.sl{font-size:11.5px;color:#999;margin-top:5px;font-variant-numeric:tabular-nums}
+ol.steps{padding-left:0;list-style:none;counter-reset:st}
+ol.steps>li{counter-increment:st;position:relative;padding:0 0 4px 42px;margin:20px 0}
+ol.steps>li:before{content:counter(st);position:absolute;left:0;top:-1px;width:28px;height:28px;
+  border-radius:50%;background:#1a1a1a;color:#fff;font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+ol.steps>li>b:first-child{display:block;margin-bottom:2px}
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+.box{border:1px solid #e0e0dc;border-radius:6px;padding:16px 18px}
+.box h4{margin-top:0}
+footer{margin-top:52px;padding-top:22px;padding-bottom:52px;border-top:2px solid #e0e0dc;
+  color:#777;font-size:12.5px}
+@media print{nav{break-after:page}section{break-inside:avoid-page}
+  figure,.snip,table{break-inside:avoid}}
+@media(max-width:820px){.grid4{grid-template-columns:repeat(2,1fr)}nav ol{columns:1}
+  .grid2,.cards2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="course">Department of Electrical and Electronic Engineering &middot; BUET</div>
+<h1>EEE 306 Power System I Laboratory<br>Term Project Report</h1>
+<div class="sub"><b>Protection coordination and fault analysis of the Ashuganj 450&nbsp;MW combined cycle power plant (South)</b><br>Stage 1 &mdash; balanced steady-state load flow</div>
+<div class="meta">January 2026 &middot; Group-03, Section C-1 &middot; Solved on MATLAB 24.1.0.2537033 (R2024a) &middot; 100&nbsp;MVA base &middot; 50&nbsp;Hz &middot; 4 operating cases</div>
+</header>
+<nav><b>Contents</b><ol>
+<li><a href="#r1">1. Objectives</a></li>
+<li><a href="#r2">2. Introduction</a></li>
+<li><a href="#r3">3. Theory</a></li>
+<li><a href="#r4">4. Software and data used</a></li>
+<li><a href="#r5">5. Procedure</a></li>
+<li><a href="#r6">6. Connection diagram</a></li>
+<li><a href="#r7">7. Data tables</a></li>
+<li><a href="#r8">8. Sample calculation</a></li>
+<li><a href="#r9">9. What each result signifies</a></li>
+<li><a href="#r10">10. Report questions</a></li>
+<li><a href="#r11">11. What to perform next</a></li>
+</ol></nav>
+<section id="r1"><h2>1. Objectives</h2>
+<ol>
+<li>To reconstruct the electrical single-line diagram of the Ashuganj 450&nbsp;MW combined cycle power plant (South) as an executable model, from the plant's own engineering drawings and equipment data sheets rather than from typical values.</li>
+<li>To represent every component &mdash; generator, generator step-up transformer, unit auxiliary transformer, station auxiliary transformer, 230&nbsp;kV gas-insulated switchgear and the external grid &mdash; with parameters that each carry a source document and a status, so that a reader can tell a measured number from a derived one and from an assumed one.</li>
+<li>To perform a <b>balanced steady-state load flow</b> and obtain the voltage magnitude and angle at every bus, the active and reactive flow in every branch, and the losses of the plant's electrical system.</li>
+<li>To solve the study over more than one operating condition, so that the effect of generator dispatch and the effect of the station auxiliary transformer bay can be attributed separately instead of being confounded in a single answer.</li>
+<li>To check the solved answer independently &mdash; by rebuilding the power balance at every bus outside the solver &mdash; rather than accepting convergence as proof of correctness.</li>
+<li>To state, explicitly, every parameter that is missing, uncertain, assumed, derived or in conflict between source documents, and to identify what must be collected before the short-circuit and protection-coordination stages of the project can begin.</li>
+</ol>
+<p class="note"><b>Scope of this report.</b> Short-circuit calculation, unbalanced faults, relay modelling, protection grading and transient stability are the later stages of the term project and are deliberately <b>not</b> attempted here. The load flow is the stage that establishes the pre-fault operating point every one of those later studies starts from, and doing it first is not a delay &mdash; a fault study run on an unverified operating point produces confident numbers that are wrong.</p>
+</section>
+<section id="r2"><h2>2. Introduction</h2>
+<h3>The plant</h3>
+<p>Ashuganj Power Station Company Limited operates a Siemens SCC5-PAC 4000F/3000 (1S) single-shaft combined cycle at Ashuganj, Brahmanbaria. The South block, project number 112070, is a <b>single-shaft</b> arrangement: one gas turbine and one steam turbine sit on a single shaft driving <b>one</b> generator. This matters to the electrical model more than it might appear &mdash; a multi-shaft plant of the same output would present two or three generators to the 22&nbsp;kV bus, and this one presents exactly one.</p>
+<p>The engineering was carried out by GHESA / Empresarios Agrupados for the EPC contractor TSK / Inelectra International, with Siemens equipment throughout, and the drawings use the KKS identification system &mdash; every item in this report is named by its KKS tag (<code>10BAT10</code>, <code>10BBT10</code>, <code>10BAY11</code>) so that any figure here can be traced to an item on the plant's own drawings.</p>
+<p class="warn"><b>South only.</b> Ashuganj also has a North block, a separate project with its own 400&nbsp;kV gas-insulated switchgear and its own interbus transformers. It is excluded here, and there is <b>no 400&nbsp;kV node anywhere in this model</b>. Where a source document in the set carries 400&nbsp;kV data, that data belongs to the North block and was set aside rather than merged in.</p>
+<h3>The electrical system to be modelled</h3>
+<p>Power leaves the generator at 22&nbsp;kV and reaches the national grid at 230&nbsp;kV through one step-up transformer. Between those two points the plant taps off its own supply, and it is that tapping which makes the network worth solving rather than a single series calculation:</p>
+<ul>
+<li><b>G1</b>, a Siemens SGen5-2000H hydrogen-cooled generator, delivering into the 22&nbsp;kV generator bus.</li>
+<li><b>GSUT 10BAT10</b>, the generator step-up transformer, 230/22&nbsp;kV, raising the whole output to transmission voltage and delivering it into the 230&nbsp;kV busbars.</li>
+<li><b>UAT 10BBT10</b>, the unit auxiliary transformer, 22/6.9&nbsp;kV, tapped off the <i>generator</i> side and feeding the plant's own 6.6&nbsp;kV medium-voltage boards. While the unit runs, the plant feeds itself from its own output.</li>
+<li><b>GAT 10BBT20</b>, the station auxiliary transformer, 230/6.9/3.32&nbsp;kV, fed from the <i>grid</i> side. Its purpose is to supply the auxiliaries when the unit is not running &mdash; on start-up, and after a trip.</li>
+<li>The <b>230&nbsp;kV gas-insulated switchgear</b>, a Siemens 8DN9 double-busbar single-breaker installation, through which the step-up transformer, the station transformer and the outgoing circuits are connected.</li>
+</ul>
+<p>When the station transformer bay is closed while the unit is running, the 6.6&nbsp;kV board has <b>two</b> sources &mdash; the UAT from the generator side and the GAT from the grid side &mdash; and the network stops being radial. A closed loop is formed: 230&nbsp;kV &rarr; GSUT &rarr; 22&nbsp;kV &rarr; UAT &rarr; 6.6&nbsp;kV &rarr; GAT &rarr; 230&nbsp;kV. Power then divides between the two paths according to their impedances, not according to anybody's intention, and that division is one of the things this study exists to quantify.</p>
+</section>
+<section id="r3"><h2>3. Theory</h2>
+<h3>3.1 What a load flow computes, and what it assumes</h3>
+<p>A load flow finds the steady-state operating point of a network: the voltage magnitude and phase angle at every bus, from which every branch flow and every loss follows. It assumes the network is balanced across the three phases, that it is in sinusoidal steady state at one frequency, and that nothing is switching. Under those assumptions one phasor per bus describes all three phases, and the whole network can be written in positive-sequence form.</p>
+<p>At each bus the complex power injected is the product of the bus voltage and the conjugate of the current entering the network:</p>
+<pre class="code">S_i  =  P_i + jQ_i  =  V_i . conj( sum_k ( Y_ik . V_k ) )
+
+and, separated into real and imaginary parts,
+
+  P_i = |V_i| . sum_k |V_k| . ( G_ik.cos(t_ik) + B_ik.sin(t_ik) )
+  Q_i = |V_i| . sum_k |V_k| . ( G_ik.sin(t_ik) - B_ik.cos(t_ik) )
+
+where  t_ik = angle(V_i) - angle(V_k)   and   Y_ik = G_ik + jB_ik
+is the element of the bus admittance matrix Y_bus.</pre>
+<p>These equations are non-linear in the voltages, so they are solved iteratively. The Newton-Raphson method linearises them about the present estimate using the Jacobian of the mismatch, corrects the estimate, and repeats until the mismatch at every bus falls below a tolerance. Its convergence is quadratic, which is why a well-posed network of this size settles in a very small number of iterations &mdash; and why a solve that needs many iterations is a symptom to investigate rather than a result to report.</p>
+<h3>3.2 Bus classification</h3>
+<p>Each bus has four quantities &mdash; |V|, angle, P and Q &mdash; of which two are specified and two are computed. Which two are specified is what defines the bus type, and getting this wrong is the commonest way to make a load flow answer a question nobody asked.</p>
+<p class="cl">Table 1 &mdash; Bus types, and which of them appears in this network</p>
+<table><thead><tr><th>Type</th><th>Given</th><th>Computed</th><th>In this model</th></tr></thead><tbody>
+<tr><td><b>Slack (swing)</b></td><td>|V|, angle</td><td>P, Q</td><td>The 230&nbsp;kV grid connection. It takes up whatever the plant does not supply and absorbs whatever it exports, and it is the angle reference for the whole network.</td></tr>
+<tr><td><b>PV (generator)</b></td><td>P, |V|</td><td>Q, angle</td><td>The 22&nbsp;kV generator bus. The dispatch is specified and the machine holds its terminal voltage; the reactive output that this requires is a result of the study.</td></tr>
+<tr><td><b>PQ (load)</b></td><td>P, Q</td><td>|V|, angle</td><td>The 6.6&nbsp;kV auxiliary board, and every bus that neither generates nor is the reference.</td></tr>
+</tbody></table>
+<p>Exactly one slack bus exists, and there must be exactly one: without it the losses have no supplier, because the losses are not known until after the solution and so cannot be scheduled beforehand.</p>
+<h3>3.3 The per-unit system</h3>
+<p>Every quantity is normalised to a base, so that a transformer ratio disappears from the arithmetic and a value can be compared across voltage levels. The base power is chosen once for the whole system and the base voltage changes with the transformer ratios:</p>
+<pre class="code">S_base = 100 MVA        chosen once, for the whole system
+V_base                 the nominal voltage of each level: 230 kV, 22 kV, 6.6 kV
+
+Z_base = V_base^2 / S_base        I_base = S_base / ( sqrt(3) . V_base )
+
+A transformer impedance quoted on its OWN rating must be converted:
+
+  Z_new_pu = Z_old_pu . ( S_new / S_old ) . ( V_old / V_new )^2</pre>
+<p class="note"><b>The base is a reporting convention, not plant data.</b> A per-unit loading on a 100&nbsp;MVA system base says nothing about whether a transformer is thermally overloaded, because the transformer's own rating is not 100&nbsp;MVA. In this report every transformer loading is therefore reported a second time, as a percentage of the nameplate rating of <i>each cooling stage</i>. That is the number with a physical meaning.</p>
+<h3>3.4 The two-winding transformer in a load flow</h3>
+<p>For a balanced load flow the transformer reduces to a series leakage impedance and an ideal ratio, with a shunt magnetising branch that contributes the no-load loss. The short-circuit test gives the series element and the open-circuit test gives the shunt one:</p>
+<pre class="code">Z_pu = z_percent / 100         on the transformer's own rating\nR_pu = P_load_loss / S_rated   copper loss, from the short-circuit test\nX_pu = sqrt( Z_pu^2 - R_pu^2 ) leakage reactance\n\nX/R  is large for a power transformer, so almost all of the nameplate\nimpedance is reactance and the transformer is very nearly a pure\nreactor at fundamental frequency.</pre>
+<p>The vector group matters. A delta-star transformer introduces a fixed phase shift &mdash; 30&deg; per the group number &mdash; between its windings. In a radial network the shift is a bookkeeping detail. In a <i>looped</i> network it is not: two paths that meet again must agree about the angle, and a phase shift entered wrongly appears as circulating power that is entirely an artefact. This model carries the vector groups as they are on the nameplates, and the loop cases are the reason for the care.</p>
+<h3>3.5 The external grid equivalent</h3>
+<p>The national grid cannot be modelled in detail from a plant's own documents, so it is reduced to a Th&eacute;venin equivalent: an ideal voltage source behind a series impedance. The impedance follows from the short-circuit level at the point of connection:</p>
+<pre class="code">S_k"  = sqrt(3) . V_nominal . I_k"        the short-circuit level\nZ_th  = V_nominal^2 / S_k"                the equivalent series impedance\n\nA LARGE S_k" means a SMALL Z_th, i.e. a stiff grid whose voltage barely\nmoves with the plant's export. A small S_k" means a weak grid.</pre>
+<p class="warn"><b>This is the weakest number in the model, and it is labelled as such wherever it appears.</b> No short-circuit level for this busbar was issued by the utility in the document set. The value used is derived from the <i>withstand rating of the switchgear</i> &mdash; which is an equipment survivability figure, not a network fault level, and the two are only loosely related. It is used because a load flow needs something there, it is declared rather than presented as data, and its influence on the answers was measured separately by sensitivity test.</p>
+</section>
+<section id="r4"><h2>4. Software and data used</h2>
+<h3>4.1 Software</h3>
+<p class="cl">Table 2 &mdash; Computational environment, read from the running installation</p>
+<table class="files"><tbody>
+<tr><td>MATLAB</td><td>24.1.0.2537033 (R2024a)</td></tr>
+<tr><td>Platform</td><td>PCWIN64</td></tr>
+<tr><td>Simulink</td><td>block-diagram environment hosting the network</td></tr>
+<tr><td>Simscape Electrical &mdash; Specialized Power Systems</td><td>the positive-sequence electrical component library</td></tr>
+<tr><td>Load flow engine</td><td><code>power_loadflow</code>, reached from the <code>powergui</code> block</td></tr>
+<tr><td>System frequency solved at</td><td>50 Hz</td></tr>
+<tr><td>Reporting base</td><td>100 MVA</td></tr>
+</tbody></table>
+<p class="note"><b>50&nbsp;Hz, deliberately and repeatedly.</b> Bangladesh operates at 50&nbsp;Hz. A previous study of this same plant, carried out in CYME&nbsp;PSAF and supplied with the source material, was built at 60&nbsp;Hz. That frequency was rejected rather than reconciled: every reactance in this model is at 50&nbsp;Hz, and the solved frequency is written into every results table so it can be checked rather than trusted.</p>
+<h3>4.2 Source documents</h3>
+<p>No parameter in this study was taken from a textbook table of typical values. Every value traces to one of the documents below, and each value in the dataset records which one, together with a status &mdash; verified from the plant, verified from an engineering document, derived from verified data, assumed, estimated, missing, or in conflict between two documents.</p>
+<p class="cl">Table 3 &mdash; Engineering documents supplied by APSCL (10 files, listed as found on disk)</p>
+<table class="files"><tbody>
+<tr><td><code>GENERATION AND TRANSFORMERS SYSTEM.pdf</code></td><td>Generation and transformation system description.</td></tr>
+<tr><td><code>GSUT Data Sheet_South.pdf</code></td><td>Generator step-up transformer data sheet - impedance, losses, taps, cooling stages.</td></tr>
+<tr><td><code>GSUT Nameplate_South.pdf</code></td><td>Generator step-up transformer nameplate.</td></tr>
+<tr><td><code>Generator Data_South.pdf</code></td><td>Generator electrical data, and the only origin in the whole set of the external grid short-circuit figures.</td></tr>
+<tr><td><code>Generator Name Plate_South.pdf</code></td><td>Generator nameplate - ratings as built.</td></tr>
+<tr><td><code>Google Sheet Form_Filled Up By APSCL.pdf</code></td><td>Data form completed by APSCL. Its 400 kV entries belong to the North block and are outside the scope of this study.</td></tr>
+<tr><td><code>INEL-112070-00-ELC-DE-0001-REV3.pdf</code></td><td>Drawing and device numbering convention - how every tag in the drawings is read.</td></tr>
+<tr><td><code>Single Line Diagram_South.pdf</code></td><td>The governing drawing. Network topology, switchgear arrangement, KKS tags, and which bay connects to what.</td></tr>
+<tr><td><code>UAT  Data Sheet_South.pdf</code></td><td>Unit auxiliary transformer data sheet.</td></tr>
+<tr><td><code>UAT Nameplate_South.pdf</code></td><td>Unit auxiliary transformer nameplate.</td></tr>
+</tbody></table>
+<p>Two further sources sit alongside those: the structured workbook <code>Ashuganj_South_PSAF_Tabular_Engineer_Source.xlsx</code>, which indexes the plant's data into tables, and the project proposal <code>grp3_eee306_jan26_project_proposal_v2.pdf</code>. The workbook is an index, and it was treated as one: where it disagreed with an original engineering document, the original document was preferred and the disagreement was written down rather than resolved silently.</p>
+<h3>4.3 How disagreements between documents were handled</h3>
+<p>Sources were ranked before any of them was used: original engineer and plant documents first, then manufacturer data sheets, then the official single-line diagrams, then the engineer-completed data form, then the structured workbook. Where two sources gave different values for the same quantity, <b>both were kept</b>. Each such case is recorded in <code>docs/validation/conflicting_parameters.md</code> with both values, both sources, and an explanation of why they differ &mdash; different cooling stage, different tap, different base, or a genuine discrepancy.</p>
+<p>One of those conflicts reaches the results of this report directly and is therefore flagged wherever it appears: the auxiliary transformer secondary windings are rated <b>6.9&nbsp;kV</b> on their nameplates, while the medium-voltage system they feed is nominally <b>6.6&nbsp;kV</b>. The difference is worth about 4.5&nbsp;% on any per-unit voltage reported at that bus, so the bus voltage is reported <b>on both bases</b> rather than on whichever one looks better.</p>
+</section>
+<section id="r5"><h2>5. Procedure</h2>
+<p>The model is not drawn by hand. It is generated from the dataset by script, which is the reason a parameter can be changed in one place and the diagram, the solution and every table follow. The sequence below is what a run does, in order.</p>
+<ol class="steps">
+<li><b>Assemble the dataset.</b> Every parameter, with its source document, page, status and note, is returned by one function. Nothing downstream holds a number of its own.
+<pre class="code">D = ashuganj_master_data();   % the whole dataset, from one entry point
+
+D.base.Sbase_MVA   -&gt;  100          reporting base
+D.base.f_Hz        -&gt;  50          system frequency
+D.buses            -&gt;  10 bus records
+D.tx               -&gt;  3 transformers
+D.lines            -&gt;  7 branch records
+D.loads            -&gt;  4 load records
+D.cases            -&gt;  4 operating cases</pre>
+</li>
+<li><b>Check the dataset before it is used.</b> The validation suite recomputes what can be recomputed &mdash; rated currents from ratings and voltages, tap spans from tap voltages, impedance conversions between bases &mdash; and fails if a value contradicts another value. It is run before the model is built, not after the results look acceptable.
+<pre class="code">run_all_tests</pre>
+</li>
+<li><b>Build the network programmatically.</b> One builder per part of the plant, so that each reads like the corresponding sheet of the single-line diagram, and one assembler that places them and wires them together.
+<pre class="code">matlab/build/build_230kv_system.m
+matlab/build/build_ashuganj_main.m
+matlab/build/build_auxiliary_system.m
+matlab/build/build_external_grid.m
+matlab/build/build_generator_system.m
+matlab/build/build_gsut_system.m
+matlab/build/sps_blocks.m
+matlab/build/sps_geom.m
+matlab/build/sps_wire.m</pre>
+</li>
+<li><b>Solve each operating case.</b> Each case is built from the dataset <i>fresh</i> and then solved. This is not caution for its own sake: the load flow writes its solution back into the blocks, so a model that has already been solved is no longer in its as-built state and solving it again would start from the previous answer.
+<pre class="code">run_load_flow_study      % builds and solves all 4 cases in turn
+
+% inside, per case:
+LF = power_loadflow(sys, 'parameters');   % tolerance, iteration limit, base
+LF = power_loadflow(sys, 'solve', LF);    % Newton-Raphson solve
+power_loadflow(sys, 'report');            % the tool's own report file</pre>
+</li>
+<li><b>Check the solution independently.</b> Convergence is not proof. For every bus, the injection the solver reports is compared against the sum of the branch flows rebuilt from the solved voltages <i>outside</i> the solver. The residual of that comparison is tabulated for every bus in every case, and it is the column that decides whether the rest of the report is worth reading.</li>
+<li><b>Extract, tabulate and draw.</b> Buses, branches, transformers and the generator are written to CSV; the plots and the annotated single-line diagrams are drawn from those CSVs, never by re-solving, so a figure and a table cannot disagree.
+<pre class="code">make_load_flow_plots
+make_annotated_diagrams
+build_lab_report        % this document</pre>
+</li>
+</ol>
+<p class="note"><b>All of the above is one command.</b> <code>RUN_ME</code> at the project root runs the whole sequence and needs no arguments and no path setup. <code>RUN_ME check</code> reports the environment and changes nothing. The click-by-click procedure for demonstrating the solve interactively, in front of an audience, is section&nbsp;4 of <a href="USER_MANUAL.html">USER_MANUAL.html</a>.</p>
+</section>
+<section id="r6"><h2>6. Connection diagram</h2>
+<p>The diagram below is the model, drawn in the arrangement of the plant's own single-line diagram (<code>Single Line Diagram_South.pdf</code>, drawing <code>INEL-112070-00-ELC-DE-0023</code>) and annotated with the solved result at every point. It is generated, not drawn: the numbers on it come from the same CSVs as the tables in section&nbsp;7.</p>
+<figure><img src="Load_Flow_LF1_Annotated.png" alt="Load_Flow_LF1_Annotated.png"><figcaption>The model in single-line form with the solved case LF1 written onto it &mdash; rated dispatch, station auxiliary transformer bay open, radial network.</figcaption></figure>
+<figure><img src="Load_Flow_LF2_Annotated.png" alt="Load_Flow_LF2_Annotated.png"><figcaption>The same network with the station auxiliary transformer bay closed (case LF2). The loop 230 kV - GSUT - 22 kV - UAT - 6.6 kV - GAT - 230 kV is now complete, and the auxiliary supply divides between the two paths.</figcaption></figure>
+<h3>6.1 The buses in the model</h3>
+<p class="cl">Table 4 &mdash; Buses represented, with the plant name each one carries</p>
+<table><thead><tr><th>Bus</th><th>Plant designation</th><th>Nominal</th><th>Type</th></tr></thead><tbody>
+<tr><td class="tag">BGRID230</td><td>EXT GRID 230 kV</td><td>230 kV</td><td>swing</td></tr>
+<tr><td class="tag">B22</td><td>22 kV GEN BUS</td><td>22 kV</td><td>PV</td></tr>
+<tr><td class="tag">B6_6</td><td>6.6 kV MV BUS</td><td>6.6 kV</td><td>PQ</td></tr>
+<tr><td class="tag">B6_6_WI1</td><td>6.6 kV WI-1</td><td>6.6 kV</td><td>PQ &mdash; solved as one node with <code>B6_6</code></td></tr>
+<tr><td class="tag">B6_6_WI2</td><td>6.6 kV WI-2</td><td>6.6 kV</td><td>PQ &mdash; solved as one node with <code>B6_6</code></td></tr>
+<tr><td class="tag">B230_1</td><td>230 kV BUS 1 + BUS 2 (coupler closed)</td><td>230 kV</td><td>PQ</td></tr>
+<tr><td class="tag">B230_2</td><td>230 kV BUS 2</td><td>230 kV</td><td>PQ &mdash; solved as one node with <code>B230_1</code></td></tr>
+<tr><td class="tag">GAT_HV</td><td>GAT_HV</td><td>230 kV</td><td>PQ</td></tr>
+</tbody></table>
+<p>Where two buses are solved as one node, it is because what joins them has no impedance to solve across &mdash; a closed breaker, or a connection whose impedance is not in the document set. To a load flow that is an identity, not a branch. All of the buses are kept in the table so that nothing looks overlooked, and the merged ones name the node they belong to.</p>
+<h3>6.2 The branches in the model</h3>
+<p class="cl">Table 5 &mdash; Branches represented, and what each one is</p>
+<table><thead><tr><th>Branch</th><th>Kind</th><th>From</th><th>To</th></tr></thead><tbody>
+<tr><td>ZGRID (grid equivalent)</td><td>equivalent</td><td class="tag">BGRID230</td><td class="tag">B230_1</td></tr>
+<tr><td>BUS COUPLER 10BAY12</td><td>breaker</td><td class="tag">B230_1</td><td class="tag">B230_2</td></tr>
+<tr><td>GAT BAY CB 10BAY20 (open, snubber path)</td><td>breaker</td><td class="tag">B230_2</td><td class="tag">GAT_HV</td></tr>
+</tbody></table>
+<p class="warn"><b>What is not in the model, and why.</b> The busducts, the switchgear bays and the 6.6&nbsp;kV feeders carry <b>no impedance</b>, because none is documented anywhere in the source set. The consequence is stated rather than buried: this model produces no feeder voltage drop and no cable loss at all, so the losses it reports are a floor and the real plant loses slightly more.</p>
+</section>
+<section id="r7"><h2>7. Data tables</h2>
+<h3>7.1 Equipment parameters entered into the model</h3>
+<p>These are inputs, not results. Every one of them is on a nameplate or a data sheet in the document set, except where the status column says otherwise.</p>
+<p class="cl">Table 6 &mdash; Generator G1 (Siemens SGen5-2000H) as entered</p>
+<table class="num"><thead><tr><th>Quantity</th><th>Symbol</th><th>Value</th><th>Unit</th></tr></thead><tbody>
+<tr><td>Nominal terminal voltage</td><td class="tag">V_n</td><td>22</td><td>kV</td></tr>
+<tr><td>Apparent power, 50 &deg;C H2</td><td class="tag">S_n</td><td>458</td><td>MVA</td></tr>
+<tr><td>Apparent power, 30 &deg;C H2</td><td class="tag">S_max</td><td>518</td><td>MVA</td></tr>
+<tr><td>Rated power factor</td><td class="tag">cos phi</td><td>0.85</td><td>&mdash;</td></tr>
+<tr><td>Rated stator current</td><td class="tag">I_n</td><td>12019</td><td>A</td></tr>
+<tr><td>Synchronous reactance</td><td class="tag">x_d</td><td>166.3</td><td>%</td></tr>
+<tr><td>Transient reactance</td><td class="tag">x_d'</td><td>28.65</td><td>%</td></tr>
+<tr><td>Subtransient reactance</td><td class="tag">x_d"</td><td>22.48</td><td>%</td></tr>
+</tbody></table>
+<p class="sl">The three reactances are entered into the dataset for the later short-circuit stage. A balanced load flow uses none of them: the machine appears to the solve as a specified real power at a specified terminal voltage.</p>
+<p class="cl">Table 7 &mdash; The three transformers as entered</p>
+<table class="num"><thead><tr><th>Transformer</th><th>KKS</th><th>HV / LV<br>kV</th><th>Vector<br>group</th><th>Cooling stages<br>MVA</th><th>z<br>%</th><th>on<br>MVA</th><th>R<br>%</th><th>X<br>%</th><th>X/R</th></tr></thead><tbody>
+<tr><td><b>GSUT</b></td><td class="tag">10BAT10</td><td>230 / 22</td><td class="tag">YNd1</td><td>355 / 460 / 515</td><td>16</td><td>515</td><td>0.21</td><td>15.9986</td><td>76.2</td></tr>
+<tr><td><b>UAT</b></td><td class="tag">10BBT10</td><td>22 / 6.9</td><td class="tag">Dyn11</td><td>19 / 25</td><td>10.5</td><td>25</td><td>0.4</td><td>10.4924</td><td>26.2</td></tr>
+<tr><td><b>GAT</b></td><td class="tag">10BBT20</td><td>230 / 6.9</td><td class="tag">YNyn0+d11</td><td>19 / 25</td><td>12</td><td>25</td><td>0.5</td><td>11.9896</td><td>24.0</td></tr>
+</tbody></table>
+<p class="sl">The reactance column is derived, not read: X = sqrt(z&sup2; &minus; R&sup2;) from the nameplate impedance and the nameplate resistance. The resistance was independently cross-checked against the measured load loss divided by the rating, which is a different route to the same number.</p>
+<p class="cl">Table 8 &mdash; External grid equivalent as entered</p>
+<table class="num"><thead><tr><th>Quantity</th><th>Value</th><th>Unit</th><th>Status</th></tr></thead><tbody>
+<tr><td>Nominal voltage</td><td>230</td><td>kV</td><td>verified from the drawings</td></tr>
+<tr><td>Short-circuit current used</td><td>50</td><td>kA</td><td><b>estimated</b> from the switchgear withstand rating</td></tr>
+<tr><td>Implied short-circuit level</td><td>1.992e+04</td><td>MVA</td><td>derived from the line above, and no stronger than it</td></tr>
+<tr><td>Series resistance</td><td>0</td><td>&Omega;</td><td>assumed zero &mdash; X/R is undocumented</td></tr>
+</tbody></table>
+<p class="cl">Table 9 &mdash; Auxiliary load as entered, and how it is allocated</p>
+<table class="num"><thead><tr><th>Load</th><th>Bus</th><th>P<br>MW</th><th>Q<br>MVAr</th><th>In the model</th></tr></thead><tbody>
+<tr><td>MV BUS aux group</td><td class="tag">B6_6</td><td>9.018</td><td>5.589</td><td>yes</td></tr>
+<tr><td>Water intake / motor group 1</td><td class="tag">B6_6_WI1</td><td>2.491</td><td>1.544</td><td>yes</td></tr>
+<tr><td>Water intake / motor group 2</td><td class="tag">B6_6_WI2</td><td>2.491</td><td>1.544</td><td>yes</td></tr>
+<tr><td>400 V LV board load</td><td class="tag">B0_4</td><td>&mdash;</td><td>&mdash;</td><td><b>no</b> &mdash; rating not documented</td></tr>
+</tbody></table>
+<p class="warn"><b>The split between the three boards is an assumption, and it is labelled one.</b> The total auxiliary demand and its power factor are documented; the division of that total between the individual 6.6&nbsp;kV boards is not stated in the source set in a form that could be entered directly. Because the three boards are solved as one node &mdash; the feeder impedances between them are not documented either &mdash; the split has no effect whatever on any result in this report. It is recorded in <code>matlab/data/assumptions/</code> so that it becomes a real question the moment feeder impedances are obtained.</p>
+<h3>7.2 The operating cases solved</h3>
+<p>Two things could not be settled from the documents: how much the unit is dispatching, and whether the station auxiliary transformer bay is closed while the unit runs. Rather than choose, both were kept. Two independent choices give four cases, and reporting only two would confound the dispatch effect with the transformer effect so that neither could be attributed.</p>
+<p class="cl">Table 10 &mdash; The case matrix</p>
+<table><thead><tr><th>Case</th><th>Dispatch</th><th>Station aux transformer</th><th>Network</th><th>What it isolates</th></tr></thead><tbody>
+<tr><td><b>LF1</b></td><td>Rated, 389.30 MW</td><td>out of service</td><td>radial</td><td>Base case &mdash; maximum export and maximum step-up loading</td></tr>
+<tr><td><b>LF2</b></td><td>Rated, 389.30 MW</td><td>in service</td><td>looped</td><td>The effect of the station transformer, versus LF1</td></tr>
+<tr><td><b>LF3</b></td><td>Derated, 342.01 MW</td><td>out of service</td><td>radial</td><td>The effect of dispatch alone, versus LF1</td></tr>
+<tr><td><b>LF4</b></td><td>Derated, 342.01 MW</td><td>in service</td><td>looped</td><td>Completes the matrix so the two effects can be separated</td></tr>
+</tbody></table>
+<h3>7.3 Solved results</h3>
+<p class="cl">Table 11 &mdash; System summary &mdash; the power balance of the whole plant</p>
+<table class="num"><thead><tr><th>Case</th><th>P gen<br>MW</th><th>Q gen<br>MVAr</th><th>P aux<br>MW</th><th>P loss<br>MW</th><th>P export<br>MW</th><th>Q export<br>MVAr</th><th>Loss<br>% of gen</th><th>Iter</th></tr></thead><tbody>
+<tr><td><b>LF1</b></td><td>389.300</td><td>31.676</td><td>14.000</td><td>0.8165</td><td>374.484</td><td>-29.986</td><td>0.2097</td><td>2</td></tr>
+<tr><td><b>LF2</b></td><td>389.300</td><td>27.461</td><td>14.000</td><td>0.8334</td><td>374.467</td><td>-33.704</td><td>0.2141</td><td>2</td></tr>
+<tr><td><b>LF3</b></td><td>342.010</td><td>26.174</td><td>14.000</td><td>0.6802</td><td>327.330</td><td>-23.417</td><td>0.1989</td><td>2</td></tr>
+<tr><td><b>LF4</b></td><td>342.010</td><td>22.007</td><td>14.000</td><td>0.6903</td><td>327.320</td><td>-27.231</td><td>0.2018</td><td>2</td></tr>
+</tbody></table>
+<p class="sl">A negative reactive export means the plant is <i>absorbing</i> reactive power from the grid at the point of connection.</p>
+<p class="cl">Table 12 &mdash; Bus voltages and angles, every bus in every case</p>
+<table class="num"><thead><tr><th>Case</th><th>Bus</th><th>Base<br>kV</th><th>V<br>pu</th><th>V<br>kV</th><th>Angle<br>deg</th><th>P inj<br>MW</th><th>Q inj<br>MVAr</th></tr></thead><tbody>
+<tr><td>LF1</td><td>BGRID230</td><td>230</td><td>1.000000</td><td>230.0000</td><td>0.0000</td><td>-374.484</td><td>29.986</td></tr>
+<tr><td>LF1</td><td>B22</td><td>22</td><td>1.000000</td><td>22.0000</td><td>-22.2247</td><td>389.300</td><td>31.676</td></tr>
+<tr><td>LF1</td><td>B6_6</td><td>6.6</td><td>1.000911</td><td>6.6060</td><td>4.3342</td><td>-14.000</td><td>-8.676</td></tr>
+<tr><td>LF1</td><td>B6_6_WI1 <span class="sl">(node of B6_6)</span></td><td>6.6</td><td>1.000911</td><td>6.6060</td><td>4.3342</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF1</td><td>B6_6_WI2 <span class="sl">(node of B6_6)</span></td><td>6.6</td><td>1.000911</td><td>6.6060</td><td>4.3342</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF1</td><td>B230_1</td><td>230</td><td>0.998672</td><td>229.6945</td><td>1.0787</td><td>0.000</td><td>0.000</td></tr>
+<tr><td>LF1</td><td>B230_2 <span class="sl">(node of B230_1)</span></td><td>230</td><td>0.998672</td><td>229.6945</td><td>1.0787</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF1</td><td>GAT_HV</td><td>230</td><td>0.957242</td><td>220.1657</td><td>4.3320</td><td>-0.000</td><td>0.000</td></tr>
+<tr><td>LF2</td><td>BGRID230</td><td>230</td><td>1.000000</td><td>230.0000</td><td>0.0000</td><td>-374.467</td><td>33.704</td></tr>
+<tr><td>LF2</td><td>B22</td><td>22</td><td>1.000000</td><td>22.0000</td><td>-22.3292</td><td>389.300</td><td>27.461</td></tr>
+<tr><td>LF2</td><td>B6_6</td><td>6.6</td><td>1.020280</td><td>6.7338</td><td>2.7965</td><td>-14.000</td><td>-8.676</td></tr>
+<tr><td>LF2</td><td>B6_6_WI1 <span class="sl">(node of B6_6)</span></td><td>6.6</td><td>1.020280</td><td>6.7338</td><td>2.7965</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF2</td><td>B6_6_WI2 <span class="sl">(node of B6_6)</span></td><td>6.6</td><td>1.020280</td><td>6.7338</td><td>2.7965</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF2</td><td>B230_1</td><td>230</td><td>0.998485</td><td>229.6515</td><td>1.0789</td><td>0.000</td><td>0.000</td></tr>
+<tr><td>LF2</td><td>B230_2 <span class="sl">(node of B230_1)</span></td><td>230</td><td>0.998485</td><td>229.6515</td><td>1.0789</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF2</td><td>GAT_HV</td><td>230</td><td>0.998487</td><td>229.6520</td><td>1.0790</td><td>-0.000</td><td>-0.000</td></tr>
+<tr><td>LF3</td><td>BGRID230</td><td>230</td><td>1.000000</td><td>230.0000</td><td>0.0000</td><td>-327.330</td><td>23.417</td></tr>
+<tr><td>LF3</td><td>B22</td><td>22</td><td>1.000000</td><td>22.0000</td><td>-23.2091</td><td>342.010</td><td>26.174</td></tr>
+<tr><td>LF3</td><td>B6_6</td><td>6.6</td><td>1.000908</td><td>6.6060</td><td>3.3497</td><td>-14.000</td><td>-8.676</td></tr>
+<tr><td>LF3</td><td>B6_6_WI1 <span class="sl">(node of B6_6)</span></td><td>6.6</td><td>1.000908</td><td>6.6060</td><td>3.3497</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF3</td><td>B6_6_WI2 <span class="sl">(node of B6_6)</span></td><td>6.6</td><td>1.000908</td><td>6.6060</td><td>3.3497</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF3</td><td>B230_1</td><td>230</td><td>0.998960</td><td>229.7607</td><td>0.9426</td><td>0.000</td><td>0.000</td></tr>
+<tr><td>LF3</td><td>B230_2 <span class="sl">(node of B230_1)</span></td><td>230</td><td>0.998960</td><td>229.7607</td><td>0.9426</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF3</td><td>GAT_HV</td><td>230</td><td>0.957235</td><td>220.1640</td><td>3.3476</td><td>-0.000</td><td>0.000</td></tr>
+<tr><td>LF4</td><td>BGRID230</td><td>230</td><td>1.000000</td><td>230.0000</td><td>0.0000</td><td>-327.320</td><td>27.231</td></tr>
+<tr><td>LF4</td><td>B22</td><td>22</td><td>1.000000</td><td>22.0000</td><td>-23.2859</td><td>342.010</td><td>22.007</td></tr>
+<tr><td>LF4</td><td>B6_6</td><td>6.6</td><td>1.020818</td><td>6.7374</td><td>2.2238</td><td>-14.000</td><td>-8.676</td></tr>
+<tr><td>LF4</td><td>B6_6_WI1 <span class="sl">(node of B6_6)</span></td><td>6.6</td><td>1.020818</td><td>6.7374</td><td>2.2238</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF4</td><td>B6_6_WI2 <span class="sl">(node of B6_6)</span></td><td>6.6</td><td>1.020818</td><td>6.7374</td><td>2.2238</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF4</td><td>B230_1</td><td>230</td><td>0.998768</td><td>229.7167</td><td>0.9427</td><td>0.000</td><td>0.000</td></tr>
+<tr><td>LF4</td><td>B230_2 <span class="sl">(node of B230_1)</span></td><td>230</td><td>0.998768</td><td>229.7167</td><td>0.9427</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>LF4</td><td>GAT_HV</td><td>230</td><td>0.998770</td><td>229.7170</td><td>0.9428</td><td>-0.000</td><td>-0.000</td></tr>
+</tbody></table>
+<p class="warn"><b>The 6.6&nbsp;kV bus voltage is reported on two bases, because the documents disagree about which base is correct.</b> The system is nominally 6.6&nbsp;kV; the transformer windings that feed it are rated 6.9&nbsp;kV. The table above uses the 6.6&nbsp;kV system nominal. Against the 6.9&nbsp;kV winding rating the same solved voltage reads about 4.5&nbsp;% lower. Both figures are in <code>results/load_flow/bus_results.csv</code>, in the <code>V_pu</code> and <code>V_pu_alt_base</code> columns, and neither is presented as the answer.</p>
+<figure><img src="bus_voltage_profile.png" alt="bus_voltage_profile.png"><figcaption>Bus voltage profile, all four cases.</figcaption></figure>
+<p class="cl">Table 13 &mdash; Generator operating point</p>
+<table class="num"><thead><tr><th>Case</th><th>P<br>MW</th><th>Q<br>MVAr</th><th>S<br>MVA</th><th>pf</th><th>I<br>A</th><th>% of 458 MVA</th><th>% of 518 MVA</th></tr></thead><tbody>
+<tr><td>LF1</td><td>389.300</td><td>31.676</td><td>390.587</td><td>0.9967</td><td>10250.2</td><td>85.28</td><td>75.40</td></tr>
+<tr><td>LF2</td><td>389.300</td><td>27.461</td><td>390.267</td><td>0.9975</td><td>10241.9</td><td>85.21</td><td>75.34</td></tr>
+<tr><td>LF3</td><td>342.010</td><td>26.174</td><td>343.010</td><td>0.9971</td><td>9001.7</td><td>74.89</td><td>66.22</td></tr>
+<tr><td>LF4</td><td>342.010</td><td>22.007</td><td>342.717</td><td>0.9979</td><td>8994.0</td><td>74.83</td><td>66.16</td></tr>
+</tbody></table>
+<p class="note"><b>The reactive output is a result, and it is unconstrained.</b> The machine's capability curve is not in the document set, so no reactive limit was imposed on the solve. The solved reactive output must therefore be checked against the capability curve when that curve is obtained &mdash; the model will not refuse an operating point the machine could not actually hold.</p>
+<p class="cl">Table 14 &mdash; Transformer flows, losses and loading against each cooling stage</p>
+<table class="num"><thead><tr><th>Case</th><th>Transformer</th><th>S LV<br>MVA</th><th>S HV<br>MVA</th><th>P loss<br>MW</th><th>Q loss<br>MVAr</th><th>I HV<br>A</th><th>Lowest stage<br>%</th><th>Highest stage<br>%</th></tr></thead><tbody>
+<tr><td>LF1</td><td>GSUT 10BAT10</td><td>375.842</td><td>375.185</td><td>0.7340</td><td>44.5107</td><td>943.05</td><td class="bad">105.87</td><td>72.98</td></tr>
+<tr><td>LF1</td><td>UAT 10BBT10</td><td>16.520</td><td>17.306</td><td>0.0612</td><td>1.3238</td><td>454.18</td><td>91.09</td><td>69.23</td></tr>
+<tr><td>LF1</td><td>GAT 10BBT20</td><td>0.065</td><td>0.004</td><td>0.0211</td><td>0.0654</td><td>0.01</td><td>0.34</td><td>0.26</td></tr>
+<tr><td>LF2</td><td>GSUT 10BAT10</td><td>369.946</td><td>369.227</td><td>0.7160</td><td>43.1449</td><td>928.25</td><td class="bad">104.21</td><td>71.83</td></tr>
+<tr><td>LF2</td><td>UAT 10BBT10</td><td>20.293</td><td>20.825</td><td>0.0829</td><td>1.8892</td><td>546.51</td><td class="bad">109.60</td><td>83.30</td></tr>
+<tr><td>LF2</td><td>GAT 10BBT20</td><td>7.553</td><td>7.755</td><td>0.0344</td><td>0.3578</td><td>19.50</td><td>40.82</td><td>31.02</td></tr>
+<tr><td>LF3</td><td>GSUT 10BAT10</td><td>328.325</td><td>327.827</td><td>0.5978</td><td>34.1195</td><td>823.77</td><td>92.49</td><td>63.75</td></tr>
+<tr><td>LF3</td><td>UAT 10BBT10</td><td>16.520</td><td>17.307</td><td>0.0612</td><td>1.3239</td><td>454.19</td><td>91.09</td><td>69.23</td></tr>
+<tr><td>LF3</td><td>GAT 10BBT20</td><td>0.066</td><td>0.003</td><td>0.0211</td><td>0.0654</td><td>0.01</td><td>0.35</td><td>0.26</td></tr>
+<tr><td>LF4</td><td>GSUT 10BAT10</td><td>323.988</td><td>323.431</td><td>0.5862</td><td>33.2406</td><td>812.88</td><td>91.26</td><td>62.91</td></tr>
+<tr><td>LF4</td><td>UAT 10BBT10</td><td>18.799</td><td>19.285</td><td>0.0731</td><td>1.6301</td><td>506.09</td><td class="bad">101.50</td><td>77.14</td></tr>
+<tr><td>LF4</td><td>GAT 10BBT20</td><td>6.371</td><td>6.553</td><td>0.0310</td><td>0.2749</td><td>16.47</td><td>34.49</td><td>26.21</td></tr>
+</tbody></table>
+<p>Figures shown in red exceed the nameplate rating of the lowest cooling stage. What that does and does not mean is section&nbsp;9.</p>
+<figure><img src="transformer_loading.png" alt="transformer_loading.png"><figcaption>Transformer loading against every cooling stage, all four cases.</figcaption></figure>
+<p class="cl">Table 15 &mdash; Independent check &mdash; worst power-balance residual per case</p>
+<table class="num"><thead><tr><th>Case</th><th>Worst bus</th><th>Residual<br>MVA</th><th>As a fraction of the plant output</th></tr></thead><tbody>
+<tr><td><b>LF1</b></td><td class="tag">BGRID230</td><td>8.61e-08</td><td>2.2e-10</td></tr>
+<tr><td><b>LF2</b></td><td class="tag">B230_1</td><td>0.000614</td><td>1.6e-06</td></tr>
+<tr><td><b>LF3</b></td><td class="tag">BGRID230</td><td>8.62e-08</td><td>2.5e-10</td></tr>
+<tr><td><b>LF4</b></td><td class="tag">B230_1</td><td>0.000518</td><td>1.5e-06</td></tr>
+</tbody></table>
+<p>At every bus, in every case, the injection the solver reports was compared against the sum of the branch flows rebuilt from the solved voltages outside the solver. This is the table that licenses the rest: the largest disagreement anywhere is negligible against the quantities being reported. The per-bus detail is <code>results/load_flow/residuals.csv</code>.</p>
+<figure><img src="power_balance.png" alt="power_balance.png"><figcaption>Power balance of the plant, all four cases.</figcaption></figure>
+</section>
+<section id="r8"><h2>8. Sample calculation</h2>
+<p>Worked on the generator step-up transformer in case <b>LF1</b>, because it carries the whole plant output and is the component whose loading turns out to matter. Each step ends with the figure the study reports, so the arithmetic is checked rather than illustrated.</p>
+<h3>8.1 Converting the transformer impedance to the study base</h3>
+<p>The nameplate quotes the impedance on the transformer's own rating. The study reports on a common base, so it must be converted.</p>
+<pre class="code">nameplate      z = 16 %  on  515 MVA  (the highest cooling stage)
+study base       S_base = 100 MVA,  V_base = 230 kV (unchanged)
+
+   Z_pu(study) = Z_pu(own) . (S_base / S_own) . (V_own / V_base)^2
+               = 0.160000 . (100 / 515) . 1
+               = 0.031068 pu
+
+and in ohms, referred to the 230 kV side:
+
+   Z_base = V_base^2 / S_base = 230^2 / 100 = 529.0000 ohm
+   Z      = 0.031068 . 529.0000 = 16.4350 ohm</pre>
+<p>The impedance entered into the block is in per-unit on the transformer's own rating, which is what the block expects; the conversion above is what makes the number comparable with the rest of the study. Getting this backwards &mdash; entering 0.03107&nbsp;pu where 0.16&nbsp;pu was meant &mdash; would understate the transformer's impedance by a factor of about 5.2 and is the single easiest mistake to make in a load flow.</p>
+<h3>8.2 High-voltage current from the solved flow</h3>
+<pre class="code">solved flow at the HV winding      S = 375.1852 MVA
+solved voltage at that bus         V = 0.998672 pu . 230 kV = 229.6945 kV
+
+   I = S / ( sqrt(3) . V )
+     = 375.1852 e6 / ( 1.732051 . 229.6945 e3 )
+     = 943.05 A
+
+reported in transformer_results.csv    943.05 A
+difference                             -0.0000 A
+
+Using the NOMINAL 230 kV instead of the solved 229.6945 kV would give
+941.80 A - low by 1.25 A. The current follows the voltage the network
+actually settles at, not the voltage on the nameplate.</pre>
+<p>Against the switchgear's continuous rating of 3150&nbsp;A this is about 30&nbsp;%. The 230&nbsp;kV switchgear is not the constraint anywhere in this study.</p>
+<h3>8.3 Loading against each cooling stage</h3>
+<p>This is the step that changes the conclusion, and it is the reason the study reports loading against every stage rather than only the top one.</p>
+<pre class="code">winding apparent power (input winding, 22 kV, generator side)   S = 375.8417 MVA
+
+   ONAN   355 MVA :  375.8417 / 355 = 105.87 %
+   ODAN   460 MVA :  375.8417 / 460 =  81.70 %
+   ODAF   515 MVA :  375.8417 / 515 =  72.98 %
+
+reported, lowest stage   105.87 %
+reported, highest stage  72.98 %</pre>
+<p class="sl">The apparent power used is the one on whichever of the two windings carries more, which is always the <i>input</i> winding, because the transformer's own losses have not yet been subtracted from it. In this transformer power flows upward, so that is the 22&nbsp;kV generator-side winding; in the two auxiliary transformers power flows downward into the board and it is the high-voltage winding instead. Taking the output winding would understate the loading of the lowest stage by about 0.18 percentage points.</p>
+<h3>8.4 The plant power balance</h3>
+<p>Nothing in a load flow is more worth checking than this, because it is the one identity that must hold exactly and does not depend on any parameter being right.</p>
+<pre class="code">generated                      +389.3000 MW
+exported to the grid          374.4835   MW
+                              -----------
+retained in the plant           +14.8165 MW
+
+auxiliary load                  +14.0000 MW
+transformer losses               +0.8165 MW
+                              -----------
+accounted for                   +14.8165 MW
+
+closure error                  -2.27e-13 MW</pre>
+<p>This is also the answer to the question the powergui summary block provokes on screen. That block nets <i>all</i> generation, and the slack bus is generation too &mdash; a negative one, because it absorbs the export &mdash; so it reports a total generation of about 14.82&nbsp;MW for a plant dispatching 389.30&nbsp;MW. The small number is the auxiliary load plus the losses, and it is exactly the figure above.</p>
+<h3>8.5 Where the losses arise</h3>
+<pre class="code">GSUT 10BAT10              0.7340 MW
+UAT 10BBT10               0.0612 MW
+GAT 10BBT20               0.0211 MW
+                       ---------
+sum                       0.8162 MW
+
+reported system loss      0.8165 MW
+difference             -2.54e-04 MW</pre>
+<p class="warn"><b>That total is a floor, not an estimate of the plant's losses.</b> It is the copper and iron loss of the transformers and nothing else. The busducts, the switchgear and the 6.6&nbsp;kV feeders were modelled at zero impedance because no impedance data for them exists in the source set, so they contribute exactly nothing. The real plant loses somewhat more, and a figure for how much more cannot be produced from the data available.</p>
+<h3>8.6 The grid equivalent, and why it is flagged</h3>
+<pre class="code">assumed short-circuit current   I_k" = 50 kA      &lt;-- from the GIS
+                                                     WITHSTAND rating
+
+   S_k" = sqrt(3) . V . I_k" = 1.732051 . 230 . 50 = 19.9 MVA
+   Z_th = V^2 / S_k"         = 230^2 / 19.9       = 2655.8112 ohm
+
+entered into the model                             2.6558 ohm
+assumed series resistance                          0 ohm
+
+For scale: the whole plant exports about 376 MVA, so this equivalent
+says the grid is roughly 0 times stiffer than the plant is large.</pre>
+<p class="warn"><b>The arithmetic is exact and the input is not.</b> A switchgear withstand rating states what the equipment survives, not what the network delivers; the two are related only loosely, and no utility-issued short-circuit level for this busbar exists in the document set. Every number in this report that depends on grid stiffness therefore rests on that substitution. It was measured rather than waved away: the grid impedance was varied deliberately in a sensitivity test (<code>matlab/tests/test_grid_sensitivity.m</code>) and the plant-side answers barely move &mdash; which is why the substitution is tolerable, and is not a reason to believe the number.</p>
+</section>
+<section id="r9"><h2>9. What each result signifies</h2>
+<h3>9.1 The bus voltages, and why the 230 kV bus sits below 1.0 pu</h3>
+<p>A per-unit voltage is the solved voltage divided by the nominal voltage of that level, so 1.00&nbsp;pu is nominal and the interesting content of Table&nbsp;12 is the departure from it. In case&nbsp;LF1 the 230&nbsp;kV plant busbar solves at <b>0.99867&nbsp;pu</b> &mdash; below nominal, while the plant is exporting 374.5&nbsp;MW into it. That reads like a sign error and is not one.</p>
+<p>The reason is reactive, not active. The plant is <b>absorbing</b> about 30.0&nbsp;MVAr from the grid at the point of connection at the same time as it exports real power. Voltage magnitude along a predominantly inductive path is governed by the reactive flow, and the reactive flow here runs <i>into</i> the plant. So the plant end of that path sits below the source end, and it would sit below it even if the real export were larger. Real power transfer shows up as the angle difference, not as the magnitude difference &mdash; which is exactly what the angle column of Table&nbsp;12 shows.</p>
+<p>Where the reactive power goes is the subject of section&nbsp;9.2, and it is not consumed by the load: the auxiliary load takes only 8.7&nbsp;MVAr of it.</p>
+<p>At the other end of the plant the 6.6&nbsp;kV board solves slightly <i>above</i> its nominal, at 1.00091&nbsp;pu on the 6.6&nbsp;kV system base. That is the step-up ratio of the auxiliary transformer arriving at a lightly loaded bus: 17.31&nbsp;MVA flowing through a transformer whose lowest cooling stage is 19&nbsp;MVA drops very little voltage across 10.5&nbsp;% impedance.</p>
+<p class="warn"><b>That figure is base-dependent and the base is disputed.</b> On the 6.9&nbsp;kV winding rating of the transformer that feeds it, the same solved voltage reads about 4.5&nbsp;% lower &mdash; below nominal rather than above it. Nothing in the network changed; only the denominator did. Until the plant states which figure its own operating limits are written against, any statement of the form &ldquo;the board runs high&rdquo; or &ldquo;the board runs low&rdquo; is a statement about the choice of base, and this report declines to make it.</p>
+<h3>9.2 The reactive balance &mdash; where 60 MVAr goes in a plant with a 8.7 MVAr load</h3>
+<pre class="code">SUPPLIED
+  generator G1                        31.6759 MVAr
+  drawn from the grid                 29.9862 MVAr
+                                     --------
+                                      61.6621 MVAr
+
+CONSUMED
+  GSUT 10BAT10                      44.5107 MVAr
+  UAT 10BBT10                        1.3238 MVAr
+  GAT 10BBT20                        0.0654 MVAr
+  auxiliary load at 6.6 kV           8.6764 MVAr
+  grid equivalent series branch      7.0857 MVAr
+                                     --------
+                                      61.6621 MVAr
+
+closure error                        -1.48e-06 MVAr</pre>
+<p>The identity closes. What it says is that the reactive demand of this plant is overwhelmingly the <b>leakage reactance of the step-up transformer</b> &mdash; 44.5&nbsp;MVAr of the 61.7&nbsp;MVAr consumed, against 8.7&nbsp;MVAr for the whole auxiliary load. Pushing 389&nbsp;MW through 16&nbsp;% reactance costs reactive power in proportion to the <i>square</i> of the current, and at full output that cost dominates everything else in the plant.</p>
+<p>This is why the plant absorbs from the grid rather than supplying. The generator is dispatched at a fixed terminal voltage, and the reactive output that this implies (31.7&nbsp;MVAr) is less than the transformer chain consumes. The shortfall is made up through the grid connection, and the 230&nbsp;kV bus voltage follows.</p>
+<p class="note">Two practical consequences. First, the generator's reactive output here is an <i>outcome of the assumed voltage set-point</i>, not an operating record &mdash; change the set-point and this whole balance moves. Second, no reactive limit was imposed, so the study cannot yet say whether the machine is allowed to hold this point; that requires the capability curve, which is not in the document set.</p>
+<h3>9.3 Transformer loading &mdash; and why &ldquo;over 100 %&rdquo; is not yet an overload</h3>
+<p>In case&nbsp;LF1 the step-up transformer carries 375.84&nbsp;MVA. Against its 3 cooling stages that is 105.9&nbsp;%, 81.7&nbsp;%, 73.0&nbsp;% &mdash; the same transformer, the same flow, 3 different answers. This is the reason Table&nbsp;14 reports loading against every stage rather than one figure.</p>
+<p>A cooling stage is not a rating the transformer has; it is a rating the transformer has <i>while that cooling equipment is running</i>. ONAN means natural convection with no pumps or fans; the higher stages bring oil pumps and forced air into service. So the honest reading of the red figures in Table&nbsp;14 is not &ldquo;the transformer is overloaded&rdquo; but &ldquo;at this output the transformer <b>cannot</b> be in its lowest cooling stage&rdquo;. Which stage is actually in service at rated output is a question for the plant, and it is on the list in section&nbsp;11.</p>
+<p class="sl">Loading is measured on whichever of the two windings carries more, which is always the <i>input</i> winding &mdash; the transformer's own losses have not been subtracted from it yet. For the step-up transformer that is the 22&nbsp;kV side, because power flows upward; for the auxiliary transformers it is the high-voltage side, because power flows downward into the board. Taking the output winding instead would understate every loading figure in the table, and the rule is stated here so that a reader comparing against another study knows which winding the percentage refers to.</p>
+<h3>9.4 The principal finding: closing the station transformer bay overloads the unit transformer</h3>
+<p>Compare case&nbsp;LF1 with case&nbsp;LF2. The dispatch is identical, the auxiliary load is identical, and <b>nothing was added to the plant</b> &mdash; the only difference is that the station auxiliary transformer bay is closed. The unit auxiliary transformer's loading rises from 91.09&nbsp;% to <b>109.60&nbsp;%</b> of its 19&nbsp;MVA natural-cooling stage. Where the extra loading comes from is worth following carefully, because it is not load.</p>
+<pre class="code">case LF2  -  station transformer bay CLOSED
+sign convention: POSITIVE = delivered INTO the 6.6 kV board
+
+                                     P (MW)     Q (MVAr)
+  from the UAT   (generator side)     19.902        3.964
+  from the GAT   (grid side)          -5.903        4.712
+                                   ---------    ---------
+  net into the board                  14.000        8.676
+  consumed by the board               14.000        8.676
+  closure                           -4.0e-04     -4.5e-04
+
+so the UAT carries 19.902 MW in order to serve a 14.000 MW load,
+and 5.903 MW goes straight back out again through the GAT.</pre>
+<p>Read the second row again: the station transformer's contribution to the board is <b>negative in real power</b>. It is not helping to feed the board at all &mdash; it is taking 5.903&nbsp;MW <i>out</i> of the board and returning it to the 230&nbsp;kV busbar. The same 5.903&nbsp;MW had to be pushed into the board by the unit transformer first, so it makes two transformer crossings and does no work at either end.</p>
+<p>This is what closing the bay does. The network now contains a loop &mdash; 230&nbsp;kV &rarr; GSUT &rarr; 22&nbsp;kV &rarr; UAT &rarr; 6.6&nbsp;kV &rarr; GAT &rarr; 230&nbsp;kV &mdash; and the two paths around it have different impedances and different transformation ratios. A closed loop of unequal branches circulates power whether or not anybody intends it to, and the division follows the impedances rather than the load. The unit transformer's real throughput rises from 14.019&nbsp;MW to 19.902&nbsp;MW &mdash; 42&nbsp;% more &mdash; while the load it is serving does not change at all.</p>
+<p class="warn"><b>Why this matters beyond the loading figure.</b> A circulating current is real current. It heats both transformers, it consumes reactive power in both, and it is seen by every relay measuring either branch. An overcurrent setting graded on the radial case would see the unit transformer carrying 42&nbsp;% more real power than it was graded for, in a configuration involving no fault and no extra load. This is the one result of the load flow with a direct consequence for the protection stage, and it is the reason both topologies were carried through the study rather than one being chosen.</p>
+<p class="note">The report does <b>not</b> claim the plant runs this way. Whether the bay is closed during normal running is not stated in the document set; that is precisely why it is a case rather than a setting. What the study establishes is that the answer matters, and by how much.</p>
+<h3>9.5 The losses, and what the loss figure does not include</h3>
+<p>The plant's electrical losses come out between 0.6802 and 0.8334&nbsp;MW across the 4 cases, which is 0.199 to 0.214&nbsp;% of generation. Losses in a series impedance go as the square of the current, so the loss should scale roughly as the square of dispatch. It nearly does, and the departure is informative:</p>
+<pre class="code">case    P disp MW    loss MW   predicted*    diff MW
+----------------------------------------------------
+LF1        389.30     0.8165       0.8165     0.0000
+LF2        389.30     0.8334       0.8165     0.0169
+LF3        342.01     0.6802       0.6302     0.0500
+LF4        342.01     0.6903       0.6302     0.0601
+
+* pure quadratic scaling from case LF1, i.e. what the loss
+  would be if every watt of it were load-dependent.</pre>
+<p>The measured loss falls off less steeply than the square, because part of it does not depend on the dispatch at all: the transformers' no-load loss is fixed, and the auxiliary load flowing through the unit transformer is the same in every case. Only the step-up transformer's copper loss follows the dispatch, and it does so quadratically. That the residual column is small and of one sign is a check that the model contains the loss mechanisms it is supposed to contain and no others.</p>
+<p class="warn"><b>The figure is a floor.</b> It is the copper and iron loss of three transformers. The generator busduct, the switchgear, and every 6.6&nbsp;kV feeder are modelled at zero impedance because no impedance for them exists anywhere in the source documents, so they contribute exactly nothing to this number and no voltage drop either. The real plant loses more. How much more cannot be estimated from the data available, and putting a per-metre figure from a handbook into the model would produce a larger number that was no more true.</p>
+<figure><img src="line_loading.png" alt="line_loading.png"><figcaption>Branch loading across the four cases, from the solved branch flows.</figcaption></figure>
+<h3>9.6 The residual check &mdash; why convergence is not the evidence</h3>
+<p>A Newton-Raphson solve reports convergence when <i>its own</i> mismatch falls below <i>its own</i> tolerance. That is a statement about the solver, not about the network: a model with a component connected to the wrong bus converges perfectly well, and answers a different question. So the solution was checked from outside. At every bus, the injection the solver reports was compared against the branch flows rebuilt independently from the solved voltages. Table&nbsp;15 is the result.</p>
+<p>The worst disagreement anywhere in the radial cases is 8.6e-08&nbsp;MVA, which against a 376&nbsp;MVA plant is arithmetic noise &mdash; the two calculations agree to about 9 significant figures. In the looped cases it is larger, 6.1e-04&nbsp;MVA, and that difference has a cause worth stating.</p>
+<p>The bus coupler and the switchgear bays are modelled as ideal connections with no impedance. An independent rebuild works from voltages, and the flow through a zero-impedance element cannot be recovered from the voltages at its ends &mdash; they are equal by construction. In a radial network that costs nothing, because there is only one path and its flow follows from the load. In a looped network the division between two paths is exactly what a zero-impedance element hides, so the rebuild at those buses is slightly incomplete and the residual records it. It is a limitation of the check, not a defect in the solve, and at 6e-04&nbsp;MVA it does not affect any figure reported to the precision used here.</p>
+<p class="note">All 4 cases converge in 2 iterations. For a 5-node network with quadratic convergence that is what a well-posed problem looks like. A solve of this size that needed twenty iterations, or that needed the tolerance relaxed, would be a symptom to investigate rather than a result to report &mdash; and no tolerance was relaxed and no parameter was adjusted to obtain convergence in any case in this study.</p>
+<h3>9.7 The bus angles, and the vector-group check hidden in them</h3>
+<p>The angle column of Table&nbsp;12 looks alarming at first reading: the 22&nbsp;kV generator bus sits -23.3&deg; from the 230&nbsp;kV bus. A power transfer angle of that size across a single transformer would be extreme. Almost all of it is not a transfer angle at all &mdash; it is the fixed phase shift of the winding connection, and separating the two turns the angle column into a validation of the nameplate data:</p>
+<pre class="code">GSUT  10BAT10   vector group YNd1      -&gt;  nameplate shift 30 deg
+  solved  angle(22 kV) - angle(230 kV)  = -23.3034 deg
+  remove the group shift               =   6.6966 deg   &lt;- power transfer
+  sign: LV leads HV, so power flows LV -&gt; HV  (generator exporting)
+
+UAT   10BBT10   vector group Dyn11     -&gt;  nameplate shift 30 deg
+  solved  angle(6.6 kV) - angle(22 kV) =  26.5589 deg
+  remove the group shift               =  -3.4411 deg   &lt;- power transfer
+  sign: LV lags HV, so power flows HV -&gt; LV  (board being fed)</pre>
+<p>Both residues come out at a few degrees, in the direction the power is known to be flowing. That is the check: had a vector group been entered wrongly &mdash; a group index off by one, or a star-delta the wrong way round &mdash; the residue would not be a few degrees but tens of degrees, and it would appear here rather than quietly distorting the loop division in the cases where the bay is closed. In a radial network a wrong group is harmless bookkeeping; in the looped cases it would manufacture circulating power that was pure artefact, which is why it is worth checking explicitly before believing section&nbsp;9.4.</p>
+<p class="sl">The 230&nbsp;kV grid source is the angle reference for the whole network, so its angle is zero by definition and every other angle in the table is relative to it. Only differences carry meaning.</p>
+</section>
+<section id="r10"><h2>10. Report questions</h2>
+<ol class="steps">
+<li><b>The plant exports 374.5&nbsp;MW, and yet the 230&nbsp;kV busbar solves below nominal at 0.99867&nbsp;pu. Reconcile those two statements.</b>
+<p>Voltage magnitude along an inductive path is set by the <i>reactive</i> flow, and real power transfer appears in the <i>angle</i>. This plant exports real power while <b>absorbing</b> 30.0&nbsp;MVAr, so its end of the connection sits below the grid end. The real export shows up instead as the 1.0787&deg; angle at the 230&nbsp;kV bus. Had the generator been dispatched to supply reactive power rather than absorb it, the same real export would have raised that bus above nominal.</p></li>
+<li><b>Cases LF1 and LF2 have identical dispatch and identical auxiliary load. Closing the station auxiliary transformer bay adds nothing to the plant, yet the unit auxiliary transformer's loading rises from 91.09&nbsp;% to 109.60&nbsp;%. Where does the extra loading come from?</b>
+<p>From circulating power, not from load. Closing the bay completes a loop &mdash; 230&nbsp;kV &rarr; GSUT &rarr; 22&nbsp;kV &rarr; UAT &rarr; 6.6&nbsp;kV &rarr; GAT &rarr; 230&nbsp;kV. The two paths back to the 230&nbsp;kV bus have different impedances and different ratios, so power divides between them by impedance rather than by intention. The unit transformer ends up feeding the board <i>and</i> feeding the station transformer, which returns that power to the busbar it came from. Both transformers carry the circulating component, neither does useful work with it, and both are heated by it. Section&nbsp;9.4 gives the arithmetic.</p></li>
+<li><b>Table&nbsp;14 shows the step-up transformer at 105.87&nbsp;% loading. Is the transformer overloaded? What would you have to know to answer?</b>
+<p>The question cannot be answered from that figure alone, and this is the commonest misreading of a load-flow result. 105.87&nbsp;% is measured against the <b>ONAN</b> rating of 355&nbsp;MVA &mdash; the rating with no pumps and no fans running. Against the top stage, ODAF at 515&nbsp;MVA, the same flow is 72.98&nbsp;%. What must be known is which cooling stage is in service at rated output, and that is a plant operating fact absent from the document set. What the study <i>can</i> assert is the negative: at this output the transformer cannot be running in its lowest cooling stage.</p></li>
+<li><b>Why is the 6.6&nbsp;kV bus voltage reported on two different bases, and which of the two figures should the plant use?</b>
+<p>Because the documents disagree. The medium-voltage system is nominally 6.6&nbsp;kV, while the transformer windings feeding it are rated 6.9&nbsp;kV on their nameplates. Dividing the same solved voltage by the two gives figures about 4.5&nbsp;% apart &mdash; one above nominal and one below it. Which to use is not a modelling question but a documentation question: the correct base is whichever one the plant's own operating limits and relay settings are written against. Until that is established, choosing one would be presenting a preference as a result, so both are reported. Note that no <i>flow</i> in the study is affected &mdash; only the per-unit label on a voltage.</p></li>
+<li><b>Every case converges in 2 iterations. What does that establish, and what does it not?</b>
+<p>It establishes that the Newton-Raphson iteration found a point where its own mismatch was below its own tolerance, and that the network is well-conditioned. It establishes nothing at all about whether the network is the plant. A model with a transformer wired to the wrong busbar, or with an impedance entered on the wrong base, converges just as fast and answers a different question. That is why the solved voltages were used to rebuild the power balance at every bus <i>outside</i> the solver (Table&nbsp;15), and why the vector groups were checked against the solved angles (section&nbsp;9.7). Convergence is a precondition for reading the results, not evidence that they are right.</p></li>
+<li><b>With identical real dispatch, the generator's reactive output is 31.676&nbsp;MVAr in case LF1 and 27.461&nbsp;MVAr in case LF2. Which is the machine's true reactive output?</b>
+<p>Neither, in the sense the question implies. Reactive output is not a property of the machine; it is what the network requires of the machine to hold the specified terminal voltage. Change the network &mdash; here, by closing one bay &mdash; and the requirement changes. Both figures are correct answers to different questions, which is the whole reason for solving a case matrix instead of one case.</p>
+<p class="warn">Two caveats travel with both numbers. The terminal voltage they are computed from is an <b>assumption</b>, not an operating record, so the reactive figures inherit that status. And no reactive limit was imposed, because the machine's capability curve is not in the document set &mdash; the solver would happily report a reactive output the generator could not actually sustain, and it must be checked against the curve when the curve is obtained.</p></li>
+<li><b>The external grid is represented by a short-circuit level inferred from the switchgear's withstand rating. Suppose the true level is half that. What in this report changes, and what does not?</b>
+<p>Very little of <i>this</i> report changes. Halving the assumed level doubles the equivalent series impedance, which moves the 230&nbsp;kV bus voltage and, through it, the reactive drawn from the grid. It barely touches the plant-side answers: the dispatch is specified, the auxiliary load is specified, and the transformer flows that follow from them are almost unmoved. That insensitivity was measured rather than asserted &mdash; <code>matlab/tests/test_grid_sensitivity.m</code> varies the impedance deliberately and reports what moves.</p>
+<p>The <b>short-circuit study is a different matter entirely.</b> There the grid impedance is one of the two dominant terms in every fault current at 230&nbsp;kV, and halving the level roughly halves the grid contribution. Every breaker duty check and every 230&nbsp;kV relay setting would move with it. So the tolerable weakness of this input in a load flow becomes intolerable in the next stage, and a utility-issued fault level for this busbar is the single most important item on the collection list in section&nbsp;11.</p></li>
+<li><b>The generator's reactances are in the dataset &mdash; x_d = 166.30&nbsp;%, x_d&prime; = 28.65&nbsp;%, x_d&Prime; = 22.48&nbsp;% &mdash; and none of them is used by the load flow. Why enter them, and when do they come into play?</b>
+<p>A balanced load flow sees the machine as a boundary condition: a specified real power at a specified terminal voltage. What lies behind the terminals is irrelevant, because nothing is changing and no fault is drawing on the machine's internal flux. They are entered because they are the parameters the <i>next</i> stage runs on, and because they were on the nameplate in front of us: the subtransient value sets the initial symmetrical fault current, the transient value governs the first cycles that a relay must coordinate within, and the synchronous value governs the sustained condition. Capturing them during the data audit, with their source recorded, means the fault study begins with verified machine data instead of a fresh search.</p></li>
+</ol>
+</section>
+<section id="r11"><h2>11. What to perform next</h2>
+<p>This report closes one stage of the term project and defines the next. It does that in two parts: the data that has to be obtained before another study can honestly be run, and the studies themselves in the order their inputs become available.</p>
+<h3>11.1 Data still to be collected</h3>
+<p>Listed in the order that unblocks the most work. The right-hand column is the point of the table &mdash; each item is here because a specific study cannot be run without it, not because the list looked short.</p>
+<p class="cl">Table 16 &mdash; Outstanding data, who holds it, and what it unblocks</p>
+<table class="files"><thead><tr><th>#</th><th>What is needed</th><th>Held by</th><th>What it unblocks</th></tr></thead><tbody>
+<tr><td class="tag">1</td><td>Three-phase and single-phase <b>short-circuit level</b> at the 230&nbsp;kV Ashuganj busbar, with X/R</td><td>PGCB (system planning)</td><td>The whole short-circuit stage. The value in use is inferred from the switchgear <i>withstand</i> rating, which is not a network fault level. Highest priority in the list.</td></tr>
+<tr><td class="tag">2</td><td>Generator <b>capability curve</b> (P&ndash;Q diagram), and the reactive limits actually applied</td><td>Siemens / APSCL operations</td><td>Whether the reactive outputs this study reports are operating points the machine can hold. No reactive limit is imposed at present.</td></tr>
+<tr><td class="tag">3</td><td>Generator <b>terminal voltage set-point</b> in normal running, and a dispatch record</td><td>APSCL operations (log sheets)</td><td>Replaces the assumed 1.00&nbsp;pu set-point, which is the datum every voltage in this report is measured against, and the assumed dispatch.</td></tr>
+<tr><td class="tag">4</td><td><b>Cooling stage</b> in service at rated output, and the <b>tap position</b> in service on each transformer</td><td>APSCL operations</td><td>Turns the loading figures from a range into a number, and settles whether the step-up transformer reading above 100&nbsp;% means anything.</td></tr>
+<tr><td class="tag">5</td><td>Normal running state of the <b>station transformer bay</b> and the <b>230&nbsp;kV bus coupler</b></td><td>APSCL operations</td><td>Chooses between the case pairs in this report instead of carrying all of them, and fixes which topology the protection settings must suit.</td></tr>
+<tr><td class="tag">6</td><td><b>6.6&nbsp;kV feeder and busduct impedances</b> &mdash; cable type, size, length, or a cable schedule</td><td>Plant cable schedule / EPC records</td><td>Real losses instead of a floor, feeder voltage drop, per-node voltages, and the point at which the load allocation starts to matter.</td></tr>
+<tr><td class="tag">7</td><td><b>400&nbsp;V board</b> transformer ratings and impedances, and the LV load breakdown</td><td>Plant records</td><td>The low-voltage voltage profile. The LV demand is already inside the 6.6&nbsp;kV total, so the power balance is not affected.</td></tr>
+<tr><td class="tag">8</td><td>Outgoing <b>230&nbsp;kV line</b> data: R&#8321;, X&#8321;, susceptance, length, circuit count, remote end</td><td>PGCB</td><td>Any study that extends past the plant boundary. The present model stops at the busbar and represents everything beyond it as one equivalent.</td></tr>
+<tr><td class="tag">9</td><td><b>CT and VT ratios</b>, relay makes and models, and the settings currently applied</td><td>APSCL protection department</td><td>Protection coordination &mdash; the stated objective of the term project.</td></tr>
+<tr><td class="tag">10</td><td>Generator x_q, R_a, inertia constant H and the open-circuit time constants</td><td>Siemens</td><td>Transient stability, if that stage is attempted. None of them is needed for a balanced load flow, which is why their absence has not blocked this stage.</td></tr>
+<tr><td class="tag">11</td><td>Confirmation of <b>zero-sequence</b> data and the neutral earthing resistor value</td><td>Siemens / APSCL</td><td>Unbalanced fault analysis &mdash; single line to ground and line to line. Zero-sequence impedance is already in the dataset for the transformers but is unused by a balanced study.</td></tr>
+</tbody></table>
+<p class="note">Items 1 to 5 are the ones that change conclusions already in this report. Items 6 to 11 extend the study rather than correct it.</p>
+<h3>11.2 Everything assumed, estimated or simplified in this model</h3>
+<p>Nothing in the model is a typical value quietly substituted for a missing one. Where a number could not be sourced, one of three things was done, and the three are kept apart because they carry different weight.</p>
+<p class="cl">Table 17 &mdash; Approved assumptions &mdash; values that enter the model and are not plant data (3)</p>
+<table class="files"><thead><tr><th>Assumption</th><th>Value used</th><th>Approved</th><th>What it is worth in the answers</th></tr></thead><tbody>
+<tr><td>External grid equivalent series resistance (and hence X/R ratio)<br><span class="sl"><code>grid_series_resistance_zero.m</code></span></td><td>0</td><td>2026-08-17</td><td>Negligible here. The equivalent is almost purely reactive at X/R above 20, and the plant-side answers are set by the specified dispatch and load. It matters for fault X/R, not for this load flow.</td></tr>
+<tr><td>Allocation of the 14 MW documented auxiliary load across three 6.6 kV nodes<br><span class="sl"><code>aux_load_allocation_split.m</code></span></td><td>[9050 2500 2500]</td><td>2026-08-17</td><td><b>Exactly nothing.</b> The three boards are joined by zero-impedance feeders, so they solve as one node and every result is identical to a single lumped load. Verified numerically, not asserted. It begins to matter the moment feeder impedances arrive.</td></tr>
+<tr><td>230 kV GIS bus coupler (BUS 1 - BUS 2) normal operating state<br><span class="sl"><code>gis_bus_coupler_closed.m</code></span></td><td>closed</td><td>2026-08-17</td><td>Decides whether the two 230&nbsp;kV busbars are one node or two. With the station transformer bay closed it also decides whether the loop of section&nbsp;9.4 exists, so it is not cosmetic.</td></tr>
+</tbody></table>
+<p>Each of those is a file in <code>matlab/data/assumptions/</code>, never in <code>matlab/data/</code>, so an assumed number cannot be mistaken for a measured one by anybody reading the dataset. Each file carries its own reason, its approval date, and its quantified effect at greater length than the table above.</p>
+<p><b>One further value is estimated rather than assumed.</b> The external grid short-circuit current, 50&nbsp;kA, is taken from the withstand rating of the 230&nbsp;kV switchgear because no utility figure exists in the document set. It is marked <code>ESTIMATED</code> in the dataset, it is item&nbsp;1 in the collection list above, and its influence was measured by sensitivity test rather than assumed to be small.</p>
+<p><b>1 assumption has been retired</b> and is retained rather than deleted, because a register that quietly drops its own mistakes is not an audit trail: <code>transformer_magnetising_inductance.m</code> &mdash; superseded once data was found that made the parameter derivable. It enters nothing into the model.</p>
+<p class="cl">Table 18 &mdash; Structural simplifications &mdash; treatments that enter no number at all (12)</p>
+<table class="files"><tbody>
+<tr><td class="tag">S1</td><td>Generator modelled as an ideal PV source, not Synchronous Machine pu Standard, because x_q, Ra, H and the open-circuit time constants are MISSING. A balanced load flow uses none of them.</td></tr>
+<tr><td class="tag">S2</td><td>GAT tertiary (3.32 kV, d11) omitted, as approved. Exact for a balanced load flow; a stated limitation for the later earth-fault study.</td></tr>
+<tr><td class="tag">S3</td><td>NER 10BAB11 omitted. Pure zero-sequence element; carries no balanced current.</td></tr>
+<tr><td class="tag">S4</td><td>400 V auxiliary board and its 6.6/0.4 kV transformers omitted (C16 - ratings MISSING). LV demand retained inside the 14 MW total at 6.6 kV, so the power balance is complete and only the LV voltage profile is unavailable.</td></tr>
+<tr><td class="tag">S5</td><td>All busducts, GIS bays and 6.6 kV feeders modelled as zero impedance because no impedance data exists. Consequence: no feeder voltage drop is produced anywhere in the model.</td></tr>
+<tr><td class="tag">S6</td><td>Grid equivalent placed OUTSIDE the source block as an explicit series branch, because SPS enforces the swing voltage at the source terminal and would otherwise bypass an internal impedance.</td></tr>
+<tr><td class="tag">S7</td><td>Transformer leakage impedance split equally between windings. Numerically inconsequential for a two-winding load flow - only the series total acts.</td></tr>
+<tr><td class="tag">S8</td><td>Transformer core type left at the SPS default (three single-phase units) because the physical core construction is undocumented. Irrelevant to a balanced load flow.</td></tr>
+<tr><td class="tag">S9</td><td>Loads modelled as constant PQ so that a sagging solved voltage cannot silently reduce the documented auxiliary demand.</td></tr>
+<tr><td class="tag">S10</td><td>Transformer winding voltages entered at NAMEPLATE values (UAT and GAT LV = 6900 V), while per-unit reporting at the MV bus uses the 6600 V system nominal. Conflict C13 is preserved, not resolved.</td></tr>
+<tr><td class="tag">S11</td><td>Zero-sequence impedances (Z0) entered into the transformer blocks although a balanced load flow ignores them, so the later fault study inherits verified data.</td></tr>
+<tr><td class="tag">S12</td><td>Generator internal impedance disabled (ideal source). Sensitivity-checked against an internal impedance at x_d-double-prime = 22.48 percent.</td></tr>
+</tbody></table>
+<p>These are the third category, and the reason they are listed separately is that none of them is a value. Each is a decision to represent something as what it is electrically &mdash; a zero-sequence element carries no balanced current, a closed breaker is an identity rather than a branch &mdash; or a decision to leave something out and say so. They cannot be wrong in the way a number can be wrong, but they bound what the model is entitled to be asked, and section&nbsp;11.3 says which of them the next stage has to undo.</p>
+<h3>11.3 The studies that follow, in order</h3>
+<p>The order is not a preference. Each stage needs the operating point the previous one establishes, and each needs inputs that the collection list above has to supply first.</p>
+<ol class="steps">
+<li><b>Three-phase short-circuit study.</b> Fault levels at the 230&nbsp;kV busbar, the 22&nbsp;kV generator bus and the 6.6&nbsp;kV boards, and a breaker duty check against the ratings already in the dataset &mdash; 50&nbsp;kA for one second and 125&nbsp;kA peak on the 230&nbsp;kV switchgear.
+<p><i>Needs:</i> item&nbsp;1, the utility fault level. That is the only genuinely missing input; the generator subtransient reactance (22.48&nbsp;%) and every transformer impedance are already in the dataset with their sources recorded. <i>Undoes:</i> nothing structural &mdash; a balanced three-phase fault uses the same positive-sequence network this study already contains.</p></li>
+<li><b>Unbalanced fault analysis</b> &mdash; single line to ground, line to line, and double line to ground.
+<p><i>Needs:</i> item&nbsp;11, confirmation of the zero-sequence data and the neutral earthing resistor. <i>Undoes:</i> three of the structural simplifications listed in&nbsp;11.2, and this is where they stop being harmless. The neutral earthing resistor carries no balanced current and was omitted &mdash; in an earth fault it is the element that <i>limits the fault current</i>, so it must be modelled. The delta tertiary of the station transformer was omitted for the same reason and becomes a zero-sequence path that has to be represented. The transformer zero-sequence impedances are already carried in the dataset, unused, for exactly this stage.</p></li>
+<li><b>Protection coordination.</b> The stated objective of the project: grading the overcurrent and earth-fault elements, differential protection of the generator and the transformers, and time-current curves that clear a fault without tripping on load.
+<p><i>Needs:</i> item&nbsp;9, the current transformer ratios and the relay data, and the fault currents from the two stages above. <i>Uses this report directly:</i> the load currents in Table&nbsp;14 are the currents the settings must <b>not</b> operate on, and they are the reason a load flow comes first. The finding in section&nbsp;9.4 belongs here too &mdash; a setting graded on the radial case would see materially more current in the unit auxiliary transformer as soon as the station transformer bay is closed, with no fault present.</p></li>
+<li><b>Transient stability</b>, if the project extends that far.
+<p><i>Needs:</i> item&nbsp;10 &mdash; the inertia constant, the quadrature reactance, the open-circuit time constants, and governor and exciter models, none of which is in the document set. The single-shaft arrangement matters here in a way it does not in a load flow: one shaft carries both turbines and the generator, so there is one inertia and one swing equation rather than two machines to synchronise.</p></li>
+</ol>
+<p class="warn"><b>Each of those stages must be run on a solved operating point, not on nameplate ratings.</b> Fault current depends on the pre-fault voltage profile; relay grading depends on the load current the relay sees in normal running. Both come from a load flow. Running the fault study first would produce numbers to four figures that were wrong in the first, and nothing in the output would say so &mdash; which is why this stage was completed and documented before any of the rest was attempted.</p>
+<h3>11.4 What the next stage inherits</h3>
+<p>The work already done is not only this report. What carries forward to the stages above:</p>
+<ul>
+<li>A <b>dataset</b> in which every parameter carries its source document, page, status and confidence &mdash; 10 bus records, 3 transformers, 7 branches, 4 loads. A fault study starts from verified machine and transformer data instead of a fresh search.</li>
+<li>A network that is <b>generated from that dataset by script</b>. A parameter changes in one place and the diagram, the solution, every table and every figure follow. Nothing has to be re-drawn by hand for the next study.</li>
+<li>A <b>case matrix</b> and the machinery to solve it &mdash; 4 cases built fresh and solved in sequence. Adding a fault case is adding a row, not writing a new study.</li>
+<li>An <b>independent check</b> that does not trust the solver: the power balance at every bus rebuilt from the solved voltages outside it. The same harness checks a fault study.</li>
+<li>A <b>validation suite</b> that recomputes what can be recomputed from the nameplates and fails on a contradiction, run before the model is built rather than after the results look acceptable.</li>
+<li>Machine reactances (x_d 166.30&nbsp;%, x_d&prime; 28.65&nbsp;%, x_d&Prime; 22.48&nbsp;%) and transformer zero-sequence impedances already captured with their sources, unused by this study and required by the next two.</li>
+<li>A <b>written record of every gap</b>: what is missing, what is assumed, what is estimated, what two documents disagree about, and what was simplified. None of it has to be rediscovered, and none of it is hidden in order to make a result look finished.</li>
+</ul>
+<p class="note"><b>The single next action</b> is item&nbsp;1 of&nbsp;11.1: obtain the three-phase and single-phase short-circuit level at the 230&nbsp;kV Ashuganj busbar from PGCB, with X/R. It is the only input the short-circuit stage lacks, it is the weakest number in the present model, and it is the parameter every 230&nbsp;kV protection setting will ultimately rest on.</p>
+</section>
+<footer>
+<p>Generated by <code>matlab/studies/build_lab_report.m</code> from <code>results/load_flow/*.csv</code> and <code>matlab/data/ashuganj_master_data.m</code>. Every figure in every table was read from the solved results at generation time; none was retyped, so this report cannot disagree with the model it describes.</p>
+<p>Companion documents in this folder: <a href="PROJECT_UPDATE.html">PROJECT_UPDATE.html</a> (findings, assumptions, missing data) and <a href="USER_MANUAL.html">USER_MANUAL.html</a> (how to run and demonstrate it).</p>
+<p>Dept. of EEE, BUET &middot; EEE 306 Power System I Laboratory</p>
+</footer>
+</body></html>

@@ -1,0 +1,77 @@
+
+--- test_generator_data -----------------------------------------------
+  PASS  exactly ONE generator: SCC5-PAC 4000F/3000 (1S) is single-shaft
+  PASS  terminal voltage 22 kV
+  PASS  rated apparent power 458 MVA at 50 C cold gas
+  PASS  maximum apparent power 518 MVA at 30 C cold gas
+  PASS  rated power factor 0.85
+  PASS  frequency 50 Hz - Bangladesh, not 60 Hz
+  PASS  rated stator current 12019 A
+  PASS  hydrogen pressure 5 bar(g)
+  PASS  S/(sqrt3 V) = 12019.4 A agrees with the stated 12019 A
+  PASS  458 MVA x 0.85 = 389.30 MW is a PF reference, not capacity
+  FAIL  Snom_MVA canonical primary field and provenance exist
+  FAIL  P_capacity_MW canonical primary field and provenance exist
+  FAIL  Vnom_kV canonical primary field and provenance exist
+  FAIL  H_s canonical primary field and provenance exist
+  FAIL  SCR canonical primary field and provenance exist
+  FAIL  Xd canonical primary field and provenance exist
+  FAIL  Xdp canonical primary field and provenance exist
+  FAIL  Xdpp canonical primary field and provenance exist
+  FAIL  Xdpp_sat canonical primary field and provenance exist
+  FAIL  Xq canonical primary field and provenance exist
+  FAIL  Xqp canonical primary field and provenance exist
+  FAIL  Xqpp canonical primary field and provenance exist
+  FAIL  Xl canonical primary field and provenance exist
+  FAIL  X2 canonical primary field and provenance exist
+  FAIL  X0 canonical primary field and provenance exist
+  FAIL  Ra_ohm canonical primary field and provenance exist
+  FAIL  Rf_numeric canonical primary field and provenance exist
+  FAIL  Td0p_s canonical primary field and provenance exist
+  FAIL  Td0pp_s canonical primary field and provenance exist
+  FAIL  Tq0p_s canonical primary field and provenance exist
+  FAIL  Tq0pp_s canonical primary field and provenance exist
+  FAIL  Tdp_s canonical primary field and provenance exist
+  FAIL  Tdpp_s canonical primary field and provenance exist
+  FAIL  Tqp_s canonical primary field and provenance exist
+  FAIL  Tqpp_s canonical primary field and provenance exist
+  FAIL  Ta_s canonical primary field and provenance exist
+  FAIL  S10 canonical primary field and provenance exist
+  FAIL  S12 canonical primary field and provenance exist
+  FAIL  Excitation_type canonical primary field and provenance exist
+  FAIL  Excitation_designation canonical primary field and provenance exist
+  FAIL  percent view Xd = 178.3   [got 166.3, expected 178.3 +/- 1e-12]
+  FAIL  percent view Xdp = 32.56   [got 28.65, expected 32.56 +/- 1e-12]
+  FAIL  percent view Xdpp = 26.08, not saturated   [got 22.48, expected 26.08 +/- 1e-12]
+  PASS  generator retains NER, never GSUT solid grounding
+  PASS  modelled as a PV bus
+  PASS  terminal voltage setpoint 1.00 pu (approved assumption)
+  PASS  Qmin = -inf: reactive power UNCONSTRAINED, Q3a rejected the diesel template
+  PASS  Qmax = +inf: reactive power UNCONSTRAINED, Q3a rejected the diesel template
+  PASS  and the status is NOT_APPLICABLE, not MISSING - unconstrained is not a data gap
+  PASS  modelled with a Three-Phase Source, not a Synchronous Machine block
+  => test_generator_data: 17 passed, 33 FAILED
+
+--- test_base_conversion ----------------------------------------------
+  PASS  same base is the identity
+  PASS  10.5 % at 25 MVA -> 42 % at 100 MVA (factor Snew/Sold)
+  PASS  16 % at 515 MVA -> 3.1068 % at 100 MVA
+  PASS  12 % at 25 MVA -> 48 % at 100 MVA
+  PASS  round trip 515 -> 100 -> 515 MVA returns the original
+  PASS  same voltage base is the identity
+  PASS  voltage-base form scales by (Vold/Vnew)^2
+  PASS  6.9 kV -> 6.6 kV rebasing inflates an impedance by 9.2975 %
+  FAIL  x_d'' 26.08 % at 458 MVA -> 5.6943 % at 100 MVA   [got 0.049082969, expected 0.056943231 +/- 1e-12]
+  FAIL  explicit machine resistance exists
+  PASS  Zbase at 230 kV, 100 MVA = 529 ohm
+  PASS  grid 2.6558 ohm = 0.50204 % on the 100 MVA / 230 kV base
+  PASS  grid L is X/(2*pi*50) - the 50 Hz dependence is explicit
+  PASS  GSUT 10BAT10 block X_pu = 0.159986 is on its own 515 MVA rating, NOT converted to 100 MVA
+  PASS  GSUT 10BAT10 has NOT been double-converted (0.159986 pu own base vs 0.031065 pu on 100 MVA)
+  PASS  UAT 10BBT10 block X_pu = 0.104924 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  UAT 10BBT10 has NOT been double-converted (0.104924 pu own base vs 0.419695 pu on 100 MVA)
+  PASS  GAT 10BBT20 block X_pu = 0.119896 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  GAT 10BBT20 has NOT been double-converted (0.119896 pu own base vs 0.479583 pu on 100 MVA)
+  PASS  a zero source base is rejected rather than returning Inf
+  => test_base_conversion: 18 passed, 2 FAILED
+RED passed=35 failed=35

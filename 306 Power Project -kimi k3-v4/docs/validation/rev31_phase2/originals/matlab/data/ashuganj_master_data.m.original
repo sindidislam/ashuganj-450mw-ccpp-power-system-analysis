@@ -1,0 +1,34 @@
+function D = ashuganj_master_data()
+%ASHUGANJ_MASTER_DATA Master data entry point.
+D.meta.Project='Ashuganj South 450 MW CCPP'; D.meta.Owner='APSCL'; D.meta.Project_no='112070';
+D.meta.Study='Balanced steady state load flow provisional'; D.meta.Dataset_date='2026-08-31';
+D.meta.Toolchain='MATLAB R2024a Simscape Electrical'; D.meta.LF_engine='power_loadflow'; D.meta.Course='BUET EEE 306 Group 03';
+D.meta.Source_sync='Rev 03 engineering source re-audit'; D.meta.Out_of_scope={'short-circuit','protection coordination'};
+D.base.Sbase_MVA=100; D.base.Sbase_Status='ENGINEERING_ASSUMPTION'; D.base.Sbase_Note='Reporting base';
+D.base.f_Hz=50; D.base.f_Status='VERIFIED_PLANT'; D.base.f_Note='South documents confirm 50 Hz';
+D.buses=ashuganj_buses(); D.gen=ashuganj_generators(); D.tx=ashuganj_transformers();
+D.lines=ashuganj_lines(); D.loads=ashuganj_loads(); D.grid=ashuganj_grid();
+D.assumptions.grid_series_resistance_zero=grid_series_resistance_zero();
+D.assumptions.aux_load_allocation_split=aux_load_allocation_split();
+D.assumptions.gis_bus_coupler_closed=gis_bus_coupler_closed();
+D.superseded.transformer_magnetising_inductance=transformer_magnetising_inductance();
+D.structural={'S1','Physical GAT three winding; load flow two winding equivalent';'S2','Rev 03 MV ratings corrected'};
+C=case_record('LF1','Rated dispatch GAT out',389.30,false,'radial');
+C(2)=case_record('LF2','Rated dispatch GAT in',389.30,true,'looped');
+C(3)=case_record('LF3','Derated dispatch GAT out',342.01,false,'radial');
+C(4)=case_record('LF4','Derated dispatch GAT in',342.01,true,'looped');
+for i=1:numel(C)
+C(i).Coupler_closed=true; C(i).Gen_Q_MVAr_limit=[-inf inf];
+C(i).Gen_Vset_pu=D.gen(1).Vset_pu; C(i).Grid_Vset_pu=D.grid.Vset_pu;
+inc=[D.loads.Model_included]; C(i).Load_P_MW=sum([D.loads(inc).P_MW]); C(i).Load_Q_MVAr=sum([D.loads(inc).Q_MVAr]);
+C(i).Sbase_MVA=D.base.Sbase_MVA; C(i).f_Hz=D.base.f_Hz;
+end
+D.cases=C; D.case_matrix_note='Four provisional comparison cases';
+D.status_vocabulary={'VERIFIED_PLANT','VERIFIED_ENGINEERING_DOCUMENT','VERIFIED_PROJECT_DATA','DERIVED_FROM_VERIFIED_DATA','ENGINEERING_ASSUMPTION','ESTIMATED','MISSING','NOT_APPLICABLE','AVAILABLE_NOT_DIGITIZED'};
+D.weakest_link='External grid data'; assert(numel(D.cases)==4);
+end
+function C=case_record(id,name,p,gat,topology)
+C.ID=id; C.Name=name; C.Gen_P_MW=p; C.GAT_in=gat; C.Topology=topology;
+if p>350, C.Gen_scenario='Rated'; else, C.Gen_scenario='Derated'; end
+C.Purpose='Provisional comparative case';
+end

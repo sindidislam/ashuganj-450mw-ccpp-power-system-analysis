@@ -1,0 +1,31 @@
+[Warning: Name is nonexistent or not a directory: C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\results\scripts] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)
+In load_system>i_load_system (line 44)
+In load_system (line 20)
+In validate_scenarios (line 5)
+In run (line 112)] 
+SCENARIO_START generator_3ph 23-Sep-2026 17:23:11
+SCENARIO_PASS generator_3ph fault_peak_A=277362 relays=87G breakers=GCB,Q0
+SCENARIO_START transformer_lv_ll 23-Sep-2026 17:23:41
+SCENARIO_PASS transformer_lv_ll fault_peak_A=178495 relays=87T breakers=GCB,Q0
+SCENARIO_START transformer_hv_llg 23-Sep-2026 17:23:53
+SCENARIO_PASS transformer_hv_llg fault_peak_A=96386.8 relays=87T breakers=GCB,Q0
+SCENARIO_START line_slg 23-Sep-2026 17:24:05
+SCENARIO_PASS line_slg fault_peak_A=126030 relays=87L breakers=LineLocal,LineRemote
+SCENARIO_START grid_external_ll 23-Sep-2026 17:24:15
+SCENARIO_PASS grid_external_ll fault_peak_A=66433.9 relays= breakers=
+SCENARIO_START generator_slg 23-Sep-2026 17:24:24
+SCENARIO_PASS generator_slg fault_peak_A=10.3171 relays= breakers=
+SCENARIO_START dc_loss_bus_3ph 23-Sep-2026 17:24:36
+SCENARIO_PASS dc_loss_bus_3ph fault_peak_A=139096 relays=87B breakers=
+SCENARIO_START dc_recovery_bus_3ph 23-Sep-2026 17:24:45
+SCENARIO_PASS dc_recovery_bus_3ph fault_peak_A=139096 relays=87B breakers=Q0,LineLocal
+SCENARIO_START protection_disabled 23-Sep-2026 17:24:53
+SCENARIO_PASS protection_disabled fault_peak_A=139096 relays= breakers=
+SCENARIO_START charger_unavailable 23-Sep-2026 17:25:02
+SCENARIO_PASS charger_unavailable fault_peak_A=NaN relays= breakers=
+SCENARIO_START reset_normal 23-Sep-2026 17:25:11
+SCENARIO_PASS reset_normal fault_peak_A=NaN relays= breakers=
+SCENARIO_BATCH_DONE passed=11 total=11

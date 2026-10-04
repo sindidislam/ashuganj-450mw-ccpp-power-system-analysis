@@ -1,0 +1,36 @@
+ORIGINAL_MODEL C:\Users\sindi\Downloads\306 Power Project -kimi k3\simulink\main\Ashuganj_South_Main.slx
+Ashuganj_South_Main/BUS COUPLER | SubSystem | Three-Phase Breaker
+Ashuganj_South_Main/EXT GRID | SubSystem | Three-Phase Source
+Ashuganj_South_Main/G1 | SubSystem | Three-Phase Source
+Ashuganj_South_Main/GAT 10BBT20 | SubSystem | Three-Phase Transformer (Two Windings)
+Ashuganj_South_Main/GAT BAY CB | SubSystem | Three-Phase Breaker
+Ashuganj_South_Main/GSUT 10BAT10 | SubSystem | Three-Phase Transformer (Two Windings)
+Ashuganj_South_Main/LOAD_B6_6 | PMComponent | Three-Phase Parallel RLC Load
+Ashuganj_South_Main/LOAD_B6_6_WI1 | PMComponent | Three-Phase Parallel RLC Load
+Ashuganj_South_Main/LOAD_B6_6_WI2 | PMComponent | Three-Phase Parallel RLC Load
+Ashuganj_South_Main/UAT 10BBT10 | SubSystem | Three-Phase Transformer (Two Windings)
+Ashuganj_South_Main/ZGRID | PMComponent | Three-Phase Series RLC Branch
+Ashuganj_South_Main/powergui | SubSystem | PSB option menu block
+PreLoadFcn=
+PostLoadFcn=
+InitFcn=
+StartFcn=
+StopFcn=
+ORIGINAL solver=ode23tb mode=Continuous
+Error using job002_original_and_ports (line 13)
+A new block named 'Ѥ/A' cannot be added
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+Caused by:
+    Error using job002_original_and_ports (line 13)
+    Unable to find block 'Ѥ'.
+    
+    Error in run (line 112)
+    evalin('caller', strcat(scriptStem, ';'));
+    
+    Error in phase6_session_worker (line 21)
+                evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

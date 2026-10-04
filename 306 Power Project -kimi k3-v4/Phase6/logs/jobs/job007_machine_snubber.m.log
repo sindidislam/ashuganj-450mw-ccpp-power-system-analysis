@@ -1,0 +1,52 @@
+             model: 'P6_MACHINE_CIRCUIT'
+         frequency: 50
+         basePower: 100000000
+         tolerance: 1.0000e-07
+          Networks: [1x1 struct]
+            status: 1
+        iterations: 2
+             error: ''
+             Ybus1: [3x3 double]
+               bus: [1x3 struct]
+                sm: [1x1 struct]
+               asm: []
+              vsrc: [1x1 struct]
+            pqload: []
+           rlcload: [1x1 struct]
+    LoadFlowSolver: 'PositiveSequence'
+
+           handle: 260.0005
+        busNumber: 2
+            busID: '*2*'
+    generatorType: 'PV'
+             Pnom: 458000000
+             Vnom: 22000
+                P: 360000000
+                Q: 0
+             Qmin: -Inf
+             Qmax: Inf
+                S: 3.6000 + 0.1975i
+                I: 0.7094 - 0.3412i
+             Pmec: 3.6024e+08
+               Vt: 0.9236 - 0.3834i
+               Vf: 1.7678
+              th0: -60.5649
+              dw0: 0
+
+IC=[0 -60.5649 0.787208 0.787208 0.787208 -25.6822 -145.682 94.3178 1.76776]
+Pm=0.78655 Vf=1.7678
+    SignalName: ''
+     BusObject: ''
+      Children: [24x1 struct]
+
+  Simulink.SimulationOutput:
+                  mData: [1x1 struct] 
+                   tout: [24651x1 double] 
+
+     SimulationMetadata: [1x1 Simulink.SimulationMetadata] 
+           ErrorMessage: [0x0 char] 
+
+         time: [24651x1 double]
+      signals: [1x1 struct]
+    blockName: 'P6_MACHINE_CIRCUIT/Machine measurements'
+

@@ -1,0 +1,66 @@
+Port
+1
+Side
+Left
+Orientation
+right
+ConnectionType
+Inherit: auto
+Position
+    15    15    65    65
+
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: []
+       RConn: 4.2270e+03
+    Ifaction: []
+       Reset: []
+       Event: []
+
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: 4.2280e+03
+       RConn: []
+    Ifaction: []
+       Reset: []
+       Event: []
+
+ Simulink.BlockDiagram.createSubsystem - Create subsystem containing specified set of blocks
+    This MATLAB function creates a subsystem and moves the specified blocks
+    into it.
+
+    Syntax
+      Simulink.BlockDiagram.createSubsystem(blocks)
+      Simulink.BlockDiagram.createSubsystem()
+      Simulink.BlockDiagram.createSubsystem(___,Name,Value)
+
+    Input Arguments
+      blocks - Block handles
+        numeric array
+
+    Name-Value Arguments
+      Name - Name of new subsystem
+        character vector | string scalar
+      MakeNameUnique - Option to make subsystem name unique
+        'on' (default) | 'off'
+
+    Examples
+      openExample('simulink/CreateSubsystemFromModelExample')
+      openExample('simulink/CreateSubsystemFromModelWithCustomNameExample')
+
+    See also Simulink.BlockDiagram.copyContentsToSubsystem,
+      Simulink.BlockDiagram.deleteContents,
+      Simulink.SubSystem.convertToModelReference,
+      Simulink.SubSystem.copyContentsToBlockDiagram
+
+    Introduced in Simulink in R2009a
+    Documentation for Simulink.BlockDiagram.createSubsystem
+       doc Simulink.BlockDiagram.createSubsystem
+
+

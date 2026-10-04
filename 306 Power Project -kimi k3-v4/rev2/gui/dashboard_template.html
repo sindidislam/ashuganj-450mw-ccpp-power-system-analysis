@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ashuganj South 450MW CCPP — Rev2 Animated Dashboard (EEE 306 G03)</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f4f6f8;color:#222}
+header{background:#0b3d5c;color:#fff;padding:12px 20px}
+header h1{margin:0;font-size:20px}header p{margin:4px 0 0;font-size:12px;color:#cfe3ef}
+main{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px}
+section{background:#fff;border:1px solid #d5dde3;border-radius:8px;padding:12px}
+section h2{margin:0 0 8px;font-size:15px;color:#0b3d5c}
+.row{display:flex;gap:8px;align-items:center;margin:6px 0;flex-wrap:wrap}
+.kv{font-size:12px;background:#eef3f6;border-radius:4px;padding:3px 8px}
+.kv b{color:#0b3d5c}
+button{background:#0b3d5c;color:#fff;border:0;border-radius:4px;padding:6px 12px;cursor:pointer}
+button:disabled{background:#9db3c0}
+select,input[type=range]{padding:4px}
+svg text{font-size:11px}
+.flow{stroke-dasharray:10 8;animation:dashmove 1s linear infinite}
+@keyframes dashmove{to{stroke-dashoffset:-36}}
+.note{font-size:11px;color:#666}
+.pass{color:#0a7b2d;font-weight:bold}.warn{color:#b26a00;font-weight:bold}.fail{color:#c00;font-weight:bold}
+table{border-collapse:collapse;font-size:12px}td,th{border:1px solid #ccd;padding:3px 8px}
+footer{padding:10px 20px;font-size:11px;color:#666}
+</style>
+</head>
+<body>
+<header>
+<h1>Ashuganj South 450MW CCPP — Rev2 Animated Dashboard</h1>
+<p>Sep-10 master truth · 100MVA/50Hz · C-values labelled · data baked from rev2/results/*.csv</p>
+</header>
+<main>
+<section>
+<h2>1 · Power-flow animation (P1A..P1G)</h2>
+<div class="row"><label>Case <select id="lfCase"></select></label>
+<span class="kv">Pgen <b id="lfPgen">–</b> MW</span>
+<span class="kv">Export <b id="lfPexp">–</b> MW</span>
+<span class="kv">Loss <b id="lfPloss">–</b> MW</span></div>
+<svg id="lfSvg" viewBox="0 0 640 220" width="100%">
+<line x1="40" y1="110" x2="150" y2="110" stroke="#1a7f37" stroke-width="5" id="lfGen" class="flow"/>
+<rect x="150" y="85" width="70" height="50" fill="#dceeff" stroke="#0b3d5c"/><text x="185" y="113" text-anchor="middle">GSUT</text>
+<line x1="220" y1="110" x2="330" y2="110" stroke="#1a7f37" stroke-width="5" id="lfHv" class="flow"/>
+<rect x="330" y="90" width="90" height="40" fill="#222"/><text x="375" y="114" text-anchor="middle" fill="#fff">B02 GIS</text>
+<line x1="420" y1="110" x2="510" y2="110" stroke="#1a7f37" stroke-width="5" id="lfLine" class="flow"/>
+<rect x="510" y="90" width="90" height="40" fill="#444"/><text x="555" y="114" text-anchor="middle" fill="#fff">GRID</text>
+<line x1="95" y1="110" x2="95" y2="180" stroke="#1a7f37" stroke-width="3" id="lfAux" class="flow"/>
+<rect x="55" y="180" width="80" height="26" fill="#dceeff" stroke="#0b3d5c"/><text x="95" y="197" text-anchor="middle">B11 aux</text>
+<text x="40" y="100">GEN</text><text x="40" y="210" id="lfV1"></text>
+<text x="330" y="80" id="lfV2"></text><text x="55" y="222" id="lfV11"></text>
+</svg>
+<div class="row"><span class="kv">V_B02 <b id="lfV2b">–</b> pu</span><span class="kv">V_B11 <b id="lfV11b">–</b> pu</span></div>
+<p class="note">Dash speed ~ MW share. B11 0.93pu LOW in all radial cases (F1 finding).</p>
+</section>
+<section>
+<h2>2 · Fault + protection trip sequence</h2>
+<div class="row"><label>Case <select id="fCase"></select></label>
+<button id="fPlay">PLAY 0–250ms</button>
+<input type="range" id="fTime" min="0" max="250" value="0" style="flex:1">
+<span class="kv">t=<b id="fT">0</b>ms</span></div>
+<svg id="fSvg" viewBox="0 0 640 200" width="100%">
+<line x1="30" y1="100" x2="180" y2="100" stroke="#1a7f37" stroke-width="4" id="fGen"/>
+<rect x="180" y="75" width="60" height="50" fill="#dceeff" stroke="#0b3d5c"/><text x="210" y="103" text-anchor="middle">GSUT</text>
+<line x1="240" y1="100" x2="360" y2="100" stroke="#1a7f37" stroke-width="4" id="fHv"/>
+<rect x="360" y="80" width="80" height="40" fill="#222"/><text x="400" y="104" text-anchor="middle" fill="#fff">B02</text>
+<line x1="440" y1="100" x2="560" y2="100" stroke="#1a7f37" stroke-width="4" id="fLine"/>
+<rect x="200" y="130" width="26" height="26" fill="#0a7b2d" stroke="#000" id="fQ0"/><text x="213" y="172">Q0</text>
+<rect x="470" y="130" width="26" height="26" fill="#0a7b2d" stroke="#000" id="fQ9"/><text x="483" y="172">Q9</text>
+<text x="320" y="60" id="fFlash" fill="#c00" font-size="26" visibility="hidden">⚡</text>
+</svg>
+<div class="row"><span class="kv">Isym <b id="fIsym">–</b> kA</span><span class="kv">Ipeak <b id="fIpk">–</b> kA</span>
+<span class="kv">Gen <b id="fGen">–</b></span><span class="kv">Grid <b id="fGrid">–</b></span></div>
+<div class="row"><span class="kv">Duty <b id="fDuty">–</b></span></div>
+<p class="note">Fault at 50ms, Q0+Q9 trip at 110ms (60ms clearing, C). B01-LLL/LL + B03: engine-only.</p>
+</section>
+<section>
+<h2>3 · Voltage dip + recovery envelope (ILLUSTRATIVE — C)</h2>
+<div class="row"><button id="vPlay">PLAY recovery</button>
+<span class="kv">H = <b>5.287s</b> (B, context only)</span></div>
+<svg id="vSvg" viewBox="0 0 640 200" width="100%">
+<line x1="40" y1="20" x2="40" y2="170" stroke="#888"/><line x1="40" y1="170" x2="620" y2="170" stroke="#888"/>
+<text x="5" y="30">1.0</text><text x="5" y="170">0</text><text x="600" y="188">t</text>
+<path id="vCurve" d="" fill="none" stroke="#0b3d5c" stroke-width="2"/>
+<circle id="vDot" r="6" fill="#c00" cx="40" cy="30"/>
+</svg>
+<p class="note">Bolted fault: V=0 during fault, exponential recovery after clearing — SKETCH, not a
+transient-stability study (no machine/AVR model in scope; Phase-4 business).</p>
+</section>
+<section>
+<h2>4 · DC battery discharge vs autonomy (C)</h2>
+<div class="row"><button id="bPlay">PLAY 2h autonomy (compressed)</button><span class="kv">Idc <b>29.7A</b> sim</span></div>
+<svg id="bSvg" viewBox="0 0 640 160" width="100%">
+<rect x="40" y="40" width="400" height="34" fill="#e5e5e5" stroke="#888"/>
+<rect id="bBar" x="40" y="40" width="400" height="34" fill="#0a7b2d"/>
+<text x="450" y="63" id="bTxt">200Ah</text>
+<text x="40" y="110">2h requirement marker:</text><line x1="40" y1="118" x2="148" y2="118" stroke="#c00" stroke-width="4"/>
+<text x="40" y="140">200Ah/27.3A = 7.4h &gt; 2h → </text><text x="255" y="140" class="pass" id="bVerdict">PASS</text>
+</svg>
+<p class="note">Conceptual DC: 110V lead-acid 200Ah + 4.03Ω DCDB (~3kW). 2×30A chargers N+1 annotated.</p>
+</section>
+</main>
+<footer>Generated by rev2/gui/build_dashboard.m from rev2/results/*.csv · breaker 50kA = withstand ONLY (B), interrupting assumed (C) · <span id="ftab"></span></footer>
+<script>
+const LF=%DATA_LF%, F=%DATA_F%, D=%DATA_D%;
+// ---- 1 power flow ----
+const lfSel=document.getElementById('lfCase');
+LF.forEach(c=>{const o=document.createElement('option');o.value=c.id;o.text=c.id;lfSel.appendChild(o);});
+function lfShow(id){const c=LF.find(x=>x.id===id);
+ document.getElementById('lfPgen').textContent=c.Pgen;
+ document.getElementById('lfPexp').textContent=c.Pexp;
+ document.getElementById('lfPloss').textContent=c.Ploss;
+ document.getElementById('lfV2b').textContent=c.V2;
+ document.getElementById('lfV11b').textContent=c.V11;
+ const v11=document.getElementById('lfV11b'); v11.style.color=c.V11<0.95?'#c00':'inherit';
+ document.getElementById('lfV1').textContent='B01 1.00pu';
+ document.getElementById('lfV2').textContent='B02 '+c.V2+'pu';
+ document.getElementById('lfV11').textContent='B11 '+c.V11+'pu';
+ const sp=mw=>Math.max(0.25,2.2-mw/200);
+ document.getElementById('lfGen').style.animationDuration=sp(c.Pgen)+'s';
+ document.getElementById('lfHv').style.animationDuration=sp(c.Pexp)+'s';
+ document.getElementById('lfLine').style.animationDuration=sp(c.Pexp)+'s';
+ document.getElementById('lfAux').style.animationDuration=sp(12)+'s';}
+lfSel.onchange=()=>lfShow(lfSel.value); lfShow('P1A');
+// ---- 2 fault + trip ----
+const fSel=document.getElementById('fCase');
+F.filter(c=>!c.id.startsWith('S')).forEach(c=>{const o=document.createElement('option');o.value=c.id;o.text=c.id;fSel.appendChild(o);});
+let fCur=null,fTimer=null;
+function fShow(id){fCur=F.find(x=>x.id===id);
+ document.getElementById('fIsym').textContent=fCur.Isym;
+ document.getElementById('fIpk').textContent=fCur.Ipeak;
+ document.getElementById('fGen').textContent=fCur.Igen+'kA@22kV';
+ document.getElementById('fGrid').textContent=fCur.Igrid+'kA@230kV';
+ const d=D[0];document.getElementById('fDuty').textContent='see breaker table (Q1/Q2 margin +1.94kA THIN)';
+ fDraw(0);}
+fSel.onchange=()=>fShow(fSel.value);
+function fDraw(t){
+ const fl=document.getElementById('fFlash'),q0=document.getElementById('fQ0'),q9=document.getElementById('fQ9');
+ document.getElementById('fT').textContent=t;
+ document.getElementById('fTime').value=t;
+ const fx=fCur.bus==='B01'?105:(fCur.bus==='B03'?500:400);
+ fl.setAttribute('x',fx-12);
+ if(t<50){fl.setAttribute('visibility','hidden');q0.setAttribute('fill','#0a7b2d');q9.setAttribute('fill','#0a7b2d');
+  ['fGen','fHv','fLine'].forEach(i=>document.getElementById(i).setAttribute('stroke','#1a7f37'));}
+ else if(t<110){fl.setAttribute('visibility','visible');q0.setAttribute('fill','#0a7b2d');q9.setAttribute('fill','#0a7b2d');
+  ['fGen','fHv','fLine'].forEach(i=>document.getElementById(i).setAttribute('stroke','#c00'));}
+ else{fl.setAttribute('visibility','hidden');q0.setAttribute('fill','#888');q9.setAttribute('fill','#888');
+  ['fGen','fHv','fLine'].forEach(i=>document.getElementById(i).setAttribute('stroke','#888'));}
+}
+document.getElementById('fTime').oninput=e=>fDraw(+e.target.value);
+document.getElementById('fPlay').onclick=()=>{if(fTimer)return;let t=0;
+ fTimer=setInterval(()=>{t+=5;if(t>250){clearInterval(fTimer);fTimer=null;return;}fDraw(t);},60);};
+fShow('F5-B02-LLL');
+// ---- 3 recovery envelope ----
+let vTimer=null;
+document.getElementById('vPlay').onclick=()=>{
+ const p=document.getElementById('vCurve'),d=document.getElementById('vDot');
+ if(vTimer)return;let t=0;
+ vTimer=setInterval(()=>{t+=4;if(t>250){clearInterval(vTimer);vTimer=null;return;}
+  let v=t<50?1.0:(t<110?0.0:1-Math.exp(-(t-110)/45));
+  let pts='';for(let x=0;x<=t;x+=4){let vv=x<50?1.0:(x<110?0.0:1-Math.exp(-(x-110)/45));
+   pts+=(40+x*2.32)+','+(170-vv*140)+' ';}
+  p.setAttribute('d','M'+pts.trim().replace(/ /g,' L'));
+  d.setAttribute('cx',40+t*2.32);d.setAttribute('cy',170-v*140);},40);};
+// ---- 4 battery ----
+let bTimer=null;
+document.getElementById('bPlay').onclick=()=>{
+ const bar=document.getElementById('bBar'),tx=document.getElementById('bTxt');
+ if(bTimer)return;let h=0;
+ bTimer=setInterval(()=>{h+=0.1;if(h>8){clearInterval(bTimer);bTimer=null;return;}
+  const ah=Math.max(0,200-27.3*h);
+  bar.setAttribute('width',400*ah/200);
+  bar.setAttribute('fill',h<=2?'#0a7b2d':'#b26a00');
+  tx.textContent=ah.toFixed(0)+'Ah @ '+h.toFixed(1)+'h';},60);};
+document.getElementById('ftab').textContent=' Fault table: B02-LLL 46.25kA/115.6kA · B03-LLL 48.06kA/120.8kA · B01-LLL 122.36kA/338.6kA.';
+</script>
+</body>
+</html>

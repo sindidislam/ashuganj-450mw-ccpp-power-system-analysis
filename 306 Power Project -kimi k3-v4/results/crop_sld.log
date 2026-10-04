@@ -1,0 +1,20 @@
+source F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\tmp\pdfs\south_sld_page2.png  4525x3200
+
+gsut                    380..1200 x   90.. 580 -> 1642x 982  GSUT 10BAT10 ratio/MVA/Z/vector group
+uat                     880..1500 x  600.. 980 -> 1242x 762  UAT 10BBT10 ratio/MVA/Z/vector group
+gat                    3020..3860 x  480.. 980 -> 1682x1002  GAT 10BBT20 ratio/MVA/Z/vector group + SF6 duct
+generator               180.. 780 x 1580..2500 -> 1202x1842  G1 10MKA10 MVA/kV/pf/Hz + NER 10BAB11
+gcb                     240.. 760 x  880..1250 -> 1042x 742  GCB 10BAC10 rating
+mvbus_left              700..2350 x 1120..1520 -> 3302x 802  10BBA10 busbar rating + left feeders
+feeders_sfc_exc         740..1300 x 1250..1560 -> 1122x 622  10MBJ01 SFC + 10MKC01 excitation transformers
+feeders_bft40_10_20    1280..2350 x 1250..1560 -> 2142x 622  10BFT40, 10BFT10, 10BFT20
+feeders_bft30          2950..3450 x 1250..1560 -> 1002x 622  10BFT30
+lv_400v_row            1550..3400 x 1500..1750 -> 3702x 502  400 V switchgear ratings 10BFA10/20/30, 10BMA10
+edg                    1700..2250 x 1700..2100 -> 1102x 802  10BMV10 EDG rating + NOTE 4
+water_intake           3400..4500 x 1420..2650 -> 2202x2462  00BBA10/20 water intake busbars, 00BFT10, 00BFA10
+lv_dc_bottom            780..1560 x 2480..2960 -> 1562x 962  10BUK01/02, 10BUB/BUC 220 Vdc, I&C cabinet
+mv_motor_table         3020..4500 x   50.. 620 -> 2962x1142  MV MOTOR TABLE - all motor kW ratings
+title_block            3280..4520 x 2620..3170 -> 2482x1102  drawing number, revision, project number, date
+ipb_and_ct              240.. 900 x  200.. 900 -> 1322x1402  isolated phase busbars 10BAA40/50 + CT ratios
+
+CROP COMPLETE

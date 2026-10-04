@@ -1,0 +1,140 @@
+{
+  "tag": "production",
+  "timestamp_local": "2026-09-19T09:15:04",
+  "input": {
+    "productionManifestSha256": "fb71e83201977af1923ff0833f1ccec6c8e9ce73c4cc2a9102fbf5df9e56ad77",
+    "productionSha256Txt": [
+      "c08a49cbcf410137ef9b8bdfe509068ac274391d0ecd7fd2022d15dc7b261629  phase4_fault_currents.csv",
+      "710e98c59b04973520f2db90ee30ccc04199242c6e2d7883b35104c5b3160417  phase4_contributions.csv",
+      "ba05554aa23782a88ddd1f87a520a0388a101384b9c63e727a6e70a8fa7b2d48  phase4_bands.csv",
+      "4527892eb23913f58ec3ee6d46d995264b2f8109f6c8b47cbf63032b2eed3720  phase4_ct_data.csv",
+      "0f731aeea9dc0cd91d4db70a070d435381dfae1cceaf161c87063e01372861ac  analytic_bounds.csv",
+      "fb71e83201977af1923ff0833f1ccec6c8e9ce73c4cc2a9102fbf5df9e56ad77  manifest.json",
+      "93630e89f3818c38de3d816d791b2a1a86bbbcd702e88950ec803f0d545c97ab  run_log.txt"
+    ],
+    "source": "results/phase4_fault/production (read-only; never modified)"
+  },
+  "rowCounts": {
+    "phase5_device_registry_csv": 7,
+    "phase5_relay_settings_csv": 7,
+    "phase5_fault_inputs_csv": 40,
+    "phase5_relay_currents_csv": 108,
+    "phase5_coordination_matrix_csv": 96,
+    "phase5_coordination_margins_csv": 96,
+    "phase5_breaker_duty_csv": 41,
+    "phase5_sensitivity_csv": 60,
+    "phase5_validation_csv": 16
+  },
+  "files": [
+    "phase5_device_registry.csv",
+    "phase5_relay_settings.csv",
+    "phase5_fault_inputs.csv",
+    "phase5_relay_currents.csv",
+    "phase5_coordination_matrix.csv",
+    "phase5_coordination_margins.csv",
+    "phase5_breaker_duty.csv",
+    "phase5_sensitivity.csv",
+    "phase5_validation.csv",
+    "manifest.json",
+    "run_log.txt"
+  ],
+  "codeHashes": [
+    {
+      "file": "phase5_coord.m",
+      "sha256": "cb41efdcb100da5f2e7649fda35f3fd0b343e11954525b8dd9d6f3f33a902881"
+    },
+    {
+      "file": "phase5_ct.m",
+      "sha256": "3ac0359eaaa058ff3b957df426859a7f5fe120b63fe7011b5d1a6b4b105450a5"
+    },
+    {
+      "file": "phase5_ct_table.m",
+      "sha256": "b1f98864ece62df2e1e128ca9130221727aa42a8c45ab72097f54ae4cfcc85c8"
+    },
+    {
+      "file": "phase5_curve.m",
+      "sha256": "261232ae58e1af391cc83ea370e5a858c1c317f5a1aeffda51afd4a8cb855faa"
+    },
+    {
+      "file": "phase5_curve_dt.m",
+      "sha256": "8dd64af66ffe0e6519b9cfe3c6eb3778931bfc258d0e94391df606b3631bb6c5"
+    },
+    {
+      "file": "phase5_curve_info.m",
+      "sha256": "6635ca8a5cb501b871b34b5c3869f8bff2e5176fffe6227d8352f9d52ca8b6c2"
+    },
+    {
+      "file": "phase5_duty.m",
+      "sha256": "ad7c4024bc4ee4e85aaf49b9fd3a335b54dd5882d6dc6de097c3deba9443cf52"
+    },
+    {
+      "file": "phase5_import.m",
+      "sha256": "5cbe23af84709b378be8a8cea9719fad4c5abdf388c9e69c338f31336be805d4"
+    },
+    {
+      "file": "phase5_pickup.m",
+      "sha256": "716b9a13ceb799a693be70b4127284c38cbcfba34151c2f2c8795280eba00604"
+    },
+    {
+      "file": "phase5_registry.m",
+      "sha256": "7670d051c472e76037b8cedb0f425e45a1b3edd74a7e2d9611cf142b1607ea8a"
+    },
+    {
+      "file": "phase5_sensitivity.m",
+      "sha256": "c3d4d389e6ca0fe4937cbce4030489f28e029f278a7f4497ef76a0e3c1ac3f78"
+    },
+    {
+      "file": "phase5_tcc.m",
+      "sha256": "fa48c6d6fc17776928cb1b909a718d01614f5c404796f163bb1bcaf82d8c5bd4"
+    },
+    {
+      "file": "phase5_time.m",
+      "sha256": "97960f488839f4eef81b93ff46821c28443c8f73a192a8ddf6c1bae0fac80f4a"
+    },
+    {
+      "file": "phase5_validate.m",
+      "sha256": "12da0513bf2f92457c09554660f030b86da1b876373a4cd6a47434b802255ca1"
+    },
+    {
+      "file": "phase5_writer.m",
+      "sha256": "eb117edd7161b81490a2d719b1e1b9c975e9207c9f19a76e56fe1b2b0c647588"
+    },
+    {
+      "file": "run_phase5_production.m",
+      "sha256": "7c8c762b8c282b8a06fa9d026a322b4666051292077b088e2af672c01f968479"
+    },
+    {
+      "file": "run_phase5_tests.m",
+      "sha256": "4bfcaf4bfbf3e428a0df7230fa820a3a9f259da19255135ce9fc7d2c72f2b6ec"
+    }
+  ],
+  "validation": {
+    "runner": "phase5_validate",
+    "reference": "16/16",
+    "pass": 16,
+    "total": 16,
+    "note": "live phase5_validate 16/16 legs pass (R0,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,V14,V15)"
+  },
+  "testCounts": {
+    "runner": "run_phase5_tests",
+    "NP": 344,
+    "NF": 0
+  },
+  "settings": [
+    "GEN-51 phase pickup 15023.75 A-primary (1.25x rated 12019 A; above-rated-below-min-phase-fault:1.25xrated-12019A=15023.75A-primary)",
+    "GEN-51N earth pickup 5.00 A-primary (SENSITIVE; must-detect-F1-LG-7.27A-primary:5A-with-margin-1.45)",
+    "GSUT-HV-51 phase pickup 1380.00 A-primary (1.2x max(rated 1150 A, GSUT_HV anchor 870.7726 A); DERIVED-study-setting:1.2x-load-anchor)",
+    "GIS-Q0-51 phase pickup 1043.9480 A-primary (PRODUCTION 1.2x LINE_Q9 FL_anchor 869.956652 A from phase4_ct_data.csv; never 2400 A rated-proxy)",
+    "FL anchors (phase4_ct_data.csv FL_anchor_kA, frozen flows): GEN_Q 9.4757, GSUT_HV 0.87077, GRID_Q 0.87007, LINE_Q9 0.869957 kA",
+    "Imin anchors: phase 43758.86 A (LLL/LL/LLG totals min); earth 7.27013 A (LG totals min per T6 EF contract; LLG 3I0 below-pickup outcomes live honestly in the matrix)",
+    "TMS study defaults (ENGINEERING_ASSUMPTION, registry NaN): GEN 0.1 / GSUT 0.2 / GIS 0.3; curve SI (STUDY constants, never manufacturer)",
+    "CTI 0.3 s (ENGINEERING_ASSUMPTION study threshold); primary CT 15000/1 SOURCE-BACKED, 16000/1 LEGACY fenced sensitivity only",
+    "Breaker duty: Q0 (52-1) only; Q1/Q2/Q9 disconnectors never duty; peak r_kappa_ip borrowed-shape informational only, never duty input",
+    "CSV dialect: RFC-4180 comma-separated; text fields with commas are double-quoted (notably the GSUT-HV-51 basis cell). MATLAB readers must use readtable(fp,'Delimiter',',') because the auto-delimiter sniffer misparses quoted-comma rows.",
+    "TCC plots regenerated via phase5_tcc: C:\\Users\\sindi\\Downloads\\306 Power Project -union alpha\\results\\phase5_protection\\plots\\tcc_gen.png, C:\\Users\\sindi\\Downloads\\306 Power Project -union alpha\\results\\phase5_protection\\plots\\tcc_grid.png"
+  ],
+  "notes": [
+    "Phase-5 protection study outputs on frozen Phase-4 production data; study settings / engineering assumptions / source-backed only; never manufacturer settings; ip peak is borrowed-shape design-defined, never a breaker-duty input.",
+    "TCC plots (tcc_gen.png, tcc_grid.png) in plots/ are study-curve figures, not hashed in sha256.txt."
+  ]
+}

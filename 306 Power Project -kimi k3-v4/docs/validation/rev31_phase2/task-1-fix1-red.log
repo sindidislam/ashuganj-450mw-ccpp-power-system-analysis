@@ -1,0 +1,231 @@
+FIX1_RED MATLAB 24.1.0.2537033 (R2024a)
+F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project -opencode now claude\matlab\tests\test_generator_capability.m
+F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project -opencode now claude\matlab\data\phase2_source_data.m
+
+--- test_generator_capability -----------------------------------------
+  PASS  authoritative capabilityCurve exists
+  PASS  exact six extracted P points
+  PASS  exact extracted upper points
+  PASS  exact extracted lower points
+  PASS  extraction is not tabulated manufacturer data
+  PASS  manual extraction explicit
+  PASS  user supplied graph readings
+  PASS  no local attachment inspection claim
+  PASS  attachment locator retained
+  PASS  piecewise-linear interpretation
+  PASS  no extrapolation
+  PASS  physical compatibility limits apply at primary capacity
+  PASS  physical limit source status separate
+  PASS  generatorCapability function exists
+  PASS  all lower endpoints including zero-Q tip
+  PASS  all upper endpoints including zero-Q tip
+  PASS  lower midpoint on every segment
+  PASS  upper midpoint on every segment
+  PASS  360 MW lower independent formula
+  PASS  360 MW upper independent formula
+  PASS  column lower shape preserved
+  PASS  column upper shape preserved
+  PASS  matrix lower shape and values
+  PASS  matrix upper shape and values
+  PASS  explicit curve honored without provider recursion
+  PASS  invalid P input 1 rejected
+  PASS  invalid P input 2 rejected
+  PASS  invalid P input 3 rejected
+  PASS  invalid P input 4 rejected
+  PASS  invalid P input 5 rejected
+  PASS  invalid P input 6 rejected
+  PASS  invalid P input 7 rejected
+  PASS  invalid P input 8 rejected
+  PASS  invalid P input 9 rejected
+  PASS  invalid P input 10 rejected
+  PASS  malformed curve 1 rejected
+  PASS  malformed curve 2 rejected
+  PASS  malformed curve 3 rejected
+  PASS  malformed curve 4 rejected
+  PASS  malformed curve 5 rejected
+  PASS  malformed curve 6 rejected
+  PASS  normalized parameter helper exists
+  PASS  lowercase parameter schema complete
+  PASS  source value retained
+  PASS  source classification defaults honestly
+  PASS  source record not presented as assumption
+  PASS  selected value explicit
+  PASS  assumed range retained
+  PASS  assumption never promoted
+  PASS  assumptions require basis and finite ranges
+  PASS  out-of-range assumption rejected
+  PASS  missing source is not a finite assumed parameter
+  PASS  normalized source view exists
+  PASS  default and injected provider yield same source view
+  PASS  Snom_MVA normalized value follows original provenance
+  PASS  Snom_MVA original source status retained
+  PASS  Snom_MVA full original provenance retained
+  PASS  P_capacity_MW normalized value follows original provenance
+  PASS  P_capacity_MW original source status retained
+  PASS  P_capacity_MW full original provenance retained
+  PASS  Vnom_kV normalized value follows original provenance
+  PASS  Vnom_kV original source status retained
+  PASS  Vnom_kV full original provenance retained
+  PASS  H_s normalized value follows original provenance
+  PASS  H_s original source status retained
+  PASS  H_s full original provenance retained
+  PASS  SCR normalized value follows original provenance
+  PASS  SCR original source status retained
+  PASS  SCR full original provenance retained
+  PASS  Xd normalized value follows original provenance
+  PASS  Xd original source status retained
+  PASS  Xd full original provenance retained
+  PASS  Xdp normalized value follows original provenance
+  PASS  Xdp original source status retained
+  PASS  Xdp full original provenance retained
+  PASS  Xdpp normalized value follows original provenance
+  PASS  Xdpp original source status retained
+  PASS  Xdpp full original provenance retained
+  PASS  Xdpp_sat normalized value follows original provenance
+  PASS  Xdpp_sat original source status retained
+  PASS  Xdpp_sat full original provenance retained
+  PASS  Xq normalized value follows original provenance
+  PASS  Xq original source status retained
+  PASS  Xq full original provenance retained
+  PASS  Xqp normalized value follows original provenance
+  PASS  Xqp original source status retained
+  PASS  Xqp full original provenance retained
+  PASS  Xqpp normalized value follows original provenance
+  PASS  Xqpp original source status retained
+  PASS  Xqpp full original provenance retained
+  PASS  Xl normalized value follows original provenance
+  PASS  Xl original source status retained
+  PASS  Xl full original provenance retained
+  PASS  X2 normalized value follows original provenance
+  PASS  X2 original source status retained
+  PASS  X2 full original provenance retained
+  PASS  X0 normalized value follows original provenance
+  PASS  X0 original source status retained
+  PASS  X0 full original provenance retained
+  PASS  Ra_ohm normalized value follows original provenance
+  PASS  Ra_ohm original source status retained
+  PASS  Ra_ohm full original provenance retained
+  PASS  Rf_numeric normalized value follows original provenance
+  PASS  Rf_numeric original source status retained
+  PASS  Rf_numeric full original provenance retained
+  PASS  Td0p_s normalized value follows original provenance
+  PASS  Td0p_s original source status retained
+  PASS  Td0p_s full original provenance retained
+  PASS  Td0pp_s normalized value follows original provenance
+  PASS  Td0pp_s original source status retained
+  PASS  Td0pp_s full original provenance retained
+  PASS  Tq0p_s normalized value follows original provenance
+  PASS  Tq0p_s original source status retained
+  PASS  Tq0p_s full original provenance retained
+  PASS  Tq0pp_s normalized value follows original provenance
+  PASS  Tq0pp_s original source status retained
+  PASS  Tq0pp_s full original provenance retained
+  PASS  Tdp_s normalized value follows original provenance
+  PASS  Tdp_s original source status retained
+  PASS  Tdp_s full original provenance retained
+  PASS  Tdpp_s normalized value follows original provenance
+  PASS  Tdpp_s original source status retained
+  PASS  Tdpp_s full original provenance retained
+  PASS  Tqp_s normalized value follows original provenance
+  PASS  Tqp_s original source status retained
+  PASS  Tqp_s full original provenance retained
+  PASS  Tqpp_s normalized value follows original provenance
+  PASS  Tqpp_s original source status retained
+  PASS  Tqpp_s full original provenance retained
+  PASS  Ta_s normalized value follows original provenance
+  PASS  Ta_s original source status retained
+  PASS  Ta_s full original provenance retained
+  PASS  S10 normalized value follows original provenance
+  PASS  S10 original source status retained
+  PASS  S10 full original provenance retained
+  PASS  S12 normalized value follows original provenance
+  PASS  S12 original source status retained
+  PASS  S12 full original provenance retained
+  PASS  Excitation_type normalized value follows original provenance
+  PASS  Excitation_type original source status retained
+  PASS  Excitation_type full original provenance retained
+  PASS  Excitation_designation normalized value follows original provenance
+  PASS  Excitation_designation original source status retained
+  PASS  Excitation_designation full original provenance retained
+  PASS  PF_rated normalized value follows original provenance
+  PASS  PF_rated original source status retained
+  PASS  PF_rated full original provenance retained
+  PASS  P_pf_reference_MW normalized value follows original provenance
+  PASS  P_pf_reference_MW original source status retained
+  PASS  P_pf_reference_MW full original provenance retained
+  PASS  P_owner_derated_MW normalized value follows original provenance
+  PASS  P_owner_derated_MW original source status retained
+  PASS  P_owner_derated_MW full original provenance retained
+  PASS  Earthing normalized value follows original provenance
+  PASS  Earthing original source status retained
+  PASS  Earthing full original provenance retained
+  PASS  Zbase_machine_ohm normalized value follows original provenance
+  PASS  Zbase_machine_ohm original source status retained
+  PASS  Zbase_machine_ohm full original provenance retained
+  PASS  Zbase_100MVA_ohm normalized value follows original provenance
+  PASS  Zbase_100MVA_ohm original source status retained
+  PASS  Zbase_100MVA_ohm full original provenance retained
+  PASS  Ra_pu_machine normalized value follows original provenance
+  PASS  Ra_pu_machine original source status retained
+  PASS  Ra_pu_machine full original provenance retained
+  PASS  Ra_pu_100MVA normalized value follows original provenance
+  PASS  Ra_pu_100MVA original source status retained
+  PASS  Ra_pu_100MVA full original provenance retained
+  PASS  Xdpp_100MVA normalized value follows original provenance
+  PASS  Xdpp_100MVA original source status retained
+  PASS  Xdpp_100MVA full original provenance retained
+  PASS  Xdpp_sat_100MVA normalized value follows original provenance
+  PASS  Xdpp_sat_100MVA original source status retained
+  PASS  Xdpp_sat_100MVA full original provenance retained
+  PASS  field-resistance unit not invented
+  PASS  unit qualification separate
+  PASS  unqualified reactance not replaced by saturated
+  PASS  saturated reactance separate
+  PASS  workbook excitation type
+  PASS  workbook excitation designation
+  PASS  source no-load excitation voltage
+  PASS  SFC DC link not field voltage
+  PASS  SFC output current not DC-link current
+  PASS  output side explicit
+  PASS  DC link side explicit
+  PASS  NER phase voltage
+  PASS  NER secondary voltage
+  PASS  NER short-time rating
+  PASS  NER rating duration
+  PASS  approximate HV DC resistance
+  PASS  approximate secondary loading resistor
+  PASS  source question mark not erased
+  PASS  secondary uncertainty retained
+  PASS  frozen grid estimate context
+  PASS  source rounded 19.919 GVA retained
+  PASS  grid estimate not promoted to verified
+  PASS  secondary sensitivity current separate
+  PASS  secondary sensitivity X/R separate
+  PASS  secondary source not selected grid
+  PASS  source total loss
+  PASS  source no-load loss
+  PASS  source full-load loss
+  PASS  cooling closure 1282-159-1095
+  PASS  cooling arithmetic explicit
+  PASS  derived cooling keeps input provenance
+  PASS  total source classification retained
+  PASS  total source status retained
+  PASS  cooling remains a derived record
+  PASS  gsut_total_kW source document retained
+  FAIL  gsut_total_kW provisional design interpretation   [got 'DIRECT', expected 'QUALIFIED']
+  FAIL  gsut_total_kW confidence retains design-finalization caveat
+  FAIL  gsut_total_kW marked loss table located
+  FAIL  gsut_total_kW asterisk footnote located
+  FAIL  gsut_total_kW rationale retains provisional source meaning
+  PASS  gsut_total_kW design caveat does not invent uncertainty ranges
+  PASS  gsut_cooling_kW source document retained
+  PASS  gsut_cooling_kW provisional design interpretation
+  FAIL  gsut_cooling_kW confidence retains design-finalization caveat
+  FAIL  gsut_cooling_kW marked loss table located
+  FAIL  gsut_cooling_kW asterisk footnote located
+  FAIL  gsut_cooling_kW rationale retains provisional source meaning
+  PASS  gsut_cooling_kW design caveat does not invent uncertainty ranges
+  PASS  source view uses authoritative curve
+  PASS  injected provenance is normalized, not independently hard-coded
+  => test_generator_capability: 215 passed, 9 FAILED
+FIX1_RED_COUNTS passed=215 failed=9

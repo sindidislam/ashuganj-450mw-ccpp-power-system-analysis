@@ -1,0 +1,10 @@
+LAYOUT_AUDIT systems=13 block_body_overlaps=1 evidence=C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\logs\audit_20260925\layout
+{Error using assert
+Remaining block-body overlaps: 1
+
+Error in finish_layout (line 22)
+ assert(height(finishOverlaps)==0,'Phase6:LayoutOverlap','Remaining block-body overlaps: %d',height(finishOverlaps));
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+} 

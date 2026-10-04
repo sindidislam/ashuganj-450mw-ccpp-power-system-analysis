@@ -1,0 +1,218 @@
+[570] (Heading 2): Abstract
+[572] (Heading 2): Introduction
+[600] (Heading 2): 3.Design
+[601] (Heading 3): 3.1 Problem Formulation (PO(b))
+[606] (Heading 3): 3.1.1 Identification of Scope
+[623] (Heading 3): Fault locations
+[628] (Heading 2): 3.1.2 Literature Review
+[638] (Heading 3): 3.1.3 Formulation of Problem
+[642] (Heading 4): 1. Main Constraints
+[647] (Heading 4): 2. Main Conflicting Requirements
+[652] (Heading 1): 3.1.4 Analysis
+[653] (Heading 3): The Four Fault Types
+[660] (Heading 3): Why LLL Is Larger Than LLG
+[678] (Heading 3): Why the Voltage Is Zero During an LLL Fault
+[692] (Heading 1): 3.2 Design Method
+[693] (Heading 2): 3.2.1 Per-unit system
+[704] (Heading 3): Per-Unit Base and Impedance Conversion
+[714] (Heading 3): Converting Equipment Impedance
+[720] (Heading 2): 3.2.2 Load-flow formulation
+[734] (Heading 3): Very important: two different solvers
+[746] (Heading 1): 3.2.3 Symmetrical Components
+[756] (Heading 1): 3.2.4 Sequence Networks
+[779] (Heading 1): Generator earth-fault calculation
+[805] (Heading 1): 3.2.5 Four Fault Types
+[806] (Heading 3): Three-phase fault, LLL
+[819] (Heading 3): Single-line-to-ground fault, LG
+[825] (Heading 3): Line-to-line fault, LL
+[832] (Heading 3): Double-line-to-ground fault, LLG
+[835] (Heading 3): 3.2.6 Why Is the LLL Fault Current Higher Than the LLG Fault Current?
+[844] (Heading 3): Step 1: Find the LLG-to-LLL relationship
+[848] (Heading 3): Step 2: Calculate k from the actual results
+[852] (Heading 3): Step 3: Verify Z2≈Z1
+[857] (Heading 1): 3.2.7 Why is the voltage zero during an LLL fault?
+[922] (Heading 3): 3.2.8 Peak Current and Current Duration Stages
+[927] (Heading 3): Three Current Stages
+[941] (Heading 3): 3.2.9 Protection Mathematics
+[942] (Heading 3): 1. Inverse-Time Overcurrent Protection
+[947] (Heading 3): Biased Differential Protection
+[957] (Heading 3): 3. Breaker Duty Check
+[966] (Heading 2): 3.3 Circuit Diagram
+[969] (Heading 3): 3.3.1 The real plant single-line diagram
+[978] (Heading 3): 3.3.2 The Power Train –
+[980] (Heading 3): 1. Prime Movers
+[984] (Heading 3): 2. Generator
+[990] (Heading 3): 3. Generator Circuit Breaker (GCB)
+[996] (Heading 3): 4. Generator Step-Up Transformer (GSUT)
+[1004] (Heading 3): 5. 230 kV Switchyard
+[1013] (Heading 3): 6. Export to the Grid
+[1016] (Heading 3): 7. Auxiliary Power System
+[1033] (Heading 3): Important Voltage Difference
+[1040] (Heading 3): 3.3.3 From Drawing to Solver: Bus and Node Table
+[1043] (Heading 3): What the Bus Types Mean
+[1048] (Heading 3): Additional Solver Nodes
+[1052] (Heading 3): 3.3.4 Zero-Impedance Node Merging — Why 8/9 Buses Become 5/6
+[1069] (Heading 3): 3.3.5 The 0.7 km Dual-Circuit 230 kV Line
+[1075] (Heading 3): Important Results
+[1083] (Heading 3): Important Correction to the Model
+[1089] (Heading 3): 3.3.6 The Five Fault Locations
+[1092] (Heading 3): Why F1 and F2 Are the Same
+[1101] (Heading 3): F4 Sliding-Fault Check
+[1109] (Heading 3): 3.3.7 The protection zones drawn on the same circuit
+[1114] (Heading 2): 3.4 Simulation Model —
+[1126] (Heading 3): Five M-S-Functions
+[1137] (Heading 3): 3.4.2 Three Solvers Used in the Project
+[1139] (Heading 3): In Simple Terms
+[1144] (Heading 3): 3.4.3 The Thirteen Main Subsystems
+[1146] (Heading 3): (0) Top Level – Closed Loop
+[1159] (Heading 3): (1) Generator — 27 Blocks
+[1170] (Heading 3): 3.4.3 The Thirteen Main Subsystems —
+[1255] (Heading 2): 3.4.5 The Seven Relay Elements — Student Version
+[1258] (Heading 3): 1. Overcurrent Protection
+[1266] (Heading 3): 2. Differential Protection
+[1273] (Heading 3): 87T Transformer Protection
+[1279] (Heading 3): 87L Line Protection
+[1285] (Heading 3): Important Point About Settings
+[1292] (Heading 2): 3.4.6 The Trip Matrix
+[1294] (Heading 3): Trip Logic
+[1301] (Heading 3): In Simple Words
+[1307] (Heading 3): Breaker Operation
+[1314] (Heading 2): 3.4.7 The Station DC System
+[1316] (Heading 3): How It Works
+[1320] (Heading 3): Simulation Results
+[1326] (Heading 3): Important Data Source Point
+[1334] (Heading 2): 3.4.8 Model Verification
+[1342] (Heading 2): 3.4.9 Model Limitations
+[1357] (Heading 2): 3.5 CAD / Hardware Design
+[1368] (Heading 2): 3.6 PCB Design
+[1377] (Heading 2): 3.7 Firmware / Source Code
+[1380] (Heading 3): Why the Code Matters
+[1384] (Heading 2): 3.7.2 File and Function Inventory
+[1386] (Heading 3): Main Roles
+[1395] (Heading 3): Important Coding Design
+[1400] (Heading 3): 3.7.3 The main program
+[1530] (Heading 3): 3.7.4 How to Reproduce the Results
+[1539] (Heading 3): 3.7.5 Test Counts
+[1543] (Heading 1): 4 Implementation
+[1544] (Heading 2): 4.1 Description
+[1545] (Heading 3): 4.1.1 Implementation
+[1556] (Heading 3): 4.1.2 Baseline Operating Condition
+[1580] (Heading 3): 4.1.3 Primary Verified Event
+[1582] (Heading 4): Event Timeline
+[1584] (Heading 3): Important Observations
+[1590] (Heading 3): Handling the Different Reported Values
+[1601] (Heading 3): 4.1.4 The five scenario figures, read in order
+[1615] (Heading 3): 4.1.5 Relay and breaker detail views
+[1619] (Heading 3): 4.1.6 Why GEN-51 and GSUT-51 correctly never trip — and why that is the result
+[1629] (Heading 3): 4.1.7 Timing-Chain Verification
+[1639] (Heading 3): 4.1.8 Proving the DC interlock is a real gate: the DC-loss experiment
+[1649] (Heading 3): DC Interlock and Delayed Trip Verification
+[1654] (Heading 3): 4.1.9 The other fault locations
+[1677] (Heading 3): Line Protection Case
+[1686] (Heading 3): 4.1.10 Implementation Verification Summary
+[1688] (Heading 3): Important Scope of the Results
+[1691] (Heading 1): 5 Design Analysis and Evaluation
+[1693] (Heading 2): 5.1 Novelty
+[1696] (Heading 3): 5.1.1 Separation of Verified Data and Assumptions
+[1700] (Heading 3): 5.1.2 Parameter Status Classification
+[1714] (Heading 3): 5.1.3 Protection Functions and Study Gaps
+[1724] (Heading 3): 5.1.4 Methodological Contributions
+[1728] (Heading 3): 5.1.5 Important Engineering Findings
+[1733] (Heading 3): 5.1.6 Scope of the Novelty
+[1736] (Heading 2): 5.2 Design Considerations (PO(c))
+[1738] (Heading 3): 5.2.1 Public Health and Safety
+[1739] (Heading 4): Limiting Fault Energy
+[1747] (Heading 4): Fault-Clearing Time
+[1756] (Heading 4): Interrupting Capability
+[1761] (Heading 3): 5.2.2 Overall Design Evaluation
+[1765] (Heading 2): 5.2.2 Environmental Considerations
+[1767] (Heading 3): SF₆ Gas
+[1775] (Heading 3): Transformer Oil
+[1783] (Heading 3): Avoiding Unnecessary Generator Trips
+[1786] (Heading 3): Environmental Benefit of Simulation
+[1795] (Heading 2): 5.2.3 Cultural and Societal Considerations
+[1798] (Heading 3): Transformer Cooling and Reliability
+[1806] (Heading 3): Documentation and Local Engineering Capability
+[1809] (Heading 1): 5.3 Investigations (PO(d))
+[1816] (Heading 2): 5.3.1 Design of Experiment
+[1820] (Heading 3): Load-Flow Design
+[1834] (Heading 3): Fault-Study Design
+[1848] (Heading 3): Sensitivity Analysis
+[1863] (Heading 3): Validation Approach
+[1875] (Heading 2): 5.3.2 Data Collection
+[1878] (Heading 3): Major Equipment Data
+[1889] (Heading 3): Cooling-Stage Interpretation
+[1892] (Heading 3): CT Data and Limitations
+[1895] (Heading 3): VT Data
+[1897] (Heading 3): Parameter Classification
+[1899] (Heading 3): Important Assumptions
+[1907] (Heading 3): Document Conflicts
+[1916] (Heading 3): Missing OEM Information
+[1923] (Heading 3): Result Files and Data Integrity
+[1931] (Heading 3): 5.3.3 Results and Analysis – Load Flow
+[1949] (Heading 3): 5.3.3 Results and Analysis
+[1950] (Heading 4): (a) Load Flow
+[1954] (Heading 4): (b) 0.7 km Transmission Line
+[1957] (Heading 4): (c) Generator Performance
+[1959] (Heading 4): (d) Sensitivity Analysis
+[1962] (Heading 4): (b) Transformer loading — the figures our course teacher asked for
+[1966] (Heading 3): Transformer Loading and Analysis
+[1968] (Heading 4): Generation 1 Transformer Loading
+[1970] (Heading 4): Generation 3 — Primary 360 MW Cases
+[1973] (Heading 4): Hand Verification
+[1975] (Heading 4): Line and Bay Loading
+[1977] (Heading 4): (c) Fault study
+[1982] (Heading 3): 5.3.3 Results and Analysis
+[1983] (Heading 4): (b) Fault Analysis
+[1985] (Heading 3): Fault Current Results
+[1987] (Heading 3): Branch Current Contributions
+[1989] (Heading 3): Peak Fault Current
+[1995] (Heading 3): Fault Current Along the 0.7 km Line
+[1997] (Heading 3): Why LLL Is Higher Than LLG
+[2003] (Heading 3): Theoretical and Computed Fault Currents
+[2005] (Heading 3): LLL Fault Voltage
+[2037] (Heading 3): Fault-Study Validation
+[2043] (Heading 3): (e) Protection Coordination
+[2045] (Heading 4): Relay Settings
+[2048] (Heading 3): Coordination Criterion
+[2053] (Heading 3): Key Coordination Results
+[2055] (Heading 3): Meaning of the Verdicts
+[2066] (Heading 3): Time–Current Characteristic
+[2075] (Heading 3): Protection Effectiveness
+[2088] (Heading 3): (f) Breaker Duty Screening
+[2100] (Heading 3): Grid Duty Envelope and Dynamic Verification — Summary
+[2101] (Heading 4): Grid Duty Envelope
+[2105] (Heading 3): (g) Dynamic Verification
+[2114] (Heading 2): 5.3.4 Interpretation and Conclusions on Data
+[2116] (Heading 3): Main conclusions
+[2127] (Heading 3): What the study does not establish
+[2129] (Heading 2): 5.4–5.7 Summary
+[2130] (Heading 3): 5.4 Limitations of Tools (PO(e))
+[2141] (Heading 3): 5.5 Impact Assessment (PO(f))
+[2150] (Heading 3): 5.5.3 Legal Issues
+[2153] (Heading 3): 5.6 Sustainability Evaluation (PO(g))
+[2158] (Heading 3): 5.7 Ethical Issues (PO(h))
+[2167] (Heading 2): 6. Reflection on Individual and Team Work
+[2168] (Heading 3): 6.1 Individual Contributions
+[2171] (Heading 3): Key individual learning
+[2177] (Heading 3): 6.2 Teamwork
+[2189] (Heading 3): 6.3 Diversity
+[2192] (Heading 2): 6.4 Log Book of Project Implementation
+[2194] (Heading 3): Important log-book points
+[2199] (Heading 3): How this demonstrates PO(i)
+[2201] (Heading 3): 7.1 Executive Summary — Short Version
+[2209] (Heading 3): 7.2 User Manual
+[2217] (Heading 3): 7.3 GitHub Link
+[2223] (Heading 3): 7.4 YouTube Link
+[2235] (Heading 2): 8. Project Management and Cost Analysis
+[2245] (Heading 3): 8.3 Per Unit Cost of Mass Production
+[2258] (Heading 3): 8.4 Project Timeline
+[2261] (Heading 2): 9. Future Work
+[2276] (Heading 1): 10 References
+[2278] (Heading 3): Project and plant documents (provenance A)
+[2285] (Heading 3): OEM data sheets and equipment manuals (provenance A / B)
+[2301] (Heading 3): Standards
+[2313] (Heading 3): Software and tools
+[2317] (Heading 3): Course and programme material
+[2320] (Heading 3): Textbooks
+[2325] (Heading 3): Project artifacts (provenance A, internal to this study)

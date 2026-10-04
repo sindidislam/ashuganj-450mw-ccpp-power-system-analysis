@@ -1,0 +1,11 @@
+Case_ID,Item,Status,Full_aux_MVA,Note
+E1_GAT_BACKFEED,ESSENTIAL_AC_SCHEDULE_MISSING,UNRESOLVED,16.470588,Full 14 MW aux needs >=16.47 MVA + margin (illustrative >=20 MVA class); essential subset UNKNOWN
+E1_GAT_BACKFEED,TRANSFER_CHARACTERISTICS,UNRESOLVED,,"Dead-bus transfer time, motor restart sequence, UPS ride-through: all MISSING"
+E2_GSUT_UAT_BACKFEED,ESSENTIAL_AC_SCHEDULE_MISSING,UNRESOLVED,16.470588,Full 14 MW aux needs >=16.47 MVA + margin (illustrative >=20 MVA class); essential subset UNKNOWN
+E2_GSUT_UAT_BACKFEED,TRANSFER_CHARACTERISTICS,UNRESOLVED,,"Dead-bus transfer time, motor restart sequence, UPS ride-through: all MISSING"
+E3_PARALLEL_BACKFEED,ESSENTIAL_AC_SCHEDULE_MISSING,UNRESOLVED,16.470588,Full 14 MW aux needs >=16.47 MVA + margin (illustrative >=20 MVA class); essential subset UNKNOWN
+E3_PARALLEL_BACKFEED,TRANSFER_CHARACTERISTICS,UNRESOLVED,,"Dead-bus transfer time, motor restart sequence, UPS ride-through: all MISSING"
+E4_BLACKOUT,ESSENTIAL_AC_SCHEDULE_MISSING,UNRESOLVED,16.470588,Full 14 MW aux needs >=16.47 MVA + margin (illustrative >=20 MVA class); essential subset UNKNOWN
+E4_BLACKOUT,TRANSFER_CHARACTERISTICS,UNRESOLVED,,"Dead-bus transfer time, motor restart sequence, UPS ride-through: all MISSING"
+E5_GAT_CHARGER_OUT,ESSENTIAL_AC_SCHEDULE_MISSING,UNRESOLVED,16.470588,Full 14 MW aux needs >=16.47 MVA + margin (illustrative >=20 MVA class); essential subset UNKNOWN
+E5_GAT_CHARGER_OUT,TRANSFER_CHARACTERISTICS,UNRESOLVED,,"Dead-bus transfer time, motor restart sequence, UPS ride-through: all MISSING"

@@ -1,0 +1,91 @@
+
+--- Phase 2 Load-Flow & Capability Checks -----------------------------
+  PASS  nom_within_capability
+  PASS  nom_p_exact
+  PASS  nom_q_exact
+  PASS  nom_s_exact
+  PASS  nom_pf_exact
+  PASS  nom_pf_lagging
+  PASS  nom_upper_margin_positive
+  PASS  nom_lower_margin_positive
+  PASS  nom_mva_margin_positive
+  PASS  nom_never_clipped
+  PASS  over_qmax_violation_reported
+  PASS  over_negative_upper_margin
+  PASS  over_never_clipped
+  PASS  over_unaltered_q
+  PASS  under_qmin_violation_reported
+  PASS  under_negative_lower_margin
+  PASS  under_never_clipped
+  PASS  under_unaltered_q
+  PASS  lead_pf_leading
+  PASS  mva_violation_reported
+  PASS  mva_negative_margin
+
+============================================================
+  REV3.1 PHASE 2 LOAD-FLOW EXECUTION & VERIFICATION
+============================================================
+  Cases to solve: LF360_GAT_OUT, LF360_GAT_IN
+  Output directory: G:\Other computers\My Computer (2)\Level 3 Term 1\306 Power Project -gemini flash\results\phase2_loadflow
+
+--- Solving Case: LF360_GAT_OUT -----------------------------------
+  Pgen: 360.0000 MW | Qgen:  28.1702 MVAr | Sgen: 361.1005 MVA | PF: 0.9970 (Lagging)
+  Vgen: 0.9216 pu (20.28 kV) | V230: 229.70 kV | V6.6:  6.59 kV
+  Grid Export: 345.2701 MW + j-25.8193 MVAr | Losses:  0.7299 MW + j45.3132 MVAr
+  Power Balance Error: P: 1.41e-07 MW, Q: 9.53e-07 MVAr | Worst KCL: 6.07e-08 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +225.63 / -217.72 MVAr, S margin: 96.90 MVA)
+  Verdict: OK (solved in 9.58 s, 2 iters)
+
+--- Solving Case: LF360_GAT_IN -----------------------------------
+  Pgen: 360.0000 MW | Qgen:  23.9874 MVAr | Sgen: 360.7983 MVA | PF: 0.9978 (Lagging)
+  Vgen: 0.9210 pu (20.26 kV) | V230: 229.66 kV | V6.6:  6.73 kV
+  Grid Export: 345.2576 MW + j-29.5994 MVAr | Losses:  0.7424 MW + j44.9104 MVAr
+  Power Balance Error: P: 3.82e-06 MW, Q: 2.36e-05 MVAr | Worst KCL: 5.38e-04 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +229.81 / -213.53 MVAr, S margin: 97.20 MVA)
+  Verdict: OK (solved in 1.44 s, 2 iters)
+
+  PASS  two_primary_cases_solved
+  PASS  s1_id
+  PASS  s1_converged
+  PASS  s1_dispatch_exact_360MW
+  PASS  s1_s_within_458MVA
+  PASS  s1_within_capability_curve
+  PASS  s1_positive_q_upper_margin
+  PASS  s1_positive_q_lower_margin
+  PASS  s1_independent_p_balance
+  PASS  s1_independent_q_balance
+  PASS  s1_kcl_residual_valid
+  PASS  s2_id
+  PASS  s2_converged
+  PASS  s2_dispatch_exact_360MW
+  PASS  s2_s_within_458MVA
+  PASS  s2_within_capability_curve
+  PASS  s2_positive_q_upper_margin
+  PASS  s2_positive_q_lower_margin
+  PASS  s2_independent_p_balance
+  PASS  s2_independent_q_balance
+  PASS  s2_kcl_residual_valid
+[Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+Permissible Primary Zone (P \le 360 MW)
+] 
+[> In defaulterrorcallback (line 12)
+In print (line 36)
+In saveas (line 181)
+In plot_generator_capability (line 95)
+In test_phase2_load_flow (line 80)] 
+  Capability plot saved to: G:\Other computers\My Computer (2)\Level 3 Term 1\306 Power Project -gemini flash\docs\validation\rev31_phase2\generator_capability_curve.png
+  PASS  capability_plot_figure_created
+  PASS  capability_plot_file_saved_to_disk
+  PASS  baseline_lf_mat_exists
+  PASS  hist_lf1_export_reproducible
+  PASS  hist_lf1_loss_reproducible
+  PASS  hist_lf2_export_reproducible
+  PASS  hist_lf2_loss_reproducible
+  PASS  hist_lf3_export_reproducible
+  PASS  hist_lf3_loss_reproducible
+  PASS  hist_lf4_export_reproducible
+  PASS  hist_lf4_loss_reproducible
+  => Phase 2 Load-Flow & Capability Checks: 53 passed, 0 failed
+TASK5 GREEN COUNTS 53 0

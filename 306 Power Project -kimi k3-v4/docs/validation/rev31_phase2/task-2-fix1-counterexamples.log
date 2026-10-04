@@ -1,0 +1,4 @@
+TASK2 FIX1 PRE-FIX 17-Sep-2026 06:21:54 MATLAB 24.1.0.2537033 (R2024a)
+R1 accepted: raw=LEGACY status=PRIMARY_VERIFIED source_status=PRIMARY_VERIFIED
+R2 accepted: peak=18.400 kW rated=20.000 kW float_capacity=20.419 kW cutoff_capacity=17.325 kW cutoff_current=175.238095 A charger_limit=165.000 A battery_limit=200.000 A
+TASK2 FIX1 BOTH COUNTEREXAMPLES REPRODUCED; DEFAULTS SAVED

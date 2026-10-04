@@ -1,0 +1,54 @@
+             model: 'P6_MACHINE_CIRCUIT'
+         frequency: 50
+         basePower: 100000000
+         tolerance: 1.0000e-07
+          Networks: [1x1 struct]
+            status: 1
+        iterations: 2
+             error: ''
+             Ybus1: [3x3 double]
+               bus: [1x3 struct]
+                sm: [1x1 struct]
+               asm: []
+              vsrc: [1x1 struct]
+            pqload: []
+           rlcload: []
+    LoadFlowSolver: 'PositiveSequence'
+
+           handle: 4.2320e+03
+        busNumber: 2
+            busID: '*2*'
+    generatorType: 'PV'
+             Pnom: 458000000
+             Vnom: 22000
+                P: 360000000
+                Q: 0
+             Qmin: -Inf
+             Qmax: Inf
+                S: 3.6000 + 0.1975i
+                I: 0.7094 - 0.3412i
+             Pmec: 3.6024e+08
+               Vt: 0.9236 - 0.3834i
+               Vf: 1.7678
+              th0: -60.5649
+              dw0: 0
+
+IC=[0 -60.5649 0.787208 0.787208 0.787208 -25.6822 -145.682 94.3178 1.76776]
+Pm=0.78655 Vf=1.7678
+Error using job005_machine_circuit (line 19)
+The following two blocks cannot be connected in series:
+
+Block 1: 'A: Machine'
+Block 2: 'transfo_1_winding_2: Transformer'
+
+The first block, modeled as a current source, cannot be connected in series with the inductive element of the second block.
+Add a high-value resistance in parallel with one of the two block.
+You can also specify high-value resistive snubbers if the blocks have a snubber device.You can avoid the use of the snubber by selecting
+the 'Continuous' simulation type in the Solver tab of the Powergui and deselecting the 'Disable ideal switching' option in the Preferences
+tab of Powergui block.
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

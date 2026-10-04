@@ -1,0 +1,1129 @@
+[
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "7",
+    "OldText": "X/R = infinite - R not documented\nESTIMATED from the 8DN9 50 kA rating,\nNOT verified PGCB data - the weakest\nnumber in the model",
+    "NewText": "Grid equivalent | R = 0 ohm"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "14",
+    "OldText": "double busbar, single breaker\n3150 A  50 kA / 1 s  125 kA peak\nbays 10BAY11 / 10BAY12 / 10BAY20\nbay conductors, disconnectors, earthing switches and\nCT/VT burdens are ideal - none has a documented Z",
+    "NewText": "Double busbar | 3150 A\n50 kA / 1 s | 125 kA peak"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "16",
+    "OldText": "assumed state - not found in the document set",
+    "NewText": "Study switch state"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "21",
+    "OldText": "SGen5-2000H  458 MVA  22 kV  pf 0.85\nPV bus   |V| = 1.00 pu   P = 389.30 MW\nRATED dispatch (not a measurement)",
+    "NewText": "SGen5-2000H | 458 MVA\n22 kV | pf 0.85 | PV bus"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "37",
+    "OldText": "6.6 kV auxiliary total  14.000 MW / 8.676 MVAr  at pf 0.85       total is documented; the 9050 : 2500 : 2500 kW split between the three groups is assumed",
+    "NewText": "6.6 kV auxiliaries | 14.000 MW + j8.676 MVAr"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "53",
+    "OldText": "ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  -  SOUTH  -  BALANCED LOAD FLOW MODEL",
+    "NewText": "ASHUGANJ SOUTH | LOAD FLOW"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "54",
+    "OldText": "Case LF1 : Rated dispatch, GAT out of service   |   G1 = 389.30 MW (rated)   |   GAT OUT OF SERVICE   |   coupler CLOSED   |   radial\nBase 100 MVA, 50 Hz.  Highest voltage 230 kV - the South plant has NO 400 kV network.\nLayout mirrors INEL-112070-00-ELC-DE-0001 Rev 03.  Built by build_ashuganj_main.m - do not edit by hand.",
+    "NewText": "LF1 | 389.30 MW | GAT open | Coupler closed\n100 MVA base | 50 Hz"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "58",
+    "OldText": "voltage-level colour key. 400 V boards and below are OUT of the load flow and are not drawn.",
+    "NewText": "Voltage levels | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "59",
+    "OldText": "SOLVER / STUDY TOOL - not plant equipment.\nDouble-click it, choose Load Flow, press Compute.\nContinuous, ode23tb, 50 Hz. See docs/manual/USER_MANUAL.html.",
+    "NewText": "powergui | Load Flow > Compute"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "60",
+    "OldText": "DERIVED TRANSFORMER PARAMETERS",
+    "NewText": "Transformer bases"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "61",
+    "OldText": "transformer                 GSUT           UAT           GAT\nratio                  230/22 kV     22/6.9 kV    230/6.9 kV\nvector group                YNd1         Dyn11     YNyn0+d11\nown base MVA                 515            25            25\nZ  %  nameplate            16.00         10.50         12.00\nR  %  nameplate             0.21          0.40          0.50\nX  %  derived            15.9986       10.4924       11.9896\nX/R    derived              76.2          26.2          24.0\nRm pu  derived            3239.0        1785.7        1087.0\nLm pu  derived             791.9         339.3         350.2\ntap position used              9             3            13",
+    "NewText": "GSUT 515 MVA | UAT 25 MVA | GAT 25 MVA"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "62",
+    "OldText": "Per-unit on each transformer's OWN nameplate MVA, as the nameplate\nquotes them - not converted to the 100 MVA reporting base.\nX = sqrt(Z^2 - R^2).  DERIVED_FROM_VERIFIED_DATA.",
+    "NewText": "Transformer pu values use each nameplate MVA base."
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "63",
+    "OldText": "DATA STATUS ON THIS DIAGRAM",
+    "NewText": "Model basis"
+  },
+  {
+    "Model": "simulink\\main\\Ashuganj_South_Main.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "64",
+    "OldText": "* Generator, GSUT, UAT, GAT nameplates: VERIFIED_PLANT\n* Transformer X, Rm, Lm: DERIVED_FROM_VERIFIED_DATA\n* Grid Z: ESTIMATED from the GIS 50 kA rating. R = 0\n  EXACTLY, so X/R is infinite - no X/R is documented\n  anywhere in the source set and none is invented\n* ASSUMED: bus coupler closed, the 9050:2500:2500 kW\n  auxiliary split, the 1.00 pu generator setpoint\n* Feeder impedances undocumented, therefore ZERO\n* LV windings 6.9 kV, loads 6.6 kV - a real off-nominal\n  ratio, not tidied away\n* Generator Q limits: unconstrained (none documented)\n* Full register and reasoning: docs/validation/",
+    "NewText": "Balanced load flow | 50 Hz | 100 MVA\nParameters and assumptions: docs/validation"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "7",
+    "OldText": "X/R = infinite - R not documented\nESTIMATED from the 8DN9 50 kA rating,\nNOT verified PGCB data - the weakest\nnumber in the model",
+    "NewText": "Grid equivalent | R = 0 ohm"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "14",
+    "OldText": "double busbar, single breaker\n3150 A  50 kA / 1 s  125 kA peak\nbays 10BAY11 / 10BAY12 / 10BAY20\nbay conductors, disconnectors, earthing switches and\nCT/VT burdens are ideal - none has a documented Z",
+    "NewText": "Double busbar | 3150 A\n50 kA / 1 s | 125 kA peak"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "16",
+    "OldText": "assumed state - not found in the document set",
+    "NewText": "Study switch state"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "21",
+    "OldText": "SGen5-2000H  458 MVA  22 kV  pf 0.85\nPV bus   |V| = 1.00 pu   P = 389.30 MW\nRATED dispatch (not a measurement)",
+    "NewText": "SGen5-2000H | 458 MVA\n22 kV | pf 0.85 | PV bus"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "37",
+    "OldText": "6.6 kV auxiliary total  14.000 MW / 8.676 MVAr  at pf 0.85       total is documented; the 9050 : 2500 : 2500 kW split between the three groups is assumed",
+    "NewText": "6.6 kV auxiliaries | 14.000 MW + j8.676 MVAr"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "53",
+    "OldText": "ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  -  SOUTH  -  BALANCED LOAD FLOW MODEL",
+    "NewText": "ASHUGANJ SOUTH | LOAD FLOW"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "54",
+    "OldText": "Case LF1 : Rated dispatch, GAT out of service   |   G1 = 389.30 MW (rated)   |   GAT OUT OF SERVICE   |   coupler CLOSED   |   radial\nBase 100 MVA, 50 Hz.  Highest voltage 230 kV - the South plant has NO 400 kV network.\nLayout mirrors INEL-112070-00-ELC-DE-0001 Rev 03.  Built by build_ashuganj_main.m - do not edit by hand.",
+    "NewText": "LF1 | 389.30 MW | GAT open | Coupler closed\n100 MVA base | 50 Hz"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "58",
+    "OldText": "voltage-level colour key. 400 V boards and below are OUT of the load flow and are not drawn.",
+    "NewText": "Voltage levels | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "59",
+    "OldText": "SOLVER / STUDY TOOL - not plant equipment.\nDouble-click it, choose Load Flow, press Compute.\nContinuous, ode23tb, 50 Hz. See docs/manual/USER_MANUAL.html.",
+    "NewText": "powergui | Load Flow > Compute"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "60",
+    "OldText": "DERIVED TRANSFORMER PARAMETERS",
+    "NewText": "Transformer bases"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "61",
+    "OldText": "transformer                 GSUT           UAT           GAT\nratio                  230/22 kV     22/6.9 kV    230/6.9 kV\nvector group                YNd1         Dyn11     YNyn0+d11\nown base MVA                 515            25            25\nZ  %  nameplate            16.00         10.50         12.00\nR  %  nameplate             0.21          0.40          0.50\nX  %  derived            15.9986       10.4924       11.9896\nX/R    derived              76.2          26.2          24.0\nRm pu  derived            3239.0        1785.7        1087.0\nLm pu  derived             791.9         339.3         350.2\ntap position used              9             3            13",
+    "NewText": "GSUT 515 MVA | UAT 25 MVA | GAT 25 MVA"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "62",
+    "OldText": "Per-unit on each transformer's OWN nameplate MVA, as the nameplate\nquotes them - not converted to the 100 MVA reporting base.\nX = sqrt(Z^2 - R^2).  DERIVED_FROM_VERIFIED_DATA.",
+    "NewText": "Transformer pu values use each nameplate MVA base."
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "63",
+    "OldText": "DATA STATUS ON THIS DIAGRAM",
+    "NewText": "Model basis"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "64",
+    "OldText": "* Generator, GSUT, UAT, GAT nameplates: VERIFIED_PLANT\n* Transformer X, Rm, Lm: DERIVED_FROM_VERIFIED_DATA\n* Grid Z: ESTIMATED from the GIS 50 kA rating. R = 0\n  EXACTLY, so X/R is infinite - no X/R is documented\n  anywhere in the source set and none is invented\n* ASSUMED: bus coupler closed, the 9050:2500:2500 kW\n  auxiliary split, the 1.00 pu generator setpoint\n* Feeder impedances undocumented, therefore ZERO\n* LV windings 6.9 kV, loads 6.6 kV - a real off-nominal\n  ratio, not tidied away\n* Generator Q limits: unconstrained (none documented)\n* Full register and reasoning: docs/validation/",
+    "NewText": "Balanced load flow | 50 Hz | 100 MVA\nParameters and assumptions: docs/validation"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "71",
+    "OldText": "Case LF1.  Converged, 2 iterations.  KCL residual 8.6e-08 MVA.\nG1 389.30 MW  +31.68 MVAr   ->   export 374.48 MW  -29.99 MVAr\nAux 14.00 MW   losses 0.816 MW (0.21 % of generation)\n* GSUT at 106 % of 355 MVA ONAN - forced cooling REQUIRED\nFull precision and reasoning: results/load_flow/, docs/report/",
+    "NewText": "Case LF1 | Saved load-flow results\nG1 389.30 MW  +31.68 MVAr   ->   export 374.48 MW  -29.99 MVAr\nAux 14.00 MW   losses 0.816 MW (0.21 % of generation)"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "7",
+    "OldText": "X/R = infinite - R not documented\nESTIMATED from the 8DN9 50 kA rating,\nNOT verified PGCB data - the weakest\nnumber in the model",
+    "NewText": "Grid equivalent | R = 0 ohm"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "14",
+    "OldText": "double busbar, single breaker\n3150 A  50 kA / 1 s  125 kA peak\nbays 10BAY11 / 10BAY12 / 10BAY20\nbay conductors, disconnectors, earthing switches and\nCT/VT burdens are ideal - none has a documented Z",
+    "NewText": "Double busbar | 3150 A\n50 kA / 1 s | 125 kA peak"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "16",
+    "OldText": "assumed state - not found in the document set",
+    "NewText": "Study switch state"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "21",
+    "OldText": "SGen5-2000H  458 MVA  22 kV  pf 0.85\nPV bus   |V| = 1.00 pu   P = 389.30 MW\nRATED dispatch (not a measurement)",
+    "NewText": "SGen5-2000H | 458 MVA\n22 kV | pf 0.85 | PV bus"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "37",
+    "OldText": "6.6 kV auxiliary total  14.000 MW / 8.676 MVAr  at pf 0.85       total is documented; the 9050 : 2500 : 2500 kW split between the three groups is assumed",
+    "NewText": "6.6 kV auxiliaries | 14.000 MW + j8.676 MVAr"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "53",
+    "OldText": "ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  -  SOUTH  -  BALANCED LOAD FLOW MODEL",
+    "NewText": "ASHUGANJ SOUTH | LOAD FLOW"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "54",
+    "OldText": "Case LF1 : Rated dispatch, GAT out of service   |   G1 = 389.30 MW (rated)   |   GAT OUT OF SERVICE   |   coupler CLOSED   |   radial\nBase 100 MVA, 50 Hz.  Highest voltage 230 kV - the South plant has NO 400 kV network.\nLayout mirrors INEL-112070-00-ELC-DE-0001 Rev 03.  Built by build_ashuganj_main.m - do not edit by hand.",
+    "NewText": "LF1 | 389.30 MW | GAT open | Coupler closed\n100 MVA base | 50 Hz"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "58",
+    "OldText": "voltage-level colour key. 400 V boards and below are OUT of the load flow and are not drawn.",
+    "NewText": "Voltage levels | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "59",
+    "OldText": "SOLVER / STUDY TOOL - not plant equipment.\nDouble-click it, choose Load Flow, press Compute.\nContinuous, ode23tb, 50 Hz. See docs/manual/USER_MANUAL.html.",
+    "NewText": "powergui | Load Flow > Compute"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "60",
+    "OldText": "DERIVED TRANSFORMER PARAMETERS",
+    "NewText": "Transformer bases"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "61",
+    "OldText": "transformer                 GSUT           UAT           GAT\nratio                  230/22 kV     22/6.9 kV    230/6.9 kV\nvector group                YNd1         Dyn11     YNyn0+d11\nown base MVA                 515            25            25\nZ  %  nameplate            16.00         10.50         12.00\nR  %  nameplate             0.21          0.40          0.50\nX  %  derived            15.9986       10.4924       11.9896\nX/R    derived              76.2          26.2          24.0\nRm pu  derived            3239.0        1785.7        1087.0\nLm pu  derived             791.9         339.3         350.2\ntap position used              9             3            13",
+    "NewText": "GSUT 515 MVA | UAT 25 MVA | GAT 25 MVA"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "62",
+    "OldText": "Per-unit on each transformer's OWN nameplate MVA, as the nameplate\nquotes them - not converted to the 100 MVA reporting base.\nX = sqrt(Z^2 - R^2).  DERIVED_FROM_VERIFIED_DATA.",
+    "NewText": "Transformer pu values use each nameplate MVA base."
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "63",
+    "OldText": "DATA STATUS ON THIS DIAGRAM",
+    "NewText": "Model basis"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF1.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "64",
+    "OldText": "* Generator, GSUT, UAT, GAT nameplates: VERIFIED_PLANT\n* Transformer X, Rm, Lm: DERIVED_FROM_VERIFIED_DATA\n* Grid Z: ESTIMATED from the GIS 50 kA rating. R = 0\n  EXACTLY, so X/R is infinite - no X/R is documented\n  anywhere in the source set and none is invented\n* ASSUMED: bus coupler closed, the 9050:2500:2500 kW\n  auxiliary split, the 1.00 pu generator setpoint\n* Feeder impedances undocumented, therefore ZERO\n* LV windings 6.9 kV, loads 6.6 kV - a real off-nominal\n  ratio, not tidied away\n* Generator Q limits: unconstrained (none documented)\n* Full register and reasoning: docs/validation/",
+    "NewText": "Balanced load flow | 50 Hz | 100 MVA\nParameters and assumptions: docs/validation"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "7",
+    "OldText": "X/R = infinite - R not documented\nESTIMATED from the 8DN9 50 kA rating,\nNOT verified PGCB data - the weakest\nnumber in the model",
+    "NewText": "Grid equivalent | R = 0 ohm"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "14",
+    "OldText": "double busbar, single breaker\n3150 A  50 kA / 1 s  125 kA peak\nbays 10BAY11 / 10BAY12 / 10BAY20\nbay conductors, disconnectors, earthing switches and\nCT/VT burdens are ideal - none has a documented Z",
+    "NewText": "Double busbar | 3150 A\n50 kA / 1 s | 125 kA peak"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "16",
+    "OldText": "assumed state - not found in the document set",
+    "NewText": "Study switch state"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "21",
+    "OldText": "SGen5-2000H  458 MVA  22 kV  pf 0.85\nPV bus   |V| = 1.00 pu   P = 389.30 MW\nRATED dispatch (not a measurement)",
+    "NewText": "SGen5-2000H | 458 MVA\n22 kV | pf 0.85 | PV bus"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "37",
+    "OldText": "6.6 kV auxiliary total  14.000 MW / 8.676 MVAr  at pf 0.85       total is documented; the 9050 : 2500 : 2500 kW split between the three groups is assumed",
+    "NewText": "6.6 kV auxiliaries | 14.000 MW + j8.676 MVAr"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "53",
+    "OldText": "ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  -  SOUTH  -  BALANCED LOAD FLOW MODEL",
+    "NewText": "ASHUGANJ SOUTH | LOAD FLOW"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "54",
+    "OldText": "Case LF2 : Rated dispatch, GAT in service   |   G1 = 389.30 MW (rated)   |   GAT IN SERVICE   |   coupler CLOSED   |   looped\nBase 100 MVA, 50 Hz.  Highest voltage 230 kV - the South plant has NO 400 kV network.\nLayout mirrors INEL-112070-00-ELC-DE-0001 Rev 03.  Built by build_ashuganj_main.m - do not edit by hand.",
+    "NewText": "LF2 | 389.30 MW | GAT closed | Coupler closed\n100 MVA base | 50 Hz"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "58",
+    "OldText": "voltage-level colour key. 400 V boards and below are OUT of the load flow and are not drawn.",
+    "NewText": "Voltage levels | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "59",
+    "OldText": "SOLVER / STUDY TOOL - not plant equipment.\nDouble-click it, choose Load Flow, press Compute.\nContinuous, ode23tb, 50 Hz. See docs/manual/USER_MANUAL.html.",
+    "NewText": "powergui | Load Flow > Compute"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "60",
+    "OldText": "DERIVED TRANSFORMER PARAMETERS",
+    "NewText": "Transformer bases"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "61",
+    "OldText": "transformer                 GSUT           UAT           GAT\nratio                  230/22 kV     22/6.9 kV    230/6.9 kV\nvector group                YNd1         Dyn11     YNyn0+d11\nown base MVA                 515            25            25\nZ  %  nameplate            16.00         10.50         12.00\nR  %  nameplate             0.21          0.40          0.50\nX  %  derived            15.9986       10.4924       11.9896\nX/R    derived              76.2          26.2          24.0\nRm pu  derived            3239.0        1785.7        1087.0\nLm pu  derived             791.9         339.3         350.2\ntap position used              9             3            13",
+    "NewText": "GSUT 515 MVA | UAT 25 MVA | GAT 25 MVA"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "62",
+    "OldText": "Per-unit on each transformer's OWN nameplate MVA, as the nameplate\nquotes them - not converted to the 100 MVA reporting base.\nX = sqrt(Z^2 - R^2).  DERIVED_FROM_VERIFIED_DATA.",
+    "NewText": "Transformer pu values use each nameplate MVA base."
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "63",
+    "OldText": "DATA STATUS ON THIS DIAGRAM",
+    "NewText": "Model basis"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "64",
+    "OldText": "* Generator, GSUT, UAT, GAT nameplates: VERIFIED_PLANT\n* Transformer X, Rm, Lm: DERIVED_FROM_VERIFIED_DATA\n* Grid Z: ESTIMATED from the GIS 50 kA rating. R = 0\n  EXACTLY, so X/R is infinite - no X/R is documented\n  anywhere in the source set and none is invented\n* ASSUMED: bus coupler closed, the 9050:2500:2500 kW\n  auxiliary split, the 1.00 pu generator setpoint\n* Feeder impedances undocumented, therefore ZERO\n* LV windings 6.9 kV, loads 6.6 kV - a real off-nominal\n  ratio, not tidied away\n* Generator Q limits: unconstrained (none documented)\n* Full register and reasoning: docs/validation/",
+    "NewText": "Balanced load flow | 50 Hz | 100 MVA\nParameters and assumptions: docs/validation"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "72",
+    "OldText": "Case LF2.  Converged, 2 iterations.  KCL residual 6.1e-04 MVA.\nG1 389.30 MW  +27.46 MVAr   ->   export 374.47 MW  -33.70 MVAr\nAux 14.00 MW   losses 0.833 MW (0.21 % of generation)\n* GSUT at 104 % of 355 MVA ONAN - forced cooling REQUIRED\n* GAT closed: 5.90 MW circulates, UAT at 110 % of 19 MVA ONAN\nFull precision and reasoning: results/load_flow/, docs/report/",
+    "NewText": "Case LF2 | Saved load-flow results\nG1 389.30 MW  +27.46 MVAr   ->   export 374.47 MW  -33.70 MVAr\nAux 14.00 MW   losses 0.833 MW (0.21 % of generation)"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "7",
+    "OldText": "X/R = infinite - R not documented\nESTIMATED from the 8DN9 50 kA rating,\nNOT verified PGCB data - the weakest\nnumber in the model",
+    "NewText": "Grid equivalent | R = 0 ohm"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "14",
+    "OldText": "double busbar, single breaker\n3150 A  50 kA / 1 s  125 kA peak\nbays 10BAY11 / 10BAY12 / 10BAY20\nbay conductors, disconnectors, earthing switches and\nCT/VT burdens are ideal - none has a documented Z",
+    "NewText": "Double busbar | 3150 A\n50 kA / 1 s | 125 kA peak"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "16",
+    "OldText": "assumed state - not found in the document set",
+    "NewText": "Study switch state"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "21",
+    "OldText": "SGen5-2000H  458 MVA  22 kV  pf 0.85\nPV bus   |V| = 1.00 pu   P = 389.30 MW\nRATED dispatch (not a measurement)",
+    "NewText": "SGen5-2000H | 458 MVA\n22 kV | pf 0.85 | PV bus"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "37",
+    "OldText": "6.6 kV auxiliary total  14.000 MW / 8.676 MVAr  at pf 0.85       total is documented; the 9050 : 2500 : 2500 kW split between the three groups is assumed",
+    "NewText": "6.6 kV auxiliaries | 14.000 MW + j8.676 MVAr"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "53",
+    "OldText": "ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  -  SOUTH  -  BALANCED LOAD FLOW MODEL",
+    "NewText": "ASHUGANJ SOUTH | LOAD FLOW"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "54",
+    "OldText": "Case LF2 : Rated dispatch, GAT in service   |   G1 = 389.30 MW (rated)   |   GAT IN SERVICE   |   coupler CLOSED   |   looped\nBase 100 MVA, 50 Hz.  Highest voltage 230 kV - the South plant has NO 400 kV network.\nLayout mirrors INEL-112070-00-ELC-DE-0001 Rev 03.  Built by build_ashuganj_main.m - do not edit by hand.",
+    "NewText": "LF2 | 389.30 MW | GAT closed | Coupler closed\n100 MVA base | 50 Hz"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "58",
+    "OldText": "voltage-level colour key. 400 V boards and below are OUT of the load flow and are not drawn.",
+    "NewText": "Voltage levels | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "59",
+    "OldText": "SOLVER / STUDY TOOL - not plant equipment.\nDouble-click it, choose Load Flow, press Compute.\nContinuous, ode23tb, 50 Hz. See docs/manual/USER_MANUAL.html.",
+    "NewText": "powergui | Load Flow > Compute"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "60",
+    "OldText": "DERIVED TRANSFORMER PARAMETERS",
+    "NewText": "Transformer bases"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "61",
+    "OldText": "transformer                 GSUT           UAT           GAT\nratio                  230/22 kV     22/6.9 kV    230/6.9 kV\nvector group                YNd1         Dyn11     YNyn0+d11\nown base MVA                 515            25            25\nZ  %  nameplate            16.00         10.50         12.00\nR  %  nameplate             0.21          0.40          0.50\nX  %  derived            15.9986       10.4924       11.9896\nX/R    derived              76.2          26.2          24.0\nRm pu  derived            3239.0        1785.7        1087.0\nLm pu  derived             791.9         339.3         350.2\ntap position used              9             3            13",
+    "NewText": "GSUT 515 MVA | UAT 25 MVA | GAT 25 MVA"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "62",
+    "OldText": "Per-unit on each transformer's OWN nameplate MVA, as the nameplate\nquotes them - not converted to the 100 MVA reporting base.\nX = sqrt(Z^2 - R^2).  DERIVED_FROM_VERIFIED_DATA.",
+    "NewText": "Transformer pu values use each nameplate MVA base."
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "63",
+    "OldText": "DATA STATUS ON THIS DIAGRAM",
+    "NewText": "Model basis"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "64",
+    "OldText": "* Generator, GSUT, UAT, GAT nameplates: VERIFIED_PLANT\n* Transformer X, Rm, Lm: DERIVED_FROM_VERIFIED_DATA\n* Grid Z: ESTIMATED from the GIS 50 kA rating. R = 0\n  EXACTLY, so X/R is infinite - no X/R is documented\n  anywhere in the source set and none is invented\n* ASSUMED: bus coupler closed, the 9050:2500:2500 kW\n  auxiliary split, the 1.00 pu generator setpoint\n* Feeder impedances undocumented, therefore ZERO\n* LV windings 6.9 kV, loads 6.6 kV - a real off-nominal\n  ratio, not tidied away\n* Generator Q limits: unconstrained (none documented)\n* Full register and reasoning: docs/validation/",
+    "NewText": "Balanced load flow | 50 Hz | 100 MVA\nParameters and assumptions: docs/validation"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "7",
+    "OldText": "X/R = infinite - R not documented\nESTIMATED from the 8DN9 50 kA rating,\nNOT verified PGCB data - the weakest\nnumber in the model",
+    "NewText": "Grid equivalent | R = 0 ohm"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "14",
+    "OldText": "double busbar, single breaker\n3150 A  50 kA / 1 s  125 kA peak\nbays 10BAY11 / 10BAY12 / 10BAY20\nbay conductors, disconnectors, earthing switches and\nCT/VT burdens are ideal - none has a documented Z",
+    "NewText": "Double busbar | 3150 A\n50 kA / 1 s | 125 kA peak"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "16",
+    "OldText": "assumed state - not found in the document set",
+    "NewText": "Study switch state"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "21",
+    "OldText": "SGen5-2000H  458 MVA  22 kV  pf 0.85\nPV bus   |V| = 1.00 pu   P = 342.01 MW\nDERATED dispatch (not a measurement)",
+    "NewText": "SGen5-2000H | 458 MVA\n22 kV | pf 0.85 | PV bus"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "37",
+    "OldText": "6.6 kV auxiliary total  14.000 MW / 8.676 MVAr  at pf 0.85       total is documented; the 9050 : 2500 : 2500 kW split between the three groups is assumed",
+    "NewText": "6.6 kV auxiliaries | 14.000 MW + j8.676 MVAr"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "53",
+    "OldText": "ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  -  SOUTH  -  BALANCED LOAD FLOW MODEL",
+    "NewText": "ASHUGANJ SOUTH | LOAD FLOW"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "54",
+    "OldText": "Case LF3 : Site-derated dispatch, GAT out of service   |   G1 = 342.01 MW (derated)   |   GAT OUT OF SERVICE   |   coupler CLOSED   |   radial\nBase 100 MVA, 50 Hz.  Highest voltage 230 kV - the South plant has NO 400 kV network.\nLayout mirrors INEL-112070-00-ELC-DE-0001 Rev 03.  Built by build_ashuganj_main.m - do not edit by hand.",
+    "NewText": "LF3 | 342.01 MW | GAT open | Coupler closed\n100 MVA base | 50 Hz"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "58",
+    "OldText": "voltage-level colour key. 400 V boards and below are OUT of the load flow and are not drawn.",
+    "NewText": "Voltage levels | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "59",
+    "OldText": "SOLVER / STUDY TOOL - not plant equipment.\nDouble-click it, choose Load Flow, press Compute.\nContinuous, ode23tb, 50 Hz. See docs/manual/USER_MANUAL.html.",
+    "NewText": "powergui | Load Flow > Compute"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "60",
+    "OldText": "DERIVED TRANSFORMER PARAMETERS",
+    "NewText": "Transformer bases"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "61",
+    "OldText": "transformer                 GSUT           UAT           GAT\nratio                  230/22 kV     22/6.9 kV    230/6.9 kV\nvector group                YNd1         Dyn11     YNyn0+d11\nown base MVA                 515            25            25\nZ  %  nameplate            16.00         10.50         12.00\nR  %  nameplate             0.21          0.40          0.50\nX  %  derived            15.9986       10.4924       11.9896\nX/R    derived              76.2          26.2          24.0\nRm pu  derived            3239.0        1785.7        1087.0\nLm pu  derived             791.9         339.3         350.2\ntap position used              9             3            13",
+    "NewText": "GSUT 515 MVA | UAT 25 MVA | GAT 25 MVA"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "62",
+    "OldText": "Per-unit on each transformer's OWN nameplate MVA, as the nameplate\nquotes them - not converted to the 100 MVA reporting base.\nX = sqrt(Z^2 - R^2).  DERIVED_FROM_VERIFIED_DATA.",
+    "NewText": "Transformer pu values use each nameplate MVA base."
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "63",
+    "OldText": "DATA STATUS ON THIS DIAGRAM",
+    "NewText": "Model basis"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "64",
+    "OldText": "* Generator, GSUT, UAT, GAT nameplates: VERIFIED_PLANT\n* Transformer X, Rm, Lm: DERIVED_FROM_VERIFIED_DATA\n* Grid Z: ESTIMATED from the GIS 50 kA rating. R = 0\n  EXACTLY, so X/R is infinite - no X/R is documented\n  anywhere in the source set and none is invented\n* ASSUMED: bus coupler closed, the 9050:2500:2500 kW\n  auxiliary split, the 1.00 pu generator setpoint\n* Feeder impedances undocumented, therefore ZERO\n* LV windings 6.9 kV, loads 6.6 kV - a real off-nominal\n  ratio, not tidied away\n* Generator Q limits: unconstrained (none documented)\n* Full register and reasoning: docs/validation/",
+    "NewText": "Balanced load flow | 50 Hz | 100 MVA\nParameters and assumptions: docs/validation"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "71",
+    "OldText": "Case LF3.  Converged, 2 iterations.  KCL residual 8.6e-08 MVA.\nG1 342.01 MW  +26.17 MVAr   ->   export 327.33 MW  -23.42 MVAr\nAux 14.00 MW   losses 0.680 MW (0.20 % of generation)\n* GSUT at 92 % of 355 MVA ONAN - forced cooling REQUIRED\nFull precision and reasoning: results/load_flow/, docs/report/",
+    "NewText": "Case LF3 | Saved load-flow results\nG1 342.01 MW  +26.17 MVAr   ->   export 327.33 MW  -23.42 MVAr\nAux 14.00 MW   losses 0.680 MW (0.20 % of generation)"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "7",
+    "OldText": "X/R = infinite - R not documented\nESTIMATED from the 8DN9 50 kA rating,\nNOT verified PGCB data - the weakest\nnumber in the model",
+    "NewText": "Grid equivalent | R = 0 ohm"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "14",
+    "OldText": "double busbar, single breaker\n3150 A  50 kA / 1 s  125 kA peak\nbays 10BAY11 / 10BAY12 / 10BAY20\nbay conductors, disconnectors, earthing switches and\nCT/VT burdens are ideal - none has a documented Z",
+    "NewText": "Double busbar | 3150 A\n50 kA / 1 s | 125 kA peak"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "16",
+    "OldText": "assumed state - not found in the document set",
+    "NewText": "Study switch state"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "21",
+    "OldText": "SGen5-2000H  458 MVA  22 kV  pf 0.85\nPV bus   |V| = 1.00 pu   P = 342.01 MW\nDERATED dispatch (not a measurement)",
+    "NewText": "SGen5-2000H | 458 MVA\n22 kV | pf 0.85 | PV bus"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "37",
+    "OldText": "6.6 kV auxiliary total  14.000 MW / 8.676 MVAr  at pf 0.85       total is documented; the 9050 : 2500 : 2500 kW split between the three groups is assumed",
+    "NewText": "6.6 kV auxiliaries | 14.000 MW + j8.676 MVAr"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "53",
+    "OldText": "ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  -  SOUTH  -  BALANCED LOAD FLOW MODEL",
+    "NewText": "ASHUGANJ SOUTH | LOAD FLOW"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "54",
+    "OldText": "Case LF3 : Site-derated dispatch, GAT out of service   |   G1 = 342.01 MW (derated)   |   GAT OUT OF SERVICE   |   coupler CLOSED   |   radial\nBase 100 MVA, 50 Hz.  Highest voltage 230 kV - the South plant has NO 400 kV network.\nLayout mirrors INEL-112070-00-ELC-DE-0001 Rev 03.  Built by build_ashuganj_main.m - do not edit by hand.",
+    "NewText": "LF3 | 342.01 MW | GAT open | Coupler closed\n100 MVA base | 50 Hz"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "58",
+    "OldText": "voltage-level colour key. 400 V boards and below are OUT of the load flow and are not drawn.",
+    "NewText": "Voltage levels | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "59",
+    "OldText": "SOLVER / STUDY TOOL - not plant equipment.\nDouble-click it, choose Load Flow, press Compute.\nContinuous, ode23tb, 50 Hz. See docs/manual/USER_MANUAL.html.",
+    "NewText": "powergui | Load Flow > Compute"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "60",
+    "OldText": "DERIVED TRANSFORMER PARAMETERS",
+    "NewText": "Transformer bases"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "61",
+    "OldText": "transformer                 GSUT           UAT           GAT\nratio                  230/22 kV     22/6.9 kV    230/6.9 kV\nvector group                YNd1         Dyn11     YNyn0+d11\nown base MVA                 515            25            25\nZ  %  nameplate            16.00         10.50         12.00\nR  %  nameplate             0.21          0.40          0.50\nX  %  derived            15.9986       10.4924       11.9896\nX/R    derived              76.2          26.2          24.0\nRm pu  derived            3239.0        1785.7        1087.0\nLm pu  derived             791.9         339.3         350.2\ntap position used              9             3            13",
+    "NewText": "GSUT 515 MVA | UAT 25 MVA | GAT 25 MVA"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "62",
+    "OldText": "Per-unit on each transformer's OWN nameplate MVA, as the nameplate\nquotes them - not converted to the 100 MVA reporting base.\nX = sqrt(Z^2 - R^2).  DERIVED_FROM_VERIFIED_DATA.",
+    "NewText": "Transformer pu values use each nameplate MVA base."
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "63",
+    "OldText": "DATA STATUS ON THIS DIAGRAM",
+    "NewText": "Model basis"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF3.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "64",
+    "OldText": "* Generator, GSUT, UAT, GAT nameplates: VERIFIED_PLANT\n* Transformer X, Rm, Lm: DERIVED_FROM_VERIFIED_DATA\n* Grid Z: ESTIMATED from the GIS 50 kA rating. R = 0\n  EXACTLY, so X/R is infinite - no X/R is documented\n  anywhere in the source set and none is invented\n* ASSUMED: bus coupler closed, the 9050:2500:2500 kW\n  auxiliary split, the 1.00 pu generator setpoint\n* Feeder impedances undocumented, therefore ZERO\n* LV windings 6.9 kV, loads 6.6 kV - a real off-nominal\n  ratio, not tidied away\n* Generator Q limits: unconstrained (none documented)\n* Full register and reasoning: docs/validation/",
+    "NewText": "Balanced load flow | 50 Hz | 100 MVA\nParameters and assumptions: docs/validation"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "7",
+    "OldText": "X/R = infinite - R not documented\nESTIMATED from the 8DN9 50 kA rating,\nNOT verified PGCB data - the weakest\nnumber in the model",
+    "NewText": "Grid equivalent | R = 0 ohm"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "14",
+    "OldText": "double busbar, single breaker\n3150 A  50 kA / 1 s  125 kA peak\nbays 10BAY11 / 10BAY12 / 10BAY20\nbay conductors, disconnectors, earthing switches and\nCT/VT burdens are ideal - none has a documented Z",
+    "NewText": "Double busbar | 3150 A\n50 kA / 1 s | 125 kA peak"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "16",
+    "OldText": "assumed state - not found in the document set",
+    "NewText": "Study switch state"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "21",
+    "OldText": "SGen5-2000H  458 MVA  22 kV  pf 0.85\nPV bus   |V| = 1.00 pu   P = 342.01 MW\nDERATED dispatch (not a measurement)",
+    "NewText": "SGen5-2000H | 458 MVA\n22 kV | pf 0.85 | PV bus"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "37",
+    "OldText": "6.6 kV auxiliary total  14.000 MW / 8.676 MVAr  at pf 0.85       total is documented; the 9050 : 2500 : 2500 kW split between the three groups is assumed",
+    "NewText": "6.6 kV auxiliaries | 14.000 MW + j8.676 MVAr"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "53",
+    "OldText": "ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  -  SOUTH  -  BALANCED LOAD FLOW MODEL",
+    "NewText": "ASHUGANJ SOUTH | LOAD FLOW"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "54",
+    "OldText": "Case LF4 : Site-derated dispatch, GAT in service   |   G1 = 342.01 MW (derated)   |   GAT IN SERVICE   |   coupler CLOSED   |   looped\nBase 100 MVA, 50 Hz.  Highest voltage 230 kV - the South plant has NO 400 kV network.\nLayout mirrors INEL-112070-00-ELC-DE-0001 Rev 03.  Built by build_ashuganj_main.m - do not edit by hand.",
+    "NewText": "LF4 | 342.01 MW | GAT closed | Coupler closed\n100 MVA base | 50 Hz"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "58",
+    "OldText": "voltage-level colour key. 400 V boards and below are OUT of the load flow and are not drawn.",
+    "NewText": "Voltage levels | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "59",
+    "OldText": "SOLVER / STUDY TOOL - not plant equipment.\nDouble-click it, choose Load Flow, press Compute.\nContinuous, ode23tb, 50 Hz. See docs/manual/USER_MANUAL.html.",
+    "NewText": "powergui | Load Flow > Compute"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "60",
+    "OldText": "DERIVED TRANSFORMER PARAMETERS",
+    "NewText": "Transformer bases"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "61",
+    "OldText": "transformer                 GSUT           UAT           GAT\nratio                  230/22 kV     22/6.9 kV    230/6.9 kV\nvector group                YNd1         Dyn11     YNyn0+d11\nown base MVA                 515            25            25\nZ  %  nameplate            16.00         10.50         12.00\nR  %  nameplate             0.21          0.40          0.50\nX  %  derived            15.9986       10.4924       11.9896\nX/R    derived              76.2          26.2          24.0\nRm pu  derived            3239.0        1785.7        1087.0\nLm pu  derived             791.9         339.3         350.2\ntap position used              9             3            13",
+    "NewText": "GSUT 515 MVA | UAT 25 MVA | GAT 25 MVA"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "62",
+    "OldText": "Per-unit on each transformer's OWN nameplate MVA, as the nameplate\nquotes them - not converted to the 100 MVA reporting base.\nX = sqrt(Z^2 - R^2).  DERIVED_FROM_VERIFIED_DATA.",
+    "NewText": "Transformer pu values use each nameplate MVA base."
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "63",
+    "OldText": "DATA STATUS ON THIS DIAGRAM",
+    "NewText": "Model basis"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "64",
+    "OldText": "* Generator, GSUT, UAT, GAT nameplates: VERIFIED_PLANT\n* Transformer X, Rm, Lm: DERIVED_FROM_VERIFIED_DATA\n* Grid Z: ESTIMATED from the GIS 50 kA rating. R = 0\n  EXACTLY, so X/R is infinite - no X/R is documented\n  anywhere in the source set and none is invented\n* ASSUMED: bus coupler closed, the 9050:2500:2500 kW\n  auxiliary split, the 1.00 pu generator setpoint\n* Feeder impedances undocumented, therefore ZERO\n* LV windings 6.9 kV, loads 6.6 kV - a real off-nominal\n  ratio, not tidied away\n* Generator Q limits: unconstrained (none documented)\n* Full register and reasoning: docs/validation/",
+    "NewText": "Balanced load flow | 50 Hz | 100 MVA\nParameters and assumptions: docs/validation"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4_Annotated.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "72",
+    "OldText": "Case LF4.  Converged, 2 iterations.  KCL residual 5.2e-04 MVA.\nG1 342.01 MW  +22.01 MVAr   ->   export 327.32 MW  -27.23 MVAr\nAux 14.00 MW   losses 0.690 MW (0.20 % of generation)\n* GSUT at 91 % of 355 MVA ONAN - forced cooling REQUIRED\n* GAT closed: 4.36 MW circulates, UAT at 101 % of 19 MVA ONAN\nFull precision and reasoning: results/load_flow/, docs/report/",
+    "NewText": "Case LF4 | Saved load-flow results\nG1 342.01 MW  +22.01 MVAr   ->   export 327.32 MW  -27.23 MVAr\nAux 14.00 MW   losses 0.690 MW (0.20 % of generation)"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "7",
+    "OldText": "X/R = infinite - R not documented\nESTIMATED from the 8DN9 50 kA rating,\nNOT verified PGCB data - the weakest\nnumber in the model",
+    "NewText": "Grid equivalent | R = 0 ohm"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "14",
+    "OldText": "double busbar, single breaker\n3150 A  50 kA / 1 s  125 kA peak\nbays 10BAY11 / 10BAY12 / 10BAY20\nbay conductors, disconnectors, earthing switches and\nCT/VT burdens are ideal - none has a documented Z",
+    "NewText": "Double busbar | 3150 A\n50 kA / 1 s | 125 kA peak"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "16",
+    "OldText": "assumed state - not found in the document set",
+    "NewText": "Study switch state"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "21",
+    "OldText": "SGen5-2000H  458 MVA  22 kV  pf 0.85\nPV bus   |V| = 1.00 pu   P = 342.01 MW\nDERATED dispatch (not a measurement)",
+    "NewText": "SGen5-2000H | 458 MVA\n22 kV | pf 0.85 | PV bus"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "37",
+    "OldText": "6.6 kV auxiliary total  14.000 MW / 8.676 MVAr  at pf 0.85       total is documented; the 9050 : 2500 : 2500 kW split between the three groups is assumed",
+    "NewText": "6.6 kV auxiliaries | 14.000 MW + j8.676 MVAr"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "53",
+    "OldText": "ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  -  SOUTH  -  BALANCED LOAD FLOW MODEL",
+    "NewText": "ASHUGANJ SOUTH | LOAD FLOW"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "54",
+    "OldText": "Case LF4 : Site-derated dispatch, GAT in service   |   G1 = 342.01 MW (derated)   |   GAT IN SERVICE   |   coupler CLOSED   |   looped\nBase 100 MVA, 50 Hz.  Highest voltage 230 kV - the South plant has NO 400 kV network.\nLayout mirrors INEL-112070-00-ELC-DE-0001 Rev 03.  Built by build_ashuganj_main.m - do not edit by hand.",
+    "NewText": "LF4 | 342.01 MW | GAT closed | Coupler closed\n100 MVA base | 50 Hz"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "58",
+    "OldText": "voltage-level colour key. 400 V boards and below are OUT of the load flow and are not drawn.",
+    "NewText": "Voltage levels | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "59",
+    "OldText": "SOLVER / STUDY TOOL - not plant equipment.\nDouble-click it, choose Load Flow, press Compute.\nContinuous, ode23tb, 50 Hz. See docs/manual/USER_MANUAL.html.",
+    "NewText": "powergui | Load Flow > Compute"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "60",
+    "OldText": "DERIVED TRANSFORMER PARAMETERS",
+    "NewText": "Transformer bases"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "61",
+    "OldText": "transformer                 GSUT           UAT           GAT\nratio                  230/22 kV     22/6.9 kV    230/6.9 kV\nvector group                YNd1         Dyn11     YNyn0+d11\nown base MVA                 515            25            25\nZ  %  nameplate            16.00         10.50         12.00\nR  %  nameplate             0.21          0.40          0.50\nX  %  derived            15.9986       10.4924       11.9896\nX/R    derived              76.2          26.2          24.0\nRm pu  derived            3239.0        1785.7        1087.0\nLm pu  derived             791.9         339.3         350.2\ntap position used              9             3            13",
+    "NewText": "GSUT 515 MVA | UAT 25 MVA | GAT 25 MVA"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "62",
+    "OldText": "Per-unit on each transformer's OWN nameplate MVA, as the nameplate\nquotes them - not converted to the 100 MVA reporting base.\nX = sqrt(Z^2 - R^2).  DERIVED_FROM_VERIFIED_DATA.",
+    "NewText": "Transformer pu values use each nameplate MVA base."
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "63",
+    "OldText": "DATA STATUS ON THIS DIAGRAM",
+    "NewText": "Model basis"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_LF4.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "64",
+    "OldText": "* Generator, GSUT, UAT, GAT nameplates: VERIFIED_PLANT\n* Transformer X, Rm, Lm: DERIVED_FROM_VERIFIED_DATA\n* Grid Z: ESTIMATED from the GIS 50 kA rating. R = 0\n  EXACTLY, so X/R is infinite - no X/R is documented\n  anywhere in the source set and none is invented\n* ASSUMED: bus coupler closed, the 9050:2500:2500 kW\n  auxiliary split, the 1.00 pu generator setpoint\n* Feeder impedances undocumented, therefore ZERO\n* LV windings 6.9 kV, loads 6.6 kV - a real off-nominal\n  ratio, not tidied away\n* Generator Q limits: unconstrained (none documented)\n* Full register and reasoning: docs/validation/",
+    "NewText": "Balanced load flow | 50 Hz | 100 MVA\nParameters and assumptions: docs/validation"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "7",
+    "OldText": "X/R = infinite - R not documented\nESTIMATED from the 8DN9 50 kA rating,\nNOT verified PGCB data - the weakest\nnumber in the model",
+    "NewText": "Grid equivalent | R = 0 ohm"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "14",
+    "OldText": "double busbar, single breaker\n3150 A  50 kA / 1 s  125 kA peak\nbays 10BAY11 / 10BAY12 / 10BAY20\nbay conductors, disconnectors, earthing switches and\nCT/VT burdens are ideal - none has a documented Z",
+    "NewText": "Double busbar | 3150 A\n50 kA / 1 s | 125 kA peak"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "16",
+    "OldText": "assumed state - not found in the document set",
+    "NewText": "Study switch state"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "21",
+    "OldText": "SGen5-2000H  458 MVA  22 kV  pf 0.85\nPV bus   |V| = 1.00 pu   P = 389.30 MW\nRATED dispatch (not a measurement)",
+    "NewText": "SGen5-2000H | 458 MVA\n22 kV | pf 0.85 | PV bus"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "37",
+    "OldText": "6.6 kV auxiliary total  14.000 MW / 8.676 MVAr  at pf 0.85       total is documented; the 9050 : 2500 : 2500 kW split between the three groups is assumed",
+    "NewText": "6.6 kV auxiliaries | 14.000 MW + j8.676 MVAr"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "53",
+    "OldText": "ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  -  SOUTH  -  BALANCED LOAD FLOW MODEL",
+    "NewText": "ASHUGANJ SOUTH | LOAD FLOW"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "54",
+    "OldText": "Case LF1 : Rated dispatch, GAT out of service   |   G1 = 389.30 MW (rated)   |   GAT OUT OF SERVICE   |   coupler CLOSED   |   radial\nBase 100 MVA, 50 Hz.  Highest voltage 230 kV - the South plant has NO 400 kV network.\nLayout mirrors INEL-112070-00-ELC-DE-0001 Rev 03.  Built by build_ashuganj_main.m - do not edit by hand.",
+    "NewText": "Load flow | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "58",
+    "OldText": "voltage-level colour key. 400 V boards and below are OUT of the load flow and are not drawn.",
+    "NewText": "Voltage levels | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "59",
+    "OldText": "SOLVER / STUDY TOOL - not plant equipment.\nDouble-click it, choose Load Flow, press Compute.\nContinuous, ode23tb, 50 Hz. See docs/manual/USER_MANUAL.html.",
+    "NewText": "powergui | Load Flow > Compute"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "60",
+    "OldText": "DERIVED TRANSFORMER PARAMETERS",
+    "NewText": "Transformer bases"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "61",
+    "OldText": "transformer                 GSUT           UAT           GAT\nratio                  230/22 kV     22/6.9 kV    230/6.9 kV\nvector group                YNd1         Dyn11     YNyn0+d11\nown base MVA                 515            25            25\nZ  %  nameplate            16.00         10.50         12.00\nR  %  nameplate             0.21          0.40          0.50\nX  %  derived            15.9986       10.4924       11.9896\nX/R    derived              76.2          26.2          24.0\nRm pu  derived            3239.0        1785.7        1087.0\nLm pu  derived             791.9         339.3         350.2\ntap position used              9             3            13",
+    "NewText": "GSUT 515 MVA | UAT 25 MVA | GAT 25 MVA"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "62",
+    "OldText": "Per-unit on each transformer's OWN nameplate MVA, as the nameplate\nquotes them - not converted to the 100 MVA reporting base.\nX = sqrt(Z^2 - R^2).  DERIVED_FROM_VERIFIED_DATA.",
+    "NewText": "Transformer pu values use each nameplate MVA base."
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "63",
+    "OldText": "DATA STATUS ON THIS DIAGRAM",
+    "NewText": "Model basis"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "64",
+    "OldText": "* Generator, GSUT, UAT, GAT nameplates: VERIFIED_PLANT\n* Transformer X, Rm, Lm: DERIVED_FROM_VERIFIED_DATA\n* Grid Z: ESTIMATED from the GIS 50 kA rating. R = 0\n  EXACTLY, so X/R is infinite - no X/R is documented\n  anywhere in the source set and none is invented\n* ASSUMED: bus coupler closed, the 9050:2500:2500 kW\n  auxiliary split, the 1.00 pu generator setpoint\n* Feeder impedances undocumented, therefore ZERO\n* LV windings 6.9 kV, loads 6.6 kV - a real off-nominal\n  ratio, not tidied away\n* Generator Q limits: unconstrained (none documented)\n* Full register and reasoning: docs/validation/",
+    "NewText": "Balanced load flow | 50 Hz | 100 MVA\nParameters and assumptions: docs/validation"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "97",
+    "OldText": "ASHUGANJ SOUTH 450MW CCPP — Rev2 SINGLE-LINE (Sep-10 master truth)",
+    "NewText": "ASHUGANJ SOUTH | SINGLE-LINE MODEL"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "98",
+    "OldText": "GEN 22kV · GSUT 515MVA YNd1 · 230kV GIS (Q0/Q1/Q2/Q9) · GRID Thevenin · UAT+GAT aux · DC island bottom-right. Rev2: G1 354MW+SCL, ZGRID lumped, aux 12+j5.",
+    "NewText": "Generator | GSUT | 230 kV GIS | Grid | UAT / GAT | DC"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow_V2.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "104",
+    "OldText": "STATION DC (conceptual C): 110V lead-acid 200Ah discharging into 4.03ohm DCDB ~3kW (Idc~=27A below). 2x30A chargers N+1 + DCDB panel annotated (not simulated). Autonomy 200Ah/27A = 7.4h > 2h req.",
+    "NewText": "DC equivalent | 110 V | 200 Ah\n4.03 ohm load | Charger indication only"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "7",
+    "OldText": "X/R = infinite - R not documented\nESTIMATED from the 8DN9 50 kA rating,\nNOT verified PGCB data - the weakest\nnumber in the model",
+    "NewText": "Grid equivalent | R = 0 ohm"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "14",
+    "OldText": "double busbar, single breaker\n3150 A  50 kA / 1 s  125 kA peak\nbays 10BAY11 / 10BAY12 / 10BAY20\nbay conductors, disconnectors, earthing switches and\nCT/VT burdens are ideal - none has a documented Z",
+    "NewText": "Double busbar | 3150 A\n50 kA / 1 s | 125 kA peak"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "16",
+    "OldText": "assumed state - not found in the document set",
+    "NewText": "Study switch state"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "21",
+    "OldText": "SGen5-2000H  458 MVA  22 kV  pf 0.85\nPV bus   |V| = 1.00 pu   P = 389.30 MW\nRATED dispatch (not a measurement)",
+    "NewText": "SGen5-2000H | 458 MVA\n22 kV | pf 0.85 | PV bus"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "37",
+    "OldText": "6.6 kV auxiliary total  14.000 MW / 8.676 MVAr  at pf 0.85       total is documented; the 9050 : 2500 : 2500 kW split between the three groups is assumed",
+    "NewText": "6.6 kV auxiliaries | 14.000 MW + j8.676 MVAr"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "53",
+    "OldText": "ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  -  SOUTH  -  BALANCED LOAD FLOW MODEL",
+    "NewText": "ASHUGANJ SOUTH | LOAD FLOW"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "54",
+    "OldText": "Case LF1 : Rated dispatch, GAT out of service   |   G1 = 389.30 MW (rated)   |   GAT OUT OF SERVICE   |   coupler CLOSED   |   radial\nBase 100 MVA, 50 Hz.  Highest voltage 230 kV - the South plant has NO 400 kV network.\nLayout mirrors INEL-112070-00-ELC-DE-0001 Rev 03.  Built by build_ashuganj_main.m - do not edit by hand.",
+    "NewText": "LF1 | 389.30 MW | GAT open | Coupler closed\n100 MVA base | 50 Hz"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "58",
+    "OldText": "voltage-level colour key. 400 V boards and below are OUT of the load flow and are not drawn.",
+    "NewText": "Voltage levels | 230 / 22 / 6.6 kV"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "59",
+    "OldText": "SOLVER / STUDY TOOL - not plant equipment.\nDouble-click it, choose Load Flow, press Compute.\nContinuous, ode23tb, 50 Hz. See docs/manual/USER_MANUAL.html.",
+    "NewText": "powergui | Load Flow > Compute"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "60",
+    "OldText": "DERIVED TRANSFORMER PARAMETERS",
+    "NewText": "Transformer bases"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "61",
+    "OldText": "transformer                 GSUT           UAT           GAT\nratio                  230/22 kV     22/6.9 kV    230/6.9 kV\nvector group                YNd1         Dyn11     YNyn0+d11\nown base MVA                 515            25            25\nZ  %  nameplate            16.00         10.50         12.00\nR  %  nameplate             0.21          0.40          0.50\nX  %  derived            15.9986       10.4924       11.9896\nX/R    derived              76.2          26.2          24.0\nRm pu  derived            3239.0        1785.7        1087.0\nLm pu  derived             791.9         339.3         350.2\ntap position used              9             3            13",
+    "NewText": "GSUT 515 MVA | UAT 25 MVA | GAT 25 MVA"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "62",
+    "OldText": "Per-unit on each transformer's OWN nameplate MVA, as the nameplate\nquotes them - not converted to the 100 MVA reporting base.\nX = sqrt(Z^2 - R^2).  DERIVED_FROM_VERIFIED_DATA.",
+    "NewText": "Transformer pu values use each nameplate MVA base."
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "63",
+    "OldText": "DATA STATUS ON THIS DIAGRAM",
+    "NewText": "Model basis"
+  },
+  {
+    "Model": "simulink\\studies\\Load_Flow.slx",
+    "Xml": "simulink/systems/system_root.xml",
+    "Sid": "64",
+    "OldText": "* Generator, GSUT, UAT, GAT nameplates: VERIFIED_PLANT\n* Transformer X, Rm, Lm: DERIVED_FROM_VERIFIED_DATA\n* Grid Z: ESTIMATED from the GIS 50 kA rating. R = 0\n  EXACTLY, so X/R is infinite - no X/R is documented\n  anywhere in the source set and none is invented\n* ASSUMED: bus coupler closed, the 9050:2500:2500 kW\n  auxiliary split, the 1.00 pu generator setpoint\n* Feeder impedances undocumented, therefore ZERO\n* LV windings 6.9 kV, loads 6.6 kV - a real off-nominal\n  ratio, not tidied away\n* Generator Q limits: unconstrained (none documented)\n* Full register and reasoning: docs/validation/",
+    "NewText": "Balanced load flow | 50 Hz | 100 MVA\nParameters and assumptions: docs/validation"
+  }
+]

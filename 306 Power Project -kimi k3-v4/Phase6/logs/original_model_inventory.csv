@@ -1,0 +1,207 @@
+"Path","Blocks","SynchronousMachines","Libraries","Callbacks","SHA256"
+"simulink\studies\Load_Flow_V2.slx","78","0","simulink/Logic and Bit
+Operations/Compare
+To Constant | sps_lib/powergui | spsBatteryLib/Battery | spsCurrentMeasurementLib/Current Measurement | spsFourierLib/Fourier | spsGroundLib/Ground | spsSeriesRLCBranchLib/Series RLC Branch | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseFaultLib/Three-Phase Fault | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings) | spsThreePhaseVIMeasurementLib/Three-Phase
+V-I Measurement | spsVoltageMeasurementLib/Voltage Measurement","","985F69476C70FD7581714EA9718EA9B7E69FFCCD16CB4769642EE915C1283A4E"
+"simulink\studies\Load_Flow_LF4_Annotated.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","A941143A0A41275855D2E61C2D11775F45D27E8D31ED1C2DB7D523B25DA67F73"
+"simulink\studies\Load_Flow_LF4.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","340A0B91B046892DCCC58C728763713DD7B23507C28A72A5F201D2F103AE917B"
+"simulink\studies\Load_Flow_LF3_Annotated.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","982E1C56D264873D2277F0260FDFD9DE6001EE794216DEAE0410092196B98DD0"
+"simulink\studies\Load_Flow_LF3.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","88B3249BA95C4CAA73C597AE762E25BC00221B7F757B56C4FA5FD8F50D7DC34C"
+"simulink\studies\Load_Flow_LF2_Annotated.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","930C5A8E7E085125D9F892AF7A9E75417CA85D5C2248D79AA928FFE9BEEF097E"
+"simulink\studies\Load_Flow_LF2.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","40FD620DC0605091EC378EC4B3DA5ED81A6017B0CDDEADBD60CA0B358E2714A5"
+"simulink\studies\Load_Flow_LF1_Annotated.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","474B2FA1CECB9699E85619B331AEFFFAB6081DD69BA0F5ED2386A15C7B24CACE"
+"simulink\studies\Load_Flow_LF1.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","9F5ED0AE7008963A16AAF1EDE8864C8586F2FE8769C9621FFB3905509EBF7A8D"
+"simulink\studies\Load_Flow.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","2C2B18EC7CF9DF582DA8FA18839799E349397EA7BEB51A6F6CF48055AEE1CEC6"
+"simulink\main\Ashuganj_South_Main.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","78C80110599C531054AB679662B30549F8CC5EECC8C52206C6BA90F4E465423C"
+"simulink\backups\Load_Flow_V2_protection_base_2026-09-11.slx","78","0","simulink/Logic and Bit
+Operations/Compare
+To Constant | spsBatteryLib/Battery | spsCurrentMeasurementLib/Current Measurement | spsFourierLib/Fourier | spsGroundLib/Ground | spspowerguiLib/powergui | spsSeriesRLCBranchLib/Series RLC Branch | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseFaultLib/Three-Phase Fault | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings) | spsThreePhaseVIMeasurementLib/Three-Phase
+V-I Measurement | spsVoltageMeasurementLib/Voltage Measurement","","2EA6A97FC149D2C48C4B045CB27FFB31CBD3CA6C6935DEA5EADCAC1D30077120"
+"simulink\backups\Ashuganj_South_Main_v027_2026-09-10_pre-fault.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","78C80110599C531054AB679662B30549F8CC5EECC8C52206C6BA90F4E465423C"
+"simulink\backups\Ashuganj_South_Main_v026.slx","12","0","sps_lib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","725D84199B233C5984555472442486DCDA4E5014F67405EEEE72AF18C3D375EC"
+"simulink\backups\Ashuganj_South_Main_v025.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","DA8F13F3FFB86742C0F1B1D4E8D3F45E5BA0CE3BE6D8112326B8EF436102E8E9"
+"simulink\backups\Ashuganj_South_Main_v024.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","DE69F13C9870B914E6655CFDB6A47FB4AFD76B7FCE64E25F2AE7BAB838546FE6"
+"simulink\backups\Ashuganj_South_Main_v023.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","928D0AE021FEC67795FE89C6B1F57C7059C72319906A6D87ABA6185889160931"
+"simulink\backups\Ashuganj_South_Main_v022.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","BBAF7538729EF343F6E193713FCDEB2A65EE00F45BEC444A4A1C8FF2BBBCE88D"
+"simulink\backups\Ashuganj_South_Main_v021.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","6F48E98FEE99D287AC6746049B8501574D187323144C0F1356E800453394C7E3"
+"simulink\backups\Ashuganj_South_Main_v020.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","82F8F03EB99E82B26B44865D2EF99A2A4FDE3B4C2DEFB0E23C47687C763B5B7A"
+"simulink\backups\Ashuganj_South_Main_v019.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","2D3063E2D40D37FED3570E35966541F0CA10C2D80ED6B1CE31CB48994F856CE3"
+"simulink\backups\Ashuganj_South_Main_v018.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","C4637EF0B556894C28D292EAB78A0D4BAA535C2E8CF478E49BF81AC59225968E"
+"simulink\backups\Ashuganj_South_Main_v017.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","7D30C3A58F5C6DDD1F2BF72B9CA59CCD88B25E5D23BBBF6A6C2AD0CF702B3EEE"
+"simulink\backups\Ashuganj_South_Main_v016.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","9EF7FE005150A8D86A14102495DCE30D9DF0A4455E1E24F50825FC11FBA4E05B"
+"simulink\backups\Ashuganj_South_Main_v015.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","63B36D01730F32ECD4D2618DC61B94D7AB7F67C30FA62F434325C8A28BF1B67B"
+"simulink\backups\Ashuganj_South_Main_v014.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","CDBBFB5A7CC8D84B070701A57724EF2C9C1081EB21F2D0EF64C47F7020BE2253"
+"simulink\backups\Ashuganj_South_Main_v013.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","AF181A111903A2413EB9E3144EF181C0C4F1BA3904DC4C2AE1CE38F4F1EFDC79"
+"simulink\backups\Ashuganj_South_Main_v012.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","AF181A111903A2413EB9E3144EF181C0C4F1BA3904DC4C2AE1CE38F4F1EFDC79"
+"simulink\backups\Ashuganj_South_Main_v011.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","C34B34A94B50363F287BDC9E97D081590CC4A9ECFF67F9C50AAC0F09D770A82C"
+"simulink\backups\Ashuganj_South_Main_v010.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","78693F5C17170290EDE775D66DCBF7A9AC5BF3392447DBEB84CBA7BB00CFCE81"
+"simulink\backups\Ashuganj_South_Main_v009.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","1F989410C73C4987B932231BF58EB179CC39DA74D79F9491222AC56E3EB8B8CE"
+"simulink\backups\Ashuganj_South_Main_v008.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","E05E5C9ED22DFFF8E4FDA4BD6BF4A067AB521850484B51877CEB065C26026FF9"
+"simulink\backups\Ashuganj_South_Main_v007.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","46224833EC6B061407B27359992426B08E72FF52DF1D9FC0855066BC3181C6B8"
+"simulink\backups\Ashuganj_South_Main_v006.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","360F0D9CC399E5A61ACB013CC4428472E2DCB3B59F04D5E3311270B994EFC15D"
+"simulink\backups\Ashuganj_South_Main_v005.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","61AA878A3EA07806C2721FC89FAD737F8E50860824C3B734F57ABC90784474E5"
+"simulink\backups\Ashuganj_South_Main_v004.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","3AE6961FAEDCE7BC8DF6CA412D41779847A7D7925DB57471433B67483B8D31C1"
+"simulink\backups\Ashuganj_South_Main_v003.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","7E5241DC035ECB9C18C5205F7A6DDF66C1360E3F80070298D27B357934E9EDC4"
+"simulink\backups\Ashuganj_South_Main_v002.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","120936E8A1BCFFCB0C04B37FD317912B2CACB310B0759B629F1258DE0E44D1F8"
+"simulink\backups\Ashuganj_South_Main_v001.slx","12","0","sps_lib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","D0C87CBB90DC2A818211F091198AD503C653B104FC942D1781D455B297D9A68E"
+"simulink\backups\Ashuganj_South_Main_preRev2_2026-09-10.slx","12","0","spspowerguiLib/powergui | spsThreePhaseBreakerLib/Three-Phase Breaker | spsThreePhaseParallelRLCLoadLib/Three-Phase
+Parallel RLC Load | spsThreePhaseSeriesRLCBranchLib/Three-Phase
+Series RLC Branch | spsThreePhaseSourceLib/Three-Phase Source | spsThreePhaseTransformerTwoWindingsLib/Three-Phase
+Transformer
+(Two Windings)","","78C80110599C531054AB679662B30549F8CC5EECC8C52206C6BA90F4E465423C"

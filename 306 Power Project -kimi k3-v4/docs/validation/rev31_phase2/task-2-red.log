@@ -1,0 +1,37 @@
+TASK2 RED 16-Sep-2026 22:27:13 MATLAB 24.1.0.2537033 (R2024a)
+
+--- test_engineering_assumptions --------------------------------------
+  FAIL  metadata_contract: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  exciter_defaults: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  limiter_bases: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  sfc_defaults: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  battery_defaults: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  charger_defaults: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  load_budget: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  governor_defaults: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  pss_disabled: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  => test_engineering_assumptions: 0 passed, 9 FAILED
+
+--- test_phase2_systems -----------------------------------------------
+  FAIL  identities_and_defaults: MATLAB:UndefinedFunction Unrecognized function or variable 'ashuganj_phase2_systems'.
+  FAIL  all_leaves_are_records: MATLAB:UndefinedFunction Unrecognized function or variable 'ashuganj_phase2_systems'.
+  FAIL  exact_source_identity: MATLAB:UndefinedFunction Undefined function 'ashuganj_phase2_systems' for input arguments of type 'struct'.
+  FAIL  oel_not_a_voltage_base: MATLAB:UndefinedFunction Undefined function 'ashuganj_phase2_systems' for input arguments of type 'struct'.
+  FAIL  uel_source_curve: MATLAB:UndefinedFunction Undefined function 'ashuganj_phase2_systems' for input arguments of type 'struct'.
+  FAIL  sfc_side_separation: MATLAB:UndefinedFunction Unrecognized function or variable 'ashuganj_phase2_systems'.
+  FAIL  station_dc_configuration: MATLAB:UndefinedFunction Unrecognized function or variable 'ashuganj_phase2_systems'.
+  FAIL  primary_sixth_order_selection: MATLAB:UndefinedFunction Undefined function 'ashuganj_phase2_systems' for input arguments of type 'struct'.
+  FAIL  central_record_coverage: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  override_propagation: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  range_boundary_override: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  reject_malformed_records: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  reject_inconsistent_battery: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  reject_inconsistent_exciter: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  reject_inconsistent_charger: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  FAIL  reject_invalid_generator:  Unexpected error: MATLAB:UndefinedFunction
+  FAIL  preserve_inputs: MATLAB:UndefinedFunction Unrecognized function or variable 'engineering_assumptions'.
+  => test_phase2_systems: 0 passed, 17 FAILED
+TASK2 COUNTS 0 9 0 17
+{Error using assert
+Expected RED: runtime interfaces absent
+} 

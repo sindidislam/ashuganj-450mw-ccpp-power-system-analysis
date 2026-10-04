@@ -1,0 +1,53 @@
+
+--- Phase 2 Component Models ------------------------------------------
+  PASS  exciter_quiescent_equilibrium
+  PASS  oel_inactive_at_nominal
+  PASS  uel_inactive_at_nominal
+  PASS  stator_limiter_inactive_at_nominal
+  PASS  exciter_positive_step_response
+  PASS  exciter_finite_exponential_lag
+  PASS  exciter_positive_ceiling_clamp
+  PASS  exciter_ceiling_flag
+  PASS  exciter_negative_floor_clamp
+  PASS  exciter_floor_flag
+  PASS  oel_activates_on_field_exceedance
+  PASS  oel_positive_correction
+  PASS  uel_activates_below_inset_boundary
+  PASS  uel_positive_boost_correction
+  PASS  stator_limiter_activates_on_overcurrent
+  PASS  stator_overload_alarm_raised
+  PASS  exciter_rejects_negative_dt
+  PASS  exciter_rejects_zero_dt
+  PASS  sfc_exponential_lag_response
+  PASS  sfc_active_flag
+  PASS  sfc_efficiency_input_power
+  PASS  sfc_loss_accounting
+  PASS  sfc_clamps_at_max_power_4MW
+  PASS  sfc_clamps_negative_power_to_zero
+  PASS  sfc_ramps_to_zero_when_disabled
+  PASS  sfc_rejects_negative_dt
+  PASS  dc_continuous_load_2p4kW
+  PASS  dc_battery_floating_at_full_soc
+  PASS  dc_full_soc_preserved
+  PASS  charger_supplies_continuous_load
+  PASS  charger_ac_efficiency_accounting
+  PASS  battery_cutoff_false_at_nominal
+  PASS  trip_pulse_adds_2kW
+  PASS  trip_pulse_timer_active
+  PASS  close_pulse_adds_3kW
+  PASS  close_pulse_timer_active
+  PASS  emergency_switched_demand_adds_5kW
+  PASS  battery_supplies_discharge_current
+  PASS  battery_soc_depleted_during_discharge
+  PASS  charger_zero_output_when_unavailable
+  PASS  battery_terminal_voltage_sag_equals_IR
+  PASS  battery_cutoff_triggers_at_soc_min
+  PASS  battery_disconnects_at_cutoff
+  PASS  charger_rated_20kW
+  PASS  charger_max_180A
+  PASS  standby_charger_takes_over_duty
+  PASS  standby_active_flag_set
+  PASS  dc_rejects_negative_dt
+  PASS  dc_rejects_soc_above_one
+  => Phase 2 Component Models: 49 passed, 0 failed
+TASK3 GREEN COUNTS 49 0

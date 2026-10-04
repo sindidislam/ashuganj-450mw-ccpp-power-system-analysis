@@ -1,0 +1,42 @@
+REALISTIC_ZONE_PASS GEN 87G 0.197000
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\v4_gsut_hv_3ph; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+PHASE6_V4_SIMULATION_PASS C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\v4_gsut_hv_3ph
+REALISTIC_ZONE_PASS GSUT_HV 87T 0.197000
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\v4_line230_3ph; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+PHASE6_V4_SIMULATION_PASS C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\v4_line230_3ph
+REALISTIC_ZONE_PASS LINE230 87L 0.192000
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\v4_normal; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+PHASE6_V4_SIMULATION_PASS C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\v4_normal
+            generator_MW: 359.2891
+          generator_MVAr: 24.7866
+            generator_kV: 22.0003
+            frequency_Hz: 49.9999
+                  bus_kV: 230.0750
+                  aux_kV: 6.6055
+      mechanicalInput_MW: 360.2394
+    ratedFrictionLoss_MW: 0.4580
+               Rgrid_ohm: 0.2673
+
+           handle: 261.0005
+        busNumber: 3
+            busID: '*4*'
+    generatorType: 'PV'
+             Pnom: 458000000
+             Vnom: 22000
+                P: 360000000
+                Q: 0
+             Qmin: -Inf
+             Qmax: Inf
+                S: 3.6000 + 0.2482i
+                I: 0.7058 - 0.3502i
+             Pmec: 3.6024e+08
+               Vt: 0.9243 - 0.3818i
+               Vf: 1.7798
+              th0: -60.9627
+              dw0: 0
+
+[Warning: In a future release, UI components will not be included in the output. To include UI components, use the exportapp function.] 
+[> In print (line 86)
+In resume_realistic_v4 (line 47)] 
+LAYOUT_AUDIT systems=13 block_body_overlaps=5 evidence=C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\logs\audit_20260925\layout
+REALISTIC_V4_VERIFICATION_PASS

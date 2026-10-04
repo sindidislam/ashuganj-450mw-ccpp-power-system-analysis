@@ -1,0 +1,17 @@
+Parameter,Value,Status,Source
+Aux demand P,14 MW,VERIFIED_PROJECT_DATA,matlab/data/ashuganj_loads.m
+Aux pf,0.85 lagging (Q 8.6764 MVAr),VERIFIED_PROJECT_DATA,matlab/data/ashuganj_loads.m
+Generator (emergency),P=0 Q=0 no AVR,STUDY_CONDITION,Generator disconnected by definition
+Grid Zmag,2.6558 ohm (50 kA Siemens ESTIMATE),ESTIMATED,matlab/data/ashuganj_grid.m S2.4
+Grid R,0 (Q1a),ENGINEERING_ASSUMPTION,matlab/data/ashuganj_grid.m
+Line 0.7 km,R 0.0277725 X 0.1425655 ohm dual-circuit equiv,FROZEN_ASSUMPTION,results/phase3_loadflow (Phase-3 locked)
+GSUT Z,16pct R 0.21pct at 515 MVA principal tap 9,VERIFIED_PLANT/DOC,matlab/data/ashuganj_transformers.m
+UAT Z,10.5pct R 0.4pct at 25 MVA principal tap 3,VERIFIED_PLANT,matlab/data/ashuganj_transformers.m
+GAT Z,12pct R 0.5pct at 25 MVA principal tap 13,VERIFIED_PLANT,matlab/data/ashuganj_transformers.m
+Sbase,100 MVA,ENGINEERING_ASSUMPTION,Reporting base
+DC bank,110 V 200 Ah 0.05 ohm OCV 105-116 V,ACADEMIC_ASSUMPTION,matlab/data/engineering_assumptions.m
+DC continuous,2.4 kW (0.3+0.5+0.4+0.2+0.3+0.7),ACADEMIC_ASSUMPTION,matlab/data/engineering_assumptions.m
+EDG rating,MISSING,MISSING,No installed diesel rating in source set
+Essential AC schedule,MISSING,MISSING,No essential-load list in source set
+Transfer/motor restart,UNVERIFIED,MISSING,No transfer logic or restart study
+Method,dV=(R*P+X*Q)/V screening; NOT a transient proof,STUDY_LIMIT,This file header

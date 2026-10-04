@@ -1,0 +1,247 @@
+
+==============================================================================
+0. SYSTEM AND EQUIPMENT BASES
+==============================================================================
+Sbase                    =   100.0000 MVA
+Zbase 22 kV  @100 MVA    =   4.840000 ohm   Ibase =    2624.32 A
+Zbase 230 kV @100 MVA    = 529.000000 ohm   Ibase =     251.02 A
+Zbase 6.6 kV @100 MVA    =   0.435600 ohm   Ibase =    8747.73 A
+Zbase generator own base (22 kV, 458 MVA) =   1.05676856 ohm
+Ibase generator own base                  =   12019.3829 A   (nameplate IN = 12019 A)
+  nameplate check |12019-12019.4|/12019 = 0.0032 %
+
+==============================================================================
+1. GENERATOR - WORKBOOK DATASET, OWN BASE -> 100 MVA BASE
+==============================================================================
+Conversion law: X_new = X_old * (S_new/S_old) * (V_old/V_new)^2, V unchanged.
+k = S_new/S_old = 100/458 = 0.21834061
+
+param      cell      pu @458 MVA      pu @100 MVA
+------------------------------------------------------------------------------
+Xd         H3             1.7830       0.38930131
+Xd'        I3             0.3256       0.07109170
+Xd"        J3             0.2608       0.05694323
+Xd"(sat)   K3             0.2248       0.04908297
+Xq         L3             1.7510       0.38231441
+Xq'        M3             0.5087       0.11106987
+Xq"        N3             0.2593       0.05661572
+Xl         O3             0.2027       0.04425764
+X2(sat)    P3             0.2242       0.04895197
+X0(sat)    Q3             0.1280       0.02794760
+------------------------------------------------------------------------------
+
+==============================================================================
+2. GENERATOR STATOR RESISTANCE - THE ohm vs pu QUESTION (WB U3 = "0.00089 ohm")
+==============================================================================
+Reading A (TEXT OF THE CELL, mandated): Ra = 0.00089 ohm
+   Ra_pu(458 MVA) = Ra_ohm/Zbase = 0.00089000 / 1.05676856 = 8.42190083e-04 pu
+   Ra_pu(100 MVA) = 1.83884298e-04 pu
+Reading B (REJECTED): Ra = 0.00089 pu  ->  9.40524017e-04 ohm
+Numerical separation between the two readings = 5.6769 % (Zbase is close to 1 ohm)
+  => the ohm/pu error is SMALL in effect here; it is corrected on evidence, not magnitude.
+
+Independent physical test - armature time constant Ta = X2/(w*Ra):
+  Ta from reading A (ohm) = 0.847375 s      (workbook AG3 states 0.704 s)
+  Ta from reading B (pu)  = 0.801855 s
+  Ra required to reproduce Ta = 0.704 s exactly: 1.01370847e-03 pu  (= 0.00107126 ohm)
+  ratio to reading A = 1.20366 ; ratio to reading B = 1.13900
+  IEC copper correction 20 degC -> 75 degC = (235+75)/(235+20) = 1.21569
+  |A - kcu|/kcu = 0.989 %   |B - kcu|/kcu = 6.308 %
+  => Ta is consistent with reading A being the COLD (20 degC) stator resistance
+     and Ta being quoted at 75 degC. Supporting evidence, not proof; the proof
+     is the literal unit in the cell.
+
+==============================================================================
+3. SCR CROSS-CHECK - DOES THE WORKBOOK ITSELF IDENTIFY 1.663 AS SATURATED Xd?
+==============================================================================
+Definition: SCR = 1/Xd(saturated).
+  1/SCR   = 1/0.601 = 1.663894
+  SIE 2.1.1 "Synchronous reactance (sat.)" xd = 1.663 pu
+  |1/SCR - 1.663|/1.663 = 0.0537 %
+  1/1.663 = 0.601323  -> rounds to 0.601 = workbook SCR
+  And 1/Xd(unsat 1.783) = 0.560852, which does NOT equal the stated SCR.
+  => The workbook's OWN SCR column independently identifies 1.663 as the
+     saturated Xd of the same machine. 1.783 vs 1.663 is a saturation-basis
+     distinction, NOT a source conflict.
+
+==============================================================================
+4. GENERATOR CAPABILITY AND DISPATCH ARITHMETIC
+==============================================================================
+P at rated pf   = 458 * 0.85            = 389.3000 MW   (SIE PN = 389.30 MW)
+Q at rated pf   = 458 * sin(acos(0.85)) = 241.2665 MVAr (APS Qmax = +241 MVAr)
+  => APSCL's +241 MVAr is the stator limit AT P = 389.30 MW, not at 342.01 MW.
+Workbook capacity B3 = 360 MW ; 360/458 = pf 0.78603 (a rating statement, not a dispatch)
+APS "Site De-rated Active Power" = 342.01 MW ; 342.01/458 = pf 0.74675
+SIE Smax = 518 MVA at 30 degC cold gas -> I at 22.0 kV = 13594.0 A (SIE Imax = 14309 A)
+  apparent 5.00 % discrepancy. Test the -5 % voltage limit (22 kV -5 % = 20.9 kV):
+  sqrt(3) * 20.9 kV * 14309 A = 517.98 MVA   (SIE Smax = 518 MVA)  error 0.003 %
+  => Imax is quoted at the MINIMUM permitted terminal voltage, IN at nominal.
+     Resolved internal consistency, NOT a source conflict.
+  IN check: sqrt(3)*22 kV*12019 A = 457.99 MVA (nameplate SN = 458 MVA)
+
+Dispatch cases (stator circle radius S_N = 458 MVA; Q_max = sqrt(S_N^2 - P^2)):
+case     P (MW)  Qmax (MVAr)    S at Qmax         pf  source
+------------------------------------------------------------------------------
+A        360.00       283.13       458.00    0.78603  WB B3 "Capacity (MW)"
+B        389.30       241.27       458.00    0.85000  SIE PN = 458*0.85
+C        342.01       304.62       458.00    0.74675  APS "Site De-rated Active Power"
+------------------------------------------------------------------------------
+  Q at rated pf (0.85) = 241.2665 MVAr applies ONLY to case B.
+  NONE of these is a NET EXPORT figure: station auxiliaries and transformer
+  losses have not been subtracted. Net export is a LOAD-FLOW RESULT (D2), not a datum.
+
+==============================================================================
+5. GSUT (CTI datasheet, base 515 MVA) - IMPEDANCE, X/R, 100 MVA CONVERSION
+==============================================================================
+tap           Z %      R %          X %        X/R      kappa
+------------------------------------------------------------------------------
+lower       15.50    0.280    15.497471    55.3481    1.94830
+main        16.00    0.210    15.998622    76.1839    1.96216
+higher      16.90    0.210    16.898695    80.4700    1.96414
+------------------------------------------------------------------------------
+MAIN-TAP X/R = 76.1839  (master instruction 24 quotes ~76.19; difference 0.0080 %,
+  arising only from rounding of X. Reported, not silently matched.)
+
+Z0 (main tap) = 15.8 % on 515 MVA   -> Z0/Z1 = 0.987500
+On 100 MVA (x 0.19417476):  Z1 = 3.106796 %   R1 = 0.040777 %   X1 = 3.106529 %   Z0 = 3.067961 %
+
+Independent cross-check of R from the SEPARATE guaranteed-loss table:
+  R% = 100*Pcu/S = 100*1095 kW/515 MVA = 0.212621 %   vs datasheet R = 0.21 %
+  agreement = 1.248 %  (loss table and impedance table are separate entries)
+
+Loss-table closure (CTI 1.7), total = no-load + copper + cooling:
+  355 MVA: 159 +  523 + cooling    0 =  682   (stated  682)  exact
+  460 MVA: 159 +  874 + cooling    8 = 1041   (stated 1041)  exact
+  515 MVA: 159 + 1095 + cooling   28 = 1282   (stated 1282)  exact
+  implied cooling power 0 / 8 / 28 kW for ONAN/ODAN/ODAF; CTI states total cooling 28 kW.
+
+CTI block a) labelled "At 75% of the rated voltage" - ratio test vs block b):
+  355 MVA: a/b = 300/523 = 0.57361   (0.75^2 = 0.56250)
+  460 MVA: a/b = 498/874 = 0.56979   (0.75^2 = 0.56250)
+  515 MVA: a/b = 621/1095 = 0.56712   (0.75^2 = 0.56250)
+  => block a) is at 75 % of rated POWER, not voltage: documented source-document
+     wording defect, recorded and NOT silently corrected in the source register.
+
+==============================================================================
+5b. WORKBOOK GSUT COLUMNS (AK3..AO3) vs THE CTI DATASHEET - WHERE REV2 GOT 16.63 %
+==============================================================================
+Workbook row 3 GSUT block: AK3=515 MVA, AL3=155.3 kW PNL, AM3=0.00034 INL,
+                           AN3=1067.5 kW PFL, AO3=0.1663 %Z, AP3=YNd1, AQ3="Solid Ground".
+
+(i) Impedance cell AO3 = 0.1663.
+    CTI datasheet + SLD + SIE + APS all state Z = 16.0 % on 515 MVA.
+    SIE 2.1.1 states the GENERATOR saturated xd = 166.3 % = 1.663 pu.
+    AO3 = 0.1663 is 166.3 % / 1000, i.e. the generator reactance digits in the
+    transformer impedance cell. Header AO2 itself says "(%Z or in pu)" - the unit
+    is ambiguous in the source. Recorded as SOURCE_CONFLICT; 16.0 % adopted by
+    hierarchy (tier-1 manufacturer datasheet over tier-3 collection sheet).
+
+(ii) Copper loss implied by the workbook: AN3 - AL3 = 1067.5 - 155.3 = 912.2 kW
+     R% = 100*912.2/515000 = 0.177126 %
+     Rev2 hard-codes T.R1_pu_own = 0.001771 (rev2/data/ashuganj_rev2_registry.m:35).
+     |R_wb - 0.1771 %| = 0.000026 % -> Rev2's GSUT R is DERIVED FROM THE WORKBOOK,
+     not from the CTI datasheet.
+     CTI loss table gives R = 0.212621 % and CTI states R = 0.21 % (agree to 1.25 %).
+     Workbook route vs CTI stated: 15.65 % apart. CTI self-consistent, workbook is not.
+     => adopt R = 0.21 %; record AL3/AN3 as SOURCE_CONFLICT (see (iii)).
+
+(iii) No-load loss: AL3 = 155.3 kW vs CTI 159 kW (2.33 % apart).
+      Total full-load loss: AN3 = 1067.5 kW vs CTI total at 515 MVA = 1282 kW (16.73 % apart).
+      Rev2 Simulink Rm = 3316.5 comes from 515000/155.3 = 3316.2 (workbook), not 515000/159 = 3239.0 (CTI).
+
+==============================================================================
+6. GSUT MAGNETISING BRANCH - WHICH NO-LOAD CURRENT IS PHYSICALLY POSSIBLE?
+==============================================================================
+Rm(pu, own base) = S_rated/P_noload ; Lm(pu) = 1/sqrt(I0^2 - (1/Rm)^2)
+Rm = 515 MVA / 159 kW = 3238.9937 pu ; 1/Rm = 3.087379e-04 pu = 0.030874 %
+  CTI 0.13 % (datasheet, 100 % V)                I0=0.0013000 pu  radicand=+1.594681e-06  Lm=    791.89 pu
+  WB AM3 read as pu (0.00034 pu = 0.034 %)       I0=0.0003400 pu  radicand=+2.028093e-08  Lm=   7021.92 pu
+  WB AM3 read literally as 0.00034 %             I0=0.0000034 pu  radicand=-9.530751e-08  Lm=IMAGINARY -> IMPOSSIBLE
+  => the literal 0.00034 % reading is falsified by physics (I0 < I_Rm), independently
+     of any source hierarchy. 0.13 % (CTI) is adopted; WB AM3 recorded as SOURCE_CONFLICT.
+
+==============================================================================
+7. UAT AND GAT (CTIU datasheet, BOTH on base 25 MVA - stated on datasheet AND SLD)
+==============================================================================
+
+--- UAT 10BBT10 : 25 MVA base, Z=10.5 %, Z0=9.3 % ---
+  R from copper loss = 100*110/25000 = 0.440000 %   (datasheet states ~0.4 %)
+  X = sqrt(Z^2-R^2)  = 10.490777 %   X/R = 23.8427
+  on 100 MVA (x4.0): Z1=42.0000 %  R1=1.7600 %  X1=41.9631 %  Z0=37.2000 %
+  Z0/Z1 = 0.885714
+  Rm = 25000/14 = 1785.714 pu ; I0 = 0.0030 pu ; radicand = +8.686400e-06 ; Lm = 339.297 pu
+  loss closure at 19 MVA (ONAN, no cooling): 14 + 65 = 79 (stated 79)
+  copper scaling check: 65*(25/19)^2 = 112.53 kW vs stated 110 kW at 25 MVA (2.30 %)
+
+--- GAT 10BBT20 : 25 MVA base, Z=12.0 %, Z0=10.8 % ---
+  R from copper loss = 100*116/25000 = 0.464000 %   (datasheet states ~0.5 %)
+  X = sqrt(Z^2-R^2)  = 11.991026 %   X/R = 25.8427
+  on 100 MVA (x4.0): Z1=48.0000 %  R1=1.8560 %  X1=47.9641 %  Z0=43.2000 %
+  Z0/Z1 = 0.900000
+  Rm = 25000/23 = 1086.957 pu ; I0 = 0.0030 pu ; radicand = +8.153600e-06 ; Lm = 350.207 pu
+  loss closure at 19 MVA (ONAN, no cooling): 23 + 69 = 92 (stated 92)
+  copper scaling check: 69*(25/19)^2 = 119.46 kW vs stated 116 kW at 25 MVA (2.98 %)
+
+==============================================================================
+8. OFF-NOMINAL TAP RATIO FOR THE 6.9 kV WINDING ON A 6.6 kV BUS
+==============================================================================
+Transformer LV winding rated 6.9 kV (CTIU); station bus rated 6600 V (SLD).
+  correct a = V_winding/V_bus = 6.9/6.6 = 1.0454545
+  inverse   = 6.6/6.9        = 0.9565217   <-- value found in stale results/ CSVs
+  ratio between the two = 1.09298  (9.30 % error in modelled ratio)
+
+==============================================================================
+9. GRID EQUIVALENT AT THE 230 kV BUS
+==============================================================================
+PRIMARY (SIE 2.4, labelled "estimated"; APS answered "Contact PGCB" to all grid items):
+  Ik" = 50 kA -> Sk" = sqrt(3)*230kV*50kA = 19918.58 MVA   (SIE states 19 919 MVA)
+  Z   = V^2/Sk = 2.655811 ohm   (SIE states XN 2.66 -> Siemens quote Z with R neglected)
+  on 100 MVA base: Z = 0.00502044 pu
+
+SECONDARY SENSITIVITY (Rev2 alternative, 45.01 kA, X/R = 10.99):
+  Sk = 17930.71 MVA ; Z = 2.950246 ohm ; R = 0.267344 ohm ; X = 2.938108 ohm
+  on 100 MVA: Z = 0.00557702 pu ; R = 0.00050538 pu ; X = 0.00555408 pu
+  NOTE: a previously circulated "Z = 3.25 ohm" for this case is NOT consistent with
+        45.01 kA (3.25 ohm implies 40.86 kA). The executed value above supersedes it.
+
+==============================================================================
+10. AUXILIARY LOAD (APS: 14 MW at 0.85 pf)
+==============================================================================
+  S = P/pf = 16.470588 MVA ; Q = S*sin(acos(pf)) = 8.676421 MVAr
+  engineering allocation rows: 
+      9.018 + j 5.589 MVA
+      2.491 + j 1.544 MVA
+      2.491 + j 1.544 MVA
+  sum = 14.0000 + j8.6770  (vs 14.0000 + j8.6764)  dP=0.0000 dQ=0.0006
+
+==============================================================================
+11. GENERATOR-TERMINAL FAULT LEVEL USING THE WORKBOOK SATURATED SUBTRANSIENT
+==============================================================================
+  Xd"(sat) = 0.2248 pu (WB K3 = SIE 22.48 %, identical)
+  without voltage factor : S = 458/0.2248 = 2037.37 MVA ; I = 53467.01 A = 53.467 kA
+  IEC 60909 with c = 1.1   : S = 2241.10 MVA ; I = 58813.71 A = 58.814 kA
+  (machine alone, no network contribution; illustrative scale check only)
+
+==============================================================================
+12. NEUTRAL EARTHING TRANSFORMER 10BAB11 (SIE 2.3 + SLD)
+==============================================================================
+  primary 12701.71 V (= 22 kV/sqrt3), secondary 500 V -> turns ratio = 25.4034 (SIE states 25.4)
+  loading resistor R1 = 2.62 ohm on the 500 V side
+  referred to the 22 kV/sqrt3 primary: R = R1*TRU^2 = 1690.77 ohm
+  resulting earth-fault current if the full phase voltage appears across it:
+     I = (22000/sqrt3)/1690.77 = 7.51 A
+  SIE also states R_HV-DC = 60 ohm ; APS form answered Zn = "(60) Low-Reactance".
+  NET rating 135 kVA / 20 s appears on BOTH SIE 2.3 and the INEL SLD.
+  => generator neutral is HIGH-RESISTANCE earthed. NOT solidly earthed.
+
+==============================================================================
+13. SUMMARY OF EXECUTED CHECKS
+==============================================================================
+  All numbers above were produced by execution, not by hand.
+  Checks that CLOSE exactly  : loss-table closures (GSUT/UAT/GAT), Sk" from Ik",
+                               nameplate current, P/Q at rated pf, SCR<->1/Xd(sat).
+  Checks that CLOSE approx.  : R from losses vs datasheet R (1.2 % / 10 % / 7 %),
+                               copper scaling (2.3 % / 3.0 %), Ta via temperature.
+  Checks that DO NOT close   : none that are claimed as validations.
+  Physics-based rejection    : GSUT I0 = 0.00034 % (negative radicand).
+

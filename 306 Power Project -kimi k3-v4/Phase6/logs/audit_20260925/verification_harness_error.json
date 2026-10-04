@@ -1,0 +1,12 @@
+{
+  "status": "FAIL",
+  "profile": "PHASE5_STUDY",
+  "matlab": "24.1.0.2537033 (R2024a)",
+  "differentialChecks": 31,
+  "integrationChecks": 22,
+  "default87BTrip_s": 0.187,
+  "edited87BTrip_s": 0.252,
+  "tripShift_s": 0.065,
+  "zones": [],
+  "error": "Subscripted assignment between dissimilar structures.\n\nError in verify_realistic_v4 (line 41)\n  record.zones(k)=struct('location',zones{k,1},'relay',zones{k,2},'trip_s',trip);\n\nError in run (line 112)\nevalin('caller', strcat(scriptStem, ';'));"
+}

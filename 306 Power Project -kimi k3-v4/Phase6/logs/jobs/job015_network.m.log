@@ -1,0 +1,23 @@
+Error using phase6_add_network (line 130)
+Error in 'P6_NETWORK_TEST/Auxiliaries/400 V LV board load': Failed to evaluate mask initialization commands.
+
+Error in job015_network (line 6)
+net=phase6_add_network(mdl,P,S);
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+Caused by:
+    Error using phase6_add_network (line 130)
+    NaN values cannot be converted to logicals.
+    
+    Error in job015_network (line 6)
+    net=phase6_add_network(mdl,P,S);
+    
+    Error in run (line 112)
+    evalin('caller', strcat(scriptStem, ';'));
+    
+    Error in phase6_session_worker (line 21)
+                evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

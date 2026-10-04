@@ -1,0 +1,2 @@
+fault_type,location,m,caseID,grid_dataset,XoR_P,zero_band,k0g,XdRole,NER_variant,GAT_variant,ZfMode,Zf_ohm,coupler,stage,unit,base,Irms_kA,Iang_deg,Iseq0_kA,Iseq1_kA,Iseq2_kA,r_kappa_ip,t_break_s,footnote
+LG,F3,0.5,LF360_GAT_IN,P,15,MID,1.5,sat,primary,H1,bolted,0,closed,Ikpp,kA,100MVA,45.8917695676112,-82.9688810592444,15.2972565225371,15.2972565225371,15.2972565225371,117.829704034816,NaN,bolted-baseline reference; ZfMode=bolted

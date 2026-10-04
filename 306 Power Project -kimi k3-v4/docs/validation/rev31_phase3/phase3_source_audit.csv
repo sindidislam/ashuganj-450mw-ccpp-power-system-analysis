@@ -1,0 +1,12 @@
+parameter,value,unit,doc,locator,status,tier,notes
+south_230kv_outgoing_existence,Line module 2000 A,A,Data Sheet_230KV.pdf,body pages,VERIFIED_ENGINEERING_DOCUMENT,L1,proves a line bay exists not its destination
+south_230kv_destination,MISSING,,,,MISSING,,destination substation not in source set
+south_230kv_length,MISSING,,,,MISSING,,0.7 km enters only as EA in Task 4
+form_70km_length,70,km,Google Sheet Form_Filled Up By APSCL.pdf,Sec 3 Outgoing Circuit L,CONFLICT-DOCUMENTED,L2-disputed,400-kV/North block per branch_list.md:67; retained as conflict only
+form_R0,0.06667,ohm/km,Google Sheet Form_Filled Up By APSCL.pdf,Sec 3 R0,CONFLICT-DOCUMENTED,L2-disputed,same block dispute; never South-230kV source
+form_X0,0.39472,ohm/km,Google Sheet Form_Filled Up By APSCL.pdf,Sec 3 X0,CONFLICT-DOCUMENTED,L2-disputed,same block dispute
+form_B1,3.4011,uS/km,Google Sheet Form_Filled Up By APSCL.pdf,Sec 3 B1,CONFLICT-DOCUMENTED,L2-disputed,same block dispute; unit recorded as uS not S
+form_R1,MISSING,,,,MISSING,,blank in source; Finch-typical only as EA
+form_X1,MISSING,,,,MISSING,,blank in source; Finch-typical only as EA
+ghorsal_44km,44,km,Line data.pdf + PGCB/JICA docs,as cited,SECONDARY_SOURCE,L2,EXCLUDED from South link; engineering reference only
+INEL_DE_0026,MISSING,,,,MISSING,,authoritative GIS drawing unavailable; work does not block on it

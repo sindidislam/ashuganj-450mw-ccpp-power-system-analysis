@@ -1,0 +1,32 @@
+Device,Fault,Action,Note
+,,,"Generator differential; functional source-isolation design; plant trip wiring, lockout implementation and interlocks require verification"
+,,,"Reported 3 s baseline is a separate study comparator; manufacturer setting page absent; functional source-isolation design; plant trip wiring, lockout implement"
+,,,"Selected generator inverse-time backup; functional source-isolation design; plant trip wiring, lockout implementation and interlocks require verification"
+,,,"Confirmed severe neutral overcurrent with dedicated study CT; functional source-isolation design; plant trip wiring, lockout implementation and interlocks requi"
+,,,Negative-sequence capability is sourced; trip stage not selected in this matrix
+,,,Residual-voltage function retained; no unselected alarm-to-trip escalation
+,,,"Confirmed severe stator earth fault; 20 Hz arrangement sourced, defaults remain study values; functional source-isolation design; plant trip wiring, lockout imp"
+,,,Rotor earth function inventory; alarm/severity stages require setting verification
+,,,Loss-of-excitation function inventory
+,,,Reverse-power function inventory
+,,,Generator backup-distance function inventory
+,,,Out-of-step function inventory
+,,,Overvoltage function inventory
+,,,Frequency function inventory
+,,,Overflux function inventory
+,,,Inadvertent-energization function inventory
+,,,"10BAC10 generator breaker, 22 kV, 12.4 kA continuous and 100 kA sym r.m.s. documentary ratings"
+,,,"Transformer differential, 7UT6331 function presence sourced; functional source-isolation design; plant trip wiring, lockout implementation and interlocks requir"
+,,,"Selected transformer HV inverse-time backup; functional source-isolation design; plant trip wiring, lockout implementation and interlocks require verification"
+,,,"Transformer restricted-earth-fault trip stage; functional source-isolation design; plant trip wiring, lockout implementation and interlocks require verification"
+,,,"Transformer mechanical severe trip stage; alarm stages excluded; functional source-isolation design; plant trip wiring, lockout implementation and interlocks re"
+,,,Transformer thermal function inventory; no unselected alarm-to-trip escalation
+,,,"Original 86/GSUT inventory retained; 86T is the study functional equivalent; functional source-isolation design; plant trip wiring, lockout implementation and i"
+,,,UAT 1000/1 CT/function inventory; separate feeder scheme outside selected trip matrix
+,,,GAT 250/1 neutral CT/function inventory; separate feeder scheme outside selected trip matrix
+,,,Affected bus-section differential trip; section membership and additional breaker identities require verification; healthy section is not automatically tripped
+,,,230 kV breaker failure with current-persistence supervision
+,,,Bay control is not an independent fault detector
+,,,Selected GIS backup operates the qualified GSUT transformer-bay Q0
+,,,Line differential local/remote ends; actual breaker identities require verification
+,,,Selected numerical distance backup; physical line-end breaker identity and actual relay implementation require verification; Zone 1 0.0448+j0.196 ohm / 0.00 s; 

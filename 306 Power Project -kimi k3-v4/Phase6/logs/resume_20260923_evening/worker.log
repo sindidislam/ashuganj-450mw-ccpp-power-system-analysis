@@ -1,0 +1,106 @@
+EVENING_WORKER_READY
+JOB_START 01_supplemental.m
+Error using run (line 112)
+Error: Invalid text character. Check for unsupported symbol, invisible character, or pasting of non-ASCII characters.
+
+Error in evening_worker (line 13)
+  try,evalin('base',sprintf('run(''%s'')',strrep(wfile,'''','''''')));wresult.success=true;
+JOB_DONE 01_supplemental.m success=0
+JOB_START job01_supplemental.m
+[Warning: Name is nonexistent or not a directory: C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\results\scripts] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)
+In load_system>i_load_system (line 44)
+In load_system (line 20)
+In job01_supplemental (line 4)
+In run (line 112)
+In evening_worker (line 13)] 
+     Relay      Enabled    First_pickup_s    First_trip_request_s    Pickup_minus_fault_s    Trip_minus_fault_s    Trip_minus_pickup_s    Timer_at_trip_s    Calculated_operating_time_at_pickup_s    Pickup_status    Trip_status
+    ________    _______    ______________    ____________________    ____________________    __________________    ___________________    _______________    _____________________________________    _____________    ___________
+
+    "GEN51N"     true          0.166                1.921                   0.016                  1.771                  1.755                1.756                        11.539                     "observed"      "observed" 
+
+NEUTRAL_TIMED_TRIP_PASS
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\results\reduced_180MW; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+REDUCED_DISPATCH_PASS
+JOB_DONE job01_supplemental.m success=1
+JOB_START job02_interface.m
+INTERFACE_BUILD_START
+Error using style_phase6_model (line 39)
+Invalid setting in SubSystem block 'Live RMS Readings' for parameter 'BackgroundColor'
+
+Error in build_phase6_model (line 89)
+    style_phase6_model(mdl);
+
+Error in job02_interface (line 5)
+info=build_phase6_model('Scenario',struct('stopTime_s',.4));
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in evening_worker (line 13)
+  try,evalin('base',sprintf('run(''%s'')',strrep(wfile,'''','''''')));wresult.success=true;
+JOB_DONE job02_interface.m success=0
+JOB_START job03_interface.m
+INTERFACE_BUILD_START
+INTERFACE_BUILD_PASS
+[Warning: In a future release, UI components will not be included in the output. To include UI components, use the exportapp function.] 
+[> In print (line 86)
+In saveas (line 181)
+In job03_interface (line 13)
+In run (line 112)
+In evening_worker (line 13)] 
+INTERFACE_NORMAL_RUN_PASS
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\results\interactive_bus_trip; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+INTERACTIVE_SETTING_RESPONSE_PASS trip_s=0.2220
+INTERFACE_FINAL_NORMAL_PASS
+JOB_DONE job03_interface.m success=1
+JOB_START job04_inspect_lines.m
+LINE_COUNT 43
+                   Name: [1x1 struct]
+                    Tag: [1x1 struct]
+            Description: [1x1 struct]
+                   Type: [1x1 struct]
+                 Parent: [1x1 struct]
+                 Handle: [1x1 struct]
+        HiliteAncestors: [1x1 struct]
+        RequirementInfo: [1x1 struct]
+            SegmentType: [1x1 struct]
+          SrcPortHandle: [1x1 struct]
+         SrcBlockHandle: [1x1 struct]
+          DstPortHandle: [1x1 struct]
+         DstBlockHandle: [1x1 struct]
+                 Points: [1x1 struct]
+             LineParent: [1x1 struct]
+           LineChildren: [1x1 struct]
+    SignalNameFromLabel: [1x1 struct]
+              Connected: [1x1 struct]
+               FontName: [1x1 struct]
+               FontSize: [1x1 struct]
+             FontWeight: [1x1 struct]
+              FontAngle: [1x1 struct]
+               Selected: [1x1 struct]
+
+line does not have a parameter named 'ForegroundColor'
+line parameter 'Color' is read-only
+                Quantity                Reference    Measured    Absolute_error    Status
+    ________________________________    _________    ________    ______________    ______
+
+    {'Generator active power'      }         360      359.93         0.071078      "PASS"
+    {'Generator reactive power'    }      27.833      27.609          0.22407      "PASS"
+    {'Generator voltage'           }          22          22       3.1657e-05      "PASS"
+    {'Generator current'           }      9.4757      9.4735        0.0022815      "PASS"
+    {'230 kV bus voltage'          }      229.76      229.76        0.0022024      "PASS"
+    {'Auxiliary bus voltage'       }       6.606      6.6057       0.00028726      "PASS"
+    {'Remote grid terminal voltage'}      229.73      229.73        0.0023641      "PASS"
+    {'Grid source active power'    }      345.21      345.11         0.098666      "PASS"
+    {'Grid source reactive power'  }     -26.267     -26.471           0.2039      "PASS"
+    {'Grid current'                }     0.86905     0.86884       0.00020647      "PASS"
+    {'Generator angle'             }     -22.782     -22.783        0.0016941      "PASS"
+    {'230 kV bus angle'            }      1.0482       1.048       0.00024095      "PASS"
+    {'Auxiliary angle'             }      3.7773      3.7559          0.02138      "PASS"
+    {'Frequency'                   }          50          50       7.4073e-05      "PASS"
+
+JOB_DONE job04_inspect_lines.m success=1
+EVENING_WORKER_STOPPED

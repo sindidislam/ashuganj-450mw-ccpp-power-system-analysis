@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "total": 453,
+  "systems": 24,
+  "components": 429,
+  "scope": "Every project subsystem and component, including ports and signal routing; excluding linked MathWorks library implementation internals."
+}

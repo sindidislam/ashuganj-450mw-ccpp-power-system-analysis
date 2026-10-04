@@ -1,0 +1,1764 @@
+REV3.1 reconciliation full suite 2026-09-18 12:53:33
+
+########################################################################
+#  ASHUGANJ 450 MW CCPP (SOUTH) - REV3.1 VALIDATION SUITE              #
+#  18 test files, selection 'all'
+########################################################################
+
+--- test_bus_data -----------------------------------------------------
+  PASS  bus list is not empty
+  PASS  bus names are unique
+  PASS  bus 1 has a Name
+  PASS  BGRID230 has a Label
+  PASS  BGRID230 Vnom is a positive finite number
+  PASS  BGRID230 has a Zone
+  PASS  bus 2 has a Name
+  PASS  B230_1 has a Label
+  PASS  B230_1 Vnom is a positive finite number
+  PASS  B230_1 has a Zone
+  PASS  bus 3 has a Name
+  PASS  B230_2 has a Label
+  PASS  B230_2 Vnom is a positive finite number
+  PASS  B230_2 has a Zone
+  PASS  bus 4 has a Name
+  PASS  B22 has a Label
+  PASS  B22 Vnom is a positive finite number
+  PASS  B22 has a Zone
+  PASS  bus 5 has a Name
+  PASS  B6_6 has a Label
+  PASS  B6_6 Vnom is a positive finite number
+  PASS  B6_6 has a Zone
+  PASS  bus 6 has a Name
+  PASS  B6_6_WI1 has a Label
+  PASS  B6_6_WI1 Vnom is a positive finite number
+  PASS  B6_6_WI1 has a Zone
+  PASS  bus 7 has a Name
+  PASS  B6_6_WI2 has a Label
+  PASS  B6_6_WI2 Vnom is a positive finite number
+  PASS  B6_6_WI2 has a Zone
+  PASS  bus 8 has a Name
+  PASS  B0_4 has a Label
+  PASS  B0_4 Vnom is a positive finite number
+  PASS  B0_4 has a Zone
+  PASS  bus 9 has a Name
+  PASS  B3_32 has a Label
+  PASS  B3_32 Vnom is a positive finite number
+  PASS  B3_32 has a Zone
+  PASS  bus 10 has a Name
+  PASS  BNER has a Label
+  PASS  BNER Vnom is a positive finite number
+  PASS  BNER has a Zone
+  PASS  bus 11 has a Name
+  PASS  B230_REMOTE has a Label
+  PASS  B230_REMOTE Vnom is a positive finite number
+  PASS  B230_REMOTE has a Zone
+  PASS  400 V auxiliary bus exists
+  PASS  400 V board is 400 V (NOT 400 kV)
+  PASS  no 400 kV bus anywhere - the 400 kV GIS belongs to the North plant
+  PASS  highest voltage in the South model is 230 kV
+  PASS  BGRID230 Vnom 230000 V is one of the documented plant voltages
+  PASS  B230_1 Vnom 230000 V is one of the documented plant voltages
+  PASS  B230_2 Vnom 230000 V is one of the documented plant voltages
+  PASS  B22 Vnom 22000 V is one of the documented plant voltages
+  PASS  B6_6 Vnom 6600 V is one of the documented plant voltages
+  PASS  B6_6_WI1 Vnom 6600 V is one of the documented plant voltages
+  PASS  B6_6_WI2 Vnom 6600 V is one of the documented plant voltages
+  PASS  B0_4 Vnom 400 V is one of the documented plant voltages
+  PASS  B3_32 Vnom 3320 V is one of the documented plant voltages
+  PASS  BNER Vnom 500 V is one of the documented plant voltages
+  PASS  B230_REMOTE Vnom 230000 V is one of the documented plant voltages
+  PASS  load-flow bus BGRID230 is defined
+  PASS  load-flow bus B230_1 is defined
+  PASS  load-flow bus B230_2 is defined
+  PASS  load-flow bus B22 is defined
+  PASS  load-flow bus B6_6 is defined
+  => test_bus_data: 66 passed, 0 failed
+
+--- test_generator_data -----------------------------------------------
+  PASS  exactly ONE generator: SCC5-PAC 4000F/3000 (1S) is single-shaft
+  PASS  terminal voltage 22 kV
+  PASS  rated apparent power 458 MVA at 50 C cold gas
+  PASS  maximum apparent power 518 MVA at 30 C cold gas
+  PASS  rated power factor 0.85
+  PASS  frequency 50 Hz - Bangladesh, not 60 Hz
+  PASS  rated stator current 12019 A
+  PASS  hydrogen pressure 5 bar(g)
+  PASS  S/(sqrt3 V) = 12019.4 A agrees with the stated 12019 A
+  PASS  458 MVA x 0.85 = 389.30 MW is a PF reference, not capacity
+  PASS  Snom_MVA canonical primary field and provenance exist
+  PASS  Snom_MVA verified workbook value
+  PASS  Snom_MVA compatibility view comes from PRIMARY
+  PASS  Snom_MVA raw numeric source
+  PASS  Snom_MVA workbook identity
+  PASS  Snom_MVA exact sheet including trailing space
+  PASS  Snom_MVA source cell
+  PASS  Snom_MVA normalized provenance agrees
+  PASS  Snom_MVA primary designation
+  PASS  Snom_MVA dataset lineage
+  PASS  Snom_MVA complete qualified metadata
+  PASS  P_capacity_MW canonical primary field and provenance exist
+  PASS  P_capacity_MW verified workbook value
+  PASS  P_capacity_MW compatibility view comes from PRIMARY
+  PASS  P_capacity_MW raw numeric source
+  PASS  P_capacity_MW workbook identity
+  PASS  P_capacity_MW exact sheet including trailing space
+  PASS  P_capacity_MW source cell
+  PASS  P_capacity_MW normalized provenance agrees
+  PASS  P_capacity_MW primary designation
+  PASS  P_capacity_MW dataset lineage
+  PASS  P_capacity_MW complete qualified metadata
+  PASS  Vnom_kV canonical primary field and provenance exist
+  PASS  Vnom_kV verified workbook value
+  PASS  Vnom_kV compatibility view comes from PRIMARY
+  PASS  Vnom_kV raw numeric source
+  PASS  Vnom_kV workbook identity
+  PASS  Vnom_kV exact sheet including trailing space
+  PASS  Vnom_kV source cell
+  PASS  Vnom_kV normalized provenance agrees
+  PASS  Vnom_kV primary designation
+  PASS  Vnom_kV dataset lineage
+  PASS  Vnom_kV complete qualified metadata
+  PASS  H_s canonical primary field and provenance exist
+  PASS  H_s verified workbook value
+  PASS  H_s compatibility view comes from PRIMARY
+  PASS  H_s raw numeric source
+  PASS  H_s workbook identity
+  PASS  H_s exact sheet including trailing space
+  PASS  H_s source cell
+  PASS  H_s normalized provenance agrees
+  PASS  H_s primary designation
+  PASS  H_s dataset lineage
+  PASS  H_s complete qualified metadata
+  PASS  SCR canonical primary field and provenance exist
+  PASS  SCR verified workbook value
+  PASS  SCR compatibility view comes from PRIMARY
+  PASS  SCR raw numeric source
+  PASS  SCR workbook identity
+  PASS  SCR exact sheet including trailing space
+  PASS  SCR source cell
+  PASS  SCR normalized provenance agrees
+  PASS  SCR primary designation
+  PASS  SCR dataset lineage
+  PASS  SCR complete qualified metadata
+  PASS  Xd canonical primary field and provenance exist
+  PASS  Xd verified workbook value
+  PASS  Xd compatibility view comes from PRIMARY
+  PASS  Xd raw numeric source
+  PASS  Xd raw reactance unit
+  PASS  Xd normalized reactance unit
+  PASS  Xd raw reactance group
+  PASS  Xd workbook identity
+  PASS  Xd exact sheet including trailing space
+  PASS  Xd source cell
+  PASS  Xd normalized provenance agrees
+  PASS  Xd primary designation
+  PASS  Xd dataset lineage
+  PASS  Xd complete qualified metadata
+  PASS  Xdp canonical primary field and provenance exist
+  PASS  Xdp verified workbook value
+  PASS  Xdp compatibility view comes from PRIMARY
+  PASS  Xdp raw numeric source
+  PASS  Xdp raw reactance unit
+  PASS  Xdp normalized reactance unit
+  PASS  Xdp raw reactance group
+  PASS  Xdp workbook identity
+  PASS  Xdp exact sheet including trailing space
+  PASS  Xdp source cell
+  PASS  Xdp normalized provenance agrees
+  PASS  Xdp primary designation
+  PASS  Xdp dataset lineage
+  PASS  Xdp complete qualified metadata
+  PASS  Xdpp canonical primary field and provenance exist
+  PASS  Xdpp verified workbook value
+  PASS  Xdpp compatibility view comes from PRIMARY
+  PASS  Xdpp raw numeric source
+  PASS  Xdpp raw reactance unit
+  PASS  Xdpp normalized reactance unit
+  PASS  Xdpp raw reactance group
+  PASS  Xdpp workbook identity
+  PASS  Xdpp exact sheet including trailing space
+  PASS  Xdpp source cell
+  PASS  Xdpp normalized provenance agrees
+  PASS  Xdpp primary designation
+  PASS  Xdpp dataset lineage
+  PASS  Xdpp complete qualified metadata
+  PASS  Xdpp_sat canonical primary field and provenance exist
+  PASS  Xdpp_sat verified workbook value
+  PASS  Xdpp_sat compatibility view comes from PRIMARY
+  PASS  Xdpp_sat raw numeric source
+  PASS  Xdpp_sat raw reactance unit
+  PASS  Xdpp_sat normalized reactance unit
+  PASS  Xdpp_sat raw reactance group
+  PASS  Xdpp_sat workbook identity
+  PASS  Xdpp_sat exact sheet including trailing space
+  PASS  Xdpp_sat source cell
+  PASS  Xdpp_sat normalized provenance agrees
+  PASS  Xdpp_sat primary designation
+  PASS  Xdpp_sat dataset lineage
+  PASS  Xdpp_sat complete qualified metadata
+  PASS  Xq canonical primary field and provenance exist
+  PASS  Xq verified workbook value
+  PASS  Xq compatibility view comes from PRIMARY
+  PASS  Xq raw numeric source
+  PASS  Xq raw reactance unit
+  PASS  Xq normalized reactance unit
+  PASS  Xq raw reactance group
+  PASS  Xq workbook identity
+  PASS  Xq exact sheet including trailing space
+  PASS  Xq source cell
+  PASS  Xq normalized provenance agrees
+  PASS  Xq primary designation
+  PASS  Xq dataset lineage
+  PASS  Xq complete qualified metadata
+  PASS  Xqp canonical primary field and provenance exist
+  PASS  Xqp verified workbook value
+  PASS  Xqp compatibility view comes from PRIMARY
+  PASS  Xqp raw numeric source
+  PASS  Xqp raw reactance unit
+  PASS  Xqp normalized reactance unit
+  PASS  Xqp raw reactance group
+  PASS  Xqp workbook identity
+  PASS  Xqp exact sheet including trailing space
+  PASS  Xqp source cell
+  PASS  Xqp normalized provenance agrees
+  PASS  Xqp primary designation
+  PASS  Xqp dataset lineage
+  PASS  Xqp complete qualified metadata
+  PASS  Xqpp canonical primary field and provenance exist
+  PASS  Xqpp verified workbook value
+  PASS  Xqpp compatibility view comes from PRIMARY
+  PASS  Xqpp raw numeric source
+  PASS  Xqpp raw reactance unit
+  PASS  Xqpp normalized reactance unit
+  PASS  Xqpp raw reactance group
+  PASS  Xqpp workbook identity
+  PASS  Xqpp exact sheet including trailing space
+  PASS  Xqpp source cell
+  PASS  Xqpp normalized provenance agrees
+  PASS  Xqpp primary designation
+  PASS  Xqpp dataset lineage
+  PASS  Xqpp complete qualified metadata
+  PASS  Xl canonical primary field and provenance exist
+  PASS  Xl verified workbook value
+  PASS  Xl compatibility view comes from PRIMARY
+  PASS  Xl raw numeric source
+  PASS  Xl raw reactance unit
+  PASS  Xl normalized reactance unit
+  PASS  Xl raw reactance group
+  PASS  Xl workbook identity
+  PASS  Xl exact sheet including trailing space
+  PASS  Xl source cell
+  PASS  Xl normalized provenance agrees
+  PASS  Xl primary designation
+  PASS  Xl dataset lineage
+  PASS  Xl complete qualified metadata
+  PASS  X2 canonical primary field and provenance exist
+  PASS  X2 verified workbook value
+  PASS  X2 compatibility view comes from PRIMARY
+  PASS  X2 raw numeric source
+  PASS  X2 raw reactance unit
+  PASS  X2 normalized reactance unit
+  PASS  X2 raw reactance group
+  PASS  X2 workbook identity
+  PASS  X2 exact sheet including trailing space
+  PASS  X2 source cell
+  PASS  X2 normalized provenance agrees
+  PASS  X2 primary designation
+  PASS  X2 dataset lineage
+  PASS  X2 complete qualified metadata
+  PASS  X0 canonical primary field and provenance exist
+  PASS  X0 verified workbook value
+  PASS  X0 compatibility view comes from PRIMARY
+  PASS  X0 raw numeric source
+  PASS  X0 raw reactance unit
+  PASS  X0 normalized reactance unit
+  PASS  X0 raw reactance group
+  PASS  X0 workbook identity
+  PASS  X0 exact sheet including trailing space
+  PASS  X0 source cell
+  PASS  X0 normalized provenance agrees
+  PASS  X0 primary designation
+  PASS  X0 dataset lineage
+  PASS  X0 complete qualified metadata
+  PASS  Ra_ohm canonical primary field and provenance exist
+  PASS  Ra_ohm verified workbook value
+  PASS  Ra_ohm compatibility view comes from PRIMARY
+  PASS  Ra_ohm workbook identity
+  PASS  Ra_ohm exact sheet including trailing space
+  PASS  Ra_ohm source cell
+  PASS  Ra_ohm normalized provenance agrees
+  PASS  Ra_ohm primary designation
+  PASS  Ra_ohm dataset lineage
+  PASS  Ra_ohm complete qualified metadata
+  PASS  Rf_numeric canonical primary field and provenance exist
+  PASS  Rf_numeric verified workbook value
+  PASS  Rf_numeric compatibility view comes from PRIMARY
+  PASS  Rf_numeric raw numeric source
+  PASS  Rf_numeric workbook identity
+  PASS  Rf_numeric exact sheet including trailing space
+  PASS  Rf_numeric source cell
+  PASS  Rf_numeric normalized provenance agrees
+  PASS  Rf_numeric primary designation
+  PASS  Rf_numeric dataset lineage
+  PASS  Rf_numeric complete qualified metadata
+  PASS  Td0p_s canonical primary field and provenance exist
+  PASS  Td0p_s verified workbook value
+  PASS  Td0p_s compatibility view comes from PRIMARY
+  PASS  Td0p_s raw numeric source
+  PASS  Td0p_s raw time unit
+  PASS  Td0p_s normalized time unit
+  PASS  Td0p_s raw time group
+  PASS  Td0p_s workbook identity
+  PASS  Td0p_s exact sheet including trailing space
+  PASS  Td0p_s source cell
+  PASS  Td0p_s normalized provenance agrees
+  PASS  Td0p_s primary designation
+  PASS  Td0p_s dataset lineage
+  PASS  Td0p_s complete qualified metadata
+  PASS  Td0pp_s canonical primary field and provenance exist
+  PASS  Td0pp_s verified workbook value
+  PASS  Td0pp_s compatibility view comes from PRIMARY
+  PASS  Td0pp_s raw numeric source
+  PASS  Td0pp_s raw time unit
+  PASS  Td0pp_s normalized time unit
+  PASS  Td0pp_s raw time group
+  PASS  Td0pp_s workbook identity
+  PASS  Td0pp_s exact sheet including trailing space
+  PASS  Td0pp_s source cell
+  PASS  Td0pp_s normalized provenance agrees
+  PASS  Td0pp_s primary designation
+  PASS  Td0pp_s dataset lineage
+  PASS  Td0pp_s complete qualified metadata
+  PASS  Tq0p_s canonical primary field and provenance exist
+  PASS  Tq0p_s verified workbook value
+  PASS  Tq0p_s compatibility view comes from PRIMARY
+  PASS  Tq0p_s raw numeric source
+  PASS  Tq0p_s raw time unit
+  PASS  Tq0p_s normalized time unit
+  PASS  Tq0p_s raw time group
+  PASS  Tq0p_s workbook identity
+  PASS  Tq0p_s exact sheet including trailing space
+  PASS  Tq0p_s source cell
+  PASS  Tq0p_s normalized provenance agrees
+  PASS  Tq0p_s primary designation
+  PASS  Tq0p_s dataset lineage
+  PASS  Tq0p_s complete qualified metadata
+  PASS  Tq0pp_s canonical primary field and provenance exist
+  PASS  Tq0pp_s verified workbook value
+  PASS  Tq0pp_s compatibility view comes from PRIMARY
+  PASS  Tq0pp_s raw numeric source
+  PASS  Tq0pp_s raw time unit
+  PASS  Tq0pp_s normalized time unit
+  PASS  Tq0pp_s raw time group
+  PASS  Tq0pp_s workbook identity
+  PASS  Tq0pp_s exact sheet including trailing space
+  PASS  Tq0pp_s source cell
+  PASS  Tq0pp_s normalized provenance agrees
+  PASS  Tq0pp_s primary designation
+  PASS  Tq0pp_s dataset lineage
+  PASS  Tq0pp_s complete qualified metadata
+  PASS  Tdp_s canonical primary field and provenance exist
+  PASS  Tdp_s verified workbook value
+  PASS  Tdp_s compatibility view comes from PRIMARY
+  PASS  Tdp_s raw numeric source
+  PASS  Tdp_s raw time unit
+  PASS  Tdp_s normalized time unit
+  PASS  Tdp_s raw time group
+  PASS  Tdp_s workbook identity
+  PASS  Tdp_s exact sheet including trailing space
+  PASS  Tdp_s source cell
+  PASS  Tdp_s normalized provenance agrees
+  PASS  Tdp_s primary designation
+  PASS  Tdp_s dataset lineage
+  PASS  Tdp_s complete qualified metadata
+  PASS  Tdpp_s canonical primary field and provenance exist
+  PASS  Tdpp_s verified workbook value
+  PASS  Tdpp_s compatibility view comes from PRIMARY
+  PASS  Tdpp_s raw numeric source
+  PASS  Tdpp_s raw time unit
+  PASS  Tdpp_s normalized time unit
+  PASS  Tdpp_s raw time group
+  PASS  Tdpp_s workbook identity
+  PASS  Tdpp_s exact sheet including trailing space
+  PASS  Tdpp_s source cell
+  PASS  Tdpp_s normalized provenance agrees
+  PASS  Tdpp_s primary designation
+  PASS  Tdpp_s dataset lineage
+  PASS  Tdpp_s complete qualified metadata
+  PASS  Tqp_s canonical primary field and provenance exist
+  PASS  Tqp_s verified workbook value
+  PASS  Tqp_s compatibility view comes from PRIMARY
+  PASS  Tqp_s raw numeric source
+  PASS  Tqp_s raw time unit
+  PASS  Tqp_s normalized time unit
+  PASS  Tqp_s raw time group
+  PASS  Tqp_s workbook identity
+  PASS  Tqp_s exact sheet including trailing space
+  PASS  Tqp_s source cell
+  PASS  Tqp_s normalized provenance agrees
+  PASS  Tqp_s primary designation
+  PASS  Tqp_s dataset lineage
+  PASS  Tqp_s complete qualified metadata
+  PASS  Tqpp_s canonical primary field and provenance exist
+  PASS  Tqpp_s verified workbook value
+  PASS  Tqpp_s compatibility view comes from PRIMARY
+  PASS  Tqpp_s raw numeric source
+  PASS  Tqpp_s raw time unit
+  PASS  Tqpp_s normalized time unit
+  PASS  Tqpp_s raw time group
+  PASS  Tqpp_s workbook identity
+  PASS  Tqpp_s exact sheet including trailing space
+  PASS  Tqpp_s source cell
+  PASS  Tqpp_s normalized provenance agrees
+  PASS  Tqpp_s primary designation
+  PASS  Tqpp_s dataset lineage
+  PASS  Tqpp_s complete qualified metadata
+  PASS  Ta_s canonical primary field and provenance exist
+  PASS  Ta_s verified workbook value
+  PASS  Ta_s compatibility view comes from PRIMARY
+  PASS  Ta_s raw numeric source
+  PASS  Ta_s raw time unit
+  PASS  Ta_s normalized time unit
+  PASS  Ta_s raw time group
+  PASS  Ta_s workbook identity
+  PASS  Ta_s exact sheet including trailing space
+  PASS  Ta_s source cell
+  PASS  Ta_s normalized provenance agrees
+  PASS  Ta_s primary designation
+  PASS  Ta_s dataset lineage
+  PASS  Ta_s complete qualified metadata
+  PASS  S10 canonical primary field and provenance exist
+  PASS  S10 verified workbook value
+  PASS  S10 compatibility view comes from PRIMARY
+  PASS  S10 raw numeric source
+  PASS  S10 workbook identity
+  PASS  S10 exact sheet including trailing space
+  PASS  S10 source cell
+  PASS  S10 normalized provenance agrees
+  PASS  S10 primary designation
+  PASS  S10 dataset lineage
+  PASS  S10 complete qualified metadata
+  PASS  S12 canonical primary field and provenance exist
+  PASS  S12 verified workbook value
+  PASS  S12 compatibility view comes from PRIMARY
+  PASS  S12 raw numeric source
+  PASS  S12 workbook identity
+  PASS  S12 exact sheet including trailing space
+  PASS  S12 source cell
+  PASS  S12 normalized provenance agrees
+  PASS  S12 primary designation
+  PASS  S12 dataset lineage
+  PASS  S12 complete qualified metadata
+  PASS  Excitation_type canonical primary field and provenance exist
+  PASS  Excitation_type normalized workbook text
+  PASS  Excitation_type compatibility view comes from PRIMARY
+  PASS  Excitation_type workbook identity
+  PASS  Excitation_type exact sheet including trailing space
+  PASS  Excitation_type source cell
+  PASS  Excitation_type normalized provenance agrees
+  PASS  Excitation_type primary designation
+  PASS  Excitation_type dataset lineage
+  PASS  Excitation_type complete qualified metadata
+  PASS  Excitation_designation canonical primary field and provenance exist
+  PASS  Excitation_designation normalized workbook text
+  PASS  Excitation_designation compatibility view comes from PRIMARY
+  PASS  Excitation_designation workbook identity
+  PASS  Excitation_designation exact sheet including trailing space
+  PASS  Excitation_designation source cell
+  PASS  Excitation_designation normalized provenance agrees
+  PASS  Excitation_designation primary designation
+  PASS  Excitation_designation dataset lineage
+  PASS  Excitation_designation complete qualified metadata
+  PASS  percent view Xd = 178.3
+  PASS  percent view Xdp = 32.56
+  PASS  percent view Xdpp = 26.08, not saturated
+  PASS  Snom_MVA exact workbook heading
+  PASS  P_capacity_MW exact workbook heading
+  PASS  Vnom_kV exact workbook heading
+  PASS  H_s exact workbook heading
+  PASS  SCR exact workbook heading
+  PASS  Xd exact workbook heading
+  PASS  Xdp exact workbook heading
+  PASS  Xdpp exact workbook heading
+  PASS  Xdpp_sat exact workbook heading
+  PASS  Xq exact workbook heading
+  PASS  Xqp exact workbook heading
+  PASS  Xqpp exact workbook heading
+  PASS  Xl exact workbook heading
+  PASS  X2 exact workbook heading
+  PASS  X0 exact workbook heading
+  PASS  Ra_ohm exact workbook heading
+  PASS  Rf_numeric exact workbook heading
+  PASS  Td0p_s exact workbook heading
+  PASS  Td0pp_s exact workbook heading
+  PASS  Tq0p_s exact workbook heading
+  PASS  Tq0pp_s exact workbook heading
+  PASS  Tdp_s exact workbook heading
+  PASS  Tdpp_s exact workbook heading
+  PASS  Tqp_s exact workbook heading
+  PASS  Tqpp_s exact workbook heading
+  PASS  Ta_s exact workbook heading
+  PASS  S10 exact workbook heading
+  PASS  S12 exact workbook heading
+  PASS  Excitation_type exact workbook heading
+  PASS  Excitation_designation exact workbook heading
+  PASS  retained d-axis ordering check
+  PASS  unqualified and saturated Xdpp are distinct
+  PASS  machine-base Ra
+  PASS  ohm and pu resistance are distinct
+  PASS  rated PF retained separately
+  PASS  PF-derived OEM reference
+  PASS  owner scenario retained
+  PASS  capacity is neither reference nor scenario
+  PASS  owner power boundary not invented
+  PASS  raw resistance text retained
+  PASS  raw field resistance heading
+  PASS  mixed unit heading
+  PASS  field resistance interpretation qualified
+  PASS  no invented rotor field base
+  PASS  no invented Rf conversion
+  PASS  raw excitation space preserved
+  PASS  raw designation space preserved
+  PASS  unqualified source retained
+  PASS  Xdpp_sat source saturation
+  PASS  X2 source saturation
+  PASS  X0 source saturation
+  PASS  machine apparent-power base
+  PASS  line-line machine voltage base
+  PASS  base is selected interpretation, not literal declaration
+  PASS  combined turbine-generator inertia
+  PASS  controller settings still missing
+  PASS  two saturation coefficients are not a full OCC
+  PASS  XD_damper genuinely missing
+  PASS  XQ_damper genuinely missing
+  PASS  Xf genuinely missing
+  PASS  RD_damper genuinely missing
+  PASS  RQ_damper genuinely missing
+  PASS  Ta1_s genuinely missing
+  PASS  Damping genuinely missing
+  PASS  legacy explicitly designated
+  PASS  legacy reactances retained
+  PASS  legacy cannot be the selected primary
+  PASS  verified workbook hash
+  PASS  existing master owns the same generator provider
+  PASS  Phase 1 freezes all four historical LF dispatches
+  PASS  old Ra interface is derived machine pu
+  PASS  old inertia interface is derived seconds
+  PASS  generator retains NER, never GSUT solid grounding
+  PASS  modelled as a PV bus
+  PASS  terminal voltage setpoint 1.00 pu (approved assumption)
+  PASS  finite physical Qmin at primary 360 MW from source interpolation
+  PASS  finite physical Qmax at primary 360 MW from source interpolation
+  PASS  physical bounds retain graph-extraction derivation status
+  PASS  modelled with a Three-Phase Source, not a Synchronous Machine block
+  => test_generator_data: 476 passed, 0 failed
+
+--- test_transformer_data ---------------------------------------------
+  PASS  three transformers: GSUT, UAT, GAT
+  PASS  GSUT 10BAT10: X = sqrt(Z^2-R^2) = 15.998622 %
+  PASS  GSUT 10BAT10: X < Z
+  PASS  GSUT 10BAT10: Z_pu is on its own 515 MVA rating, not the system base
+  PASS  GSUT 10BAT10: R_pu on own rating
+  PASS  GSUT 10BAT10: X_pu on own rating
+  PASS  GSUT 10BAT10: R1 = R/2
+  PASS  GSUT 10BAT10: R2 = R/2
+  PASS  GSUT 10BAT10: L1 = X/2
+  PASS  GSUT 10BAT10: L2 = X/2
+  PASS  GSUT 10BAT10: split preserves R
+  PASS  GSUT 10BAT10: split preserves X
+  PASS  GSUT 10BAT10: Rm = S/P_noload = 3239.0 pu (159 kW at 515 MVA)
+  PASS  GSUT 10BAT10: L0_pu from Z0 %
+  PASS  GSUT 10BAT10: principal tap 9 is inside 1..25
+  PASS  GSUT 10BAT10: model uses the DOCUMENTED principal tap (Q8a), not an optimised one
+  PASS  GSUT 10BAT10: 50 Hz
+  PASS  UAT 10BBT10: X = sqrt(Z^2-R^2) = 10.492378 %
+  PASS  UAT 10BBT10: X < Z
+  PASS  UAT 10BBT10: Z_pu is on its own 25 MVA rating, not the system base
+  PASS  UAT 10BBT10: R_pu on own rating
+  PASS  UAT 10BBT10: X_pu on own rating
+  PASS  UAT 10BBT10: R1 = R/2
+  PASS  UAT 10BBT10: R2 = R/2
+  PASS  UAT 10BBT10: L1 = X/2
+  PASS  UAT 10BBT10: L2 = X/2
+  PASS  UAT 10BBT10: split preserves R
+  PASS  UAT 10BBT10: split preserves X
+  PASS  UAT 10BBT10: Rm = S/P_noload = 1785.7 pu (14 kW at 25 MVA)
+  PASS  UAT 10BBT10: L0_pu from Z0 %
+  PASS  UAT 10BBT10: principal tap 3 is inside 1..5
+  PASS  UAT 10BBT10: model uses the DOCUMENTED principal tap (Q8a), not an optimised one
+  PASS  UAT 10BBT10: 50 Hz
+  PASS  GAT 10BBT20: X = sqrt(Z^2-R^2) = 11.989579 %
+  PASS  GAT 10BBT20: X < Z
+  PASS  GAT 10BBT20: Z_pu is on its own 25 MVA rating, not the system base
+  PASS  GAT 10BBT20: R_pu on own rating
+  PASS  GAT 10BBT20: X_pu on own rating
+  PASS  GAT 10BBT20: R1 = R/2
+  PASS  GAT 10BBT20: R2 = R/2
+  PASS  GAT 10BBT20: L1 = X/2
+  PASS  GAT 10BBT20: L2 = X/2
+  PASS  GAT 10BBT20: split preserves R
+  PASS  GAT 10BBT20: split preserves X
+  PASS  GAT 10BBT20: Rm = S/P_noload = 1087.0 pu (23 kW at 25 MVA)
+  PASS  GAT 10BBT20: L0_pu from Z0 %
+  PASS  GAT 10BBT20: principal tap 13 is inside 1..25
+  PASS  GAT 10BBT20: model uses the DOCUMENTED principal tap (Q8a), not an optimised one
+  PASS  GAT 10BBT20: 50 Hz
+  PASS  GSUT selected by Name (Label is 'GSUT 10BAT10')
+  PASS  GSUT KKS 10BAT10
+  PASS  GSUT HV 230 kV
+  PASS  GSUT LV 22 kV
+  PASS  GSUT Z 16 %
+  PASS  GSUT Z is quoted at the 515 MVA ODAF rating
+  PASS  GSUT YNd1
+  PASS  GSUT ONAN/ODAN/ODAF 355/460/515 MVA
+  PASS  GSUT three cooling stages named
+  PASS  GSUT has no per-winding rating list - it is a two-winding unit
+  PASS  GSUT no-load loss 159 kW
+  PASS  GSUT OLTC 25 positions
+  PASS  GSUT principal tap 9
+  PASS  GSUT tap 9 = 230000 V
+  PASS  UAT KKS 10BBT10
+  PASS  UAT HV 22 kV
+  PASS  CONFLICT C13 PRESERVED: UAT LV winding is 6.9 kV
+  PASS  UAT Z 10.5 %
+  PASS  UAT Dyn11
+  PASS  UAT tap changer is OFF-CIRCUIT, on the HV winding ("Off-circuit on HV")
+  PASS  UAT cannot be re-tapped in service - the tap is a fixed model input
+  PASS  GSUT has an ON-LOAD tap changer ("OLTC on HV"), held at the documented principal tap by Q8a
+  PASS  GAT KKS 10BBT20
+  PASS  GAT HV 230 kV
+  PASS  CONFLICT C13 PRESERVED: GAT LV winding is 6.9 kV
+  PASS  GAT tertiary 3.32 kV recorded
+  PASS  GAT per-winding ratings 25 / 25 / 8.33 MVA (HV / LV / tertiary)
+  PASS  GAT ONAN/ONAF 19/25 MVA cooling stages
+  PASS  GAT Z_PS 12 %
+  PASS  GAT Z_PT stays MISSING (NaN)
+  PASS  GAT Z_ST stays MISSING (NaN)
+  PASS  GAT modelled as a TWO-winding transformer (Q5a): unloaded tertiary omitted
+  PASS  modelling 22/6.6 instead of 22/6.9 would misplace the MV bus by 4.55 %
+  PASS  GSUT 16 % at 515 MVA = 3.1068 % on 100 MVA
+  PASS  UAT 10.5 % at 25 MVA = 42.00 % on 100 MVA
+  PASS  GAT 12 % at 25 MVA = 48.00 % on 100 MVA
+  => test_transformer_data: 85 passed, 0 failed
+
+--- test_line_data ----------------------------------------------------
+  PASS  branch register holds 8 entries: 1 grid equivalent, 1 L_LINE, 3 GIS bays, 1 IPB, 2 feeders
+  PASS  exactly TWO series branches are modelled (ZGRID + Phase-3 L_LINE)
+  PASS  ZGRID present
+  PASS  L_LINE present
+  PASS  ZGRID from internal grid node
+  PASS  ZGRID to remote bus (Phase-3 move)
+  PASS  L_LINE from plant bus
+  PASS  L_LINE to remote bus
+  PASS  GRID EQUIV Z has zero length - no line invented
+  PASS  GRID EQUIV Z length is NOT_APPLICABLE, not MISSING: a Thevenin equivalent has no length, which is not the same as a length being unknown
+  PASS  SOUTH GIS TO GRID 0.7KM D/C EQ (MALLARD REF) locked 0.7 km - the sole authorized line
+  PASS  SOUTH GIS TO GRID 0.7KM D/C EQ (MALLARD REF) length is ENGINEERING_ASSUMPTION, never verified
+  PASS  no R1_ohm_per_km field exists in the register - a per-km constant was never even created
+  PASS  no X1_ohm_per_km field exists in the register - a per-km constant was never even created
+  PASS  no B1_S_per_km field exists in the register - a per-km constant was never even created
+  PASS  no R0_ohm_per_km field exists in the register - a per-km constant was never even created
+  PASS  no X0_ohm_per_km field exists in the register - a per-km constant was never even created
+  PASS  BAY 10BAY11 records WHY it is excluded, so the omission is auditable
+  PASS  BAY 10BAY11 records how it is treated instead (direct connection (zero impedance))
+  PASS  BAY 10BAY20 records WHY it is excluded, so the omission is auditable
+  PASS  BAY 10BAY20 records how it is treated instead (direct connection (zero impedance) + switching breaker)
+  PASS  LINE BAY (bay number MISSING — NOT 10BAY20) records WHY it is excluded, so the omission is auditable
+  PASS  LINE BAY (bay number MISSING — NOT 10BAY20) records how it is treated instead (direct connection (zero impedance))
+  PASS  22 kV IPB records WHY it is excluded, so the omission is auditable
+  PASS  22 kV IPB records how it is treated instead (direct connection (zero impedance))
+  PASS  6.6 kV FDR WI1 records WHY it is excluded, so the omission is auditable
+  PASS  6.6 kV FDR WI1 records how it is treated instead (direct connection (zero impedance))
+  PASS  6.6 kV FDR WI2 records WHY it is excluded, so the omission is auditable
+  PASS  6.6 kV FDR WI2 records how it is treated instead (direct connection (zero impedance))
+  PASS  FDR_WI1 is present in the register
+  PASS  FDR_WI1 current rating stays MISSING (NaN) - no cable size invented
+  PASS  FDR_WI1 rating labelled MISSING
+  PASS  FDR_WI1 states that size, length AND impedance are all missing
+  PASS  FDR_WI2 is present in the register
+  PASS  FDR_WI2 current rating stays MISSING (NaN) - no cable size invented
+  PASS  FDR_WI2 rating labelled MISSING
+  PASS  FDR_WI2 states that size, length AND impedance are all missing
+  PASS  BAY_GSUT carries the documented 2000 A module rating (bays, not busbar)
+  PASS  BAY_GSUT rating is VERIFIED
+  PASS  BAY_GRID carries the documented 2000 A module rating (bays, not busbar)
+  PASS  BAY_GRID rating is VERIFIED
+  PASS  BAY_GAT label is 10BAY20 per C-17 (not 10BAY12)
+  PASS  BAY_GAT carries the transformer-bay 2000 A module rating
+  PASS  BAY_GAT rating is VERIFIED
+  PASS  BAY_GRID label records the missing bay number explicitly
+  PASS  BAY_GRID conflict note records the 10BAY20 collision
+  PASS  22 kV IPB carries the documented 12400 A rating
+  PASS  no branch above 230 kV: the 400 kV GIS is Ashuganj NORTH and is out of scope
+  PASS  and specifically nothing at 400000 V - the 400 V / 400 kV trap
+  PASS  legacy Bus_boundary fallback stays B230_1 (pre-Phase-3 plant boundary)
+  PASS  Grid_equivalent_bus is B230_REMOTE (Phase-3 remote-bus semantics)
+  PASS  display Bus_remote is B230_REMOTE
+  PASS  ZGRID spans B230_REMOTE<->BGRID230 in the Phase-3 world
+  PASS  L_LINE from plant bus B230_1 (Phase-3 world)
+  PASS  L_LINE to remote bus B230_REMOTE (Phase-3 world)
+  PASS  grid Isc_Source cites Siemens §2.4
+  PASS  grid Isc_Source separates equipment ratings
+  PASS  grid series resistance exactly 0 - X/R is undocumented (Q1a)
+  PASS  grid equivalent 2.6558 ohm
+  PASS  grid inductance derived at 50 Hz, so the model must solve at 50 Hz
+  PASS  grid impedance is labelled ESTIMATED, never VERIFIED
+  PASS  the register's X comes from ashuganj_grid() - the estimate exists in exactly one place
+  PASS  and carries the same ESTIMATED status with it
+  => test_line_data: 63 passed, 0 failed
+
+--- test_load_data ----------------------------------------------------
+  PASS  three auxiliary loads are modelled (6.6 kV boards)
+  PASS  allocated P sums to 14.000000 MW = 14.0 MW
+  PASS  allocated Q sums to 8.676421 MVAr
+  PASS  shares sum to exactly 1
+  PASS  allocation ratio is the approved 9050 : 2500 : 2500 (Q6B)
+  PASS  MV BUS aux group share = 9050 / 14050
+  PASS  MV BUS aux group P = 14.0 x share = 9.0178 MW
+  PASS  Water intake / motor group 1 share = 2500 / 14050
+  PASS  Water intake / motor group 1 P = 14.0 x share = 2.4911 MW
+  PASS  Water intake / motor group 2 share = 2500 / 14050
+  PASS  Water intake / motor group 2 P = 14.0 x share = 2.4911 MW
+  PASS  MV BUS aux group power factor 0.8500 lagging
+  PASS  MV BUS aux group Q is inductive (positive)
+  PASS  Water intake / motor group 1 power factor 0.8500 lagging
+  PASS  Water intake / motor group 1 Q is inductive (positive)
+  PASS  Water intake / motor group 2 power factor 0.8500 lagging
+  PASS  Water intake / motor group 2 Q is inductive (positive)
+  PASS  total auxiliary power factor 0.8500 lagging
+  PASS  the apportioned load carries a Status field
+  PASS  MV BUS aux group apportioned P is labelled ENGINEERING_ASSUMPTION (Q6: "the allocation must be labelled an assumption")
+  PASS  MV BUS aux group underlying motor rating is VERIFIED_PROJECT_DATA
+  PASS  MV BUS aux group share is DERIVED, not assumed - the ratio is arithmetic on documented ratings; the assumption is in P_MW
+  PASS  Water intake / motor group 1 apportioned P is labelled ENGINEERING_ASSUMPTION (Q6: "the allocation must be labelled an assumption")
+  PASS  Water intake / motor group 1 underlying motor rating is VERIFIED_PROJECT_DATA
+  PASS  Water intake / motor group 1 share is DERIVED, not assumed - the ratio is arithmetic on documented ratings; the assumption is in P_MW
+  PASS  Water intake / motor group 2 apportioned P is labelled ENGINEERING_ASSUMPTION (Q6: "the allocation must be labelled an assumption")
+  PASS  Water intake / motor group 2 underlying motor rating is VERIFIED_PROJECT_DATA
+  PASS  Water intake / motor group 2 share is DERIVED, not assumed - the ratio is arithmetic on documented ratings; the assumption is in P_MW
+  PASS  and the assumption has its own record in matlab/data/assumptions/
+  PASS  MV BUS aux group referenced to the 6.6 kV PLANT BUS nominal
+  PASS  MV BUS aux group at 50 Hz
+  PASS  MV BUS aux group modelled constant PQ - no invented voltage dependence
+  PASS  MV BUS aux group no power-factor correction invented
+  PASS  Water intake / motor group 1 referenced to the 6.6 kV PLANT BUS nominal
+  PASS  Water intake / motor group 1 at 50 Hz
+  PASS  Water intake / motor group 1 modelled constant PQ - no invented voltage dependence
+  PASS  Water intake / motor group 1 no power-factor correction invented
+  PASS  Water intake / motor group 2 referenced to the 6.6 kV PLANT BUS nominal
+  PASS  Water intake / motor group 2 at 50 Hz
+  PASS  Water intake / motor group 2 modelled constant PQ - no invented voltage dependence
+  PASS  Water intake / motor group 2 no power-factor correction invented
+  PASS  the three loads sit on three DISTINCT register buses, so the split is reportable
+  PASS  one modelled load sits on B6_6
+  PASS  one modelled load sits on B6_6_WI1
+  PASS  one modelled load sits on B6_6_WI2
+  PASS  MV BUS aux group bus B6_6 exists in the bus register
+  PASS  MV BUS aux group bus B6_6 is a 6.6 kV node
+  PASS  Water intake / motor group 1 bus B6_6_WI1 exists in the bus register
+  PASS  Water intake / motor group 1 bus B6_6_WI1 is a 6.6 kV node
+  PASS  Water intake / motor group 2 bus B6_6_WI2 exists in the bus register
+  PASS  Water intake / motor group 2 bus B6_6_WI2 is a 6.6 kV node
+  PASS  FDR_WI1 is zero impedance, so its node is NOT electrically separate - the split is honest about motor grouping, not about feeder voltage drop
+  PASS  FDR_WI2 is zero impedance, so its node is NOT electrically separate - the split is honest about motor grouping, not about feeder voltage drop
+  PASS  the 400 V board appears in the register
+  PASS  400 V board P stays MISSING (NaN), not invented
+  PASS  400 V board Q stays MISSING (NaN), not invented
+  PASS  400 V board excluded from the load flow
+  PASS  400 V board is FOUR HUNDRED VOLTS
+  => test_load_data: 58 passed, 0 failed
+
+--- test_base_conversion ----------------------------------------------
+  PASS  same base is the identity
+  PASS  10.5 % at 25 MVA -> 42 % at 100 MVA (factor Snew/Sold)
+  PASS  16 % at 515 MVA -> 3.1068 % at 100 MVA
+  PASS  12 % at 25 MVA -> 48 % at 100 MVA
+  PASS  round trip 515 -> 100 -> 515 MVA returns the original
+  PASS  same voltage base is the identity
+  PASS  voltage-base form scales by (Vold/Vnew)^2
+  PASS  6.9 kV -> 6.6 kV rebasing inflates an impedance by 9.2975 %
+  PASS  x_d'' 26.08 % at 458 MVA -> 5.6943 % at 100 MVA
+  PASS  explicit machine resistance exists
+  PASS  machine Zbase
+  PASS  system Zbase
+  PASS  raw ohm resistance
+  PASS  machine pu resistance
+  PASS  system pu resistance
+  PASS  ohm to machine pu
+  PASS  ohm to system pu
+  PASS  machine inverse returns ohms
+  PASS  system inverse returns ohms
+  PASS  resistance single conversion
+  PASS  resistance round trip
+  PASS  unqualified Xdpp system view
+  PASS  saturated Xdpp system view
+  PASS  Xdpp single conversion
+  PASS  saturated Xdpp single conversion
+  PASS  Xdpp inverse
+  PASS  saturated Xdpp inverse
+  PASS  distinct system reactances
+  PASS  distinct resistance quantities
+  PASS  Zbase at 230 kV, 100 MVA = 529 ohm
+  PASS  grid 2.6558 ohm = 0.50204 % on the 100 MVA / 230 kV base
+  PASS  grid L is X/(2*pi*50) - the 50 Hz dependence is explicit
+  PASS  GSUT 10BAT10 block X_pu = 0.159986 is on its own 515 MVA rating, NOT converted to 100 MVA
+  PASS  GSUT 10BAT10 has NOT been double-converted (0.159986 pu own base vs 0.031065 pu on 100 MVA)
+  PASS  UAT 10BBT10 block X_pu = 0.104924 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  UAT 10BBT10 has NOT been double-converted (0.104924 pu own base vs 0.419695 pu on 100 MVA)
+  PASS  GAT 10BBT20 block X_pu = 0.119896 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  GAT 10BBT20 has NOT been double-converted (0.119896 pu own base vs 0.479583 pu on 100 MVA)
+  PASS  a zero source base is rejected rather than returning Inf
+  => test_base_conversion: 39 passed, 0 failed
+
+--- test_topology -----------------------------------------------------
+  PASS  generator G1 sits on a defined bus (B22)
+  PASS  GSUT 10BAT10 HV bus B230_1 is defined
+  PASS  GSUT 10BAT10 LV bus B22 is defined
+  PASS  UAT 10BBT10 HV bus B22 is defined
+  PASS  UAT 10BBT10 LV bus B6_6 is defined
+  PASS  GAT 10BBT20 HV bus B230_2 is defined
+  PASS  GAT 10BBT20 LV bus B6_6 is defined
+  PASS  load MV BUS aux group sits on a defined bus (B6_6)
+  PASS  load Water intake / motor group 1 sits on a defined bus (B6_6_WI1)
+  PASS  load Water intake / motor group 2 sits on a defined bus (B6_6_WI2)
+  PASS  load 400 V LV board load sits on a defined bus (B0_4)
+  PASS  legacy grid Bus_boundary fallback is defined
+  PASS  legacy Bus_boundary stays B230_1
+  PASS  Grid_equivalent_bus is B230_REMOTE (Phase-3 semantics)
+  PASS  grid equivalent bus is defined
+  PASS  ZGRID + L_LINE present for Phase-3 span checks
+  PASS  ZGRID spans B230_REMOTE<->BGRID230 in the Phase-3 world
+  PASS  L_LINE spans B230_1->B230_REMOTE (from)
+  PASS  L_LINE spans B230_1->B230_REMOTE (to)
+  PASS  GSUT 10BAT10 HV 230000 V matches bus B230_1 nominal
+  PASS  GSUT 10BAT10 LV 22000 V matches bus B22 nominal
+  PASS  UAT 10BBT10 HV 22000 V matches bus B22 nominal
+  PASS  UAT 10BBT10 LV winding 6900 V vs bus B6_6 nominal 6600 V is the RECORDED conflict C13, not an error
+  PASS  GAT 10BBT20 HV 230000 V matches bus B230_2 nominal
+  PASS  GAT 10BBT20 LV winding 6900 V vs bus B6_6 nominal 6600 V is the RECORDED conflict C13, not an error
+  PASS  the modelled network is a single connected island
+  PASS  six load-flow nodes in Phase-3 world (REMOTE + 5; GAT HV appears only when GAT is in)
+  PASS  no 400 kV bus - South plant scope
+  PASS  no 400 kV transformer winding
+  PASS  highest voltage is 230 kV
+  PASS  four load-flow cases: Q2c dispatch x Q4c GAT state
+  PASS  two dispatch levels
+  PASS  dispatch levels are 342.01 MW site-derated and 389.30 MW rated
+  PASS  GAT in and GAT out both represented
+  PASS  case LF1 at 50 Hz
+  PASS  case LF1 on the 100 MVA base
+  PASS  case LF1 has the bus coupler closed (assumption, normal state not documented)
+  PASS  case LF1 generator setpoint 1.00 pu
+  PASS  case LF1 grid setpoint 1.00 pu
+  PASS  case LF1 aux load 14.0 MW
+  PASS  case LF2 at 50 Hz
+  PASS  case LF2 on the 100 MVA base
+  PASS  case LF2 has the bus coupler closed (assumption, normal state not documented)
+  PASS  case LF2 generator setpoint 1.00 pu
+  PASS  case LF2 grid setpoint 1.00 pu
+  PASS  case LF2 aux load 14.0 MW
+  PASS  case LF3 at 50 Hz
+  PASS  case LF3 on the 100 MVA base
+  PASS  case LF3 has the bus coupler closed (assumption, normal state not documented)
+  PASS  case LF3 generator setpoint 1.00 pu
+  PASS  case LF3 grid setpoint 1.00 pu
+  PASS  case LF3 aux load 14.0 MW
+  PASS  case LF4 at 50 Hz
+  PASS  case LF4 on the 100 MVA base
+  PASS  case LF4 has the bus coupler closed (assumption, normal state not documented)
+  PASS  case LF4 generator setpoint 1.00 pu
+  PASS  case LF4 grid setpoint 1.00 pu
+  PASS  case LF4 aux load 14.0 MW
+  PASS  all four dispatch x GAT combinations are distinct
+  => test_topology: 59 passed, 0 failed
+
+--- test_generator_capability -----------------------------------------
+  PASS  authoritative capabilityCurve exists
+  PASS  exact six extracted P points
+  PASS  exact extracted upper points
+  PASS  exact extracted lower points
+  PASS  extraction is not tabulated manufacturer data
+  PASS  manual extraction explicit
+  PASS  user supplied graph readings
+  PASS  no local attachment inspection claim
+  PASS  attachment locator retained
+  PASS  piecewise-linear interpretation
+  PASS  no extrapolation
+  PASS  physical compatibility limits apply at primary capacity
+  PASS  physical limit source status separate
+  PASS  generatorCapability function exists
+  PASS  all lower endpoints including zero-Q tip
+  PASS  all upper endpoints including zero-Q tip
+  PASS  lower midpoint on every segment
+  PASS  upper midpoint on every segment
+  PASS  360 MW lower independent formula
+  PASS  360 MW upper independent formula
+  PASS  column lower shape preserved
+  PASS  column upper shape preserved
+  PASS  matrix lower shape and values
+  PASS  matrix upper shape and values
+  PASS  explicit curve honored without provider recursion
+  PASS  invalid P input 1 rejected
+  PASS  invalid P input 2 rejected
+  PASS  invalid P input 3 rejected
+  PASS  invalid P input 4 rejected
+  PASS  invalid P input 5 rejected
+  PASS  invalid P input 6 rejected
+  PASS  invalid P input 7 rejected
+  PASS  invalid P input 8 rejected
+  PASS  invalid P input 9 rejected
+  PASS  invalid P input 10 rejected
+  PASS  malformed curve 1 rejected
+  PASS  malformed curve 2 rejected
+  PASS  malformed curve 3 rejected
+  PASS  malformed curve 4 rejected
+  PASS  malformed curve 5 rejected
+  PASS  malformed curve 6 rejected
+  PASS  normalized parameter helper exists
+  PASS  lowercase parameter schema complete
+  PASS  source value retained
+  PASS  source classification defaults honestly
+  PASS  source record not presented as assumption
+  PASS  selected value explicit
+  PASS  assumed range retained
+  PASS  assumption never promoted
+  PASS  assumptions require basis and finite ranges
+  PASS  out-of-range assumption rejected
+  PASS  missing source is not a finite assumed parameter
+  PASS  normalized source view exists
+  PASS  default and injected provider yield same source view
+  PASS  Snom_MVA normalized value follows original provenance
+  PASS  Snom_MVA original source status retained
+  PASS  Snom_MVA full original provenance retained
+  PASS  P_capacity_MW normalized value follows original provenance
+  PASS  P_capacity_MW original source status retained
+  PASS  P_capacity_MW full original provenance retained
+  PASS  Vnom_kV normalized value follows original provenance
+  PASS  Vnom_kV original source status retained
+  PASS  Vnom_kV full original provenance retained
+  PASS  H_s normalized value follows original provenance
+  PASS  H_s original source status retained
+  PASS  H_s full original provenance retained
+  PASS  SCR normalized value follows original provenance
+  PASS  SCR original source status retained
+  PASS  SCR full original provenance retained
+  PASS  Xd normalized value follows original provenance
+  PASS  Xd original source status retained
+  PASS  Xd full original provenance retained
+  PASS  Xdp normalized value follows original provenance
+  PASS  Xdp original source status retained
+  PASS  Xdp full original provenance retained
+  PASS  Xdpp normalized value follows original provenance
+  PASS  Xdpp original source status retained
+  PASS  Xdpp full original provenance retained
+  PASS  Xdpp_sat normalized value follows original provenance
+  PASS  Xdpp_sat original source status retained
+  PASS  Xdpp_sat full original provenance retained
+  PASS  Xq normalized value follows original provenance
+  PASS  Xq original source status retained
+  PASS  Xq full original provenance retained
+  PASS  Xqp normalized value follows original provenance
+  PASS  Xqp original source status retained
+  PASS  Xqp full original provenance retained
+  PASS  Xqpp normalized value follows original provenance
+  PASS  Xqpp original source status retained
+  PASS  Xqpp full original provenance retained
+  PASS  Xl normalized value follows original provenance
+  PASS  Xl original source status retained
+  PASS  Xl full original provenance retained
+  PASS  X2 normalized value follows original provenance
+  PASS  X2 original source status retained
+  PASS  X2 full original provenance retained
+  PASS  X0 normalized value follows original provenance
+  PASS  X0 original source status retained
+  PASS  X0 full original provenance retained
+  PASS  Ra_ohm normalized value follows original provenance
+  PASS  Ra_ohm original source status retained
+  PASS  Ra_ohm full original provenance retained
+  PASS  Rf_numeric normalized value follows original provenance
+  PASS  Rf_numeric original source status retained
+  PASS  Rf_numeric full original provenance retained
+  PASS  Td0p_s normalized value follows original provenance
+  PASS  Td0p_s original source status retained
+  PASS  Td0p_s full original provenance retained
+  PASS  Td0pp_s normalized value follows original provenance
+  PASS  Td0pp_s original source status retained
+  PASS  Td0pp_s full original provenance retained
+  PASS  Tq0p_s normalized value follows original provenance
+  PASS  Tq0p_s original source status retained
+  PASS  Tq0p_s full original provenance retained
+  PASS  Tq0pp_s normalized value follows original provenance
+  PASS  Tq0pp_s original source status retained
+  PASS  Tq0pp_s full original provenance retained
+  PASS  Tdp_s normalized value follows original provenance
+  PASS  Tdp_s original source status retained
+  PASS  Tdp_s full original provenance retained
+  PASS  Tdpp_s normalized value follows original provenance
+  PASS  Tdpp_s original source status retained
+  PASS  Tdpp_s full original provenance retained
+  PASS  Tqp_s normalized value follows original provenance
+  PASS  Tqp_s original source status retained
+  PASS  Tqp_s full original provenance retained
+  PASS  Tqpp_s normalized value follows original provenance
+  PASS  Tqpp_s original source status retained
+  PASS  Tqpp_s full original provenance retained
+  PASS  Ta_s normalized value follows original provenance
+  PASS  Ta_s original source status retained
+  PASS  Ta_s full original provenance retained
+  PASS  S10 normalized value follows original provenance
+  PASS  S10 original source status retained
+  PASS  S10 full original provenance retained
+  PASS  S12 normalized value follows original provenance
+  PASS  S12 original source status retained
+  PASS  S12 full original provenance retained
+  PASS  Excitation_type normalized value follows original provenance
+  PASS  Excitation_type original source status retained
+  PASS  Excitation_type full original provenance retained
+  PASS  Excitation_designation normalized value follows original provenance
+  PASS  Excitation_designation original source status retained
+  PASS  Excitation_designation full original provenance retained
+  PASS  PF_rated normalized value follows original provenance
+  PASS  PF_rated original source status retained
+  PASS  PF_rated full original provenance retained
+  PASS  P_pf_reference_MW normalized value follows original provenance
+  PASS  P_pf_reference_MW original source status retained
+  PASS  P_pf_reference_MW full original provenance retained
+  PASS  P_owner_derated_MW normalized value follows original provenance
+  PASS  P_owner_derated_MW original source status retained
+  PASS  P_owner_derated_MW full original provenance retained
+  PASS  Earthing normalized value follows original provenance
+  PASS  Earthing original source status retained
+  PASS  Earthing full original provenance retained
+  PASS  Zbase_machine_ohm normalized value follows original provenance
+  PASS  Zbase_machine_ohm original source status retained
+  PASS  Zbase_machine_ohm full original provenance retained
+  PASS  Zbase_100MVA_ohm normalized value follows original provenance
+  PASS  Zbase_100MVA_ohm original source status retained
+  PASS  Zbase_100MVA_ohm full original provenance retained
+  PASS  Ra_pu_machine normalized value follows original provenance
+  PASS  Ra_pu_machine original source status retained
+  PASS  Ra_pu_machine full original provenance retained
+  PASS  Ra_pu_100MVA normalized value follows original provenance
+  PASS  Ra_pu_100MVA original source status retained
+  PASS  Ra_pu_100MVA full original provenance retained
+  PASS  Xdpp_100MVA normalized value follows original provenance
+  PASS  Xdpp_100MVA original source status retained
+  PASS  Xdpp_100MVA full original provenance retained
+  PASS  Xdpp_sat_100MVA normalized value follows original provenance
+  PASS  Xdpp_sat_100MVA original source status retained
+  PASS  Xdpp_sat_100MVA full original provenance retained
+  PASS  field-resistance unit not invented
+  PASS  unit qualification separate
+  PASS  unqualified reactance not replaced by saturated
+  PASS  saturated reactance separate
+  PASS  workbook excitation type
+  PASS  workbook excitation designation
+  PASS  source no-load excitation voltage
+  PASS  SFC DC link not field voltage
+  PASS  SFC output current not DC-link current
+  PASS  output side explicit
+  PASS  DC link side explicit
+  PASS  NER phase voltage
+  PASS  NER secondary voltage
+  PASS  NER short-time rating
+  PASS  NER rating duration
+  PASS  approximate HV DC resistance
+  PASS  approximate secondary loading resistor
+  PASS  source question mark not erased
+  PASS  secondary uncertainty retained
+  PASS  frozen grid estimate context
+  PASS  source rounded 19.919 GVA retained
+  PASS  grid estimate not promoted to verified
+  PASS  secondary sensitivity current separate
+  PASS  secondary sensitivity X/R separate
+  PASS  secondary source not selected grid
+  PASS  source total loss
+  PASS  source no-load loss
+  PASS  source full-load loss
+  PASS  cooling closure 1282-159-1095
+  PASS  cooling arithmetic explicit
+  PASS  derived cooling keeps input provenance
+  PASS  total source classification retained
+  PASS  total source status retained
+  PASS  cooling remains a derived record
+  PASS  gsut_total_kW source document retained
+  PASS  gsut_total_kW provisional design interpretation
+  PASS  gsut_total_kW confidence retains design-finalization caveat
+  PASS  gsut_total_kW marked loss table located
+  PASS  gsut_total_kW asterisk footnote located
+  PASS  gsut_total_kW rationale retains provisional source meaning
+  PASS  gsut_total_kW design caveat does not invent uncertainty ranges
+  PASS  gsut_cooling_kW source document retained
+  PASS  gsut_cooling_kW provisional design interpretation
+  PASS  gsut_cooling_kW confidence retains design-finalization caveat
+  PASS  gsut_cooling_kW marked loss table located
+  PASS  gsut_cooling_kW asterisk footnote located
+  PASS  gsut_cooling_kW rationale retains provisional source meaning
+  PASS  gsut_cooling_kW design caveat does not invent uncertainty ranges
+  PASS  source view uses authoritative curve
+  PASS  injected provenance is normalized, not independently hard-coded
+  => test_generator_capability: 224 passed, 0 failed
+
+--- test_engineering_assumptions --------------------------------------
+  PASS  metadata_contract
+  PASS  exciter_defaults
+  PASS  limiter_bases
+  PASS  sfc_defaults
+  PASS  battery_defaults
+  PASS  charger_defaults
+  PASS  load_budget
+  PASS  governor_defaults
+  PASS  pss_disabled
+  => test_engineering_assumptions: 9 passed, 0 failed
+
+--- test_phase2_systems -----------------------------------------------
+  PASS  identities_and_defaults
+  PASS  all_leaves_are_records
+  PASS  exact_source_identity
+  PASS  recognized_primary_status_mapping
+  PASS  reject_nonprimary_frequency_status
+  PASS  reject_nonprimary_component_status
+  PASS  reject_nonprimary_qualified_source
+  PASS  oel_not_a_voltage_base
+  PASS  uel_source_curve
+  PASS  sfc_side_separation
+  PASS  station_dc_configuration
+  PASS  primary_sixth_order_selection
+  PASS  central_record_coverage
+  PASS  override_propagation
+  PASS  range_boundary_override
+  PASS  reject_malformed_records
+  PASS  reject_inconsistent_battery
+  PASS  reject_inconsistent_exciter
+  PASS  reject_inconsistent_charger
+  PASS  reject_charger_cutoff_shortfall
+  PASS  accept_charger_cutoff_boundary
+  PASS  reject_charger_power_shortfall
+  PASS  reject_invalid_generator
+  PASS  preserve_inputs
+  => test_phase2_systems: 24 passed, 0 failed
+
+--- Phase 2 Component Models ------------------------------------------
+  PASS  exciter_quiescent_equilibrium
+  PASS  oel_inactive_at_nominal
+  PASS  uel_inactive_at_nominal
+  PASS  stator_limiter_inactive_at_nominal
+  PASS  exciter_positive_step_response
+  PASS  exciter_finite_exponential_lag
+  PASS  exciter_positive_ceiling_clamp
+  PASS  exciter_ceiling_flag
+  PASS  exciter_negative_floor_clamp
+  PASS  exciter_floor_flag
+  PASS  oel_activates_on_field_exceedance
+  PASS  oel_positive_correction
+  PASS  uel_activates_below_inset_boundary
+  PASS  uel_positive_boost_correction
+  PASS  stator_limiter_activates_on_overcurrent
+  PASS  stator_overload_alarm_raised
+  PASS  exciter_rejects_negative_dt
+  PASS  exciter_rejects_zero_dt
+  PASS  sfc_exponential_lag_response
+  PASS  sfc_active_flag
+  PASS  sfc_efficiency_input_power
+  PASS  sfc_loss_accounting
+  PASS  sfc_clamps_at_max_power_4MW
+  PASS  sfc_clamps_negative_power_to_zero
+  PASS  sfc_ramps_to_zero_when_disabled
+  PASS  sfc_rejects_negative_dt
+  PASS  dc_continuous_load_2p4kW
+  PASS  dc_battery_floating_at_full_soc
+  PASS  dc_full_soc_preserved
+  PASS  charger_supplies_continuous_load
+  PASS  charger_ac_efficiency_accounting
+  PASS  battery_cutoff_false_at_nominal
+  PASS  trip_pulse_adds_2kW
+  PASS  trip_pulse_timer_active
+  PASS  close_pulse_adds_3kW
+  PASS  close_pulse_timer_active
+  PASS  emergency_switched_demand_adds_5kW
+  PASS  battery_supplies_discharge_current
+  PASS  battery_soc_depleted_during_discharge
+  PASS  charger_zero_output_when_unavailable
+  PASS  battery_terminal_voltage_sag_equals_IR
+  PASS  battery_cutoff_triggers_at_soc_min
+  PASS  battery_disconnects_at_cutoff
+  PASS  charger_rated_20kW
+  PASS  charger_max_180A
+  PASS  standby_charger_takes_over_duty
+  PASS  standby_active_flag_set
+  PASS  dc_rejects_negative_dt
+  PASS  charger_regulates_bus_to_float_voltage_123p75V
+  PASS  battery_terminal_held_at_float_voltage
+  PASS  battery_floating_zero_trickle_at_equilibrium
+  => Phase 2 Component Models: 51 passed, 0 failed
+
+--- Operating Profiles & Capacity Guard -------------------------------
+  PASS  master_has_operating_profiles
+  PASS  exactly_six_canonical_profiles
+  PASS  canonical_profile_ids_exact
+  PASS  p1_dispatch_360MW
+  PASS  p1_capacity_360MW
+  PASS  p1_gat_out
+  PASS  p1_no_exception
+  PASS  p2_dispatch_360MW
+  PASS  p2_capacity_360MW
+  PASS  p2_gat_in
+  PASS  p2_no_exception
+  PASS  q1_dispatch_342MW
+  PASS  q1_gat_out
+  PASS  q2_dispatch_342MW
+  PASS  q2_gat_in
+  PASS  h1_dispatch_389MW
+  PASS  h1_approved_exception_true
+  PASS  h2_dispatch_389MW
+  PASS  h2_approved_exception_true
+  PASS  LF360_GAT_OUT_qmin_from_capability
+  PASS  LF360_GAT_OUT_qmax_from_capability
+  PASS  LF360_GAT_OUT_finite_q_limits
+  PASS  LF360_GAT_IN_qmin_from_capability
+  PASS  LF360_GAT_IN_qmax_from_capability
+  PASS  LF360_GAT_IN_finite_q_limits
+  PASS  LF342_GAT_OUT_qmin_from_capability
+  PASS  LF342_GAT_OUT_qmax_from_capability
+  PASS  LF342_GAT_OUT_finite_q_limits
+  PASS  LF342_GAT_IN_qmin_from_capability
+  PASS  LF342_GAT_IN_qmax_from_capability
+  PASS  LF342_GAT_IN_finite_q_limits
+  PASS  LF389P30_GAT_OUT_qmin_from_capability
+  PASS  LF389P30_GAT_OUT_qmax_from_capability
+  PASS  LF389P30_GAT_OUT_finite_q_limits
+  PASS  LF389P30_GAT_IN_qmin_from_capability
+  PASS  LF389P30_GAT_IN_qmax_from_capability
+  PASS  LF389P30_GAT_IN_finite_q_limits
+  PASS  master_has_builder_visible_cases
+  PASS  alias_LF1_exists
+  PASS  alias_LF2_exists
+  PASS  alias_LF3_exists
+  PASS  alias_LF4_exists
+  PASS  aliases_preserve_exact_historical_dispatches
+  PASS  guard_accepts_primary_360MW
+  PASS  guard_accepts_qualified_342MW
+  PASS  guard_accepts_historical_with_exception
+  PASS  guard_rejects_primary_exceeding_360MW
+  PASS  guard_rejects_illegal_primary_exception
+  PASS  entry_path_accepts_valid_360MW_case
+  PASS  entry_path_rejects_360p01MW_primary_case
+  PASS  entry_path_accepts_historical_389MW_with_exception
+  PASS  master_has_excitation
+  PASS  master_has_sfc
+  PASS  master_has_stationDC
+  PASS  master_has_dynamicReadiness
+  => Operating Profiles & Capacity Guard: 55 passed, 0 failed
+
+--- test_transformer_phase_shift --------------------------------------
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In t_solve (line 26)
+In test_transformer_phase_shift (line 35)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  power balance closes at every bus with the DOCUMENTED shifts: worst residual 3.55e-05 MVA (branch flows from documented impedances vs solver injections)
+  PASS    BGRID230  residual 2.524e-08 MVA (dP +5.18e-09 MW, dQ -2.47e-08 MVAr)
+  PASS    B22       residual 1.256e-09 MVA (dP -9.86e-10 MW, dQ +7.78e-10 MVAr)
+  PASS    B6_6      residual 7.519e-10 MVA (dP +4.07e-10 MW, dQ +6.32e-10 MVAr)
+  PASS    B230_1    residual 3.468e-05 MVA (dP +3.44e-05 MW, dQ +4.12e-06 MVAr)
+  PASS    GAT_HV    residual 2.228e-09 MVA (dP -2.14e-09 MW, dQ +6.35e-10 MVAr)
+  PASS    B230_REMOTE residual 3.547e-05 MVA (dP -3.53e-05 MW, dQ -3.84e-06 MVAr)
+  PASS  GSUT YNd1 (+30 deg) and UAT Dyn11 (-30 deg) reproduce the 22 kV bus balance: 389.3000 MW vs the generator's 389.3000 MW
+  PASS  the OPPOSITE shifts are decisively wrong: 22 kV balance becomes -2746.0 MW against 389.3 MW, an error of 3135.3 MW - so the documented signs are confirmed by measurement, not by the block name
+  PASS  GSUT carries power LV -> HV (export): 375.2198 MW leaves the 22 kV bus
+  PASS  GSUT: with the 30 deg group shift removed, the 22 kV side LEADS the 230 kV side by 6.6960 deg, which is the correct direction for export
+  PASS  UAT carries power HV -> LV (auxiliary supply): -14.0191 MW at the 6.6 kV side
+  PASS  UAT: with the 30 deg group shift removed, the 6.6 kV side LAGS the 22 kV side by 3.4411 deg, correct for a downward feed
+  PASS  raw 230 kV -> 22 kV angle step -23.304 deg: a -30 deg group shift plus a +6.696 deg export angle
+  PASS  raw 22 kV -> 6.6 kV angle step +26.559 deg: a +30 deg group shift plus a -3.441 deg load angle
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In t_solve (line 26)
+In test_transformer_phase_shift (line 119)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  case LF2 has the GAT in service, closing the 230/22/6.6 kV loop
+  PASS  vector-group shifts around the 230 kV -> GSUT -> 22 kV -> UAT -> 6.6 kV -> GAT -> 230 kV loop sum to 0 deg. A non-zero sum would make the loop physically unclosable; the GAT being YNyn0 is what permits it
+  PASS  LF2 (loop closed) power balance also closes: worst residual 6.39e-04 MVA. A wrong shift anywhere in a LOOPED network produces circulating power, so this is the stronger of the two topologies to test
+  PASS  GAT loop flow is 7.5589 MVA, within its 25 MVA rating - no circulating power from a mismatched phase shift
+  => test_transformer_phase_shift: 19 passed, 0 failed
+
+--- test_grid_sensitivity ---------------------------------------------
+  PASS  grid Isc_Source cites Siemens §2.4 external-grid source quantity
+  PASS  grid Isc_Source separates equipment ratings from the source estimate
+  PASS  grid equivalent bus is B230_REMOTE (Phase-3 remote-bus semantics)
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_grid_sensitivity (line 70)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  Z =  1.328 ohm (x0.5): V230 = 0.999442 pu, angle +0.5389 deg, Qgen = +29.1814 MVAr, V6.6 = 1.0009112 pu
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_grid_sensitivity (line 70)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  Z =  2.656 ohm (x1.0): V230 = 0.998779 pu, angle +1.0785 deg, Qgen = +31.3267 MVAr, V6.6 = 1.0009112 pu
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_grid_sensitivity (line 70)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  Z =  5.312 ohm (x2.0): V230 = 0.997491 pu, angle +2.1602 deg, Qgen = +35.4970 MVAr, V6.6 = 1.0009112 pu
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_grid_sensitivity (line 70)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  Z = 10.623 ohm (x4.0): V230 = 0.995004 pu, angle +4.3344 deg, Qgen = +43.5435 MVAr, V6.6 = 1.0009113 pu
+  PASS  grid equivalent dissipates 0.000e+00 MW at x0.5 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x1.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x2.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x4.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent absorbs 7.0845 MVAr reactive at the documented estimate
+  PASS  boundary voltage falls monotonically as the grid weakens: 0.99944 -> 0.99878 -> 0.99749 -> 0.99500 pu. A weaker grid sags more under the same export - the expected direction
+  PASS  generator reactive output rises monotonically as the grid weakens: +29.181 -> +31.327 -> +35.497 -> +43.543 MVAr. The machine holds 22 kV at 1.00 pu, so it must supply whatever the weaker grid absorbs
+  PASS  angle across the equivalent grows with impedance: +0.5389 -> +1.0785 -> +2.1602 -> +4.3344 deg
+  PASS  the estimate UNDERSTATES boundary voltage deviation, exactly as G.Isc_Warning states: 0.1221 % at the estimate against 0.2509 % at twice the impedance. Direction of the error is known; magnitude is not
+  PASS  the 22 kV generator bus stays at 1.000000 pu for every grid strength - it is a PV bus
+  PASS  the 6.6 kV auxiliary bus is INDEPENDENT of grid strength (1.0009112 pu throughout, spread 8.60e-08 pu). The auxiliary system hangs off a regulated 22 kV bus, so the weakest number in the model cannot corrupt it
+  PASS  UAT loading is likewise independent of grid strength: 16.519791 MVA throughout, spread 1.69e-04 MVA (1.0e-05 relative) across an 8x range of grid impedance
+  PASS  and the residual is 6.76e-04 % of the UAT's 25 MVA rating - below any engineering significance, and attributable to the snubber artefact and solver tolerance rather than to grid strength
+  PASS  solved angle across the grid equivalent +1.0785 deg matches the hand calculation atan(P*X/V^2) = +1.0769 deg at 374.41 MW export - the prediction written into ashuganj_grid.m before the model was solved
+  PASS  and it matches the ~1.1 deg stated in G.Expected_effect (1.0785 deg)
+  PASS  boundary current 943.0 A is within the 3150 A bus-coupler/busbar module rating (29.9 % of it)
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_grid_sensitivity (line 246)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  X/R =   Inf: R = 0.0000 ohm, X = 2.6558 ohm, |Z| = 2.6558 ohm, V230 = 0.998779 pu, angle +1.0785 deg, Qgen = +31.3267 MVAr, ZGRID loss = 0.0000 MW
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_grid_sensitivity (line 246)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  X/R =    20: R = 0.1326 ohm, X = 2.6525 ohm, |Z| = 2.6558 ohm, V230 = 0.999584 pu, angle +1.0800 deg, Qgen = +28.7218 MVAr, ZGRID loss = 0.3535 MW
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_grid_sensitivity (line 246)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  X/R =    10: R = 0.2643 ohm, X = 2.6426 ohm, |Z| = 2.6558 ohm, V230 = 1.000386 pu, angle +1.0796 deg, Qgen = +26.1280 MVAr, ZGRID loss = 0.7040 MW
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_grid_sensitivity (line 246)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  X/R =     5: R = 0.5208 ohm, X = 2.6042 ohm, |Z| = 2.6558 ohm, V230 = 1.001959 pu, angle +1.0731 deg, Qgen = +21.0381 MVAr, ZGRID loss = 1.3862 MW
+  PASS  |Z| stayed at the documented 2.6558 ohm estimate at every X/R, so what follows measures the R = 0 assumption alone and not the magnitude estimate swept in Part 1
+  PASS  at the assumed X/R = inf the equivalent dissipates exactly 0 MW
+  PASS  loss in the equivalent rises as X/R falls: 0.0000 -> 0.3535 -> 0.7040 -> 1.3862 MW. At X/R = 10 it is 0.7040 MW - COMPARABLE TO THE WHOLE PLANT'S 0.8905 MW of internal loss. The assumption therefore does not make a small change to reported system loss, it changes what "system loss" MEANS: with R = 0 the reported figure is plant loss only, which for a plant study is the defensible reading, but the report must say so rather than imply the grid is lossless
+  PASS  while the plant's OWN loss stays at 0.89054 MW (spread 9.72e-04 MW) across the whole X/R range. The two loss figures are genuinely separable, which is what licenses reporting the plant figure alone
+  PASS  the 22 kV bus holds 1.000000 pu at every X/R - the PV constraint is upstream of the grid
+  PASS  the 6.6 kV auxiliary bus is unmoved by X/R (1.0009112 pu, spread 3.66e-08 pu)
+  PASS  UAT loading is unmoved by X/R (16.519791 MVA, spread 1.33e-04 MVA)
+  PASS  and the power the plant actually delivers to the boundary is unmoved: 374.4095 MW, spread 9.72e-04 MW. The grid resistance changes what happens BEYOND the plant, not what the plant produces - which is precisely why this assumption is tolerable in a plant study
+  PASS  the angle across the equivalent is INVARIANT under X/R, not overstated: +1.0785 -> +1.0800 -> +1.0796 -> +1.0731 deg, total spread 0.0069 deg (0.64 % of the +1.0785 deg shift itself) and NOT monotonic. The assumption record's "angle slightly overstated" claim is contradicted: X is pinned by |Z|, so there is almost nothing left for the R/X split to move
+  PASS  and the boundary voltage RISES as X/R falls: 0.998779 -> 0.999584 -> 1.000386 -> 1.001959 pu. So R = 0 OVERSTATES the boundary sag by 1.61e-03 pu at a realistic X/R = 10 - the model is PESSIMISTIC about boundary voltage by 0.1607 % of nominal, not optimistic as the assumption record claimed
+  PASS  and the rise is BOUNDED BY THE HAND CALCULATION that explains it: R*P = (0.2643/529.0)*(+3.737) = +1.867e-03 pu against a measured rise of +1.607e-03 pu, the balance being the smaller X*Q term moving the other way. Sign and size both predicted, so the direction is mechanism and not coincidence
+  PASS  and it is LARGER than the uncertainty carried by the magnitude estimate: X/R inf->10 moves the boundary voltage 1.61e-03 pu, while DOUBLING the estimated |Z| moves it only 1.29e-03 pu (1.2x less). The reason is that the plant delivers +3.744 pu of P and only -0.305 pu of Q at the swing node, a ratio of 12.3 to 1, so R*P dominates X*Q and the term that was ASSUMED away is the bigger one. Both grid numbers must therefore be flagged in the report - it is NOT enough to flag the estimate alone, which is what the earlier version of this test concluded from the opposite assertion
+  PASS  generator REACTIVE output falls monotonically as R is introduced: +31.3267 -> +28.7218 -> +26.1280 -> +21.0381 MVAr - -16.60 % at a realistic X/R = 10 and -32.84 % at X/R = 5. The assumption record's "no effect on generator output" is therefore WRONG for MVAr: the reported Qgen of 31.3267 MVAr is a consequence of the R = 0 assumption to within about a third of its own value
+  PASS  while generator REAL output is untouched at 389.30 MW in every case (spread 4.10e-08 MW), because it is a dispatch setpoint and not a solved quantity. So the record's claim survives for MW and fails for MVAr - exactly the distinction it failed to draw
+  => test_grid_sensitivity: 41 passed, 0 failed
+
+--- test_magnetising_sensitivity --------------------------------------
+  PASS  GSUT no-load current is 0.13 % FROM THE DATA SHEET - the quantity the retired assumption claimed did not exist anywhere in the source set
+  PASS  GSUT no-load current is sourced, not assumed
+  PASS  GSUT Rm IS derived from the documented 159 kW no-load loss
+  PASS  GSUT Rm = 515 MVA / 159 kW = 3239.0 pu
+  PASS  GSUT Lm is now DERIVED, no longer an ENGINEERING_ASSUMPTION
+  PASS  GSUT Lm = 1/sqrt(0.0013^2 - (1/3239.0)^2) = 791.9 pu
+  PASS  GSUT Lm (791.9 pu) is a LARGER reactance than the naive 1/I0 (769.2 pu), i.e. draws LESS current, because the loss component Rm already carries is removed in quadrature instead of being counted twice
+  PASS  GSUT Lm is no longer the retired open-circuit value
+  PASS  UAT no-load current is 0.3 % FROM THE DATA SHEET - the quantity the retired assumption claimed did not exist anywhere in the source set
+  PASS  UAT no-load current is sourced, not assumed
+  PASS  UAT Rm IS derived from the documented 14 kW no-load loss
+  PASS  UAT Rm = 25 MVA / 14 kW = 1785.7 pu
+  PASS  UAT Lm is now DERIVED, no longer an ENGINEERING_ASSUMPTION
+  PASS  UAT Lm = 1/sqrt(0.003^2 - (1/1785.7)^2) = 339.3 pu
+  PASS  UAT Lm (339.3 pu) is a LARGER reactance than the naive 1/I0 (333.3 pu), i.e. draws LESS current, because the loss component Rm already carries is removed in quadrature instead of being counted twice
+  PASS  UAT Lm is no longer the retired open-circuit value
+  PASS  GAT no-load current is 0.3 % FROM THE DATA SHEET - the quantity the retired assumption claimed did not exist anywhere in the source set
+  PASS  GAT no-load current is sourced, not assumed
+  PASS  GAT Rm IS derived from the documented 23 kW no-load loss
+  PASS  GAT Rm = 25 MVA / 23 kW = 1087.0 pu
+  PASS  GAT Lm is now DERIVED, no longer an ENGINEERING_ASSUMPTION
+  PASS  GAT Lm = 1/sqrt(0.003^2 - (1/1087.0)^2) = 350.2 pu
+  PASS  GAT Lm (350.2 pu) is a LARGER reactance than the naive 1/I0 (333.3 pu), i.e. draws LESS current, because the loss component Rm already carries is removed in quadrature instead of being counted twice
+  PASS  GAT Lm is no longer the retired open-circuit value
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_magnetising_sensitivity (line 123)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  RETIRED: open     : Qm =  0.001 MVAr, Qgen = +30.8081 MVAr, P_loss = 0.89016 MW, V6.6 = 1.0013903 pu, V230 = 0.998794 pu
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_magnetising_sensitivity (line 123)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  AS BUILT: derived : Qm =  0.795 MVAr, Qgen = +31.3267 MVAr, P_loss = 0.89054 MW, V6.6 = 1.0009112 pu, V230 = 0.998779 pu
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_magnetising_sensitivity (line 123)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  ~0.2 % Im probe   : Qm =  1.130 MVAr, Qgen = +31.4997 MVAr, P_loss = 0.89047 MW, V6.6 = 1.0010583 pu, V230 = 0.998771 pu
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_magnetising_sensitivity (line 123)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  ~0.5 % Im probe   : Qm =  2.825 MVAr, Qgen = +32.5372 MVAr, P_loss = 0.89095 MW, V6.6 = 1.0005606 pu, V230 = 0.998736 pu
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_magnetising_sensitivity (line 123)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  ~1.0 % Im probe   : Qm =  5.650 MVAr, Qgen = +34.2655 MVAr, P_loss = 0.89177 MW, V6.6 = 0.9997322 pu, V230 = 0.998677 pu
+  PASS  the derivation ADDS reactive demand the open-circuit treatment omitted: Qgen +30.8081 -> +31.3267 MVAr, dQg = +0.5185 MVAr (1.68 % of the generator's 30.808 MVAr). Direction matches what the retired record claimed
+  PASS  and it is SMALLER than the +3.4406 MVAr the retired assumption record published as its worst case (6.6x smaller). That bound was taken at a 1 % magnetising current, 7.7x the GSUT's documented 0.13 %, so the old assumption erred in the safe direction but overstated the band
+  PASS  correcting Lm moves the 6.6 kV bus by -4.79e-04 pu (0.0479 % of nominal), so no previously reported voltage is invalidated by the correction - the error was real but not load-flow-material
+  PASS  reactive demand rises monotonically as Lm closes: +30.808 -> +31.327 -> +31.500 -> +32.537 -> +34.266 MVAr, tracking the nameplate draw 0.001 -> 0.795 -> 1.130 -> 2.825 -> 5.650 MVAr
+  PASS  worst-case reactive spread across the whole sweep is +3.4574 MVAr (11.22 % of the 30.808 MVAr the generator supplies), at a 1 % magnetising current well above anything these units document. The AS-BUILT figure to quote is the +0.5185 MVAr derived case, not this bound
+  PASS  the 22 kV bus is unaffected - the machine regulates it
+  PASS  the 6.6 kV bus moves by at most 1.66e-03 pu (0.166 % of nominal) across the whole sweep, and only 0.0479 % between the open-circuit treatment and the derived one, so Lm does not corrupt any reported voltage
+  PASS  and it is 27x smaller than conflict C7, which moves the SAME bus voltage by 4.55 % depending on whether 6600 V or the 6.9 kV winding is taken as the base. An unresolved source conflict dominates the magnetising branch by more than an order of magnitude - that, not a chosen threshold, is why Lm is not the limiting uncertainty at the MV bus
+  PASS  the 230 kV boundary moves by at most 1.17e-04 pu across the whole sweep
+  PASS  total real loss moves by at most 0.00161 MW across the sweep, and 0.00038 MW between open-circuit and derived: correcting the no-load CURRENT does not disturb the no-load LOSS, which was documented and already right
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_magnetising_sensitivity (line 242)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  solved total loss 0.8905 MW is reproduced to 0.35 % by the nameplate decomposition 0.8874 MW = 0.1937 MW iron (documented no-load losses at the solved voltages) + 0.6196 MW copper (nameplate R at the solved loadings) + 0.0741 MW L_LINE. Independent confirmation that Rm and R entered the model correctly
+  PASS  iron loss 0.1937 MW is within 10 kW of the documented 159 + 14 + 23 = 196 kW sum, so all three no-load losses are being honoured - including the GAT's, which is energised from the 6.6 kV side with its bay open
+  => test_magnetising_sensitivity: 41 passed, 0 failed
+
+--- Phase 2 Load-Flow & Capability Checks -----------------------------
+  PASS  nom_within_capability
+  PASS  nom_p_exact
+  PASS  nom_q_exact
+  PASS  nom_s_exact
+  PASS  nom_pf_exact
+  PASS  nom_pf_lagging
+  PASS  nom_upper_margin_positive
+  PASS  nom_lower_margin_positive
+  PASS  nom_mva_margin_positive
+  PASS  nom_never_clipped
+  PASS  over_qmax_violation_reported
+  PASS  over_negative_upper_margin
+  PASS  over_never_clipped
+  PASS  over_unaltered_q
+  PASS  under_qmin_violation_reported
+  PASS  under_negative_lower_margin
+  PASS  under_never_clipped
+  PASS  under_unaltered_q
+  PASS  lead_pf_leading
+  PASS  mva_violation_reported
+  PASS  mva_negative_margin
+
+============================================================
+  REV3.1 PHASE 2 LOAD-FLOW EXECUTION & VERIFICATION
+============================================================
+  Cases to solve: LF360_GAT_OUT, LF360_GAT_IN
+  Output directory: C:\Users\sindi\Downloads\306 Power Project -union alpha\results\phase2_loadflow
+
+--- Solving Case: LF360_GAT_OUT -----------------------------------
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In run_phase2_load_flow (line 60)
+In test_phase2_load_flow (line 52)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  Pgen: 360.0000 MW | Qgen:  27.8326 MVAr | Sgen: 361.0743 MVA | PF: 0.9970 (Lagging)
+  Vgen: 1.0000 pu (22.00 kV) | V230: 229.76 kV | V6.6:  6.61 kV
+  Grid Export: 345.2073 MW + j-26.2675 MVAr | Losses:  0.7927 MW + j45.4237 MVAr
+  Power Balance Error: P: 9.40e-07 MW, Q: 6.82e-07 MVAr | Worst KCL: 3.27e-05 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +225.96 / -217.38 MVAr, S margin: 96.93 MVA)
+  Verdict: OK (solved in 1.08 s, 2 iters)
+
+--- Solving Case: LF360_GAT_IN -----------------------------------
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In run_phase2_load_flow (line 60)
+In test_phase2_load_flow (line 52)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  Pgen: 360.0000 MW | Qgen:  23.6688 MVAr | Sgen: 360.7772 MVA | PF: 0.9978 (Lagging)
+  Vgen: 1.0000 pu (22.00 kV) | V230: 229.71 kV | V6.6:  6.74 kV
+  Grid Export: 345.1945 MW + j-30.0295 MVAr | Losses:  0.8054 MW + j45.0219 MVAr
+  Power Balance Error: P: 1.15e-05 MW, Q: 1.38e-06 MVAr | Worst KCL: 5.77e-04 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +230.13 / -213.22 MVAr, S margin: 97.22 MVA)
+  Verdict: OK (solved in 1.05 s, 2 iters)
+
+  PASS  two_primary_cases_solved
+  PASS  s1_id
+  PASS  s1_converged
+  PASS  s1_dispatch_exact_360MW
+  PASS  s1_s_within_458MVA
+  PASS  s1_within_capability_curve
+  PASS  s1_positive_q_upper_margin
+  PASS  s1_positive_q_lower_margin
+  PASS  s1_independent_p_balance
+  PASS  s1_independent_q_balance
+  PASS  s1_kcl_residual_valid
+  PASS  s2_id
+  PASS  s2_converged
+  PASS  s2_dispatch_exact_360MW
+  PASS  s2_s_within_458MVA
+  PASS  s2_within_capability_curve
+  PASS  s2_positive_q_upper_margin
+  PASS  s2_positive_q_lower_margin
+  PASS  s2_independent_p_balance
+  PASS  s2_independent_q_balance
+  PASS  s2_kcl_residual_valid
+  Capability plot saved to: C:\Users\sindi\Downloads\306 Power Project -union alpha\docs\validation\rev31_phase2\generator_capability_curve.png
+  PASS  capability_plot_figure_created
+  PASS  capability_plot_file_saved_to_disk
+  PASS  baseline_lf_mat_exists
+  PASS  hist_lf1_export_reproducible
+  PASS  hist_lf1_loss_reproducible
+  PASS  hist_lf2_export_reproducible
+  PASS  hist_lf2_loss_reproducible
+  PASS  hist_lf3_export_reproducible
+  PASS  hist_lf3_loss_reproducible
+  PASS  hist_lf4_export_reproducible
+  PASS  hist_lf4_loss_reproducible
+  => Phase 2 Load-Flow & Capability Checks: 53 passed, 0 failed
+
+--- Phase 3 locked 0.7 km line model ----------------------------------
+  PASS  register holds 8 entries (7 Phase-2 + L_LINE)
+  PASS  two modelled branches (ZGRID + L_LINE)
+  PASS  L_LINE present
+  PASS  L_LINE from plant bus
+  PASS  L_LINE to remote bus
+  PASS  230 kV
+  PASS  locked 0.7 km
+  PASS  0.7 km is EA not verified
+  PASS  two physical circuits
+  PASS  lumped dual-circuit PI
+  PASS  Mallard reference
+  PASS  R_eq 0.0277725 ohm
+  PASS  X_eq 0.1425655 ohm
+  PASS  C from B_eq 3.937996 uS
+  PASS  R0 missing not invented
+  PASS  X0 missing not invented
+  PASS  C0 missing not invented
+  PASS  grid |Z| 2.6558 ohm preserved
+  PASS  grid R still 0
+  PASS  grid stays ESTIMATED
+  => Phase 3 locked 0.7 km line model: 20 passed, 0 failed
+
+--- Phase 3 fresh-build determinism -----------------------------------
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_phase3_determinism (line 4)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+[Warning: A propagation speed of 419281 km/s has been found for mode 1 in block 'L_LINE'; Propagation speeds must be < 300000 km/s!] 
+[> In blmodlin
+In ThreePhasePiSectionLineBlock
+In psbsort
+In powersolve
+In power_analyze_prv
+In power_analyze (line 43)
+In LoadFlowTool
+In power_loadflow (line 131)
+In test_phase3_determinism (line 8)
+In run_all_tests (line 75)
+In recon_full (line 8)
+In run (line 112)] 
+  PASS  P deterministic
+  PASS  Q deterministic
+  PASS  Vremote deterministic
+  PASS  KCL deterministic
+  PASS  verdict deterministic
+  => Phase 3 fresh-build determinism: 5 passed, 0 failed
+
+########################################################################
+#  SUMMARY                                                             #
+########################################################################
+  PASS  test_bus_data                        66 passed    0 failed     0.2 s
+  PASS  test_generator_data                 476 passed    0 failed     1.2 s
+  PASS  test_transformer_data                85 passed    0 failed     0.1 s
+  PASS  test_line_data                       63 passed    0 failed     0.1 s
+  PASS  test_load_data                       58 passed    0 failed     0.1 s
+  PASS  test_base_conversion                 39 passed    0 failed     0.1 s
+  PASS  test_topology                        59 passed    0 failed     0.4 s
+  PASS  test_generator_capability           224 passed    0 failed     0.4 s
+  PASS  test_engineering_assumptions          9 passed    0 failed     0.4 s
+  PASS  test_phase2_systems                  24 passed    0 failed     5.0 s
+  PASS  test_phase2_component_models         51 passed    0 failed     0.5 s
+  PASS  test_operating_profiles              55 passed    0 failed     0.4 s
+  PASS  test_transformer_phase_shift         19 passed    0 failed    89.8 s
+  PASS  test_grid_sensitivity                41 passed    0 failed    20.0 s
+  PASS  test_magnetising_sensitivity         41 passed    0 failed    12.7 s
+  PASS  test_phase2_load_flow                53 passed    0 failed    21.4 s
+  PASS  test_phase3_line_model               20 passed    0 failed     0.0 s
+  PASS  test_phase3_determinism               5 passed    0 failed     7.0 s
+  --------------------------------------------------------------------
+  TOTAL                                    1388 passed    0 failed   159.7 s
+
+  ALL CHECKS PASSED.
+
+FULL-SUITE 1388 passed / 0 failed

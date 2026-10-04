@@ -1,0 +1,3218 @@
+[
+  {
+    "path": "matlab/build/build_230kv_system.m",
+    "size": 7246,
+    "sha256": "a1cba94b33dae5a0fc331b97a062e988c7115dd5bcd42dbdd8ac91d0f165f18c"
+  },
+  {
+    "path": "matlab/build/build_ashuganj_main.m",
+    "size": 41133,
+    "sha256": "cedaebb0f769a3fa5b3a230f5e11d91ca748ed441d08ef2babd9363e82a386d0"
+  },
+  {
+    "path": "matlab/build/build_auxiliary_system.m",
+    "size": 10718,
+    "sha256": "3f768fd9adc34b7f7b9ffde328e04cb67e49d29549db9d4643cb5183e0953081"
+  },
+  {
+    "path": "matlab/build/build_external_grid.m",
+    "size": 8353,
+    "sha256": "3148c547f892a4844aa8b409f9df7a3277e05f7a11a848f05fa54434faedf44a"
+  },
+  {
+    "path": "matlab/build/build_generator_system.m",
+    "size": 5375,
+    "sha256": "22f1991897dbd9b05f417824717e95898bfcd1b1358b0a65457525117a89a022"
+  },
+  {
+    "path": "matlab/build/build_gsut_system.m",
+    "size": 4795,
+    "sha256": "7311b2e1d4e94c89faa78cd26f7af96e4ef2437a79aebfe18a743f0f42c480da"
+  },
+  {
+    "path": "matlab/build/sps_blocks.m",
+    "size": 2904,
+    "sha256": "593cc85e864602ff2a5ab9489077fdd7e9b7abcc0a640dae0c94d471a82f8f67"
+  },
+  {
+    "path": "matlab/build/sps_geom.m",
+    "size": 14744,
+    "sha256": "86fc353cab9d6111b78548e93c0886b7c4e921b8494917c647a0dd2657d402a8"
+  },
+  {
+    "path": "matlab/build/sps_wire.m",
+    "size": 19917,
+    "sha256": "f4198ab5274a3226f5a735d380b7021376cfdb816aa56d8e6a7b079cee96708c"
+  },
+  {
+    "path": "matlab/data/ashuganj_buses.m",
+    "size": 2303,
+    "sha256": "ec81e7394ca82466dee48f3c4c88bb9de624ff40694d79669595502fdd95f653"
+  },
+  {
+    "path": "matlab/data/ashuganj_generators.m",
+    "size": 15069,
+    "sha256": "b333fdaf1bb5c9246f8ce135ff87466f0637e8feeeba81512e0061c865366829"
+  },
+  {
+    "path": "matlab/data/ashuganj_grid.m",
+    "size": 10655,
+    "sha256": "7be0ef2e9ef4c361db89ea9872808730bf17f4bb5add04c114c1ceccf8a609db"
+  },
+  {
+    "path": "matlab/data/ashuganj_lines.m",
+    "size": 13448,
+    "sha256": "47765186dbdb372fbef902aa2ae4a2c4cba1415c41933d7600c698cb7df124d9"
+  },
+  {
+    "path": "matlab/data/ashuganj_loads.m",
+    "size": 7751,
+    "sha256": "0b5c4970502be09aafffc4c13e73c6fdb60d7358915027a7819a3346f276ed04"
+  },
+  {
+    "path": "matlab/data/ashuganj_master_data.m",
+    "size": 2417,
+    "sha256": "07d746183ae94c59ae4943b4c1e49ba2a8b5ed42e83ecf0d516dce86bb13c29c"
+  },
+  {
+    "path": "matlab/data/ashuganj_operating_profiles.m",
+    "size": 6105,
+    "sha256": "7df4f3c1cb2503df6b77a573ac545b0e21a86033c7816f7f740cba32ddc4cc61"
+  },
+  {
+    "path": "matlab/data/ashuganj_phase2_systems.m",
+    "size": 12773,
+    "sha256": "1a629e36ef56f9abd53917dfe66dce35fe11a677bc6527a40b09e10d1ca368cd"
+  },
+  {
+    "path": "matlab/data/ashuganj_transformers.m",
+    "size": 25083,
+    "sha256": "607bb31fb2c81318cc6d5d4cbccc3e500dbd5b4f53a171c475c8815f6b8cdad8"
+  },
+  {
+    "path": "matlab/data/assumptions/aux_load_allocation_split.m",
+    "size": 4060,
+    "sha256": "583ded0f6f926b9147838a1d53c0063f4e41cb21b22756af240d539631be9204"
+  },
+  {
+    "path": "matlab/data/assumptions/generator_voltage_setpoint.m",
+    "size": 4297,
+    "sha256": "10db3f4c6459eb56312432d71edeeec9a7d6081266e1972722f1143bd68f111f"
+  },
+  {
+    "path": "matlab/data/assumptions/gis_bus_coupler_closed.m",
+    "size": 7396,
+    "sha256": "ba492cc050b4e3cbe2888949fbec7cb52453164ca5b84aa249f7243f76324184"
+  },
+  {
+    "path": "matlab/data/assumptions/grid_series_resistance_zero.m",
+    "size": 8035,
+    "sha256": "5705d2571885afbdc3453eb03548b50203e6de938acc80b157c0dcde34dc04ae"
+  },
+  {
+    "path": "matlab/data/assumptions/transformer_magnetising_inductance.m",
+    "size": 8294,
+    "sha256": "0304a6eb616eeb7258862930acf791938445919507f18a450713ade0e720cefe"
+  },
+  {
+    "path": "matlab/data/engineering_assumptions.m",
+    "size": 12558,
+    "sha256": "1da2ce63ca27338c35eafdd16ca1226a77ec527a2a41ee185cf012adb47f0dba"
+  },
+  {
+    "path": "matlab/data/generatorCapability.m",
+    "size": 1859,
+    "sha256": "4bba4f5197ab3179eaceff8daa2da8be5e47d027beba3b28ed1786b87df4295b"
+  },
+  {
+    "path": "matlab/data/phase2_parameter.m",
+    "size": 2875,
+    "sha256": "8e67d4883d25953992578c654fbcf7d2b603b6d78b71185ec95aff6830482ea9"
+  },
+  {
+    "path": "matlab/data/phase2_source_data.m",
+    "size": 6752,
+    "sha256": "d8181fe4d800b0d8409dc8ae3ed6f52527f9da4ba1b72b1c2257982f8c1f80ba"
+  },
+  {
+    "path": "matlab/data/validate_operating_profile.m",
+    "size": 2762,
+    "sha256": "f12b6a6c7de68f1e0cf637b87836b6c9a3783398f97437e83dc5f483273337db"
+  },
+  {
+    "path": "matlab/studies/build_lab_report.m",
+    "size": 6583,
+    "sha256": "b1c3b95ae3f76b05e03a23e4d5e67f00dc72daee56a62bdca072807dfdc749d9"
+  },
+  {
+    "path": "matlab/studies/build_project_update.m",
+    "size": 60870,
+    "sha256": "0a254f488605ffaa67335dfc1ef1b95d25a787af0f33f17eddab4b2e11a33d4d"
+  },
+  {
+    "path": "matlab/studies/build_user_manual.m",
+    "size": 6009,
+    "sha256": "ccd7728566c2ffbd98be88fd2286379eb5caaedffe526b40b03c9a6bb00939d8"
+  },
+  {
+    "path": "matlab/studies/make_annotated_diagrams.m",
+    "size": 4761,
+    "sha256": "d1da75284ef22d2642ac753a6e755e317763c866d6626ecca816b49de43e8fd0"
+  },
+  {
+    "path": "matlab/studies/private/lr_cap.m",
+    "size": 655,
+    "sha256": "7bca5668cf95865509d9d35974a82f16a0e9769f6acf9184b924ea21c269f6d0"
+  },
+  {
+    "path": "matlab/studies/private/lr_part_calc.m",
+    "size": 10958,
+    "sha256": "aac506552f83915463004b63592ed51e576875b32f06c21954a34cb0a115b501"
+  },
+  {
+    "path": "matlab/studies/private/lr_part_data.m",
+    "size": 12967,
+    "sha256": "20b7a3f5b1d1b50ba4e570625301691711a8417a094124095ce9a3c89cd80024"
+  },
+  {
+    "path": "matlab/studies/private/lr_part_disc.m",
+    "size": 14939,
+    "sha256": "3c62d491908680951d80c6934445ac0f8b89202d8abbbe6388d8dc5070980712"
+  },
+  {
+    "path": "matlab/studies/private/lr_part_disc2.m",
+    "size": 9116,
+    "sha256": "07d9089b475a038061cb476f5ee0bd7ac7b0e4fda5e55b2560a6b929553833dc"
+  },
+  {
+    "path": "matlab/studies/private/lr_part_method.m",
+    "size": 14397,
+    "sha256": "44ce913d3e648dbf570896575e9bc6cc7e444a59773ec4445cfea2ade8ff6504"
+  },
+  {
+    "path": "matlab/studies/private/lr_part_next.m",
+    "size": 9724,
+    "sha256": "0c0b0cb032a8ec3094080d5b081120a85293df8265c3425fae8df2a643eb072f"
+  },
+  {
+    "path": "matlab/studies/private/lr_part_next2.m",
+    "size": 7027,
+    "sha256": "9d09d38194fbebcbcc45d0bb9098fc1cf768a9eceea96a56e2a7e7ad1f3da0c1"
+  },
+  {
+    "path": "matlab/studies/private/lr_part_quest.m",
+    "size": 11512,
+    "sha256": "1041435ca4a6f91ed71452139dc9e3d17eb99ad473645b9c7865f1b9247ab1ee"
+  },
+  {
+    "path": "matlab/studies/private/lr_part_theory.m",
+    "size": 14544,
+    "sha256": "3aa19ea8d6c2d8451e4853004d0da59ec7b1fd883b9eb56a2df1113a2c36679a"
+  },
+  {
+    "path": "matlab/studies/private/um_code.m",
+    "size": 392,
+    "sha256": "e879d0062de10443891f3a1e8019d554df584ca6cc5d14f073310318e68efd9d"
+  },
+  {
+    "path": "matlab/studies/private/um_esc.m",
+    "size": 236,
+    "sha256": "5effa017788fd942751d505acfc9c93f8f8ba61a3ef23dc498e3c48de5c876ba"
+  },
+  {
+    "path": "matlab/studies/private/um_img.m",
+    "size": 700,
+    "sha256": "cc3c91d4f595e6e59f089cfe39e21c90ce014a610c31529ebd89b5b956395e58"
+  },
+  {
+    "path": "matlab/studies/private/um_index.m",
+    "size": 7107,
+    "sha256": "691905aac4f8d4d75ee9fc961653c631b2ba28036fe74e9661ed77ef92cc7db7"
+  },
+  {
+    "path": "matlab/studies/private/um_map_nodes.m",
+    "size": 3512,
+    "sha256": "cfa81f59aa125ea893d7c988ff1b5213afa41663a9fd1596fcb0a84e6b758489"
+  },
+  {
+    "path": "matlab/studies/private/um_part_care.m",
+    "size": 18305,
+    "sha256": "1ef26511d1d68a4147c090f86f2a531494ca3c58f4596fc2883de605ad133462"
+  },
+  {
+    "path": "matlab/studies/private/um_part_read.m",
+    "size": 13885,
+    "sha256": "b0aca3dcc6d4a6c47d9393cb4997d94d1d8a234da87ea2568c1844da3c361dd2"
+  },
+  {
+    "path": "matlab/studies/private/um_part_run.m",
+    "size": 12218,
+    "sha256": "cde0e4981933a60036ecc0c83da21c1aac8f0c1091f116708c99f2b9fe0c0c35"
+  },
+  {
+    "path": "matlab/studies/private/um_rep.m",
+    "size": 2735,
+    "sha256": "a84fe6f474b62b9bdca1919aa28a740b992f04011f00f5edeaaf526aba4b2cd6"
+  },
+  {
+    "path": "matlab/studies/rev3_b1_derivations.m",
+    "size": 18598,
+    "sha256": "48527cb9641f1defbdfccfe25ebf0da43dc00ae2ed5de1442a4c883788ffacfe"
+  },
+  {
+    "path": "matlab/studies/run_load_flow_study.m",
+    "size": 23850,
+    "sha256": "631dea1d3f6b01ba62b3fe8c374d970d27651cb536e0b975f2c52fc1e92fec30"
+  },
+  {
+    "path": "matlab/studies/run_phase2_load_flow.m",
+    "size": 8224,
+    "sha256": "14f71dfa4ca2db53654a868ef76f5444b47dce371b12facc973df4201d7db276"
+  },
+  {
+    "path": "matlab/studies/run_phase3_load_flow.m",
+    "size": 6508,
+    "sha256": "c68a88e94c52b3dca8beb97bb80d8f666450ce8f9af0d00859058a073ba63b19"
+  },
+  {
+    "path": "Phase6/model/PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL.slx",
+    "size": 2368536,
+    "sha256": "70634dece66f77a781b843b576f374b6e76b2bce152d963a0c86c9d1f642b591"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/breaker_times.csv",
+    "size": 1419,
+    "sha256": "7b514b25268ef296d5d85723c0addc307172ec350751dd18548c51ef9550c4a6"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "a4cd2269ca4bcb0687cce4078382921a1784a772fc70d3b64cddd50216dea3d5"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/dc_statistics.csv",
+    "size": 1097,
+    "sha256": "6d124d1eb198adbc4dd6d54cb47f431ca8626a74c3947a319b7cf5988f26b498"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/dc_timeseries.csv",
+    "size": 65826,
+    "sha256": "526a8f9d59c6fd2fb24601056646b8146f1331c1cdb64f7d3713f4a56e64686e"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/events.csv",
+    "size": 1080,
+    "sha256": "54092753b6563b56e4dedb12b4b85cad2d98593cdb8a0e1ca3f5490668969830"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/fault_summary.csv",
+    "size": 1021,
+    "sha256": "330140c0e14458fc518449cb66dad84d65f10bd21058533d0188a897519e9b7a"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/load_point.csv",
+    "size": 2599,
+    "sha256": "4d41811d60fb3a08c55d8af17c43c751bd628b2b0ca57350fac976773f9aa89b"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/machine_timeseries.csv",
+    "size": 929951,
+    "sha256": "d5f498a93e53ec4395a494cac8c1fcfd9f329dd7551fdb3fed5f3c6f46ebac34"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL.slx",
+    "size": 2177069,
+    "sha256": "fc55ca18d53983a8905c14f28b47afd0319cbee2c2fad4a7f3f79233277ada90"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/phase_pickup.csv",
+    "size": 2626,
+    "sha256": "c65327851a70f2793f27366406a58e3d9606185d8b7b8de97f4d45b628ceabb0"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/phasors_timeseries.csv",
+    "size": 2352077,
+    "sha256": "03c5a08e0b6dd8c8b3968f6660509eb3f0f45364c41cc3aa4989b039f31b6e2d"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/probe.mat",
+    "size": 4072400,
+    "sha256": "13143ee56f79196d61e86559c408d4e4d5db2e22db03efda567fd15bfdb77791"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/raw_timeseries.csv",
+    "size": 6052290,
+    "sha256": "13e73b7ac62dd826f8f3dfc84d4c709a172022792b507a8abfa46192ae089087"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/relay_times.csv",
+    "size": 686,
+    "sha256": "767756ac4be0860cb43ac3c94a26689261128ff654c24563115dafb215480169"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/relay_timeseries.csv",
+    "size": 195242,
+    "sha256": "adbf9839927a64606861394a9ec3024f0745926e42f59aa10250cee4a018df1b"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/rms_timeseries.csv",
+    "size": 1143779,
+    "sha256": "260c7892b4a0747d09d3bae86b4584c6dff0c94194845f00ced90ad353475031"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/scenario_metadata.json",
+    "size": 18003,
+    "sha256": "a4cf2b601855ff50aa8fcf093e00ee759a234a87706c4c28b6b086148baf2ee7"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/simulation_data.mat",
+    "size": 13350411,
+    "sha256": "41f00d2363f386b97e38b465ee046ea8c922ea34cd37185eb850861143f696a5"
+  },
+  {
+    "path": "Phase6/results/bus_3ph/summary_timeseries.csv",
+    "size": 178271,
+    "sha256": "2f6331b28b93e5f62d7d92fd8613a0febad7fa0633f303d00917e525560612a7"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/breaker_times.csv",
+    "size": 1182,
+    "sha256": "ae8c56344a327600994f5abac30b45e810a4bcd1d33e16768ce5423d0885d15b"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/breakers_timeseries.csv",
+    "size": 7656,
+    "sha256": "16c80c3eb5dacf86e6161a87e32acc94ce74b100f4582bb80e9919c85936d4aa"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/dc_statistics.csv",
+    "size": 1039,
+    "sha256": "ed7d1e7617a1aecf01e0b9fbff6cd13323d2b5a7e2bf89a30c99250d4f8abb4c"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/dc_timeseries.csv",
+    "size": 36768,
+    "sha256": "44aa16abc4eb77ceedf6b3b1b084f2eb1171ea336f2ccee4e3cc61a53fd40c84"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/events.csv",
+    "size": 45,
+    "sha256": "81a430908668b052ef27f3f9248db3929b7627f294ad84452bb14b5879686763"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/fault_summary.csv",
+    "size": 755,
+    "sha256": "b277e2fed525afad1b364f2946f031d680c26f2ec4f0bda19c4473227aa1ddd4"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/load_point.csv",
+    "size": 2571,
+    "sha256": "34a973cfeab98ed9daffd7ba1ca24d51f39c10e246f6a270313dc5e77cbff633"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/machine_timeseries.csv",
+    "size": 620313,
+    "sha256": "929291f265eee5a3af9425d102c3d35677a488dee1c85e173e68ba6bd7a16382"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/phase_pickup.csv",
+    "size": 2501,
+    "sha256": "741c7055ac79716ddda9be52c8d7cbbd8784a25ba159b9fdef9500e9fa3db04f"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/phasors_timeseries.csv",
+    "size": 1534509,
+    "sha256": "2c5759e65bbf29c59dfe37b86dcbe94d4aa30679ffedab0463ec0aa9d3ed6165"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/probe.mat",
+    "size": 2757344,
+    "sha256": "183eb437117135646f312d21c943afca2e96597c5911472ea5859447df8ad9bd"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/raw_timeseries.csv",
+    "size": 4022047,
+    "sha256": "a66aabc9672e922e042e717ee4b61931a6a9e00d0cff4b17b78a13e75425b831"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/relay_times.csv",
+    "size": 626,
+    "sha256": "9e9f153794db0568c03249a916e7758ef223a8d93273c24b857bd544ad1360d3"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/relay_timeseries.csv",
+    "size": 124056,
+    "sha256": "38dea1f5bf5f1b6b05dada548740fda21d2150d530ef957cd3791eb6a3fec2aa"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/rms_timeseries.csv",
+    "size": 751538,
+    "sha256": "caee9cea5e2e8ce2973e3d6f34da840f27d39f18f19fd468fa2720a51f497ff9"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/signal_inventory.csv",
+    "size": 360,
+    "sha256": "15b904aa39cb1ee1a4e13a83e7f2d93a779db75077bc6d61858fa31d00772180"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/simulation_data.mat",
+    "size": 8903484,
+    "sha256": "f49a5af581b810c59a66af85b333c7645a61840618dcc0c7e4242828a356a88e"
+  },
+  {
+    "path": "Phase6/results/charger_unavailable/summary_timeseries.csv",
+    "size": 117382,
+    "sha256": "3f357bce7c76059c2b9fbd7c8076e1f729c82ad72c6eaf61742862e14ba15b90"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/breaker_times.csv",
+    "size": 1444,
+    "sha256": "820d54c35049c4a9f46a6e97a7b337055dac75f5b946dd52ea5988a7e24d93d3"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/breakers_timeseries.csv",
+    "size": 16157,
+    "sha256": "91b05a4ca89d6df893277188fe4a16c705ecfe28fd604f768aad2bff6e4e96e9"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/dc_statistics.csv",
+    "size": 1142,
+    "sha256": "5b3eb651a29062cfc515e44519f5a1ee1f74cbdcc815eb341428bdc3947b152c"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/dc_timeseries.csv",
+    "size": 68897,
+    "sha256": "12942a43add4108bcfefad067aaac75156b662b989567adb5505b36cb8260b80"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/events.csv",
+    "size": 1586,
+    "sha256": "80934d6ada278dfbd9fa7fcaf86bd5c92bf95cff7dfcc6f1665b9b003e3267a2"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/fault_summary.csv",
+    "size": 1021,
+    "sha256": "3548860bfa00c5d0c57f7e65b82b09113575dbe1df2884ff3d62fd23a57c199c"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/load_point.csv",
+    "size": 2626,
+    "sha256": "da6bff21561ae66d33941e822e1371e273ebf7da95d735f54233303400589000"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/machine_timeseries.csv",
+    "size": 1316630,
+    "sha256": "df58f0eac33d4b7043c25abfd596d9009f2e2f731e9102174272b217d83f5e65"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/phase_pickup.csv",
+    "size": 2626,
+    "sha256": "c65327851a70f2793f27366406a58e3d9606185d8b7b8de97f4d45b628ceabb0"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/phasors_timeseries.csv",
+    "size": 3345446,
+    "sha256": "2fe13131b50c6394e235c4ebf528ccd84d4429a7e301dd46019937e6cbbe5929"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/raw_timeseries.csv",
+    "size": 8539383,
+    "sha256": "0de9a46c525052985a491a7740c32162a50085c2e3fc812a961c8614a91583ec"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/relay_times.csv",
+    "size": 686,
+    "sha256": "767756ac4be0860cb43ac3c94a26689261128ff654c24563115dafb215480169"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/relay_timeseries.csv",
+    "size": 296312,
+    "sha256": "97f0dc4c1d8631364e535c126dc85fd600b3fa4bf5798f7cf9d59b515bfebd04"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/rms_timeseries.csv",
+    "size": 1626949,
+    "sha256": "8252da6e35600cfe6d7ee3f2d78e4072306b900e2eb7f5338163ece4db8986a5"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/scenario_metadata.json",
+    "size": 18044,
+    "sha256": "bb62e82379f8b94db2394f56f1b6d43b81a3a2ef00018430991bfded1d2d1a44"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/signal_inventory.csv",
+    "size": 369,
+    "sha256": "0f243dd5c1c0986a832fa301f3fe73f3955cecb4503e7eec772fc521ab1841e0"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/simulation_data.mat",
+    "size": 18190546,
+    "sha256": "d6d9eb1319b0b6434cb6a89d8b665ebd8d3ec97d6b8b3b7e64cdc7d0d5c0a8d3"
+  },
+  {
+    "path": "Phase6/results/dc_late_recovery_bus_3ph/summary_timeseries.csv",
+    "size": 246793,
+    "sha256": "a41b71e91d98ec9b59e0790206677c3b03dd0d6acceaee0dcafff8bb15c9d198"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/breaker_times.csv",
+    "size": 1182,
+    "sha256": "ae8c56344a327600994f5abac30b45e810a4bcd1d33e16768ce5423d0885d15b"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "91b00cc61658ccb55a3f881a46dacd956148757c46a0bad1a82943e355e18e9c"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/dc_statistics.csv",
+    "size": 1115,
+    "sha256": "366fbd32076c17c1613b9a14b8fb5582b96d7d6def1680aa30b1c75855cc62b5"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/dc_timeseries.csv",
+    "size": 33204,
+    "sha256": "239988cfa31f494ddedf4b59ca64fd6efca5ee564df428f64ad48d33774c8423"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/events.csv",
+    "size": 891,
+    "sha256": "53966cc7689753866ee549a9382f93d5688e02bf6c87ae12a4aad9c06e60ee2c"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/fault_summary.csv",
+    "size": 1021,
+    "sha256": "3548860bfa00c5d0c57f7e65b82b09113575dbe1df2884ff3d62fd23a57c199c"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/load_point.csv",
+    "size": 2626,
+    "sha256": "da6bff21561ae66d33941e822e1371e273ebf7da95d735f54233303400589000"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/machine_timeseries.csv",
+    "size": 927322,
+    "sha256": "443a520189b56f348b02a1f609ec4806dc50903009e5d93bcecf09b3ab79be07"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/phase_pickup.csv",
+    "size": 2626,
+    "sha256": "c65327851a70f2793f27366406a58e3d9606185d8b7b8de97f4d45b628ceabb0"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/phasors_timeseries.csv",
+    "size": 2331383,
+    "sha256": "637263d8f22148f3c1f9454b7ca6cc2e6433b31d256f3f21e7a85514fad1fd4c"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/probe.mat",
+    "size": 4067391,
+    "sha256": "92434247809cd873b4b05e652e7938c50720769855fb76d20ac1f683e211c4c2"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/raw_timeseries.csv",
+    "size": 6010117,
+    "sha256": "7f86ab3aa4cc503cadcf143e125114a2ef76023e3bb3d1dfd2c7c7b0547833ef"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/relay_times.csv",
+    "size": 686,
+    "sha256": "767756ac4be0860cb43ac3c94a26689261128ff654c24563115dafb215480169"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/relay_timeseries.csv",
+    "size": 219468,
+    "sha256": "1e0c772fa2982534c8f5a72929fe27a6ed1647d00ea5303621d6b7a0889b306b"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/rms_timeseries.csv",
+    "size": 1137076,
+    "sha256": "4ce811711a45d45b758210bec978945a1ed65529632f2eadf151cb016de58826"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/simulation_data.mat",
+    "size": 13324493,
+    "sha256": "16379c603a86bfd30632a6538981bd6633ba327244b3bfdd0fc388955d873d49"
+  },
+  {
+    "path": "Phase6/results/dc_loss_bus_3ph/summary_timeseries.csv",
+    "size": 167762,
+    "sha256": "270f6f904ccbac81c4b7123dff627b35c64e1db95e947cb68af7894dc6a6b558"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/breaker_times.csv",
+    "size": 1397,
+    "sha256": "bab3db0b5c9e03f4c7bafdefff767c583b14885ed7de4ac65b1a2957def2870c"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "e10f625abfc3ea52aaf7ac1f05c362deb9f012d2e928b7339089a86df3841ce7"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/dc_statistics.csv",
+    "size": 1211,
+    "sha256": "602f7fb5c82975c58d9a2a08acda11113d856d0823e7e9de5ff16a0d7a7ecfdc"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/dc_timeseries.csv",
+    "size": 53820,
+    "sha256": "b7647f74ee6b2cc055a28a3b07ea8d116e3e996ed8262289157b716fd379b2ae"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/events.csv",
+    "size": 1585,
+    "sha256": "57d5bd830bfe27a56284ac52dba7b44fe490f24f4d53f82089db763e267adeb2"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/fault_summary.csv",
+    "size": 1021,
+    "sha256": "3548860bfa00c5d0c57f7e65b82b09113575dbe1df2884ff3d62fd23a57c199c"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/load_point.csv",
+    "size": 2626,
+    "sha256": "da6bff21561ae66d33941e822e1371e273ebf7da95d735f54233303400589000"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/machine_timeseries.csv",
+    "size": 927676,
+    "sha256": "565b7934830e5084f45fe069ab77ce44109b23013bd46e31acd32fe762851b02"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/phase_pickup.csv",
+    "size": 2626,
+    "sha256": "c65327851a70f2793f27366406a58e3d9606185d8b7b8de97f4d45b628ceabb0"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/phasors_timeseries.csv",
+    "size": 2345895,
+    "sha256": "df4ee75beb138a6d840184d5366c8c499b787778dbd8e51c276fe6bd99cc80bd"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/probe.mat",
+    "size": 4072425,
+    "sha256": "e036c9830b8d2a096a8133cd53939d8cfb3d33396813b669675989a305fe682e"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/raw_timeseries.csv",
+    "size": 6039082,
+    "sha256": "2e050714b7866f7564df3c88fa8c484d8dedf47d9991b07d3e6f2c16e2b50d3c"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/relay_times.csv",
+    "size": 686,
+    "sha256": "767756ac4be0860cb43ac3c94a26689261128ff654c24563115dafb215480169"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/relay_timeseries.csv",
+    "size": 203166,
+    "sha256": "88473881a26a2b9b2271814ad35b6268edcef6e006f185f15e8686773d17bfd0"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/rms_timeseries.csv",
+    "size": 1142190,
+    "sha256": "f1df473417f71162d8bd2545f1c641a7634462d6c3681e11c8752d76bbf73fdb"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/simulation_data.mat",
+    "size": 13346492,
+    "sha256": "38503ce29124b67c674d0e6ac1e1cd9b1c57d2e78278a6633426ca0829435fe9"
+  },
+  {
+    "path": "Phase6/results/dc_recovery_bus_3ph/summary_timeseries.csv",
+    "size": 175393,
+    "sha256": "07348eae43cd4f8920949e615d5c2f6e73c88781ee9c6eb46b15a2ca54d7985c"
+  },
+  {
+    "path": "Phase6/results/fault_reference_comparison.csv",
+    "size": 16432,
+    "sha256": "68054dc50070eb7cfd75de1b7bf94195a3fd51007ebbcd3dace7c5cde7bed8e5"
+  },
+  {
+    "path": "Phase6/results/final_normal.mat",
+    "size": 3746125,
+    "sha256": "cf22140936d8f0d0f84e021f1a4f4a64c3ba220f7d3082d46005fa67b3bc2003"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/breaker_times.csv",
+    "size": 1456,
+    "sha256": "4a7a562db54262a72cad01e689c326d7e24e8e167de17fa16e4de897e810ac35"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "24c60899cc4df26674d026de994fe09f4547b0e5800c4d875aef724d06592d62"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/dc_statistics.csv",
+    "size": 1108,
+    "sha256": "97625874a9c46081f1b800e1d0e6c841ad257d2c1c60204d82274c3d6a8ab476"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/dc_timeseries.csv",
+    "size": 59050,
+    "sha256": "67ef07e69b1226c3995c4da17cc5a68229dfd26bf4f438bd35bad458900e3c05"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/events.csv",
+    "size": 1058,
+    "sha256": "d357d9591c542dd54fc942656b3a41346fcefc5c33c00acd5e4df007a3023a71"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/fault_summary.csv",
+    "size": 1010,
+    "sha256": "1cb38e8478d000c3067f72ef19a7474e8e5e51bda9666729e460762d0aac93a6"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/load_point.csv",
+    "size": 2599,
+    "sha256": "4d41811d60fb3a08c55d8af17c43c751bd628b2b0ca57350fac976773f9aa89b"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/machine_timeseries.csv",
+    "size": 952283,
+    "sha256": "c27db91ee0698becf1442b11814c654c3ce37d1dbec0c9ad594cf636a654407e"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/phase_pickup.csv",
+    "size": 2665,
+    "sha256": "9510c8c15075768389dae75b8e75a348062c292f6c1cc6133d7a7e07b52f556c"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/phasors_timeseries.csv",
+    "size": 2359038,
+    "sha256": "05aaf6faeff147d89725c82cb3cb653efd3dad53485b4c7f355c1f3f395592c3"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/probe.mat",
+    "size": 4055110,
+    "sha256": "2925853fe8a2f8c8c9ab3095d72486dbae9b4f20830cdde0ead1ee6af95c5bd3"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/raw_timeseries.csv",
+    "size": 6068092,
+    "sha256": "9db983c4b7287cf65b376bdfc597737118425ddc18073909f1545f49c2ddbe3b"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/relay_times.csv",
+    "size": 685,
+    "sha256": "be94d71872e352afa824e588e98912d09dbf50a043ea8ebeea80484bec0cda7f"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/relay_timeseries.csv",
+    "size": 199334,
+    "sha256": "cdb98bba6e24687d20f50a5b3e2c2e2d26bd5fb10adc9f27dad87e6d0f42f350"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/rms_timeseries.csv",
+    "size": 1146244,
+    "sha256": "e86cda39bc49ac56e18cf0e8b434dd52a80129c39db01d732263f28651aa1582"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/simulation_data.mat",
+    "size": 13314720,
+    "sha256": "3a6f9b9e616607b94d98dc11872bbaa8d62e419ff7c07ee661562715bb788e09"
+  },
+  {
+    "path": "Phase6/results/generator_3ph/summary_timeseries.csv",
+    "size": 181501,
+    "sha256": "a6afa19e742be1fcbff5c4dd4944ba342a50853ab651e7ef7fc7edc18d493a40"
+  },
+  {
+    "path": "Phase6/results/generator_slg/breaker_times.csv",
+    "size": 1182,
+    "sha256": "ae8c56344a327600994f5abac30b45e810a4bcd1d33e16768ce5423d0885d15b"
+  },
+  {
+    "path": "Phase6/results/generator_slg/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "91b00cc61658ccb55a3f881a46dacd956148757c46a0bad1a82943e355e18e9c"
+  },
+  {
+    "path": "Phase6/results/generator_slg/dc_statistics.csv",
+    "size": 1081,
+    "sha256": "575907eca594c09c717f273d41af2d8e85557890d885c365f25c5abd1d18ecf6"
+  },
+  {
+    "path": "Phase6/results/generator_slg/dc_timeseries.csv",
+    "size": 53317,
+    "sha256": "27c9c92a6b3a77585ee62854120bc8feb3969a494ea345ec874eb8d04147cb16"
+  },
+  {
+    "path": "Phase6/results/generator_slg/events.csv",
+    "size": 390,
+    "sha256": "ac56777e72b28e1a0babf6effb8f58e53e5a7f574d37d5a83a5b18653ba4f366"
+  },
+  {
+    "path": "Phase6/results/generator_slg/fault_summary.csv",
+    "size": 1036,
+    "sha256": "bc11ef9973318057af40850e300b161abff6b7e98c5a89926c2912772ad38c50"
+  },
+  {
+    "path": "Phase6/results/generator_slg/load_point.csv",
+    "size": 2598,
+    "sha256": "e977e1e05729608d10cd48e75a54b50f466a13eaeb1301476d7dc01c0ab6fbb9"
+  },
+  {
+    "path": "Phase6/results/generator_slg/machine_timeseries.csv",
+    "size": 929886,
+    "sha256": "7f98a164e0c3622d91b4763427fbf101a3ec1c255610739661812690cc001bdc"
+  },
+  {
+    "path": "Phase6/results/generator_slg/phase_pickup.csv",
+    "size": 2513,
+    "sha256": "1ccdfe86ebf1def45e18286a5ec8f2619cb3a6e58349a3fddae5da16d7535a6b"
+  },
+  {
+    "path": "Phase6/results/generator_slg/phasors_timeseries.csv",
+    "size": 2329625,
+    "sha256": "6d1f7c9025b647c62b5fea5adb1d427e3a21145a0743b73c54f94523c4da8bc7"
+  },
+  {
+    "path": "Phase6/results/generator_slg/probe.mat",
+    "size": 3937330,
+    "sha256": "6ca3d602ece7322e83c598c06d0b78d8d230a118cc172165532973501c7d4a50"
+  },
+  {
+    "path": "Phase6/results/generator_slg/raw_timeseries.csv",
+    "size": 6027762,
+    "sha256": "992144f00f8b42b189d5838d80b33ae126cd520d3585fd17ab9041d45020eca9"
+  },
+  {
+    "path": "Phase6/results/generator_slg/relay_times.csv",
+    "size": 639,
+    "sha256": "7a3845a1de1400d61bc00475ce2fd78a37cbe2199224c1e5c9b09011deaac447"
+  },
+  {
+    "path": "Phase6/results/generator_slg/relay_timeseries.csv",
+    "size": 190590,
+    "sha256": "5667c79c7df2e7de59633883c38783d4ff34ece25cc6bce5938fa4243c92decb"
+  },
+  {
+    "path": "Phase6/results/generator_slg/rms_timeseries.csv",
+    "size": 1141160,
+    "sha256": "ec355638b218c7b3364b0febc785004992b2d74ced7053e89828ddac5e90da29"
+  },
+  {
+    "path": "Phase6/results/generator_slg/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/generator_slg/simulation_data.mat",
+    "size": 13009639,
+    "sha256": "771664ab99adfba7ee7b667f051650bf7c456e63845d5b756d89c1ec3b550641"
+  },
+  {
+    "path": "Phase6/results/generator_slg/summary_timeseries.csv",
+    "size": 166640,
+    "sha256": "10f5ba778f6f8b29dc76efdfd583e247b16750c2060146e626f6eb159cc33de4"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/breaker_times.csv",
+    "size": 1445,
+    "sha256": "a85cf9aea37988100273b839f7a14a1720532489b7324a92d97be4a763883d5f"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/breakers_timeseries.csv",
+    "size": 47321,
+    "sha256": "1ed324bee49abf8ce068b03ff6d8d193c5dd5b25afd1b85186a854d562f48d56"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/dc_statistics.csv",
+    "size": 1108,
+    "sha256": "c172d7669c12ccc341d09ecc4119e6bd9f7fffaddeaf6cce624134fe87302e4f"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/dc_timeseries.csv",
+    "size": 214483,
+    "sha256": "c4c9afc8ea28bfd1ff26da4095e2614334be0e834ff10934c251a48369cc3c98"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/events.csv",
+    "size": 831,
+    "sha256": "7b0b83dc1d252f6a6691953d6aad1e6e77d605786be043d5068aaedc0d2e42cf"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/fault_summary.csv",
+    "size": 1036,
+    "sha256": "bc11ef9973318057af40850e300b161abff6b7e98c5a89926c2912772ad38c50"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/load_point.csv",
+    "size": 2598,
+    "sha256": "e977e1e05729608d10cd48e75a54b50f466a13eaeb1301476d7dc01c0ab6fbb9"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/machine_timeseries.csv",
+    "size": 3909374,
+    "sha256": "39cc3a359e54112733e092388c36a848a7c44eb068c96ee9bb34009ea05a90c0"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/phase_pickup.csv",
+    "size": 2513,
+    "sha256": "1ccdfe86ebf1def45e18286a5ec8f2619cb3a6e58349a3fddae5da16d7535a6b"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/phasors_timeseries.csv",
+    "size": 9951671,
+    "sha256": "2c0e6656ad6a6d0acf258fa17ae04bce1e0e94082108755788e4de21cabf46d9"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/probe.mat",
+    "size": 14070421,
+    "sha256": "ba39ecc587f28644b9b2d6e8a532e17fe01e7d2e79c304aebb0ca544986d5d88"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/raw_timeseries.csv",
+    "size": 25177741,
+    "sha256": "ad0991807989a199cbee46b5920f67ec06497ab1594c37c1d93e304a07c28b7a"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/relay_times.csv",
+    "size": 654,
+    "sha256": "c20b640e24f450af779dd63df5f6e34bb3211f6f23bbaf2a89be34917a95b1a7"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/relay_timeseries.csv",
+    "size": 831989,
+    "sha256": "5be431e35f641049e37763a9d51f62de1444cbe0a38b015a6b39d0271445bc05"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/rms_timeseries.csv",
+    "size": 4860094,
+    "sha256": "61a2cdca95d937eaf84b60c3977b84a0939e24bcfe6546aad83038f8f71f6716"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/signal_inventory.csv",
+    "size": 368,
+    "sha256": "0470efb08d8157c8fc5c16f08794ebc07fdb747934fded5b4007f3eafb143ff5"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/simulation_data.mat",
+    "size": 45871085,
+    "sha256": "28e37528f6f9be7abc1b43a274481fb57e0b1edaff26a390c614649325b9f92e"
+  },
+  {
+    "path": "Phase6/results/generator_slg_timed/summary_timeseries.csv",
+    "size": 716466,
+    "sha256": "2f52b76e611c03d91382c606def74689d0944794dade57956b5a47db53ded112"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/breaker_times.csv",
+    "size": 1182,
+    "sha256": "ae8c56344a327600994f5abac30b45e810a4bcd1d33e16768ce5423d0885d15b"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "91b00cc61658ccb55a3f881a46dacd956148757c46a0bad1a82943e355e18e9c"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/dc_statistics.csv",
+    "size": 1120,
+    "sha256": "62dfb1d61595b6ee91578f398580f5f656cf69ea84f0a75f2eef20c63bcc8868"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/dc_timeseries.csv",
+    "size": 62185,
+    "sha256": "e8104d60038380960b68129b3e345ca0ef0c26533202a2dd5bae8555da3d7299"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/events.csv",
+    "size": 527,
+    "sha256": "09fd9473f4107cb29ae6cb9bebbbddc3c74fa1992ffbb5d23b36c1ad91cab96d"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/fault_summary.csv",
+    "size": 1038,
+    "sha256": "8a79f0a5749434dde7525633ec4c1ba5c6d1da32ba47930dc238c72fe54214f6"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/load_point.csv",
+    "size": 2599,
+    "sha256": "4d41811d60fb3a08c55d8af17c43c751bd628b2b0ca57350fac976773f9aa89b"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/machine_timeseries.csv",
+    "size": 929395,
+    "sha256": "49fdb9f7e7ac7e832e830ae54a724ba50e10cd63c3ecd145e7255282f881a941"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/phase_pickup.csv",
+    "size": 2591,
+    "sha256": "d5e5813f521c20854986b220dac739725f04aaee59dccedaf8e6b19b6581110b"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/phasors_timeseries.csv",
+    "size": 2331639,
+    "sha256": "b4a7a7e97ba1d75a20b473f402713f0918b2a06733f33eee782885e83e2d9919"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/probe.mat",
+    "size": 4080982,
+    "sha256": "c4cc9877670cb315fc886f5c8fa669d58f472c4abd02f8071a291a16ec56305c"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/raw_timeseries.csv",
+    "size": 6015319,
+    "sha256": "bf4bd0c1a023bb1247d4374234f39960a8cb547b1f23c4521a6fca2c8a75b1f3"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/relay_times.csv",
+    "size": 666,
+    "sha256": "52b3fd081bd428a1c2a4836922bd5b6737d0311a6d0a10eeb1ee2a2f730c6e16"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/relay_timeseries.csv",
+    "size": 212162,
+    "sha256": "d8b3ced2c7be1e8eaeb0477101a3b94bb3923fddafb95c40dbfc966b825be619"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/rms_timeseries.csv",
+    "size": 1138443,
+    "sha256": "19740f5e8599aa30b0ea5582c65a965ee2e1fbf5b8544e2f57535bd74b0b2f49"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/simulation_data.mat",
+    "size": 13354767,
+    "sha256": "6b4a9daff94c0b1bdab50bd46fc35c84b580a1d5b21e9495f2dec8bf31a675de"
+  },
+  {
+    "path": "Phase6/results/grid_external_ll/summary_timeseries.csv",
+    "size": 174601,
+    "sha256": "70f2bd425d816a916fc8032f8ebbb3fbbdd7b371c80c6ec90b29bc72ea3f3149"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/breaker_times.csv",
+    "size": 1402,
+    "sha256": "b0b150ec4874b3430c72d8bff316cd992eb12625f8f8ceb20cb80c0e71080b9c"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/breakers_timeseries.csv",
+    "size": 9545,
+    "sha256": "0b1cf509993366b63c1f075fe5ea57657757920780f6260fe53135ece5ba8d16"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/dc_statistics.csv",
+    "size": 1139,
+    "sha256": "8be8e47d5b8bf539a064a09083cf57c72c8ec7de987bb61885a15005b4448954"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/dc_timeseries.csv",
+    "size": 55871,
+    "sha256": "30907d8b97cdeae841cd7bcf530fdce0a39145eb3531ca58388ffa81ca1b5de7"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/events.csv",
+    "size": 1080,
+    "sha256": "f9d6ecda7ae3fbf2fd824cfc29ebf3c1d0b5ce7c8cfc0cc561faccef02592887"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/fault_summary.csv",
+    "size": 1021,
+    "sha256": "330140c0e14458fc518449cb66dad84d65f10bd21058533d0188a897519e9b7a"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/load_point.csv",
+    "size": 2599,
+    "sha256": "4d41811d60fb3a08c55d8af17c43c751bd628b2b0ca57350fac976773f9aa89b"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/machine_timeseries.csv",
+    "size": 773602,
+    "sha256": "f8453a247a013d141b8280b7b87046c0d47a9f3fe81f625019e3d8b9edf0af67"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/phase_pickup.csv",
+    "size": 2626,
+    "sha256": "c65327851a70f2793f27366406a58e3d9606185d8b7b8de97f4d45b628ceabb0"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/phasors_timeseries.csv",
+    "size": 1945027,
+    "sha256": "025183dcd051a1654013b1db3d149c3591166b943a2f26236138ea6d12dc26b5"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/raw_timeseries.csv",
+    "size": 5030907,
+    "sha256": "0bbb2a7034bbe28ae987ead99720ecde9be609230fe0e6d10bf7697ca1c66a4b"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/relay_times.csv",
+    "size": 684,
+    "sha256": "d8f9ebaf7ce0c28062a9a1503eaa3247a89653bcc1f111ddab3a39d7313ea94e"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/relay_timeseries.csv",
+    "size": 165141,
+    "sha256": "521ade3cd0ba102c4502fcd1d367c0bd19cf968098c4d4488bd827eddb411e40"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/rms_timeseries.csv",
+    "size": 945330,
+    "sha256": "d8b5c0cf18324102f4a9ceea93f7ebe39f0cd19f58bf27404de39a48dc49c79e"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/scenario_metadata.json",
+    "size": 18029,
+    "sha256": "1a1fe03813d9c0f484f22fa0e4c93fecc713c3c178fed3a06884f4a14402f993"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/signal_inventory.csv",
+    "size": 361,
+    "sha256": "5e7b4b036cd8f1e25a0df629548e77fd21704b7c669ba4a8768d40c1ed1435b6"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/simulation_data.mat",
+    "size": 11432659,
+    "sha256": "be41d02ad5563c11cb9b226a5599115fe093d4a0106eca6c1c7f0b97df2d1df7"
+  },
+  {
+    "path": "Phase6/results/interactive_bus_trip/summary_timeseries.csv",
+    "size": 148440,
+    "sha256": "c93c9941fd697ff009e724b6896e40bdec7683a7d9a99422a7b96c0af7cf1c2a"
+  },
+  {
+    "path": "Phase6/results/line_slg/breaker_times.csv",
+    "size": 1430,
+    "sha256": "b0f9813393c07034cbd9e04f7c809843a606838b47684363260bd20d05d6abc9"
+  },
+  {
+    "path": "Phase6/results/line_slg/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "e4da9f45abafe0668810263e55b0c87823bda931e419da7c0bfc5070c66579b6"
+  },
+  {
+    "path": "Phase6/results/line_slg/dc_statistics.csv",
+    "size": 1100,
+    "sha256": "c3c6d4bd0db62d6007e3bc98bbb126ce02062ce5fa8000f160e2ac7ed0378a85"
+  },
+  {
+    "path": "Phase6/results/line_slg/dc_timeseries.csv",
+    "size": 57671,
+    "sha256": "dd4eee7d6996c830a91358717ae666284cd018d043bd4a6ca4f5ef0021a3928d"
+  },
+  {
+    "path": "Phase6/results/line_slg/events.csv",
+    "size": 958,
+    "sha256": "93ace4fab60304c2f0e807549e377c7703ab6ad21df2a53958d8fe2588b350f4"
+  },
+  {
+    "path": "Phase6/results/line_slg/fault_summary.csv",
+    "size": 1048,
+    "sha256": "be894ffb2f3cc3cd60ac6a8af98bdbfee64edb56524cb18e5f08a67b780f8997"
+  },
+  {
+    "path": "Phase6/results/line_slg/load_point.csv",
+    "size": 2598,
+    "sha256": "e977e1e05729608d10cd48e75a54b50f466a13eaeb1301476d7dc01c0ab6fbb9"
+  },
+  {
+    "path": "Phase6/results/line_slg/machine_timeseries.csv",
+    "size": 927003,
+    "sha256": "bf1bd4a06a95550b71463ba47a5d108df94b91b1a28e79c7203c81f8c3b2eec3"
+  },
+  {
+    "path": "Phase6/results/line_slg/phase_pickup.csv",
+    "size": 2585,
+    "sha256": "a61f26bddd3655fa303a65de03df7bb3e908ec0856e38dfbb1214c9ea5f54138"
+  },
+  {
+    "path": "Phase6/results/line_slg/phasors_timeseries.csv",
+    "size": 2365450,
+    "sha256": "fd691e95799f7941e342c0d70f00ce7702ba17c82374ee19122cadcda24cd60d"
+  },
+  {
+    "path": "Phase6/results/line_slg/probe.mat",
+    "size": 4031050,
+    "sha256": "65bae27ab2be6009fb9a4c49e4780e8993222c6e0efc1947a000674f9f7e8f92"
+  },
+  {
+    "path": "Phase6/results/line_slg/raw_timeseries.csv",
+    "size": 6076904,
+    "sha256": "f624e99a21c0dcb1e015cd5e16f2766a47849edb1ceaf3d3d9dfa17ce10c8b49"
+  },
+  {
+    "path": "Phase6/results/line_slg/relay_times.csv",
+    "size": 670,
+    "sha256": "b14ff32cb0bd57cd1af57511ed27f70cb1a2ca43ea58184311a3ffbacabd1568"
+  },
+  {
+    "path": "Phase6/results/line_slg/relay_timeseries.csv",
+    "size": 194883,
+    "sha256": "026620e4ae6148c38dc5251f5ac4bf2bda950cf8693b9ca4eb8eae30da41fc4f"
+  },
+  {
+    "path": "Phase6/results/line_slg/rms_timeseries.csv",
+    "size": 1148865,
+    "sha256": "93840a445ea6fd9a7eef9f6d889af6073efc449dfe25ab4db46c14debab55962"
+  },
+  {
+    "path": "Phase6/results/line_slg/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/line_slg/simulation_data.mat",
+    "size": 13241149,
+    "sha256": "d6a4988c4c4b7dbce99e35c6ce071f98be5948d6369d038bcdeb02ba2a0e8b19"
+  },
+  {
+    "path": "Phase6/results/line_slg/summary_timeseries.csv",
+    "size": 171941,
+    "sha256": "8669ae5d0338bc90628c49b92f2d9de20869a790583e79d9d3f156d1510423e1"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/breaker_times.csv",
+    "size": 1439,
+    "sha256": "3ce4952f50df17dd0cfadb2fc96a4c47111784aac0ec9aa2430e5f48d27638ee"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "a4cd2269ca4bcb0687cce4078382921a1784a772fc70d3b64cddd50216dea3d5"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/dc_statistics.csv",
+    "size": 1098,
+    "sha256": "ba539029aa0b6a4fd43088c58ab98d0a732312e13d36dee68715fdccdad0d235"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/dc_timeseries.csv",
+    "size": 65729,
+    "sha256": "43753bf63f62df08d686228194b0b44cb352942e264553500a32333db9145032"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/events.csv",
+    "size": 1080,
+    "sha256": "8ea075264085458576535cd50303584e71cde8955d792a5a48c2b2b9aaa6fa03"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/fault_summary.csv",
+    "size": 1017,
+    "sha256": "f105e68232e639aad7a4aa93929786c7f149516a0fc26bb171c7ae47f545a679"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/load_point.csv",
+    "size": 2592,
+    "sha256": "630d71b9938ace1f32f58d263cd6ec090dcf1214a766713340fee7cc411b0cce"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/machine_timeseries.csv",
+    "size": 929853,
+    "sha256": "f5269ff0d57220a52bc1fe5225fdeef8b5b3474792c0461f7c124c34548b84c2"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/phase_pickup.csv",
+    "size": 2626,
+    "sha256": "5396085663c411e252225b96d021f8d15fc632978bf27889f1f16d6d2066476e"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/phasors_timeseries.csv",
+    "size": 2351731,
+    "sha256": "aff639f210f1e3f1aeb2f358692cc89ed0c077e7b35e6526009506080a623661"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/raw_timeseries.csv",
+    "size": 6048344,
+    "sha256": "e0bddc39f9662116565019fbfb2a1337c0f260fa94ebd5b81efb976f39acd1eb"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/relay_times.csv",
+    "size": 686,
+    "sha256": "98c56913ac84848996d39cff75199963cd0c1cff7a3fcda6d46c0b019c588787"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/relay_timeseries.csv",
+    "size": 194506,
+    "sha256": "0f4c9c7e51f1c360fbce013f00c95a7294a410d017e1211fcae10e827565a820"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/rms_timeseries.csv",
+    "size": 1143181,
+    "sha256": "14d1c1907aa882e7a07f36aaf33071edbbb6209ff2f26045925d8f2cb75b1d30"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/scenario_metadata.json",
+    "size": 55548,
+    "sha256": "1fc5ccb7c34692385927835b54a9b6a59f830d3c0acd7f266eaf12afb9338d93"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/simulation_data.mat",
+    "size": 13759704,
+    "sha256": "5c263cfa1b54cedd5f0898779eccb5d254bfef49f53b554b2630d99004055ba0"
+  },
+  {
+    "path": "Phase6/results/manual_bus_default/summary_timeseries.csv",
+    "size": 177890,
+    "sha256": "9a13408a76a19e15976616161d85165bdc83e45b97d5352196e14ac5207a23a4"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/breaker_times.csv",
+    "size": 1427,
+    "sha256": "7d8c012ddf276d47d8e098952706842f5cc77a8c5b619e81c5f30e5775d32cc9"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "2ccf93b30d6c32f535f6cc98bf12ad26cf1664c993e66c5db68e16aaf65612e2"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/dc_statistics.csv",
+    "size": 1142,
+    "sha256": "8d0c9b3b782f704729a7f7dc7d2370a1aee80916bc4729fa5bed8df7ce8a533a"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/dc_timeseries.csv",
+    "size": 67360,
+    "sha256": "8be454b48c7595d1474c2834d00f318dee148e9ffb0966a2aa0878bffdc770fd"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/events.csv",
+    "size": 1079,
+    "sha256": "cb6e8f853cc0f52905db6be07fa8de0d26eca70b286cd725981174d5eafd7fdc"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/fault_summary.csv",
+    "size": 1017,
+    "sha256": "f105e68232e639aad7a4aa93929786c7f149516a0fc26bb171c7ae47f545a679"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/load_point.csv",
+    "size": 2592,
+    "sha256": "630d71b9938ace1f32f58d263cd6ec090dcf1214a766713340fee7cc411b0cce"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/machine_timeseries.csv",
+    "size": 928689,
+    "sha256": "f1857db519e6875ddf365ec8e640a78035bed37a04e62989747aaef1acc5114a"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/phase_pickup.csv",
+    "size": 2626,
+    "sha256": "5396085663c411e252225b96d021f8d15fc632978bf27889f1f16d6d2066476e"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/phasors_timeseries.csv",
+    "size": 2348627,
+    "sha256": "3c91985a992d56e1277f8fcb118868cf98c8d966b6d84d35e5bf8bcb0d74f53c"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/raw_timeseries.csv",
+    "size": 6041896,
+    "sha256": "4c80f8b4620a83149a4ad9a14a39e3e86e75c7020badc5e02eb2430c4b13eda8"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/relay_times.csv",
+    "size": 682,
+    "sha256": "9cb9ddad759369798800c9db4332417734785e4f555feccb56ba268c42bc9451"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/relay_timeseries.csv",
+    "size": 197343,
+    "sha256": "89e8d4ca2a366cbffe9c17061650afb5e5dd76f05ca43e62af65b3e0ecb8ddc6"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/rms_timeseries.csv",
+    "size": 1142402,
+    "sha256": "0c1ca0fbcd56b89df1b6c5971f8ea8b6000a59157b7af3ecc5b97d7844162b21"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/scenario_metadata.json",
+    "size": 55554,
+    "sha256": "42717e1f583a5476211ebcb8321ce5815b84b1601499da7e20e461e3a6432c7d"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/simulation_data.mat",
+    "size": 13766432,
+    "sha256": "06d0556358057d57c441ebd4e00f9848da82eb15f5c5ec62882b9d3abbc3d160"
+  },
+  {
+    "path": "Phase6/results/manual_bus_delay_100ms/summary_timeseries.csv",
+    "size": 178983,
+    "sha256": "c0931143948ff9885e3bd346cffc1c529d157dd6672dda1ee0086ce3a12a1b02"
+  },
+  {
+    "path": "Phase6/results/normal/breaker_times.csv",
+    "size": 1182,
+    "sha256": "ae8c56344a327600994f5abac30b45e810a4bcd1d33e16768ce5423d0885d15b"
+  },
+  {
+    "path": "Phase6/results/normal/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "91b00cc61658ccb55a3f881a46dacd956148757c46a0bad1a82943e355e18e9c"
+  },
+  {
+    "path": "Phase6/results/normal/dc_statistics.csv",
+    "size": 1081,
+    "sha256": "575907eca594c09c717f273d41af2d8e85557890d885c365f25c5abd1d18ecf6"
+  },
+  {
+    "path": "Phase6/results/normal/dc_timeseries.csv",
+    "size": 53317,
+    "sha256": "27c9c92a6b3a77585ee62854120bc8feb3969a494ea345ec874eb8d04147cb16"
+  },
+  {
+    "path": "Phase6/results/normal/events.csv",
+    "size": 110,
+    "sha256": "16d16ea532ec3382c3bb5180c9533384c12beacc45723b9afec92bd1471a6cce"
+  },
+  {
+    "path": "Phase6/results/normal/fault_summary.csv",
+    "size": 755,
+    "sha256": "113bf4d06f74b873338306972f56eba0d94f138e3eae65dbed24d3eb3af6d63a"
+  },
+  {
+    "path": "Phase6/results/normal/load_point.csv",
+    "size": 2471,
+    "sha256": "28be87267cbd551286d0c9101f438942da4e0fab411f4f7f3d7bfeea566669e9"
+  },
+  {
+    "path": "Phase6/results/normal/machine_timeseries.csv",
+    "size": 928196,
+    "sha256": "91c4c23d55ac84fb5b36f921c1ff6fb762ab26a8d898deb76a93dc404b4a67b8"
+  },
+  {
+    "path": "Phase6/results/normal/phase_pickup.csv",
+    "size": 2501,
+    "sha256": "741c7055ac79716ddda9be52c8d7cbbd8784a25ba159b9fdef9500e9fa3db04f"
+  },
+  {
+    "path": "Phase6/results/normal/phasors_timeseries.csv",
+    "size": 2333285,
+    "sha256": "1e7419137a39f2b0d9f19799f99962bfc92acc5f4e7e8c3d6c81c9fcea7f4bcd"
+  },
+  {
+    "path": "Phase6/results/normal/raw_timeseries.csv",
+    "size": 6031537,
+    "sha256": "57d6a5610a2daeb822454611ca50611b9ceb1fb7e60d1987e97d7e64be51e53d"
+  },
+  {
+    "path": "Phase6/results/normal/relay_times.csv",
+    "size": 626,
+    "sha256": "9e9f153794db0568c03249a916e7758ef223a8d93273c24b857bd544ad1360d3"
+  },
+  {
+    "path": "Phase6/results/normal/relay_timeseries.csv",
+    "size": 187602,
+    "sha256": "c912fdbb65423482bfa404b52198b8e2a6d360686839413b473c89122c703c7b"
+  },
+  {
+    "path": "Phase6/results/normal/rms_timeseries.csv",
+    "size": 1142394,
+    "sha256": "e90130852ab5dedca7882a0de92300e7cfb69af396214fcc24e69a5db58f8e1f"
+  },
+  {
+    "path": "Phase6/results/normal/scenario_metadata.json",
+    "size": 17984,
+    "sha256": "539dbc7c1e19e90510e866e22862dc1deb8c6658194a090946f0f145b6d1fec8"
+  },
+  {
+    "path": "Phase6/results/normal/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/normal/simulation_data.mat",
+    "size": 12360227,
+    "sha256": "3e31df84fe361fd19a325b5f7ea75c65573ad71ec1c563e9b925646b8aeac5de"
+  },
+  {
+    "path": "Phase6/results/normal/summary_timeseries.csv",
+    "size": 166883,
+    "sha256": "3b2248e1595a2907ad4bf27e84e54925aaa8630e3d4bc5881725eec21cb021e2"
+  },
+  {
+    "path": "Phase6/results/operating_point_comparison.csv",
+    "size": 2138,
+    "sha256": "b820e1e76caba52195a7a375702fb0de091b531450fcd5e8cb39c0fe22d84950"
+  },
+  {
+    "path": "Phase6/results/phase6_parameter_register.csv",
+    "size": 243056,
+    "sha256": "9aa120633d540ee8ec1b3b6f519773000dfd7eb014158ed4d13fd8985c91e899"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/breaker_times.csv",
+    "size": 1182,
+    "sha256": "ae8c56344a327600994f5abac30b45e810a4bcd1d33e16768ce5423d0885d15b"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/breakers_timeseries.csv",
+    "size": 7656,
+    "sha256": "16c80c3eb5dacf86e6161a87e32acc94ce74b100f4582bb80e9919c85936d4aa"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/dc_statistics.csv",
+    "size": 1125,
+    "sha256": "f4b41facc4dd7744a2ee630a8442b80f54ed5363ae3abfebd401fef188a53175"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/dc_timeseries.csv",
+    "size": 44761,
+    "sha256": "ecf3ee5ff9661b9353ec2d26f6b6b34f74d828830fb99a730de87cb57d814221"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/events.csv",
+    "size": 408,
+    "sha256": "e73b395e16dd24d6b92208696575cec260d4226beb44b146c45aa6f48c0f5e4f"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/fault_summary.csv",
+    "size": 1021,
+    "sha256": "330140c0e14458fc518449cb66dad84d65f10bd21058533d0188a897519e9b7a"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/load_point.csv",
+    "size": 2599,
+    "sha256": "4d41811d60fb3a08c55d8af17c43c751bd628b2b0ca57350fac976773f9aa89b"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/machine_timeseries.csv",
+    "size": 620465,
+    "sha256": "a56a0c8347c4cb015c46234c833c9f45fb1cbac29e800c2339efed1ef08913a9"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/phase_pickup.csv",
+    "size": 3082,
+    "sha256": "18b85f00a80a00e7c39dafd97badf4367a0bf83ddcd108039276aa4cf176dee5"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/phasors_timeseries.csv",
+    "size": 1533097,
+    "sha256": "fd60659419a83acc44998ee93d4b4c8506a9f5281b65979d652a310ff50c27de"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/probe.mat",
+    "size": 2942551,
+    "sha256": "eebc3ae493d1ba7feaf9b0d79a1797ae637baab7e1eb3285e857debebfc8a8c5"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/raw_timeseries.csv",
+    "size": 4015533,
+    "sha256": "dd84dc37f94123e6abac66d9b34a1ef8270769f4f403ea0159d05f21c8674b38"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/relay_times.csv",
+    "size": 654,
+    "sha256": "741d1bbf3156136d3fa89c1c4600b1a902635dcce0cc7b7ff4db83adc4bf9b4d"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/relay_timeseries.csv",
+    "size": 136208,
+    "sha256": "9042d96674c7937e7e740e7c8524f92091069998f6d5191230194e35ad4e35c0"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/rms_timeseries.csv",
+    "size": 749423,
+    "sha256": "dfc605706d4f777fab42d003a2ec6cf699609edcd7cd366b6717ec1fe74eec76"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/signal_inventory.csv",
+    "size": 360,
+    "sha256": "15b904aa39cb1ee1a4e13a83e7f2d93a779db75077bc6d61858fa31d00772180"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/simulation_data.mat",
+    "size": 9466913,
+    "sha256": "decc43724d9fe7966c3ae232c63cf5827feb8d6d6d56d808e9ccda8c5ec76786"
+  },
+  {
+    "path": "Phase6/results/protection_disabled/summary_timeseries.csv",
+    "size": 116361,
+    "sha256": "0b8d5537f34de6dade9a6a80c8072e61e45a10ed86f90271514fc09722f43f9e"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/breaker_times.csv",
+    "size": 1182,
+    "sha256": "ae8c56344a327600994f5abac30b45e810a4bcd1d33e16768ce5423d0885d15b"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/breakers_timeseries.csv",
+    "size": 7656,
+    "sha256": "16c80c3eb5dacf86e6161a87e32acc94ce74b100f4582bb80e9919c85936d4aa"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/dc_statistics.csv",
+    "size": 1079,
+    "sha256": "3a3259a53ae52e8e14f17539c2f3f90bced327810a37752d46adaab433ae959b"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/dc_timeseries.csv",
+    "size": 37339,
+    "sha256": "bec8c3868f373191cdcbd3bfa851c5c88d16b5bc59beda9e8d5e48f2ded99cfe"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/events.csv",
+    "size": 110,
+    "sha256": "16d16ea532ec3382c3bb5180c9533384c12beacc45723b9afec92bd1471a6cce"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/fault_summary.csv",
+    "size": 755,
+    "sha256": "b24ce62312332c97a11625dbc4e0ca5571b28e0331a926634e7ce2aa62513189"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/load_point.csv",
+    "size": 2467,
+    "sha256": "daf6852b94d3f48840ff5c3d0eb1f7369d0a6827d395680adc4b78806ceb4311"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/machine_timeseries.csv",
+    "size": 620329,
+    "sha256": "b7f39d431020999deeae467c09db01287422000ed30ac306489c37750daf51fb"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL.slx",
+    "size": 2177030,
+    "sha256": "f6854fc093999036cf629b3c68574460fdf9370eeca9694fb007b63e83cbed18"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/phase_pickup.csv",
+    "size": 2501,
+    "sha256": "741c7055ac79716ddda9be52c8d7cbbd8784a25ba159b9fdef9500e9fa3db04f"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/phasors_timeseries.csv",
+    "size": 1536480,
+    "sha256": "2d4cdbd19b820322c147e79f886dda9d7ac3841b5dbc176e265874fdf1329ee7"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/probe.mat",
+    "size": 2727799,
+    "sha256": "c0b9b71b09da6b858305920793a078eb37a5049166d43f5361bdc3ea01350de5"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/raw_timeseries.csv",
+    "size": 4024369,
+    "sha256": "95b91c57100379d2a8b5f1521fa017c5162228b8109b8926eac917b209dbcd1f"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/relay_times.csv",
+    "size": 626,
+    "sha256": "9e9f153794db0568c03249a916e7758ef223a8d93273c24b857bd544ad1360d3"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/relay_timeseries.csv",
+    "size": 120321,
+    "sha256": "4783ac89ece31b69d7d3f1dd61d999a574a82e758d93e112647dda13bb791d51"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/rms_timeseries.csv",
+    "size": 751282,
+    "sha256": "1615000949562d793ce0f504cd6c1ba27782fd2aa4315c223da8b535b9b31569"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/scenario_metadata.json",
+    "size": 17997,
+    "sha256": "6b239dfbc576757194bf5f7fe2a62854f59b113cbf2d610bb385f76f17195ec9"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/signal_inventory.csv",
+    "size": 360,
+    "sha256": "15b904aa39cb1ee1a4e13a83e7f2d93a779db75077bc6d61858fa31d00772180"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/simulation_data.mat",
+    "size": 8817333,
+    "sha256": "3833b28c94c376551e893269af89f6b22cc6195723e3d576360f876ede2f1606"
+  },
+  {
+    "path": "Phase6/results/reduced_180MW/summary_timeseries.csv",
+    "size": 111424,
+    "sha256": "e9046b5276db97f2a0b5f594a3330daafc0b6ebf78ed6c4536e0e8ab3ccbe80c"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/breaker_times.csv",
+    "size": 1419,
+    "sha256": "7b514b25268ef296d5d85723c0addc307172ec350751dd18548c51ef9550c4a6"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "a4cd2269ca4bcb0687cce4078382921a1784a772fc70d3b64cddd50216dea3d5"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/closed_loop_trip_meta.json",
+    "size": 11316,
+    "sha256": "b61436318043ae22bbd0f56076dab3c2684cfc10a553d5f6a9575855aaeb8252"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/closed_loop_trip_params.csv",
+    "size": 296,
+    "sha256": "4716e178725f0d7c03f90f8fd989aa5a5e8b995c75b3ccb37cfcaf99103ecf9d"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/dc_statistics.csv",
+    "size": 1097,
+    "sha256": "6d124d1eb198adbc4dd6d54cb47f431ca8626a74c3947a319b7cf5988f26b498"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/dc_timeseries.csv",
+    "size": 65826,
+    "sha256": "526a8f9d59c6fd2fb24601056646b8146f1331c1cdb64f7d3713f4a56e64686e"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/disabled_regression.mat",
+    "size": 19282753,
+    "sha256": "9c961371f598cbc416822837aab193f52062416dcdc61eb31e761b121605c760"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/events.csv",
+    "size": 1080,
+    "sha256": "54092753b6563b56e4dedb12b4b85cad2d98593cdb8a0e1ca3f5490668969830"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/fault_summary.csv",
+    "size": 1021,
+    "sha256": "330140c0e14458fc518449cb66dad84d65f10bd21058533d0188a897519e9b7a"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/load_point.csv",
+    "size": 2599,
+    "sha256": "4d41811d60fb3a08c55d8af17c43c751bd628b2b0ca57350fac976773f9aa89b"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/machine_timeseries.csv",
+    "size": 929951,
+    "sha256": "d5f498a93e53ec4395a494cac8c1fcfd9f329dd7551fdb3fed5f3c6f46ebac34"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/normal_regression.mat",
+    "size": 18610930,
+    "sha256": "fc129daf2be560e472aafb497e14cb8e84ceb67ad5a5a8ad332784bedce2cc96"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/phase_pickup.csv",
+    "size": 2626,
+    "sha256": "c65327851a70f2793f27366406a58e3d9606185d8b7b8de97f4d45b628ceabb0"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/phasors_timeseries.csv",
+    "size": 2352077,
+    "sha256": "03c5a08e0b6dd8c8b3968f6660509eb3f0f45364c41cc3aa4989b039f31b6e2d"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/raw_timeseries.csv",
+    "size": 6052290,
+    "sha256": "13e73b7ac62dd826f8f3dfc84d4c709a172022792b507a8abfa46192ae089087"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/relay_times.csv",
+    "size": 686,
+    "sha256": "767756ac4be0860cb43ac3c94a26689261128ff654c24563115dafb215480169"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/relay_timeseries.csv",
+    "size": 195242,
+    "sha256": "adbf9839927a64606861394a9ec3024f0745926e42f59aa10250cee4a018df1b"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/rms_timeseries.csv",
+    "size": 1143779,
+    "sha256": "260c7892b4a0747d09d3bae86b4584c6dff0c94194845f00ced90ad353475031"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/scenario_metadata.json",
+    "size": 28115,
+    "sha256": "8f8ca1f10bde43afa07a085207b7af4108ca790569a8bb2aa242cd2eabc772ba"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/simulation_data.mat",
+    "size": 13453827,
+    "sha256": "778a80b52191a9ff80b9e5ead16c0e70c1de2fdfc3492e4c5d1ac27d65947697"
+  },
+  {
+    "path": "Phase6/results/regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35/summary_timeseries.csv",
+    "size": 178271,
+    "sha256": "2f6331b28b93e5f62d7d92fd8613a0febad7fa0633f303d00917e525560612a7"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/breaker_times.csv",
+    "size": 1439,
+    "sha256": "3ce4952f50df17dd0cfadb2fc96a4c47111784aac0ec9aa2430e5f48d27638ee"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "a4cd2269ca4bcb0687cce4078382921a1784a772fc70d3b64cddd50216dea3d5"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/closed_loop_trip_meta.json",
+    "size": 11339,
+    "sha256": "5d4ae29c4e093e63d87e42486da4cf14c1d4a1c57be6f97d1259ee3276623313"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/closed_loop_trip_params.csv",
+    "size": 439,
+    "sha256": "5899cda3600a6c25d4b4dab187866142d11c7f0e33b4e460b3caabf04feee7a9"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/dc_statistics.csv",
+    "size": 1098,
+    "sha256": "ba539029aa0b6a4fd43088c58ab98d0a732312e13d36dee68715fdccdad0d235"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/dc_timeseries.csv",
+    "size": 65729,
+    "sha256": "43753bf63f62df08d686228194b0b44cb352942e264553500a32333db9145032"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/disabled_regression.mat",
+    "size": 19310502,
+    "sha256": "f2c6cbbe741869f3c6320e0c0b0e27dba6caaddf38470c66e69be89f723cb480"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/events.csv",
+    "size": 1080,
+    "sha256": "8ea075264085458576535cd50303584e71cde8955d792a5a48c2b2b9aaa6fa03"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/fault_summary.csv",
+    "size": 1017,
+    "sha256": "f105e68232e639aad7a4aa93929786c7f149516a0fc26bb171c7ae47f545a679"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/load_point.csv",
+    "size": 2592,
+    "sha256": "630d71b9938ace1f32f58d263cd6ec090dcf1214a766713340fee7cc411b0cce"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/machine_timeseries.csv",
+    "size": 929853,
+    "sha256": "f5269ff0d57220a52bc1fe5225fdeef8b5b3474792c0461f7c124c34548b84c2"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/normal_regression.mat",
+    "size": 18822203,
+    "sha256": "ff77ca13174c85efe9fccc084cb1a1672a2432394d10d420a1a7e3c02ec38115"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/phase_pickup.csv",
+    "size": 2626,
+    "sha256": "5396085663c411e252225b96d021f8d15fc632978bf27889f1f16d6d2066476e"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/phasors_timeseries.csv",
+    "size": 2351731,
+    "sha256": "aff639f210f1e3f1aeb2f358692cc89ed0c077e7b35e6526009506080a623661"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/raw_timeseries.csv",
+    "size": 6048344,
+    "sha256": "e0bddc39f9662116565019fbfb2a1337c0f260fa94ebd5b81efb976f39acd1eb"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/relay_times.csv",
+    "size": 686,
+    "sha256": "98c56913ac84848996d39cff75199963cd0c1cff7a3fcda6d46c0b019c588787"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/relay_timeseries.csv",
+    "size": 194506,
+    "sha256": "0f4c9c7e51f1c360fbce013f00c95a7294a410d017e1211fcae10e827565a820"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/rms_timeseries.csv",
+    "size": 1143181,
+    "sha256": "14d1c1907aa882e7a07f36aaf33071edbbb6209ff2f26045925d8f2cb75b1d30"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/scenario_metadata.json",
+    "size": 55577,
+    "sha256": "757d63aea3b850c7ede8b121f72f39d262f5f3db46f9df42edd62144781b0a59"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/simulation_data.mat",
+    "size": 13759760,
+    "sha256": "72613c69fadad5cbacb433340e2599459467e5567167b64955d967f3ed3b19e2"
+  },
+  {
+    "path": "Phase6/results/regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75/summary_timeseries.csv",
+    "size": 177890,
+    "sha256": "9a13408a76a19e15976616161d85165bdc83e45b97d5352196e14ac5207a23a4"
+  },
+  {
+    "path": "Phase6/results/regression_233a16cf-ef7a-4286-a9d4-e55ff0aa9b10/closed_loop_trip_meta.json",
+    "size": 1392,
+    "sha256": "b4393f7b43ae6287403c9667413137bb225526cdd65c6fae5df01988f8cf15fc"
+  },
+  {
+    "path": "Phase6/results/regression_233a16cf-ef7a-4286-a9d4-e55ff0aa9b10/closed_loop_trip_params.csv",
+    "size": 695,
+    "sha256": "108ba15fc36f36906b0442c821c9144b0e1f0ce317da117d8ef4fd793a75e8af"
+  },
+  {
+    "path": "Phase6/results/reset_normal/breaker_times.csv",
+    "size": 1182,
+    "sha256": "ae8c56344a327600994f5abac30b45e810a4bcd1d33e16768ce5423d0885d15b"
+  },
+  {
+    "path": "Phase6/results/reset_normal/breakers_timeseries.csv",
+    "size": 7656,
+    "sha256": "16c80c3eb5dacf86e6161a87e32acc94ce74b100f4582bb80e9919c85936d4aa"
+  },
+  {
+    "path": "Phase6/results/reset_normal/dc_statistics.csv",
+    "size": 1079,
+    "sha256": "3a3259a53ae52e8e14f17539c2f3f90bced327810a37752d46adaab433ae959b"
+  },
+  {
+    "path": "Phase6/results/reset_normal/dc_timeseries.csv",
+    "size": 37339,
+    "sha256": "bec8c3868f373191cdcbd3bfa851c5c88d16b5bc59beda9e8d5e48f2ded99cfe"
+  },
+  {
+    "path": "Phase6/results/reset_normal/events.csv",
+    "size": 110,
+    "sha256": "16d16ea532ec3382c3bb5180c9533384c12beacc45723b9afec92bd1471a6cce"
+  },
+  {
+    "path": "Phase6/results/reset_normal/fault_summary.csv",
+    "size": 755,
+    "sha256": "b277e2fed525afad1b364f2946f031d680c26f2ec4f0bda19c4473227aa1ddd4"
+  },
+  {
+    "path": "Phase6/results/reset_normal/load_point.csv",
+    "size": 2464,
+    "sha256": "c15c485241c0fcd27e4b3d0c0b18217170226041bd01add88fd183081834a9ee"
+  },
+  {
+    "path": "Phase6/results/reset_normal/machine_timeseries.csv",
+    "size": 620313,
+    "sha256": "929291f265eee5a3af9425d102c3d35677a488dee1c85e173e68ba6bd7a16382"
+  },
+  {
+    "path": "Phase6/results/reset_normal/phase_pickup.csv",
+    "size": 2501,
+    "sha256": "741c7055ac79716ddda9be52c8d7cbbd8784a25ba159b9fdef9500e9fa3db04f"
+  },
+  {
+    "path": "Phase6/results/reset_normal/phasors_timeseries.csv",
+    "size": 1534509,
+    "sha256": "2c5759e65bbf29c59dfe37b86dcbe94d4aa30679ffedab0463ec0aa9d3ed6165"
+  },
+  {
+    "path": "Phase6/results/reset_normal/probe.mat",
+    "size": 2754768,
+    "sha256": "17b630a8c0b14708a48b925c320d09cb56d928d78ef8fd21160440940bf07feb"
+  },
+  {
+    "path": "Phase6/results/reset_normal/raw_timeseries.csv",
+    "size": 4022047,
+    "sha256": "a66aabc9672e922e042e717ee4b61931a6a9e00d0cff4b17b78a13e75425b831"
+  },
+  {
+    "path": "Phase6/results/reset_normal/relay_times.csv",
+    "size": 626,
+    "sha256": "9e9f153794db0568c03249a916e7758ef223a8d93273c24b857bd544ad1360d3"
+  },
+  {
+    "path": "Phase6/results/reset_normal/relay_timeseries.csv",
+    "size": 124056,
+    "sha256": "38dea1f5bf5f1b6b05dada548740fda21d2150d530ef957cd3791eb6a3fec2aa"
+  },
+  {
+    "path": "Phase6/results/reset_normal/rms_timeseries.csv",
+    "size": 751538,
+    "sha256": "caee9cea5e2e8ce2973e3d6f34da840f27d39f18f19fd468fa2720a51f497ff9"
+  },
+  {
+    "path": "Phase6/results/reset_normal/signal_inventory.csv",
+    "size": 360,
+    "sha256": "15b904aa39cb1ee1a4e13a83e7f2d93a779db75077bc6d61858fa31d00772180"
+  },
+  {
+    "path": "Phase6/results/reset_normal/simulation_data.mat",
+    "size": 8899788,
+    "sha256": "78f5918728e51dd0f8e6f5ad8d533a848ba313b13bf35e4dd8e4a11a278e0626"
+  },
+  {
+    "path": "Phase6/results/reset_normal/summary_timeseries.csv",
+    "size": 111397,
+    "sha256": "d816142f9a1e5329c8b9bcd799ccaec9bbe3d827c7ddaeaa750820a95f18058c"
+  },
+  {
+    "path": "Phase6/results/scenario_validation.csv",
+    "size": 1324,
+    "sha256": "b1faa409fcd95307b30244b45d5ce0e113eb81a3b3a72e085e73b93e268a469f"
+  },
+  {
+    "path": "Phase6/results/scenario_validation.mat",
+    "size": 939,
+    "sha256": "c4fdab514bc5161a4d52083b99c5ad78a617262f65b6c368100145d6a0cae17a"
+  },
+  {
+    "path": "Phase6/results/setting_consistency.csv",
+    "size": 762,
+    "sha256": "e22c1949b734b2dd45412b573bd389aa7d329de63c290f136aea1478ba0e05aa"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/breaker_times.csv",
+    "size": 1458,
+    "sha256": "2206fa6b283a4b5f1c48dd61c826e4b208f7853e3cdcb32f731c00314781351e"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "24c60899cc4df26674d026de994fe09f4547b0e5800c4d875aef724d06592d62"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/dc_statistics.csv",
+    "size": 1106,
+    "sha256": "9f231c103779499a9f655c4032c58adefd9d2d46bfad22782788d79591913a7a"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/dc_timeseries.csv",
+    "size": 58984,
+    "sha256": "eeea7fafedd77a8e66ea2ab2b47d71a26e15c6cf090797737e0a0d9a4e0cc957"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/events.csv",
+    "size": 1067,
+    "sha256": "65fc023402e6d2a0d47ba9541e9e2337832d83cf39762cd1b045d703fd40fba8"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/fault_summary.csv",
+    "size": 1034,
+    "sha256": "5a9a89348d95e8bec511fcb60fca02b4558c776876e2d9f8a0492aaae90f5738"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/load_point.csv",
+    "size": 2598,
+    "sha256": "e977e1e05729608d10cd48e75a54b50f466a13eaeb1301476d7dc01c0ab6fbb9"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/machine_timeseries.csv",
+    "size": 951206,
+    "sha256": "85408f452143a4c440fc112e750009918e768bba8d7c7c179adcc13816420042"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/phase_pickup.csv",
+    "size": 2618,
+    "sha256": "952a347799c40d0b156ea4b87c9d5920c1aed245bd7fdeddb7e678a203edbdf1"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/phasors_timeseries.csv",
+    "size": 2377593,
+    "sha256": "966d6b8dfea30cb37b52f6a352e12c42be0498a4d697dc2f053760fc6f3bbeec"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/probe.mat",
+    "size": 4065921,
+    "sha256": "7ddc36a5fca398f6d22e0b0840a422365b6a71f89193b16dc2e87d66cc1df167"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/raw_timeseries.csv",
+    "size": 6075015,
+    "sha256": "fa9845a764193c55259950cdd7cef92963e860000ff902a8450544b5a70e9d81"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/relay_times.csv",
+    "size": 672,
+    "sha256": "e127da98a711de67b02c998b2dc0adcc6e5ee12dec11708fd29b57c81a1909dc"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/relay_timeseries.csv",
+    "size": 197613,
+    "sha256": "bc4b8ffcbadcc3754941917a48c43c7545ae2226e08bd88e16be8f99dc131210"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/rms_timeseries.csv",
+    "size": 1147476,
+    "sha256": "f20d4192239d1493f34898cf29d9452ff47a85f86a93fbea2cf7099d28698cc6"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/simulation_data.mat",
+    "size": 13321481,
+    "sha256": "5d6ef399a71e96470907f24c0feea61e1d74aaf8ca6313f53b18dcb17af0bbc6"
+  },
+  {
+    "path": "Phase6/results/transformer_hv_llg/summary_timeseries.csv",
+    "size": 183933,
+    "sha256": "4bb9ef0554fd882effdbb98338e1330c3b3857d35f7c247d50be6a94a0a50808"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/breaker_times.csv",
+    "size": 1442,
+    "sha256": "3045c468d441d36ec28ae3c06d2f43ee97d1f390b4f80a326f535cd7f7db44af"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "a97eb6c62f4cead2f4ec46081f346133197067e736641674289643482411b13a"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/dc_statistics.csv",
+    "size": 1107,
+    "sha256": "c41625d53b43eb0064e89871bdc4fccae26be1247bea7b1cfe0b46ee1ec070e8"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/dc_timeseries.csv",
+    "size": 58973,
+    "sha256": "6d26ec16cf3e50ffff7dff14b868515ef5af1b90625bc6ed9e39b56520dd245b"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/events.csv",
+    "size": 1067,
+    "sha256": "d011b3b6c43d56d8b01599e210cd68448a729905f0a610d7e734997c9d9cd3ea"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/fault_summary.csv",
+    "size": 1034,
+    "sha256": "43c1c95ea7a72c3df8cb21f4435abdb55a02217ab6d990c66ea23e9c14ecc366"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/load_point.csv",
+    "size": 2599,
+    "sha256": "4d41811d60fb3a08c55d8af17c43c751bd628b2b0ca57350fac976773f9aa89b"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/machine_timeseries.csv",
+    "size": 952138,
+    "sha256": "e24e54c2ce8c0db0c7af638b6614619ccf67770282864baf001ad9c2f73e2120"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/phase_pickup.csv",
+    "size": 2618,
+    "sha256": "7d363f4ccc00e160a8971fac140592ed92582799bcee2a23b222b84c78b7141e"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/phasors_timeseries.csv",
+    "size": 2363932,
+    "sha256": "b6425cccd83f52e7180a766d3c5981a812733cd40b971393fc00c46802d62b2c"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/probe.mat",
+    "size": 4039829,
+    "sha256": "ce446224a601a1e45b95ed82fed5527d2ccebb0f6ecd18337a1ee9e2ac2703a6"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/raw_timeseries.csv",
+    "size": 6067637,
+    "sha256": "3bd685cd8224ff0049e590c1d7c784658d88a8e4f98b322b4ee9a745cbbafdaf"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/relay_times.csv",
+    "size": 686,
+    "sha256": "0ab9ec832941c9ac87a476ad2355b89756da38e69b32980789d7658a523ce5bf"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/relay_timeseries.csv",
+    "size": 198030,
+    "sha256": "ff6d8fec06b828eca0c64c0b5a53d8c891a119db2086c5eefdd4781fb47c83ef"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/rms_timeseries.csv",
+    "size": 1146258,
+    "sha256": "851628eaa5e532a4f6b646b997877f3e80862976408526b268b36207e0a20a59"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/simulation_data.mat",
+    "size": 13261013,
+    "sha256": "9953d7d124bd3f8897ea2c98e1c30a88cd61cb4583f4240bd623c2ab1ad5a961"
+  },
+  {
+    "path": "Phase6/results/transformer_lv_ll/summary_timeseries.csv",
+    "size": 183407,
+    "sha256": "ce35c3bab30d3d09973e662bb67003dc62e8ebdfc40f1887f944d3e73daac3d1"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/breaker_times.csv",
+    "size": 1440,
+    "sha256": "18534a08316f50988120a2666c38ac2cc9057072de452217a30a3b75be5a7f39"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "24c60899cc4df26674d026de994fe09f4547b0e5800c4d875aef724d06592d62"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/dc_statistics.csv",
+    "size": 1108,
+    "sha256": "97625874a9c46081f1b800e1d0e6c841ad257d2c1c60204d82274c3d6a8ab476"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/dc_timeseries.csv",
+    "size": 59050,
+    "sha256": "67ef07e69b1226c3995c4da17cc5a68229dfd26bf4f438bd35bad458900e3c05"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/events.csv",
+    "size": 1058,
+    "sha256": "d357d9591c542dd54fc942656b3a41346fcefc5c33c00acd5e4df007a3023a71"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/fault_summary.csv",
+    "size": 1013,
+    "sha256": "865b6df7f661ef4488d631a57a5b275b636e54699655b54f3b4b5d0523fa9ad9"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/load_point.csv",
+    "size": 2592,
+    "sha256": "630d71b9938ace1f32f58d263cd6ec090dcf1214a766713340fee7cc411b0cce"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/machine_timeseries.csv",
+    "size": 952440,
+    "sha256": "7e810848cd5abe33868240a4e795ce18d8a2bef6da997f7b59e2c899d084c223"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/phase_pickup.csv",
+    "size": 2666,
+    "sha256": "2d54d0cf4d212f02aeb172399cbfd2dcbc8e68f8be50aae4ab41831187fa7ca5"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/phasors_timeseries.csv",
+    "size": 2357066,
+    "sha256": "113002cea0651e52f8d3c0560df39f7760ef9f42433b401781f500feb1f0882c"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/raw_timeseries.csv",
+    "size": 6065318,
+    "sha256": "ad43abb5bc11d9f2c846af26239fc328ee92369b5bf9118826ffedb747902059"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/relay_times.csv",
+    "size": 686,
+    "sha256": "17171899eb66af9d32ec6d223fc9f1355c6762e40f9b9c049ae22ed0915ffb87"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/relay_timeseries.csv",
+    "size": 198647,
+    "sha256": "5482cc9b3b137426809f2979eb89b4b9f927d8404955d6da77e0dae849fe5129"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/rms_timeseries.csv",
+    "size": 1145730,
+    "sha256": "824782c16df4f8f6c6cdd36d55b43a41b84ec895f92b40a237d33eafe9b1d815"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/scenario_metadata.json",
+    "size": 55526,
+    "sha256": "1f3500a75b9188cfd88f3e083fdf0ce742e6f570f921536c9b277e97ae4176db"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/simulation_data.mat",
+    "size": 13742770,
+    "sha256": "d4d118e2a4552a8485512cc95f96285ca0c5567ff9bd01fa1fb4254115b6d7b5"
+  },
+  {
+    "path": "Phase6/results/v4_gen_3ph/summary_timeseries.csv",
+    "size": 181715,
+    "sha256": "9df8865d0448e4aaf6a7dfc06e62c0d6b8ad7a91d9a2514674dee94037f926a2"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/breaker_times.csv",
+    "size": 1429,
+    "sha256": "e04eb92c0b11800d07f99d0d66409c46e80fa2048b89331748a011451f1b0955"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "24c60899cc4df26674d026de994fe09f4547b0e5800c4d875aef724d06592d62"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/dc_statistics.csv",
+    "size": 1107,
+    "sha256": "7cfea6e6106da5f39b46202d0b64b95c30ad0c3c404e5f63777fababfc15f51f"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/dc_timeseries.csv",
+    "size": 59012,
+    "sha256": "b6584f2b40434882ef3fe0033c97f30e5e698db499367195186e9774aecbb704"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/events.csv",
+    "size": 1067,
+    "sha256": "2ef053a43c53507ae60311a0de3e7e57c03b375a5186abb44bd32f6850d0caed"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/fault_summary.csv",
+    "size": 1022,
+    "sha256": "67cbe617ec9683e182502f6c4d4aeeb5768f3519c13f39b74f2bdec97e03f29d"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/load_point.csv",
+    "size": 2592,
+    "sha256": "630d71b9938ace1f32f58d263cd6ec090dcf1214a766713340fee7cc411b0cce"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/machine_timeseries.csv",
+    "size": 952001,
+    "sha256": "388a77be5d4e69c856a04b24050690156dcf1a9b07ddc70ede90e8749b5d24d3"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/phase_pickup.csv",
+    "size": 2630,
+    "sha256": "02a5c8c2f1a9227f18590adbabd768db14ee475926bd4a163c8bb58ace09a813"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/phasors_timeseries.csv",
+    "size": 2379397,
+    "sha256": "148f6c96f4e6113d73b59f028b12d8600c9e830a5e7e6b880ae16d8587c70c1f"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/raw_timeseries.csv",
+    "size": 6071092,
+    "sha256": "8231035549cb820d35d8c70ffc72b8a0a7a88c32239f071a14b6037e26f81e42"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/relay_times.csv",
+    "size": 672,
+    "sha256": "81d4064c73c01bf5f20c735c195a01a5c7c35250f26f04c4597519b1ec777d6c"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/relay_timeseries.csv",
+    "size": 197636,
+    "sha256": "dbb59d38cea232547f0d0601054ae6d7be918c6f4887c25e317a510d5af44d59"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/rms_timeseries.csv",
+    "size": 1146453,
+    "sha256": "735b60f490c5105cf459582c8597c09c4af06dee696cd2d0733b02b9a1214ea3"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/scenario_metadata.json",
+    "size": 55541,
+    "sha256": "33f5cc2bfd0bb0d648513105148a82ae3765ff869b39395b04c99ca82bfd6f0d"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/simulation_data.mat",
+    "size": 13729599,
+    "sha256": "3eaa1eb2da3e298f1f5132b9dd3f79e4eb50a9de32b91b87c55dc90c676cf41c"
+  },
+  {
+    "path": "Phase6/results/v4_gsut_hv_3ph/summary_timeseries.csv",
+    "size": 184137,
+    "sha256": "a2f7d1d41d56e8f0b1dcd43a09bb57ad4df685030703b8664ae6055c561980ef"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/breaker_times.csv",
+    "size": 1455,
+    "sha256": "e0fdc98b0a43732334f6ab73a9f5a6241a7b8b981785dd7169e298d3bd2d888c"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/breakers_timeseries.csv",
+    "size": 11434,
+    "sha256": "55929bc8339ff1cd64e51af11ce4604b0ae76e388aac7ec37556c83bd38c9ecc"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/dc_statistics.csv",
+    "size": 1098,
+    "sha256": "9a423007ddcd0a0fe3404d0fdc1e8c6523ca14cff10f610a69c0a0e0918d7fcd"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/dc_timeseries.csv",
+    "size": 65721,
+    "sha256": "b2944bf84469d450dc9c0a6ba962d8f61046c09ca35e3ae070164201280e6604"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/events.csv",
+    "size": 1090,
+    "sha256": "8b27c7fbb245b196180a2eecc041e9eb6c5ecd9793ab25f0a4401b8c79c983a7"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/fault_summary.csv",
+    "size": 1027,
+    "sha256": "3cc1622e2aa159f2a9851bca971a889a8d4ff540b03e13056e5ea633fde74b5c"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/load_point.csv",
+    "size": 2592,
+    "sha256": "630d71b9938ace1f32f58d263cd6ec090dcf1214a766713340fee7cc411b0cce"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/machine_timeseries.csv",
+    "size": 929671,
+    "sha256": "573eda829f88e07938137aae58ce4e59ed8c33090d1d639d6226c464e9b71bd8"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/phase_pickup.csv",
+    "size": 2626,
+    "sha256": "6ab2bba7eda3f325bdcee75abce31b570a39391ae1419ce775855874626e43c1"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/phasors_timeseries.csv",
+    "size": 2361536,
+    "sha256": "fda2c0ace80f5e02bf87b28a46f76d21e9f284f70c1d531a696d175850385b24"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/raw_timeseries.csv",
+    "size": 6062582,
+    "sha256": "d5da040a4c2dc461d6db37b0bae791b130d4bbc1a1dc749f47bf6ea03a6040b4"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/relay_times.csv",
+    "size": 684,
+    "sha256": "f3d8b3313f67d15514237902c44016a0888e9a5f1d3b41830553cb05717418ae"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/relay_timeseries.csv",
+    "size": 195090,
+    "sha256": "a52d327e676f7584cd385191118a9e0881661bf2603724a1c5db56564ed62756"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/rms_timeseries.csv",
+    "size": 1145214,
+    "sha256": "882d6630e53bff2cff476ff19c5aca8f4dc92efab16bb4ec49b0f3e4f673e671"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/scenario_metadata.json",
+    "size": 55543,
+    "sha256": "477e767aa7dda8eb2d415cdb90efff9879689bc1a12e2702ecc5042a84d0377a"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/signal_inventory.csv",
+    "size": 361,
+    "sha256": "45bca72dc56350bc6d0784a86b2e03b1d50310d9d982e49b9f983ce6a3aede7e"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/simulation_data.mat",
+    "size": 13680420,
+    "sha256": "fafa2ca634d53f02a50f1d1a95ef3e8da61ec1b72b207d6b49a866988b68ee51"
+  },
+  {
+    "path": "Phase6/results/v4_line230_3ph/summary_timeseries.csv",
+    "size": 178761,
+    "sha256": "1733d5f400f65f7b10e0eaebe464e60c3b38a02e0835ad4c28ce4ded03a8f0cc"
+  },
+  {
+    "path": "Phase6/results/v4_normal/breaker_times.csv",
+    "size": 1182,
+    "sha256": "ae8c56344a327600994f5abac30b45e810a4bcd1d33e16768ce5423d0885d15b"
+  },
+  {
+    "path": "Phase6/results/v4_normal/breakers_timeseries.csv",
+    "size": 37876,
+    "sha256": "10aabccaebdb89aa05e06f5aef7ab2dcbf1545153fb22c1b5fc322caa52716bf"
+  },
+  {
+    "path": "Phase6/results/v4_normal/dc_statistics.csv",
+    "size": 1083,
+    "sha256": "da0cfae8047ea304b0d91a6b8f7d81747f0b786800d1d65b09d2d3f277642a49"
+  },
+  {
+    "path": "Phase6/results/v4_normal/dc_timeseries.csv",
+    "size": 165159,
+    "sha256": "48ba81b8e6fd0579be035da762dd8ebc0fdcc0c5ebd9d0cd95a72fb5556dcecf"
+  },
+  {
+    "path": "Phase6/results/v4_normal/events.csv",
+    "size": 110,
+    "sha256": "16d16ea532ec3382c3bb5180c9533384c12beacc45723b9afec92bd1471a6cce"
+  },
+  {
+    "path": "Phase6/results/v4_normal/fault_summary.csv",
+    "size": 749,
+    "sha256": "eaccd556a3d3a2548b775913fe4d58c9f80b79513db1eab20ed73a3185d4c98b"
+  },
+  {
+    "path": "Phase6/results/v4_normal/load_point.csv",
+    "size": 2425,
+    "sha256": "9340b7000a0f5e0c3145e9d14c75943cbdb118b977113889a04c4d919cfd854c"
+  },
+  {
+    "path": "Phase6/results/v4_normal/machine_timeseries.csv",
+    "size": 3104084,
+    "sha256": "0d3ba2b4d78c4908fb7b70fdbafd029f92eef710dcf83e960c3d2d94521b4b25"
+  },
+  {
+    "path": "Phase6/results/v4_normal/phase_pickup.csv",
+    "size": 2501,
+    "sha256": "741c7055ac79716ddda9be52c8d7cbbd8784a25ba159b9fdef9500e9fa3db04f"
+  },
+  {
+    "path": "Phase6/results/v4_normal/phasors_timeseries.csv",
+    "size": 7922545,
+    "sha256": "730fdbe2b343a02245b0bbf00decbc4aa0b64d8975b6cce239eee872b864eced"
+  },
+  {
+    "path": "Phase6/results/v4_normal/raw_timeseries.csv",
+    "size": 20094915,
+    "sha256": "d7a9b7dba1ffab6669df2f2cbeccf3f3dbc113c0dd4876b6d61a7bd25366b8eb"
+  },
+  {
+    "path": "Phase6/results/v4_normal/relay_times.csv",
+    "size": 626,
+    "sha256": "9e9f153794db0568c03249a916e7758ef223a8d93273c24b857bd544ad1360d3"
+  },
+  {
+    "path": "Phase6/results/v4_normal/relay_timeseries.csv",
+    "size": 630177,
+    "sha256": "70658982d3e47385eeeceed1a3e0cda82c2bc2173e47afec99830e2403222571"
+  },
+  {
+    "path": "Phase6/results/v4_normal/rms_timeseries.csv",
+    "size": 3879230,
+    "sha256": "4c378a4757c32752bbe1e151b54cd22400f48c8feb3288b01bb64c5e99a8b515"
+  },
+  {
+    "path": "Phase6/results/v4_normal/scenario_metadata.json",
+    "size": 55501,
+    "sha256": "afca69fe9d78f389227412f4036d1150f6a7860cafc987f945c4e33b398f940d"
+  },
+  {
+    "path": "Phase6/results/v4_normal/signal_inventory.csv",
+    "size": 352,
+    "sha256": "c7b92ca04368bf491d0b9ea7d89649d58b380dd9deb7cfce5dd666f3770c7662"
+  },
+  {
+    "path": "Phase6/results/v4_normal/simulation_data.mat",
+    "size": 35765771,
+    "sha256": "126e4be9fa3852b7f526d7c428990e59344d2345e16744bb0bc7dbf05e1f36d5"
+  },
+  {
+    "path": "Phase6/results/v4_normal/summary_timeseries.csv",
+    "size": 556153,
+    "sha256": "c5b176c1873b7951b873a95cb1d8be675a51196cf1fc9367680dda338388157d"
+  },
+  {
+    "path": "Phase6/scripts/build_phase6_model.m",
+    "size": 5377,
+    "sha256": "cc920bdb91ff72e8b0d11181bb896dddfadc1ddbb6e1a1fe9eb4dbdd8e07c847"
+  },
+  {
+    "path": "Phase6/scripts/export_phase6_results.m",
+    "size": 10187,
+    "sha256": "ff89f6c36422f58c5bcc7e1cd398732b7515cdb5a73731311144fd8dc41ab454"
+  },
+  {
+    "path": "Phase6/scripts/init_phase6_parameters.m",
+    "size": 12849,
+    "sha256": "9f590768d4db6a9d7b92705d218a6b3b3a533a215555a5c1d1057bb01a70c256"
+  },
+  {
+    "path": "Phase6/scripts/phase6_add_controls.m",
+    "size": 10249,
+    "sha256": "8f0b3729c0c3cf53c7daa7d19fb172043b180abdff60824a0315e5bdfd1dce8b"
+  },
+  {
+    "path": "Phase6/scripts/phase6_add_network.m",
+    "size": 16371,
+    "sha256": "917bd2b406d544874ad5401d29f05be16a7f5923410be55da3318979062a5401"
+  },
+  {
+    "path": "Phase6/scripts/phase6_assert_complete_run.m",
+    "size": 1049,
+    "sha256": "bd9964536e0803709155982832901238f88ef96cce8fcb1d63de8060c28a5cd0"
+  },
+  {
+    "path": "Phase6/scripts/phase6_breaker_sfun.m",
+    "size": 1270,
+    "sha256": "756e2735953fff69f6996adb710cf70d885143169259bf63645c4cbaa9f50241"
+  },
+  {
+    "path": "Phase6/scripts/phase6_breaker_step.m",
+    "size": 865,
+    "sha256": "b95f7c9f27ce66cd0647f6b941e42f678be0a9573036712bd04249923611a569"
+  },
+  {
+    "path": "Phase6/scripts/phase6_color_wires.m",
+    "size": 4704,
+    "sha256": "9639a65929d1707f2c7e1639bb55682ad8aa533d2a7897dfdd0986df2d0dbc82",
+    "note": "Re-baselined 2026-09-25: workspace file predates this task (mtime 17:50, display-style script, electrically inert); old hash 30dab93c... retained in BASELINE_SUPERSESSION.txt"
+  },
+  {
+    "path": "Phase6/scripts/phase6_compare_reference.m",
+    "size": 4554,
+    "sha256": "60cfd9c24608be9636690b1fa4df5d8b0d95351357dadf9dbe853d024933506c"
+  },
+  {
+    "path": "Phase6/scripts/phase6_control_parameters.m",
+    "size": 901,
+    "sha256": "78ed1b36e2fe3ef0c8e102cfe7a243b46427516b3cd462ed46222fc0288cec55"
+  },
+  {
+    "path": "Phase6/scripts/phase6_control_sfun.m",
+    "size": 1173,
+    "sha256": "753c65d1990ea13a36a416b3ef02a90486b2c4fec82c41e93bdfe396f6c22a70"
+  },
+  {
+    "path": "Phase6/scripts/phase6_control_step.m",
+    "size": 570,
+    "sha256": "efd47b70931f164256ef4b80b27182ae2a34b74015f32f431a10ae5755db2a21"
+  },
+  {
+    "path": "Phase6/scripts/phase6_dc_parameters.m",
+    "size": 2820,
+    "sha256": "a666031ddbf242e320ee09ed1df191cb14f934ed3e70517da41d7d8fc6f50379"
+  },
+  {
+    "path": "Phase6/scripts/phase6_dc_sfun.m",
+    "size": 3090,
+    "sha256": "3f3a55e3607a93257e509ffae02b960647b817a24dcf003e93f486fd72dd3a92"
+  },
+  {
+    "path": "Phase6/scripts/phase6_dc_step.m",
+    "size": 7122,
+    "sha256": "b3bb145f4ffd5e05868d2adf9b3a7bd002319906f403dc177697a9eda5a6beb2"
+  },
+  {
+    "path": "Phase6/scripts/phase6_electrical_profile.m",
+    "size": 3536,
+    "sha256": "c641457d9923bd3b2bcce0d369c2b38383c9a5da96947c27e040ef4d47c6ba7d"
+  },
+  {
+    "path": "Phase6/scripts/phase6_interactive_settings.m",
+    "size": 15424,
+    "sha256": "f26f1052503e384aff2921c6a54dd77a5e8e9bb8c311df24fbdd00aeb680aa05"
+  },
+  {
+    "path": "Phase6/scripts/phase6_measurement_sfun.m",
+    "size": 2760,
+    "sha256": "9e5be1dc1757be401e10ac9c927c175db71e2905682738b50ccbec93a50c92c4"
+  },
+  {
+    "path": "Phase6/scripts/phase6_measurement_step.m",
+    "size": 2225,
+    "sha256": "0c85cfda72d9629d5d7d2f4ebe76cab955a2ee00a907f32fd8ea8be32ffaf02e"
+  },
+  {
+    "path": "Phase6/scripts/phase6_monitor_sfun.m",
+    "size": 1011,
+    "sha256": "1d20d65615e4181bd9d592081525cb82365dbae8e588f608242846e5c6e76d06"
+  },
+  {
+    "path": "Phase6/scripts/phase6_normalize_scenario.m",
+    "size": 3837,
+    "sha256": "c0ecebc9359f07be5d20fc206699e2fc77d2576f70d83ff43c540e40f2e14f9c"
+  },
+  {
+    "path": "Phase6/scripts/phase6_presentation_busbars.m",
+    "size": 10673,
+    "sha256": "3b14e2ceb16bf43406b38bff86d943a6b11a280dfec3976d3671a0ddbbd694f6"
+  },
+  {
+    "path": "Phase6/scripts/phase6_relay_parameters.m",
+    "size": 5480,
+    "sha256": "493899b090349fecda0f4c8af943e278abf6ecb9a56eb10ccd17b855b6241054"
+  },
+  {
+    "path": "Phase6/scripts/phase6_relay_sfun.m",
+    "size": 2969,
+    "sha256": "33d95a0c9a0d713c9dc56ab45df19b7ffcd6d57d4b5e8541baae0d3e60a76e1c"
+  },
+  {
+    "path": "Phase6/scripts/phase6_relay_step.m",
+    "size": 4551,
+    "sha256": "19f4515a08ce5a5b62fca9579588edb111c2bacb2538b9607abeec3e9de96983"
+  },
+  {
+    "path": "Phase6/scripts/phase6_result_tables.m",
+    "size": 19378,
+    "sha256": "0332eb5e41655751e26e195cb30f6459fe2aee00753ef902091d9e85f8d9e82f"
+  },
+  {
+    "path": "Phase6/scripts/phase6_write_parameter_register.m",
+    "size": 1650,
+    "sha256": "1731d66fd76214ef17af9d3ac938cd1bb5b8172f846c5b5dc3dc864a3b5d5a41"
+  },
+  {
+    "path": "Phase6/scripts/setup_phase6_workspace.m",
+    "size": 755,
+    "sha256": "739c1d78463a898bec50b3badbf140ff325043c9e32df4c29fe80fadde0aafb9"
+  },
+  {
+    "path": "Phase6/scripts/style_phase6_model.m",
+    "size": 15249,
+    "sha256": "5f712e0ae4baaa7755903e9c2ab0169ab71bd5f8c339693ee1f8eac348eab128"
+  },
+  {
+    "path": "Phase6/scripts/tests/phase6_session_worker.m",
+    "size": 1397,
+    "sha256": "f66cfc64586c44b06650f2f08947bcaa963458c277765fa50dd5f785fe411854"
+  },
+  {
+    "path": "Phase6/scripts/tests/test_phase6_actuators.m",
+    "size": 1285,
+    "sha256": "4970bacb4e8e2da3d295202925cf52ccb34f656143a881dd6429028f3b43ad3e"
+  },
+  {
+    "path": "Phase6/scripts/tests/test_phase6_build.m",
+    "size": 954,
+    "sha256": "09e79c2b0c644c074f55848a5f51681c4c58f67b50b38e52a84fca78b20d7070"
+  },
+  {
+    "path": "Phase6/scripts/tests/test_phase6_dc.m",
+    "size": 5796,
+    "sha256": "ab03f95890e76e5265ce3ff6f0f64499e024e1ab2c6c2ebef5bfab5e4544ae93"
+  },
+  {
+    "path": "Phase6/scripts/tests/test_phase6_dc_recovery.m",
+    "size": 1935,
+    "sha256": "aeb1e0c100d1921be82b28de2a125b3e8b9dc071488a9f23782b6ac83f6655df"
+  },
+  {
+    "path": "Phase6/scripts/tests/test_phase6_input_and_evidence.m",
+    "size": 3617,
+    "sha256": "8cfcb475bfaf34cd9084249564321f613a89944954b8d108a265435d12d739bb"
+  },
+  {
+    "path": "Phase6/scripts/tests/test_phase6_measurement.m",
+    "size": 7150,
+    "sha256": "5a0f89540026470ae3baf8c57aea2d81d74c54b38c943808f6ecb724e783d0b3"
+  },
+  {
+    "path": "Phase6/scripts/tests/test_phase6_panel_refresh.m",
+    "size": 3013,
+    "sha256": "428b7452b146f3c2d088ead1601f241cac979fdd037f2adf17a29a8cc54c0bfa"
+  },
+  {
+    "path": "Phase6/scripts/tests/test_phase6_parameters.m",
+    "size": 4991,
+    "sha256": "457c7d691b7665254c3307b153148aa8151eab1cc933efcdbef22844f8548989"
+  },
+  {
+    "path": "Phase6/scripts/tests/test_phase6_protection_sfunctions.m",
+    "size": 3898,
+    "sha256": "f43851fef8739493393be15a39fae2ee3d796f2cfbb40804005f6bce3d19fb1c"
+  },
+  {
+    "path": "Phase6/scripts/tests/test_phase6_relays.m",
+    "size": 8170,
+    "sha256": "47ad116ef0b299225c47a2a89533c5e7e76a875f625f245ab1ae11b97391cc89"
+  },
+  {
+    "path": "results/load_flow/bus_results.csv",
+    "size": 11160,
+    "sha256": "0965c1ad94c93b00968e07e6043553a354080d2cc7d2f7cc6fa24512496b74c4"
+  },
+  {
+    "path": "results/load_flow/generator_results.csv",
+    "size": 1085,
+    "sha256": "55f417d5e5f649d7d1e77e137a467ba0a6ad4e2c670b69f88f9f66aaaffe97ed"
+  },
+  {
+    "path": "results/load_flow/line_results.csv",
+    "size": 2970,
+    "sha256": "be1792541d9634071a8ac283a8deeacd87d5a12184caba88fdb32ec160aaabd5"
+  },
+  {
+    "path": "results/load_flow/residuals.csv",
+    "size": 3041,
+    "sha256": "b4887330b601121cf740977b262fa952c29d6bb292b6e385d5147f4a868d82b9"
+  },
+  {
+    "path": "results/load_flow/system_summary.csv",
+    "size": 1655,
+    "sha256": "65aa888415935048659f9c92ef7c9edf0331a11fc7a9937fafed3619de211d91"
+  },
+  {
+    "path": "results/load_flow/transformer_results.csv",
+    "size": 4274,
+    "sha256": "a6297bc95f5601a3a486ed4c6a9b3d21387e6859f4d70f137abc1189df05cb25"
+  },
+  {
+    "path": "results/phase2_loadflow/phase2_bus_results.csv",
+    "size": 1166,
+    "sha256": "2486facfee197ca9afe195c881b8bdf7ae8ca19ca63816613513632d353a55fd"
+  },
+  {
+    "path": "results/phase2_loadflow/phase2_capability_check.csv",
+    "size": 446,
+    "sha256": "e8755eef70ae160ed697089fe9991c794c68d612e9e5c366b87ec993c5b413ee"
+  },
+  {
+    "path": "results/phase2_loadflow/phase2_loadflow_results.mat",
+    "size": 4983,
+    "sha256": "29ea7ff3a8dc32498e96694ccf2fb77853fc77d330fefe839d167778d5a9530a"
+  },
+  {
+    "path": "results/phase2_loadflow/phase2_power_balance.csv",
+    "size": 431,
+    "sha256": "e79a00939f9d00b66acbd0b64f19096d5ad353c4b6ae2ef116abaa9a833d3f8b"
+  },
+  {
+    "path": "results/phase2_loadflow/phase2_system_summary.csv",
+    "size": 793,
+    "sha256": "2ea3e59b1356499c1c18a38dabfc431787c7b8a50548fefcd3283dbecf12c171"
+  },
+  {
+    "path": "results/phase3_loadflow/phase3_bus_results.csv",
+    "size": 3899,
+    "sha256": "aae044f8e697b02fb3a3059e611f15e9e650a0b47942947ba44360f8568b2e60"
+  },
+  {
+    "path": "results/phase3_loadflow/phase3_loadflow_results.mat",
+    "size": 13908,
+    "sha256": "762d466d0c2137e67724e7e379f2c3029fb22de338235acf11e87a7077aabedd"
+  },
+  {
+    "path": "results/phase3_loadflow/phase3_system_summary.csv",
+    "size": 2529,
+    "sha256": "00788d9479a7ab71418477f5efb4ba2ed7264f9cb31bf4305b934618d8ff0e40"
+  },
+  {
+    "path": "results/phase4_fault/production/analytic_bounds.csv",
+    "size": 5235,
+    "sha256": "0f731aeea9dc0cd91d4db70a070d435381dfae1cceaf161c87063e01372861ac"
+  },
+  {
+    "path": "results/phase4_fault/production/manifest.json",
+    "size": 7379,
+    "sha256": "fb71e83201977af1923ff0833f1ccec6c8e9ce73c4cc2a9102fbf5df9e56ad77"
+  },
+  {
+    "path": "results/phase4_fault/production/phase4_bands.csv",
+    "size": 4014,
+    "sha256": "ba05554aa23782a88ddd1f87a520a0388a101384b9c63e727a6e70a8fa7b2d48"
+  },
+  {
+    "path": "results/phase4_fault/production/phase4_contributions.csv",
+    "size": 89984,
+    "sha256": "710e98c59b04973520f2db90ee30ccc04199242c6e2d7883b35104c5b3160417"
+  },
+  {
+    "path": "results/phase4_fault/production/phase4_ct_data.csv",
+    "size": 408245,
+    "sha256": "4527892eb23913f58ec3ee6d46d995264b2f8109f6c8b47cbf63032b2eed3720"
+  },
+  {
+    "path": "results/phase4_fault/production/phase4_fault_currents.csv",
+    "size": 126374,
+    "sha256": "c08a49cbcf410137ef9b8bdfe509068ac274391d0ecd7fd2022d15dc7b261629"
+  },
+  {
+    "path": "results/phase4_fault/smoke_run/phase4_bands.csv",
+    "size": 470,
+    "sha256": "6d1b038e80f2f632437fbfb4229f80f985f93f25fc64965b8e2eefbc301ce691"
+  },
+  {
+    "path": "results/phase4_fault/smoke_run/phase4_contributions.csv",
+    "size": 1087,
+    "sha256": "971f3ab4ba830d8c92c921aff24a86faf9a685abf32ffaaf4c252cc5536ba9e5"
+  },
+  {
+    "path": "results/phase4_fault/smoke_run/phase4_ct_data.csv",
+    "size": 4133,
+    "sha256": "ab3d2701937eb5dd38f28c16d2530ab4450b1aed21803cc15d8c3cca12ea7349"
+  },
+  {
+    "path": "results/phase4_fault/smoke_run/phase4_fault_currents.csv",
+    "size": 1202,
+    "sha256": "591cd190eadf31e5720f9e4143f8be6a1e6af3c0e1bd14cef9550b133cffbf21"
+  },
+  {
+    "path": "results/phase4_fault/t14_f4check/phase4_bands.csv",
+    "size": 235,
+    "sha256": "a5fd71846429404d1123c91add1a29700e596ed20586d92bad9a75579c6c133e"
+  },
+  {
+    "path": "results/phase4_fault/t14_f4check/phase4_contributions.csv",
+    "size": 730,
+    "sha256": "8c346566e8455e924c99bb7c7d9f65d68d2db87913ec2545b4b7a4ff577a1348"
+  },
+  {
+    "path": "results/phase4_fault/t14_f4check/phase4_ct_data.csv",
+    "size": 2135,
+    "sha256": "eaa6a79cbabaf1949584e703874c5d880f1c6018db7176d4289ed5c2b1003f3f"
+  },
+  {
+    "path": "results/phase4_fault/t14_f4check/phase4_fault_currents.csv",
+    "size": 409,
+    "sha256": "6a3a67f000ee0ab6528055f534b7233bb3c963680ab633b19f1f94bebf5b628f"
+  },
+  {
+    "path": "results/phase4_fault/t14_incheck/phase4_bands.csv",
+    "size": 239,
+    "sha256": "eaae93433bdb27a9ff15b06d3b81675d3db86f734e116707d5f54e86f9bfcf77"
+  },
+  {
+    "path": "results/phase4_fault/t14_incheck/phase4_contributions.csv",
+    "size": 793,
+    "sha256": "65ab83bc74b3d5863baa0baca5a4e49a831d226ce2e9c1ba6e3660483b9ed9e4"
+  },
+  {
+    "path": "results/phase4_fault/t14_incheck/phase4_ct_data.csv",
+    "size": 2111,
+    "sha256": "03a7d81e6680237ccacc4d9ce5a30dae7335308daa87f60fdde2e5946f524f8e"
+  },
+  {
+    "path": "results/phase4_fault/t14_incheck/phase4_fault_currents.csv",
+    "size": 437,
+    "sha256": "9c0cbdebcde3e0bffe21c46b91bc1936f63c9380aa76abc0c34f6809e82fc611"
+  },
+  {
+    "path": "results/phase4_fault/t14_smoke/phase4_bands.csv",
+    "size": 358,
+    "sha256": "75b93e485e0bcae286a83a26869c951d079735541081bff431da37fecf7cc865"
+  },
+  {
+    "path": "results/phase4_fault/t14_smoke/phase4_contributions.csv",
+    "size": 1846,
+    "sha256": "7ccd7c7be38332c145cc133c589215b88720d87fe47ff6f9c22693ad37ea564a"
+  },
+  {
+    "path": "results/phase4_fault/t14_smoke/phase4_ct_data.csv",
+    "size": 8131,
+    "sha256": "f11222a5a180f68cbb33f4f9e231e2f073dc40749b070f231aa6404d8b3f34c0"
+  },
+  {
+    "path": "results/phase4_fault/t14_smoke/phase4_fault_currents.csv",
+    "size": 1078,
+    "sha256": "6ba8531a87ddc872b0f3f99bedc308f8a6fe84b19dca871548376db47c5acd6a"
+  },
+  {
+    "path": "results/phase4_fault/t14_stages/phase4_bands.csv",
+    "size": 88,
+    "sha256": "6d47dcfa42f6fb7aef58926effd4abde761bab34f820f30cd66b3e4347293751"
+  },
+  {
+    "path": "results/phase4_fault/t14_stages/phase4_contributions.csv",
+    "size": 2295,
+    "sha256": "6115513e34f9345a08b7328b8f6d6d9a0e666842e94d18598002887a34a04025"
+  },
+  {
+    "path": "results/phase4_fault/t14_stages/phase4_ct_data.csv",
+    "size": 8160,
+    "sha256": "28e286fba72a7f397f694c952e7b9a6cb58bde76a142ff08b5a101e68fb0fada"
+  },
+  {
+    "path": "results/phase4_fault/t14_stages/phase4_fault_currents.csv",
+    "size": 1495,
+    "sha256": "1aa2a21cbd059e04eb8015cce507ad59de3da56d8a4e2634d41045c9bcc030df"
+  },
+  {
+    "path": "results/phase4_fault/v27probe/phase4_bands.csv",
+    "size": 374,
+    "sha256": "3a2b5acebf07b64d4482a2f774fdd202591ebff103f05cdd698a5ca11a494e82"
+  },
+  {
+    "path": "results/phase4_fault/v27probe/phase4_contributions.csv",
+    "size": 1129,
+    "sha256": "1be091d09008315929fa2be7efda1dcda8f21436b945665a451e82252cf7ecb1"
+  },
+  {
+    "path": "results/phase4_fault/v27probe/phase4_ct_data.csv",
+    "size": 4140,
+    "sha256": "5d0d77265c65d5eea8217174118c1868fd81652ba3ca80581838d497ca264d1b"
+  },
+  {
+    "path": "results/phase4_fault/v27probe/phase4_fault_currents.csv",
+    "size": 679,
+    "sha256": "8f82bf4571885b86afe07b349f49c002e7e788674cf25d5e9c866583e9acb394"
+  },
+  {
+    "path": "results/phase5_protection/manifest.json",
+    "size": 6346,
+    "sha256": "232df23f8df5d52397b5f943f079871ce17adc4c99e8d76141e69b8128c5c517"
+  },
+  {
+    "path": "results/phase5_protection/phase5_breaker_duty.csv",
+    "size": 28118,
+    "sha256": "5e759f270fd0078989e242fc7d339eee3872cc93c6a852d8039d5a08a26d2127"
+  },
+  {
+    "path": "results/phase5_protection/phase5_coordination_margins.csv",
+    "size": 48608,
+    "sha256": "9f6f6db9ec48b3c050e16765c465c9057180293faa56264aa40b9ceefceb66b4"
+  },
+  {
+    "path": "results/phase5_protection/phase5_coordination_matrix.csv",
+    "size": 57661,
+    "sha256": "162bf0849049d47a7c1c6d301b9c8cc5a560e82e083addf34fb6e2b0195f8041"
+  },
+  {
+    "path": "results/phase5_protection/phase5_device_registry.csv",
+    "size": 1811,
+    "sha256": "9fd4ba3429b72e11046f89a21a4dffb96276afe79c1e3cd2e6cca5cb6254a431"
+  },
+  {
+    "path": "results/phase5_protection/phase5_fault_inputs.csv",
+    "size": 4570,
+    "sha256": "74864f0176e14e298ca2320d219350d05daa88bcb3c038302883931661a0bce4"
+  },
+  {
+    "path": "results/phase5_protection/phase5_relay_currents.csv",
+    "size": 25068,
+    "sha256": "aeea941d2b686f3b854328f2d49a0de9f2fe202557b8cdad96c5370bc7592d67"
+  },
+  {
+    "path": "results/phase5_protection/phase5_relay_settings.csv",
+    "size": 2937,
+    "sha256": "e16775c6088614743d2b72b0b8ff21f343cdaa63f5264299ca2d42816622d5df"
+  },
+  {
+    "path": "results/phase5_protection/phase5_sensitivity.csv",
+    "size": 42224,
+    "sha256": "23381ff7033ef29464e47f96520e1973eeefbf11b6e25c393d110578d2330a64"
+  },
+  {
+    "path": "results/phase5_protection/phase5_validation.csv",
+    "size": 2836,
+    "sha256": "8a8a0d2ceb5745df37a37870a48744b28d755cca3a809ee2f75641565565d00b"
+  },
+  {
+    "path": "results/phase5_protection_v2/manifest.json",
+    "size": 25666,
+    "sha256": "07420dd6ece0fb49a8727cf5039651197837cd2227121fcc377772aaa2c9e898"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5_breaker_duty.csv",
+    "size": 91797,
+    "sha256": "682167012e8df37adc382e36516958ea1f6825b7dff966191fbec72de1f6e8c8"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5_coordination_margins.csv",
+    "size": 48869,
+    "sha256": "064ac937f4a120858a2f06f34f1d77c6002e6972535f049b029fbe3c4b8caf60"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5_coordination_matrix.csv",
+    "size": 59767,
+    "sha256": "81364739cb76e1102f5bfd6132923978f3bef488c86d19e63ba579bca3a63f6b"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5_device_registry.csv",
+    "size": 20554,
+    "sha256": "e3df30a1a0473916b79355c210f74c250b8e9f0ef96643a36481ed281b628ab5"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5_fault_inputs.csv",
+    "size": 15726,
+    "sha256": "4e74fbdc6c1d072dcc841481caa8001b678f68b02b41c21b3a857096c1d1e6d1"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5_parameter_values.csv",
+    "size": 79969,
+    "sha256": "efd337b8f3af1535f65e890ddd19e036976f6f8478a5f2c11281dbb75ff5b3ca"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5_relay_currents.csv",
+    "size": 46412,
+    "sha256": "55a9a8e7ba57e8b16de240315a475b35a282145b608d5eda1ffbfdf299dce56f"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5_relay_settings.csv",
+    "size": 3770,
+    "sha256": "bee8cd45ac640c388b54264171fe8ad6c7861370032a0ab6606cfd396f4c7bbc"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5_sensitivity.csv",
+    "size": 657689,
+    "sha256": "9b60ae27d77454603deb1f7ed76df9a4667ef2b58b6b629e5a9e457378550df2"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5_trip_logic.csv",
+    "size": 15418,
+    "sha256": "85a503a1c381199a749c26e8adfdad735bb3f7a96d9b735bde6ef82a38f9ec44"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5_validation.csv",
+    "size": 1635,
+    "sha256": "16810a7d3287c1aa4409e4fcb7977f707a52fa6361fc28d6dcb8e89a559adcb1"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5b_effectiveness.csv",
+    "size": 63151,
+    "sha256": "fe74680e2e5a35db7ca959f9a9f93233728178ae477adfc754f28fd422c0bd58"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5c_fault_enriched.csv",
+    "size": 42514,
+    "sha256": "a8abd72acc0605ed3d9e79c0091a4fb1c8415a05314a2214ace7df66a74bb56b"
+  },
+  {
+    "path": "results/phase5_protection_v2/phase5c_sliding_F4.csv",
+    "size": 145,
+    "sha256": "e7172fc06e93b69dd3cc269740e121df0ba031386011a55f58c4885ad48f9401"
+  },
+  {
+    "path": "results/phase5_protection_v2/plots/tcc_metadata.json",
+    "size": 2379,
+    "sha256": "657a38f251e15b97faf1e97980b16b1d9cc3718fbaee776b9936feb337a995ff"
+  },
+  {
+    "path": "results/phase5_protection_v2/q0_breaker_duty_matrix.csv",
+    "size": 491,
+    "sha256": "edb31f612dc5800fe2c4949ec7bf4200a202d61ccdf0e64ea3c9d522824b0d48"
+  },
+  {
+    "path": "results/phase6/closed_loop_trip_meta.json",
+    "size": 1259,
+    "sha256": "2a8350f96202e8a897ce05f304df42afd44847007ebf6e2af629e7db0bc80344"
+  },
+  {
+    "path": "results/phase6/closed_loop_trip_params.csv",
+    "size": 695,
+    "sha256": "108ba15fc36f36906b0442c821c9144b0e1f0ce317da117d8ef4fd793a75e8af"
+  },
+  {
+    "path": "results/phase6/dynamic_trip_times.csv",
+    "size": 671,
+    "sha256": "8be3d6d67f1c65e8324a8bb058777641e12548056ecd194afd60b541254aaaa0"
+  },
+  {
+    "path": "simulink/main/Ashuganj_South_Main.slx",
+    "size": 150912,
+    "sha256": "a36ba4cd54ad3e125885d016d433370eccad6407f2a426701a905174e3f61f89"
+  }
+]

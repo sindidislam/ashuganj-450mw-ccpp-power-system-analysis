@@ -1,0 +1,263 @@
+TASK 2 FIX1 - R1/R2/R3 ONLY
+
+Scope: two runtime validation edits, seven focused system cases, and report handoff corrections.
+Base: current pre-fix byte-preserved snapshots in docs/validation/rev31_phase2/.task-2-fix1-before/ (nested original paths), saved before any edit. Not Git HEAD or the original new-file package.
+The MATLAB tests were unchanged from RED to GREEN. Complete default structures match the saved pre-fix defaults.mat.
+Only assumption/system tests ran. No broad hashes, source-PDF reads, subagents, other tasks, LF or dynamic tests. No final Phase2 acceptance claim.
+The original task-2-review-package.txt remains a four-file pre-fix fallback; no report/catalog/harness/logs are embedded there.
+This fix package contains three unified text diffs, literal RED/GREEN commands and labeled log excerpts only. Full logs are separate, not embedded. Diffs use LF-normalized text with two context lines.
+
+DIFF SUMMARY
+matlab/data/ashuganj_phase2_systems.m: +16/-5
+matlab/tests/test_phase2_systems.m: +76/-1
+docs/validation/rev31_phase2/task-2-report.md: +29/-8
+
+ACTUAL EVIDENCE (SELECTED LOG LINES, NOT FULL LOGS)
+
+--- task-2-fix1-counterexamples.log ---
+TASK2 FIX1 PRE-FIX 17-Sep-2026 06:21:54 MATLAB 24.1.0.2537033 (R2024a)
+R1 accepted: raw=LEGACY status=PRIMARY_VERIFIED source_status=PRIMARY_VERIFIED
+R2 accepted: peak=18.400 kW rated=20.000 kW float_capacity=20.419 kW cutoff_capacity=17.325 kW cutoff_current=175.238095 A charger_limit=165.000 A battery_limit=200.000 A
+TASK2 FIX1 BOTH COUNTEREXAMPLES REPRODUCED; DEFAULTS SAVED
+
+--- task-2-fix1-red.log ---
+TASK2 FIX1 RED 17-Sep-2026 06:24:10 MATLAB 24.1.0.2537033 (R2024a)
+  => test_engineering_assumptions: 9 passed, 0 failed
+  FAIL  recognized_primary_status_mapping: MATLAB:assertion:failed Assertion failed.
+  FAIL  reject_nonprimary_frequency_status: test_phase2_systems:ExpectedError Expected ashuganj_phase2_systems:InvalidGenerator
+  FAIL  reject_nonprimary_component_status: test_phase2_systems:ExpectedError Expected ashuganj_phase2_systems:InvalidGenerator
+  FAIL  reject_nonprimary_qualified_source: test_phase2_systems:ExpectedError Expected ashuganj_phase2_systems:InvalidGenerator
+  FAIL  reject_charger_cutoff_shortfall: test_phase2_systems:ExpectedError Expected ashuganj_phase2_systems:InconsistentConfiguration
+  => test_phase2_systems: 19 passed, 5 FAILED
+TASK2 FIX1 RED COUNTS assumptions=9/0 systems=19/5 total=28/5
+
+--- task-2-fix1-green.log ---
+TASK2 FIX1 GREEN 17-Sep-2026 06:25:14 MATLAB 24.1.0.2537033 (R2024a)
+  => test_engineering_assumptions: 9 passed, 0 failed
+  => test_phase2_systems: 24 passed, 0 failed
+TASK2 FIX1 GREEN COUNTS assumptions=9/0 systems=24/0 total=33/0
+DEFAULT_ASSUMPTIONS_AND_SYSTEMS_EXACTLY_UNCHANGED
+TESTS_UNCHANGED_SINCE_RED
+TASK2 FIX1 GREEN VERIFIED 33 passed 0 failed
+
+Actual process exits: reproduction=0, RED=1 (expected test failures), GREEN=0.
+Independent log recount: RED=28 passed/5 failed; GREEN=33 passed/0 failed. Seven added cases: five RED failures, two already-passing boundary/power guards.
+
+LITERAL COMMANDS (cmd.exe, workspace root)
+RED was executed before runtime edits; its unchanged-runtime assertion intentionally does not pass against the fixed workspace. Do not rerun the historical RED command over the final log.
+"C:\Program Files\MATLAB\R2024a\bin\matlab.exe" -wait -logfile "docs/validation/rev31_phase2/task-2-fix1-red.log" -batch "addpath(genpath('matlab')); fprintf('TASK2 FIX1 RED %s MATLAB %s\n',char(datetime('now')),version); assert(strcmp(fileread('matlab/data/ashuganj_phase2_systems.m'),fileread('docs/validation/rev31_phase2/.task-2-fix1-before/matlab/data/ashuganj_phase2_systems.m')),'Runtime changed before RED'); [a,b]=test_engineering_assumptions(); [c,d]=test_phase2_systems(); fprintf('TASK2 FIX1 RED COUNTS assumptions=%d/%d systems=%d/%d total=%d/%d\n',a,b,c,d,a+c,b+d); assert(b+d==0,'Task2 fix1 targeted tests failed');"
+
+GREEN command as executed:
+"C:\Program Files\MATLAB\R2024a\bin\matlab.exe" -wait -logfile "docs/validation/rev31_phase2/task-2-fix1-green.log" -batch "addpath(genpath('matlab')); fprintf('TASK2 FIX1 GREEN %s MATLAB %s\n',char(datetime('now')),version); assert(strcmp(fileread('matlab/tests/test_phase2_systems.m'),fileread('docs/validation/rev31_phase2/.task-2-fix1-before/test_phase2_systems.red.m')),'Tests changed after RED'); [a,b]=test_engineering_assumptions(); [c,d]=test_phase2_systems(); fprintf('TASK2 FIX1 GREEN COUNTS assumptions=%d/%d systems=%d/%d total=%d/%d\n',a,b,c,d,a+c,b+d); assert(isequal([a b c d],[9 0 24 0]),'Task2 fix1 targeted tests failed'); before=load('docs/validation/rev31_phase2/.task-2-fix1-before/defaults.mat'); assert(isequaln(engineering_assumptions(),before.defaultAssumptions),'Assumption defaults changed'); assert(isequaln(ashuganj_phase2_systems(),before.defaultSystems),'System defaults changed'); fprintf('DEFAULT_ASSUMPTIONS_AND_SYSTEMS_EXACTLY_UNCHANGED\nTESTS_UNCHANGED_SINCE_RED\nTASK2 FIX1 GREEN VERIFIED 33 passed 0 failed\n');"
+
+THREE PRE-FIX-TO-CURRENT DIFFS
+
+--- pre-fix/matlab/data/ashuganj_phase2_systems.m
++++ current/matlab/data/ashuganj_phase2_systems.m
+@@ -164,5 +164,8 @@
+     v('load_communications_kW')+v('load_emergency_control_kW')+v('load_excitation_electronics_kW');
+ peak = continuous+v('load_trip_kW')+v('load_close_kW')+v('load_emergency_additional_kW');
++% Cutoff is the worst-case current demand over the cutoff-to-float envelope.
++% One duty unit must cover peak without battery or standby assistance.
+ consistent = consistent && peak<v('charger_rated_power_kW') && ...
++    1000*peak<=v('charger_max_current_A')*v('dc_cutoff_voltage_V') && ...
+     1000*peak/v('dc_cutoff_voltage_V')<v('dc_max_discharge_A');
+ if ~consistent
+@@ -188,10 +191,18 @@
+ r = old;
+ r.raw_source = old;
+-qualified = strcmp(old.interpretation_status,'QUALIFIED') || ...
+-    strcmp(old.source_status,'DERIVED_FROM_VERIFIED_DATA');
+-if qualified
++% Recognize primary evidence before considering interpretation qualifiers.
++switch old.source_status
++    case {'VERIFIED_PLANT','VERIFIED_PROJECT_DATA', ...
++            'VERIFIED_ENGINEERING_DOCUMENT','PRIMARY_VERIFIED'}
++        status = 'PRIMARY_VERIFIED';
++    case {'DERIVED_FROM_VERIFIED_DATA','PRIMARY_SOURCE_QUALIFIED', ...
++            'PRIMARY_SOURCE_EXTRACTED'}
++        status = 'PRIMARY_SOURCE_QUALIFIED';
++    otherwise
++        error('ashuganj_phase2_systems:InvalidGenerator', ...
++            'Unrecognized or non-primary source status: %s.',old.source_status);
++end
++if strcmp(old.interpretation_status,'QUALIFIED')
+     status = 'PRIMARY_SOURCE_QUALIFIED';
+-else
+-    status = 'PRIMARY_VERIFIED';
+ end
+ r.status = status;
+
+--- pre-fix/matlab/tests/test_phase2_systems.m
++++ current/matlab/tests/test_phase2_systems.m
+@@ -3,4 +3,6 @@
+ T = t_case('test_phase2_systems');
+ cases = {@identities_and_defaults, @all_leaves_are_records, @exact_source_identity, ...
++    @recognized_primary_status_mapping, @reject_nonprimary_frequency_status, ...
++    @reject_nonprimary_component_status, @reject_nonprimary_qualified_source, ...
+     @oel_not_a_voltage_base, @uel_source_curve, @sfc_side_separation, ...
+     @station_dc_configuration, @primary_sixth_order_selection, ...
+@@ -8,5 +10,6 @@
+     @reject_malformed_records, @reject_inconsistent_battery, ...
+     @reject_inconsistent_exciter, @reject_inconsistent_charger, ...
+-    @reject_invalid_generator, @preserve_inputs};
++    @reject_charger_cutoff_shortfall, @accept_charger_cutoff_boundary, ...
++    @reject_charger_power_shortfall, @reject_invalid_generator, @preserve_inputs};
+ for k = 1:numel(cases)
+     try
+@@ -79,4 +82,44 @@
+ end
+ 
++function recognized_primary_status_mapping()
++rows = {'VERIFIED_PLANT','PRIMARY_VERIFIED'; ...
++    'VERIFIED_PROJECT_DATA','PRIMARY_VERIFIED'; ...
++    'VERIFIED_ENGINEERING_DOCUMENT','PRIMARY_VERIFIED'; ...
++    'PRIMARY_VERIFIED','PRIMARY_VERIFIED'; ...
++    'DERIVED_FROM_VERIFIED_DATA','PRIMARY_SOURCE_QUALIFIED'; ...
++    'PRIMARY_SOURCE_QUALIFIED','PRIMARY_SOURCE_QUALIFIED'; ...
++    'PRIMARY_SOURCE_EXTRACTED','PRIMARY_SOURCE_QUALIFIED'};
++for k = 1:size(rows,1)
++    G = ashuganj_generators(); G.f_Status = rows{k,1};
++    S = ashuganj_phase2_systems(G); r = S.dynamicReadiness.frequency_Hz;
++    assert(strcmp(r.status,rows{k,2}) && strcmp(r.source_status,rows{k,2}));
++    assert(strcmp(r.raw_source.status,rows{k,1}) && strcmp(r.raw_source.source_status,rows{k,1}));
++end
++end
++
++function reject_nonprimary_frequency_status()
++for status = {'LEGACY','HISTORICAL','ESTIMATED','SECONDARY_SOURCE_CONTEXT','UNKNOWN_STATUS'}
++    G = ashuganj_generators(); G.f_Status = status{1};
++    must_error(@() ashuganj_phase2_systems(G),'ashuganj_phase2_systems:InvalidGenerator');
++end
++end
++
++function reject_nonprimary_component_status()
++for key = {'Uexc0_Status','SFC_DC_link_Status','SFC_Imax_Status'}
++    G = ashuganj_generators(); G.(key{1}) = 'LEGACY';
++    must_error(@() ashuganj_phase2_systems(G),'ashuganj_phase2_systems:InvalidGenerator');
++end
++G = ashuganj_generators(); G.Provenance.Excitation_type.Source_status = 'UNKNOWN_STATUS';
++must_error(@() ashuganj_phase2_systems(G),'ashuganj_phase2_systems:InvalidGenerator');
++end
++
++function reject_nonprimary_qualified_source()
++for status = {'LEGACY','UNKNOWN_STATUS'}
++    G = ashuganj_generators(); G.Provenance.Xdpp.Source_status = status{1};
++    assert(strcmp(G.Provenance.Xdpp.Interpretation_status,'QUALIFIED'));
++    must_error(@() ashuganj_phase2_systems(G),'ashuganj_phase2_systems:InvalidGenerator');
++end
++end
++
+ function oel_not_a_voltage_base()
+ G = ashuganj_generators(); S = ashuganj_phase2_systems(G);
+@@ -201,4 +244,36 @@
+ end
+ 
++function reject_charger_cutoff_shortfall()
++A = charger_peak_fixture(165,8); % Review R2: 18.4 kW versus 17.325 kW at cutoff.
++assert(165*123.75>20000 && 18400/105<200); % Old float/power/battery checks pass.
++must_error(@() ashuganj_phase2_systems(ashuganj_generators(),A), ...
++    'ashuganj_phase2_systems:InconsistentConfiguration');
++A = charger_peak_fixture(175,7.976); % 18.376 kW: just above 18.375 kW ceiling.
++must_error(@() ashuganj_phase2_systems(ashuganj_generators(),A), ...
++    'ashuganj_phase2_systems:InconsistentConfiguration');
++end
++
++function accept_charger_cutoff_boundary()
++A = charger_peak_fixture(175,7.975); % 18.375 kW = 175 A * 105 V, below 20 kW.
++S = ashuganj_phase2_systems(ashuganj_generators(),A);
++assert(S.stationDC.charger.max_current_A.value==175 && ...
++    S.stationDC.loads.emergency_additional_kW.value==7.975);
++assert(S.stationDC.charger.active_units.value==1 && S.stationDC.charger.unit_count.value==2);
++end
++
++function reject_charger_power_shortfall()
++A = charger_peak_fixture(200,10); % 20.4 kW: below 21 kW current ceiling but above 20 kW.
++A.load_emergency_additional_kW.assumed_range = [3 10];
++assert(20400/105<200);
++must_error(@() ashuganj_phase2_systems(ashuganj_generators(),A), ...
++    'ashuganj_phase2_systems:InconsistentConfiguration');
++end
++
++function A = charger_peak_fixture(current,emergency)
++A = engineering_assumptions(); A = select(A,'charger_max_current_A',current);
++A = select(A,'load_trip_kW',3); A = select(A,'load_close_kW',5);
++A = select(A,'load_emergency_additional_kW',emergency);
++end
++
+ function reject_invalid_generator()
+ G = ashuganj_generators();
+
+--- pre-fix/docs/validation/rev31_phase2/task-2-report.md
++++ current/docs/validation/rev31_phase2/task-2-report.md
+@@ -1,5 +1,7 @@
+ # Phase 2 Task 2 — central assumptions and isolated subsystem data
+ 
+-**DONE — Task 2 only.** Implemented against the approved [Task-2 brief](task-2-brief.md). Baseline 915/0 and four LF cases, and Task-1 acceptance, were supplied as completed prerequisites; neither was repeated or changed. No subagents, Git operations, master integration, solver/build changes, LF solves, dynamic components, or later tasks.
++**Task 2 initial implementation; round-1 fixes recorded below.** Implemented against the approved [Task-2 brief](task-2-brief.md). Baseline 915/0 and four LF cases, and Task-1 acceptance, were supplied as completed prerequisites; neither was repeated or changed. No subagents, Git operations, master integration, solver/build changes, LF solves, dynamic components, or later tasks.
++
++Original implementation counts and integrity checks below are historical, not rerun for fix1. The appended **Round-1 fix summary** supersedes the original review conclusion and test count; it makes no final Phase-2 claim.
+ 
+ ## Deliverables and scope
+@@ -10,5 +12,5 @@
+ - [`ashuganj_phase2_systems.m`](../../../matlab/data/ashuganj_phase2_systems.m): six separate metadata-only component objects.
+ - [`test_engineering_assumptions.m`](../../../matlab/tests/test_engineering_assumptions.m): nine grouped contract cases.
+-- [`test_phase2_systems.m`](../../../matlab/tests/test_phase2_systems.m): 17 grouped contract cases.
++- [`test_phase2_systems.m`](../../../matlab/tests/test_phase2_systems.m): originally 17 grouped contract cases; 24 after fix1.
+ 
+ Everything else added is Task-2 evidence in this directory. All **976 pre-existing files match their start SHA-256 hashes**, including source documents, Task-1 files/evidence, master, suite runner, solver, builders, grid/transformer/load providers, Rev2, history, and editor configuration. No pre-existing file was edited. Because there are no modified originals, no replacement backups were needed; the [start inventory](task-2-start-hashes.csv) and [verification log](task-2-verification.log) establish the boundary. Both tests match their [pre-implementation hashes](task-2-test-first-hashes.csv).
+@@ -18,5 +20,5 @@
+ ## Exact public signatures and override contract
+ 
+-1. [`A = engineering_assumptions()`](../../../matlab/data/engineering_assumptions.m:1): no arguments; scalar structure keyed by stable parameter names. Full key-to-component mapping, selected values, units, ranges and reasons are in section **Central catalog** below and the machine-readable [catalog](task-2-assumption-catalog.csv).
++1. [`A = engineering_assumptions()`](../../../matlab/data/engineering_assumptions.m:1): no arguments; scalar structure keyed by stable parameter names. Full key-to-component mapping, selected values, units, ranges and reasons are in the machine-readable [`task-2-assumption-catalog.csv`](task-2-assumption-catalog.csv), referenced in **Central catalog** below; no inline mapping table is supplied.
+ 2. [`S = ashuganj_phase2_systems(G,A)`](../../../matlab/data/ashuganj_phase2_systems.m:1): both arguments optional by omission. No arguments obtains canonical generator and default assumptions; one obtains default assumptions. The first argument is the scalar [`ashuganj_generators()`](../../../matlab/data/ashuganj_generators.m:1) result, **not the master**. The second is the entire registry, not a partial override structure.
+ 3. [`[np,nf] = test_engineering_assumptions()`](../../../matlab/tests/test_engineering_assumptions.m:1).
+@@ -39,5 +41,5 @@
+ ## Task-3 configuration handoff
+ 
+-Top-level objects are [`excitation, sfc, stationDC, governor, pss, dynamicReadiness`](../../../matlab/data/ashuganj_phase2_systems.m:5). Each has a distinct text identity. All assumption-backed leaf paths are exhaustively enumerated in the Central catalog; **do not recreate constants in Task 3**. Full text policy/descriptor fields are in the [component assembly](../../../matlab/data/ashuganj_phase2_systems.m:35).
++Top-level objects are [`excitation, sfc, stationDC, governor, pss, dynamicReadiness`](../../../matlab/data/ashuganj_phase2_systems.m:5). Each has a distinct text identity. All assumption-backed leaf paths are exhaustively enumerated in [`task-2-assumption-catalog.csv`](task-2-assumption-catalog.csv); **do not recreate constants in Task 3**. Full text policy/descriptor fields are in the [component assembly](../../../matlab/data/ashuganj_phase2_systems.m:35).
+ 
+ ### Excitation and limiter bases
+@@ -96,7 +98,7 @@
+ The first [regression attempt](task-2-regression.log) stopped after the new and capability tests passed: the narrow path omitted the existing data/assumptions directory needed by the generator test's master call. Corrected only the new verification harness to add the full MATLAB tree, retained the failed log, then reran all five suites. No production/test edit was made for this harness issue.
+ 
+-Exact final command from workspace root: [`powershell -NoProfile -ExecutionPolicy Bypass -File docs/validation/rev31_phase2/task-2-verify.ps1`](task-2-verify.ps1:1). The script contains the full MATLAB batch, analyzer, catalog export, exact expected counters, log recount and hash checks. The executable is MATLAB R2024a under Program Files. The compact package also carries literal standalone RED/GREEN commands for copy/paste.
++Historical pre-review command from workspace root: [`powershell -NoProfile -ExecutionPolicy Bypass -File docs/validation/rev31_phase2/task-2-verify.ps1`](task-2-verify.ps1:1). That script contains the original MATLAB batch, analyzer, catalog export, expected counters, log recount and hash checks; its original counters are not the fix1 rerun contract. It was not rerun in fix1. The executable is MATLAB R2024a under Program Files. The four-file fallback package does not embed commands, the harness, or logs.
+ 
+-For a non-writing targeted rerun from MATLAB with workspace root current, execute [`addpath(genpath('matlab')); [a,b]=test_engineering_assumptions(); [c,d]=test_phase2_systems(); assert(isequal([a b c d],[9 0 17 0]));`](../../../matlab/tests/test_phase2_systems.m:1). Add [`[e,f]=test_generator_capability(); [g,h]=test_generator_data(); [i,j]=test_base_conversion(); assert(isequal([e f g h i j],[224 0 476 0 39 0]));`](../../../matlab/tests/test_generator_capability.m:1) for existing targeted regression.
++For the current non-writing targeted rerun from MATLAB with workspace root current, execute [`addpath(genpath('matlab')); [a,b]=test_engineering_assumptions(); [c,d]=test_phase2_systems(); assert(isequal([a b c d],[9 0 24 0]));`](../../../matlab/tests/test_phase2_systems.m:1). Only these two suites were run in fix1.
+ 
+ Code Analyzer: **three non-blocking advisories**, not lint-clean: one scalar-length performance suggestion in component path insertion and two sort/transpose suggestions in subsystem tests. All four files parsed and the tested runtime paths executed. Full IDs/lines appear in the regression log.
+@@ -112,5 +114,5 @@
+ ## Review package
+ 
+-[`task-2-review-package.txt`](task-2-review-package.txt) contains **full unabridged copies of the four new MATLAB files**, their byte counts/hashes, this report, catalog, exact verification harness, full Task-2 RED and initial GREEN logs, final targeted regression log, and compact scope-verification evidence. The failed regression-path diagnostic is included as an explicitly labeled excerpt. No prior giant review package, original source document, or historical dump is embedded. Section byte counts permit exact extraction/verification.
++[`task-2-review-package.txt`](task-2-review-package.txt) is the independent review's **four-file fallback**: full unabridged pre-fix copies of the four new MATLAB files with their byte counts/hashes. It embeds **no report, catalog, harness, commands, logs, or regression diagnostic**. Its header explicitly says prior test evidence was supplied, not rerun for that review. The separate [`task-2-fix1-package.txt`](task-2-fix1-package.txt) contains only round-1 diffs against current pre-fix snapshots and explicitly labeled evidence/commands; it does not replace or expand the fallback contents.
+ 
+ **Stop at Task 2.** Master/runner integration and Task-3 component functions remain untouched.
+@@ -118,3 +120,22 @@
+ ## Central catalog
+ 
+-The following table is generated from the executed registry. All rows are ENGINEERING_ASSUMPTION. Ranges are in the stated unit; selected vectors retain their shape. Each component path denotes a record, whose numeric payload is its value field. Fixed ranges are intentional approved selections, not missing values.
++The existing [`task-2-assumption-catalog.csv`](task-2-assumption-catalog.csv) is the full catalog generated from the executed registry; there is **no inline table** in this report. Its 72 unique keys include component paths, selected values, units, reasonable/assumed ranges, basis and status. All rows are ENGINEERING_ASSUMPTION. Ranges are in the stated unit; selected vectors retain their shape. Each component path denotes a record, whose numeric payload is its [`value`](../../../matlab/data/phase2_parameter.m:36) field. Fixed ranges are intentional approved selections, not missing values. Fix1 checked the existing CSV's row/key count and statuses without rewriting it.
++
++## Round-1 fix summary — Task 2 only (2026-09-17)
++
++Addressed [R1–R3](task-2-review.md:16) only. Current pre-fix copies of the two edited MATLAB files and this report were saved under [`.task-2-fix1-before/`](.task-2-fix1-before/) before edits; the complete default assumption/system structures were also saved there. No broad hashes, source-PDF reads, subagents, other task work, master integration, LF solves or dynamic-response implementation.
++
++- **R1:** The executed [counterexamples](task-2-fix1-counterexamples.log) confirmed LEGACY frequency was accepted and normalized to PRIMARY_VERIFIED. [`source_record()`](../../../matlab/data/ashuganj_phase2_systems.m:189) now explicitly recognizes VERIFIED_PLANT, VERIFIED_PROJECT_DATA, VERIFIED_ENGINEERING_DOCUMENT and PRIMARY_VERIFIED as verified; DERIVED_FROM_VERIFIED_DATA, PRIMARY_SOURCE_QUALIFIED and PRIMARY_SOURCE_EXTRACTED map to qualified. All other source statuses raise [`ashuganj_phase2_systems:InvalidGenerator`](../../../matlab/data/ashuganj_phase2_systems.m:203) before interpretation qualifiers are applied. A QUALIFIED interpretation cannot legitimize weaker/unknown evidence. Original raw records are retained. This is declared-status validation, not independent source authentication.
++- **R2:** The executed review selection accepted 18.4 kW against only 17.325 kW at cutoff (175.238095 A demand versus 165 A charger limit), while the float/rated-power/battery checks passed. The [load-budget validation](../../../matlab/data/ashuganj_phase2_systems.m:166) now requires peak current at cutoff to fit one duty unit, in addition to the existing strict rated-power and battery limits. Cutoff is worst-case current demand throughout the cutoff-to-float envelope; neither standby output nor battery assistance is counted as charger coverage. Tests reject the exact review selection and a 1 W current-budget excess, accept the exact 18.375 kW / 175 A cutoff boundary, and separately reject 20.4 kW above the 20 kW rating despite sufficient current. Defaults remain 12.4 kW versus 18.9 kW current-limited capability at cutoff.
++- **R3:** Corrected all catalog/table promises to refer to the existing CSV and corrected the review-package description to the actual four-file fallback, without claiming absent embedded logs.
++
++Seven focused system cases were added in [`test_phase2_systems.m`](../../../matlab/tests/test_phase2_systems.m:4). No assumption registry or assumption-test edit. The editor's C-family formatter damaged the first test save; the intended test changes were restored from the pre-fix snapshot through a direct terminal write before RED. Runtime edits also used a direct write; no editor configuration changed.
++
++| Actual fix1 execution (passed/failed) | Assumptions | Systems | Total | Process exit |
++|---|---:|---:|---:|---:|
++| [RED](task-2-fix1-red.log), runtime confirmed identical to pre-fix snapshot | 9/0 | 19/5 | **28/5** | 1 (expected test failure) |
++| [GREEN](task-2-fix1-green.log), same tests after runtime fixes | 9/0 | 24/0 | **33/0** | 0 |
++
++RED failures were the recognized-status mapping case, three non-primary source rejection cases, and cutoff-shortfall rejection. The two additional charger boundary/power cases already passed before the fix and remain passing; all original 26 grouped cases remained passing. GREEN also confirmed complete default structures exactly equal their pre-fix snapshots and the test source unchanged since RED. Counts are grouped cases; snapshot checks are not added to test totals. Only the assumption/system suites were run; no fresh analyzer or wider-suite claim.
++
++The compact [`task-2-fix1-package.txt`](task-2-fix1-package.txt) contains three snapshot-based diffs, literal run commands and labeled excerpts from the actual reproduction/RED/GREEN logs. Full logs remain separate. **Stop after Task-2 round-1 fixes; no final Phase-2 acceptance is claimed.**

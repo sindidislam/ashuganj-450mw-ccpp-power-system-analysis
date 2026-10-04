@@ -1,0 +1,11 @@
+Case_ID,Auxiliary_system,Source,Status,Note
+E1_GAT_BACKFEED,6.6kV_AC_aux,GRID_via_GAT,AVAILABLE_SCREENING,Requires intact GAT bay + transfer switching (sequence UNVERIFIED)
+E1_GAT_BACKFEED,Controls_protection,STATION_DC,AVAILABLE,Charger fed from AC when available
+E2_GSUT_UAT_BACKFEED,6.6kV_AC_aux,GRID_via_GSUTreverse_UAT,AVAILABLE_SCREENING,Requires GSUT energised from grid + GCB open + transfer switching (UNVERIFIED)
+E2_GSUT_UAT_BACKFEED,Controls_protection,STATION_DC,AVAILABLE,Charger fed from AC when available
+E3_PARALLEL_BACKFEED,6.6kV_AC_aux,GRID_via_BOTH,ABNORMAL_SCREENING,Parallel GAT//(GSUT+UAT) loop; circulating current + protection grading UNVERIFIED
+E3_PARALLEL_BACKFEED,Controls_protection,STATION_DC,AVAILABLE,Charger fed from AC when available
+E4_BLACKOUT,6.6kV_AC_aux,NONE,UNRESOLVED,EDG/UPS required; load schedule MISSING
+E4_BLACKOUT,Controls_protection,STATION_DC,AVAILABLE,Battery-only; charger unavailable in this case
+E5_GAT_CHARGER_OUT,6.6kV_AC_aux,GRID_via_GAT,AVAILABLE_SCREENING,Requires intact GAT bay + transfer switching (sequence UNVERIFIED)
+E5_GAT_CHARGER_OUT,Controls_protection,STATION_DC,AVAILABLE,Charger fed from AC when available

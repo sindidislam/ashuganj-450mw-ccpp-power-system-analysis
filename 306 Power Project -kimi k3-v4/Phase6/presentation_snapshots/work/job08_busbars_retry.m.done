@@ -1,0 +1,5 @@
+{
+  "success": false,
+  "job": "job08_busbars_retry.m",
+  "error": "Error using assert\nInvalid bus net.\n\nError in phase6_presentation_busbars>insert (line 90)\n assert(ismember(anchorPorts(k),endpoints{k})&&numel(endpoints{k})>=2,'Phase6:BusNet','Invalid bus net.');\n\nError in phase6_presentation_busbars (line 8)\ninsert(mdl,'B02 Unit 22 kV bus',[mdl '/Generator Breaker'],'RConn', ...\n\nError in job02_busbars (line 4)\nphase6_presentation_busbars(mdl);\n\nError in run (line 112)\nevalin('caller', strcat(scriptStem, ';'));\n\nError in job08_busbars_retry (line 4)\nrun(fullfile(out,'work','job02_busbars.m'));\n\nError in run (line 112)\nevalin('caller', strcat(scriptStem, ';'));\n\nError in run_presentation_worker (line 15)\n  try,evalin('base',sprintf('run(''%s'')',strrep(path,'''','''''')));status.success=true;"
+}

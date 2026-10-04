@@ -1,0 +1,152 @@
+TASK 1 FIX1 - I1 RECOVERED SCOPED DIFF PACKAGE
+Recovered 2026-09-16 after the interrupted handoff; not an original fixer artifact.
+Pre-fix evidence: task-1-review-package.txt, byte-counted BEGIN FILE source sections.
+Only the two named code files and report were compared. No tests, MATLAB, broad hashes, source re-audit, or subagents. No runtime/test edits.
+Raw archived bytes were streamed to git stdin; a/- denotes that archived pre-fix file, not a missing file.
+COMMAND for each path: git -c core.autocrlf=false --no-pager diff --no-index --no-ext-diff --no-textconv --no-color -- - <path>
+Exit 1 means the expected difference; exit 0 would mean identical. No diff/text conversion hooks or line-ending normalization.
+SOURCE EVIDENCE (inherited, not re-inspected): task-1-review.md I1 and task-1-report.md section 10.
+GSUT Data Sheet_South.pdf section 1.7: marked 1282 kW total and 28 kW cooling at technical p.4 / PDF p.6; detailed-design finalization caveat at technical p.7 / PDF p.9.
+Current metadata retains this caveat; 1282 - 159 - 1095 = 28 kW, document/classifications, auxiliary-overlap and frozen-LF exclusions remain.
+EXISTING TARGETED RUNTIME EVIDENCE ONLY: test_generator_capability() on MATLAB R2024a, as recorded by the addendum and logs.
+The exact original MATLAB launch commands were not recovered; no reconstructed command is presented as executed. Process exits 1 (RED) and 0 (GREEN) are reported in the addendum, not independently re-observed.
+
+=== EXISTING LOG task-1-fix1-red.log ===
+Counted assertion lines: passed=215 failed=9
+FIX1_RED MATLAB 24.1.0.2537033 (R2024a)
+L215:   FAIL  gsut_total_kW provisional design interpretation   [got 'DIRECT', expected 'QUALIFIED']
+L216:   FAIL  gsut_total_kW confidence retains design-finalization caveat
+L217:   FAIL  gsut_total_kW marked loss table located
+L218:   FAIL  gsut_total_kW asterisk footnote located
+L219:   FAIL  gsut_total_kW rationale retains provisional source meaning
+L223:   FAIL  gsut_cooling_kW confidence retains design-finalization caveat
+L224:   FAIL  gsut_cooling_kW marked loss table located
+L225:   FAIL  gsut_cooling_kW asterisk footnote located
+L226:   FAIL  gsut_cooling_kW rationale retains provisional source meaning
+L230:   => test_generator_capability: 215 passed, 9 FAILED
+L231: FIX1_RED_COUNTS passed=215 failed=9
+
+=== EXISTING LOG task-1-fix1-green.log ===
+Counted assertion lines: passed=224 failed=0
+FIX1_GREEN MATLAB 24.1.0.2537033 (R2024a)
+L230:   => test_generator_capability: 224 passed, 0 failed
+L231: FIX1_GREEN_COUNTS passed=224 failed=0
+L232: FIX1_GREEN_OK
+
+=== FIX-LOCAL DIFF matlab/data/phase2_source_data.m ===
+PRE_FIX_PACKAGE_HEADER_LINE: 516
+PACKAGED_BYTES: 6074 CURRENT_BYTES: 6632 DIFF_EXIT: 1
+EOL_COUNTS old_CRLF=0 old_LF=84 current_CRLF=0 current_LF=89
+diff --git a/- b/matlab/data/phase2_source_data.m
+index 0000000..b207117 100644
+--- a/-
++++ b/matlab/data/phase2_source_data.m
+@@ -73,12 +73,17 @@ S.grid.sensitivity_XR = phase2_parameter(10.99,'dimensionless',secondary,locator
+     'SECONDARY_SOURCE_CONTEXT','Qualified secondary context','Sensitivity only; frozen grid R=0 and infinite X/R remain untouched.');
+ doc = 'GSUT Data Sheet_South.pdf';
+ loc = 'CTI 1.7 loss table, 515 MVA ODAF stage; existing rev3_b1_derivations source transcription';
+-S.cooling.gsut_total_kW = phase2_parameter(1282,'kW',doc,loc,verified,'High','Total source loss at 515 MVA cooling stage; contextual accounting only.');
++markedLoc = [loc '; section 1.7, technical p.4 (PDF p.6), marked *) total and cooling; ' ...
++    'design-finalization footnote, technical p.7 (PDF p.9)'];
++S.cooling.gsut_total_kW = phase2_parameter(1282,'kW',doc,markedLoc,verified, ...
++    'Qualified / design-finalization pending', ...
++    'Total source loss at 515 MVA cooling stage; contextual accounting only. Total and cooling are both marked *) subject to change after finalizing the transformer''s detailed design; not finalized/as-built.', ...
++    'interpretation_status','QUALIFIED');
+ S.cooling.gsut_no_load_kW = phase2_parameter(159,'kW',doc,loc,verified,'High','Source no-load loss; numerical transformer provider unchanged.');
+ S.cooling.gsut_load_kW = phase2_parameter(1095,'kW',doc,loc,verified,'High','Source load loss at 515 MVA; numerical transformer provider unchanged.');
+ cooling = S.cooling.gsut_total_kW.value-S.cooling.gsut_no_load_kW.value-S.cooling.gsut_load_kW.value;
+-S.cooling.gsut_cooling_kW = phase2_parameter(cooling,'kW',doc,loc, ...
+-    'DERIVED_FROM_VERIFIED_DATA','High arithmetic / source-qualified', ...
+-    'Residual source cooling loss, not added to frozen LF demand or transformer losses; auxiliary overlap unresolved.', ...
++S.cooling.gsut_cooling_kW = phase2_parameter(cooling,'kW',doc,markedLoc, ...
++    'DERIVED_FROM_VERIFIED_DATA','High arithmetic / qualified source; design-finalization pending', ...
++    'Residual source cooling loss, not added to frozen LF demand or transformer losses; auxiliary overlap unresolved. Total and cooling are both marked *) subject to change after finalizing the transformer''s detailed design; not finalized/as-built.', ...
+     'source_status',verified,'derivation','1282 - 159 - 1095','interpretation_status','QUALIFIED');
+ end
+=== END FIX-LOCAL DIFF ===
+
+=== FIX-LOCAL DIFF matlab/tests/test_generator_capability.m ===
+PRE_FIX_PACKAGE_HEADER_LINE: 607
+PACKAGED_BYTES: 9603 CURRENT_BYTES: 11278 DIFF_EXIT: 1
+EOL_COUNTS old_CRLF=138 old_LF=138 current_CRLF=159 current_LF=159
+diff --git a/- b/matlab/tests/test_generator_capability.m
+index 0000000..8a83e69 100644
+--- a/-
++++ b/matlab/tests/test_generator_capability.m
+@@ -120,6 +120,27 @@ if exist('phase2_source_data','file') == 2
+     T = T.eq(S.cooling.gsut_cooling_kW.value,28,'cooling closure 1282-159-1095');
+     T = T.eq(S.cooling.gsut_cooling_kW.derivation,'1282 - 159 - 1095','cooling arithmetic explicit');
+     T = T.eq(S.cooling.gsut_cooling_kW.source_status,'VERIFIED_ENGINEERING_DOCUMENT','derived cooling keeps input provenance');
++    % I1: document verification does not resolve the marked design caveat.
++    T = T.eq(S.cooling.gsut_total_kW.status,'VERIFIED_ENGINEERING_DOCUMENT','total source classification retained');
++    T = T.eq(S.cooling.gsut_total_kW.source_status,'VERIFIED_ENGINEERING_DOCUMENT','total source status retained');
++    T = T.eq(S.cooling.gsut_cooling_kW.status,'DERIVED_FROM_VERIFIED_DATA','cooling remains a derived record');
++    marked = {'gsut_total_kW','gsut_cooling_kW'};
++    for k=1:numel(marked)
++        n = marked{k}; r = S.cooling.(n);
++        T = T.eq(r.source,'GSUT Data Sheet_South.pdf',[n ' source document retained']);
++        T = T.eq(r.interpretation_status,'QUALIFIED',[n ' provisional design interpretation']);
++        T = T.chk(all(cellfun(@(token) contains(lower(r.confidence),token),{'qualified','design-finalization'})), ...
++            [n ' confidence retains design-finalization caveat']);
++        T = T.chk(all(cellfun(@(token) contains(r.source_locator,token),{'section 1.7','technical p.4','PDF p.6'})), ...
++            [n ' marked loss table located']);
++        T = T.chk(all(cellfun(@(token) contains(r.source_locator,token),{'*)','design-finalization','technical p.7','PDF p.9'})), ...
++            [n ' asterisk footnote located']);
++        T = T.chk(all(cellfun(@(token) contains(lower(r.rationale),token), ...
++            {'marked *)','subject to change','detailed design','not finalized/as-built'})), ...
++            [n ' rationale retains provisional source meaning']);
++        T = T.chk(isempty(r.reasonable_range) && isempty(r.assumed_range), ...
++            [n ' design caveat does not invent uncertainty ranges']);
++    end
+     T = T.eq(S.capabilityCurve,G.capabilityCurve,'source view uses authoritative curve');
+     altered = G; altered.Provenance.Snom_MVA.Normalized_value = 459;
+     view = phase2_source_data(altered);
+=== END FIX-LOCAL DIFF ===
+
+=== FIX-LOCAL DIFF docs/validation/rev31_phase2/task-1-report.md ===
+PRE_FIX_PACKAGE_HEADER_LINE: 1159
+PACKAGED_BYTES: 26072 CURRENT_BYTES: 30611 DIFF_EXIT: 1
+EOL_COUNTS old_CRLF=264 old_LF=264 current_CRLF=296 current_LF=296
+diff --git a/- b/docs/validation/rev31_phase2/task-1-report.md
+index 0000000..4f62fa9 100644
+--- a/-
++++ b/docs/validation/rev31_phase2/task-1-report.md
+@@ -262,3 +262,35 @@ These concerns justify DONE_WITH_CONCERNS without expanding scope. No Rev2, solv
+ ## 9. Final disposition
+ 
+ **DONE_WITH_CONCERNS.** Task 1's existing implementation is retained, its complete original GREEN is confirmed, fresh targeted tests pass **722/0**, runtime primary/provenance identity is verified, and the original-file boundary is preserved. The report and exact review package complete the interrupted handoff. **Stop at Task 1; Tasks 2–6 remain unexecuted by this recovery.**
++
++## 10. Round-1 fix1 — I1 provenance qualification (2026-09-16)
++
++**I1: FIXED / TARGETED GREEN.** This append-only addendum corrects the missing cooling qualification in section 4.4 and supersedes the earlier no-blocker assessment for this finding. The historical recovery evidence above is not a new fix-round run; independent approval is not claimed. The source's design-finalization uncertainty remains unresolved rather than being certified away.
++
++### Source verified
++
++Read the local [GSUT datasheet](../../../fwdtechnicaldatasldrequestforbueteeetermproject/GSUT%20Data%20Sheet_South.pdf), CTI document S009-112070-00-ELC-HD-0001, revision 00, dated 24/02/14. Section 1.7, technical page 4 (PDF page 6), marks **1282 kW total guaranteed losses at 515 MVA** and **28 kW total cooling consumption** with an asterisk. Technical page 7 (PDF page 9) states: “*) marked values might be subject due change after finalizing the transformer's detailed design”. The 159 kW no-load and 1095 kW full-load entries used here are unmarked. Exact subtraction does not establish finalized/as-built cooling demand.
++
++### Narrow correction
++
++- Only the normalized [total/cooling metadata](../../../matlab/data/phase2_source_data.m:76) changed. Both locators retain the existing transcription reference and add the marked loss-table and design-finalization-footnote pages. Both rationales explicitly carry the marked, subject-to-change detailed-design caveat and reject finalized/as-built interpretation.
++- Total confidence is now qualified/design-finalization pending, with [`QUALIFIED`](../../../matlab/data/phase2_source_data.m:81) interpretation. Cooling retains high arithmetic confidence but explicitly qualifies the source pending design finalization; its qualified interpretation remains.
++- Total record/source classification remains [`VERIFIED_ENGINEERING_DOCUMENT`](../../../matlab/data/phase2_source_data.m:39). Cooling remains [`DERIVED_FROM_VERIFIED_DATA`](../../../matlab/data/phase2_source_data.m:86), with engineering-document source classification and the unchanged derivation **1282 − 159 − 1095 = 28 kW**. Document identity, units, selected values and **1282/159/1095/28** values are unchanged; no uncertainty range was invented.
++- No-load/load records, including their original locators and confidence, are unchanged. Frozen LF/transformer-loss exclusion and unresolved auxiliary overlap remain explicit. Transformer/LF/grid/load/generator providers, helpers, curve points and other source groups were not edited.
++
++### Test-first evidence
++
++Added **17 assertions** to the existing [capability provenance test](../../../matlab/tests/test_generator_capability.m:123): retained classifications/document identity, qualified interpretation and confidence, precise table/footnote locators, provisional rationale, and no invented ranges. Existing value/derivation assertions remain unchanged. Every required text marker is checked individually.
++
++| Fix1 stage | Passed | Failed | MATLAB process exit |
++|---|---:|---:|---:|
++| [RED: new tests, pre-fix production](task-1-fix1-red.log) | 215 | 9 | 1, expected |
++| [GREEN: same tests, corrected metadata](task-1-fix1-green.log) | 224 | 0 | 0 |
++
++RED failures were exactly five total-loss qualification checks and four cooling qualification checks; all original 207 assertions passed. GREEN emitted the success marker after asserting exact counts. Both runs used MATLAB 24.1.0.2537033 (R2024a) and invoked only [`test_generator_capability()`](../../../matlab/tests/test_generator_capability.m:1). No full suite, generator/base test rerun, LF solve, large hash audit or repeated Task-1 identity work was performed.
++
++### Fix-local preservation and handoff
++
++Before/after diffs are limited to two code files and this report append. The test has only a 21-line insertion; existing test bytes and no-load/load source lines are retained. An editor save initially applied C-style formatting to the MATLAB test; it was restored from the fix-start snapshot before RED, and the final diff contains none of that formatting damage. Subsequent MATLAB writes bypassed that formatter without changing editor settings.
++
++The [small fix package](task-1-fix1-package.txt) records source evidence, exact targeted commands/counts, RED failure lines, GREEN success evidence, and the three fix-local unified diffs. The original review/package/logs were not rewritten. **I1 remediation complete; source design caveat retained; stop at Task 1 round 1.** No subagents or later-task work.
+=== END FIX-LOCAL DIFF ===
+
+END PACKAGE. Scope: I1 only. Prior nonblocking review observations remain; no repository-wide preservation or integration approval is inferred.

@@ -1,0 +1,34 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+--- build ---
+
+=== BUILD Ashuganj_South_Main : case LF1 ===
+  Rated dispatch, GAT out of service
+  P(G1) = 389.30 MW (Rated) | GAT out | coupler closed | topology radial
+  backup : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\simulink\backups\Ashuganj_South_Main_v010.slx
+  powergui defaults: Pbase=100e6 f=60 UnitsV=kV UnitsW=MW ErrMax=1e-4 Iter=50
+  powergui set:      Pbase=100000000 f=50 Hz (frequencyindice=50 Hz)
+  blocks: 12   lines: 48   backups now: 10
+  saved  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\simulink\main\Ashuganj_South_Main.slx
+
+--- geometry check ---
+  BUS COUPLER      down   [  865   240   935   320]
+  EXT GRID         down   [  645    60   715   150]
+  G1               up     [  205   340   275   430]
+  GAT 10BBT20      down   [ 1080   500  1160   600]
+  GAT BAY CB       down   [ 1085   320  1155   400]
+  GSUT 10BAT10     down   [  420   240   500   340]
+  LOAD_B6_6        down   [  205   660   275   730]
+  LOAD_B6_6_WI1    down   [  405   660   475   730]
+  LOAD_B6_6_WI2    down   [  845   660   915   730]
+  UAT 10BBT10      down   [  620   500   700   600]
+  ZGRID            up     [  645   180   715   240]
+  powergui         right  [   60    60   190   115]
+  bbox blocks : x 60..1160  y 60..730  (1100 x 670)
+  lines 48, segments 126  (2.62 segments per line)
+  exported F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\tmp\simulink\layout_v2.png (263 kB)

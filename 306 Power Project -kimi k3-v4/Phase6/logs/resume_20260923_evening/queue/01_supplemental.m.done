@@ -1,0 +1,1 @@
+{"job":"01_supplemental.m","success":false,"error":"Error using run (line 112)\nError: Invalid text character. Check for unsupported symbol, invisible character, or pasting of non-ASCII characters.\n\nError in evening_worker (line 13)\n  try,evalin('base',sprintf('run(''%s'')',strrep(wfile,'''','''''')));wresult.success=true;"}

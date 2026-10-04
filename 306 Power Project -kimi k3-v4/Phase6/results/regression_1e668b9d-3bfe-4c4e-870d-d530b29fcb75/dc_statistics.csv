@@ -1,0 +1,13 @@
+Quantity,Unit,Minimum,Maximum,Mean,First,Last,Active_duration_s,Status
+Vdc_V,V,114.071327559525,123.75,117.474563180865,114.956117347774,123.75,NaN,measured_post_warmup
+Battery_current_A,A,-38.3236623446829,38.5723572622049,-1.74656003502121,20.8775318388611,0,NaN,measured_post_warmup
+Charger_current_A,A,0,58.6771028604518,28.174217578007,0,19.3939393939394,NaN,measured_post_warmup
+Load_current_A,A,19.3939393939394,38.5723572622049,26.4276575429857,20.8775318388611,19.3939393939394,NaN,measured_post_warmup
+Battery_SOC_pu,pu,0.999993405773379,1,0.999997440952226,0.999999420068575,1,NaN,measured_post_warmup
+DC_healthy,logical,1,1,1,1,1,0.58,measured_post_warmup
+DC_low_voltage,logical,0,0,0,0,0,0,measured_post_warmup
+Battery_low,logical,0,0,0,0,0,0,measured_post_warmup
+Charger_failure,logical,0,1,0.184165232358003,1,0,0.107,measured_post_warmup
+Trip_unavailable,logical,0,0,0,0,0,0,measured_post_warmup
+Charger_AC_power_W,W,0,7479.97832554395,3591.09181033621,0,2594.5945945946,NaN,measured_post_warmup
+Trip_coil_power_W,W,0,2000,688.468158347676,0,0,NaN,measured_post_warmup

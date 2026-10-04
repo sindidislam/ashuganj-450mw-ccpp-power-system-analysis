@@ -1,0 +1,18 @@
+Error using phase6_add_controls/select (line 137)
+Invalid parameter 'Indices' specified in 'PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL/DC Supply/Auxiliary phase voltage' for dimension 1. This
+parameter must be in the range 1 through 3
+
+Error in phase6_add_controls (line 52)
+sel=select(dc,'Auxiliary phase voltage',[55:57],[270 75 335 115]);line(dc,getRms,1,sel,1);
+
+Error in build_phase6_model (line 59)
+ctrl = phase6_add_controls(mdl,P,S,net,LF);
+
+Error in jobR_integrated01 (line 2)
+info=build_phase6_model('Scenario',struct('stopTime_s',.1));
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

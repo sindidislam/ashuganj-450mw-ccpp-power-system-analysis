@@ -1,0 +1,691 @@
+{
+  "tag": "final-engineering",
+  "timestamp_local": "2026-09-21T08:31:29",
+  "root_path_convention": "outputHashes relative to this manifest; codeHashes/inputHashes relative to project root",
+  "testCounts": {
+    "runner": "run_phase5b_tests()",
+    "NP": 528,
+    "NF": 0
+  },
+  "inputHashes": [
+    {
+      "path": "matlab/data/ashuganj_buses.m",
+      "sha256": "ec81e7394ca82466dee48f3c4c88bb9de624ff40694d79669595502fdd95f653"
+    },
+    {
+      "path": "matlab/data/ashuganj_generators.m",
+      "sha256": "b333fdaf1bb5c9246f8ce135ff87466f0637e8feeeba81512e0061c865366829"
+    },
+    {
+      "path": "matlab/data/ashuganj_grid.m",
+      "sha256": "7be0ef2e9ef4c361db89ea9872808730bf17f4bb5add04c114c1ceccf8a609db"
+    },
+    {
+      "path": "matlab/data/ashuganj_lines.m",
+      "sha256": "47765186dbdb372fbef902aa2ae4a2c4cba1415c41933d7600c698cb7df124d9"
+    },
+    {
+      "path": "matlab/data/ashuganj_loads.m",
+      "sha256": "0b5c4970502be09aafffc4c13e73c6fdb60d7358915027a7819a3346f276ed04"
+    },
+    {
+      "path": "matlab/data/ashuganj_master_data.m",
+      "sha256": "07d746183ae94c59ae4943b4c1e49ba2a8b5ed42e83ecf0d516dce86bb13c29c"
+    },
+    {
+      "path": "matlab/data/ashuganj_operating_profiles.m",
+      "sha256": "7df4f3c1cb2503df6b77a573ac545b0e21a86033c7816f7f740cba32ddc4cc61"
+    },
+    {
+      "path": "matlab/data/ashuganj_phase2_systems.m",
+      "sha256": "1a629e36ef56f9abd53917dfe66dce35fe11a677bc6527a40b09e10d1ca368cd"
+    },
+    {
+      "path": "matlab/data/ashuganj_transformers.m",
+      "sha256": "607bb31fb2c81318cc6d5d4cbccc3e500dbd5b4f53a171c475c8815f6b8cdad8"
+    },
+    {
+      "path": "matlab/data/engineering_assumptions.m",
+      "sha256": "1da2ce63ca27338c35eafdd16ca1226a77ec527a2a41ee185cf012adb47f0dba"
+    },
+    {
+      "path": "matlab/data/generatorCapability.m",
+      "sha256": "4bba4f5197ab3179eaceff8daa2da8be5e47d027beba3b28ed1786b87df4295b"
+    },
+    {
+      "path": "matlab/data/phase2_parameter.m",
+      "sha256": "8e67d4883d25953992578c654fbcf7d2b603b6d78b71185ec95aff6830482ea9"
+    },
+    {
+      "path": "matlab/data/phase2_source_data.m",
+      "sha256": "d8181fe4d800b0d8409dc8ae3ed6f52527f9da4ba1b72b1c2257982f8c1f80ba"
+    },
+    {
+      "path": "matlab/data/validate_operating_profile.m",
+      "sha256": "f12b6a6c7de68f1e0cf637b87836b6c9a3783398f97437e83dc5f483273337db"
+    },
+    {
+      "path": "matlab/data/assumptions/aux_load_allocation_split.m",
+      "sha256": "583ded0f6f926b9147838a1d53c0063f4e41cb21b22756af240d539631be9204"
+    },
+    {
+      "path": "matlab/data/assumptions/generator_voltage_setpoint.m",
+      "sha256": "10db3f4c6459eb56312432d71edeeec9a7d6081266e1972722f1143bd68f111f"
+    },
+    {
+      "path": "matlab/data/assumptions/gis_bus_coupler_closed.m",
+      "sha256": "ba492cc050b4e3cbe2888949fbec7cb52453164ca5b84aa249f7243f76324184"
+    },
+    {
+      "path": "matlab/data/assumptions/grid_series_resistance_zero.m",
+      "sha256": "5705d2571885afbdc3453eb03548b50203e6de938acc80b157c0dcde34dc04ae"
+    },
+    {
+      "path": "matlab/data/assumptions/transformer_magnetising_inductance.m",
+      "sha256": "0304a6eb616eeb7258862930acf791938445919507f18a450713ade0e720cefe"
+    },
+    {
+      "path": "matlab/phase4/phase4_contrib.m",
+      "sha256": "400f0286f29d38a3b93367086679edd883e4250d33a1d3308d9e02ec26a3e8ed"
+    },
+    {
+      "path": "matlab/phase4/phase4_grounding.m",
+      "sha256": "5fd1615d485afd483e68be6659b96d1594b0d07502535b17d484a30abae64b17"
+    },
+    {
+      "path": "matlab/phase4/phase4_handoff.m",
+      "sha256": "64c0f869b1d854e3e14d5908e2a60873b74f9072824677c184c14352b493e799"
+    },
+    {
+      "path": "matlab/phase4/phase4_kappa.m",
+      "sha256": "1edf1d62605b395c34c887aaca94359aca1fc88385467466619edfc07e4c0029"
+    },
+    {
+      "path": "matlab/phase4/phase4_prefault.m",
+      "sha256": "de3590313b8b667a01ea81f7e711c9b1d7db9a8943e3625a04a32133df6b60c4"
+    },
+    {
+      "path": "matlab/phase4/phase4_registry.m",
+      "sha256": "7c06fa3ef491c5a64af31607e383b46b86a3e8009db29dbb874101812edcd8f6"
+    },
+    {
+      "path": "matlab/phase4/phase4_review_gate.m",
+      "sha256": "758e2af6d6e4c9813cc792b70980bc4173f0a2e91e17dfadf1f30b52a4a836a0"
+    },
+    {
+      "path": "matlab/phase4/phase4_sanity.m",
+      "sha256": "31d834096322775018dc6e78c10e5a542c3f0ff8ca892fd3c395ed6ea40c05b0"
+    },
+    {
+      "path": "matlab/phase4/phase4_sensitivity.m",
+      "sha256": "f096332b2fdf7d7f7cd56ec4b1c07f42aea73a42c0d22f354ba2e35fcaebeff6"
+    },
+    {
+      "path": "matlab/phase4/phase4_seqPN.m",
+      "sha256": "d503776ef08544dca4c65a4ce5499ff31662d61e3e9dd44c35028705599125fa"
+    },
+    {
+      "path": "matlab/phase4/phase4_seqZ.m",
+      "sha256": "85a1ed9e7c1f9ee5ce0a5ce846c858b0bd561aa49ab6cfa66bccf388c490e6e6"
+    },
+    {
+      "path": "matlab/phase4/phase4_solve.m",
+      "sha256": "2cf266c84158c0970bdbdebb58a3ebadba765427f77339a2228bf5a4a30f7730"
+    },
+    {
+      "path": "matlab/phase4/phase4_sources.m",
+      "sha256": "0e255459c6f753af397d407b8fa579a25f74f9bb64d73ad1cdd3aab87c116286"
+    },
+    {
+      "path": "matlab/phase4/phase4_stages.m",
+      "sha256": "a78ab6ed2578c617fdda09c4ade0122afc8ceb94e3d5740de20c1eb28fdc9c7c"
+    },
+    {
+      "path": "matlab/phase4/phase4_topology.m",
+      "sha256": "6f7d68d450039f40758fb8670e04a9835b08d8e137d450c735a39de4ee6efcb2"
+    },
+    {
+      "path": "matlab/phase4/phase4_validate.m",
+      "sha256": "3be2b522a5d073bc1543dcc74094e9318000846a241748a7d4f201bcd1d25f55"
+    },
+    {
+      "path": "matlab/phase4/run_phase4_matrix.m",
+      "sha256": "341524f70a46153b227e3877b1a6f2acfd78bf1489d59ec07c68b7a606cadba0"
+    },
+    {
+      "path": "matlab/phase4/run_phase4_production.m",
+      "sha256": "7f9001d3019c3de51039495699dfa9acc0070611fa3fecc140028b8ad8ffa980"
+    },
+    {
+      "path": "matlab/phase4/run_phase4_tests.m",
+      "sha256": "78ca5f582729216b42dff82aa8aacc921413942e24c4ad71e242e3cac6846795"
+    },
+    {
+      "path": "matlab/phase4/TASK_LOG.md",
+      "sha256": "636aaa6dc6bc3bb2aa7f0c709f3a974aa1ca24a100437a207d8c93b853895c98"
+    },
+    {
+      "path": "results/phase2_loadflow/phase2_bus_results.csv",
+      "sha256": "2486facfee197ca9afe195c881b8bdf7ae8ca19ca63816613513632d353a55fd"
+    },
+    {
+      "path": "results/phase2_loadflow/phase2_capability_check.csv",
+      "sha256": "e8755eef70ae160ed697089fe9991c794c68d612e9e5c366b87ec993c5b413ee"
+    },
+    {
+      "path": "results/phase2_loadflow/phase2_loadflow_results.mat",
+      "sha256": "29ea7ff3a8dc32498e96694ccf2fb77853fc77d330fefe839d167778d5a9530a"
+    },
+    {
+      "path": "results/phase2_loadflow/phase2_power_balance.csv",
+      "sha256": "e79a00939f9d00b66acbd0b64f19096d5ad353c4b6ae2ef116abaa9a833d3f8b"
+    },
+    {
+      "path": "results/phase2_loadflow/phase2_system_summary.csv",
+      "sha256": "2ea3e59b1356499c1c18a38dabfc431787c7b8a50548fefcd3283dbecf12c171"
+    },
+    {
+      "path": "results/phase3_loadflow/phase3_bus_results.csv",
+      "sha256": "aae044f8e697b02fb3a3059e611f15e9e650a0b47942947ba44360f8568b2e60"
+    },
+    {
+      "path": "results/phase3_loadflow/phase3_loadflow_results.mat",
+      "sha256": "762d466d0c2137e67724e7e379f2c3029fb22de338235acf11e87a7077aabedd"
+    },
+    {
+      "path": "results/phase3_loadflow/phase3_system_summary.csv",
+      "sha256": "00788d9479a7ab71418477f5efb4ba2ed7264f9cb31bf4305b934618d8ff0e40"
+    },
+    {
+      "path": "results/phase4_fault/production/analytic_bounds.csv",
+      "sha256": "0f731aeea9dc0cd91d4db70a070d435381dfae1cceaf161c87063e01372861ac"
+    },
+    {
+      "path": "results/phase4_fault/production/manifest.json",
+      "sha256": "fb71e83201977af1923ff0833f1ccec6c8e9ce73c4cc2a9102fbf5df9e56ad77"
+    },
+    {
+      "path": "results/phase4_fault/production/phase4_bands.csv",
+      "sha256": "ba05554aa23782a88ddd1f87a520a0388a101384b9c63e727a6e70a8fa7b2d48"
+    },
+    {
+      "path": "results/phase4_fault/production/phase4_contributions.csv",
+      "sha256": "710e98c59b04973520f2db90ee30ccc04199242c6e2d7883b35104c5b3160417"
+    },
+    {
+      "path": "results/phase4_fault/production/phase4_ct_data.csv",
+      "sha256": "4527892eb23913f58ec3ee6d46d995264b2f8109f6c8b47cbf63032b2eed3720"
+    },
+    {
+      "path": "results/phase4_fault/production/phase4_fault_currents.csv",
+      "sha256": "c08a49cbcf410137ef9b8bdfe509068ac274391d0ecd7fd2022d15dc7b261629"
+    },
+    {
+      "path": "results/phase4_fault/production/run_log.txt",
+      "sha256": "93630e89f3818c38de3d816d791b2a1a86bbbcd702e88950ec803f0d545c97ab"
+    },
+    {
+      "path": "results/phase4_fault/production/sha256.txt",
+      "sha256": "e7e47d119b4d2068a4e5e65c222142d737ed75ef066c3ddabc8d78c95d519643"
+    }
+  ],
+  "codeHashes": [
+    {
+      "file": "matlab/phase5/phase5_coord.m",
+      "sha256": "cb41efdcb100da5f2e7649fda35f3fd0b343e11954525b8dd9d6f3f33a902881"
+    },
+    {
+      "file": "matlab/phase5/phase5_ct.m",
+      "sha256": "3ac0359eaaa058ff3b957df426859a7f5fe120b63fe7011b5d1a6b4b105450a5"
+    },
+    {
+      "file": "matlab/phase5/phase5_ct_table.m",
+      "sha256": "b1f98864ece62df2e1e128ca9130221727aa42a8c45ab72097f54ae4cfcc85c8"
+    },
+    {
+      "file": "matlab/phase5/phase5_curve.m",
+      "sha256": "261232ae58e1af391cc83ea370e5a858c1c317f5a1aeffda51afd4a8cb855faa"
+    },
+    {
+      "file": "matlab/phase5/phase5_curve_dt.m",
+      "sha256": "8dd64af66ffe0e6519b9cfe3c6eb3778931bfc258d0e94391df606b3631bb6c5"
+    },
+    {
+      "file": "matlab/phase5/phase5_curve_info.m",
+      "sha256": "6635ca8a5cb501b871b34b5c3869f8bff2e5176fffe6227d8352f9d52ca8b6c2"
+    },
+    {
+      "file": "matlab/phase5/phase5_duty.m",
+      "sha256": "ad7c4024bc4ee4e85aaf49b9fd3a335b54dd5882d6dc6de097c3deba9443cf52"
+    },
+    {
+      "file": "matlab/phase5/phase5_gate.m",
+      "sha256": "6fa7a980e6e49dda7ff2f7ad626cd6073567d21db3f99d9e5b9c28da5470e6a6"
+    },
+    {
+      "file": "matlab/phase5/phase5_import.m",
+      "sha256": "5cbe23af84709b378be8a8cea9719fad4c5abdf388c9e69c338f31336be805d4"
+    },
+    {
+      "file": "matlab/phase5/phase5_pickup.m",
+      "sha256": "716b9a13ceb799a693be70b4127284c38cbcfba34151c2f2c8795280eba00604"
+    },
+    {
+      "file": "matlab/phase5/phase5_registry.m",
+      "sha256": "7670d051c472e76037b8cedb0f425e45a1b3edd74a7e2d9611cf142b1607ea8a"
+    },
+    {
+      "file": "matlab/phase5/phase5_sensitivity.m",
+      "sha256": "c3d4d389e6ca0fe4937cbce4030489f28e029f278a7f4497ef76a0e3c1ac3f78"
+    },
+    {
+      "file": "matlab/phase5/phase5_tcc.m",
+      "sha256": "fa48c6d6fc17776928cb1b909a718d01614f5c404796f163bb1bcaf82d8c5bd4"
+    },
+    {
+      "file": "matlab/phase5/phase5_time.m",
+      "sha256": "97960f488839f4eef81b93ff46821c28443c8f73a192a8ddf6c1bae0fac80f4a"
+    },
+    {
+      "file": "matlab/phase5/phase5_validate.m",
+      "sha256": "12da0513bf2f92457c09554660f030b86da1b876373a4cd6a47434b802255ca1"
+    },
+    {
+      "file": "matlab/phase5/phase5_writer.m",
+      "sha256": "eb117edd7161b81490a2d719b1e1b9c975e9207c9f19a76e56fe1b2b0c647588"
+    },
+    {
+      "file": "matlab/phase5/phase5b_branch_phasors.m",
+      "sha256": "37b7e9945c1c94ad5345aff63ef0ce9e39024e846f5998eb76289681a62d2991"
+    },
+    {
+      "file": "matlab/phase5/phase5b_cached_branches.m",
+      "sha256": "e48fafbbefdeb1656a2b848ff4b77625ce2263d14a96a37130127048ee644ce3"
+    },
+    {
+      "file": "matlab/phase5/phase5b_coord.m",
+      "sha256": "b22432d16d10aedfce57ea6350d867dc28e904fa0f7a032719cea447250f8baa"
+    },
+    {
+      "file": "matlab/phase5/phase5b_ct_scope.m",
+      "sha256": "6467fcbc3c4ae8ed698e7e737a06eb3f49680002cf54260fa85056f7c277d012"
+    },
+    {
+      "file": "matlab/phase5/phase5b_duty.m",
+      "sha256": "f69d7272166c75a3c1cdc8e66fa71362235de5bae6485be97354b065dc211b15"
+    },
+    {
+      "file": "matlab/phase5/phase5b_effectiveness.m",
+      "sha256": "69c6ab155c3222cbf3973b5c5a94d46d028e730a43b14c2073736377130aaa22"
+    },
+    {
+      "file": "matlab/phase5/phase5b_export_applicability.m",
+      "sha256": "94bb30471cc3e330900c3089b176f4fbb0ac79ff30e36dcdd39581af158c2b5a"
+    },
+    {
+      "file": "matlab/phase5/phase5b_final_reports.m",
+      "sha256": "c3e3444341cd72def03f8fef2c42e84078c9a7178fdad3ee3b1e93c4e699a04d"
+    },
+    {
+      "file": "matlab/phase5/phase5b_finalize_manifest.m",
+      "sha256": "e6053b372444483a82fab6314728b6da4984443f42c1b9446de4fcfb1ceb0731"
+    },
+    {
+      "file": "matlab/phase5/phase5b_gate.m",
+      "sha256": "d8810a0f2fff86af4c84b11579ba8dfca8de468993ebde5d6731bf16ebfe92f1"
+    },
+    {
+      "file": "matlab/phase5/phase5b_id_aliases.m",
+      "sha256": "55cfcd00004daa96c161ef57868e44f09ca6f297d48cc6dffb0ef54631feb945"
+    },
+    {
+      "file": "matlab/phase5/phase5b_independent_arithmetic.m",
+      "sha256": "835f89d8eb6178a1b82fd628053cd10975503fa641ef5709c9f8d91aa60c32de"
+    },
+    {
+      "file": "matlab/phase5/phase5b_mindetect.m",
+      "sha256": "023da4e975db630ce8f58d9317658ef256a311991f697d404a446f132a58ada9"
+    },
+    {
+      "file": "matlab/phase5/phase5b_parameters.m",
+      "sha256": "714f537dfcad56e992aeb595840e48755da42e3065a0a0d0fa4a765ff3f59abf"
+    },
+    {
+      "file": "matlab/phase5/phase5b_physical_currents.m",
+      "sha256": "c3fb4f4a7f7fdcd20c2921574e07a16262cc00347d2f1b2993641340432ee478"
+    },
+    {
+      "file": "matlab/phase5/phase5b_pickup.m",
+      "sha256": "f1fc5f0234de1fba86b3ea44a6aa550d59fa331e4e12a4ea3b3c407c57686ee0"
+    },
+    {
+      "file": "matlab/phase5/phase5b_registry.m",
+      "sha256": "6b61792b651d6bacdf499307344f0629b582ae79a78c333fd2d45b77321ed07e"
+    },
+    {
+      "file": "matlab/phase5/phase5b_sensitivity_scope.m",
+      "sha256": "a7d765f087dfd073a4da216c1f20c3da85ea9ed673a65403cf10f9e2799a73c6"
+    },
+    {
+      "file": "matlab/phase5/phase5b_sensitivity_v2.m",
+      "sha256": "069c65475b7661b4db3e6762dbed6d9f4d440f75d9d207041b67480e5ddfeb14"
+    },
+    {
+      "file": "matlab/phase5/phase5b_sha256.m",
+      "sha256": "9654df02d3bc50cf0b91b43ced50750db946042bd295637ba21d6bd19f0d3ae3"
+    },
+    {
+      "file": "matlab/phase5/phase5b_source_ledger.m",
+      "sha256": "bd393942c249b0558d2a9fcd4ba2ff669b13a0c8cf2243dad626c8a8bdc57596"
+    },
+    {
+      "file": "matlab/phase5/phase5b_tcc.m",
+      "sha256": "3ed8f11010735bdc2939820fd6440a76319afcd3d80f2158e2746bba06bc362a"
+    },
+    {
+      "file": "matlab/phase5/phase5b_validate.m",
+      "sha256": "90edff72335730391b694ef003518eaf335b2057aedffb76ce7f473b44c9b189"
+    },
+    {
+      "file": "matlab/phase5/phase5b_verify_artifacts.m",
+      "sha256": "99fe82298f75a846b2e157e11bcbec2579f8efca60797ab293884d71d77ebc05"
+    },
+    {
+      "file": "matlab/phase5/phase5b_verify_baseline.m",
+      "sha256": "a3d175dcd3ce7ace9895eb4e9bf8c3440fe6477894c82d4538635921cf619c19"
+    },
+    {
+      "file": "matlab/phase5/phase5b_writer.m",
+      "sha256": "fa75ae67132189e0894f5e6b58df371ad9d9a85cce8494373792661d32724f60"
+    },
+    {
+      "file": "matlab/phase5/phase5b_zones.m",
+      "sha256": "0b73c64526ed914eccefa1ab26b569da5af53eb9e149016955c3038e845ad94d"
+    },
+    {
+      "file": "matlab/phase5/run_phase5_production.m",
+      "sha256": "7c8c762b8c282b8a06fa9d026a322b4666051292077b088e2af672c01f968479"
+    },
+    {
+      "file": "matlab/phase5/run_phase5_tests.m",
+      "sha256": "4bfcaf4bfbf3e428a0df7230fa820a3a9f259da19255135ce9fc7d2c72f2b6ec"
+    },
+    {
+      "file": "matlab/phase5/run_phase5b_production.m",
+      "sha256": "87b1802c136c0e0dc041ba067c71035aa124e08d749486f5d40f1f46bc983e53"
+    },
+    {
+      "file": "matlab/phase5/run_phase5b_tests.m",
+      "sha256": "a89b5befa3f2d05a2c9ce109e23e9d2a2ef93f76aa8e9ea0e22ee004732955dc"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_artifacts.m",
+      "sha256": "35c986f96548b65a0a328b709f35523f0d2f0d0870fa48eedcb64bcc3499df9d"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_assumptions.m",
+      "sha256": "6336b41f248531806a4f6d6ccd56a6c6850c86fc0f22b1f52fe739bb72c1e481"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_branch_audit.m",
+      "sha256": "aa03825f28125bfbc9abf400f8d5b2c2708c8e39adcaa03f5bac6b6bbaedc056"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_branch_phasors.m",
+      "sha256": "9cd957f79b0391f1a6a0661ff5bb6447ff4b1b13cfc984dfa1eccd8c2cd1cea8"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_duty.m",
+      "sha256": "3fa9ea4508b4cae11e662306b870341e22bab961356fa623229355e4422b99ed"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_effectiveness.m",
+      "sha256": "67cb8f2c912656622de4bbca81fd81e943d51b35e192344d0732b5c06c388df3"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_final_engineering.m",
+      "sha256": "fb9df202d316dd16690ca0b6cc01a9b0441c4f1ec151367c50797b551f301248"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_gate.m",
+      "sha256": "972bfd710d986f5f77ba391790c4f795526ef3b1f17a5da8b5cd4eab00f905cc"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_independent_arithmetic.m",
+      "sha256": "af065ea3b154728f65f704566095cfc5ade53146ac658f3a7e49107e02f6a720"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_ledger.m",
+      "sha256": "4efd875f6b78af9c9a546839ec419da42342ee2f1dfd7fc3f809b9b59beb72d1"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_mindetect.m",
+      "sha256": "0a2a2f2d40a1e18bc251f5ff6c0481613d3fb8de8776ff0231cd4b03e7f8d70d"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_parameters.m",
+      "sha256": "7443af7b922a49e2af473fc4b2954bbd7e632ca3fc5f77c6657e4780fcfbb9a2"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_physical_currents.m",
+      "sha256": "71e10fed24b1af729c1045a13c807fa70bd42e34b41f1dc53c1612876b61bc1a"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_pickup.m",
+      "sha256": "8df34d7ffb335e152db10908639491c07b722ad2aea19db8dbd0b69609e9051b"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_registry.m",
+      "sha256": "b8757d109c9acc1d6e6e1c7a11ec3667575355eb6c2686645f8e0599090e7a90"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_report.m",
+      "sha256": "1d30838144e0b3a125b58019c0d7ef693254b9cc81b163c3d15f0d63aa1b422e"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_sensitivity_v2.m",
+      "sha256": "bc03a05f699de6a822bd19be63f0abde44261a50de8e77733e725dd6f69adefb"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_tcc.m",
+      "sha256": "4e8109bce74f48581834b9716bd8a1ff29606a7d824141855f64825b01ffa664"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_validate.m",
+      "sha256": "d10084fdd97932b6f875acf0b36b47204de448cdaa79790b7b3d4e55627a6ddf"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_writer.m",
+      "sha256": "5b12ceaf77348e63b1d6433890372ff5fa6acf7a10e655a338ef560bd3eefbcd"
+    },
+    {
+      "file": "matlab/tests/test_phase5b_zones.m",
+      "sha256": "29d117fba52c57efac3af2e3485a6da8f9802ae404ca20ee8209fbb335e5eb92"
+    }
+  ],
+  "outputHashes": [
+    {
+      "file": "phase5_breaker_duty.csv",
+      "sha256": "682167012e8df37adc382e36516958ea1f6825b7dff966191fbec72de1f6e8c8"
+    },
+    {
+      "file": "phase5_coordination_margins.csv",
+      "sha256": "064ac937f4a120858a2f06f34f1d77c6002e6972535f049b029fbe3c4b8caf60"
+    },
+    {
+      "file": "phase5_coordination_matrix.csv",
+      "sha256": "81364739cb76e1102f5bfd6132923978f3bef488c86d19e63ba579bca3a63f6b"
+    },
+    {
+      "file": "phase5_device_registry.csv",
+      "sha256": "e3df30a1a0473916b79355c210f74c250b8e9f0ef96643a36481ed281b628ab5"
+    },
+    {
+      "file": "phase5_fault_inputs.csv",
+      "sha256": "4e74fbdc6c1d072dcc841481caa8001b678f68b02b41c21b3a857096c1d1e6d1"
+    },
+    {
+      "file": "phase5_parameter_values.csv",
+      "sha256": "efd337b8f3af1535f65e890ddd19e036976f6f8478a5f2c11281dbb75ff5b3ca"
+    },
+    {
+      "file": "phase5_relay_currents.csv",
+      "sha256": "55a9a8e7ba57e8b16de240315a475b35a282145b608d5eda1ffbfdf299dce56f"
+    },
+    {
+      "file": "phase5_relay_settings.csv",
+      "sha256": "bee8cd45ac640c388b54264171fe8ad6c7861370032a0ab6606cfd396f4c7bbc"
+    },
+    {
+      "file": "phase5_sensitivity.csv",
+      "sha256": "9b60ae27d77454603deb1f7ed76df9a4667ef2b58b6b629e5a9e457378550df2"
+    },
+    {
+      "file": "phase5_trip_logic.csv",
+      "sha256": "85a503a1c381199a749c26e8adfdad735bb3f7a96d9b735bde6ef82a38f9ec44"
+    },
+    {
+      "file": "phase5_validation.csv",
+      "sha256": "16810a7d3287c1aa4409e4fcb7977f707a52fa6361fc28d6dcb8e89a559adcb1"
+    },
+    {
+      "file": "phase5b_effectiveness.csv",
+      "sha256": "fe74680e2e5a35db7ca959f9a9f93233728178ae477adfc754f28fd422c0bd58"
+    },
+    {
+      "file": "run_log.txt",
+      "sha256": "c0e0c07cba551a2209aa5c383c0951bddebde78a3ebe78d55d731bca4a7d45b0"
+    },
+    {
+      "file": "archive/tmp_v1check_predirect_archive_2026-09-19/tcc_gen.png",
+      "sha256": "d0c213241abf2479e5c9fdc32720be24a4e41b0b2a6d179bb46e45f9aa1536c0"
+    },
+    {
+      "file": "archive/tmp_v1check_predirect_archive_2026-09-19/tcc_grid.png",
+      "sha256": "fe73531352baa3437b2eefe6074fc500f72dc14023f52188fc9df8fb2b43050b"
+    },
+    {
+      "file": "plots/tcc_metadata.json",
+      "sha256": "657a38f251e15b97faf1e97980b16b1d9cc3718fbaee776b9936feb337a995ff"
+    },
+    {
+      "file": "plots/tcc_physical.png",
+      "sha256": "ea8c8dec3e07cfd2de634ffdb352bb46d35535efc61da126cd3f3fc379daee2d"
+    },
+    {
+      "file": "plots/tcc_study.png",
+      "sha256": "178118be6c1cba287a8f8ab111c470cbce4e12daa09c73554d0f99fee40f8405"
+    },
+    {
+      "file": "../../docs/PHASE5_AI_HANDOFF.md",
+      "sha256": "c8e525171296835be800e187842a3219219fb040630b2ebb4bdaefe31dc2ecc6"
+    },
+    {
+      "file": "../../docs/PHASE5_ASSUMPTIONS.csv",
+      "sha256": "efd337b8f3af1535f65e890ddd19e036976f6f8478a5f2c11281dbb75ff5b3ca"
+    },
+    {
+      "file": "../../docs/PHASE5_BASELINE_CHECKPOINT.md",
+      "sha256": "34b477c64e8aec0d3c24b6d953eef6bfdc483a7d2222e6e96aad580fe6a1df79"
+    },
+    {
+      "file": "../../docs/PHASE5_CHANGE_INVENTORY.csv",
+      "sha256": "f6da181fd3aa6b346cd7b943d4f0cbd331c43c0435dba207d07732afd47c2092"
+    },
+    {
+      "file": "../../docs/PHASE5_CLOSEOUT_CHECKLIST.md",
+      "sha256": "3ccc6010031c848b8c1e9fce2aac18820a5fe27e57c23060614488822393becb"
+    },
+    {
+      "file": "../../docs/PHASE5_DECISION_LOG.md",
+      "sha256": "426b0f9a6e69e08d12f9fb0004a89950141ae73927e0f715f47e47ee8449c062"
+    },
+    {
+      "file": "../../docs/PHASE5_FINAL_REPORT.md",
+      "sha256": "c2db1fcadcc12bdd9c9f2705327de65441a0e489972a25dd9e60588fc21ca4b2"
+    },
+    {
+      "file": "../../docs/PHASE5_INDEPENDENT_ARITHMETIC.csv",
+      "sha256": "aaa2c191b99c9f14374f8973a94a4fc2aaa4e5aeb30fb48e902686ac275b5285"
+    },
+    {
+      "file": "../../docs/PHASE5_PROGRESS.md",
+      "sha256": "d7b68eec7daaefb865a6b8da1149e2cf8d625d461332e1a73317292d9b6117c6"
+    },
+    {
+      "file": "../../docs/PHASE5_PROTECTED_BASELINE.csv",
+      "sha256": "69da528d386d018d2c82c9b601353a0b35ddcb5f2ed8b9a349c751cbc411a88e"
+    },
+    {
+      "file": "../../docs/PHASE5_RUN_LOG.txt",
+      "sha256": "c0e0c07cba551a2209aa5c383c0951bddebde78a3ebe78d55d731bca4a7d45b0"
+    },
+    {
+      "file": "../../docs/PHASE5_SOURCE_AUDIT.md",
+      "sha256": "4879c592531dbc209ebee6feb9ff0a4200d382c04d060e158dbf2fc276e5ea68"
+    },
+    {
+      "file": "../../docs/PHASE5_VALIDATION_REPORT.md",
+      "sha256": "6570f347920d57a26c5a03bc19c526fa60d7e4847832451c23482a5736fe2479"
+    },
+    {
+      "file": "../../docs/NOT_DETERMINABLE_REGISTER.md",
+      "sha256": "59dd403551e2254a2eac9979c6343a11a24d11268fa7b2022974c18e9ab28e54"
+    },
+    {
+      "file": "../../docs/manual/phase5_protection_manual.html",
+      "sha256": "7a25ec56c22b8052ce6d8daa3f5558b6fcf5a82ab4d411015ad75eae555646a2"
+    },
+    {
+      "file": "../../docs/manual/student_manual_phases_0_to_5.html",
+      "sha256": "49fa256e5d853ad6c533016baf3729ce0e34c3d40aa34479f302ea7219667b61"
+    },
+    {
+      "file": "../../docs/superpowers/plans/2026-09-20-phase5-final-engineering.md",
+      "sha256": "4c8a822c3f56c6040e3b67b4f83cc38417ed43b0a1977290360fa632dd3fba65"
+    },
+    {
+      "file": "../../PHASE5_AI_HANDOFF.md",
+      "sha256": "c8e525171296835be800e187842a3219219fb040630b2ebb4bdaefe31dc2ecc6"
+    },
+    {
+      "file": "../../PHASE5_ASSUMPTIONS.csv",
+      "sha256": "efd337b8f3af1535f65e890ddd19e036976f6f8478a5f2c11281dbb75ff5b3ca"
+    },
+    {
+      "file": "../../PHASE5_BASELINE_CHECKPOINT.md",
+      "sha256": "34b477c64e8aec0d3c24b6d953eef6bfdc483a7d2222e6e96aad580fe6a1df79"
+    },
+    {
+      "file": "../../PHASE5_DECISION_LOG.md",
+      "sha256": "426b0f9a6e69e08d12f9fb0004a89950141ae73927e0f715f47e47ee8449c062"
+    },
+    {
+      "file": "../../PHASE5_FINAL_REPORT.md",
+      "sha256": "c2db1fcadcc12bdd9c9f2705327de65441a0e489972a25dd9e60588fc21ca4b2"
+    },
+    {
+      "file": "../../PHASE5_PROGRESS.md",
+      "sha256": "d7b68eec7daaefb865a6b8da1149e2cf8d625d461332e1a73317292d9b6117c6"
+    },
+    {
+      "file": "../../PHASE5_RUN_LOG.txt",
+      "sha256": "c0e0c07cba551a2209aa5c383c0951bddebde78a3ebe78d55d731bca4a7d45b0"
+    },
+    {
+      "file": "../../PHASE5_VALIDATION_REPORT.md",
+      "sha256": "6570f347920d57a26c5a03bc19c526fa60d7e4847832451c23482a5736fe2479"
+    },
+    {
+      "file": "../../NOT_DETERMINABLE_REGISTER.md",
+      "sha256": "59dd403551e2254a2eac9979c6343a11a24d11268fa7b2022974c18e9ab28e54"
+    }
+  ],
+  "grid_scenario": "45.01 kA central preliminary ANALYTICAL SCREENING; locked Phase-4 fault matrix retained",
+  "tccPlots": {
+    "study_png": "plots/tcc_study.png",
+    "physical_png": "plots/tcc_physical.png",
+    "study_sha256": "178118be6c1cba287a8f8ab111c470cbce4e12daa09c73554d0f99fee40f8405",
+    "physical_sha256": "ea8c8dec3e07cfd2de634ffdb352bb46d35535efc61da126cd3f3fc379daee2d"
+  }
+}

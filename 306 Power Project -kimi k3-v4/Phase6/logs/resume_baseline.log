@@ -1,0 +1,8 @@
+{Unrecognized function or variable 'init_phase6_parameters'.
+
+Error in build_phase6_model (line 26)
+P = init_phase6_parameters();
+
+Error in test_phase6_build (line 8)
+info = build_phase6_model('SavePath',out,'Close',true);
+} 

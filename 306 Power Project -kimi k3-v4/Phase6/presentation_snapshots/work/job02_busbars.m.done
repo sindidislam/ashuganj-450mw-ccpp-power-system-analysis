@@ -1,0 +1,5 @@
+{
+  "success": false,
+  "job": "job02_busbars.m",
+  "error": "Index exceeds the number of array elements. Index must not exceed 1.\n\nError in phase6_presentation_busbars>insert (line 112)\n add_line(parent,anchorPorts(k),bp.LConn(k),'autorouting','on');\n\nError in phase6_presentation_busbars (line 6)\ninsert(mdl,'B01 Generator 22 kV bus',[mdl '/Generator'],'RConn', ...\n\nError in job02_busbars (line 4)\nphase6_presentation_busbars(mdl);\n\nError in run (line 112)\nevalin('caller', strcat(scriptStem, ';'));\n\nError in run_presentation_worker (line 15)\n  try,evalin('base',sprintf('run(''%s'')',strrep(path,'''','''''')));status.success=true;"
+}

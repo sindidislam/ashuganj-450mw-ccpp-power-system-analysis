@@ -1,0 +1,474 @@
+
+########################################################################
+#  ASHUGANJ 450 MW CCPP (SOUTH) - REV3.1 VALIDATION SUITE              #
+#  6 test files, selection 'phase2'
+########################################################################
+
+--- test_generator_capability -----------------------------------------
+  PASS  authoritative capabilityCurve exists
+  PASS  exact six extracted P points
+  PASS  exact extracted upper points
+  PASS  exact extracted lower points
+  PASS  extraction is not tabulated manufacturer data
+  PASS  manual extraction explicit
+  PASS  user supplied graph readings
+  PASS  no local attachment inspection claim
+  PASS  attachment locator retained
+  PASS  piecewise-linear interpretation
+  PASS  no extrapolation
+  PASS  physical compatibility limits apply at primary capacity
+  PASS  physical limit source status separate
+  PASS  generatorCapability function exists
+  PASS  all lower endpoints including zero-Q tip
+  PASS  all upper endpoints including zero-Q tip
+  PASS  lower midpoint on every segment
+  PASS  upper midpoint on every segment
+  PASS  360 MW lower independent formula
+  PASS  360 MW upper independent formula
+  PASS  column lower shape preserved
+  PASS  column upper shape preserved
+  PASS  matrix lower shape and values
+  PASS  matrix upper shape and values
+  PASS  explicit curve honored without provider recursion
+  PASS  invalid P input 1 rejected
+  PASS  invalid P input 2 rejected
+  PASS  invalid P input 3 rejected
+  PASS  invalid P input 4 rejected
+  PASS  invalid P input 5 rejected
+  PASS  invalid P input 6 rejected
+  PASS  invalid P input 7 rejected
+  PASS  invalid P input 8 rejected
+  PASS  invalid P input 9 rejected
+  PASS  invalid P input 10 rejected
+  PASS  malformed curve 1 rejected
+  PASS  malformed curve 2 rejected
+  PASS  malformed curve 3 rejected
+  PASS  malformed curve 4 rejected
+  PASS  malformed curve 5 rejected
+  PASS  malformed curve 6 rejected
+  PASS  normalized parameter helper exists
+  PASS  lowercase parameter schema complete
+  PASS  source value retained
+  PASS  source classification defaults honestly
+  PASS  source record not presented as assumption
+  PASS  selected value explicit
+  PASS  assumed range retained
+  PASS  assumption never promoted
+  PASS  assumptions require basis and finite ranges
+  PASS  out-of-range assumption rejected
+  PASS  missing source is not a finite assumed parameter
+  PASS  normalized source view exists
+  PASS  default and injected provider yield same source view
+  PASS  Snom_MVA normalized value follows original provenance
+  PASS  Snom_MVA original source status retained
+  PASS  Snom_MVA full original provenance retained
+  PASS  P_capacity_MW normalized value follows original provenance
+  PASS  P_capacity_MW original source status retained
+  PASS  P_capacity_MW full original provenance retained
+  PASS  Vnom_kV normalized value follows original provenance
+  PASS  Vnom_kV original source status retained
+  PASS  Vnom_kV full original provenance retained
+  PASS  H_s normalized value follows original provenance
+  PASS  H_s original source status retained
+  PASS  H_s full original provenance retained
+  PASS  SCR normalized value follows original provenance
+  PASS  SCR original source status retained
+  PASS  SCR full original provenance retained
+  PASS  Xd normalized value follows original provenance
+  PASS  Xd original source status retained
+  PASS  Xd full original provenance retained
+  PASS  Xdp normalized value follows original provenance
+  PASS  Xdp original source status retained
+  PASS  Xdp full original provenance retained
+  PASS  Xdpp normalized value follows original provenance
+  PASS  Xdpp original source status retained
+  PASS  Xdpp full original provenance retained
+  PASS  Xdpp_sat normalized value follows original provenance
+  PASS  Xdpp_sat original source status retained
+  PASS  Xdpp_sat full original provenance retained
+  PASS  Xq normalized value follows original provenance
+  PASS  Xq original source status retained
+  PASS  Xq full original provenance retained
+  PASS  Xqp normalized value follows original provenance
+  PASS  Xqp original source status retained
+  PASS  Xqp full original provenance retained
+  PASS  Xqpp normalized value follows original provenance
+  PASS  Xqpp original source status retained
+  PASS  Xqpp full original provenance retained
+  PASS  Xl normalized value follows original provenance
+  PASS  Xl original source status retained
+  PASS  Xl full original provenance retained
+  PASS  X2 normalized value follows original provenance
+  PASS  X2 original source status retained
+  PASS  X2 full original provenance retained
+  PASS  X0 normalized value follows original provenance
+  PASS  X0 original source status retained
+  PASS  X0 full original provenance retained
+  PASS  Ra_ohm normalized value follows original provenance
+  PASS  Ra_ohm original source status retained
+  PASS  Ra_ohm full original provenance retained
+  PASS  Rf_numeric normalized value follows original provenance
+  PASS  Rf_numeric original source status retained
+  PASS  Rf_numeric full original provenance retained
+  PASS  Td0p_s normalized value follows original provenance
+  PASS  Td0p_s original source status retained
+  PASS  Td0p_s full original provenance retained
+  PASS  Td0pp_s normalized value follows original provenance
+  PASS  Td0pp_s original source status retained
+  PASS  Td0pp_s full original provenance retained
+  PASS  Tq0p_s normalized value follows original provenance
+  PASS  Tq0p_s original source status retained
+  PASS  Tq0p_s full original provenance retained
+  PASS  Tq0pp_s normalized value follows original provenance
+  PASS  Tq0pp_s original source status retained
+  PASS  Tq0pp_s full original provenance retained
+  PASS  Tdp_s normalized value follows original provenance
+  PASS  Tdp_s original source status retained
+  PASS  Tdp_s full original provenance retained
+  PASS  Tdpp_s normalized value follows original provenance
+  PASS  Tdpp_s original source status retained
+  PASS  Tdpp_s full original provenance retained
+  PASS  Tqp_s normalized value follows original provenance
+  PASS  Tqp_s original source status retained
+  PASS  Tqp_s full original provenance retained
+  PASS  Tqpp_s normalized value follows original provenance
+  PASS  Tqpp_s original source status retained
+  PASS  Tqpp_s full original provenance retained
+  PASS  Ta_s normalized value follows original provenance
+  PASS  Ta_s original source status retained
+  PASS  Ta_s full original provenance retained
+  PASS  S10 normalized value follows original provenance
+  PASS  S10 original source status retained
+  PASS  S10 full original provenance retained
+  PASS  S12 normalized value follows original provenance
+  PASS  S12 original source status retained
+  PASS  S12 full original provenance retained
+  PASS  Excitation_type normalized value follows original provenance
+  PASS  Excitation_type original source status retained
+  PASS  Excitation_type full original provenance retained
+  PASS  Excitation_designation normalized value follows original provenance
+  PASS  Excitation_designation original source status retained
+  PASS  Excitation_designation full original provenance retained
+  PASS  PF_rated normalized value follows original provenance
+  PASS  PF_rated original source status retained
+  PASS  PF_rated full original provenance retained
+  PASS  P_pf_reference_MW normalized value follows original provenance
+  PASS  P_pf_reference_MW original source status retained
+  PASS  P_pf_reference_MW full original provenance retained
+  PASS  P_owner_derated_MW normalized value follows original provenance
+  PASS  P_owner_derated_MW original source status retained
+  PASS  P_owner_derated_MW full original provenance retained
+  PASS  Earthing normalized value follows original provenance
+  PASS  Earthing original source status retained
+  PASS  Earthing full original provenance retained
+  PASS  Zbase_machine_ohm normalized value follows original provenance
+  PASS  Zbase_machine_ohm original source status retained
+  PASS  Zbase_machine_ohm full original provenance retained
+  PASS  Zbase_100MVA_ohm normalized value follows original provenance
+  PASS  Zbase_100MVA_ohm original source status retained
+  PASS  Zbase_100MVA_ohm full original provenance retained
+  PASS  Ra_pu_machine normalized value follows original provenance
+  PASS  Ra_pu_machine original source status retained
+  PASS  Ra_pu_machine full original provenance retained
+  PASS  Ra_pu_100MVA normalized value follows original provenance
+  PASS  Ra_pu_100MVA original source status retained
+  PASS  Ra_pu_100MVA full original provenance retained
+  PASS  Xdpp_100MVA normalized value follows original provenance
+  PASS  Xdpp_100MVA original source status retained
+  PASS  Xdpp_100MVA full original provenance retained
+  PASS  Xdpp_sat_100MVA normalized value follows original provenance
+  PASS  Xdpp_sat_100MVA original source status retained
+  PASS  Xdpp_sat_100MVA full original provenance retained
+  PASS  field-resistance unit not invented
+  PASS  unit qualification separate
+  PASS  unqualified reactance not replaced by saturated
+  PASS  saturated reactance separate
+  PASS  workbook excitation type
+  PASS  workbook excitation designation
+  PASS  source no-load excitation voltage
+  PASS  SFC DC link not field voltage
+  PASS  SFC output current not DC-link current
+  PASS  output side explicit
+  PASS  DC link side explicit
+  PASS  NER phase voltage
+  PASS  NER secondary voltage
+  PASS  NER short-time rating
+  PASS  NER rating duration
+  PASS  approximate HV DC resistance
+  PASS  approximate secondary loading resistor
+  PASS  source question mark not erased
+  PASS  secondary uncertainty retained
+  PASS  frozen grid estimate context
+  PASS  source rounded 19.919 GVA retained
+  PASS  grid estimate not promoted to verified
+  PASS  secondary sensitivity current separate
+  PASS  secondary sensitivity X/R separate
+  PASS  secondary source not selected grid
+  PASS  source total loss
+  PASS  source no-load loss
+  PASS  source full-load loss
+  PASS  cooling closure 1282-159-1095
+  PASS  cooling arithmetic explicit
+  PASS  derived cooling keeps input provenance
+  PASS  total source classification retained
+  PASS  total source status retained
+  PASS  cooling remains a derived record
+  PASS  gsut_total_kW source document retained
+  PASS  gsut_total_kW provisional design interpretation
+  PASS  gsut_total_kW confidence retains design-finalization caveat
+  PASS  gsut_total_kW marked loss table located
+  PASS  gsut_total_kW asterisk footnote located
+  PASS  gsut_total_kW rationale retains provisional source meaning
+  PASS  gsut_total_kW design caveat does not invent uncertainty ranges
+  PASS  gsut_cooling_kW source document retained
+  PASS  gsut_cooling_kW provisional design interpretation
+  PASS  gsut_cooling_kW confidence retains design-finalization caveat
+  PASS  gsut_cooling_kW marked loss table located
+  PASS  gsut_cooling_kW asterisk footnote located
+  PASS  gsut_cooling_kW rationale retains provisional source meaning
+  PASS  gsut_cooling_kW design caveat does not invent uncertainty ranges
+  PASS  source view uses authoritative curve
+  PASS  injected provenance is normalized, not independently hard-coded
+  => test_generator_capability: 224 passed, 0 failed
+
+--- test_engineering_assumptions --------------------------------------
+  PASS  metadata_contract
+  PASS  exciter_defaults
+  PASS  limiter_bases
+  PASS  sfc_defaults
+  PASS  battery_defaults
+  PASS  charger_defaults
+  PASS  load_budget
+  PASS  governor_defaults
+  PASS  pss_disabled
+  => test_engineering_assumptions: 9 passed, 0 failed
+
+--- test_phase2_systems -----------------------------------------------
+  PASS  identities_and_defaults
+  PASS  all_leaves_are_records
+  PASS  exact_source_identity
+  PASS  recognized_primary_status_mapping
+  PASS  reject_nonprimary_frequency_status
+  PASS  reject_nonprimary_component_status
+  PASS  reject_nonprimary_qualified_source
+  PASS  oel_not_a_voltage_base
+  PASS  uel_source_curve
+  PASS  sfc_side_separation
+  PASS  station_dc_configuration
+  PASS  primary_sixth_order_selection
+  PASS  central_record_coverage
+  PASS  override_propagation
+  PASS  range_boundary_override
+  PASS  reject_malformed_records
+  PASS  reject_inconsistent_battery
+  PASS  reject_inconsistent_exciter
+  PASS  reject_inconsistent_charger
+  PASS  reject_charger_cutoff_shortfall
+  PASS  accept_charger_cutoff_boundary
+  PASS  reject_charger_power_shortfall
+  PASS  reject_invalid_generator
+  PASS  preserve_inputs
+  => test_phase2_systems: 24 passed, 0 failed
+
+--- Phase 2 Component Models ------------------------------------------
+  PASS  exciter_quiescent_equilibrium
+  PASS  oel_inactive_at_nominal
+  PASS  uel_inactive_at_nominal
+  PASS  stator_limiter_inactive_at_nominal
+  PASS  exciter_positive_step_response
+  PASS  exciter_finite_exponential_lag
+  PASS  exciter_positive_ceiling_clamp
+  PASS  exciter_ceiling_flag
+  PASS  exciter_negative_floor_clamp
+  PASS  exciter_floor_flag
+  PASS  oel_activates_on_field_exceedance
+  PASS  oel_positive_correction
+  PASS  uel_activates_below_inset_boundary
+  PASS  uel_positive_boost_correction
+  PASS  stator_limiter_activates_on_overcurrent
+  PASS  stator_overload_alarm_raised
+  PASS  exciter_rejects_negative_dt
+  PASS  exciter_rejects_zero_dt
+  PASS  sfc_exponential_lag_response
+  PASS  sfc_active_flag
+  PASS  sfc_efficiency_input_power
+  PASS  sfc_loss_accounting
+  PASS  sfc_clamps_at_max_power_4MW
+  PASS  sfc_clamps_negative_power_to_zero
+  PASS  sfc_ramps_to_zero_when_disabled
+  PASS  sfc_rejects_negative_dt
+  PASS  dc_continuous_load_2p4kW
+  PASS  dc_battery_floating_at_full_soc
+  PASS  dc_full_soc_preserved
+  PASS  charger_supplies_continuous_load
+  PASS  charger_ac_efficiency_accounting
+  PASS  battery_cutoff_false_at_nominal
+  PASS  trip_pulse_adds_2kW
+  PASS  trip_pulse_timer_active
+  PASS  close_pulse_adds_3kW
+  PASS  close_pulse_timer_active
+  PASS  emergency_switched_demand_adds_5kW
+  PASS  battery_supplies_discharge_current
+  PASS  battery_soc_depleted_during_discharge
+  PASS  charger_zero_output_when_unavailable
+  PASS  battery_terminal_voltage_sag_equals_IR
+  PASS  battery_cutoff_triggers_at_soc_min
+  PASS  battery_disconnects_at_cutoff
+  PASS  charger_rated_20kW
+  PASS  charger_max_180A
+  PASS  standby_charger_takes_over_duty
+  PASS  standby_active_flag_set
+  PASS  dc_rejects_negative_dt
+  PASS  dc_rejects_soc_above_one
+  => Phase 2 Component Models: 49 passed, 0 failed
+
+--- Operating Profiles & Capacity Guard -------------------------------
+  PASS  master_has_operating_profiles
+  PASS  exactly_six_canonical_profiles
+  PASS  canonical_profile_ids_exact
+  PASS  p1_dispatch_360MW
+  PASS  p1_capacity_360MW
+  PASS  p1_gat_out
+  PASS  p1_no_exception
+  PASS  p2_dispatch_360MW
+  PASS  p2_capacity_360MW
+  PASS  p2_gat_in
+  PASS  p2_no_exception
+  PASS  q1_dispatch_342MW
+  PASS  q1_gat_out
+  PASS  q2_dispatch_342MW
+  PASS  q2_gat_in
+  PASS  h1_dispatch_389MW
+  PASS  h1_approved_exception_true
+  PASS  h2_dispatch_389MW
+  PASS  h2_approved_exception_true
+  PASS  LF360_GAT_OUT_qmin_from_capability
+  PASS  LF360_GAT_OUT_qmax_from_capability
+  PASS  LF360_GAT_OUT_finite_q_limits
+  PASS  LF360_GAT_IN_qmin_from_capability
+  PASS  LF360_GAT_IN_qmax_from_capability
+  PASS  LF360_GAT_IN_finite_q_limits
+  PASS  LF342_GAT_OUT_qmin_from_capability
+  PASS  LF342_GAT_OUT_qmax_from_capability
+  PASS  LF342_GAT_OUT_finite_q_limits
+  PASS  LF342_GAT_IN_qmin_from_capability
+  PASS  LF342_GAT_IN_qmax_from_capability
+  PASS  LF342_GAT_IN_finite_q_limits
+  PASS  LF389P30_GAT_OUT_qmin_from_capability
+  PASS  LF389P30_GAT_OUT_qmax_from_capability
+  PASS  LF389P30_GAT_OUT_finite_q_limits
+  PASS  LF389P30_GAT_IN_qmin_from_capability
+  PASS  LF389P30_GAT_IN_qmax_from_capability
+  PASS  LF389P30_GAT_IN_finite_q_limits
+  PASS  master_has_builder_visible_cases
+  PASS  alias_LF1_exists
+  PASS  alias_LF2_exists
+  PASS  alias_LF3_exists
+  PASS  alias_LF4_exists
+  PASS  aliases_preserve_exact_historical_dispatches
+  PASS  guard_accepts_primary_360MW
+  PASS  guard_accepts_qualified_342MW
+  PASS  guard_accepts_historical_with_exception
+  PASS  guard_rejects_primary_exceeding_360MW
+  PASS  guard_rejects_illegal_primary_exception
+  PASS  master_has_excitation
+  PASS  master_has_sfc
+  PASS  master_has_stationDC
+  PASS  master_has_dynamicReadiness
+  => Operating Profiles & Capacity Guard: 52 passed, 0 failed
+
+--- Phase 2 Load-Flow & Capability Checks -----------------------------
+  PASS  nom_within_capability
+  PASS  nom_p_exact
+  PASS  nom_q_exact
+  PASS  nom_s_exact
+  PASS  nom_pf_exact
+  PASS  nom_pf_lagging
+  PASS  nom_upper_margin_positive
+  PASS  nom_lower_margin_positive
+  PASS  nom_mva_margin_positive
+  PASS  nom_never_clipped
+  PASS  over_qmax_violation_reported
+  PASS  over_negative_upper_margin
+  PASS  over_never_clipped
+  PASS  over_unaltered_q
+  PASS  under_qmin_violation_reported
+  PASS  under_negative_lower_margin
+  PASS  under_never_clipped
+  PASS  under_unaltered_q
+  PASS  lead_pf_leading
+  PASS  mva_violation_reported
+  PASS  mva_negative_margin
+
+============================================================
+  REV3.1 PHASE 2 LOAD-FLOW EXECUTION & VERIFICATION
+============================================================
+  Cases to solve: LF360_GAT_OUT, LF360_GAT_IN
+  Output directory: G:\Other computers\My Computer (2)\Level 3 Term 1\306 Power Project -gemini flash\results\phase2_loadflow
+
+--- Solving Case: LF360_GAT_OUT -----------------------------------
+  Pgen: 360.0000 MW | Qgen:  28.1702 MVAr | Sgen: 361.1005 MVA | PF: 0.9970 (Lagging)
+  Vgen: 0.9216 pu (20.28 kV) | V230: 229.70 kV | V6.6:  6.59 kV
+  Grid Export: 345.2701 MW + j-25.8193 MVAr | Losses:  0.7299 MW + j45.3132 MVAr
+  Power Balance Error: P: 1.41e-07 MW, Q: 9.53e-07 MVAr | Worst KCL: 6.07e-08 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +225.63 / -217.72 MVAr, S margin: 96.90 MVA)
+  Verdict: OK (solved in 8.22 s, 2 iters)
+
+--- Solving Case: LF360_GAT_IN -----------------------------------
+  Pgen: 360.0000 MW | Qgen:  23.9874 MVAr | Sgen: 360.7983 MVA | PF: 0.9978 (Lagging)
+  Vgen: 0.9210 pu (20.26 kV) | V230: 229.66 kV | V6.6:  6.73 kV
+  Grid Export: 345.2576 MW + j-29.5994 MVAr | Losses:  0.7424 MW + j44.9104 MVAr
+  Power Balance Error: P: 3.82e-06 MW, Q: 2.36e-05 MVAr | Worst KCL: 5.38e-04 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +229.81 / -213.53 MVAr, S margin: 97.20 MVA)
+  Verdict: OK (solved in 1.24 s, 2 iters)
+
+  PASS  two_primary_cases_solved
+  PASS  s1_id
+  PASS  s1_converged
+  PASS  s1_dispatch_exact_360MW
+  PASS  s1_s_within_458MVA
+  PASS  s1_within_capability_curve
+  PASS  s1_positive_q_upper_margin
+  PASS  s1_positive_q_lower_margin
+  PASS  s1_independent_p_balance
+  PASS  s1_independent_q_balance
+  PASS  s1_kcl_residual_valid
+  PASS  s2_id
+  PASS  s2_converged
+  PASS  s2_dispatch_exact_360MW
+  PASS  s2_s_within_458MVA
+  PASS  s2_within_capability_curve
+  PASS  s2_positive_q_upper_margin
+  PASS  s2_positive_q_lower_margin
+  PASS  s2_independent_p_balance
+  PASS  s2_independent_q_balance
+  PASS  s2_kcl_residual_valid
+  Capability plot saved to: G:\Other computers\My Computer (2)\Level 3 Term 1\306 Power Project -gemini flash\docs\validation\rev31_phase2\generator_capability_curve.png
+  PASS  capability_plot_figure_created
+  PASS  capability_plot_file_saved_to_disk
+  PASS  baseline_lf_mat_exists
+  PASS  hist_lf1_export_reproducible
+  PASS  hist_lf1_loss_reproducible
+  PASS  hist_lf2_export_reproducible
+  PASS  hist_lf2_loss_reproducible
+  PASS  hist_lf3_export_reproducible
+  PASS  hist_lf3_loss_reproducible
+  PASS  hist_lf4_export_reproducible
+  PASS  hist_lf4_loss_reproducible
+  => Phase 2 Load-Flow & Capability Checks: 53 passed, 0 failed
+
+########################################################################
+#  SUMMARY                                                             #
+########################################################################
+  PASS  test_generator_capability           224 passed    0 failed     1.3 s
+  PASS  test_engineering_assumptions          9 passed    0 failed     0.6 s
+  PASS  test_phase2_systems                  24 passed    0 failed     5.5 s
+  PASS  test_phase2_component_models         49 passed    0 failed     0.6 s
+  PASS  test_operating_profiles              52 passed    0 failed     0.7 s
+  PASS  test_phase2_load_flow                53 passed    0 failed    74.7 s
+  --------------------------------------------------------------------
+  TOTAL                                     411 passed    0 failed    83.2 s
+
+  ALL CHECKS PASSED.
+
+PHASE2 TOTAL 411 0

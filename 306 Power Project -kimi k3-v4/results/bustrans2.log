@@ -1,0 +1,75 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+probe_bus_transparency2   MATLAB 24.1.0.2537033 (R2024a)
+
+=================================================================
+ 1. THE BLOCK'S REAL OPTIONS
+=================================================================
+  Phases       style   : popup(single|ABC|AB|AC|BC|A|B|C)
+  Connectors   style   : popup(on one side|on both sides)
+  default Phases     = single
+  default Connectors = on one side
+
+=================================================================
+ 2. THE HOST BLOCKS' ELECTRICAL TERMINALS
+=================================================================
+  EXT GRID        LConn 0  RConn 3  In 0  Out 0
+  GSUT 10BAT10    LConn 3  RConn 3  In 0  Out 0
+  G1              LConn 0  RConn 3  In 0  Out 0
+  LOAD_B6_6       LConn 3  RConn 0  In 0  Out 0
+  GAT BAY CB      LConn 3  RConn 3  In 0  Out 0
+  GAT 10BBT20     LConn 3  RConn 3  In 0  Out 0
+  BUS COUPLER     LConn 3  RConn 3  In 0  Out 0
+
+=================================================================
+ 3. SOLVE BEFORE
+=================================================================
+  status 1, 2 iterations, 5 nodes
+     *1*        220308.745055 V    +4.332119 deg  (PQ)
+     *2*          6609.175879 V    +4.334720 deg  (PQ)
+     *3*         22000.000000 V   -22.225094 deg  (PV)
+     *4*        230000.000000 V    +0.000000 deg  (swing)
+     *5*        229697.703302 V    +1.078684 deg  (PQ)
+
+=================================================================
+ 4. ADD FIVE THREE-PHASE BUS BLOCKS ON THE CORRECT TERMINALS
+=================================================================
+  BGRID230  FAILED: Invalid setting in Load Flow Bus block (mask) 'LFBUS_BGRID230' for parameter 'Phases'
+  B230_1    FAILED: Invalid setting in Load Flow Bus block (mask) 'LFBUS_B230_1' for parameter 'Phases'
+  B22       FAILED: Invalid setting in Load Flow Bus block (mask) 'LFBUS_B22' for parameter 'Phases'
+  B6_6      FAILED: Invalid setting in Load Flow Bus block (mask) 'LFBUS_B6_6' for parameter 'Phases'
+  GAT_HV    FAILED: Invalid setting in Load Flow Bus block (mask) 'LFBUS_GAT_HV' for parameter 'Phases'
+  0 of 5 added
+
+  compile check: PASS
+
+=================================================================
+ 5. SOLVE AFTER, AND COMPARE BY NEAREST VOLTAGE
+=================================================================
+{Error using ThreePhaseLoadFlowBar
+The Load Flow Bus block labeled 'BUS_1' is not properly connected to the network. You need to connect this block to a load flow block, or
+delete it from your model.
+
+Error in psbsort
+
+Error in powersolve
+
+Error in power_analyze_prv
+
+Error in power_analyze (line 43)
+  [varargout{1:nargout}] = power_analyze_prv(varargin{:});
+
+Error in LoadFlowTool
+
+Error in power_loadflow (line 131)
+[varargout{1:nargout}] = LoadFlowTool(Parameters{1:end});
+
+Error in probe_bus_transparency2 (line 145)
+LFb = power_loadflow(mB, 'solve');
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+} 
+[Warning: Cannot close the model 'probe_bt2_after' because it has been changed. Use the command 'save_system' to first save the model] 
+ERROR: MATLAB error Exit Status: 0x00000001

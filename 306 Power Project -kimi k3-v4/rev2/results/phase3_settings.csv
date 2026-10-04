@@ -1,0 +1,9 @@
+Relay,CT,FL_A,Pickup_A,Is_sec_A,TMS,t_maxFault_s,t_minFault_s,maxFault_kA,minFault_kA,SensVerdict,Note_StatusC
+GSUT-HV 51,1600,859.5,1031.4,0.6446,0.200,0.741,1.818,6.59,2.21,PASS,pickup 1.2xFL(C); IEC-SI(C); CT rule(C)
+LINE-Q9 51,1600,859.1,1030.9,0.6443,0.281,0.502,1.424,44.98,4.03,PASS,pickup 1.2xFL(C); IEC-SI(C); CT rule(C)
+UAT-HV 51,800,341.2,409.4,0.5117,0.318,0.809,0.809,5.94,5.94,PASS,pickup 1.2xFL(C); IEC-SI(C); CT rule(C)
+UAT-LV 51,1600,1137.2,1364.6,0.8529,0.200,0.509,0.509,19.82,19.82,PASS,pickup 1.2xFL(C); IEC-SI(C); CT rule(C)
+GSUT-NEF 51N,1600,,320.0,0.2000,0.150,0.200,,46.79,,,EF 0.2Asec TMS0.15start(C)
+LINE-EF 51N,1600,,320.0,0.2000,0.375,0.500,,46.79,,,EF 0.2Asec TMS0.15start(C)
+GSUT-DIFF,,,,,bias0.30pu/s1-30%/s2-60%,,,,,,C; CT mismatch note
+GEN-DIFF,,,,,start0.20pu,,,,,,C

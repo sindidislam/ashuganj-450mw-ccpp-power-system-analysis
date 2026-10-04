@@ -1,0 +1,17 @@
+Time_s,Event_group,Device,Transition,Source
+0.021,DC_state,Charger_failure,cleared,logged_signal_transition
+0.15,scenario_schedule,GSUT_LV,fault_on,scenario_setting_not_measured_switch_state
+0.154,relay_pickup,87T,pickup,logged_signal_transition
+0.156,relay_pickup,GEN51,pickup,logged_signal_transition
+0.157,relay_pickup,GSUT51,pickup,logged_signal_transition
+0.165,DC_state,Charger_failure,asserted,logged_signal_transition
+0.198,relay_trip_request,87T,asserted,logged_signal_transition
+0.199,unit_trip,Unit,asserted,logged_signal_transition
+0.199,trip_coil_power,Station_DC,energized,logged_signal_transition
+0.248,breaker_command,GCB,open,logged_signal_transition
+0.248,breaker_command,Q0,open,logged_signal_transition
+0.265,relay_pickup,GEN51,dropout,logged_signal_transition
+0.269,relay_pickup,GSUT51,dropout,logged_signal_transition
+0.271,relay_pickup,87T,dropout,logged_signal_transition
+0.399,trip_coil_power,Station_DC,deenergized,logged_signal_transition
+0.45,scenario_schedule,GSUT_LV,fault_off,scenario_setting_not_measured_switch_state

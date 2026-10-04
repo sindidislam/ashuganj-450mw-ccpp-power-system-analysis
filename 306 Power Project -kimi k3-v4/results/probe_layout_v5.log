@@ -1,0 +1,123 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+--- build (no save, no backup) ---
+
+=== BUILD Ashuganj_South_Main : case LF1 ===
+  Rated dispatch, GAT out of service
+  P(G1) = 389.30 MW (Rated) | GAT out | coupler closed | topology radial
+  powergui defaults: Pbase=100e6 f=60 UnitsV=kV UnitsW=MW ErrMax=1e-4 Iter=50
+  powergui set:      Pbase=100000000 f=50 Hz (frequencyindice=50 Hz)
+  blocks: 12   lines: 48   backups now: 22
+
+--- blocks ---
+  BUS COUPLER      down   [  960   280  1040   380]
+  EXT GRID         down   [  660    60   740   170]
+  G1               up     [  160   980   240  1090]
+  GAT 10BBT20      down   [ 1580   560  1660   680]
+  GAT BAY CB       down   [ 1580   380  1660   480]
+  GSUT 10BAT10     down   [  160   280   240   400]
+  LOAD_B6_6        down   [  440   780   520   860]
+  LOAD_B6_6_WI1    down   [  820   780   900   860]
+  LOAD_B6_6_WI2    down   [ 1200   780  1280   860]
+  UAT 10BBT10      down   [  440   560   520   680]
+  ZGRID            up     [  660   220   740   280]
+  powergui         right  [   60    60   190   115]
+  bbox blocks : x 60..1660  y 60..1090
+
+--- lines ---
+  lines 48, segments 90 (1.88 per line), diagonals 0 (must be 0)
+
+--- panels and bars (Position is exact) ---
+  PANEL [   70   944   560  1120]
+  PANEL [   70   500   265   944]
+  PANEL [  270   500  1830   940]
+  PANEL [   26   290   600   468]
+  PANEL [  880    44  1830   496]
+  PANEL [  380    44   860   270]
+  PANEL [  600   944  1500  1190]
+  PANEL [   40    50   370   200]
+  PANEL [   26  -104  1830    30]
+  BAR   [  270   673  1690   687]
+  BAR   [  130   393   550   407]
+  BAR   [  930   373  1690   387]
+  BAR   [  130   273  1070   287]
+
+--- notes (Position as refitted by Simulink) ---
+  [ 1200   984  1425  1106]  * Generator, GSUT, UAT, GAT nameplates: VERI...
+  [ 1200   956  1379   971]  DATA STATUS ON THIS DIAGRAM
+  [  620  1136   875  1168]  Per-unit on each transformer's OWN nameplate...
+  [  620   984   946  1118]  transformer                 GSUT           U...
+  [  620   956   838   971]  DERIVED TRANSFORMER PARAMETERS
+  [   60   124   339   159]  SOLVER / STUDY TOOL - not plant equipment. |...
+  [ 1180   -72  1584   -59]  voltage-level colour key. 400 V boards and b...
+  [ 1350   -96  1380   -81]  6.6 kV
+  [ 1270   -96  1298   -81]  22 kV
+  [ 1180   -96  1213   -81]  230 kV
+  [   40   -62   580   -27]  Case LF1 : Rated dispatch, GAT out of servic...
+  [   40   -96   774   -76]  ASHUGANJ 450 MW COMBINED CYCLE POWER PLANT  ...
+  [   76   506   157   522]  GENERATION
+  [  280   506   436   522]  6.6 kV AUXILIARY SYSTEM
+  [   36   296   137   312]  22 kV UNIT ZONE
+  [  276   714   316   727]  10BBA10
+  [  276   692   355   707]  6.6 kV MV BUS
+  [   36   432    76   445]  10BAC10
+  [   36   410   119   425]  22 kV GEN BUS
+  [ 1080   414  1120   427]  10BAC02
+  [ 1080   392  1152   407]  230 kV BUS 2
+  [  140   248   180   261]  10BAC01
+  [  140   226   212   241]  230 kV BUS 1
+  [  434   918   997   931]  6.6 kV auxiliary total  14.000 MW / 8.676 MV...
+  [ 1678   600  1808   646]  230/6.9 kV  YNyn0  Z = 12.0 % | 19/25 MVA  O...
+  [ 1678   574  1755   589]  GAT  10BBT20
+  [  538   600   657   635]  22/6.9 kV  Dyn11  Z = 10.5 % | 19/25 MVA  ON...
+  [  538   574   614   589]  UAT  10BBT10
+  [ 1194   890  1289   903]  2.491 MW  1.544 MVAr
+  [ 1194   868  1330   883]  Water intake / motor group 2
+  [  814   890   909   903]  2.491 MW  1.544 MVAr
+  [  814   868   950   883]  Water intake / motor group 1
+  [  434   890   529   903]  9.018 MW  5.589 MVAr
+  [  434   868   525   883]  MV BUS aux group
+  [  250  1026   410  1061]  SGen5-2000H  458 MVA  22 kV  pf 0.85 | PV bu...
+  [  250  1000   322  1015]  G1  10MKA10
+  [ 1678   420  1741   433]  case LF1 (Q4c)
+  [ 1678   396  1773   411]  10BAY20 CB  OPEN
+  [ 1058   320  1322   333]  ASSUMPTION (Q9a) - the normal state is not i...
+  [ 1058   296  1201   311]  10BAY12 COUPLER  CLOSED
+  [ 1060    92  1291   149]  double busbar, single breaker | 3150 A  50 k...
+  [ 1060    64  1217    80]  230 kV GIS   Siemens 8DN9
+  [  258   320   417   355]  230/22 kV  YNd1  Z = 16.0 % | 355/460/515 MV...
+  [  258   294   342   309]  GSUT  10BAT10
+  [  410   200   576   246]  X/R = infinite - R not documented | ESTIMATE...
+  [  410   176   510   191]  Z_grid = j2.6558 ohm
+  [  410    94   555   107]  230 kV   swing bus   1.00 pu   50 Hz
+  [  410    66   558    82]  EXTERNAL GRID  (PGCB)
+
+--- note-on-note overlaps (must be none) ---
+  none
+
+--- note-on-block overlaps (must be none) ---
+  none
+
+--- note-on-busbar overlaps (must be none) ---
+  none
+
+--- panel-on-panel overlaps (must be none) ---
+  none
+
+--- notes straddling a panel edge (cosmetic warning) ---
+  none
+
+--- busbars escaping their panel (cosmetic warning) ---
+  bar [130 273 1070 287] leaves panel [880 44 1830 496]
+
+--- page ---
+  full bbox : x 26..1830  y -104..1190  (1804 x 1294)
+  exported F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\tmp\simulink\layout_v3.png (399 kB)
+
+DEFECTS: 0 note-note, 0 note-block, 0 note-busbar, 0 panel-panel, 0 diagonals
+WARNINGS: 0 notes straddle a panel edge, 1 busbars leave their panel

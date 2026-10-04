@@ -1,0 +1,4 @@
+
+--- Operating Profiles & Capacity Guard -------------------------------
+  FAIL  master_has_operating_profiles
+TASK4 RED EXPECTED FAILURE: Unrecognized field name "operating_profiles".

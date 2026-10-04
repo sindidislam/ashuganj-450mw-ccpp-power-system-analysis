@@ -1,0 +1,14 @@
+Error using assert
+The fixed-frequency measurement helper must exist.
+
+Error in test_phase6_measurement (line 4)
+assert(exist('phase6_measurement_step','file')==2, ...
+
+Error in jobM_measurement01_red (line 6)
+test_phase6_measurement;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

@@ -1,0 +1,30 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+BEFORE any wiring:
+  A.L1 [275 196]   B.L1 [575 204]   A.R1 [275 284]   C.L1 [275 316]
+  A.L2 [300 196]   B.L2 [600 204]   A.R2 [300 284]   C.L2 [300 316]
+  A.L3 [325 196]   B.L3 [625 204]   A.R3 [325 284]   C.L3 [325 316]
+
+== case 1: same tier, opposite facing -> force route along the tier ==
+  phase 1: want 3 seg [275 185;275 200;575 200;575 215]
+            got 3 seg [275 185;275 200;575 200;575 204]
+  phase 2: want 3 seg [300 185;300 200;600 200;600 215]
+            got 3 seg [300 185;300 200;600 200;600 204]
+  phase 3: want 3 seg [325 185;325 200;625 200;625 215]
+            got 3 seg [325 185;325 200;625 200;625 204]
+
+== case 2: same column, ports facing each other -> plain add_line ==
+  phase 1: 1 seg [275 295;275 316]
+  phase 2: 1 seg [300 295;300 316]
+  phase 3: 1 seg [325 295;325 316]
+
+== how far apart are same-tier ports, really? ==
+  |dy| = 30 between two ports that both sit on tier 200
+  |dx| = 0 between two ports that both sit on column 275
+
+== netlist intact? ==
+  6 of 6 lines have BOTH a source and a destination port

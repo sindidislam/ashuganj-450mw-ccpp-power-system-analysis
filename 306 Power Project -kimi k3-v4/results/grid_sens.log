@@ -1,0 +1,43 @@
+
+--- test_grid_sensitivity ---------------------------------------------
+  PASS  Z =  1.328 ohm (x0.5): V230 = 0.999335 pu, angle +0.5390 deg, Qgen = +29.0568 MVAr, V6.6 = 1.0013903 pu
+  PASS  Z =  2.656 ohm (x1.0): V230 = 0.998686 pu, angle +1.0787 deg, Qgen = +31.1595 MVAr, V6.6 = 1.0013903 pu
+  PASS  Z =  5.312 ohm (x2.0): V230 = 0.997419 pu, angle +2.1605 deg, Qgen = +35.2593 MVAr, V6.6 = 1.0013903 pu
+  PASS  Z = 10.623 ohm (x4.0): V230 = 0.994964 pu, angle +4.3347 deg, Qgen = +43.2040 MVAr, V6.6 = 1.0013904 pu
+  PASS  grid equivalent dissipates 0.000e+00 MW at x0.5 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x1.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x2.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x4.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent absorbs 7.0849 MVAr reactive at the documented estimate
+  PASS  boundary voltage falls monotonically as the grid weakens: 0.99934 -> 0.99869 -> 0.99742 -> 0.99496 pu. A weaker grid sags more under the same export - the expected direction
+  PASS  generator reactive output rises monotonically as the grid weakens: +29.057 -> +31.159 -> +35.259 -> +43.204 MVAr. The machine holds 22 kV at 1.00 pu, so it must supply whatever the weaker grid absorbs
+  PASS  angle across the equivalent grows with impedance: +0.5390 -> +1.0787 -> +2.1605 -> +4.3347 deg
+  PASS  the estimate UNDERSTATES boundary voltage deviation, exactly as G.Isc_Warning states: 0.1314 % at the estimate against 0.2581 % at twice the impedance. Direction of the error is known; magnitude is not
+  PASS  the 22 kV generator bus stays at 1.000000 pu for every grid strength - it is a PV bus
+  PASS  the 6.6 kV auxiliary bus is INDEPENDENT of grid strength (1.0013903 pu throughout, spread 8.05e-08 pu). The auxiliary system hangs off a regulated 22 kV bus, so the weakest number in the model cannot corrupt it
+  PASS  UAT loading is likewise independent of grid strength: 16.485340 MVA throughout, spread 1.68e-04 MVA (1.0e-05 relative) across an 8x range of grid impedance
+  PASS  and the residual is 6.71e-04 % of the UAT's 25 MVA rating - below any engineering significance, and attributable to the snubber artefact and solver tolerance rather than to grid strength
+  PASS  solved angle across the grid equivalent +1.0787 deg matches the hand calculation atan(P*X/V^2) = +1.0771 deg at 374.48 MW export - the prediction written into ashuganj_grid.m before the model was solved
+  PASS  and it matches the ~1.1 deg stated in G.Expected_effect (1.0787 deg)
+  PASS  boundary current 943.0 A is within the 8DN9 3150 A busbar rating (29.9 % of it)
+  PASS  X/R =   Inf: R = 0.0000 ohm, X = 2.6558 ohm, |Z| = 2.6558 ohm, V230 = 0.998686 pu, angle +1.0787 deg, Qgen = +31.1595 MVAr, ZGRID loss = 0.0000 MW
+  PASS  X/R =    20: R = 0.1326 ohm, X = 2.6525 ohm, |Z| = 2.6558 ohm, V230 = 0.999497 pu, angle +1.0801 deg, Qgen = +28.5344 MVAr, ZGRID loss = 0.3535 MW
+  PASS  X/R =    10: R = 0.2643 ohm, X = 2.6426 ohm, |Z| = 2.6558 ohm, V230 = 1.000304 pu, angle +1.0795 deg, Qgen = +25.9209 MVAr, ZGRID loss = 0.7040 MW
+  PASS  X/R =     5: R = 0.5208 ohm, X = 2.6042 ohm, |Z| = 2.6558 ohm, V230 = 1.001889 pu, angle +1.0729 deg, Qgen = +20.7928 MVAr, ZGRID loss = 1.3862 MW
+  PASS  |Z| stayed at the documented 2.6558 ohm estimate at every X/R, so what follows measures the R = 0 assumption alone and not the magnitude estimate swept in Part 1
+  PASS  at the assumed X/R = inf the equivalent dissipates exactly 0 MW
+  PASS  loss in the equivalent rises as X/R falls: 0.0000 -> 0.3535 -> 0.7040 -> 1.3862 MW. At X/R = 10 it is 0.7040 MW - COMPARABLE TO THE WHOLE PLANT'S 0.8161 MW of internal loss. The assumption therefore does not make a small change to reported system loss, it changes what "system loss" MEANS: with R = 0 the reported figure is plant loss only, which for a plant study is the defensible reading, but the report must say so rather than imply the grid is lossless
+  PASS  while the plant's OWN loss stays at 0.81612 MW (spread 8.34e-04 MW) across the whole X/R range. The two loss figures are genuinely separable, which is what licenses reporting the plant figure alone
+  PASS  the 22 kV bus holds 1.000000 pu at every X/R - the PV constraint is upstream of the grid
+  PASS  the 6.6 kV auxiliary bus is unmoved by X/R (1.0013903 pu, spread 3.71e-08 pu)
+  PASS  UAT loading is unmoved by X/R (16.485340 MVA, spread 1.34e-04 MVA)
+  PASS  and the power the plant actually delivers to the boundary is unmoved: 374.4839 MW, spread 8.34e-04 MW. The grid resistance changes what happens BEYOND the plant, not what the plant produces - which is precisely why this assumption is tolerable in a plant study
+  PASS  the angle across the equivalent is INVARIANT under X/R, not overstated: +1.0787 -> +1.0801 -> +1.0795 -> +1.0729 deg, total spread 0.0072 deg (0.67 % of the +1.0787 deg shift itself) and NOT monotonic. The assumption record's "angle slightly overstated" claim is contradicted: X is pinned by |Z|, so there is almost nothing left for the R/X split to move
+  PASS  and the boundary voltage RISES as X/R falls: 0.998686 -> 0.999497 -> 1.000304 -> 1.001889 pu. So R = 0 OVERSTATES the boundary sag by 1.62e-03 pu at a realistic X/R = 10 - the model is PESSIMISTIC about boundary voltage by 0.1619 % of nominal, not optimistic as the assumption record claimed
+  PASS  and the rise is BOUNDED BY THE HAND CALCULATION that explains it: R*P = (0.2643/529.0)*(+3.738) = +1.867e-03 pu against a measured rise of +1.619e-03 pu, the balance being the smaller X*Q term moving the other way. Sign and size both predicted, so the direction is mechanism and not coincidence
+  PASS  and it is LARGER than the uncertainty carried by the magnitude estimate: X/R inf->10 moves the boundary voltage 1.62e-03 pu, while DOUBLING the estimated |Z| moves it only 1.27e-03 pu (1.3x less). The reason is that the plant delivers +3.745 pu of P and only -0.297 pu of Q at the swing node, a ratio of 12.6 to 1, so R*P dominates X*Q and the term that was ASSUMED away is the bigger one. Both grid numbers must therefore be flagged in the report - it is NOT enough to flag the estimate alone, which is what the earlier version of this test concluded from the opposite assertion
+  PASS  generator REACTIVE output falls monotonically as R is introduced: +31.1595 -> +28.5344 -> +25.9209 -> +20.7928 MVAr - -16.81 % at a realistic X/R = 10 and -33.27 % at X/R = 5. The assumption record's "no effect on generator output" is therefore WRONG for MVAr: the reported Qgen of 31.1595 MVAr is a consequence of the R = 0 assumption to within about a third of its own value
+  PASS  while generator REAL output is untouched at 389.30 MW in every case (spread 4.33e-08 MW), because it is a dispatch setpoint and not a solved quantity. So the record's claim survives for MW and fails for MVAr - exactly the distinction it failed to draw
+  => test_grid_sensitivity: 38 passed, 0 failed
+
+==== RESULT: 38 passed, 0 failed ====

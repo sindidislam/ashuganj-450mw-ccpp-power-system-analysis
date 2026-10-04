@@ -1,0 +1,5 @@
+{
+  "success": false,
+  "job": "job06_locate.m",
+  "error": "Out of memory. The likely cause is an infinite recursion within the program.\n\nError in unique (line 103)\n    [varargout{1:nlhs}] = uniqueR2012a(varargin{:},true,true,false);"
+}

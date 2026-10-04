@@ -1,0 +1,36 @@
+RESUME_MATLAB 24.1.0.2537033 (R2024a)
+TEST_START test_phase6_parameters
+test_phase6_parameters PASS: canonical identity, machine mapping, profile separation, provenance, CSV export and protected hashes.
+TEST_PASS test_phase6_parameters
+TEST_START test_phase6_measurement
+PHASE6_MEASUREMENT_SIMULINK_PASS: update compile; two 61-sample runs; first valid at 0.020 s.
+PHASE6_MEASUREMENT_TESTS_PASS: 114-channel phasor packing, cosine-reference angles, RMS scaling, absolute-clock synchronization, positive/negative/zero sequence, 3I0 residual, DC/harmonics, sliding-window reset, and Simulink compile/repeat simulation.
+TEST_PASS test_phase6_measurement
+TEST_START test_phase6_relays
+PHASE6_RELAY_TESTS_PASS: balance, vector compensation, four zones, IEC timing, reset, gating.
+TEST_PASS test_phase6_relays
+TEST_START test_phase6_dc
+PHASE6_DC_TESTS_PASS: current balance, battery/charger, pulse, AC failure, SOC, recovery.
+TEST_PASS test_phase6_dc
+TEST_START test_phase6_actuators
+PHASE6_ACTUATOR_TESTS_PASS
+TEST_PASS test_phase6_actuators
+TEST_START test_phase6_protection_sfunctions
+PHASE6_PROTECTION_SFUNCTIONS_PASS: compile, sensor mapping, trip, DC window, reset.
+TEST_PASS test_phase6_protection_sfunctions
+FRESH_INTEGRATED_BUILD_PASS
+    Generator_P_MW    Generator_Q_MVAr    Generator_V_kV    Generator_I_kA    Frequency_Hz    Rotor_speed_pu    Machine_delta    GSUT_HV_I_kA    Bus230_V_kV    Grid_I_kA    Fault_I_kA    Relay_pickup    Relay_trip    GCB_closed    Q0_closed    Line_local_closed    Line_remote_closed     DC_V     Battery_SOC_pct    DC_healthy    Auxiliary_V_kV    Grid_P_MW    Grid_Q_MVAr    DC_alarm
+    ______________    ________________    ______________    ______________    ____________    ______________    _____________    ____________    ___________    _________    __________    ____________    __________    __________    _________    _________________    __________________    ______    _______________    __________    ______________    _________    ___________    ________
+
+        359.91             27.61                22              9.473              50               1              51.206          0.86884         229.76        0.8688      1.3265e-07         0              0             1             1                1                    1             123.75          100              1             6.6057         345.09        -20.452         0    
+
+     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+
+INTEGRATED_NORMAL_SIM_PASS
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\results\normal; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+    outputDir: 'C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\results\normal'
+        files: {28x1 cell}
+       tables: [1x1 struct]
+     metadata: [1x1 struct]
+
+NORMAL_EXPORT_PASS

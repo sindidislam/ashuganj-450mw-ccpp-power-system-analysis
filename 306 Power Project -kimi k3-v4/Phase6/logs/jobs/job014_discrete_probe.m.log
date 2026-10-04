@@ -1,0 +1,73 @@
+             model: 'P6_MACHINE_CIRCUIT'
+         frequency: 50
+         basePower: 100000000
+         tolerance: 1e-07
+          Networks: [1x1 struct]
+            status: 1
+        iterations: 2
+             error: ''
+             Ybus1: [3x3 double]
+               bus: [1x3 struct]
+                sm: [1x1 struct]
+               asm: []
+              vsrc: [1x1 struct]
+            pqload: []
+           rlcload: [1x1 struct]
+    LoadFlowSolver: 'PositiveSequence'
+
+           handle: 260.000854492188
+        busNumber: 2
+            busID: '*2*'
+    generatorType: 'PV'
+             Pnom: 458000000
+             Vnom: 22000
+                P: 360000000
+                Q: 0
+             Qmin: -Inf
+             Qmax: Inf
+                S: 3.6 +     0.197519658291644i
+                I: 0.709441494660979 -     0.341159573431734i
+             Pmec: 360239031.456069
+               Vt: 0.923600663725542 -     0.383355988561205i
+               Vf: 1.76776083829011
+              th0: -60.5648879635483
+              dw0: 0
+
+IC=[0 -60.5649 0.787208 0.787208 0.787208 -25.6822 -145.682 94.3178 1.76776]
+Pm=0.78655 Vf=1.7678
+    {'ias'   }
+    {'ibs'   }
+    {'ics'   }
+    {'iq'    }
+    {'id'    }
+    {'ifd'   }
+    {'ikq'   }
+    {'ikq2'  }
+    {'ikd'   }
+    {'phimq' }
+    {'phimd' }
+    {'vq'    }
+    {'vd'    }
+    {'Lmq'   }
+    {'Lmd'   }
+    {'delta' }
+    {'w'     }
+    {'dw'    }
+    {'theta' }
+    {'dtheta'}
+    {'Peo'   }
+    {'Qeo'   }
+    {'Pe'    }
+    {'Te'    }
+
+  Simulink.SimulationOutput:
+                  mData: [1x1 struct] 
+                   tout: [4001x1 double] 
+
+     SimulationMetadata: [1x1 Simulink.SimulationMetadata] 
+           ErrorMessage: [0x0 char] 
+
+         time: [4001x1 double]
+      signals: [1x1 struct]
+    blockName: 'P6_MACHINE_CIRCUIT/Machine measurements'
+

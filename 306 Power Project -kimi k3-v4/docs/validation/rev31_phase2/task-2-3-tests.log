@@ -1,0 +1,522 @@
+
+--- test_generator_data -----------------------------------------------
+  PASS  exactly ONE generator: SCC5-PAC 4000F/3000 (1S) is single-shaft
+  PASS  terminal voltage 22 kV
+  PASS  rated apparent power 458 MVA at 50 C cold gas
+  PASS  maximum apparent power 518 MVA at 30 C cold gas
+  PASS  rated power factor 0.85
+  PASS  frequency 50 Hz - Bangladesh, not 60 Hz
+  PASS  rated stator current 12019 A
+  PASS  hydrogen pressure 5 bar(g)
+  PASS  S/(sqrt3 V) = 12019.4 A agrees with the stated 12019 A
+  PASS  458 MVA x 0.85 = 389.30 MW is a PF reference, not capacity
+  PASS  Snom_MVA canonical primary field and provenance exist
+  PASS  Snom_MVA verified workbook value
+  PASS  Snom_MVA compatibility view comes from PRIMARY
+  PASS  Snom_MVA raw numeric source
+  PASS  Snom_MVA workbook identity
+  PASS  Snom_MVA exact sheet including trailing space
+  PASS  Snom_MVA source cell
+  PASS  Snom_MVA normalized provenance agrees
+  PASS  Snom_MVA primary designation
+  PASS  Snom_MVA dataset lineage
+  PASS  Snom_MVA complete qualified metadata
+  PASS  P_capacity_MW canonical primary field and provenance exist
+  PASS  P_capacity_MW verified workbook value
+  PASS  P_capacity_MW compatibility view comes from PRIMARY
+  PASS  P_capacity_MW raw numeric source
+  PASS  P_capacity_MW workbook identity
+  PASS  P_capacity_MW exact sheet including trailing space
+  PASS  P_capacity_MW source cell
+  PASS  P_capacity_MW normalized provenance agrees
+  PASS  P_capacity_MW primary designation
+  PASS  P_capacity_MW dataset lineage
+  PASS  P_capacity_MW complete qualified metadata
+  PASS  Vnom_kV canonical primary field and provenance exist
+  PASS  Vnom_kV verified workbook value
+  PASS  Vnom_kV compatibility view comes from PRIMARY
+  PASS  Vnom_kV raw numeric source
+  PASS  Vnom_kV workbook identity
+  PASS  Vnom_kV exact sheet including trailing space
+  PASS  Vnom_kV source cell
+  PASS  Vnom_kV normalized provenance agrees
+  PASS  Vnom_kV primary designation
+  PASS  Vnom_kV dataset lineage
+  PASS  Vnom_kV complete qualified metadata
+  PASS  H_s canonical primary field and provenance exist
+  PASS  H_s verified workbook value
+  PASS  H_s compatibility view comes from PRIMARY
+  PASS  H_s raw numeric source
+  PASS  H_s workbook identity
+  PASS  H_s exact sheet including trailing space
+  PASS  H_s source cell
+  PASS  H_s normalized provenance agrees
+  PASS  H_s primary designation
+  PASS  H_s dataset lineage
+  PASS  H_s complete qualified metadata
+  PASS  SCR canonical primary field and provenance exist
+  PASS  SCR verified workbook value
+  PASS  SCR compatibility view comes from PRIMARY
+  PASS  SCR raw numeric source
+  PASS  SCR workbook identity
+  PASS  SCR exact sheet including trailing space
+  PASS  SCR source cell
+  PASS  SCR normalized provenance agrees
+  PASS  SCR primary designation
+  PASS  SCR dataset lineage
+  PASS  SCR complete qualified metadata
+  PASS  Xd canonical primary field and provenance exist
+  PASS  Xd verified workbook value
+  PASS  Xd compatibility view comes from PRIMARY
+  PASS  Xd raw numeric source
+  PASS  Xd raw reactance unit
+  PASS  Xd normalized reactance unit
+  PASS  Xd raw reactance group
+  PASS  Xd workbook identity
+  PASS  Xd exact sheet including trailing space
+  PASS  Xd source cell
+  PASS  Xd normalized provenance agrees
+  PASS  Xd primary designation
+  PASS  Xd dataset lineage
+  PASS  Xd complete qualified metadata
+  PASS  Xdp canonical primary field and provenance exist
+  PASS  Xdp verified workbook value
+  PASS  Xdp compatibility view comes from PRIMARY
+  PASS  Xdp raw numeric source
+  PASS  Xdp raw reactance unit
+  PASS  Xdp normalized reactance unit
+  PASS  Xdp raw reactance group
+  PASS  Xdp workbook identity
+  PASS  Xdp exact sheet including trailing space
+  PASS  Xdp source cell
+  PASS  Xdp normalized provenance agrees
+  PASS  Xdp primary designation
+  PASS  Xdp dataset lineage
+  PASS  Xdp complete qualified metadata
+  PASS  Xdpp canonical primary field and provenance exist
+  PASS  Xdpp verified workbook value
+  PASS  Xdpp compatibility view comes from PRIMARY
+  PASS  Xdpp raw numeric source
+  PASS  Xdpp raw reactance unit
+  PASS  Xdpp normalized reactance unit
+  PASS  Xdpp raw reactance group
+  PASS  Xdpp workbook identity
+  PASS  Xdpp exact sheet including trailing space
+  PASS  Xdpp source cell
+  PASS  Xdpp normalized provenance agrees
+  PASS  Xdpp primary designation
+  PASS  Xdpp dataset lineage
+  PASS  Xdpp complete qualified metadata
+  PASS  Xdpp_sat canonical primary field and provenance exist
+  PASS  Xdpp_sat verified workbook value
+  PASS  Xdpp_sat compatibility view comes from PRIMARY
+  PASS  Xdpp_sat raw numeric source
+  PASS  Xdpp_sat raw reactance unit
+  PASS  Xdpp_sat normalized reactance unit
+  PASS  Xdpp_sat raw reactance group
+  PASS  Xdpp_sat workbook identity
+  PASS  Xdpp_sat exact sheet including trailing space
+  PASS  Xdpp_sat source cell
+  PASS  Xdpp_sat normalized provenance agrees
+  PASS  Xdpp_sat primary designation
+  PASS  Xdpp_sat dataset lineage
+  PASS  Xdpp_sat complete qualified metadata
+  PASS  Xq canonical primary field and provenance exist
+  PASS  Xq verified workbook value
+  PASS  Xq compatibility view comes from PRIMARY
+  PASS  Xq raw numeric source
+  PASS  Xq raw reactance unit
+  PASS  Xq normalized reactance unit
+  PASS  Xq raw reactance group
+  PASS  Xq workbook identity
+  PASS  Xq exact sheet including trailing space
+  PASS  Xq source cell
+  PASS  Xq normalized provenance agrees
+  PASS  Xq primary designation
+  PASS  Xq dataset lineage
+  PASS  Xq complete qualified metadata
+  PASS  Xqp canonical primary field and provenance exist
+  PASS  Xqp verified workbook value
+  PASS  Xqp compatibility view comes from PRIMARY
+  PASS  Xqp raw numeric source
+  PASS  Xqp raw reactance unit
+  PASS  Xqp normalized reactance unit
+  PASS  Xqp raw reactance group
+  PASS  Xqp workbook identity
+  PASS  Xqp exact sheet including trailing space
+  PASS  Xqp source cell
+  PASS  Xqp normalized provenance agrees
+  PASS  Xqp primary designation
+  PASS  Xqp dataset lineage
+  PASS  Xqp complete qualified metadata
+  PASS  Xqpp canonical primary field and provenance exist
+  PASS  Xqpp verified workbook value
+  PASS  Xqpp compatibility view comes from PRIMARY
+  PASS  Xqpp raw numeric source
+  PASS  Xqpp raw reactance unit
+  PASS  Xqpp normalized reactance unit
+  PASS  Xqpp raw reactance group
+  PASS  Xqpp workbook identity
+  PASS  Xqpp exact sheet including trailing space
+  PASS  Xqpp source cell
+  PASS  Xqpp normalized provenance agrees
+  PASS  Xqpp primary designation
+  PASS  Xqpp dataset lineage
+  PASS  Xqpp complete qualified metadata
+  PASS  Xl canonical primary field and provenance exist
+  PASS  Xl verified workbook value
+  PASS  Xl compatibility view comes from PRIMARY
+  PASS  Xl raw numeric source
+  PASS  Xl raw reactance unit
+  PASS  Xl normalized reactance unit
+  PASS  Xl raw reactance group
+  PASS  Xl workbook identity
+  PASS  Xl exact sheet including trailing space
+  PASS  Xl source cell
+  PASS  Xl normalized provenance agrees
+  PASS  Xl primary designation
+  PASS  Xl dataset lineage
+  PASS  Xl complete qualified metadata
+  PASS  X2 canonical primary field and provenance exist
+  PASS  X2 verified workbook value
+  PASS  X2 compatibility view comes from PRIMARY
+  PASS  X2 raw numeric source
+  PASS  X2 raw reactance unit
+  PASS  X2 normalized reactance unit
+  PASS  X2 raw reactance group
+  PASS  X2 workbook identity
+  PASS  X2 exact sheet including trailing space
+  PASS  X2 source cell
+  PASS  X2 normalized provenance agrees
+  PASS  X2 primary designation
+  PASS  X2 dataset lineage
+  PASS  X2 complete qualified metadata
+  PASS  X0 canonical primary field and provenance exist
+  PASS  X0 verified workbook value
+  PASS  X0 compatibility view comes from PRIMARY
+  PASS  X0 raw numeric source
+  PASS  X0 raw reactance unit
+  PASS  X0 normalized reactance unit
+  PASS  X0 raw reactance group
+  PASS  X0 workbook identity
+  PASS  X0 exact sheet including trailing space
+  PASS  X0 source cell
+  PASS  X0 normalized provenance agrees
+  PASS  X0 primary designation
+  PASS  X0 dataset lineage
+  PASS  X0 complete qualified metadata
+  PASS  Ra_ohm canonical primary field and provenance exist
+  PASS  Ra_ohm verified workbook value
+  PASS  Ra_ohm compatibility view comes from PRIMARY
+  PASS  Ra_ohm workbook identity
+  PASS  Ra_ohm exact sheet including trailing space
+  PASS  Ra_ohm source cell
+  PASS  Ra_ohm normalized provenance agrees
+  PASS  Ra_ohm primary designation
+  PASS  Ra_ohm dataset lineage
+  PASS  Ra_ohm complete qualified metadata
+  PASS  Rf_numeric canonical primary field and provenance exist
+  PASS  Rf_numeric verified workbook value
+  PASS  Rf_numeric compatibility view comes from PRIMARY
+  PASS  Rf_numeric raw numeric source
+  PASS  Rf_numeric workbook identity
+  PASS  Rf_numeric exact sheet including trailing space
+  PASS  Rf_numeric source cell
+  PASS  Rf_numeric normalized provenance agrees
+  PASS  Rf_numeric primary designation
+  PASS  Rf_numeric dataset lineage
+  PASS  Rf_numeric complete qualified metadata
+  PASS  Td0p_s canonical primary field and provenance exist
+  PASS  Td0p_s verified workbook value
+  PASS  Td0p_s compatibility view comes from PRIMARY
+  PASS  Td0p_s raw numeric source
+  PASS  Td0p_s raw time unit
+  PASS  Td0p_s normalized time unit
+  PASS  Td0p_s raw time group
+  PASS  Td0p_s workbook identity
+  PASS  Td0p_s exact sheet including trailing space
+  PASS  Td0p_s source cell
+  PASS  Td0p_s normalized provenance agrees
+  PASS  Td0p_s primary designation
+  PASS  Td0p_s dataset lineage
+  PASS  Td0p_s complete qualified metadata
+  PASS  Td0pp_s canonical primary field and provenance exist
+  PASS  Td0pp_s verified workbook value
+  PASS  Td0pp_s compatibility view comes from PRIMARY
+  PASS  Td0pp_s raw numeric source
+  PASS  Td0pp_s raw time unit
+  PASS  Td0pp_s normalized time unit
+  PASS  Td0pp_s raw time group
+  PASS  Td0pp_s workbook identity
+  PASS  Td0pp_s exact sheet including trailing space
+  PASS  Td0pp_s source cell
+  PASS  Td0pp_s normalized provenance agrees
+  PASS  Td0pp_s primary designation
+  PASS  Td0pp_s dataset lineage
+  PASS  Td0pp_s complete qualified metadata
+  PASS  Tq0p_s canonical primary field and provenance exist
+  PASS  Tq0p_s verified workbook value
+  PASS  Tq0p_s compatibility view comes from PRIMARY
+  PASS  Tq0p_s raw numeric source
+  PASS  Tq0p_s raw time unit
+  PASS  Tq0p_s normalized time unit
+  PASS  Tq0p_s raw time group
+  PASS  Tq0p_s workbook identity
+  PASS  Tq0p_s exact sheet including trailing space
+  PASS  Tq0p_s source cell
+  PASS  Tq0p_s normalized provenance agrees
+  PASS  Tq0p_s primary designation
+  PASS  Tq0p_s dataset lineage
+  PASS  Tq0p_s complete qualified metadata
+  PASS  Tq0pp_s canonical primary field and provenance exist
+  PASS  Tq0pp_s verified workbook value
+  PASS  Tq0pp_s compatibility view comes from PRIMARY
+  PASS  Tq0pp_s raw numeric source
+  PASS  Tq0pp_s raw time unit
+  PASS  Tq0pp_s normalized time unit
+  PASS  Tq0pp_s raw time group
+  PASS  Tq0pp_s workbook identity
+  PASS  Tq0pp_s exact sheet including trailing space
+  PASS  Tq0pp_s source cell
+  PASS  Tq0pp_s normalized provenance agrees
+  PASS  Tq0pp_s primary designation
+  PASS  Tq0pp_s dataset lineage
+  PASS  Tq0pp_s complete qualified metadata
+  PASS  Tdp_s canonical primary field and provenance exist
+  PASS  Tdp_s verified workbook value
+  PASS  Tdp_s compatibility view comes from PRIMARY
+  PASS  Tdp_s raw numeric source
+  PASS  Tdp_s raw time unit
+  PASS  Tdp_s normalized time unit
+  PASS  Tdp_s raw time group
+  PASS  Tdp_s workbook identity
+  PASS  Tdp_s exact sheet including trailing space
+  PASS  Tdp_s source cell
+  PASS  Tdp_s normalized provenance agrees
+  PASS  Tdp_s primary designation
+  PASS  Tdp_s dataset lineage
+  PASS  Tdp_s complete qualified metadata
+  PASS  Tdpp_s canonical primary field and provenance exist
+  PASS  Tdpp_s verified workbook value
+  PASS  Tdpp_s compatibility view comes from PRIMARY
+  PASS  Tdpp_s raw numeric source
+  PASS  Tdpp_s raw time unit
+  PASS  Tdpp_s normalized time unit
+  PASS  Tdpp_s raw time group
+  PASS  Tdpp_s workbook identity
+  PASS  Tdpp_s exact sheet including trailing space
+  PASS  Tdpp_s source cell
+  PASS  Tdpp_s normalized provenance agrees
+  PASS  Tdpp_s primary designation
+  PASS  Tdpp_s dataset lineage
+  PASS  Tdpp_s complete qualified metadata
+  PASS  Tqp_s canonical primary field and provenance exist
+  PASS  Tqp_s verified workbook value
+  PASS  Tqp_s compatibility view comes from PRIMARY
+  PASS  Tqp_s raw numeric source
+  PASS  Tqp_s raw time unit
+  PASS  Tqp_s normalized time unit
+  PASS  Tqp_s raw time group
+  PASS  Tqp_s workbook identity
+  PASS  Tqp_s exact sheet including trailing space
+  PASS  Tqp_s source cell
+  PASS  Tqp_s normalized provenance agrees
+  PASS  Tqp_s primary designation
+  PASS  Tqp_s dataset lineage
+  PASS  Tqp_s complete qualified metadata
+  PASS  Tqpp_s canonical primary field and provenance exist
+  PASS  Tqpp_s verified workbook value
+  PASS  Tqpp_s compatibility view comes from PRIMARY
+  PASS  Tqpp_s raw numeric source
+  PASS  Tqpp_s raw time unit
+  PASS  Tqpp_s normalized time unit
+  PASS  Tqpp_s raw time group
+  PASS  Tqpp_s workbook identity
+  PASS  Tqpp_s exact sheet including trailing space
+  PASS  Tqpp_s source cell
+  PASS  Tqpp_s normalized provenance agrees
+  PASS  Tqpp_s primary designation
+  PASS  Tqpp_s dataset lineage
+  PASS  Tqpp_s complete qualified metadata
+  PASS  Ta_s canonical primary field and provenance exist
+  PASS  Ta_s verified workbook value
+  PASS  Ta_s compatibility view comes from PRIMARY
+  PASS  Ta_s raw numeric source
+  PASS  Ta_s raw time unit
+  PASS  Ta_s normalized time unit
+  PASS  Ta_s raw time group
+  PASS  Ta_s workbook identity
+  PASS  Ta_s exact sheet including trailing space
+  PASS  Ta_s source cell
+  PASS  Ta_s normalized provenance agrees
+  PASS  Ta_s primary designation
+  PASS  Ta_s dataset lineage
+  PASS  Ta_s complete qualified metadata
+  PASS  S10 canonical primary field and provenance exist
+  PASS  S10 verified workbook value
+  PASS  S10 compatibility view comes from PRIMARY
+  PASS  S10 raw numeric source
+  PASS  S10 workbook identity
+  PASS  S10 exact sheet including trailing space
+  PASS  S10 source cell
+  PASS  S10 normalized provenance agrees
+  PASS  S10 primary designation
+  PASS  S10 dataset lineage
+  PASS  S10 complete qualified metadata
+  PASS  S12 canonical primary field and provenance exist
+  PASS  S12 verified workbook value
+  PASS  S12 compatibility view comes from PRIMARY
+  PASS  S12 raw numeric source
+  PASS  S12 workbook identity
+  PASS  S12 exact sheet including trailing space
+  PASS  S12 source cell
+  PASS  S12 normalized provenance agrees
+  PASS  S12 primary designation
+  PASS  S12 dataset lineage
+  PASS  S12 complete qualified metadata
+  PASS  Excitation_type canonical primary field and provenance exist
+  PASS  Excitation_type normalized workbook text
+  PASS  Excitation_type compatibility view comes from PRIMARY
+  PASS  Excitation_type workbook identity
+  PASS  Excitation_type exact sheet including trailing space
+  PASS  Excitation_type source cell
+  PASS  Excitation_type normalized provenance agrees
+  PASS  Excitation_type primary designation
+  PASS  Excitation_type dataset lineage
+  PASS  Excitation_type complete qualified metadata
+  PASS  Excitation_designation canonical primary field and provenance exist
+  PASS  Excitation_designation normalized workbook text
+  PASS  Excitation_designation compatibility view comes from PRIMARY
+  PASS  Excitation_designation workbook identity
+  PASS  Excitation_designation exact sheet including trailing space
+  PASS  Excitation_designation source cell
+  PASS  Excitation_designation normalized provenance agrees
+  PASS  Excitation_designation primary designation
+  PASS  Excitation_designation dataset lineage
+  PASS  Excitation_designation complete qualified metadata
+  PASS  percent view Xd = 178.3
+  PASS  percent view Xdp = 32.56
+  PASS  percent view Xdpp = 26.08, not saturated
+  PASS  Snom_MVA exact workbook heading
+  PASS  P_capacity_MW exact workbook heading
+  PASS  Vnom_kV exact workbook heading
+  PASS  H_s exact workbook heading
+  PASS  SCR exact workbook heading
+  PASS  Xd exact workbook heading
+  PASS  Xdp exact workbook heading
+  PASS  Xdpp exact workbook heading
+  PASS  Xdpp_sat exact workbook heading
+  PASS  Xq exact workbook heading
+  PASS  Xqp exact workbook heading
+  PASS  Xqpp exact workbook heading
+  PASS  Xl exact workbook heading
+  PASS  X2 exact workbook heading
+  PASS  X0 exact workbook heading
+  PASS  Ra_ohm exact workbook heading
+  PASS  Rf_numeric exact workbook heading
+  PASS  Td0p_s exact workbook heading
+  PASS  Td0pp_s exact workbook heading
+  PASS  Tq0p_s exact workbook heading
+  PASS  Tq0pp_s exact workbook heading
+  PASS  Tdp_s exact workbook heading
+  PASS  Tdpp_s exact workbook heading
+  PASS  Tqp_s exact workbook heading
+  PASS  Tqpp_s exact workbook heading
+  PASS  Ta_s exact workbook heading
+  PASS  S10 exact workbook heading
+  PASS  S12 exact workbook heading
+  PASS  Excitation_type exact workbook heading
+  PASS  Excitation_designation exact workbook heading
+  PASS  retained d-axis ordering check
+  PASS  unqualified and saturated Xdpp are distinct
+  PASS  machine-base Ra
+  PASS  ohm and pu resistance are distinct
+  PASS  rated PF retained separately
+  PASS  PF-derived OEM reference
+  PASS  owner scenario retained
+  PASS  capacity is neither reference nor scenario
+  PASS  owner power boundary not invented
+  PASS  raw resistance text retained
+  PASS  raw field resistance heading
+  PASS  mixed unit heading
+  PASS  field resistance interpretation qualified
+  PASS  no invented rotor field base
+  PASS  no invented Rf conversion
+  PASS  raw excitation space preserved
+  PASS  raw designation space preserved
+  PASS  unqualified source retained
+  PASS  Xdpp_sat source saturation
+  PASS  X2 source saturation
+  PASS  X0 source saturation
+  PASS  machine apparent-power base
+  PASS  line-line machine voltage base
+  PASS  base is selected interpretation, not literal declaration
+  PASS  combined turbine-generator inertia
+  PASS  controller settings still missing
+  PASS  two saturation coefficients are not a full OCC
+  PASS  XD_damper genuinely missing
+  PASS  XQ_damper genuinely missing
+  PASS  Xf genuinely missing
+  PASS  RD_damper genuinely missing
+  PASS  RQ_damper genuinely missing
+  PASS  Ta1_s genuinely missing
+  PASS  Damping genuinely missing
+  PASS  legacy explicitly designated
+  PASS  legacy reactances retained
+  PASS  legacy cannot be the selected primary
+  PASS  verified workbook hash
+  PASS  existing master owns the same generator provider
+  PASS  Phase 1 freezes all four historical LF dispatches
+  PASS  old Ra interface is derived machine pu
+  PASS  old inertia interface is derived seconds
+  PASS  generator retains NER, never GSUT solid grounding
+  PASS  modelled as a PV bus
+  PASS  terminal voltage setpoint 1.00 pu (approved assumption)
+  PASS  finite physical Qmin at primary 360 MW from source interpolation
+  PASS  finite physical Qmax at primary 360 MW from source interpolation
+  PASS  physical bounds retain graph-extraction derivation status
+  PASS  modelled with a Three-Phase Source, not a Synchronous Machine block
+  => test_generator_data: 476 passed, 0 failed
+
+--- test_base_conversion ----------------------------------------------
+  PASS  same base is the identity
+  PASS  10.5 % at 25 MVA -> 42 % at 100 MVA (factor Snew/Sold)
+  PASS  16 % at 515 MVA -> 3.1068 % at 100 MVA
+  PASS  12 % at 25 MVA -> 48 % at 100 MVA
+  PASS  round trip 515 -> 100 -> 515 MVA returns the original
+  PASS  same voltage base is the identity
+  PASS  voltage-base form scales by (Vold/Vnew)^2
+  PASS  6.9 kV -> 6.6 kV rebasing inflates an impedance by 9.2975 %
+  PASS  x_d'' 26.08 % at 458 MVA -> 5.6943 % at 100 MVA
+  PASS  explicit machine resistance exists
+  PASS  machine Zbase
+  PASS  system Zbase
+  PASS  raw ohm resistance
+  PASS  machine pu resistance
+  PASS  system pu resistance
+  PASS  ohm to machine pu
+  PASS  ohm to system pu
+  PASS  machine inverse returns ohms
+  PASS  system inverse returns ohms
+  PASS  resistance single conversion
+  PASS  resistance round trip
+  PASS  unqualified Xdpp system view
+  PASS  saturated Xdpp system view
+  PASS  Xdpp single conversion
+  PASS  saturated Xdpp single conversion
+  PASS  Xdpp inverse
+  PASS  saturated Xdpp inverse
+  PASS  distinct system reactances
+  PASS  distinct resistance quantities
+  PASS  Zbase at 230 kV, 100 MVA = 529 ohm
+  PASS  grid 2.6558 ohm = 0.50204 % on the 100 MVA / 230 kV base
+  PASS  grid L is X/(2*pi*50) - the 50 Hz dependence is explicit
+  PASS  GSUT 10BAT10 block X_pu = 0.159986 is on its own 515 MVA rating, NOT converted to 100 MVA
+  PASS  GSUT 10BAT10 has NOT been double-converted (0.159986 pu own base vs 0.031065 pu on 100 MVA)
+  PASS  UAT 10BBT10 block X_pu = 0.104924 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  UAT 10BBT10 has NOT been double-converted (0.104924 pu own base vs 0.419695 pu on 100 MVA)
+  PASS  GAT 10BBT20 block X_pu = 0.119896 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  GAT 10BBT20 has NOT been double-converted (0.119896 pu own base vs 0.479583 pu on 100 MVA)
+  PASS  a zero source base is rejected rather than returning Inf
+  => test_base_conversion: 39 passed, 0 failed
+TASK 2/3 TESTS: gen 476/0, base 39/0

@@ -1,0 +1,176 @@
+function ashuganj(action)
+%ASHUGANJ  One command that runs, opens or checks the whole study.
+%
+%   ashuganj              configure the path, solve all four cases, redraw every
+%                         figure and regenerate all three HTML documents
+%   ashuganj gui          open the interactive window - every table, figure,
+%                         equation, model and report behind a button
+%   ashuganj open         configure the path and open the diagram to present
+%   ashuganj solve        solve the four load flow cases only
+%   ashuganj figures      redraw the plots and the annotated diagrams only
+%   ashuganj docs         regenerate the HTML documents from results on disk
+%   ashuganj tests        run the validation suite
+%   ashuganj setup        put the project folders on the MATLAB path, nothing more
+%   ashuganj check        report the environment and what is already on disk
+%
+%   Works from any current folder, on any drive, on any PC: the project is
+%   located from this file's own path, never from a stored absolute path.
+%
+%   WHY THIS FILE EXISTS
+%   --------------------
+%   ashuganj_setup must run before anything else resolves, because matlab/data,
+%   matlab/build, matlab/analysis and matlab/studies are only on the path
+%   afterwards. Asking a reader to remember that ordering is how a study ends up
+%   being run wrongly. One entry point takes the ordering out of the reader's
+%   hands.
+%
+%   RUN_ME.m in the project root is a two-line wrapper around this function, for
+%   whoever opens the folder before opening MATLAB and wants an obvious place to
+%   start.
+%
+%   See also ASHUGANJ_GUI, ASHUGANJ_SETUP, RUN_LOAD_FLOW_STUDY, BUILD_USER_MANUAL.
+
+if nargin < 1 || isempty(action), action = 'all'; end
+action = lower(strtrim(char(action)));
+
+here = fileparts(mfilename('fullpath'));
+root = fileparts(here);
+
+% ashuganj_setup lives beside this file but is not necessarily on the path yet -
+% that is the point of calling it. So it is reached by folder, not by name.
+run(fullfile(here, 'ashuganj_setup.m'));
+
+switch action
+    case 'setup'
+        % done already
+
+    case 'check'
+        environment_report(root);
+
+    case 'gui'
+        % The interactive window is a READER, not a runner: it shows the dataset
+        % and whatever results are already on disk, and every long operation
+        % behind its buttons is the same function this dispatcher calls. So it
+        % is safe to open before anything has been solved - the tabs say what is
+        % missing and which action writes it.
+        step('Opening the interactive window');
+        ashuganj_gui();
+
+    case 'open'
+        f = fullfile(root, 'simulink', 'main', 'Ashuganj_South_Main.slx');
+        if ~exist(f, 'file')
+            error('ashuganj:noModel', ['%s does not exist. Run ''ashuganj solve'' ' ...
+                'to build it from the dataset.'], f);
+        end
+        step('Opening the presentation diagram');
+        open(f);
+        fprintf(['\nDouble-click the powergui block (top left), choose Load Flow, ' ...
+                 'press Compute.\nThe click-by-click script is section 4 of ' ...
+                 'docs/manual/USER_MANUAL.html.\n']);
+
+    case 'solve'
+        step('Solving the four load flow cases');
+        run_load_flow_study();
+
+    case 'figures'
+        step('Redrawing the plots');        make_load_flow_plots();
+        step('Redrawing the annotated diagrams'); make_annotated_diagrams();
+
+    case 'docs'
+        step('Regenerating the project update'); build_project_update();
+        step('Regenerating the lab report');     build_lab_report();
+        % the user manual writes index.html last, so it sees the other two
+        step('Regenerating the user manual');    build_user_manual();
+        fprintf('\nOpen docs/manual/index.html to read them.\n');
+
+    case 'tests'
+        step('Running the validation suite');
+        run_all_tests();
+
+    case 'all'
+        step('1/6  Solving the four load flow cases');
+        run_load_flow_study();
+        step('2/6  Drawing the result plots');
+        make_load_flow_plots();
+        step('3/6  Drawing the annotated single-line diagrams');
+        make_annotated_diagrams();
+        step('4/6  Writing the project update');
+        build_project_update();
+        step('5/6  Writing the lab report');
+        build_lab_report();
+        step('6/6  Writing the user manual and the index');
+        build_user_manual();
+        fprintf('\n');
+        step('Done');
+        fprintf('  results : %s\n', fullfile(root, 'results'));
+        fprintf('  manuals : %s\n', fullfile(root, 'docs', 'manual', 'index.html'));
+        fprintf('  diagram : %s\n', fullfile(root, 'simulink', 'main', 'Ashuganj_South_Main.slx'));
+        fprintf('\nType ''ashuganj gui'' to browse all of it in one window.\n');
+
+    otherwise
+        error('ashuganj:unknownAction', ...
+            ['''%s'' is not one of the actions this entry point knows. Type ' ...
+             '''help ashuganj'' for the list.'], action);
+end
+end
+
+% =====================================================================
+function step(msg)
+fprintf('\n=== %s %s\n', msg, repmat('=', 1, max(0, 66 - numel(msg))));
+end
+
+% =====================================================================
+function environment_report(root)
+%ENVIRONMENT_REPORT  What is installed, what is on disk, what is missing.
+%   Reports facts and stops. It changes nothing, so it is safe to run on a
+%   machine the project has just been copied to.
+fprintf('\n--- environment -----------------------------------------------\n');
+fprintf('  MATLAB          : %s\n', version);
+fprintf('  platform        : %s\n', computer);
+fprintf('  project root    : %s\n', root);
+
+need = { 'powergui',       'Simscape Electrical - Specialized Power Systems'
+         'power_loadflow', 'the load flow engine this study calls'
+         'sim',            'Simulink' };
+fprintf('\n--- required ------------------------------------------------\n');
+for k = 1:size(need,1)
+    if isempty(which(need{k,1})) && exist(need{k,1}, 'file') == 0
+        fprintf('  MISSING  %-16s %s\n', need{k,1}, need{k,2});
+    else
+        fprintf('  present  %-16s %s\n', need{k,1}, need{k,2});
+    end
+end
+
+fprintf('\n--- on disk --------------------------------------------------\n');
+items = { fullfile('simulink','main','Ashuganj_South_Main.slx'), 'presentation diagram'
+          fullfile('results','load_flow','system_summary.csv'),  'solved case summary'
+          fullfile('results','plots','power_balance.png'),        'result plots'
+          fullfile('results','diagrams','Load_Flow_LF1_Annotated.png'), 'annotated diagrams'
+          fullfile('docs','manual','USER_MANUAL.html'),           'this manual'
+          fullfile('docs','manual','PROJECT_UPDATE.html'),        'project update' };
+for k = 1:size(items,1)
+    f = fullfile(root, items{k,1});
+    d = dir(f);
+    if isempty(d)
+        fprintf('  absent   %-52s %s\n', items{k,1}, items{k,2});
+    else
+        fprintf('  %s  %-52s %s\n', datestr(d.datenum, 'yyyy-mm-dd HH:MM'), ...
+            items{k,1}, items{k,2});
+    end
+end
+
+% Writability decides whether a run can produce anything at all, and a folder
+% copied out of a ZIP is often read-only. Better to find out here than four
+% minutes into a solve.
+probe = fullfile(root, 'results', '.write_probe');
+fid = fopen(probe, 'w');
+fprintf('\n--- can write results/ --------------------------------------\n');
+if fid < 0
+    fprintf('  NO. results/ is not writable. Copy the project somewhere writable\n');
+    fprintf('  (not inside a ZIP, not a read-only folder) and try again.\n');
+else
+    fclose(fid); delete(probe);
+    fprintf('  yes\n');
+end
+fprintf('\nNothing was changed. Type ''ashuganj'' to run the study.\n');
+end

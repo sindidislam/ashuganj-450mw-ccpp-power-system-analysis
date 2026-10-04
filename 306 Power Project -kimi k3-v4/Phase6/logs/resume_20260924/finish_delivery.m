@@ -1,0 +1,30 @@
+p6finishRoot=fileparts(fileparts(fileparts(mfilename('fullpath'))));
+addpath(fullfile(p6finishRoot,'scripts'));
+p6finishLog=fullfile(p6finishRoot,'logs','resume_20260924');
+diary(fullfile(p6finishLog,'finish_delivery.log'));
+clear style_phase6_model phase6_color_wires;
+p6finishModel='PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL';
+style_phase6_model(p6finishModel);
+set_param(p6finishModel,'SimulationCommand','update');
+save_system(p6finishModel);phase6_color_wires(p6finishModel);
+p6finishFile=get_param(p6finishModel,'FileName');
+close_system(p6finishModel,0);load_system(p6finishFile);
+assert(contains(get_param(p6finishModel,'StartFcn'),'phase6_color_wires'));
+assert(contains(get_param(p6finishModel,'StopFcn'),'phase6_color_wires'));
+p6finishOut=phase6_interactive_settings(p6finishModel,'run');
+assert(~any(p6finishOut.phase6_relay.Data(:,8:14),'all'));
+p6finishLines=find_system(p6finishModel,'FindAll','on','SearchDepth',1,'Type','line');
+for p6finishLine=reshape(p6finishLines,1,[])
+ assert(startsWith(get_param(p6finishLine,'HiliteAncestors'),'user'));
+end
+fprintf('SAVED_REOPEN_RUN_COLORS_PASS\n');
+open_system(p6finishModel);set_param(p6finishModel,'ZoomFactor','FitSystem');
+print(['-s' p6finishModel],'-dpng','-r150',fullfile(p6finishLog,'final_model.png'));
+print(['-s' p6finishModel '/Measurements/Live RMS Readings'],'-dpng','-r120',fullfile(p6finishLog,'final_phase_meters.png'));
+diary off;
+run(fullfile(p6finishLog,'export_remaining.m'));
+diary(fullfile(p6finishLog,'finish_delivery.log'));
+assert(isfile(fullfile(p6finishLog,'export_remaining.done.json')));
+fprintf('PHASE6_DELIVERY_VERIFIED\n');
+diary off;
+phase6_interactive_settings(p6finishModel);

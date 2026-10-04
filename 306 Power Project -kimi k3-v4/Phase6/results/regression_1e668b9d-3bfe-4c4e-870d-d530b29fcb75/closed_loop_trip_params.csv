@@ -1,0 +1,8 @@
+Relay,Pickup_A_primary,CT_ratio,TMS,Delay_s,Slope1,Slope2
+GEN51,17170.8,15000,0.1,not applicable,not applicable,not applicable
+GSUT51,1380,1600,0.55,not applicable,not applicable,not applicable
+GEN51N,4,20,0.15,not applicable,not applicable,not applicable
+87G,2403.8,15000,not applicable,0.045,0.3,0.3
+87T,387.84,1600,not applicable,0.045,0.3,0.6
+87B,320,1600,not applicable,0.035,0.3,0.3
+87L,320,1600,not applicable,0.035,0.3,0.3

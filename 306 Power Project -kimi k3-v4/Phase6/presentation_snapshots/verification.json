@@ -1,0 +1,13 @@
+{
+  "compiled": true,
+  "baselineStopTime_s": 0.3,
+  "maxSummaryDifference": 0,
+  "phaseSeparation": "Three separate ideal pass-through conductors per AC bus",
+  "DCRepresentation": "Existing signal-based DC model, labeled B06",
+  "savedModel": "C:\\Users\\sindi\\Downloads\\306 Power Project -kimi k3\\306 Power Project -kimi k3-v4\\Phase6\\PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP.slx",
+  "reappliedStyle": true,
+  "blockBodyOverlaps": 0,
+  "finished": "2026-09-25 17:29:04",
+  "renderedSystems": 24,
+  "renderedComponents": 429
+}

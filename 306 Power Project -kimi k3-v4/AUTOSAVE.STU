@@ -1,0 +1,642 @@
+<[GENERAL_STUDY]>
+
+[NETWORK_FILE_NAME]
+F:\LOCAL DISK E\IDM\COMPRESSED\ LEVEL 3 TERM 1\306 POWER PROJECT\\AUTOSAVE.NWT
+
+[STUDY_NAME]
+ModelGrid1
+
+[PARAMETERS]
+// Version,	Base Power,	Freq,	Sub Title
+125,	100,	60,	UNTITLED
+
+<[END_GENERAL_STUDY]>
+
+
+
+<[EXTENSION_STUDY]>
+
+
+[TxVar Dynamic Model]
+//*ID,	Status,	Td,	Tds,	Tm,	Ctrl Prim,	Integration,	Inverse Time-Delay
+GSUT 10BAT10,	OFF,	0.2,	0.1,	0.1,	OFF,	ON,	OFF
+
+
+[Tx Fix Protective Device Extension]
+//*ID,	Status,	From Data Active,	Reverse To TCC,	To Data Active
+T1,	ON,	{},	0,	{}
+
+
+[Bus OPF Model]
+//*ID,	Normal V min,	Normal V max,	Emer V min,	Emer V max
+B22G,	0.9,	1.1,	0.9,	1.1
+B6_6,	0.9,	1.1,	0.9,	1.1
+B400_ST,	0.9,	1.1,	0.9,	1.1
+B400_EU,	0,	0.9,	1.1,	0.9
+B400_UA1,	0.9,	1.1,	0.9,	1.1
+B400_UA2,	0.9,	1.1,	0.9,	1.1
+B6_6_WI2,	0.9,	1.1,	0.9,	1.1
+B400_WI,	0.9,	1.1,	0.9,	1.1
+BGRID230,	0.9,	1.1,	0.9,	1.1
+B0,	0.9,	1.1,	0.9,	1.1
+B1,	0.9,	1.1,	0.9,	1.1
+B6_6_WI1,	0.9,	1.1,	0.9,	1.1
+B230_2,	0.9,	1.1,	0.9,	1.1
+0.00000,	0.9,	1.1,	0.9,	1.1
+B230_1,	0.9,	1.1,	0.9,	1.1
+
+
+[Gener OPF Model]
+//*IDDispatch status,	Cost curve table id,	Pgen Min,	Pgen max,	Pgen cost curve type
+G1,	OFF,	NONE,	0,	1000,	POLYNOMIAL_EXPONENTIAL
+
+
+[Tx Var Protective Device Extension]
+//*ID,	Status,	From Data Active,	Reverse To TCC,	To Data Active
+GSUT 10BAT10,	ON,	{},	0,	{}
+
+
+[Generator VS Model]
+//*ID,	Status,	PMax,	PMin,	H,	D,	R
+G1,	ON,	1000,	0,	4,	0,	1
+
+
+[Bus AF Model]
+//*ID,	IsInAWorkplace,	BusGapIn,	WorkingDistanceIn,	ConnectedEquipType,	ExposedCircuitType,	BusID,	UseUserDefBaultFaultCur,	UserDefBaultFaultCur
+B22G,	1,	0.511811,	18,	3,	0,	B22G,	0,	10
+B6_6,	1,	0.511811,	18,	3,	0,	B6_6,	0,	10
+B400_ST,	1,	0.511811,	18,	3,	0,	B400_ST,	0,	10
+B400_EU,	0,	1,	0.511811,	18,	3,	B400_EU,	0,	0
+B400_UA1,	1,	0.511811,	18,	3,	0,	B400_UA1,	0,	10
+B400_UA2,	1,	0.511811,	18,	3,	0,	B400_UA2,	0,	10
+B6_6_WI2,	1,	0.511811,	18,	3,	0,	B6_6_WI2,	0,	10
+B400_WI,	1,	0.511811,	18,	3,	0,	B400_WI,	0,	10
+BGRID230,	1,	0.511811,	18,	3,	0,	BGRID230,	0,	10
+B0,	1,	0.511811,	18,	3,	0,	B0,	0,	10
+B1,	1,	0.511811,	18,	3,	0,	B1,	0,	10
+B6_6_WI1,	1,	0.511811,	18,	3,	0,	B6_6_WI1,	0,	10
+B230_2,	1,	0.511811,	18,	3,	0,	B230_2,	0,	10
+0.00000,	1,	0.511811,	18,	3,	0,	0.00000,	0,	10
+B230_1,	1,	0.511811,	18,	3,	0,	B230_1,	0,	10
+
+
+[Harmonic Generator]
+//*ID,	Apply Skin Effect
+G1,	0
+
+
+[Generator Dynamic Model]
+//*ID,	Status,	Model,	Exciter Status,	Exciter ID,	Turbine Status,	Turbine ID,	Stabilizer Status,	Stabilizer ID
+G1,	ON,	1,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+
+
+[Gener Protective Device Extension]
+//*ID,	Status,	From Data Active
+G1,	ON,	{}
+
+
+[Bus Dynamic Model]
+//*ID,	Status,	Low Volt Status,	Low Volt ID,	Low Freq Status,	Low Freq ID,	Freq Droop Status,	Freq Droop ID
+B22G,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+B6_6,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+B400_ST,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+B400_EU,	OFF,	ON,	OFF,	OFF,	OFF,	OFF,	OFF
+B400_UA1,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+B400_UA2,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+B6_6_WI2,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+B400_WI,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+BGRID230,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+B0,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+B1,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+B6_6_WI1,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+B230_2,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+0.00000,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+B230_1,	ON,	OFF,	NONE,	OFF,	NONE,	OFF,	NONE
+
+<[END_EXTENSION_STUDY]>
+
+
+
+<[INPUT_DATA_SECTION]>
+
+[REPORT SETTINGS]
+//*Is Impedance In [p.u],	Is System Base,	Base Power [MVA],	Show Duplicated Eq. As One,	Multiply Impedance,	Show Stability,	Show Harmonic,	Show Motor Start,	Show Tabular Report
+1,	1,	100,	1,	1,	0,	0,	0,	1
+[CUSTOMIZED LABELS]
+//*Label Identifier,	Label Content
+
+<[END_INPUT_DATA_SECTION]>
+
+
+
+<[SOLUTION_DATA_SECTION]>
+
+[LOAD_FLOW_CUSTOMIZED LABELS]
+//*Label Identifier,	Label Content
+[MOTOR_START_CUSTOMIZED LABELS]
+//*Label Identifier,	Label Content
+[CONTINGENCY_CUSTOMIZED LABELS]
+//*Label Identifier,	Label Content
+[OPTIMAL_LOAD_FLOW_CUSTOMIZED LABELS]
+//*Label Identifier,	Label Content
+
+<[END_SOLUTION_DATA_SECTION]>
+
+
+
+<[LF_ANALYSIS_STUDIES]>
+
+[COMMENTS]
+
+[STUDY_LABEL]
+
+
+[PARAMETERS]
+// Tolerance,	BusRep,	LineRep,	TxfoRep,	GenRep,	ShuntRep,	LoadRep,	MotorRep,	LimitsRep,	AbnormalRep,	SummaryRep,	BusAndFirstRingRep,	BranchRep,	SelectAllRep,	Global V Limits,	Global Min V,	Gloabl Max V,	Derate Resistance,	Use set 2 resistance,	Temp to derate R to,	Apply Mult. Fact.,	Apply Mult Entire Net.,	Global Pgen Fact.,	Global QgenMax Fact.,	QgenMin Fact.,	Active Load Factor,	Reactive Load Fact,	Global nP,	GlobalnP Applied,	Global nQ,	GlobalnQ Applied,	Report Monitered Components,	Show Both Ends,	Apply Load Colors,	Apply Old Arrows,	Value Affecting Arrows,	Display Study Label
+0.1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	0,	0,	0,	0,	0.9,	1.1,	0,	1,	25,	0,	1,	100,	100,	100,	100,	100,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0
+
+[FACTOR MODIFICATION BY ZONE]
+
+[BUS REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+Bus ID,	1,	1,	12,	Zone,	1,	0,	12,	BASE VOLT,	1,	0,	10,	VOLTAGE/ANG,	1,	1,	15,	MIN/MAX LIM,	1,	0,	15,	GENERATION,	1,	0,	15,	S  LOAD,	1,	0,	15,	MOTOR LOAD,	1,	0,	15,	SHUNT LOAD,	1,	0,	15
+
+[LINE REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+LINE ID,	1,	1,	15,	BUSES ID,	1,	0,	25,	DATABASE ID,	1,	0,	15,	KVLEVEL,	1,	0,	10,	Length,	1,	0,	10,	P+JQ FLOW,	1,	1,	15,	S FLOW,	1,	0,	10,	FLOW PF,	1,	0,	8,	CURRENT/ANG,	1,	1,	15,	AMPACITY,	1,	0,	15,	LOADING/EMER,	1,	0,	15,	P+JQ LOSSES,	1,	0,	15,	R+JX,	1,	0,	15,	B,	1,	0,	10
+
+[TXFO REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+TXFO ID,	1,	1,	15,	BUSES ID,	1,	0,	25,	DATABASE ID,	1,	0,	15,	BASE VOLT,	1,	0,	15,	MVA RATING,	1,	0,	12,	CONNECTION,	1,	0,	10,	P/S SHIFT,	1,	0,	10,	P+JQ FLOW,	1,	0,	15,	S FLOW,	1,	1,	10,	FLOW PF,	1,	0,	10,	CURRENT/ANG,	1,	1,	15,	AMPACITY,	1,	0,	15,	Loading,	1,	0,	15,	P+JQ LOSSES,	1,	1,	15,	Tap Position,	1,	0,	20,	TAP RATIO/AVAIL,	1,	1,	20,	TAP MIN/MAX,	1,	0,	15,	Ctrld Bus/V,	1,	0,	20,	CTRLD BUS MN/MX,	1,	0,	20,	ANGLE MX/MN/NOW,	1,	0,	20,	P MAX/MIN,	1,	0,	15,	Q MAX/MIN,	1,	0,	15,	R+JX,	1,	0,	15
+
+[GENER REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+Gener Id,	1,	1,	10,	Bus ID,	1,	0,	10,	DATABASE ID,	1,	0,	15,	BASE VOLT,	1,	0,	10,	MVA RATING,	1,	0,	10,	Generator Type,	1,	0,	10,	Ctrld Bus/V,	1,	0,	20,	P+JQ GEN,	1,	1,	15,	S GEN,	1,	0,	10,	GEN PF,	1,	0,	10,	Gen I,	1,	1,	10,	Q MAX/MIN,	1,	0,	15,	R+JX,	1,	0,	15
+
+[SHUNT REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+COMPO ID,	1,	1,	10,	Bus ID,	1,	0,	10,	DATABASE ID,	1,	0,	15,	SHUNT Z,	1,	0,	15,	SHUNT I,	1,	1,	15,	MOTOR S,	1,	1,	10,	MOTOR V,	1,	0,	10,	MOTOR A,	1,	1,	10,	MOTOR PF,	1,	1,	10,	P+JQ LOAD,	1,	0,	15,	S  LOAD,	1,	1,	10,	I LOAD,	1,	1,	10,	LOAD PF,	1,	1,	10
+
+[LIMITS REP PARAM]
+// Txfo check,	Gener Check,	Txfo %,	Gener %
+1,	1,	0,	0
+
+[ABNORMAL REP PARAM]
+// Txfo check,	Line/cable Check,	Bus Check,	Txfo %,	line/cable %,	Bus %,	UnerloadTxfo Check,	UnerloadLine Check,	UnderloadLine/cable %,	UnderloadTxfo %
+1,	1,	1,	100,	100,	100,	1,	1,	50,	50
+
+[SOLVING OPTIONS SELECTION]
+// Solution Method,	Apply Flat start,	Apply constraints,	Fix tap for tcul,	Nbr iterations,	Area Interchange,	Dist. Swing,	Keep Iterations,	Create So File,	Block Q Txfo Adjust,	Block Phase-Shifter Adjust,	Block Switchable Shunt Adjust
+0,	0,	1,	0,	60,	0,	0,	0,	0,	0,	0,	0
+
+[UNIT SETTINGS]
+// Voltage,	Current,	Power,	PF,	Angle,	Ampacity
+0,	0,	2,	1,	0,	0
+
+[DISTRIBUTED SWING]
+
+[AREA INTERCHANGE]
+//*Area Id, Generation Bus Id, P exchanged, Tolerance, Max P at gen bus, Min P at gen bus
+
+[AREA INTERCHANGE END]
+
+[LOAD COLORS]
+//*Description,	Enabled,	Min. Loading Limit,	Max. Loading Limit,	Color
+
+[LOAD COLORS END]
+
+<[END_LF_ANALYSIS_STUDIES]>
+
+
+
+<[SC_ANALYSIS_STUDIES]>
+
+[COMMENTS]
+
+[STUDY_LABEL]
+
+[PARAMETERS]
+// Report Type,	Phase or Sequence,	Polar or Rectangular,	LLL,	LG,	LL,	LLG,	Close In-Line End,	Sliding Fault Option,	Sliding Nbr of Section,	Sliding Length,	Series Fault 1 phase,	Series Fault 2 phases,	Series Fault Asym.,	Series Fault Length,	Derate Resistance,	Show Input Report,	BusRep,	LineRep,	TxfoRep,	GenRep,	MotorRep,	SelectAllRep,	Report Monitered Components,	Apply OLD Arrows,	Value Affecting Arrows,	Display Study Label,	Derate Resistance Using Set2 Resistance,	Temperature To Derate Resistance To,	Off Nominal Tap
+0,	0,	0,	1,	1,	0,	0,	0,	1,	1,	50,	1,	0,	0,	50,	0,	0,	1,	1,	1,	1,	1,	0,	0,	0,	0,	0,	1,	25,	0
+
+[ANSI SETTINGS]
+// Duty Type,	Breaker Speed,	Parting Time,	Parting pos.,	Remote motor contribution,	Ignore induction motor,	Ignore synch. motor,	Include B0
+0,	0,	0,	0,	0,	0,	0,	0
+
+[NON-ANSI SETTINGS]
+// Loads Included,	Generator Impedance,	Load Type,	Ignore induction motor,	Ignore synch. motor,	Include B0,	Rf,	Xf,	Rg,	Xg,	Ra,	Xa,	Rb,	Xb,	Rn,	Xn
+0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0
+
+[SOLVING OPTIONS SELECTION]
+// Study Protocol,	Prefault Voltages,	Base V Mult.,	Series V Magnitude,	Series V Angle,	Faulted Component,	
+1,	0,	1,	1,	0,	NONE
+
+[UNIT SETTINGS]
+// OLD V,	OLD I,	OLD S,	OLD ANG,	OLD PF,	OLD POLAR,	OLD PHASE,	LAB V,	LAB I,	LAB S,	LAB ANG,	LAB PF,	LAB POLAR,	LLL,	LG,	LL,	LLG,	1PH,	2PH,	ASYM,	PH A,	PH B,	PH C,	PH N,	SEQ 0,	SEQ POS,	SEQ NEG,	TABULAR V,	TABULAR I,	TABULAR S,	TABULAR ANG,	TABULAR PF,	TABULAR POLAR,	TABULAR PHASE
+0,	1,	2,	0,	1,	0,	0,	0,	1,	2,	0,	1,	0,	1,	1,	0,	0,	1,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	1,	2,	0,	1,	0,	0
+
+<[END_SC_ANALYSIS_STUDIES]>
+
+
+
+<[IEC_ANALYSIS_STUDIES]>
+
+[COMMENTS]
+
+[STUDY_LABEL]
+
+
+[PARAMETERS]
+// Report Type,	Phase or Sequence,	Polar or Rectangular,	LLL,	LG,	LL,	LLG,	Close In-Line End,	Sliding Fault Option,	Sliding Nbr of Section,	Sliding Length,	Series Fault 1 phase,	Series Fault 2 phases,	Series Fault Asym.,	Series Fault Length,	Derate Resistance,	Show Input Report,	BusRep,	LineRep,	TxfoRep,	GenRep,	MotorRep,	SelectAllRep,	Report Monitered Components,	Apply OLD Arrows,	Value Affecting Arrows,	Display Study Label,	Derate Resistance Using Set2 Resistance,	Temperature To Derate Resistance To,	Off Nominal Tap
+0,	0,	0,	1,	1,	0,	0,	0,	1,	1,	50,	1,	0,	0,	50,	0,	0,	1,	1,	1,	1,	1,	0,	0,	0,	0,	0,	1,	25,	0
+
+[IEC SETTINGS]
+// Duty Type,	Current Type,	Minimum Opening Time,	Excit. Settings,	Assign R/X Utility,	Assign R/X Gener,	Assign R/X Motors,	Apply Z factor utility,	Apply Z factor generator,	Ignore induction motor,	Ignore synch. motor,	Include B0,	Corr. fact. for PSU Z,	Corr. fact. for 2wind txfo Z,	Corr. fact. for 3wind txfo Z,	Peak Current Mtehod,	Thermal Effect?,	R Min. Temp.,	Exposure Time
+0,	0,	0.02,	0,	1,	1,	1,	1,	1,	0,	0,	1,	1,	1,	1,	1,	0,	20,	0.05
+
+[IEC VOLTAGE FACTORS]
+// Default  Factors,	LV Fact. Tol.,	LV Threshold,	MV Threshold,	HV Threshold,	LV Max. Factor,	LV Min. Factor,	MV Max. Factor,	MV Min. Factor,	HV Max. Factor,	HV Min. Factor
+0,	0,	1,	35,	550,	1.05,	0.95,	1.1,	1,	1.1,	1
+
+[NON-IEC SETTINGS]
+// Loads Included,	Generator Impedance,	Load Type,	Ignore induction motor,	Ignore synch. motor,	Include B0,	Rf,	Xf,	Rg,	Xg,	Ra,	Xa,	Rb,	Xb,	Rn,	Xn
+0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0
+
+[SOLVING OPTIONS SELECTION]
+// Study Protocol,	Prefault Voltages,	Base V Mult.,	Series V Magnitude,	Series V Angle,	Faulted Component,	
+1,	0,	1,	1,	0,	NONE
+
+[UNIT SETTINGS]
+// OLD V,	OLD I,	OLD S,	OLD ANG,	OLD PF,	OLD POLAR,	OLD PHASE,	LAB V,	LAB I,	LAB S,	LAB ANG,	LAB PF,	LAB POLAR,	LLL,	LG,	LL,	LLG,	1PH,	2PH,	ASYM,	PH A,	PH B,	PH C,	PH N,	SEQ 0,	SEQ POS,	SEQ NEG,	TABULAR V,	TABULAR I,	TABULAR S,	TABULAR ANG,	TABULAR PF,	TABULAR POLAR,	TABULAR PHASE
+0,	1,	2,	0,	1,	0,	0,	0,	1,	2,	0,	1,	0,	1,	1,	0,	0,	1,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	1,	2,	0,	1,	0,	0
+
+<[END_IEC_ANALYSIS_STUDIES]>
+
+
+
+<[MS_ANALYSIS_STUDIES]>
+
+[COMMENTS]
+
+[STUDY_LABEL]
+
+
+[PARAMETERS]
+// Tolerance,	Assisting Method,	Model Generator Transient impedance,	Display Study Label
+0.1,	0,	0,	0
+
+[SOLVING OPTIONS SELECTION]
+// Started Motor Id,	Keep Iterations
+NONE,	0
+
+[UNIT SETTINGS]
+// Voltage,	Current,	Power,	PF,	Angle,	Ampacity
+0,	0,	2,	1,	0,	0
+
+<[END_MS_ANALYSIS_STUDIES]>
+
+
+
+<[HARMONIC_ANALYSIS_STUDIES]>
+
+[COMMENTS]
+
+[STUDY_LABEL]
+
+
+[PARAMETERS]
+// Model_For_Analysis,	Skin_Branch_rlc,	A,	B,	Skin_Branch_rc,	A,	B,	Skin_Gener,	A,	B,	Skin_Sync_Motor,	A,	B,	Load_Model,	Load_Connection,	Induction_Motor_Model,	LINE,	CABLE,	Conduct_choice,	Skin_for_line_Dist,	Skin_for_cable_Dist,	Consider_Coupling_Lines,	Sampling Points Choice,	Number Of Sampling Points,	Apply Txfo Tap Postion,	Display Study Label
+three phase,	1,	0.1,	1.5,	1,	0.1,	1.5,	0,	0.1,	1.5,	0,	0.1,	1.5,	0,	Yg,	0,	0,	0,	0,	0,	0,	0,	0,	60,	0,	0
+
+[THEVENIN IMPEDANCE ANALYSIS]
+// Every_bus,	Matrix_calc,	Freq_min,	Freq_max,	Step,	Bus_selected (Name, Ord. Number)
+0,	0,	60,	3000,	60,	[NONE]
+
+[SEQUENCE IMPEDANCE ANALYSIS]
+// Freq_min,	Freq_max,	Step,	Bus_selected (Name, Ord. Number)
+60,	3000,	60,	[NONE]
+
+[DISTORTION ANALYSIS]
+// Every_bus,	FVI_name,	Use_fundamental_volt/current,	Buses_selected (Name, Ord. Number),	Lines_selected (Name, Ord. Number, Model)
+0,	D:\Academics\L-3 T-1\EEE 306\Project\project psaf\\Psaf.FVI,	0,	0,	[NONE],	[NONE]
+
+[SENSITIVITY ANALYSIS]
+// Admittance Min (%),	Admittance Max (%),	Buses_selected (Name, Ord. Number),	Elements_selected (Name, Ord. Number, Model)
+0,	200,	[NONE],	[NONE]
+
+[CAPRAT]
+// Report All,	Report Cap,	Report Filtr_ST,	Report Filtr_DT,	Report Filtr_C,	Report Filtr_HP,	Qvar fact,	Irms fact,	Vrms fact,	Vpeak fact
+0,	0,	0,	0,	0,	0,	1.35,	1.35,	1.1,	1.2
+
+[VOLTAGE DISTORTION LIMITS]
+// Base kV (LL),	Individual Harmonic Distortion,	Total Harmonic Distortion
+   13.800,	3,	5
+[VOLTAGE DISTORTION LIMITS END]
+
+[UNIT SETTINGS]
+// Voltage Distortion,	Current Distortion,	Capacitor Rating,	Volt. Distort. Unit,	Current Distort. Unit,	Capac State,	Filter State
+7,	7,	4,	1,	1,	1,	1
+
+<[END_HARMO_ANALYSIS_STUDIES]>
+
+
+
+<[STABILITY_ANALYSIS_STUDY]>
+
+[COMMENTS]
+
+[STUDY_LABEL]
+
+[ISLANDED FREQUENCY]
+
+[PARAMETERS]
+0.1,	1,	1,	140,	0.5,	110,	5,	1,	1,	100,	0,	0,	No,	0,	0,	0,	1
+
+[INITIAL CONDITIONS]
+NONE,	0,	NONE,	0,	NONE
+
+[GLOBAL MODEL SELECTION]
+1,	0,	1,	1,	1,	1,	2,	1,	2,	1,	1,	1,	1,	1,	2
+
+
+[TABULAR REPORT PRINTING OPTIONS]
+0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	
+
+[LOAD MODIFICATION BY ZONE]
+
+[ISLANDED SYSTEM FREQUENCY]
+
+[GENERIC UDM]
+
+[GLOBAL_LOW_VOLTAGE_RELAY]
+
+[GLOBAL_LOW_VOLTAGE_RELAY_UDM]
+
+[GLOBAL_LOW_FREQUENCY_RELAY]
+
+[GLOBAL_LOW_FREQUENCY_RELAY_UDM]
+
+[REAL TIME PLOT ST]
+
+[REAL TIME PLOT ST END]
+<[END_STABILITY_ANALYSIS_STUDY]>
+
+
+
+<[TCC_INTERFACE_STUDIES]>
+
+[COMMENTS]
+
+[STUDY_LABEL]
+
+[PARAMETERS]
+// Derate Resistance,	Derate Resistance Using Set2 Resistance,	Temperature To Derate Resistance To,	Display Study Label
+0,	1,	25,	0
+
+[ANSI SETTINGS]
+// Duty Type,	Breaker Speed,	Parting Time,	Parting pos.,	Remote motor contribution,	Ignore induction motor,	Ignore synch. motor,	Include B0
+0,	0,	0,	0,	0,	0,	0,	0
+
+[IEC SETTINGS]
+// Duty Type,	Current Type,	Minimum Opening Time,	Excit. Settings,	Assign R/X Utility,	Assign R/X Gener,	Assign R/X Motors,	Apply Z factor utility,	Apply Z factor generator,	Ignore induction motor,	Ignore synch. motor,	Include B0,	Corr. fact. for PSU Z,	Corr. fact. for 2wind txfo Z,	Corr. fact. for 3wind txfo Z,	Peak Current Mtehod,	Thermal Effect?,	R Min. Temp.,	Exposure Time
+0,	0,	0.02,	0,	1,	1,	1,	1,	1,	0,	0,	1,	1,	1,	1,	1,	0,	20,	0.05
+
+[NON-ANSI SETTINGS]
+// Loads Included,	Generator Impedance,	Load Type,	Ignore induction motor,	Ignore synch. motor,	Include B0,	Rf,	Xf,	Rg,	Xg,	Ra,	Xa,	Rb,	Xb,	Rn,	Xn
+0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0
+
+[SOLVING OPTIONS SELECTION]
+// Perform SC,	Selected Bus Option,	Study Protocol,	Prefault Voltages,	Base V Mult.,	Faulted Component,	
+1,	1,	1,	0,	1,	NONE
+
+[UNIT SETTINGS]
+// OLD V,	OLD I,	OLD S,	OLD ANG,	OLD PF,	OLD POLAR,	OLD PHASE,	LAB V,	LAB I,	LAB S,	LAB ANG,	LAB PF,	LAB POLAR,	LLL,	LG,	LL,	LLG,	1PH,	2PH,	ASYM,	PH A,	PH B,	PH C,	PH N,	SEQ 0,	SEQ POS,	SEQ NEG,	TABULAR V,	TABULAR I,	TABULAR S,	TABULAR ANG,	TABULAR PF,	TABULAR POLAR,	TABULAR PHASE
+0,	1,	2,	0,	1,	0,	0,	0,	1,	2,	0,	1,	0,	1,	1,	0,	0,	1,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	1,	2,	0,	1,	0,	0
+
+<[END_TCC_INTERFACE_STUDIES]>
+
+
+
+<[CA_ANALYSIS_STUDIES]>
+
+[COMMENTS]
+
+[STUDY_LABEL]
+
+
+[BASE CASE]
+// Tolerance,	DerateResistance,	Global V Limits,	Global Min V,	Gloabl Max V,	Nbr iter.,	Solve Method,	Flat Start?,	Adjust,	Var as Fix,	Area Inter,	Block Q Txfo Adjust,	Block Phase-Shifter Adjust,	Block Switchable Shunt Adjust,	Block DC Line Adjust,	Derate Resistance Using Set2 Resistance,	Temperature To Derate Resistance To
+0.1,	0,	0,	0.9,	1.1,	60,	0,	0,	1,	0,	0,	0,	0,	0,	0,	1,	25
+
+[PARAMETERS]
+// BusRep,	LineRep,	TxfoRep,	GenRep,	ShuntRep,	LoadRep,	MotorRep,	LimitsRep,	AbnormalRep,	SummaryRep,	NoResultRep,	SelectAllRep,	Report Type,	Display Study Label,	Overload Criteria,	Voltage Criteria,	Volt. Range Violation,	Voltage Deviation from BC,	Loading Violation,	Loading Deviation from BC,	Bus Angle Shift
+1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	0,	0,	0,	1,	1,	0,	0,	0,	0,	0
+
+[BUS REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+Bus ID,	1,	1,	12,	Zone,	1,	0,	12,	BASE VOLT,	1,	0,	10,	VOLTAGE/ANG,	1,	1,	15,	MIN/MAX LIM,	1,	0,	15,	GENERATION,	1,	0,	15,	S  LOAD,	1,	0,	15,	MOTOR LOAD,	1,	0,	15,	SHUNT LOAD,	1,	0,	15
+
+[LINE REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+LINE ID,	1,	1,	15,	BUSES ID,	1,	0,	25,	DATABASE ID,	1,	0,	15,	KVLEVEL,	1,	0,	10,	Length,	1,	0,	10,	P+JQ FLOW,	1,	1,	15,	S FLOW,	1,	0,	10,	FLOW PF,	1,	0,	8,	CURRENT/ANG,	1,	1,	15,	AMPACITY,	1,	0,	15,	LOADING/EMER,	1,	0,	15,	P+JQ LOSSES,	1,	0,	15,	R+JX,	1,	0,	15,	B,	1,	0,	10
+
+[TXFO REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+TXFO ID,	1,	1,	15,	BUSES ID,	1,	0,	25,	DATABASE ID,	1,	0,	15,	BASE VOLT,	1,	0,	15,	MVA RATING,	1,	0,	12,	CONNECTION,	1,	0,	10,	P/S SHIFT,	1,	0,	10,	P+JQ FLOW,	1,	0,	15,	S FLOW,	1,	1,	10,	FLOW PF,	1,	0,	10,	CURRENT/ANG,	1,	1,	15,	AMPACITY,	1,	0,	15,	Loading,	1,	0,	15,	P+JQ LOSSES,	1,	1,	15,	Tap Position,	1,	0,	20,	TAP RATIO/AVAIL,	1,	1,	20,	TAP MIN/MAX,	1,	0,	15,	Ctrld Bus/V,	1,	0,	20,	CTRLD BUS MN/MX,	1,	0,	20,	ANGLE MX/MN/NOW,	1,	0,	20,	P MAX/MIN,	1,	0,	15,	Q MAX/MIN,	1,	0,	15,	R+JX,	1,	0,	15
+
+[GENER REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+Gener Id,	1,	1,	10,	Bus ID,	1,	0,	10,	DATABASE ID,	1,	0,	15,	BASE VOLT,	1,	0,	10,	MVA RATING,	1,	0,	10,	Generator Type,	1,	0,	10,	Ctrld Bus/V,	1,	0,	20,	P+JQ GEN,	1,	1,	15,	S GEN,	1,	0,	10,	GEN PF,	1,	0,	10,	Gen I,	1,	1,	10,	Q MAX/MIN,	1,	0,	15,	R+JX,	1,	0,	15
+
+[SHUNT REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+COMPO ID,	1,	1,	10,	Bus ID,	1,	0,	10,	DATABASE ID,	1,	0,	15,	SHUNT Z,	1,	0,	15,	SHUNT I,	1,	1,	15,	MOTOR S,	1,	1,	10,	MOTOR V,	1,	0,	10,	MOTOR A,	1,	1,	10,	MOTOR PF,	1,	1,	10,	P+JQ LOAD,	1,	0,	15,	S  LOAD,	1,	1,	10,	I LOAD,	1,	1,	10,	LOAD PF,	1,	1,	10
+
+[LIMITS REP PARAM]
+// Txfo check,	Gener Check,	Txfo %,	Gener %
+1,	1,	0,	0
+
+[ABNORMAL REP PARAM]
+// Txfo check,	Line/cable Check,	Bus Check,	Txfo %,	line/cable %,	Bus %,	UnerloadTxfo Check,	UnerloadLine Check,	UnderloadLine/cable %,	UnderloadTxfo %
+1,	1,	1,	100,	100,	100,	1,	1,	50,	50
+
+[REP LOAD PARAM]
+// P check,	Q check
+1,	1
+
+[REP SHUNT PARAM]
+// P check,	Q check
+1,	1
+
+[REP BUS PARAM]
+// V sol,	Ang sol
+1,	1
+
+[REP GENER PARAM]
+// Type,	P Gen,	Q Gen,	Q Max,	Q Min
+1,	1,	1,	1,	1
+
+[REP TXFO PARAM]
+// P check,	Q check,	Tap Ratio,	Tap Pos,	Max Tap,	Min Tap,	Set Point Max,	Set Point Min
+1,	1,	1,	1,	1,	1,	1,	1
+
+[REP LINE PARAM]
+// P check,	Q check,	I check
+1,	1,	1
+
+[REP MOTOR PARAM]
+// V sol,	S,	Load,	P,	I
+1,	1,	1,	1,	1
+
+[AREA INTERCHANGE]
+//*Area Id, Generation Bus Id, P exchanged, Tolerance, Max P at gen bus, Min P at gen bus
+
+[AREA INTERCHANGE END]
+
+[CONTINGENCIES_GROUPS]
+// Contingency Group Id,	Status,	Contingency Id's...
+
+[CONTINGENCIES]
+// Contingency Id,	Status,	Nber of iter.,	Tol.,	Method,	Flat Start,	Constraints,	TxVar as Fix,	Area Inter.,	Selected For Report,	Selected For Display,	Block Q Txfo Adjust,	Block Phase-Shifter Adjust,	Block Switchable Shunt Adjust,	Block DC Line Adjust,	Event Id's...
+
+
+<[END_CA_ANALYSIS_STUDIES]>
+
+
+
+<[OPF_ANALYSIS_STUDIES]>
+
+[COMMENTS]
+
+[STUDY_LABEL]
+
+
+[OPF OBJECTIVES PARAM]
+Mini Fuel Cost,	Mini P Slack,	Mini P Loss,	Mini Q Loss,	Mini Series Comp.,	Mini Var Add,	Mini Load Shed.,	Mini Var. Control Mov.,	Var. Lin. or Quadr. Mov.,	Maxi Flat V Prof.,	Maxi V Secur. Index,	Maxi Branch Flow Secur. Index,	Lin. Control Var. Mov. Weight,	Quad. Control Var. Mov. Weight,	Flat V Prof. Weight,	V Secu. Index Weight,	Branch Flow Secu. Index Weight
+0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	100,	100,	100,	100,	100
+
+[OPF CONTROLS PARAM]
+Fix Tvar Tap,	Fix Txphase angle,	Fix Switched shunt,	Fix Gen Volt,	Area Interchange,	Auto. scaling,	Dual Convergence,	Adjust Limits Feasability,	OPF Sol. Method,	Clamp Non Opt. Gen.,	Fixed Volt. Penalty,	Final Clamp Tol.,	Flat Start
+0,	0,	0,	0,	0,	1,	1,	0,	0,	0,	10000,	0.01,	1
+
+[OPF TOLERANCES PARAM]
+Init. Barrier Coef.,	Final Barrier Coef.,	Coarse Limit,	Fine Limit,	Max. Iter. number,	Conv. Tol.,	Interior Shift,	Barrier Step,	Infeasable Var. Penalty,	Gen. Volt. Penalty,	Tcul Tap Penalty
+1,	0.001,	3,	10,	50,	0.1,	0.1,	0.995,	0.1,	10000,	10000
+
+[PARAMETERS]
+BusRep,	LineRep,	TxfoRep,	GenRep,	ShuntRep,	LoadRep,	MotorRep,	LimitsRep,	AbnormalRep,	SummaryRep,	SelectAllRep,	Report Monitered Components
+1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	0,	0
+
+[BUS REP PARAM]
+// BusID,	ExtraBusID,	KVBase,	SolVoltage,	MinMaxVoltLimit,	EmergencyMinMaxVoltLimit,	Lambda P,	Lambda Q,	Lambda V,	Margin P,	Margin Q
+OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF
+
+[LINE REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+LINE ID,	1,	1,	15,	BUSES ID,	1,	0,	25,	DATABASE ID,	1,	0,	15,	KVLEVEL,	1,	0,	10,	Length,	1,	0,	10,	P+JQ FLOW,	1,	1,	15,	S FLOW,	1,	0,	10,	FLOW PF,	1,	0,	8,	CURRENT/ANG,	1,	1,	15,	AMPACITY,	1,	0,	15,	LOADING/EMER,	1,	0,	15,	P+JQ LOSSES,	1,	0,	15,	R+JX,	1,	0,	15,	B,	1,	0,	10
+
+[TXFO REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+TXFO ID,	1,	1,	15,	BUSES ID,	1,	0,	25,	DATABASE ID,	1,	0,	15,	BASE VOLT,	1,	0,	15,	MVA RATING,	1,	0,	12,	CONNECTION,	1,	0,	10,	P/S SHIFT,	1,	0,	10,	P+JQ FLOW,	1,	0,	15,	S FLOW,	1,	1,	10,	FLOW PF,	1,	0,	10,	CURRENT/ANG,	1,	1,	15,	AMPACITY,	1,	0,	15,	Loading,	1,	0,	15,	P+JQ LOSSES,	1,	1,	15,	Tap Position,	1,	0,	20,	TAP RATIO/AVAIL,	1,	1,	20,	TAP MIN/MAX,	1,	0,	15,	Ctrld Bus/V,	1,	0,	20,	CTRLD BUS MN/MX,	1,	0,	20,	ANGLE MX/MN/NOW,	1,	0,	20,	P MAX/MIN,	1,	0,	15,	Q MAX/MIN,	1,	0,	15,	R+JX,	1,	0,	15
+
+[GENER REP PARAM]
+// Generator ID,	DB ID,	Rated KV,	Rated Mva,	Generation Type,	Control Bus Id,	P & Q,	S,	Power Factor,	Current,	Qmax Qmin,	Impedance,	Fuel Cost
+OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF,	OFF
+
+[SHUNT REP PARAM]
+// Column Title,	Included in report,	Included in label,	Column Width,	...
+COMPO ID,	1,	1,	10,	Bus ID,	1,	0,	10,	DATABASE ID,	1,	0,	15,	SHUNT Z,	1,	0,	15,	SHUNT I,	1,	1,	15,	MOTOR S,	1,	1,	10,	MOTOR V,	1,	0,	10,	MOTOR A,	1,	1,	10,	MOTOR PF,	1,	1,	10,	P+JQ LOAD,	1,	0,	15,	S  LOAD,	1,	1,	10,	I LOAD,	1,	1,	10,	LOAD PF,	1,	1,	10
+
+[LIMITS REP PARAM]
+// Txfo check,	Gener Check,	Txfo %,	Gener %
+1,	1,	0,	0
+
+[ABNORMAL REP PARAM]
+// Txfo check,	Line/cable Check,	Bus Check,	Txfo %,	line/cable %,	Bus %,	UnerloadTxfo Check,	UnerloadLine Check,	UnderloadLine/cable %,	UnderloadTxfo %
+1,	1,	1,	100,	100,	100,	1,	1,	50,	50
+
+[SOLVING OPTIONS SELECTION]
+// Optimize all?
+0
+
+[UNIT SETTINGS]
+// Voltage,	Current,	Power,	PF,	Angle,	Ampacity
+0,	0,	2,	1,	0,	0
+
+[OPF DISPLAY OPTION]
+// Apply Old Arrows,	Apply Load Colors,	Display Study Label,	Value Affecting Arrows
+0,	0,	0,	0
+
+[LOAD COLORS]
+//*Description,	Enabled,	Min. Loading Limit,	Max. Loading Limit,	Color
+
+[LOAD COLORS END]
+
+<[END_OPF_ANALYSIS_STUDIES]>
+
+
+
+<[VS_ANALYSIS_STUDIES]>
+
+[COMMENTS]
+
+[STUDY_LABEL]
+
+
+[BASE CASE]
+// Tolerance,	DerateResistance,	Global V Limits,	Global Min V,	Gloabl Max V,	Nbr iter.,	Solve Method,	Flat Start?,	Adjust,	Var as Fix,	Area Inter,	Block Q Txfo Adjust,	Block Phase-Shifter Adjust,	Block Switchable Shunt Adjust,	Block DC Line Adjust,	Derate Resistance Using Set2 Resistance,	Temperature To Derate Resistance To
+0.1,	0,	0,	0.9,	1.1,	60,	0,	0,	1,	0,	0,	0,	0,	0,	0,	1,	25
+
+[CONTINGENCIES_GROUPS]
+// Contingency Group Id,	Status,	Contingency Id's...
+
+[CONTINGENCIES]
+// Contingency Id,	Status,	Nber of iter.,	Tol.,	Method,	Flat Start,	Constraints,	TxVar as Fix,	Area Inter.,	Selected For Report,	Selected For Display,	Block Q Txfo Adjust,	Block Phase-Shifter Adjust,	Block Switchable Shunt Adjust,	Block DC Line Adjust,	Event Id's...
+
+
+[LOAD INCREASE]
+// Load Increase Percent,	Load Increase Increment Percent,	IsLoadPowerFactorPIncreaseOnly,	Load Id List...,	
+100,	1,	1,	{}
+
+[GENERATION INCREASE]
+// Re-dispatch method,	Gener Id List...,	
+1,	{}
+
+[VOLTAGE VIOLATION CRITERIA]
+// Upper Normal Lim,	Lower Normal Lim,	Upper Cont Lim,	Lower Cont Lim,	Base Case Margin,	Contingency Margin,	Bus Id List...,	
+1.1,	0.9,	1.2,	0.8,	7,	7,	{}
+
+[REACTIVE POWER RESERVE CRITERIA]
+// Reserve group name,	Desired Reserve,	Gener Id List...,	
+
+[VOLTAGE STABILITY INTERFACE FLOW]
+// Group name,	Line Id List...,	
+
+[SOLVING OPTIONS SELECTION]
+Freeze tap,	Force all loads type,	Type forced,	Use VQ curve approach,	Nb Bus Id in list,	List Bus Id
+0,	0,	136534736,	0,	0,	0
+
+<[END_VS_ANALYSIS_STUDIES]>
+
+
+
+<[AF_ANALYSIS_STUDIES]>
+
+[COMMENTS]
+
+[STUDY_LABEL]
+
+
+[PARAMETERS]
+// StandardToUse,	PPEClothingValue,	GnrtBusTabRep,	GnrtWarnStkrs,	GnrtXYChtsBdryVSTime,	GnrtXYChtsEngyVSDistForAConstOpenTimeRprt,	GnrtXYChtsEngyVSTimeForAConstDistRprt,	ConstDistMaxInInches,	ConstDistMinInInches,	ConstDistStepInInches,	DistanceDomainStartInInches,	DistanceDomainEndInInches,	DistanceDomainStepInInches,	ConstOpenTimeMaxInSec,	ConstOpenTimeMinInSec,	ConstOpenTimeStepInSec,	EVTStartInSec,	EVTEndInSec,	EVTStepInSec,	BVTStartInSec,	BVTEndInSec,	BVTStepInSec,	LabelFormatID,	OpeningTimeToUse,	UserDefinedOpeningTime,	UseImperial,	MaxRstgEngyDstyInCalPerCm2
+0,	1.2,	1,	1,	1,	1,	1,	36,	12,	6,	0.25,	36,	0.5,	0.1,	0.01,	0.01,	0,	1,	0.1,	0,	1,	0.1,	AVERYA4ANDA5SIZES#C2541,	0,	1,	1,	40
+
+[SOLVING OPTIONS SELECTION]
+// Keep Iterations,	Buse IDs to analyse
+0
+
+
+<[END_AF_ANALYSIS_STUDIES]>
+
+
+

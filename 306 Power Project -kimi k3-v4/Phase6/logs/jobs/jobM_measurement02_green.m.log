@@ -1,0 +1,2 @@
+PHASE6_MEASUREMENT_SIMULINK_PASS: update compile; two 61-sample runs; first valid at 0.020 s.
+PHASE6_MEASUREMENT_TESTS_PASS: 114-channel phasor packing, cosine-reference angles, RMS scaling, absolute-clock synchronization, positive/negative/zero sequence, 3I0 residual, DC/harmonics, sliding-window reset, and Simulink compile/repeat simulation.

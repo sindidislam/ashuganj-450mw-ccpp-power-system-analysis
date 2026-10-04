@@ -1,0 +1,16 @@
+Breaker,Phase,Current_sensor,Open_command_s,Current_cessation_s,Cessation_minus_command_s,Current_threshold_A,Required_hold_s,Failure_scenario_enabled,Status
+GCB,A,genTerminal,NaN,NaN,NaN,NaN,0.02,0,no_open_command_observed
+GCB,B,genTerminal,NaN,NaN,NaN,NaN,0.02,0,no_open_command_observed
+GCB,C,genTerminal,NaN,NaN,NaN,NaN,0.02,0,no_open_command_observed
+Q0,A,busIn,NaN,NaN,NaN,NaN,0.02,0,no_open_command_observed
+Q0,B,busIn,NaN,NaN,NaN,NaN,0.02,0,no_open_command_observed
+Q0,C,busIn,NaN,NaN,NaN,NaN,0.02,0,no_open_command_observed
+LineLocal,A,lineLocal,0.238,0.246,0.00800000000000001,10.7434384089351,0.02,0,sustained_current_cessation_observed
+LineLocal,B,lineLocal,0.238,0.2464,0.00839999999999999,6.31979332464491,0.02,0,sustained_current_cessation_observed
+LineLocal,C,lineLocal,0.238,0.2524,0.0144,4.14796411214183,0.02,0,sustained_current_cessation_observed
+LineRemote,A,lineRemote,0.238,0.247,0.00900000000000001,97.1203882300994,0.02,0,sustained_current_cessation_observed
+LineRemote,B,lineRemote,0.238,0.2464,0.00839999999999999,6.31920347843528,0.02,0,sustained_current_cessation_observed
+LineRemote,C,lineRemote,0.238,0.2524,0.0144,4.14771603286649,0.02,0,sustained_current_cessation_observed
+GAT,A,gatHV,NaN,NaN,NaN,NaN,0.02,0,initially_open_no_open_transition
+GAT,B,gatHV,NaN,NaN,NaN,NaN,0.02,0,initially_open_no_open_transition
+GAT,C,gatHV,NaN,NaN,NaN,NaN,0.02,0,initially_open_no_open_transition

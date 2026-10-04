@@ -1,0 +1,69 @@
+<GENERAL>
+//*Not Used, Not Used, NWT version,	database path,	UDMLIB path
+  ,  ,	283,	F:\LOCAL DISK E\IDM\COMPRESSED\ LEVEL 3 TERM 1\306 POWER PROJECT,	e:\cyme\psaf\udmlib
+
+[Header Info]
+,;;,
+
+<END_GENERAL>
+
+<UDM_LIB_VALIDATION_SECTION>
+
+
+<END_UDM_LIB_VALIDATION_SECTION>
+
+<COMPO>
+
+
+[Network Main]
+//*ID,	Topo,	snap to grid,	Height Mult.
+?,	Automatic,	0,	2
+
+
+[Bus]
+//*ID,	Zone,	Filter 1,	Filter 2,	kV Base,	kV Oper,	pu Min,	pu Max,	Volt Sol,	Angle Sol,	Extra ID,	RQQ1,	XQQ1,	RQQ0,	XQQ0,	Status
+B22G,	0,	0,	0,	22,	22,	0.95,	1.05,	1,	0,	GENERATOR / ISOLATED PHASE BUSBARS,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+B6_6,	0,	0,	0,	6.6,	6.6,	0.9,	1.1,	1,	0,	MV BUSBAR,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+B400_ST,	0,	0,	0,	0.4,	0.4,	0.9,	1.1,	1,	0,	STATION SWGR,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+B400_EU,	0,	0,	0,	0.4,	0.4,	0.9,	1.1,	1.1,	1,	ESSENTIAL UNIT SWGR
+,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+B400_UA1,	0,	0,	0,	0.4,	0.4,	0.9,	1.1,	1,	0,	UNIT AUX SWGR-1,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+B400_UA2,	0,	0,	0,	0.4,	0.4,	0.9,	1.1,	1,	0,	UNIT AUX SWGR-2,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+B6_6_WI2,	0,	0,	0,	6.6,	6.6,	0.9,	1.1,	1,	0,	MV WATER INTAKE BUSBAR-2,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+B400_WI,	NONE,	0,	0,	0.4,	0.4,	0,	1.1,	0,	0,	LV WATER INTAKE BUSBAR
+,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+BGRID230,	NONE,	0,	0,	230,	230,	0,	1.1,	0,	0,	EXTERNAL 230-kV GRID (MODELLED)
+,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+B6_6_WI1,	NONE,	0,	0,	6.6,	6.6,	0.9,	1.1,	0,	0,	MV WATER INTAKE BUSBAR-1,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+B230_2,	0,	0,	0,	230,	230,	0.9,	1.1,	1,	0,	BUS 2,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+B230_1,	0,	0,	0,	230,	230,	0.9,	1.1,	1,	0,	BUS 1,	0.00000,	0.00000,	0.00000,	0.00000,	ON
+
+
+[Generator]
+//*ID,	Bus ID,	DBase ID,	Duplic,	Status,	Generator Type,	P Gen,	Q Desired,	Rotor Angle,	Ground R,	Ground X,	Ctrled BusID,	PSol,	QSol,	IEC PSU
+G1,	B22G,	GEN1_DATAA,	1,	ON,	Voltage Controlled,	389.3,	0,	0,	9999,	9999,	B22G,	0,	0,	0
+
+
+[FixedTap Txfo]
+//*ID,	Bus From,	Bus To,	DBase ID,	Duplic,	Status,	Tap From Sol V,	Tap From Sol Angle,	Tap To Sol V,	Tap To Sol Angle,	Apply D grounding,	Corner R,	UseZTable,	ZTableDBId,	Pcon,	Scon,	Tap,	Min Tap,	Max Tap,	Number of Tap,	
+T1,	B22G,	B6_6,	10/126_0500,	1,	ON,	1,	0,	1,	0,	0,	0,	0,	?,	D,	Y,	100,	90,	110,	99,	0
+
+
+[Tcul Txfo]
+//*ID,	Bus From,	Bus To,	DBase ID,	Duplic,	Status,	Tap From Sol V,	Tap From Sol Angle,	Tap To Sol V,	Tap To Sol Angle,	Apply D grounding,	Corner R,	UseZTable,	ZTableDBId,	Pcon,	Scon,	KV_range_min,	KV_range_max,	FreezeTap,	InitialTap,	,	LastLF,	Ctrled BusID
+GSUT 10BAT10,	B22G,	B230_1,	10BAT10,	1,	ON,	1,	0,	1,	0,	0,	0,	0,	?,	Y,	D,	0,	0,	1,	0,	0,	0,	B230_1
+
+<END_COMPO>
+
+<ZONE_COLORS>
+//*Current Coloring Setting,	Description,	Color,	Lower Limit,	Upper Limit,	List Of Affected Zones
+
+<END_ZONE_COLORS>
+
+<AREA_COLORS>
+//*Current Coloring Setting,	Description,	Color,	Lower Limit,	Upper Limit,	List Of Affected Areas
+
+<END_AREA_COLORS>
+
+
+<[END]>

@@ -1,0 +1,4 @@
+Fault_location,Fault_branch_sensor,Phase,Fault_enabled,Initial_window_start_s,Initial_window_end_exclusive_s,Initial_samples,Pre_event_current_RMS_A,Initial_current_waveform_RMS_A,Initial_peak_abs_current_A,Initial_phase_voltage_waveform_RMS_V,Full_window_fundamental_current_RMS_A,Fundamental_window_start_s,Fundamental_window_end_exclusive_s,Fundamental_samples,Initial_window_status,Fundamental_window_status
+GIS230,faultGIS,A,0,NaN,NaN,0,0.000132755983111674,NaN,NaN,NaN,NaN,NaN,0.4,0,fault_not_enabled,fault_not_enabled
+GIS230,faultGIS,B,0,NaN,NaN,0,0.000132755986039108,NaN,NaN,NaN,NaN,NaN,0.4,0,fault_not_enabled,fault_not_enabled
+GIS230,faultGIS,C,0,NaN,NaN,0,0.000132755985937256,NaN,NaN,NaN,NaN,NaN,0.4,0,fault_not_enabled,fault_not_enabled

@@ -1,0 +1,11 @@
+test_phase6_parameters PASS: canonical identity, machine mapping, profile separation, provenance, CSV export and protected hashes.
+PHASE6_RELAY_TESTS_PASS: balance, vector compensation, four zones, IEC timing, reset, gating.
+PHASE6_DC_TESTS_PASS: current balance, battery/charger, pulse, AC failure, SOC, recovery.
+PHASE6_DC_RECOVERY_TESTS_PASS: delayed restoration powers the pending trip.
+PHASE6_ACTUATOR_TESTS_PASS
+PHASE6_PROTECTION_SFUNCTIONS_PASS: compile, sensor mapping, trip, DC window, reset.
+PHASE6_SCENARIO_VALIDATION_PASS
+PHASE6_RUN_COMPLETION_GATE_PASS
+PHASE6_REFERENCE_NONFINITE_GATE_PASS
+
+--- test_phase5c_differential -----------------------------------------

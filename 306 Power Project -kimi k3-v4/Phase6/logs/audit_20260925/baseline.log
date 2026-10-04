@@ -1,0 +1,229 @@
+AUDIT_ENV 24.1.0.2537033 (R2024a)
+-----------------------------------------------------------------------------------------------------
+MATLAB Version: 24.1.0.2537033 (R2024a)
+MATLAB License Number: 968398
+Operating System: Microsoft Windows 11 Pro Version 10.0 (Build 26200)
+Java Version: Java 1.8.0_202-b08 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
+-----------------------------------------------------------------------------------------------------
+MATLAB                                                Version 24.1        (R2024a)
+Simulink                                              Version 24.1        (R2024a)
+5G Toolbox                                            Version 24.1        (R2024a)
+AUTOSAR Blockset                                      Version 24.1        (R2024a)
+Aerospace Blockset                                    Version 24.1        (R2024a)
+Aerospace Toolbox                                     Version 24.1        (R2024a)
+Antenna Toolbox                                       Version 24.1        (R2024a)
+Audio Toolbox                                         Version 24.1        (R2024a)
+Automated Driving Toolbox                             Version 24.1        (R2024a)
+Bioinformatics Toolbox                                Version 24.1        (R2024a)
+Bluetooth Toolbox                                     Version 24.1        (R2024a)
+C2000 Microcontroller Blockset                        Version 24.1        (R2024a)
+Communications Toolbox                                Version 24.1        (R2024a)
+Computer Vision Toolbox                               Version 24.1        (R2024a)
+Control System Toolbox                                Version 24.1        (R2024a)
+Curve Fitting Toolbox                                 Version 24.1        (R2024a)
+DDS Blockset                                          Version 24.1        (R2024a)
+DSP HDL Toolbox                                       Version 24.1        (R2024a)
+DSP System Toolbox                                    Version 24.1        (R2024a)
+Data Acquisition Toolbox                              Version 24.1        (R2024a)
+Database Toolbox                                      Version 24.1        (R2024a)
+Datafeed Toolbox                                      Version 24.1        (R2024a)
+Deep Learning HDL Toolbox                             Version 24.1        (R2024a)
+Deep Learning Toolbox                                 Version 24.1        (R2024a)
+Econometrics Toolbox                                  Version 24.1        (R2024a)
+Embedded Coder                                        Version 24.1        (R2024a)
+Filter Design HDL Coder                               Version 24.1        (R2024a)
+Financial Instruments Toolbox                         Version 24.1        (R2024a)
+Financial Toolbox                                     Version 24.1        (R2024a)
+Fixed-Point Designer                                  Version 24.1        (R2024a)
+Fuzzy Logic Toolbox                                   Version 24.1        (R2024a)
+GPU Coder                                             Version 24.1        (R2024a)
+Global Optimization Toolbox                           Version 24.1        (R2024a)
+HDL Coder                                             Version 24.1        (R2024a)
+HDL Verifier                                          Version 24.1        (R2024a)
+Image Acquisition Toolbox                             Version 24.1        (R2024a)
+Image Processing Toolbox                              Version 24.1        (R2024a)
+Industrial Communication Toolbox                      Version 24.1        (R2024a)
+Instrument Control Toolbox                            Version 24.1        (R2024a)
+LTE Toolbox                                           Version 24.1        (R2024a)
+Lidar Toolbox                                         Version 24.1        (R2024a)
+MATLAB Coder                                          Version 24.1        (R2024a)
+MATLAB Compiler                                       Version 24.1        (R2024a)
+MATLAB Compiler SDK                                   Version 24.1        (R2024a)
+MATLAB Report Generator                               Version 24.1        (R2024a)
+MATLAB Test                                           Version 24.1        (R2024a)
+Mapping Toolbox                                       Version 24.1        (R2024a)
+Medical Imaging Toolbox                               Version 24.1        (R2024a)
+Mixed-Signal Blockset                                 Version 24.1        (R2024a)
+Model Predictive Control Toolbox                      Version 24.1        (R2024a)
+Model-Based Calibration Toolbox                       Version 24.1        (R2024a)
+Motor Control Blockset                                Version 24.1        (R2024a)
+Navigation Toolbox                                    Version 24.1        (R2024a)
+Optimization Toolbox                                  Version 24.1        (R2024a)
+Parallel Computing Toolbox                            Version 24.1        (R2024a)
+Partial Differential Equation Toolbox                 Version 24.1        (R2024a)
+Phased Array System Toolbox                           Version 24.1        (R2024a)
+Powertrain Blockset                                   Version 24.1        (R2024a)
+Predictive Maintenance Toolbox                        Version 24.1        (R2024a)
+RF Blockset                                           Version 24.1        (R2024a)
+RF PCB Toolbox                                        Version 24.1        (R2024a)
+RF Toolbox                                            Version 24.1        (R2024a)
+ROS Toolbox                                           Version 24.1        (R2024a)
+Radar Toolbox                                         Version 24.1        (R2024a)
+Reinforcement Learning Toolbox                        Version 24.1        (R2024a)
+Requirements Toolbox                                  Version 24.1        (R2024a)
+Risk Management Toolbox                               Version 24.1        (R2024a)
+Robotics System Toolbox                               Version 24.1        (R2024a)
+Robust Control Toolbox                                Version 24.1        (R2024a)
+Satellite Communications Toolbox                      Version 24.1        (R2024a)
+Sensor Fusion and Tracking Toolbox                    Version 24.1        (R2024a)
+SerDes Toolbox                                        Version 24.1        (R2024a)
+Signal Integrity Toolbox                              Version 24.1        (R2024a)
+Signal Processing Toolbox                             Version 24.1        (R2024a)
+SimBiology                                            Version 24.1        (R2024a)
+SimEvents                                             Version 24.1        (R2024a)
+Simscape                                              Version 24.1        (R2024a)
+Simscape Battery                                      Version 24.1        (R2024a)
+Simscape Driveline                                    Version 24.1        (R2024a)
+Simscape Electrical                                   Version 24.1        (R2024a)
+Simscape Fluids                                       Version 24.1        (R2024a)
+Simscape Multibody                                    Version 24.1        (R2024a)
+Simulink 3D Animation                                 Version 24.1        (R2024a)
+Simulink Check                                        Version 24.1        (R2024a)
+Simulink Code Inspector                               Version 24.1        (R2024a)
+Simulink Coder                                        Version 24.1        (R2024a)
+Simulink Compiler                                     Version 24.1        (R2024a)
+Simulink Control Design                               Version 24.1        (R2024a)
+Simulink Coverage                                     Version 24.1        (R2024a)
+Simulink Design Optimization                          Version 24.1        (R2024a)
+Simulink Design Verifier                              Version 24.1        (R2024a)
+Simulink Desktop Real-Time                            Version 24.1        (R2024a)
+Simulink Fault Analyzer                               Version 24.1        (R2024a)
+Simulink PLC Coder                                    Version 24.1        (R2024a)
+Simulink Real-Time                                    Version 24.1        (R2024a)
+Simulink Report Generator                             Version 24.1        (R2024a)
+Simulink Test                                         Version 24.1        (R2024a)
+SoC Blockset                                          Version 24.1        (R2024a)
+Spreadsheet Link                                      Version 24.1        (R2024a)
+Stateflow                                             Version 24.1        (R2024a)
+Statistics and Machine Learning Toolbox               Version 24.1        (R2024a)
+Symbolic Math Toolbox                                 Version 24.1        (R2024a)
+System Composer                                       Version 24.1        (R2024a)
+System Identification Toolbox                         Version 24.1        (R2024a)
+Text Analytics Toolbox                                Version 24.1        (R2024a)
+UAV Toolbox                                           Version 24.1        (R2024a)
+Vehicle Dynamics Blockset                             Version 24.1        (R2024a)
+Vehicle Network Toolbox                               Version 24.1        (R2024a)
+Vision HDL Toolbox                                    Version 24.1        (R2024a)
+WLAN Toolbox                                          Version 24.1        (R2024a)
+Wavelet Toolbox                                       Version 24.1        (R2024a)
+Wireless HDL Toolbox                                  Version 24.1        (R2024a)
+Wireless Testbench                                    Version 24.1        (R2024a)
+test_phase6_parameters PASS: canonical identity, machine mapping, profile separation, provenance, CSV export and protected hashes.
+AUDIT_TEST_PASS test_phase6_parameters
+PHASE6_RELAY_TESTS_PASS: balance, vector compensation, four zones, IEC timing, reset, gating.
+AUDIT_TEST_PASS test_phase6_relays
+PHASE6_MEASUREMENT_SIMULINK_PASS: update compile; two 61-sample runs; first valid at 0.020 s.
+PHASE6_MEASUREMENT_TESTS_PASS: 114-channel phasor packing, cosine-reference angles, RMS scaling, absolute-clock synchronization, positive/negative/zero sequence, 3I0 residual, DC/harmonics, sliding-window reset, and Simulink compile/repeat simulation.
+AUDIT_TEST_PASS test_phase6_measurement
+PHASE6_DC_TESTS_PASS: current balance, battery/charger, pulse, AC failure, SOC, recovery.
+AUDIT_TEST_PASS test_phase6_dc
+PHASE6_DC_RECOVERY_TESTS_PASS: delayed restoration powers the pending trip.
+AUDIT_TEST_PASS test_phase6_dc_recovery
+PHASE6_ACTUATOR_TESTS_PASS
+AUDIT_TEST_PASS test_phase6_actuators
+PHASE6_PROTECTION_SFUNCTIONS_PASS: compile, sensor mapping, trip, DC window, reset.
+AUDIT_TEST_PASS test_phase6_protection_sfunctions
+
+--- test_phase5c_differential -----------------------------------------
+  PASS  87G In = 12019.2 A (458MVA/22kV)
+  PASS  87G secondary 0.8013 A
+  PASS  87G pickup 2403.8 A / 0.1603 A sec
+  PASS  87G slopes 20/50%, breakpoint 1.0pu
+  PASS  87G high-set 5pu = 60096 A
+  PASS  87G-A normal load NO TRIP
+  PASS  87G-B external 126kA STABLE
+  PASS  87G-C internal 5kA TRIP
+  PASS  87G plot written
+  PASS  87G plot usable size
+  PASS  87T LV 11809.1 A (450MVA/22kV)
+  PASS  87T HV 649.5 A (450MVA/400kV)
+  PASS  87T LV sec 0.7873 A
+  PASS  87T HV sec 0.4060 A
+  PASS  87T matching 1.2702 / 2.4633
+  PASS  87T pickup 3542.7 A LV450
+  PASS  87T slopes 25/50%, breakpoint 1.5pu
+  PASS  87T-A normal NO TRIP
+  PASS  87T-B external through STABLE
+  PASS  87T-C internal TRIP
+  PASS  87T-D inrush 2nd-harm BLOCKED
+  PASS  87T-E overexcitation 5th-harm BLOCKED
+  PASS  87T plot written
+  PASS  87G pickup < internal fault < through fault
+  PASS  87T pickup and GEN-51 pickup below min phase fault
+  PASS  87G invalid path rejected
+  PASS  87T invalid path rejected
+  => test_phase5c_differential: 27 passed, 0 failed
+AUDIT_TEST_PASS test_phase5c_differential
+
+--- test_phase5c_enrichment -------------------------------------------
+  PASS  enriched + sliding CSVs written
+  PASS  F1 LLL 126.21 kA backbone
+  PASS  F3 LLL 50.53 kA backbone
+  PASS  F1 MVA = sqrt3*22kV*I
+  PASS  F3 MVA = sqrt3*230kV*I
+  PASS  first-ring GEN leg 55.05 kA
+  PASS  first-ring GSUT_HV leg 72.11 kA
+  PASS  LG NER earth ~2.4 mA seq (7.27 A faulted)
+  PASS  sliding m = 5/50/95%
+  PASS  sliding current falls with distance
+  PASS  invalid path rejected
+  => test_phase5c_enrichment: 11 passed, 0 failed
+AUDIT_TEST_PASS test_phase5c_enrichment
+
+--- test_phase5d_q0_duty ----------------------------------------------
+  PASS  Q0 rated 63 kA
+  PASS  Q0 making 160.65 kA (2.55x)
+  PASS  max grid infeed 59.97 kA
+  PASS  PGCB total 53.03 kA
+  PASS  PGCB duty 84.2%
+  PASS  PGCB margin 15.8%
+  PASS  5 scenarios
+  PASS  weak grid 14.43 kA
+  PASS  moderate 28.87 kA
+  PASS  strong 43.30 kA
+  PASS  all 5 PASS under 63 kA
+  PASS  duty curve written
+  PASS  duty plot usable size
+  PASS  invalid path rejected
+  => test_phase5d_q0_duty: 14 passed, 0 failed
+AUDIT_TEST_PASS test_phase5d_q0_duty
+AUDIT_SAVED_MODEL C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP.slx
+INFO_MODEL PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL
+INFO_PATH C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP.slx
+AUDIT_SAVED_SCENARIO {"name":"normal","networkProfile":"PHASE3_BASELINE","faultEnabled":false,"faultType":"3PH","faultLocation":"GIS230","faultStart_s":0.15,"faultDuration_s":0.3,"stopTime_s":0.6,"faultResistance_ohm":0.01,"groundResistance_ohm":0.01,"protectionEnabled":true,"batteryAvailable":true,"chargerAvailable":true,"dcLossTime_s":null,"dcRestoreTime_s":null,"GAT_in":false,"dispatch_MW":360,"relayMask":[true,true,true,true,true,true,true],"breakerFailed":[false,false,false,false,false],"manualOpen":[false,false,false,false,false],"manualOpenTime_s":null,"generatorTripTime_s":null,"measurementScale":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]}
+AUDIT_HOOK_COUNT 1
+AUDIT_RENAMED_APPLY_FAIL
+Error using phase6_interactive_settings>applySettings (line 214)
+Invalid Simulink object name: 'PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL/Generator/Generator fault'.
+
+Error in phase6_interactive_settings (line 14)
+  result=applySettings(mdl,payload);rmLatest(key);return
+
+Error in run_baseline (line 21)
+try,phase6_interactive_settings(mdl,'apply',struct('scenario',struct('name','audit_baseline')));
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+Caused by:
+    Error using phase6_interactive_settings>applySettings (line 214)
+    The block diagram 'PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL' is not loaded.
+    
+    Error in phase6_interactive_settings (line 14)
+      result=applySettings(mdl,payload);rmLatest(key);return
+    
+    Error in run_baseline (line 21)
+    try,phase6_interactive_settings(mdl,'apply',struct('scenario',struct('name','audit_baseline')));
+    
+    Error in run (line 112)
+    evalin('caller', strcat(scriptStem, ';'));
+AUDIT_BASELINE_FINISHED

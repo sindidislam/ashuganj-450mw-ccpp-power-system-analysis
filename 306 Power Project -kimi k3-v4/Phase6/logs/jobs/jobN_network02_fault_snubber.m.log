@@ -1,0 +1,51 @@
+LOAD_SELECTION_PASS included=3 P=14MW Q=8.67642073764MVAr excluded=LOAD_B0_4
+           handle: 263.004760742188
+        busNumber: 3
+            busID: '*4*'
+    generatorType: 'PV'
+             Pnom: 458000000
+             Vnom: 22000
+                P: 360000000
+                Q: 0
+             Qmin: -Inf
+             Qmax: Inf
+                S: 3.6 +     0.276217276211634i
+                I: 0.701351810311178 -      0.35997229930349i
+             Pmec: 360239717.012923
+               Vt: 0.921985866615425 -      0.38722352945218i
+               Vf: 1.78659094628214
+              th0: -61.5744000742714
+              dw0: 0
+
+  1x10 struct array with fields:
+
+    handle
+    ID
+    vbase
+    vref
+    angle
+    sm
+    asm
+    vsrc
+    pqload
+    rlcload
+    blocks
+    busType
+    Sref
+    Vbus
+    Sbus
+    Sgen
+    Spqload
+    Sshunt
+    Qmin
+    Qmax
+    QminReached
+    QmaxReached
+
+  Simulink.SimulationOutput:
+                   tout: [1001x1 double] 
+
+     SimulationMetadata: [1x1 Simulink.SimulationMetadata] 
+           ErrorMessage: [0x0 char] 
+
+NETWORK_SNUBBER_COMPILE_AND_SIM_005_PASS

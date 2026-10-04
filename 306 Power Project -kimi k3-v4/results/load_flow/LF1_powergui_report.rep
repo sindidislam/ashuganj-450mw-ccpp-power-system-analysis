@@ -1,0 +1,48 @@
+The Load Flow converged in 2 iterations !              
+                                                       
+                                                       
+                                                       
+                                                       
+SUMMARY for subnetwork No 1                            
+                                                       
+  Total generation  : P=     14.82 MW Q=     61.66 Mvar
+  Total PQ load     : P=     14.00 MW Q=      8.68 Mvar
+  Total Zshunt load : P=      0.19 MW Q=      0.79 Mvar
+  Total ASM load    : P=      0.00 MW Q=      0.00 Mvar
+  Total losses      : P=      0.62 MW Q=     52.20 Mvar
+                                                       
+                                                       
+1 : *1*  V= 0.957 pu/230kV 4.33 deg                    
+        Generation : P=    0.00 MW Q=    0.00 Mvar     
+        PQ_load    : P=    0.00 MW Q=   -0.00 Mvar     
+        Z_shunt    : P=    0.01 MW Q=    0.03 Mvar     
+   -->  *2*        : P=   -0.01 MW Q=   -0.03 Mvar     
+   -->  *5*        : P=   -0.00 MW Q=   -0.00 Mvar     
+                                                       
+2 : *2*  V= 1.001 pu/6.6kV 4.33 deg                    
+        Generation : P=    0.00 MW Q=    0.00 Mvar     
+        PQ_load    : P=   14.00 MW Q=    8.68 Mvar     
+        Z_shunt    : P=    0.02 MW Q=    0.07 Mvar     
+   -->  *1*        : P=    0.01 MW Q=    0.03 Mvar     
+   -->  *3*        : P=  -14.03 MW Q=   -8.77 Mvar     
+                                                       
+3 : *3*  V= 1.000 pu/22kV -22.22 deg                   
+        Generation : P=  389.30 MW Q=   31.68 Mvar     
+        PQ_load    : P=    0.00 MW Q=    0.00 Mvar     
+        Z_shunt    : P=    0.09 MW Q=    0.36 Mvar     
+   -->  *2*        : P=   14.07 MW Q=   10.03 Mvar     
+   -->  *5*        : P=  375.14 MW Q=   21.29 Mvar     
+                                                       
+4 : *4*  V= 1.000 pu/230kV 0.00 deg  ; Swing bus       
+        Generation : P= -374.48 MW Q=   29.99 Mvar     
+        PQ_load    : P=    0.00 MW Q=    0.00 Mvar     
+        Z_shunt    : P=   -0.00 MW Q=   -0.00 Mvar     
+   -->  *5*        : P= -374.48 MW Q=   29.99 Mvar     
+                                                       
+5 : *5*  V= 0.999 pu/230kV 1.08 deg                    
+        Generation : P=    0.00 MW Q=    0.00 Mvar     
+        PQ_load    : P=   -0.00 MW Q=   -0.00 Mvar     
+        Z_shunt    : P=    0.08 MW Q=    0.32 Mvar     
+   -->  *1*        : P=    0.00 MW Q=    0.00 Mvar     
+   -->  *3*        : P= -374.57 MW Q=   22.57 Mvar     
+   -->  *4*        : P=  374.48 MW Q=  -22.90 Mvar     

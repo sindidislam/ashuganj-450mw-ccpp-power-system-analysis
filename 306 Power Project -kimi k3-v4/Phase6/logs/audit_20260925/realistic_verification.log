@@ -1,0 +1,82 @@
+
+--- test_phase5c_differential -----------------------------------------
+  PASS  87G In = 12019.2 A (458MVA/22kV)
+  PASS  87G secondary 0.8013 A
+  PASS  87G pickup 2403.8 A / 0.1603 A sec
+  PASS  87G slopes 20/50%, breakpoint 1.0pu
+  PASS  87G high-set 5pu = 60096 A
+  PASS  87G-A normal load NO TRIP
+  PASS  87G-B physical GEN branch with assumed 5% mismatch STABLE
+  PASS  87G-C internal 5kA TRIP
+  PASS  87G plot written
+  PASS  87G plot usable size
+  PASS  87T LV 11809.1 A (450MVA/22kV)
+  PASS  87T HV 649.5 A (450MVA/400kV)
+  PASS  87T LV sec 0.7873 A
+  PASS  87T HV sec 0.4060 A
+  PASS  87T legacy matching remains hypothetical 450MVA / 400kV
+  PASS  87T actual 515MVA / 230kV matching normalizes both rated secondary currents
+  PASS  87T named hypothetical aliases retain compatibility and distinguish actual HV base
+  PASS  87T pickup 3542.7 A LV450
+  PASS  87T slopes 25/50%, breakpoint 1.5pu
+  PASS  87T-A normal NO TRIP
+  PASS  87T-B external through STABLE
+  PASS  87T-C internal TRIP
+  PASS  87T-D inrush 2nd-harm BLOCKED
+  PASS  87T-E overexcitation 5th-harm BLOCKED
+  PASS  87T plot written
+  PASS  87G-B external current matches frozen F1 LLL physical GEN CT branch
+  PASS  87G plotted range contains all external/internal example markers
+  PASS  87G assumed 5kA internal example exceeds its same-side pickup
+  PASS  87T actual LV threshold uses the actual transformer rating
+  PASS  87G invalid path rejected
+  PASS  87T invalid path rejected
+  => test_phase5c_differential: 31 passed, 0 failed
+PHASE6_SCENARIO_VALIDATION_PASS
+PHASE6_RUN_COMPLETION_GATE_PASS
+PHASE6_REFERENCE_NONFINITE_GATE_PASS
+
+--- test_phase6_dynamic_trip ------------------------------------------
+Preserved integration evidence: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75
+PHASE6_V4_BUILD_PASS C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP.slx
+  PASS  build metadata names the actual saved model
+  PASS  working model and active-setting evidence exist
+  PASS  saved workspace metadata names the working model
+  PASS  saved model contains no unconnected relay hook
+  PASS  saved model contains the measured-current relay engine
+  PASS  normal case returns a SimulationOutput
+  PASS  normal case has no relay trips
+  PASS  normal case retains the four initially closed breakers
+  PASS  normal measured generator power is within 1 percent of 360 MW
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+PHASE6_V4_SIMULATION_PASS C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75
+  PASS  fault evidence comes from the full Simulink run
+  PASS  measured relay CSV and protection figure are exported
+  PASS  export identifies actual logged simulation samples
+  PASS  87B issues a measured trip while the bus fault is still applied
+  PASS  Q0 opens after the 50 ms mechanism delay within sample latency
+  PASS  Q0 has sustained measured three-phase current cessation before fault removal
+  PASS  LineLocal opens after the 50 ms mechanism delay within sample latency
+  PASS  LineLocal has sustained measured three-phase current cessation before fault removal
+  PASS  electrical waveform record reaches the requested stop time
+  PASS  persisted trip time matches the measured result
+  PASS  disabled protection produces no relay trips
+  PASS  disabled protection keeps the initially closed breakers closed during the fault
+  PASS  disabled protection retains measured bus-fault current before scheduled removal
+  => test_phase6_dynamic_trip: 22 passed, 0 failed
+PHASE6_MEASURED_DYNAMIC_TRIP_PASS: 22 checks; C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\regression_1e668b9d-3bfe-4c4e-870d-d530b29fcb75
+PHASE6_PANEL_REFRESH_PASS: scenario, relay, toggles, menus, cleared meters and reopen.
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\manual_bus_default; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\manual_bus_delay_100ms; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+PHASE6_V4_SIMULATION_PASS C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\manual_bus_delay_100ms
+REALISTIC_SETTING_RERUN_PASS default=0.187000 edited=0.252000 shift=0.065000
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\v4_gen_3ph; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+PHASE6_V4_SIMULATION_PASS C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\v4_gen_3ph
+{Subscripted assignment between dissimilar structures.
+
+Error in verify_realistic_v4 (line 41)
+  record.zones(k)=struct('location',zones{k,1},'relay',zones{k,2},'trip_s',trip);
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+} 

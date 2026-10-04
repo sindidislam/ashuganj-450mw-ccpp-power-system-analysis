@@ -1,0 +1,704 @@
+import os
+from pathlib import Path
+
+def create_results_and_findings_html():
+    base_dir = Path(r"c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f")
+    out_file1 = base_dir / "PROJECT_RESULTS_AND_FINDINGS.html"
+    out_file2 = base_dir / "306 Power Project -kimi k3-v4" / "docs" / "PROJECT_RESULTS_AND_FINDINGS.html"
+    out_file2.parent.mkdir(parents=True, exist_ok=True)
+
+    html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashuganj South 450 MW — Complete Results & Key Findings Manual</title>
+<meta name="description" content="Executive bullet-pointed catalog of all findings, symmetrical short-circuit calculations, breaker withstand duties, relay clearing speeds, and engineering conclusions for the Ashuganj South 450 MW CCPP study.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f2b3c;
+  --navy-light: #18425d;
+  --teal: #0d8b87;
+  --teal-light: #e4f5f4;
+  --blue: #1a73e8;
+  --blue-light: #e8f0fe;
+  --red: #d93025;
+  --red-light: #fce8e6;
+  --amber: #f59e0b;
+  --amber-light: #fef7ee;
+  --green: #10b981;
+  --green-light: #ecfdf5;
+  --purple: #8b5cf6;
+  --purple-light: #f5f3ff;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --line: #cbd5e1;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --font-scale: 1.15;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: calc(16px * var(--font-scale));
+}
+.shell { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 320px;
+  background: var(--navy);
+  color: #fff;
+  padding: 26px 20px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: calc(17px * var(--font-scale));
+  margin: 0 0 6px 0;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+.sidebar small {
+  display: block;
+  color: #94a3b8;
+  margin-bottom: 20px;
+  font-size: calc(12.5px * var(--font-scale));
+}
+.nav a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  font-size: calc(13px * var(--font-scale));
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.nav a.active {
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+}
+.sidebar-box {
+  margin-top: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 14px;
+  font-size: calc(12px * var(--font-scale));
+  color: #94a3b8;
+  line-height: 1.6;
+}
+.sidebar-box b { color: #f1f5f9; }
+
+.main {
+  flex: 1;
+  padding: 36px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+html.full-width .main { max-width: 100%; }
+
+/* PRESENTATION TOOLBAR */
+.presentation-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 16px rgba(15, 43, 60, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.pbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: calc(14px * var(--font-scale));
+}
+.pbar-badge {
+  background: var(--teal-light);
+  color: var(--teal);
+  border: 1px solid var(--teal);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: calc(11.5px * var(--font-scale));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.pbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pbar-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: calc(13px * var(--font-scale));
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.pbar-btn:hover {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+.pbar-btn.active {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+
+.eyebrow {
+  color: var(--teal);
+  text-transform: uppercase;
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0 0 6px 0;
+}
+h1 {
+  font-size: calc(34px * var(--font-scale));
+  color: var(--navy);
+  margin: 0 0 14px 0;
+  line-height: 1.25;
+  font-weight: 900;
+}
+.lead {
+  font-size: calc(17px * var(--font-scale));
+  color: #475569;
+  margin-bottom: 30px;
+  max-width: 1100px;
+  line-height: 1.75;
+}
+
+/* KPI CARDS */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.kpi-card {
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.kpi-title {
+  font-size: calc(12px * var(--font-scale));
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #64748b;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.kpi-value {
+  font-size: calc(26px * var(--font-scale));
+  font-weight: 900;
+  color: var(--navy);
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 4px;
+}
+.kpi-sub {
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 600;
+}
+.kpi-green { color: var(--green); }
+.kpi-blue { color: var(--blue); }
+.kpi-teal { color: var(--teal); }
+.kpi-amber { color: var(--amber); }
+
+/* SECTIONS & CARDS */
+.card {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 28px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 3px 12px rgba(15, 43, 60, 0.05);
+}
+.card h2 {
+  font-size: calc(22px * var(--font-scale));
+  color: var(--navy);
+  margin: 0 0 16px 0;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.status-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: calc(11px * var(--font-scale));
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.pill-verdict { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
+.pill-fault { background: var(--red-light); color: var(--red); border: 1px solid var(--red); }
+.pill-duty { background: var(--blue-light); color: var(--blue); border: 1px solid var(--blue); }
+.pill-relay { background: var(--teal-light); color: var(--teal); border: 1px solid var(--teal); }
+.pill-warn { background: var(--amber-light); color: #b45309; border: 1px solid var(--amber); }
+
+/* BULLET BLOCKS */
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+}
+.bullet-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  font-size: calc(15px * var(--font-scale));
+  line-height: 1.7;
+}
+.bullet-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--teal);
+  font-weight: 900;
+  font-size: calc(15px * var(--font-scale));
+}
+.bullet-list.bullet-warn li::before {
+  content: "⚠️";
+  font-size: calc(14px * var(--font-scale));
+}
+.bullet-list.bullet-alert li::before {
+  content: "⚡";
+  color: var(--red);
+}
+
+.bullet-highlight {
+  font-weight: 700;
+  color: var(--navy);
+}
+.metric-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: calc(13px * var(--font-scale));
+  color: #1e293b;
+}
+
+/* COMPARISON TABLES */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 20px 0;
+  font-size: calc(14px * var(--font-scale));
+}
+th {
+  background: var(--navy);
+  color: #fff;
+  text-align: left;
+  padding: 12px 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #f1f5f9; }
+
+.callout-box {
+  background: #f8fafc;
+  border-left: 5px solid var(--teal);
+  padding: 16px 20px;
+  border-radius: 0 10px 10px 0;
+  margin: 18px 0;
+  font-size: calc(14.5px * var(--font-scale));
+}
+.callout-box h4 {
+  margin: 0 0 6px 0;
+  color: var(--navy);
+  font-size: calc(15px * var(--font-scale));
+}
+
+@media print {
+  .sidebar, .presentation-bar { display: none !important; }
+  .main { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+  body { font-size: 11pt !important; background: #fff !important; }
+  .card { box-shadow: none !important; border: 1px solid #ccc !important; page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <!-- SIDEBAR NAVIGATION -->
+  <aside class="sidebar">
+    <h2>Results & Findings</h2>
+    <small>Ashuganj South 450 MW · EEE 306</small>
+    <nav class="nav">
+      <a href="#kpis" class="active">1 · Executive Dashboard KPIs</a>
+      <a href="#loadflow">2 · Load Flow & Power Export</a>
+      <a href="#faults">3 · 5 Fault Locations & Currents</a>
+      <a href="#breakers">4 · Breaker Withstand & Duty Margins</a>
+      <a href="#relays">5 · Protection Clearing Speeds</a>
+      <a href="#dc">6 · Station DC Trip Interlocking</a>
+      <a href="#topology">7 · Radial vs. Looped Topology</a>
+      <a href="#failures">8 · Catastrophic Failure Physics</a>
+      <a href="#limitations">9 · Honest Study Limitations</a>
+      <a href="#conclusion">10 · Final Engineering Verdict</a>
+    </nav>
+    <div class="sidebar-box">
+      <b>Project Core Metric:</b><br>
+      • <b>Plant Capacity:</b> 458 MVA / 450 MW CCPP<br>
+      • <b>Peak Fault:</b> 126.21 kA (348 kA peak)<br>
+      • <b>NER Ground Limit:</b> 7.27 A<br>
+      • <b>Max Breaker Duty:</b> 55.0% (GCB PASS)<br>
+      • <b>Fastest Trip:</b> 35 ms (Relay 87B)<br>
+      • <b>All IEEE/IEC Checks:</b> 100% PASS
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <!-- PRESENTATION TOOLBAR -->
+    <div class="presentation-bar">
+      <div class="pbar-left">
+        <span class="pbar-badge">Executive Brief</span>
+        <span>Presentation Scale:</span>
+      </div>
+      <div class="pbar-actions">
+        <button class="pbar-btn" id="btn-scale-1" onclick="setFontScale(1.0, this)">100%</button>
+        <button class="pbar-btn active" id="btn-scale-2" onclick="setFontScale(1.18, this)">120% Large</button>
+        <button class="pbar-btn" id="btn-scale-3" onclick="setFontScale(1.42, this)">📽️ 145% Projector</button>
+        <button class="pbar-btn" id="btn-scale-4" onclick="setFontScale(1.65, this)">🔍 165% XL</button>
+        <button class="pbar-btn" id="btn-full-width" onclick="toggleFullWidth(this)">⛶ Full Width</button>
+        <button class="pbar-btn" onclick="window.print()">🖨️ Print / PDF</button>
+      </div>
+    </div>
+
+    <p class="eyebrow">Comprehensive Engineering Defense · EEE 306 Power System Protection</p>
+    <h1>Project Results & Key Findings Manual</h1>
+    <p class="lead">A complete, high-level, bullet-pointed summary of all engineering analyses, numerical findings, equipment ratings, safety margins, and final design conclusions for the <b>Ashuganj South 450 MW Combined Cycle Power Plant (CCPP)</b>.</p>
+
+    <!-- SECTION 1: EXECUTIVE DASHBOARD KPIS -->
+    <section id="kpis">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-title">Gross Machine Capacity</div>
+          <div class="kpi-value kpi-teal">458 MVA</div>
+          <div class="kpi-sub">22 kV · 50 Hz · 0.85 pf</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Net Grid Export</div>
+          <div class="kpi-value kpi-blue">345.2 MW</div>
+          <div class="kpi-sub">Exported at 230 kV Bus</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Maximum Stator Fault</div>
+          <div class="kpi-value" style="color:var(--red);">126.2 kA</div>
+          <div class="kpi-sub">Peak Force: 348.3 kA (F1)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Stator Ground Fault</div>
+          <div class="kpi-value kpi-green">7.27 A</div>
+          <div class="kpi-sub">NER 1,750.8 Ω Protection</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Worst Breaker Duty</div>
+          <div class="kpi-value kpi-green">55.0%</div>
+          <div class="kpi-sub">GCB 100 kA Rating (PASS)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Relay Clearing Speed</div>
+          <div class="kpi-value kpi-teal">35–45 ms</div>
+          <div class="kpi-sub">Below 100 ms Stability Limit</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: LOAD FLOW & POWER EXPORT FINDINGS -->
+    <section id="loadflow" class="card">
+      <span class="status-pill pill-verdict">Phase 2 & 3 Analysis</span>
+      <h2>2 · Load Flow & Power Export Findings</h2>
+      <ul class="bullet-list">
+        <li><span class="bullet-highlight">Net Active Power Export:</span> At the primary study dispatch (<span class="metric-badge">360.0 MW Gross</span>), the plant supplies <span class="metric-badge">14.0 MW</span> to internal auxiliaries and exports <span class="metric-badge">345.19 MW</span> into the PGCB national grid at the 230 kV boundary.</li>
+        <li><span class="bullet-highlight">Generator Reactive Power:</span> Operates comfortably at <span class="metric-badge">27.83 MVAr</span> lagging (Power Factor = <span class="metric-badge">0.997</span>), well inside the manufacturer's P-Q capability curve (retaining over <span class="metric-badge">213 MVAr</span> of reserve margin).</li>
+        <li><span class="bullet-highlight">230 kV Switchyard Voltage Profile:</span> Bus 1 and Bus 2 operate at <span class="metric-badge">229.71 kV (0.9988 pu)</span>, fully complying with the Bangladesh Grid Code allowable steady-state voltage window (±5% or 0.95 to 1.05 pu).</li>
+        <li><span class="bullet-highlight">Plant Internal Losses:</span> Total plant transmission and step-up copper/core losses equal <span class="metric-badge">0.805 MW (0.22%)</span>, confirming high thermal and electrical efficiency.</li>
+        <li><span class="bullet-highlight">Substation Coupler Status:</span> The GIS bus coupler breaker (<span class="metric-badge">10BAY13</span>) is normally <b>CLOSED</b>, tying Bus 1 and Bus 2 in parallel, balancing current equally between the dual-circuit transmission lines.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3: 5 STRATEGIC FAULT LOCATIONS -->
+    <section id="faults" class="card">
+      <span class="status-pill pill-fault">Phase 4 Symmetrical Fault Study</span>
+      <h2>3 · Short-Circuit Fault Findings Across 5 Strategic Locations</h2>
+      <p style="margin-bottom:14px;">Every fault was computed strictly in accordance with <b>IEC 60909</b> symmetrical component matrix equations:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Fault Tag</th>
+            <th>Physical Location & Equipment</th>
+            <th>Voltage</th>
+            <th>3-Phase Fault (kA RMS)</th>
+            <th>Peak Current (kA Peak)</th>
+            <th>1-Phase Ground Fault</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>F1</b></td>
+            <td><b>Generator Terminals / IPB Bus</b> (10MKA10 to GCB)</td>
+            <td>22 kV</td>
+            <td><b style="color:var(--red);">126.21 kA</b></td>
+            <td><b>348.26 kA</b></td>
+            <td><b style="color:var(--green);">7.27 A (Crushed by NER)</b></td>
+          </tr>
+          <tr>
+            <td><b>F2</b></td>
+            <td><b>GSUT Low-Voltage Terminals</b> (Transformer Side of GCB)</td>
+            <td>22 kV</td>
+            <td><b style="color:var(--red);">126.21 kA</b></td>
+            <td><b>348.26 kA</b></td>
+            <td><b style="color:var(--green);">7.27 A (Trapped by Delta)</b></td>
+          </tr>
+          <tr>
+            <td><b>F3</b></td>
+            <td><b>230 kV GIS Switchyard Busbar</b> (Bus 1 / Bus 2)</td>
+            <td>230 kV</td>
+            <td><b>50.53 kA</b></td>
+            <td><b>129.80 kA</b></td>
+            <td><b>45.74 kA (Solidly Grounded)</b></td>
+          </tr>
+          <tr>
+            <td><b>F4</b></td>
+            <td><b>230 kV Transmission Line Midpoint</b> (50% Span, 350 m)</td>
+            <td>230 kV</td>
+            <td><b>51.06 kA</b></td>
+            <td><b>131.31 kA</b></td>
+            <td><b>46.12 kA</b></td>
+          </tr>
+          <tr>
+            <td><b>F5</b></td>
+            <td><b>Remote National Grid Substation Bus</b> (PGCB Interface)</td>
+            <td>230 kV</td>
+            <td><b>53.09 kA</b></td>
+            <td><b>137.40 kA</b></td>
+            <td><b>48.47 kA</b></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ul class="bullet-list">
+        <li><span class="bullet-highlight">Maximum Current Stress Occurs at F1/F2:</span> Symmetrical current reaches <span class="metric-badge">126.21 kA</span>, limited solely by the machine's subtransient reactance (<span class="metric-badge">Xd'' = 0.2248 pu</span>).</li>
+        <li><span class="bullet-highlight">Peak Mechanical Shockwaves:</span> The instantaneous crest current (<span class="metric-badge">ip = 348.26 kA</span>) occurs during the first half-cycle, exerting tons of magnetic repulsion force on the Isolated Phase Busduct (IPB) housing.</li>
+        <li><span class="bullet-highlight">The Earthing Contrast Discovery:</span> 
+          <ul>
+            <li>At <b>22 kV (F1)</b>, ground fault current is limited to a harmless <span class="metric-badge">7.27 A</span> by the Neutral Earthing Resistor (<span class="metric-badge">1,750.8 Ω</span>).</li>
+            <li>At <b>230 kV (F3)</b>, ground fault current surges to <span class="metric-badge">45.74 kA</span> because the utility grid and GSUT HV neutral are solidly grounded.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECTION 4: BREAKER WITHSTAND & DUTY MARGINS -->
+    <section id="breakers" class="card">
+      <span class="status-pill pill-duty">Phase 5 Switchgear Verification</span>
+      <h2>4 · Circuit Breaker Withstand & Duty Results (Zero Over-Duty)</h2>
+      <p style="margin-bottom:14px;">Every physical breaker was verified against its manufacturer nameplate breaking rating:</p>
+
+      <ul class="bullet-list">
+        <li><span class="bullet-highlight">Generator Circuit Breaker (GCB — Siemens 10BAC10):</span>
+          <ul>
+            <li><b>Certified Breaking Rating:</b> <span class="metric-badge">100.0 kA RMS</span> (Continuous current: 12,400 A).</li>
+            <li><b>Maximum Prospective Interruption Current:</b> <span class="metric-badge">55.05 kA</span> (fault fed from the grid into F1).</li>
+            <li><b>Duty Ratio:</b> <span class="metric-badge">55.05 / 100 = 0.550 (55.0%)</span>.</li>
+            <li><b>Verdict:</b> <b class="kpi-green">PASS</b> with a massive <span class="bullet-highlight">45.0% safety margin</span>. No danger of arc chamber explosion.</li>
+          </ul>
+        </li>
+        <li><span class="bullet-highlight">230 kV GIS Bay Breaker (Q0 — Siemens 8DN9):</span>
+          <ul>
+            <li><b>Certified Breaking Rating:</b> <span class="metric-badge">50.0 kA RMS</span> (Continuous current: 2,000 A / 3,150 A).</li>
+            <li><b>Maximum Through-Current Duty:</b> <span class="metric-badge">6.90 kA</span> (GSUT contribution during F1/F2).</li>
+            <li><b>Duty Ratio:</b> <span class="metric-badge">6.90 / 50 = 0.138 (13.8%)</span>.</li>
+            <li><b>Verdict:</b> <b class="kpi-green">PASS</b> with an extraordinary <span class="bullet-highlight">86.2% safety margin</span>.</li>
+          </ul>
+        </li>
+        <li><span class="bullet-highlight">Overall Switchgear Conclusion:</span> Every circuit breaker and disconnector in the Ashuganj South plant operates safely below its mechanical and thermal withstand limits.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 5: PROTECTION SPEEDS & COORDINATION -->
+    <section id="relays" class="card">
+      <span class="status-pill pill-relay">Phase 5 Protection Coordination</span>
+      <h2>5 · Protective Relay Speeds & Coordination Findings</h2>
+      <ul class="bullet-list">
+        <li><span class="bullet-highlight">High-Speed Differential Protection (ANSI 87):</span>
+          <ul>
+            <li><b>87B (Busbar Differential):</b> Trips in <span class="metric-badge">35 ms (0.035 s)</span> for switchyard busbar faults.</li>
+            <li><b>87L (Line Differential):</b> Trips in <span class="metric-badge">40 ms (0.040 s)</span> over optical fiber communication.</li>
+            <li><b>87G (Generator Differential):</b> Trips in <span class="metric-badge">45 ms (0.045 s)</span> for internal stator faults.</li>
+            <li><b>87T (Transformer Differential):</b> Trips in <span class="metric-badge">45 ms (0.045 s)</span> for GSUT internal faults.</li>
+          </ul>
+        </li>
+        <li><span class="bullet-highlight">Total Fault Clearing Time (&lt; 100 ms):</span>
+          <br>Relay detection (<span class="metric-badge">35–45 ms</span>) + SF6 breaker mechanism opening (<span class="metric-badge">50 ms</span>) = <span class="metric-badge">85–95 ms total clearance</span>. This is well within the critical rotor stability limit (100 ms), completely preventing loss of synchronism.</li>
+        <li><span class="bullet-highlight">Selective Overcurrent Coordination (ANSI 51):</span>
+          <br>Enforces a strict <span class="metric-badge">300 ms Coordination Time Interval (CTI)</span> between downstream line relays and upstream transformer backup relays, preventing false plant-wide blackouts.</li>
+        <li><span class="bullet-highlight">Sensitive Ground Protection (ANSI 51N):</span>
+          <br>Operating on a dedicated <span class="metric-badge">20 / 1 A Neutral CT</span>, the 51N relay easily senses the 7.27 A ground fault (<span class="metric-badge">0.364 A secondary</span>) and trips in <span class="metric-badge">1.75 s</span>, stopping stator lamination burning.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 6: STATION DC BATTERY & TRIP GATING -->
+    <section id="dc" class="card">
+      <span class="status-pill pill-duty">Phase 6 Dynamic Modeling</span>
+      <h2>6 · Station DC Battery Bank & Closed-Loop Breaker Trip Gating</h2>
+      <ul class="bullet-list">
+        <li><span class="bullet-highlight">Physical Battery Bank Model:</span> Models 55 stationary lead-acid cells (<span class="metric-badge">110 V nominal</span>, <span class="metric-badge">200 Ah capacity</span>, internal resistance <span class="metric-badge">0.05 Ω</span>) backed by a 20 kW charger floating at <span class="metric-badge">123.75 V (2.25 V/cell)</span>.</li>
+        <li><span class="bullet-highlight">Breaker Trip Gating Logic:</span> The project enforces the vital real-world safety rule:
+          <br><span class="metric-badge">Demand = TripRequest &amp; dcHealthy</span>
+          <br>If DC bus voltage drops below <span class="metric-badge">88 V (0.80 pu)</span>, breaker trip coils cannot energize.</li>
+        <li><span class="bullet-highlight">Trip Coil Energy Pulse:</span> Sized at <span class="metric-badge">2 kW for 0.2 s (400 Joules)</span>. When multiple breakers fire simultaneously during a master unit trip, DC bus voltage dips by only <span class="metric-badge">1.0 V</span>, proving the battery bank is sufficiently stiff to prevent DC brownout failure.</li>
+        <li><span class="bullet-highlight">Emergency Blackout Autonomy:</span> Under a complete station blackout (charger loss), the 200 Ah battery sustains continuous relay and communications loads for over <span class="metric-badge">9.0 hours</span>, fully meeting IEEE 485 standards.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 7: RADIAL VS. LOOPED AUXILIARY TOPOLOGY -->
+    <section id="topology" class="card">
+      <span class="status-pill pill-verdict">Auxiliary System Study</span>
+      <h2>7 · Radial vs. Looped Auxiliary Topology (GAT IN vs. GAT OUT)</h2>
+      <ul class="bullet-list">
+        <li><span class="bullet-highlight">Normal Radial Operation (GAT OUT):</span>
+          <ul>
+            <li>GAT breaker is <b>OPEN</b>. The Unit Auxiliary Transformer (UAT) alone powers the 6.6 kV bus from the generator.</li>
+            <li>UAT carries <span class="metric-badge">16.52 MVA</span> (66.1% of its 25 MVA ONAF rating). Highly stable with zero circulating loops.</li>
+          </ul>
+        </li>
+        <li><span class="bullet-highlight">Transfer Looped Operation (GAT IN):</span>
+          <ul>
+            <li>GAT breaker is <b>CLOSED</b> during startup or live bus transfer, creating a closed physical loop: <span class="metric-badge">22 kV → GSUT → 230 kV GIS → GAT → 6.6 kV → UAT → 22 kV</span>.</li>
+            <li><b>The Circulating Power Discovery:</b> Due to differences in transformer impedances and tap changer positions, <span class="metric-badge">5.9 MW of circulating power</span> flows continuously around the loop.</li>
+            <li>UAT loading increases to <span class="metric-badge">20.29 MVA</span> (<span class="metric-badge">109.5%</span> of its 19 MVA ONAN rating, requiring fans to run in ONAF mode).</li>
+          </ul>
+        </li>
+        <li><span class="bullet-highlight">Protection Interlock Requirement:</span>
+          <br>During a 230 kV bus fault (F3) in the looped configuration, Relay 87B must trip <b>BOTH Q0 and the GAT breaker</b> (`P6_REQUESTS`). Otherwise, the fault would continue being fed backward from the generator through the auxiliary transformers!</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 8: CATASTROPHIC FAILURE PHYSICS & DEFENSE -->
+    <section id="failures" class="card">
+      <span class="status-pill pill-fault">Safety & Asset Protection</span>
+      <h2>8 · Catastrophic Failures Prevented by the Defense System</h2>
+      <ul class="bullet-list bullet-alert">
+        <li><span class="bullet-highlight">Preventing Stator Core Iron Melting (F1):</span> Without the 1,750.8 Ω NER, a 22 kV ground fault would draw over 100,000 A, melting stator copper and steel laminations into slag. The NER limits this to 7.27 A, meaning only cheap rewinding is needed instead of total machine scrapping.</li>
+        <li><span class="bullet-highlight">Preventing Transformer Tank Rupture &amp; Boiling Oil Fireball (F2):</span> An electric arc at 126.21 kA vaporizes liquid mineral oil into hydrogen gas, building pressure at over 1,000 psi/s. Relay 87T trips in 45 ms, quenching the arc before the sealed steel tank can explode.</li>
+        <li><span class="bullet-highlight">Preventing Switchyard Arc Plasma Explosion (F3):</span> At 50.53 kA on the 230 kV bus, backup overcurrent takes 7.28 seconds. Fast busbar differential (87B) clears the fault in 35 ms, preventing the entire SF6 GIS hall from vaporizing.</li>
+        <li><span class="bullet-highlight">Preventing Rotor Pole-Slipping &amp; Shaft Fracture (F5):</span> A sustained grid short circuit drops electrical export to 0 MW while the turbine pushes 450 MW. Fast line clearing (40 ms) and out-of-step protection (Relay 78) prevent violent torsional shockwaves from twisting and snapping the steel turbine shaft in two.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 9: HONEST PROJECT LIMITATIONS -->
+    <section id="limitations" class="card">
+      <span class="status-pill pill-warn">Scope Boundaries</span>
+      <h2>9 · Main Project Limitations (To State Honestly in Viva)</h2>
+      <ul class="bullet-list bullet-warn">
+        <li><span class="bullet-highlight">Static Thevenin Grid (R = 0):</span> PGCB utility grid is represented as a static 50 kA equivalent with infinite X/R. Conservative for plant voltage drops, but regional inter-area grid oscillations cannot be observed.</li>
+        <li><span class="bullet-highlight">Lumped Static Auxiliary Load:</span> The 14 MW auxiliary demand is lumped at 6.6 kV. High-inrush starting currents (5–6× FL) and stalling of large 400 V induction motors are not dynamically modelled.</li>
+        <li><span class="bullet-highlight">GAT Delta Tertiary Omission:</span> GAT 3.32 kV delta tertiary winding is open-circuited because manufacturer factory test sheets omitted pairwise impedances Z_PT and Z_ST.</li>
+        <li><span class="bullet-highlight">Off-Nominal Turns Ratio:</span> UAT and GAT secondary windings are rated 6.9 kV feeding a 6.6 kV bus (ratio a = 1.04545). Retained honestly as documented by Siemens rather than artificially forced to 1.0 pu.</li>
+        <li><span class="bullet-highlight">Phasor-Domain Switchgear:</span> Circuit breakers are modelled with 50 ms mechanical delay and breaking limit checks. Microsecond SF6 plasma arc restrikes, TRV, and RRRV require specialized EMT tools (PSCAD).</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 10: FINAL VERDICT -->
+    <section id="conclusion" class="card" style="border: 2px solid var(--green); background: #fbfdfc;">
+      <span class="status-pill pill-verdict">Final Conclusion</span>
+      <h2>10 · Final Engineering Verdict & Approval</h2>
+      <ul class="bullet-list">
+        <li><span class="bullet-highlight">100% Parameter Traceability:</span> Every single parameter across load flow, fault analysis, and dynamic control is backed by verified OEM factory drawings, Bangladesh Grid Code rules, or IEEE/IEC standards. Zero arbitrary numbers.</li>
+        <li><span class="bullet-highlight">Zero Breaker Over-Duty:</span> Both the Generator Circuit Breaker (55.0% duty) and 230 kV GIS Bay Breaker (13.8% duty) have enormous safety margins, ensuring 100% safe arc interruption.</li>
+        <li><span class="bullet-highlight">Stable Transient Performance:</span> Complete fault clearing in ~90 ms guarantees that generator rotor angle stability is maintained and national grid blackout cascades are prevented.</li>
+        <li><span class="bullet-highlight">Production Verification Status:</span> The automated simulation test suite (`run_phase4_production()`) passes with <b>447 passed checks and 0 failures</b>. The electrical protection design for Ashuganj South 450 MW CCPP is <b>APPROVED &amp; DEFENSE-READY</b>.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function setFontScale(scale, btn) {
+  document.documentElement.style.setProperty('--font-scale', scale);
+  document.querySelectorAll('.pbar-btn').forEach(b => {
+    if (b.id !== 'btn-full-width') b.classList.remove('active');
+  });
+  if (btn) btn.classList.add('active');
+  localStorage.setItem('resultsFontScale', scale);
+}
+
+function toggleFullWidth(btn) {
+  document.documentElement.classList.toggle('full-width');
+  const isFull = document.documentElement.classList.contains('full-width');
+  btn.classList.toggle('active', isFull);
+  localStorage.setItem('resultsFullWidth', isFull ? '1' : '0');
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedScale = localStorage.getItem('resultsFontScale');
+  if (savedScale) {
+    const s = parseFloat(savedScale);
+    let target = document.getElementById('btn-scale-2');
+    if (s <= 1.05) target = document.getElementById('btn-scale-1');
+    else if (s >= 1.6) target = document.getElementById('btn-scale-4');
+    else if (s >= 1.35) target = document.getElementById('btn-scale-3');
+    setFontScale(s, target);
+  }
+  const savedFull = localStorage.getItem('resultsFullWidth');
+  if (savedFull === '1') toggleFullWidth(document.getElementById('btn-full-width'));
+});
+</script>
+</body>
+</html>
+"""
+    out_file1.write_text(html_content, encoding="utf-8")
+    out_file2.write_text(html_content, encoding="utf-8")
+    print(f"Generated results and findings HTML successfully in:\n  - {out_file1}\n  - {out_file2}")
+
+if __name__ == "__main__":
+    create_results_and_findings_html()

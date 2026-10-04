@@ -1,0 +1,17 @@
+Error using assert
+Primary and secondary settings disagree with CT ratios.
+
+Error in phase6_relay_parameters (line 53)
+assert(all(abs(R.pickupSecondary_A-R.pickup_A./R.ctRatio) < 1e-9), ...
+
+Error in test_phase6_relays (line 8)
+R = phase6_relay_parameters();
+
+Error in job010_relay_green (line 2)
+test_phase6_relays;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

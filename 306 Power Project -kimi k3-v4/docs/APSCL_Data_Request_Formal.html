@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APSCL Technical Data Request - Ashuganj South 450 MW CCPP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f2744;
+      --primary-light: #1e3a8a;
+      --accent: #0284c7;
+      --accent-soft: #e0f2fe;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+      --border-light: #e2e8f0;
+      --success-bg: #ecfdf5;
+      --success-text: #065f46;
+      --success-border: #a7f3d0;
+      --warning-bg: #fffbeb;
+      --warning-text: #92400e;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 24px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+
+    /* Header styling */
+    .header {
+      background: linear-gradient(135deg, #0a192f 0%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 36px 32px 28px;
+      position: relative;
+    }
+
+    .header-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 14px;
+      color: #93c5fd;
+    }
+
+    .header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      font-size: 0.95rem;
+      color: #bfdbfe;
+    }
+
+    .header-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.85rem;
+    }
+
+    .meta-item span {
+      color: #93c5fd;
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+
+    /* Action bar */
+    .actions-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: #f1f5f9;
+      padding: 14px 32px;
+      border-bottom: 1px solid var(--border-light);
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: #0369a1;
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #ffffff;
+    }
+    .btn-whatsapp:hover {
+      background: #128C7E;
+    }
+
+    /* Main Content */
+    .content {
+      padding: 32px;
+    }
+
+    .notice-card {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      border-left: 4px solid #10b981;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+    }
+
+    .notice-card h4 {
+      color: var(--success-text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .notice-card p {
+      font-size: 0.85rem;
+      color: #064e3b;
+      margin-bottom: 4px;
+    }
+
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* Table styling */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-main);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #fafbfd;
+    }
+
+    .param-name {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .fill-box {
+      display: inline-block;
+      min-width: 140px;
+      padding: 6px 12px;
+      background: #f1f5f9;
+      border: 1px dashed #94a3b8;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #334155;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .badge-known {
+      background: #e2e8f0;
+      color: #334155;
+      font-family: var(--font-mono);
+    }
+
+    .list-styled {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .list-styled li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .list-styled li::before {
+      content: "•";
+      color: var(--accent);
+      font-size: 1.4rem;
+      position: absolute;
+      left: 6px;
+      top: -3px;
+    }
+
+    /* Drawing cards */
+    .drawing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .drawing-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawing-card .tag {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--primary-light);
+      margin-bottom: 4px;
+    }
+
+    .drawing-card .name {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Signature */
+    .signoff {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border-light);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .signoff strong {
+      color: var(--primary);
+    }
+
+    /* Toast */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #0f172a;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 12px 20px;
+      position: fixed;
+      z-index: 9999;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      font-size: 0.85rem;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+      opacity: 0;
+      transition: opacity 0.3s, bottom 0.3s;
+    }
+
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+      bottom: 40px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+      }
+      .actions-bar, #toast {
+        display: none !important;
+      }
+      .header {
+        background: #0f2744 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .fill-box {
+        border-style: solid;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header, .content, .actions-bar {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .actions-bar {
+        justify-content: stretch;
+      }
+      .actions-bar .btn {
+        flex: 1;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header Banner -->
+  <header class="header">
+    <div class="header-badge">Formal Technical Request</div>
+    <h1>Ashuganj South 450 MW CCPP</h1>
+    <p>Operational Parameters, Machine Reactances & Single-Line Drawings for System Studies (Project 112070)</p>
+    
+    <div class="header-meta">
+      <div class="meta-item">
+        <span>Recipient</span>
+        <strong>Chief Engineer / SE (Electrical), APSCL</strong>
+      </div>
+      <div class="meta-item">
+        <span>Originating Team</span>
+        <strong>BUET EEE 306 Power System Study Group</strong>
+      </div>
+      <div class="meta-item">
+        <span>Plant Scope</span>
+        <strong>South Plant (230 kV / 22 kV / 6.6 kV / 400 V)</strong>
+      </div>
+      <div class="meta-item">
+        <span>Date</span>
+        <strong>September 2026</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- Action buttons bar -->
+  <div class="actions-bar">
+    <button class="btn btn-whatsapp" onclick="copyWhatsAppText()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      Copy for WhatsApp
+    </button>
+    <button class="btn btn-outline" onclick="copyEmailText()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      Copy Email
+    </button>
+    <button class="btn btn-primary" onclick="window.print()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Print / Save PDF
+    </button>
+  </div>
+
+  <!-- Content -->
+  <main class="content">
+    
+    <!-- Verified Data Notice -->
+    <div class="notice-card">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        Data Already Verified in Our Model (No Need to Re-send)
+      </h4>
+      <p>Our team has already extracted and verified all main nameplate ratings from official Siemens project datasheets:</p>
+      <p>• <strong>Generator Basic:</strong> 458 MVA, 22 kV, 389.3 MW, 0.85 PF, 50 Hz, <strong>d-axis reactances</strong> (Xd = 166.3%, Xd' = 28.65%, Xd'' = 22.48%), SCR = 0.58, Q Capability Curve.</p>
+      <p>• <strong>Transformers:</strong> GSUT (515 MVA, 230/22 kV, Z=16%), UAT (25 MVA, 22/6.9 kV, Z=10.5%), GAT (25 MVA, 230/6.9/3.32 kV, Zps=12%).</p>
+      <p>• <strong>GIS Switchgear:</strong> Siemens 8DN9, 230 kV, 3150 A bus, 50 kA short-circuit withstand.</p>
+      <p>• <strong>MV Motors:</strong> Rated shaft kW for all 12 motors totaling 14,050 kW (from Rev 03 Main SLD).</p>
+    </div>
+
+    <!-- Section 1: Operating Snapshot -->
+    <section class="section">
+      <h2 class="section-title">
+        <span>1.</span> Plant Operating Snapshot (Simultaneous Log / SCADA Reading)
+      </h2>
+      <p class="section-desc">To validate our simulation against real plant operation, please provide one steady-state operating reading at full/base load:</p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Unit</th>
+              <th style="min-width: 170px;">Plant Recorded Value</th>
+              <th>Reference / Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="param-name">Date & Timestamp of Log</td>
+              <td>—</td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]</span></td>
+              <td>Any steady-state full load hour</td>
+            </tr>
+            <tr>
+              <td class="param-name">Generator Gross Active Power</td>
+              <td>MW</td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]</span></td>
+              <td>Gross MW at generator terminals</td>
+            </tr>
+            <tr>
+              <td class="param-name">Generator Reactive Power / PF</td>
+              <td>MVAr / PF</td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]</span></td>
+              <td>Net MVAr export/import or power factor</td>
+            </tr>
+            <tr>
+              <td class="param-name">Generator Terminal Voltage (Vt)</td>
+              <td>kV (or pu)</td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]</span></td>
+              <td>AVR operating setpoint (Nominal: 22 kV)</td>
+            </tr>
+            <tr>
+              <td class="param-name">Total Auxiliary Power Consumption</td>
+              <td>MW & MVAr</td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]</span></td>
+              <td>Total station internal auxiliary demand</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 2: Switchgear & Transformer Operating States -->
+    <section class="section">
+      <h2 class="section-title">
+        <span>2.</span> Transformer Taps & Switchgear Operating States
+      </h2>
+      <p class="section-desc">Please confirm the actual physical tap and switching states during normal operation:</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Equipment</th>
+              <th style="min-width: 160px;">Operational State</th>
+              <th>Technical Clarification Needed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="param-name">GSUT Tap Position (10BAT10)</td>
+              <td><span class="fill-box">[ Tap _______ ]</span></td>
+              <td>In-service tap position (Nominal: Tap 9 / 25 taps total)</td>
+            </tr>
+            <tr>
+              <td class="param-name">UAT Tap Position (10BBT10)</td>
+              <td><span class="fill-box">[ Tap _______ ]</span></td>
+              <td>In-service tap position (Nominal: Tap 3 / 5 positions)</td>
+            </tr>
+            <tr>
+              <td class="param-name">GAT In-Service Status (10BBT20)</td>
+              <td><span class="fill-box">[ In Service / Standby / Out ]</span></td>
+              <td>Is GAT normally energised on standby or feeding bus?</td>
+            </tr>
+            <tr>
+              <td class="param-name">UAT / GAT Interlock Logic</td>
+              <td><span class="fill-box">[ Interlocked: Yes / No ]</span></td>
+              <td>Is sustained parallel operation between UAT & GAT permitted?</td>
+            </tr>
+            <tr>
+              <td class="param-name">230 kV GIS Bus Coupler (10BAY12)</td>
+              <td><span class="fill-box">[ Closed / Open ]</span></td>
+              <td>Is bus coupler Q10 normally CLOSED (tied) or OPEN?</td>
+            </tr>
+            <tr>
+              <td class="param-name">GIS Busbar Selection (Q1 / Q2)</td>
+              <td><span class="fill-box">[ BB1 / BB2 ]</span></td>
+              <td>Normal busbar selection for GSUT, GAT, and Line bays</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: Generator Machine Reactances & Time Constants (NEW DEDICATED SECTION) -->
+    <section class="section">
+      <h2 class="section-title">
+        <span>3.</span> Generator q-axis, Sequence Reactances & Machine Constants
+      </h2>
+      <p class="section-desc">
+        While the direct-axis reactances (<span class="badge badge-known">Xd = 166.3%</span>, <span class="badge badge-known">Xd' = 28.65%</span>, <span class="badge badge-known">Xd'' = 22.48%</span>) are already available from the protection report, the following quadrature-axis, sequence reactances and dynamics are required for <strong>unbalanced short-circuit (LG, LL, LLG)</strong> and <strong>transient stability modeling</strong>:
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter / Constant</th>
+              <th>Symbol</th>
+              <th>Current Status</th>
+              <th style="min-width: 160px;">Plant Value</th>
+              <th>Purpose / Study Requirement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="param-name">q-axis Synchronous Reactance</td>
+              <td><code>Xq</code></td>
+              <td><span class="badge badge-known">Missing</span></td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; % / pu ]</span></td>
+              <td>Synchronous machine model & load angle calculation</td>
+            </tr>
+            <tr>
+              <td class="param-name">q-axis Transient Reactance</td>
+              <td><code>Xq'</code></td>
+              <td><span class="badge badge-known">Missing</span></td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; % / pu ]</span></td>
+              <td>Salient-pole/round-rotor dynamic representation</td>
+            </tr>
+            <tr>
+              <td class="param-name">q-axis Subtransient Reactance</td>
+              <td><code>Xq''</code></td>
+              <td><span class="badge badge-known">Missing</span></td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; % / pu ]</span></td>
+              <td>Subtransient fault currents and peak asymmetrical currents</td>
+            </tr>
+            <tr>
+              <td class="param-name">Negative-Sequence Reactance</td>
+              <td><code>X2</code></td>
+              <td><span class="badge badge-known">Missing</span></td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; % / pu ]</span></td>
+              <td>Line-to-Line (LL) and Line-to-Ground (LG) fault analysis</td>
+            </tr>
+            <tr>
+              <td class="param-name">Zero-Sequence Reactance</td>
+              <td><code>X0</code></td>
+              <td><span class="badge badge-known">Missing</span></td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; % / pu ]</span></td>
+              <td>Earth fault current calculation & stator ground protection</td>
+            </tr>
+            <tr>
+              <td class="param-name">Armature Stator Resistance</td>
+              <td><code>Ra</code></td>
+              <td><span class="badge badge-known">Missing</span></td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; % / Ω ]</span></td>
+              <td>Generator internal loss & DC decrement calculation</td>
+            </tr>
+            <tr>
+              <td class="param-name">Inertia Constant</td>
+              <td><code>H</code></td>
+              <td><span class="badge badge-known">Missing</span></td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; s / (MW·s/MVA) ]</span></td>
+              <td>Rotor swing equation & transient stability</td>
+            </tr>
+            <tr>
+              <td class="param-name">Open-Circuit Time Constants</td>
+              <td><code>Td0', Td0'', Tq0', Tq0''</code></td>
+              <td><span class="badge badge-known">Missing</span></td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; seconds ]</span></td>
+              <td>Subtransient and transient flux decay modeling</td>
+            </tr>
+            <tr>
+              <td class="param-name">GAT Pair Impedances</td>
+              <td><code>ZPT, ZST</code></td>
+              <td><span class="badge badge-known">Missing (Zps=12% known)</span></td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; % on MVA ]</span></td>
+              <td>Exact three-winding representation of 230/6.9/3.32 kV GAT</td>
+            </tr>
+            <tr>
+              <td class="param-name">Generator Neutral Grounding</td>
+              <td><code>NGT / NGR</code></td>
+              <td><span class="badge badge-known">Clarification</span></td>
+              <td><span class="fill-box">[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kVA / Ω ]</span></td>
+              <td>Grounding transformer rating and secondary loading resistor</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 4: Motors & DC Architecture -->
+    <section class="section">
+      <h2 class="section-title">
+        <span>4.</span> Auxiliary Motors & DC / Excitation Architecture
+      </h2>
+      <ul class="list-styled">
+        <li>
+          <strong>6.6 kV MV Motor Operating Schedule:</strong><br>
+          During standard base-load operation, which redundant pumps/drives are in service vs. standby (e.g., CWP 1/2, BFP 1/2/3, CEP 1/2)?
+        </li>
+        <li>
+          <strong>Motor Operating Power Factor & Efficiency:</strong><br>
+          Average operating power factor (cos φ) and efficiency (η) for the major 6.6 kV motors to calculate electrical kVA input from rated shaft kW.
+        </li>
+        <li>
+          <strong>Excitation Transformer (connected to 6.6 kV bus):</strong><br>
+          Rated kVA/MVA, voltage ratio, vector group, and % impedance.
+        </li>
+        <li>
+          <strong>Field-Flashing & DC Power Source:</strong><br>
+          What source is used for initial field flashing (110 Vdc, 220 Vdc, an AC rectifier, or dedicated battery bank)?
+        </li>
+        <li>
+          <strong>Station Battery Banks (110 Vdc and 220 Vdc):</strong><br>
+          Battery chemistry (Lead-Acid / Ni-Cd), rated capacity (Ah), and design autonomy time (hours).
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 5: Requested Drawings -->
+    <section class="section">
+      <h2 class="section-title">
+        <span>5.</span> Requested Single-Line Drawings (Soft Copy / PDF)
+      </h2>
+      <p class="section-desc">If permissible under station sharing guidelines, PDF copies of the following drawings referenced in the main design set would be immensely helpful:</p>
+
+      <div class="drawing-grid">
+        <div class="drawing-card">
+          <span class="tag">DE-0009</span>
+          <span class="name">6.6 kV MV System Single-Line Diagram</span>
+        </div>
+        <div class="drawing-card">
+          <span class="tag">DE-0010</span>
+          <span class="name">400 V LV System Single-Line Diagram</span>
+        </div>
+        <div class="drawing-card">
+          <span class="tag">DE-0012</span>
+          <span class="name">DC Distribution Single-Line Diagram (110 & 220 Vdc)</span>
+        </div>
+        <div class="drawing-card">
+          <span class="tag">DE-0026</span>
+          <span class="name">230 kV GIS One-Line / Protection Diagram</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signoff Block -->
+    <div class="signoff">
+      <p>Thank you very much for your kind support and assistance in advancing academic power engineering research.</p>
+      <br>
+      <p><strong>Department of Electrical and Electronic Engineering (EEE)</strong><br>
+      Bangladesh University of Engineering and Technology (BUET)<br>
+      Course: <em>EEE 306 — Power System Analysis (Group 03)</em><br>
+      Academic Project: <em>Ashuganj South 450 MW CCPP Load Flow & System Studies</em></p>
+    </div>
+
+  </main>
+</div>
+
+<div id="toast">Copied to clipboard!</div>
+
+<script>
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.innerText = msg;
+  toast.className = 'show';
+  setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 2500);
+}
+
+function copyWhatsAppText() {
+  const text = `*FORMAL TECHNICAL DATA REQUEST: ASHUGANJ SOUTH 450 MW CCPP (PROJECT 112070)*
+*To:* Chief Engineer / SE (Electrical), APSCL
+*From:* BUET EEE 306 Power System Study Team
+
+Dear Sir,
+As part of our power system study for Ashuganj South 450 MW CCPP, we have already verified primary nameplate data for Generator (458 MVA, 22 kV, Xd=166.3%, Xd'=28.65%, Xd''=22.48%), GSUT (515 MVA, 230/22 kV), UAT (25 MVA, 22/6.9 kV), GAT (25 MVA), GIS (3150 A, 50 kA), and 12 MV motors (14,050 kW).
+
+To validate our load flow, fault studies, and dynamic model against actual plant operation, we kindly request the following operational parameters & parameters:
+
+*1. PLANT OPERATING SNAPSHOT (Simultaneous SCADA/Log Reading):*
+• Date & Time of Log: [                    ]
+• Generator Gross MW: [                    ]
+• Generator MVAr / PF: [                    ]
+• Generator Terminal Voltage (Vt): [         kV / pu ]
+• Total Plant Auxiliary Load: [         MW / MVAr ]
+
+*2. TRANSFORMER TAPS & SWITCHGEAR STATUS:*
+• GSUT Tap in service: [ Tap ___ / 25 ]
+• UAT Tap in service: [ Tap ___ / 5 ]
+• GAT operating status: [ In Service / Standby / Out ]
+• UAT/GAT parallel interlock: [ Interlocked: Yes / No ]
+• 230 kV GIS Bus Coupler (10BAY12): [ Closed / Open ]
+• 230 kV Bus Selector (Q1/Q2): [ BB1 / BB2 ]
+
+*3. GENERATOR q-AXIS, SEQUENCE REACTANCES & DYNAMICS (for Fault & Stability):*
+• q-axis reactances: Xq = [     ], Xq' = [     ], Xq'' = [     ] % / pu
+• Sequence data: Negative-seq X2 = [     ], Zero-seq X0 = [     ], Armature Ra = [     ]
+• Dynamic constants: Inertia H = [     ] s, Time constants Td0', Td0'', Tq0', Tq0''
+• GAT pair impedances: ZPT = [     ] %, ZST = [     ] % (on MVA)
+• Generator neutral grounding: NGT rating [     ] kVA, Resistor [     ] Ω
+
+*4. MOTORS & DC/EXCITATION:*
+• Running schedule of 6.6 kV motors at base load (which redundant pumps run)
+• Operating PF and efficiency of 6.6 kV motors
+• 6.6 kV Excitation transformer rating, ratio, and % impedance
+• Field-flashing source (110 Vdc, 220 Vdc, AC rectifier, or battery)
+• Station 110 Vdc & 220 Vdc battery capacities (Ah) and autonomy
+
+*5. DRAWING REQUESTS (PDF if permissible):*
+• DE-0009 (6.6 kV MV SLD)
+• DE-0010 (400 V LV SLD)
+• DE-0012 (DC Distribution SLD)
+• DE-0026 (230 kV GIS Diagram)
+
+Your support is greatly appreciated!
+*BUET EEE 306 Study Team*`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    showToast("WhatsApp text copied to clipboard!");
+  }).catch(() => {
+    showToast("Failed to copy. Please select manually.");
+  });
+}
+
+function copyEmailText() {
+  const text = `Subject: Technical Data Request: Operational Parameters, Machine Reactances & Single-Line Drawings for Ashuganj South 450 MW CCPP (Project No. 112070)
+
+To: Chief Engineer (Operation & Maintenance) / Executive Engineer (Electrical)
+Company: Ashuganj Power Station Company Ltd. (APSCL)
+
+Dear Sir,
+
+Hope this email finds you well.
+
+As part of our power system engineering study on the Ashuganj South 450 MW Combined Cycle Power Plant (Project No. 112070), our team has completed the preliminary modeling of the plant. Using the official Siemens datasheets and nameplates, we have already verified the primary ratings for the main generator (458 MVA, 22 kV, 0.85 PF, Xd=166.3%, Xd'=28.65%, Xd''=22.48%), the GSUT (515 MVA, 230/22 kV), the UAT (25 MVA, 22/6.9 kV), the GAT (25 MVA, 230/6.9/3.32 kV), and the 230 kV GIS switchgear.
+
+To finalize our balanced load flow, unbalanced fault calculations (LG/LL/LLG), and auxiliary network simulation against real plant conditions, we kindly request your support in providing the following parameters and reference single-line diagrams:
+
+1. Plant Operating Snapshot (Simultaneous Log / SCADA Reading):
+- Date & Timestamp of Log: [                      ]
+- Generator Gross Active Power: [                      ] MW
+- Generator Reactive Power / PF: [                      ] MVAr / PF
+- Generator Terminal Voltage (Vt): [                      ] kV (or pu)
+- Total Plant Auxiliary Consumption: [                      ] MW / MVAr
+
+2. Transformer & Switchgear Operational Configurations:
+- GSUT Tap Position: [ Tap ____ ] (Nominal: Tap 9)
+- UAT Tap Position: [ Tap ____ ] (Nominal: Tap 3)
+- GAT Operating Status: [ In Service / Standby / Out ]
+- UAT / GAT Interlock: [ Yes / No ] (Is sustained parallel operation permitted?)
+- 230 kV GIS Bus Coupler (10BAY12): [ Closed / Open ]
+- 230 kV Bus Selector (Q1/Q2): [ BB1 / BB2 ]
+
+3. Generator q-axis, Sequence Reactances & Dynamic Constants:
+- q-axis reactances: Xq, Xq', Xq'' (% or pu)
+- Negative-sequence reactance (X2), Zero-sequence reactance (X0), and Stator resistance (Ra)
+- Machine inertia constant (H in s or MW·s/MVA) and open-circuit time constants (Td0', Td0'', Tq0', Tq0'')
+- GAT three-winding factory pair impedances: ZPT and ZST (Zps=12% already known)
+- Generator neutral grounding: NGT kVA and secondary resistor Ω
+
+4. Auxiliary Motor & DC System Clarifications:
+- 6.6 kV MV Motor Running Schedule: Which pumps/drives are in service vs. standby during full load.
+- Motor Operating Power Factor & Efficiency: Average operating PF and efficiency for the 6.6 kV motors.
+- Excitation & DC Field Flashing: Rating and impedance of 6.6 kV excitation transformer, field flashing source (110 Vdc, 220 Vdc, AC rectifier, or battery), and station battery capacities (Ah).
+
+5. Requested Single-Line Drawings (PDF Copies):
+- DE-0009: 6.6 kV MV System Single-Line Diagram
+- DE-0010: 400 V LV System Single-Line Diagram
+- DE-0012: DC Distribution Single-Line Diagram (110 Vdc & 220 Vdc)
+- DE-0026: 230 kV GIS One-Line / Protection Diagram
+
+Thank you very much for your time and kind consideration.
+
+Sincerely,
+Department of Electrical and Electronic Engineering (EEE)
+Bangladesh University of Engineering and Technology (BUET)
+Course: EEE 306 — Power System Analysis (Group 03)`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    showToast("Email text copied to clipboard!");
+  }).catch(() => {
+    showToast("Failed to copy. Please select manually.");
+  });
+}
+</script>
+
+</body>
+</html>

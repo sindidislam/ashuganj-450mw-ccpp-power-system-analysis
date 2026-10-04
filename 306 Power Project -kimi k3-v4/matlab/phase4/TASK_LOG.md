@@ -1,0 +1,29 @@
+﻿# Phase-4 Task Log (append-only; no version control in this workspace)
+
+- T1 phase4_registry + test_phase4_registry: np=15 nf=0
+- T1+T2 review: 2 Important findings (registry NGT/neutral cells, B_eq freeze assert); fix round 1/5 ADDRESSED both, re-review CLEAN
+- T1 phase4_registry + test_phase4_registry: np=21 nf=0
+- T2 phase4_prefault + test_phase4_prefault: np=11 nf=0
+- T3 phase4_grounding + test_phase4_grounding: np=10 nf=0 (review Approved; controller re-ran 42/42 green)
+- T4 phase4_sources + test_phase4_sources: np=15 nf=0 (Eq sign repaired +1.7871, closures 1e-16; fix round 1/5 CLEAN)
+- T5 phase4_seqPN + test_phase4_seqPN: np=6 nf=0 (brief unit defect ruled tester-side, fix round 1/5; review Approved)
+- T6 phase4_seqZ + test_phase4_seqZ: np=6 nf=0 (review Approved)
+- T7 phase4_topology + test_phase4_topology: np=6 nf=0 (review Approved; controller re-ran 75/75 green)
+- T8 phase4_solve + phase4_kappa + test_phase4_solve: np=5 nf=0 (zero-grid ruling grounded-stands; fix round 1/5 CLEAN)
+- T9 phase4_stages (+solve stage branches) + test_phase4_stages: np=5 nf=0 (review Approved; F1-LG 0.95x reconciled)
+- T10 phase4_contrib (+solve output-only) + test_phase4_contrib: np=5 nf=0 (review Approved; feeder-subset KCL verified)
+- T11 phase4_validate + test_phase4_validate: np=3 nf=0 (20/20 legs; fix round 1/5 CLEAN: IN-case H-invariance + normalized probe)
+- T12 phase4_sensitivity (+R1 support) + test_phase4_sensitivity: np=9 nf=0 (review Approved; direct-solve confirmed, no NR anywhere)
+- T13 phase4_handoff + test_phase4_handoff: np=3 nf=0 (review Approved; fix round 1/5 CLEAN: numeric guard)
+- T14 run_phase4_tests + run_phase4_matrix + test_phase4_matrix: np=7 nf=0, runner 112/0 (fix round 1/5 CLEAN)
+- T15 phase4_review_gate + test_phase4_review_gate: np=3 nf=0, PHASE4_REVIEW_GATE.md written (review Approved)
+- T15 phase4_review_gate + test_phase4_review_gate: np=3 nf=0, PHASE4_REVIEW_GATE.md 23/23 (review Approved)
+- FINAL fix wave (F1/F2 Zf level base): re-review CLEAN, verdict PHASE COMPLETE
+- run_phase4_tests independent re-run: 118/118, 0 failures, 15 suites
+- K2 production package: 464/204/20/2040/33 rows + manifest + sha256 (review Approved; IN-OFAT gap documented)
+- K3 sanity module 16/16 (S1 1.0106, S2 1.0030, gates real; review Approved)
+- K2 production detail: currents 464 / contrib 204 / bands 20 / ct 2040 / analytic 33; live phase4_validate production 27/27; full suite 161/0 across 17 files (incl. test_phase4_production 21/0); IN-OFAT gap + F4 m-section currents-only documented in manifest notes
+- K3 sanity detail: test_phase4_sanity 16/16 (S1 F3LLL-vs-50kA 50.5309 kA ratio 1.01062 NOTE; S2 F1LG-vs-7.25A 7.2720 A ratio 1.00304 NOTE; 11 gate rows PASS incl. S3 LLL-gt-LL, S5 F4-midpoint <=0.10, S6 no-impossible); suite at K3 time 140/0 across 16 files
+- K4 docs refresh: report S1 table + hand-check + F3 obs + S4/S6/S8/S10 regenerated from results/phase4_fault/production CSVs (Ik from stage=Ikpp Irms_kA, ip from same-row r_kappa_ip); spec items a-e applied; final FULL run_phase4_tests 161/0 across 17 files (31.1 s); validate 27/27 (L21 0.028839 vs 0.05, L22 0, L23 1.63e-16, L24 0, L25 0, L26 4.87e-16); gate 23/23 regenerated (Q8 0.432 wording, Q18 27/27); C14 hash sweep 335 checked / 3 diffs = known pre-existing drifts only; KCL worst 5.52e-15; audit residuals <=3e-14; pre_res OUT 0.032777 / IN 0.032803 vs 0.10
+- K1 closed (L21 Vok fix; transport anomaly root-caused to any-vector, fixed + guarded)
+- K2/K3/K4/K5 complete + reviewed Approved (production sealed; sanity 16/16; report+spec refreshed; PHASE4_CORRECTION.md A-L)

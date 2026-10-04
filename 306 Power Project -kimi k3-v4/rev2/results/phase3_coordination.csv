@@ -1,0 +1,6 @@
+Primary,Backup,Icheck_kA,t_prim_s,t_back_s,Margin_s,Verdict,Note_StatusC
+UAT-LV 51,UAT-HV 51,19.82,0.509,0.809,0.300,PASS,margin 0.3s(C); 87B 0.1s(C)
+GSUT-HV 51,LINE-Q9 51,6.59,0.741,1.041,0.300,PASS,margin 0.3s(C); 87B 0.1s(C)
+87B busbar (0.1s C),LINE-Q9 51 @B03,44.98,0.100,0.502,0.402,PASS,margin 0.3s(C); 87B 0.1s(C)
+87B busbar (0.1s C),GSUT-HV 51 @B02gen,3.17,0.100,1.233,1.133,PASS,margin 0.3s(C); 87B 0.1s(C)
+GSUT-NEF 51N,LINE-EF 51N,46.79,0.200,0.500,0.300,PASS,margin 0.3s(C); 87B 0.1s(C)

@@ -1,0 +1,115 @@
+function [np, nf] = run_all_tests(varargin)
+%RUN_ALL_TESTS  Phase 11 validation suite for the Ashuganj South model.
+%
+%   run_all_tests            run everything
+%   run_all_tests('data')    data checks only - fast, no solver
+%   run_all_tests('model')   model checks only - builds and solves
+%
+%   The suite is split because the two halves answer different questions. The
+%   data tests read the registry and check that it is internally consistent and
+%   that nothing has been invented; they take about a second. The model tests
+%   build the network and solve it, which takes minutes, and they check that the
+%   network the solver saw is the network the registry describes.
+%
+%   WHAT THIS SUITE IS FOR
+%   ----------------------
+%   Not coverage. It exists to catch two specific failure modes that a load flow
+%   is otherwise very good at hiding:
+%
+%     1. An invented number. A missing parameter that quietly acquires a
+%        plausible value makes the model converge more easily and the report look
+%        more complete. Several tests assert that specific fields are STILL NaN -
+%        the GAT tertiary impedances, the 400 V board loads, every line
+%        constant. Without a verified new source, a number is a test failure,
+%        not a fix.
+%
+%     2. A units or base error. 400 V read as 400 kV, an impedance converted to
+%        the system base twice, 6.9 kV modelled as 6.6 kV, a 60 Hz solve. Each of
+%        these produces a converged, plausible, wrong answer. The prior CYME
+%        PSAF model of this plant was built at 60 Hz and nobody noticed, which is
+%        exactly why test_transformer_phase_shift and the frequency check exist.
+%
+%   Both categories are failures of TRUTH, not of arithmetic, and no solver will
+%   ever report them.
+
+which = 'all';
+if nargin >= 1, which = lower(varargin{1}); end
+
+dataTests  = {'test_bus_data', 'test_generator_data', 'test_transformer_data', ...
+              'test_line_data', 'test_load_data', 'test_base_conversion', ...
+              'test_topology'};
+modelTests = {'test_transformer_phase_shift', 'test_grid_sensitivity', ...
+              'test_magnetising_sensitivity'};
+
+phase2DataTests = {'test_generator_capability', 'test_engineering_assumptions', ...
+                   'test_phase2_systems', 'test_phase2_component_models', ...
+                   'test_operating_profiles'};
+phase2ModelTests = {'test_phase2_load_flow'};
+phase2Tests = [phase2DataTests, phase2ModelTests];
+phase3Tests = {'test_phase3_line_model', 'test_phase3_determinism'};
+
+switch which
+    case 'data',        list = [dataTests, phase2DataTests];
+    case 'model',       list = [modelTests, phase2ModelTests];
+    case 'phase1',      list = [dataTests, modelTests];
+    case 'phase2',      list = phase2Tests;
+    case 'phase2_fast', list = phase2DataTests;
+    case 'all',         list = [dataTests, phase2DataTests, modelTests, phase2ModelTests, phase3Tests];
+    otherwise
+        error('run_all_tests:badArg', ...
+            'Unknown selection ''%s''. Use ''all'', ''data'', ''model'', ''phase1'', ''phase2'', or ''phase2_fast''.', which);
+end
+
+fprintf('\n');
+fprintf('########################################################################\n');
+fprintf('#  ASHUGANJ 450 MW CCPP (SOUTH) - REV3.1 VALIDATION SUITE              #\n');
+fprintf('#  %d test files, selection ''%s''\n', numel(list), which);
+fprintf('########################################################################\n');
+
+np = 0; nf = 0;
+summary = struct([]);
+for i = 1:numel(list)
+    name = list{i};
+    t0 = tic;
+    try
+        [p, f] = feval(name);
+        err = '';
+    catch ME
+        p = 0; f = 1;
+        err = ME.message;
+        fprintf('\n*** %s ERRORED: %s\n', name, ME.message);
+        for s = 1:min(4, numel(ME.stack))
+            fprintf('      at %s line %d\n', ME.stack(s).name, ME.stack(s).line);
+        end
+    end
+    np = np + p; nf = nf + f;
+    summary(i).name = name;
+    summary(i).pass = p;
+    summary(i).fail = f;
+    summary(i).secs = toc(t0);
+    summary(i).err  = err;
+end
+
+fprintf('\n');
+fprintf('########################################################################\n');
+fprintf('#  SUMMARY                                                             #\n');
+fprintf('########################################################################\n');
+for i = 1:numel(summary)
+    s = summary(i);
+    if s.fail == 0, mark = 'PASS'; else, mark = 'FAIL'; end
+    fprintf('  %-4s  %-34s %4d passed  %3d failed  %6.1f s%s\n', ...
+        mark, s.name, s.pass, s.fail, s.secs, tern(isempty(s.err), '', '  [ERRORED]'));
+end
+fprintf('  %s\n', repmat('-', 1, 68));
+fprintf('  TOTAL %-34s %4d passed  %3d failed  %6.1f s\n', '', np, nf, sum([summary.secs]));
+if nf == 0
+    fprintf('\n  ALL CHECKS PASSED.\n\n');
+else
+    fprintf('\n  %d CHECK(S) FAILED - the model is NOT validated.\n\n', nf);
+end
+end
+
+% =====================================================================
+function s = tern(c, a, b)
+if c, s = a; else, s = b; end
+end

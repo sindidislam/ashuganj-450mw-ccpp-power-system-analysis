@@ -1,0 +1,17 @@
+Error using phase6_add_controls/add (line 121)
+There is no block named 'simulink/Math Operations/Fcn'
+
+Error in phase6_add_controls (line 53)
+mag=add('simulink/Math Operations/Fcn',[dc '/AC supply magnitude'],[395 75 595 115]);set_param(mag,'Expr','sqrt((u(1)^2+u(2)^2+u(3)^2)/3)*sqrt(3)/6600');line(dc,sel,1,mag,1);
+
+Error in build_phase6_model (line 59)
+ctrl = phase6_add_controls(mdl,P,S,net,LF);
+
+Error in jobR_integrated02 (line 2)
+info=build_phase6_model('Scenario',struct('stopTime_s',.1));
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

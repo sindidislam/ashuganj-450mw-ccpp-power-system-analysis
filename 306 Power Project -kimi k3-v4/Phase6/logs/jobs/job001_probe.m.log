@@ -1,0 +1,341 @@
+MATLAB=24.1.0.2537033 (R2024a)
+       Name: 'Simulink'
+    Version: '24.1'
+    Release: '(R2024a)'
+       Date: '19-Nov-2023'
+
+       Name: 'Simscape Electrical'
+    Version: '24.1'
+    Release: '(R2024a)'
+       Date: '19-Nov-2023'
+
+
+BLOCK syncmachine Synchronous Machine
+PresetModel=No
+MechanicalLoad=Mechanical power Pm
+ShowDetailedParameters=on
+RotorType=Salient-pole
+Units=per unit standard parameters
+MeasurementBus=off
+NominalParameters=[6e+04 400 50]
+Reactances1=[ 1.81, 0.3, 0.23, 1.76, 0.65, 0.25, 0.15 ]
+Reactances2=[2.24 0.17 0.12 1.02 0.13 0.08]
+dAxisTimeConstants=Short-circuit
+qAxisTimeConstants=Short-circuit
+TimeConstants1=[ 4.4849  0.0681  0.1  ]
+TimeConstants2=[ 8.0, 0.03, 1.0, 0.07 ]
+TimeConstants3=[  4.49  0.0681  0.0513  ]
+TimeConstants4=[ 8.0, 0.03, 0.3371, 0.0295 ]
+TimeConstants5=[ 1.01, 0.053, 0.1 ]
+TimeConstants6=[ 1.3201, 0.023, 1.0, 0.07 ]
+TimeConstants7=[0.012 0.003 0.003]
+TimeConstants8=[ 1.3201, 0.0231, 0.3371, 0.0295 ]
+StatorResistance=0.037875
+Mechanical=[0.1028 0.02056 2]
+PolePairs=20
+InitialConditions=[ 0  0  0  0  0  0  0  0  1 ] 
+SetSaturation=on
+Saturation=[0.6404,0.7127,0.8441,0.9214,0.9956,1.082,1.19,1.316,1.457;0.7,0.7698,0.8872,0.9466,0.9969,1.046,1.1,1.151,1.201]
+LoadFlowParameters=[1,0,0,0,0]
+TsPowergui=0
+TsBlock=-1
+IterativeModel=Trapezoidal non iterative
+IterativeDiscreteModel=Trapezoidal non iterative
+BusType=PV
+Pref=0
+Qref=0
+Qmin=-inf
+Qmax=inf
+PLF=0
+QLF=0
+      Inport: [1.1630e+03 1.1660e+03]
+     Outport: 5.2410e+03
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: []
+       RConn: [5.2320e+03 5.2350e+03 5.2380e+03]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK breaker Three-Phase Breaker
+InitialState=open
+SwitchA=on
+SwitchB=on
+SwitchC=on
+SwitchTimes=[1/60  5/60]
+External=off
+BreakerResistance=0.01
+SnubberResistance=1e6
+SnubberCapacitance=inf
+Measurements=None
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [5.5230e+03 5.5260e+03 5.5290e+03]
+       RConn: [5.5320e+03 5.5350e+03 5.5380e+03]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK fault Three-Phase Fault
+InitialStates=0
+FaultA=on
+FaultB=on
+FaultC=on
+GroundFault=on
+SwitchTimes=[1/60  5/60]
+External=off
+SwitchStatus=NaN
+FaultResistance=0.001
+GroundResistance=0.01
+SnubberResistance=1e6
+SnubberCapacitance=inf
+Measurements=None
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [5.8810e+03 5.8840e+03 5.8870e+03]
+       RConn: []
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK vimeas Three-Phase VI Measurement
+VoltageMeasurement=phase-to-ground
+SetLabelV=off
+LabelV=Vabc
+Vpu=off
+VpuLL=off
+CurrentMeasurement=yes
+SetLabelI=off
+LabelI=Iabc
+Ipu=off
+Pbase=100e6
+Vbase=500e3
+OutputType=Complex
+PhasorSimulation=off
+PSBequivalent=0
+      Inport: []
+     Outport: [6.4010e+03 6.4020e+03]
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [6.3830e+03 6.3860e+03 6.3890e+03]
+       RConn: [6.3920e+03 6.3950e+03 6.3980e+03]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK pisection Three-Phase PI Section Line
+Length=100
+Frequency=60
+Resistances=[ 0.01273 0.3864] 
+Inductances=[ 0.9337e-3  4.1264e-3] 
+Capacitances=[12.74e-9 7.751e-9]
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [6.4240e+03 6.4250e+03 6.4290e+03]
+       RConn: [6.4300e+03 6.4310e+03 6.4320e+03]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK source Three-Phase Source
+InternalConnection=Yg
+VoltagePhases=off
+Voltage=25e3
+PhaseAngle=0
+Voltage_phases=[25e3 25e3 25e3]/sqrt(3)
+PhaseAngles_phases=[0 -120 +120]
+Frequency=60
+NonIdealSource=on
+SpecifyImpedance=off
+Resistance=0.8929
+Inductance=16.58e-3
+ShortCircuitLevel=100e6
+BaseVoltage=25e3
+XRratio=7
+BusType=swing
+Pref=10e3
+Qref=0
+Prefabc=[10e3, 10e3, 10e3]
+Qrefabc=[0, 0, 0]
+Qmin=-inf
+Qmax=inf
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: []
+       RConn: [6.5490e+03 6.5520e+03 6.5550e+03]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK tx2 Three-Phase Transformer (Two Windings)
+Winding1Connection=Yg
+Winding2Connection=Yg
+CoreType=Three single-phase transformers
+SetSaturation=off
+Hysteresis=off
+DataFile='hysteresis'
+SetInitialFlux=off
+Measurements=None
+UNITS=pu
+NominalPower=[ 250e6 , 60 ]
+Winding1=[ 735e3 , 0.002 , 0.08 ]
+Winding2=[ 315e3 , 0.002 , 0.08 ]
+Rm=500
+Lm=500
+L0=0.5
+Saturation=[ 0,0 ; 0.0024,1.2 ; 1.0,1.52 ]
+InitialFluxes=[ 0.8 , -0.8 , 0.7 ]
+BreakLoop=off
+DiscreteSolver=Trapezoidal iterative
+DataType=off
+TransfoNumber=1
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [7.0846e+04 7.1383e+04 7.1392e+04]
+       RConn: [7.1401e+04 7.1410e+04 1.0740e+05]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK load Three-Phase Parallel RLC Load
+Configuration=Y (grounded)
+NominalVoltage=1000 
+Vabc=[1e3 1e3 1e3]
+Vabcp=[1e3 1e3 1e3]
+NominalFrequency=60
+UnbalancedPower=off
+ActivePower=10e3
+InductivePower=100
+CapacitivePower=100
+Pabc=[10e3 9e3 11e3]
+QLabc=[100 90 110]
+QCabc=[100 90 110]
+Pabcp=[10e3 9e3 11e3]
+QLabcp=[100 90 110]
+QCabcp=[100 90 110]
+Measurements=None
+LoadType=constant Z
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: [1.0747e+05 1.0747e+05 1.0747e+05]
+       RConn: []
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+BLOCK powergui PSB option menu block
+SimulationMode=Continuous
+SampleTime=50e-6
+frequency=60
+Iterations=50
+frequencyindice=60
+Pbase=100e6
+ErrMax=1e-4
+UnitsV=kV
+UnitsW=MW
+buscounter=0
+FunctionMessages=off
+echomessages=off
+EnableUseOfTLC=off
+CurrentSourceSwitches=off
+DisableSnubberDevices=off
+DisableRonSwitches=off
+DisableVfSwitches=off
+DisplayEquations=off
+AutomaticDiscreteSolvers=off
+SolverType=Tustin/Backward Euler (TBE)
+Interpol=off
+ExternalGateDelay=off
+methode=off
+Ts=100
+x0status=blocks
+SPID=on
+SwTol=0
+HookPort=off
+NonlinearTolerance=1e-4
+nMaxIteration=100
+ContinueOnMaxIteration=off
+RestoreLinks=warning
+ResistiveCurrentMeasurement=off
+Frange=[0:2:500]
+Ylog=off
+Xlog=on
+ShowGrid=off
+save=off
+variable=ZData
+structure=0
+ZoomFFT=off
+StartTime=0.0
+cycles=1
+DisplayStyle=1
+fundamental=60
+FreqAxis=off
+MaxFrequency=1000
+frequencyindicesteady=1
+RmsSteady=1
+display=off
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: []
+       RConn: []
+    Ifaction: []
+       Reset: []
+       Event: []
+
+
+LOADFLOW FUNCTIONS
+C:\Program Files\MATLAB\R2024a\toolbox\physmod\powersys\powersys\power_loadflow.m
+  POWER_LOADFLOW Computes the load flow of a Simscape Electrical Specialized Power Systems model.
+ 
+    LF = POWER_LOADFLOW(SYS,'solve') computes the load flow of SYS using the default load flow parameters. 
+    The model is initialized with the load flow solution. 
+ 
+    LF = POWER_LOADFLOW(SYS,'parameters') returns the load flow parameters
+    of SYS. LF can be edited to customize new load flow solution.
+ 
+    LF = POWER_LOADFLOW(SYS,'solve',LF)computes the load flow of SYS with the load
+    flow parameters defined in LF structure. LF is augmented with the load flow results.
+    The model is initialized with the load flow solution.
+ 
+    POWER_LOADFLOW(SYS,'solve','report',FNAME) computes the load flow 
+    then save detailed information in FNAME MATLAB file.
+ 
+    POWER_LOADFLOW(SYS,'solve','ExcelReport',FNAME) computes the load flow 
+    then save detailed information in FNAME Excel file.
+
+    Documentation for power_loadflow
+       doc power_loadflow
+
+

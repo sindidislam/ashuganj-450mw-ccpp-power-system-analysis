@@ -1,0 +1,4 @@
+Bus,Zth1_R_pu,Zth1_X_pu,Zth1_mag_pu,Zth0_R_pu,Zth0_X_pu,Zth0_mag_pu,Zth2_R_pu,Zth2_X_pu,Note_StatusC
+B01,3.215570e-04,2.144518e-02,2.144759e-02,2.758264e-04,2.794760e-02,2.794896e-02,3.209941e-04,2.142014e-02,genX own-base interp(C); GSUT-Z0=Z1(C); gridZ0=Z1(C); YNd1 blocks B01-B02
+B02,4.899796e-04,5.407432e-03,5.429586e-03,4.783711e-04,5.314160e-03,5.335647e-03,4.898820e-04,5.406856e-03,genX own-base interp(C); GSUT-Z0=Z1(C); gridZ0=Z1(C); YNd1 blocks B01-B02
+B03,4.464032e-04,5.205479e-03,5.224585e-03,3.818124e-04,4.761671e-03,4.776955e-03,4.463192e-04,5.204947e-03,genX own-base interp(C); GSUT-Z0=Z1(C); gridZ0=Z1(C); YNd1 blocks B01-B02

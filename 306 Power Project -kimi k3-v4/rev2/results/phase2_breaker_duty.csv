@@ -1,0 +1,5 @@
+Breaker,Sees,I_kA,Withstand_kA_B,Interrupt_assumed_kA_C,Clearing_ms_assumed_C,Margin_kA,Verdict,Note_StatusC
+Q0,gen-side max via GSUT (HV kA),6.590,50.0,50.0,60,43.410,PASS,withstand B §17; interrupt 50kA CLASS ASSUMED (C); clearing 60ms (C)
+Q1,busbar BB1 through-fault max @B02/B03,48.058,50.0,50.0,60,1.942,PASS,withstand B §17; interrupt assumed (C)
+Q2,busbar BB2 through-fault max @B02/B03,48.058,50.0,50.0,60,1.942,PASS,withstand B §17; interrupt assumed (C)
+Q9,grid-side max via line07 (kA),43.168,50.0,50.0,60,6.832,PASS,disconnector; withstand check only; interrupt N/A

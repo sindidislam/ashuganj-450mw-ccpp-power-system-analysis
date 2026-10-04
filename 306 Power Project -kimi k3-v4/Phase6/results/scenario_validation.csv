@@ -1,0 +1,12 @@
+name,passed,maxFault_A,tripRelays,openedBreakers,minDC_V,maxSpeed_pu,detail
+generator_3ph,1,277362.240305281,87G,"GCB,Q0",114.071251458984,1.02530362267327,Measured acceptance assertions passed
+transformer_lv_ll,1,178494.887807138,87T,"GCB,Q0",114.071252756776,1.02433988580496,Measured acceptance assertions passed
+transformer_hv_llg,1,96386.8424592747,87T,"GCB,Q0",114.071252756776,1.02665061030264,Measured acceptance assertions passed
+line_slg,1,126029.68451369,87L,"LineLocal,LineRemote",115.065787794648,1.02561704830308,Measured acceptance assertions passed
+grid_external_ll,1,66433.8874270337,,"",114.956026576105,1.00481333980118,Measured acceptance assertions passed
+generator_slg,1,10.3170826784667,,"",115.507980072754,1.00003644721949,Measured acceptance assertions passed
+dc_loss_bus_3ph,1,139096.281364994,87B,"",0,1.02007493044635,Measured acceptance assertions passed
+dc_recovery_bus_3ph,1,139096.281364994,87B,"Q0,LineLocal",0,1.03041750883497,Measured acceptance assertions passed
+protection_disabled,1,139096.281364994,,"",114.956095459577,1.00511200187088,Measured acceptance assertions passed
+charger_unavailable,1,NaN,,"",114.955995031324,1.00000162445647,Measured acceptance assertions passed
+reset_normal,1,NaN,,"",115.507980072754,1.00000162445647,Measured acceptance assertions passed

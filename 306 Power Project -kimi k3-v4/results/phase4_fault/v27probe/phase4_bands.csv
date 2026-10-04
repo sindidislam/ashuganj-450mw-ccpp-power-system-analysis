@@ -1,0 +1,3 @@
+group,fault_type,min_Ik_kA,max_Ik_kA,min_leg,max_leg,mid_Ik_kA,mid_leg,incomplete,note
+F3_LL_v27probe,LL,43.7588597564655,43.7588597564655,base,base,43.7588597564655,base,1,"point without band: single-leg group, no spread band"
+F3_LLG_v27probe,LLG,48.5036617932619,48.5036617932619,base,base,48.5036617932619,base,1,"point without band: single-leg group, no spread band"

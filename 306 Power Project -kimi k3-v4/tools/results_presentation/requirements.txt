@@ -1,0 +1,4 @@
+matplotlib>=3.9,<4
+numpy>=2,<3
+pandas>=2.2,<4
+Pillow>=11,<13

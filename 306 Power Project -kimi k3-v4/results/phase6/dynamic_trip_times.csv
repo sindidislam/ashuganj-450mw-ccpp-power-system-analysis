@@ -1,0 +1,4 @@
+device,element,I_A,Is_A,TMS,curve,t_op_s,t_abs_s,mode,notes
+FEEDER-6.6kV-51-SI,IEC-SI-primary,15000,1728.96337297428,0.1,SI,0.317045259304939,0.817045259304939,analytical-synthesis (sim probe: 0.02 s compile+run OK),drives plotted breaker; truncation at trip
+GEN-51-SI-BACKUP,IEC-SI-backup,55048.7096805279,17170.8,0.2,SI,1.18776269059784,1.68776269059784,analytical-synthesis (sim probe: 0.02 s compile+run OK),would-be time if fault persisted; pre-empted by primary
+GEN-87G-50-INST,definite-instant,NaN,2403.8,NaN,DT,0.04,0.54,analytical-synthesis (sim probe: 0.02 s compile+run OK),generator-zone reference element; 0.040 s Task-8 proxy (frozen 87G proxy 0.045 s)

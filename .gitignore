@@ -1,0 +1,49 @@
+# ==============================================================================
+# Git Ignore - Ashuganj 450 MW Combined Cycle Power Plant (South) Project
+# BUET EEE 306 Power System I Laboratory
+# Lead Contributor: S M Sindid Islam Mahodi
+# ==============================================================================
+
+# CONFIDENTIALITY & SAFETY: Exclude Original Technical Data & Utility Documents
+*.pdf
+*fwdtechnicaldatasldrequestforbueteeetermproject*
+*.rar
+
+# OS & Cloud Sync Temporary Files
+.tmp.driveupload/
+Thumbs.db
+desktop.ini
+*.tmp
+
+# Microsoft Office Temporary Lock Files
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# Virtual Environments (Python)
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+
+# MATLAB & Simulink Caches
+*.asv
+*.m~
+slprj/
+*.slxc
+
+# Python Caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary IDE & Tooling Caches
+.claude-flow/
+.superpowers/
+.clinerules
+replay_pid*.log
+UpdateDBF.log
+
+# Git / System Caches
+.DS_Store

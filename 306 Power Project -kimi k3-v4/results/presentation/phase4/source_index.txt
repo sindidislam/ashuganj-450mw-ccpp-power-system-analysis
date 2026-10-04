@@ -1,0 +1,7 @@
+Original evidence (read, never copied in full):
+results/phase4_fault/production/phase4_fault_currents.csv
+results/phase4_fault/production/phase4_contributions.csv
+results/phase4_fault/production/phase4_bands.csv
+results/phase4_fault/production/phase4_ct_data.csv
+results/phase4_fault/production/analytic_bounds.csv
+results/phase4_fault/production/manifest.json

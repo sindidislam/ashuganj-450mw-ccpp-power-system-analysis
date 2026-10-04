@@ -1,0 +1,61 @@
+LOAD_SELECTION_PASS included=3 P=14MW Q=8.67642073764MVAr excluded=LOAD_B0_4
+           handle: 263.003173828125
+        busNumber: 3
+            busID: '*4*'
+    generatorType: 'PV'
+             Pnom: 458000000
+             Vnom: 22000
+                P: 360000000
+                Q: 0
+             Qmin: -Inf
+             Qmax: Inf
+                S: 3.6 +     0.276217154990462i
+                I: 0.701351823186324 -     0.359972269783863i
+             Pmec: 360239717.011692
+               Vt: 0.921985869440552 -     0.387223522725505i
+               Vf: 1.78659091702559
+              th0: -61.5743984837169
+              dw0: 0
+
+  1x10 struct array with fields:
+
+    handle
+    ID
+    vbase
+    vref
+    angle
+    sm
+    asm
+    vsrc
+    pqload
+    rlcload
+    blocks
+    busType
+    Sref
+    Vbus
+    Sbus
+    Sgen
+    Spqload
+    Sshunt
+    Qmin
+    Qmax
+    QminReached
+    QmaxReached
+
+Error using jobN_network01_load_selection (line 21)
+The following two blocks cannot be connected in series:
+
+Block 1: 'Auxiliaries/Auxiliary bus fault/Fault A'
+Block 2: 'transfo_1_winding_2: Auxiliaries/GAT 10BBT20'
+
+The first block, modeled as a current source, cannot be connected in series with the inductive element of the second block.
+Add a high-value resistance in parallel with one of the two block.
+You can also specify high-value resistive snubbers if the blocks have a snubber device.You can avoid the use of the snubber by selecting
+the 'Continuous' simulation type in the Solver tab of the Powergui and deselecting the 'Disable ideal switching' option in the Preferences
+tab of Powergui block.
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

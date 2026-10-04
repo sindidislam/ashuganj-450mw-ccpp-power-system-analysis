@@ -1,0 +1,19 @@
+run_phase4_matrix t14_f4check: legs=1 locs=1 types=1 stages=1
+  legs: base
+  locs: F4  types: LLL  stages: Ikpp
+  SUBSET GUARD: F4 runs use m=0.5 single section; full m-set belongs to production runs.
+  Ib DEFAULT: t_break=0.06 s chosen study reference time (not a measured breaker clearing time).
+phase4_sources LF360_GAT_OUT sat: |Etwo|=1.004951 ref=1.051411 rel=0.0442; |Eq|=1.787100 ref=1.786786 rel=0.0002; res_t=2.22e-16 res_s=1.11e-16
+phase4_solve LF360_GAT_OUT LLL ds=P m=0.500: pre_res=0.032777 (n1=0.019948 n2=0.032663 n4=0.032777)
+phase4_solve LF360_GAT_OUT B6_6: solved=1.007457 pu target=1.000909 pu d6=0.025691 tol=0.05
+phase4_solve LF360_GAT_OUT F4 LLL Zf=0: |I1|=203.399006 |I2|=0.000000 |I0|=0.000000 Zth1=0.000335+0.004902j audit=0 r=0.0683 k=1.81852 ip=523.097848
+phase4_sources LF360_GAT_OUT sat: |Etwo|=1.004951 ref=1.051411 rel=0.0442; |Eq|=1.787100 ref=1.786786 rel=0.0002; res_t=2.22e-16 res_s=1.11e-16
+phase4_solve LF360_GAT_OUT LLL ds=P m=0.500: pre_res=0.032777 (n1=0.019948 n2=0.032663 n4=0.032777)
+phase4_solve LF360_GAT_OUT B6_6: solved=1.007457 pu target=1.000909 pu d6=0.025691 tol=0.05
+phase4_solve LF360_GAT_OUT F3 LLL Zf=0: |I1|=201.300739 |I2|=0.000000 |I0|=0.000000 Zth1=0.000344+0.004953j audit=1.51e-16 r=0.0694 k=1.81587 ip=516.945663
+phase4_sources LF360_GAT_OUT sat: |Etwo|=1.004951 ref=1.051411 rel=0.0442; |Eq|=1.787100 ref=1.786786 rel=0.0002; res_t=2.22e-16 res_s=1.11e-16
+phase4_solve LF360_GAT_OUT LLL ds=P m=0.500: pre_res=0.032777 (n1=0.019948 n2=0.032663 n4=0.032777)
+phase4_solve LF360_GAT_OUT B6_6: solved=1.007457 pu target=1.000909 pu d6=0.025691 tol=0.05
+phase4_solve LF360_GAT_OUT F3 LLL Zf=0: |I1|=201.300739 |I2|=0.000000 |I0|=0.000000 Zth1=0.000344+0.004953j audit=1.51e-16 r=0.0694 k=1.81587 ip=516.945663
+legDrift guard: base F3 LLL Ikpp mirror matches phase4_contrib over 6 shared legs (worst rel 0).
+run_phase4_matrix t14_f4check: 1 currents rows, 1 contrib rows, 1 band rows, 10 ct rows in C:\Users\sindi\Downloads\306 Power Project -union alpha\results\phase4_fault\t14_f4check (0.9 s)

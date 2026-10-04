@@ -1,0 +1,24 @@
+PHASE6_DC_RECOVERY_TESTS_PASS: delayed restoration powers the pending trip.
+PHASE6_DC_TESTS_PASS: current balance, battery/charger, pulse, AC failure, SOC, recovery.
+PHASE6_ACTUATOR_TESTS_PASS
+PHASE6_PROTECTION_SFUNCTIONS_PASS: compile, sensor mapping, trip, DC window, reset.
+GUI_RUN_NORMAL_PASS
+    95   121    57   220    25
+
+user4
+[Warning: Vectorized content might take a long time to create, or it might contain unexpected
+results. Set 'ContentType' to 'image' for better performance. <a href="matlab:warning('off', 'MATLAB:print:ContentTypeImageSuggested')">Click here</a> to not see this message
+again.] 
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\results\dc_late_recovery_bus_3ph; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+DC_LATE_RESTORE_INTEGRATED_PASS
+[Warning: Vectorized content might take a long time to create, or it might contain unexpected
+results. Set 'ContentType' to 'image' for better performance. <a href="matlab:warning('off', 'MATLAB:print:ContentTypeImageSuggested')">Click here</a> to not see this message
+again.] 
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\results\normal; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+[Warning: In a future release, UI components will not be included in the output. To include UI
+components, use the exportapp function.] 
+[> In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\graphics\printing\print.m', 86)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\graphics\printing\print.m',86,0)">line 86</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('saveas', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\general\saveas.m', 181)" style="font-weight:bold">saveas</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\general\saveas.m',181,0)">line 181</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('final_checks', 'C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\logs\resume_20260924\final_checks.m', 55)" style="font-weight:bold">final_checks</a> (<a href="matlab: opentoline('C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\logs\resume_20260924\final_checks.m',55,0)">line 55</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2024a\toolbox\matlab\lang\run.m', 112)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2024a\toolbox\matlab\lang\run.m',112,0)">line 112</a>)] 
+FINAL_NORMAL_AND_PRESENTATION_PASS

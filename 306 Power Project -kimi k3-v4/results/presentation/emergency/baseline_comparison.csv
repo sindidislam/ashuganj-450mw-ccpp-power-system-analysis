@@ -1,0 +1,6 @@
+Case_ID,Baseline,Baseline_Pgen_MW,Emergency_Pgen_MW,Baseline_V66_kV,Emergency_V66_kV,Baseline_export_MW,Emergency_import_MW,Note
+E1_GAT_BACKFEED,LF360_GAT_OUT,360.000000,0.000000,6.605999,6.303812,345.207254,-14.059630,Gen 360 MW export vs grid-imported aux; sign convention: import shown negative export
+E2_GSUT_UAT_BACKFEED,LF360_GAT_OUT,360.000000,0.000000,6.605999,6.323636,345.207254,-14.048642,Gen 360 MW export vs grid-imported aux; sign convention: import shown negative export
+E3_PARALLEL_BACKFEED,LF360_GAT_OUT,360.000000,0.000000,6.605999,6.453784,345.207254,-14.025898,Gen 360 MW export vs grid-imported aux; sign convention: import shown negative export
+E4_BLACKOUT,LF360_GAT_OUT,360.000000,0.000000,6.605999,,345.207254,-0.000000,Gen 360 MW export vs grid-imported aux; sign convention: import shown negative export
+E5_GAT_CHARGER_OUT,LF360_GAT_OUT,360.000000,0.000000,6.605999,6.303812,345.207254,-14.059630,Gen 360 MW export vs grid-imported aux; sign convention: import shown negative export

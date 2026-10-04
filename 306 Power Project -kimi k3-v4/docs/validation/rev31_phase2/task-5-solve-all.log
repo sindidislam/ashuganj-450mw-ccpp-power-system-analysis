@@ -1,0 +1,58 @@
+
+============================================================
+  REV3.1 PHASE 2 LOAD-FLOW EXECUTION & VERIFICATION
+============================================================
+  Cases to solve: LF360_GAT_OUT, LF360_GAT_IN, LF342_GAT_OUT, LF342_GAT_IN, LF389P30_GAT_OUT, LF389P30_GAT_IN
+  Output directory: G:\Other computers\My Computer (2)\Level 3 Term 1\306 Power Project -gemini flash\results\phase2_loadflow
+
+--- Solving Case: LF360_GAT_OUT -----------------------------------
+  Pgen: 360.0000 MW | Qgen:  28.1702 MVAr | Sgen: 361.1005 MVA | PF: 0.9970 (Lagging)
+  Vgen: 0.9216 pu (20.28 kV) | V230: 229.70 kV | V6.6:  6.59 kV
+  Grid Export: 345.2701 MW + j-25.8193 MVAr | Losses:  0.7299 MW + j45.3132 MVAr
+  Power Balance Error: P: 1.41e-07 MW, Q: 9.53e-07 MVAr | Worst KCL: 6.07e-08 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +225.63 / -217.72 MVAr, S margin: 96.90 MVA)
+  Verdict: OK (solved in 8.52 s, 2 iters)
+
+--- Solving Case: LF360_GAT_IN -----------------------------------
+  Pgen: 360.0000 MW | Qgen:  23.9874 MVAr | Sgen: 360.7983 MVA | PF: 0.9978 (Lagging)
+  Vgen: 0.9210 pu (20.26 kV) | V230: 229.66 kV | V6.6:  6.73 kV
+  Grid Export: 345.2576 MW + j-29.5994 MVAr | Losses:  0.7424 MW + j44.9104 MVAr
+  Power Balance Error: P: 3.82e-06 MW, Q: 2.36e-05 MVAr | Worst KCL: 5.38e-04 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +229.81 / -213.53 MVAr, S margin: 97.20 MVA)
+  Verdict: OK (solved in 1.41 s, 2 iters)
+
+--- Solving Case: LF342_GAT_OUT -----------------------------------
+  Pgen: 342.0100 MW | Qgen:  26.1744 MVAr | Sgen: 343.0101 MVA | PF: 0.9971 (Lagging)
+  Vgen: 0.9191 pu (20.22 kV) | V230: 229.73 kV | V6.6:  6.59 kV
+  Grid Export: 327.3298 MW + j-23.4175 MVAr | Losses:  0.6802 MW + j40.9155 MVAr
+  Power Balance Error: P: 1.14e-07 MW, Q: 7.52e-07 MVAr | Worst KCL: 6.09e-08 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +235.48 / -220.35 MVAr, S margin: 114.99 MVA)
+  Verdict: OK (solved in 1.21 s, 2 iters)
+
+--- Solving Case: LF342_GAT_IN -----------------------------------
+  Pgen: 342.0100 MW | Qgen:  22.0070 MVAr | Sgen: 342.7173 MVA | PF: 0.9979 (Lagging)
+  Vgen: 0.9185 pu (20.21 kV) | V230: 229.69 kV | V6.6:  6.73 kV
+  Grid Export: 327.3198 MW + j-27.2310 MVAr | Losses:  0.6902 MW + j40.5616 MVAr
+  Power Balance Error: P: 5.96e-06 MW, Q: 2.34e-05 MVAr | Worst KCL: 5.05e-04 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +239.65 / -216.19 MVAr, S margin: 115.28 MVA)
+  Verdict: OK (solved in 0.94 s, 2 iters)
+
+--- Solving Case: LF389P30_GAT_OUT -----------------------------------
+  Pgen: 389.3000 MW | Qgen:  31.6759 MVAr | Sgen: 390.5865 MVA | PF: 0.9967 (Lagging)
+  Vgen: 0.9257 pu (20.37 kV) | V230: 229.65 kV | V6.6:  6.59 kV
+  Grid Export: 374.4835 MW + j-29.9862 MVAr | Losses:  0.8165 MW + j52.9856 MVAr
+  Power Balance Error: P: 1.99e-07 MW, Q: 1.41e-06 MVAr | Worst KCL: 6.03e-08 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +209.32 / -213.68 MVAr, S margin: 67.41 MVA)
+  Verdict: OK (solved in 1.25 s, 2 iters)
+
+--- Solving Case: LF389P30_GAT_IN -----------------------------------
+  Pgen: 389.3000 MW | Qgen:  27.4610 MVAr | Sgen: 390.2673 MVA | PF: 0.9975 (Lagging)
+  Vgen: 0.9250 pu (20.35 kV) | V230: 229.61 kV | V6.6:  6.73 kV
+  Grid Export: 374.4666 MW + j-33.7043 MVAr | Losses:  0.8334 MW + j52.4889 MVAr
+  Power Balance Error: P: 2.34e-07 MW, Q: 2.40e-05 MVAr | Worst KCL: 5.97e-04 MVA
+  Capability: WITHIN_CAPABILITY (Q margin: +213.54 / -209.46 MVAr, S margin: 67.73 MVA)
+  Verdict: OK (solved in 0.94 s, 2 iters)
+
+  Results successfully saved to G:\Other computers\My Computer (2)\Level 3 Term 1\306 Power Project -gemini flash\results\phase2_loadflow
+
+  Capability plot saved to: G:\Other computers\My Computer (2)\Level 3 Term 1\306 Power Project -gemini flash\docs\validation\rev31_phase2\generator_capability_curve.png

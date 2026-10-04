@@ -1,0 +1,743 @@
+PHASE6_WORKER_READY MATLAB 24.1.0.2537033 (R2024a)
+
+JOB_START job006_relay_red.m
+Error using assert
+Measured relay engine must exist.
+
+Error in test_phase6_relays (line 6)
+assert(exist('phase6_relay_step','file') == 2, ...
+
+Error in job006_relay_red (line 2)
+test_phase6_relays;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job006_relay_red.m success=0
+
+JOB_START job007_machine_snubber.m
+             model: 'P6_MACHINE_CIRCUIT'
+         frequency: 50
+         basePower: 100000000
+         tolerance: 1.0000e-07
+          Networks: [1x1 struct]
+            status: 1
+        iterations: 2
+             error: ''
+             Ybus1: [3x3 double]
+               bus: [1x3 struct]
+                sm: [1x1 struct]
+               asm: []
+              vsrc: [1x1 struct]
+            pqload: []
+           rlcload: [1x1 struct]
+    LoadFlowSolver: 'PositiveSequence'
+
+           handle: 260.0005
+        busNumber: 2
+            busID: '*2*'
+    generatorType: 'PV'
+             Pnom: 458000000
+             Vnom: 22000
+                P: 360000000
+                Q: 0
+             Qmin: -Inf
+             Qmax: Inf
+                S: 3.6000 + 0.1975i
+                I: 0.7094 - 0.3412i
+             Pmec: 3.6024e+08
+               Vt: 0.9236 - 0.3834i
+               Vf: 1.7678
+              th0: -60.5649
+              dw0: 0
+
+IC=[0 -60.5649 0.787208 0.787208 0.787208 -25.6822 -145.682 94.3178 1.76776]
+Pm=0.78655 Vf=1.7678
+    SignalName: ''
+     BusObject: ''
+      Children: [24x1 struct]
+
+  Simulink.SimulationOutput:
+                  mData: [1x1 struct] 
+                   tout: [24651x1 double] 
+
+     SimulationMetadata: [1x1 Simulink.SimulationMetadata] 
+           ErrorMessage: [0x0 char] 
+
+         time: [24651x1 double]
+      signals: [1x1 struct]
+    blockName: 'P6_MACHINE_CIRCUIT/Machine measurements'
+
+JOB_END job007_machine_snubber.m success=1
+
+JOB_START job010_relay_green.m
+Error using assert
+Primary and secondary settings disagree with CT ratios.
+
+Error in phase6_relay_parameters (line 53)
+assert(all(abs(R.pickupSecondary_A-R.pickup_A./R.ctRatio) < 1e-9), ...
+
+Error in test_phase6_relays (line 8)
+R = phase6_relay_parameters();
+
+Error in job010_relay_green (line 2)
+test_phase6_relays;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job010_relay_green.m success=0
+
+JOB_START job011_relay_numeric_probe.m
+setting_A_primary
+double
+                   17170.8
+                         4
+                      1380
+                      1500
+                     17171
+                    2403.8
+                    387.84
+                       320
+                       320
+
+                   17170.8
+                         4
+                      1380
+                      1500
+                     17171
+                    2403.8
+                    387.84
+                       320
+                       320
+
+setting_A_secondary
+double
+                   1.14472
+                       0.2
+                    0.8625
+                    0.9375
+          1.14473333333333
+         0.160253333333333
+                    0.2424
+                       0.2
+                       0.2
+
+                    1.1447
+                       0.2
+                    0.8625
+                    0.9375
+                    1.1447
+                   0.16025
+                    0.2424
+                       0.2
+                       0.2
+
+ct_ratio
+double
+       15000
+          20
+        1600
+        1600
+       15000
+       15000
+        1600
+        1600
+        1600
+
+       15000
+          20
+        1600
+        1600
+       15000
+       15000
+        1600
+        1600
+        1600
+
+JOB_END job011_relay_numeric_probe.m success=1
+
+JOB_START job012_relay_green.m
+Error using assert
+Primary and secondary settings disagree with CT ratios.
+
+Error in phase6_relay_parameters (line 53)
+assert(all(abs(R.pickupSecondary_A-R.pickup_A./R.ctRatio) < 1e-9), ...
+
+Error in test_phase6_relays (line 8)
+R = phase6_relay_parameters();
+
+Error in job012_relay_green (line 2)
+test_phase6_relays;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job012_relay_green.m success=0
+
+JOB_START job013_relay_green_refresh.m
+C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\scripts\phase6_relay_parameters.m
+PHASE6_RELAY_TESTS_PASS: balance, vector compensation, four zones, IEC timing, reset, gating.
+JOB_END job013_relay_green_refresh.m success=1
+
+JOB_START jobGroundingParamRed.m
+Error using assert
+Central parameter provider is missing.
+
+Error in test_phase6_parameters (line 4)
+assert(exist('init_phase6_parameters','file')==2, ...
+
+Error in jobGroundingParamRed (line 4)
+test_phase6_parameters;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END jobGroundingParamRed.m success=0
+
+JOB_START job014_discrete_probe.m
+             model: 'P6_MACHINE_CIRCUIT'
+         frequency: 50
+         basePower: 100000000
+         tolerance: 1e-07
+          Networks: [1x1 struct]
+            status: 1
+        iterations: 2
+             error: ''
+             Ybus1: [3x3 double]
+               bus: [1x3 struct]
+                sm: [1x1 struct]
+               asm: []
+              vsrc: [1x1 struct]
+            pqload: []
+           rlcload: [1x1 struct]
+    LoadFlowSolver: 'PositiveSequence'
+
+           handle: 260.000854492188
+        busNumber: 2
+            busID: '*2*'
+    generatorType: 'PV'
+             Pnom: 458000000
+             Vnom: 22000
+                P: 360000000
+                Q: 0
+             Qmin: -Inf
+             Qmax: Inf
+                S: 3.6 +     0.197519658291644i
+                I: 0.709441494660979 -     0.341159573431734i
+             Pmec: 360239031.456069
+               Vt: 0.923600663725542 -     0.383355988561205i
+               Vf: 1.76776083829011
+              th0: -60.5648879635483
+              dw0: 0
+
+IC=[0 -60.5649 0.787208 0.787208 0.787208 -25.6822 -145.682 94.3178 1.76776]
+Pm=0.78655 Vf=1.7678
+    {'ias'   }
+    {'ibs'   }
+    {'ics'   }
+    {'iq'    }
+    {'id'    }
+    {'ifd'   }
+    {'ikq'   }
+    {'ikq2'  }
+    {'ikd'   }
+    {'phimq' }
+    {'phimd' }
+    {'vq'    }
+    {'vd'    }
+    {'Lmq'   }
+    {'Lmd'   }
+    {'delta' }
+    {'w'     }
+    {'dw'    }
+    {'theta' }
+    {'dtheta'}
+    {'Peo'   }
+    {'Qeo'   }
+    {'Pe'    }
+    {'Te'    }
+
+  Simulink.SimulationOutput:
+                  mData: [1x1 struct] 
+                   tout: [4001x1 double] 
+
+     SimulationMetadata: [1x1 Simulink.SimulationMetadata] 
+           ErrorMessage: [0x0 char] 
+
+         time: [4001x1 double]
+      signals: [1x1 struct]
+    blockName: 'P6_MACHINE_CIRCUIT/Machine measurements'
+
+JOB_END job014_discrete_probe.m success=1
+
+JOB_START jobGroundingParamGreen.m
+test_phase6_parameters PASS: canonical identity, machine mapping, profile separation, provenance, CSV export and protected hashes.
+JOB_END jobGroundingParamGreen.m success=1
+
+JOB_START job020_dc_red.m
+Error using assert
+Station DC current-balance engine must exist.
+
+Error in test_phase6_dc (line 4)
+assert(exist('phase6_dc_step','file') == 2,'phase6:dcMissing', ...
+
+Error in job020_dc_red (line 4)
+test_phase6_dc;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job020_dc_red.m success=0
+
+JOB_START jobGroundingParamOverrideRed.m
+Error using ==
+Comparison between double and string is not supported.
+
+Error in test_phase6_parameters (line 72)
+assert(written.Value(written.Parameter=="scenario.networkProfile")=="PHASE5_STUDY", ...
+
+Error in jobGroundingParamOverrideRed (line 4)
+test_phase6_parameters;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END jobGroundingParamOverrideRed.m success=0
+
+JOB_START jobGroundingParamOverrideRedFix.m
+Error using assert
+Export must capture selected scenario overrides.
+
+Error in test_phase6_parameters (line 75)
+assert(written.Value(written.Parameter=="scenario.networkProfile")=="PHASE5_STUDY", ...
+
+Error in jobGroundingParamOverrideRedFix (line 4)
+test_phase6_parameters;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END jobGroundingParamOverrideRedFix.m success=0
+
+JOB_START jobGroundingParamOverrideGreen.m
+test_phase6_parameters PASS: canonical identity, machine mapping, profile separation, provenance, CSV export and protected hashes.
+JOB_END jobGroundingParamOverrideGreen.m success=1
+
+JOB_START job021_dc_green.m
+Error using assert
+Assertion failed.
+
+Error in test_phase6_dc (line 11)
+assert(abs(Y.Vdc_V-123.75)<1e-9 && abs(Y.Ibattery_A)<1e-9);
+
+Error in job021_dc_green (line 4)
+test_phase6_dc;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job021_dc_green.m success=0
+
+JOB_START job022_dc_green.m
+Error using assert
+Assertion failed.
+
+Error in test_phase6_dc (line 47)
+assert(~Y.dcHealthy && Y.lowVoltage && Y.tripUnavailable && Y.unservedPower_W==2400);
+
+Error in job022_dc_green (line 4)
+test_phase6_dc;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job022_dc_green.m success=0
+
+JOB_START job015_network.m
+Error using phase6_add_network (line 130)
+Error in 'P6_NETWORK_TEST/Auxiliaries/400 V LV board load': Failed to evaluate mask initialization commands.
+
+Error in job015_network (line 6)
+net=phase6_add_network(mdl,P,S);
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+Caused by:
+    Error using phase6_add_network (line 130)
+    NaN values cannot be converted to logicals.
+    
+    Error in job015_network (line 6)
+    net=phase6_add_network(mdl,P,S);
+    
+    Error in run (line 112)
+    evalin('caller', strcat(scriptStem, ';'));
+    
+    Error in phase6_session_worker (line 21)
+                evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job015_network.m success=0
+
+JOB_START job023_dc_probe.m
+               Vdc_V: 0
+          Ibattery_A: 0
+          Icharger_A: 0
+             Iload_A: 0
+                 SOC: 1
+     unservedPower_W: 2400
+          lowVoltage: 1
+          batteryLow: 1
+      chargerFailure: 1
+           dcHealthy: 0
+     tripUnavailable: 1
+    chargerACPower_W: 0
+     tripCoilPower_W: 0
+
+unserved_minus_2400=4.5474735088646412e-13
+JOB_END job023_dc_probe.m success=1
+
+JOB_START job024_dc_green.m
+Error using assert
+Reserve state must be rechargeable.
+
+Error in test_phase6_dc (line 79)
+assert(Y.SOC>.2 && Y.Ibattery_A<0 && Y.dcHealthy,'Reserve state must be rechargeable.');
+
+Error in job024_dc_green (line 4)
+test_phase6_dc;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job024_dc_green.m success=0
+
+JOB_START job025_dc_reserve_probe.m
+k=1 V=3.935022521 Ib=0.000000000 Ic=0.616691623 SOC=0.200000000000 lost=2397.573304576 stateIc=0.616691623
+k=5 V=19.287447881 Ib=0.000000000 Ic=3.022703800 SOC=0.200000000000 lost=2341.699757994 stateIc=3.022703800
+k=10 V=37.634235829 Ib=0.000000000 Ic=5.897988596 SOC=0.200000000000 lost=2178.033706242 stateIc=5.897988596
+k=50 V=123.750000000 Ib=0.000000000 Ic=19.393939394 SOC=0.200000000000 lost=0.000000000 stateIc=19.393939394
+k=100 V=123.750000000 Ib=0.000000000 Ic=19.393939394 SOC=0.200000000000 lost=0.000000000 stateIc=19.393939394
+k=1000 V=123.750000000 Ib=0.000000000 Ic=19.393939394 SOC=0.200000000000 lost=0.000000000 stateIc=19.393939394
+k=2000 V=123.750000000 Ib=0.000000000 Ic=19.393939394 SOC=0.200000000000 lost=0.000000000 stateIc=19.393939394
+JOB_END job025_dc_reserve_probe.m success=1
+
+JOB_START job026_dc_green.m
+PHASE6_DC_TESTS_PASS: current balance, battery/charger, pulse, AC failure, SOC, recovery.
+JOB_END job026_dc_green.m success=1
+
+JOB_START jobN_network01_load_selection.m
+LOAD_SELECTION_PASS included=3 P=14MW Q=8.67642073764MVAr excluded=LOAD_B0_4
+           handle: 263.003173828125
+        busNumber: 3
+            busID: '*4*'
+    generatorType: 'PV'
+             Pnom: 458000000
+             Vnom: 22000
+                P: 360000000
+                Q: 0
+             Qmin: -Inf
+             Qmax: Inf
+                S: 3.6 +     0.276217154990462i
+                I: 0.701351823186324 -     0.359972269783863i
+             Pmec: 360239717.011692
+               Vt: 0.921985869440552 -     0.387223522725505i
+               Vf: 1.78659091702559
+              th0: -61.5743984837169
+              dw0: 0
+
+  1x10 struct array with fields:
+
+    handle
+    ID
+    vbase
+    vref
+    angle
+    sm
+    asm
+    vsrc
+    pqload
+    rlcload
+    blocks
+    busType
+    Sref
+    Vbus
+    Sbus
+    Sgen
+    Spqload
+    Sshunt
+    Qmin
+    Qmax
+    QminReached
+    QmaxReached
+
+Error using jobN_network01_load_selection (line 21)
+The following two blocks cannot be connected in series:
+
+Block 1: 'Auxiliaries/Auxiliary bus fault/Fault A'
+Block 2: 'transfo_1_winding_2: Auxiliaries/GAT 10BBT20'
+
+The first block, modeled as a current source, cannot be connected in series with the inductive element of the second block.
+Add a high-value resistance in parallel with one of the two block.
+You can also specify high-value resistive snubbers if the blocks have a snubber device.You can avoid the use of the snubber by selecting
+the 'Continuous' simulation type in the Solver tab of the Powergui and deselecting the 'Disable ideal switching' option in the Preferences
+tab of Powergui block.
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END jobN_network01_load_selection.m success=0
+
+JOB_START job027_dc_final.m
+PHASE6_DC_TESTS_PASS: current balance, battery/charger, pulse, AC failure, SOC, recovery.
+JOB_END job027_dc_final.m success=1
+
+JOB_START jobN_network02_fault_snubber.m
+LOAD_SELECTION_PASS included=3 P=14MW Q=8.67642073764MVAr excluded=LOAD_B0_4
+           handle: 263.004760742188
+        busNumber: 3
+            busID: '*4*'
+    generatorType: 'PV'
+             Pnom: 458000000
+             Vnom: 22000
+                P: 360000000
+                Q: 0
+             Qmin: -Inf
+             Qmax: Inf
+                S: 3.6 +     0.276217276211634i
+                I: 0.701351810311178 -      0.35997229930349i
+             Pmec: 360239717.012923
+               Vt: 0.921985866615425 -      0.38722352945218i
+               Vf: 1.78659094628214
+              th0: -61.5744000742714
+              dw0: 0
+
+  1x10 struct array with fields:
+
+    handle
+    ID
+    vbase
+    vref
+    angle
+    sm
+    asm
+    vsrc
+    pqload
+    rlcload
+    blocks
+    busType
+    Sref
+    Vbus
+    Sbus
+    Sgen
+    Spqload
+    Sshunt
+    Qmin
+    Qmax
+    QminReached
+    QmaxReached
+
+  Simulink.SimulationOutput:
+                   tout: [1001x1 double] 
+
+     SimulationMetadata: [1x1 Simulink.SimulationMetadata] 
+           ErrorMessage: [0x0 char] 
+
+NETWORK_SNUBBER_COMPILE_AND_SIM_005_PASS
+JOB_END jobN_network02_fault_snubber.m success=1
+
+JOB_START job028_protection_wrappers_red.m
+Error using assert
+Measured relay/DC Level-2 wrappers must exist.
+
+Error in test_phase6_protection_sfunctions (line 4)
+assert(exist('phase6_relay_sfun','file')==2 && exist('phase6_dc_sfun','file')==2, ...
+
+Error in job028_protection_wrappers_red (line 4)
+test_phase6_protection_sfunctions;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END job028_protection_wrappers_red.m success=0
+
+JOB_START jobN_network03_normal_measurements.m
+Error using assert
+Normal terminal voltage outside 0.95-1.05pu.
+
+Error in jobN_network03_normal_measurements (line 32)
+assert(all(vn>12000 & vn<13400),'Normal terminal voltage outside 0.95-1.05pu.');
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END jobN_network03_normal_measurements.m success=0
+
+JOB_START jobM_measurement01_red.m
+Error using assert
+The fixed-frequency measurement helper must exist.
+
+Error in test_phase6_measurement (line 4)
+assert(exist('phase6_measurement_step','file')==2, ...
+
+Error in jobM_measurement01_red (line 6)
+test_phase6_measurement;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END jobM_measurement01_red.m success=0
+
+JOB_START jobN_network04_diagnose_normal.m
+DIAG Vrms=[3.10222374084e+13 9.85338459061e+13 9.08522479026e+13] genP_MW=-1.51851e+17 neutralRMS=5.42844e-05
+DIAG machine first=[1 0.785958895617 0.0603302886797] last=[-1772274416.82 1.32063382191e+16 1.64977417889e+16] rangeW=[-1772274416.82 1245.41713581]
+DIAG Vfirst=[-6954.06921165 -10864.1961841 17818.5776092] Vlast=[2.81461963337e+13 -7.6832713333e+13 4.86865186295e+13] IFirst=[-6118.77015346 -7265.0194076 13383.789561] ILast=[-41624015812.9 -41368027732.9 82992043545.7]
+JOB_END jobN_network04_diagnose_normal.m success=1
+
+JOB_START job029_protection_wrappers_green.m
+PHASE6_PROTECTION_SFUNCTIONS_PASS: compile, sensor mapping, trip, DC window, reset.
+JOB_END job029_protection_wrappers_green.m success=1
+
+JOB_START jobM_measurement02_green.m
+PHASE6_MEASUREMENT_SIMULINK_PASS: update compile; two 61-sample runs; first valid at 0.020 s.
+PHASE6_MEASUREMENT_TESTS_PASS: 114-channel phasor packing, cosine-reference angles, RMS scaling, absolute-clock synchronization, positive/negative/zero sequence, 3I0 residual, DC/harmonics, sliding-window reset, and Simulink compile/repeat simulation.
+JOB_END jobM_measurement02_green.m success=1
+
+JOB_START jobR_actuators01.m
+[Warning: Name is nonexistent or not a directory: C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\logs\jobs\Phase6\scripts\tests] 
+[> In path (line 109)
+In addpath>doPathAddition (line 126)
+In addpath (line 90)
+In jobR_actuators01 (line 1)
+In run (line 112)
+In phase6_session_worker (line 21)] 
+PHASE6_ACTUATOR_TESTS_PASS
+JOB_END jobR_actuators01.m success=1
+
+JOB_START jobR_integrated01.m
+Error using phase6_add_controls/select (line 137)
+Invalid parameter 'Indices' specified in 'PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL/DC Supply/Auxiliary phase voltage' for dimension 1. This
+parameter must be in the range 1 through 3
+
+Error in phase6_add_controls (line 52)
+sel=select(dc,'Auxiliary phase voltage',[55:57],[270 75 335 115]);line(dc,getRms,1,sel,1);
+
+Error in build_phase6_model (line 59)
+ctrl = phase6_add_controls(mdl,P,S,net,LF);
+
+Error in jobR_integrated01 (line 2)
+info=build_phase6_model('Scenario',struct('stopTime_s',.1));
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END jobR_integrated01.m success=0
+
+JOB_START jobN_network05_trapezoidal_robust.m
+SOLVER model=Trapezoidal robust legacy=Trapezoidal non iterative
+ROBUST_DIAG Vrms=[12701.7070197 12701.7035056 12701.7042834] P=359.953702MW neutral=1.39862706e-10A maxSpeedError=1.00369184e-08pu
+NETWORK_TRAPEZOIDAL_ROBUST_NORMAL_02_PASS
+JOB_END jobN_network05_trapezoidal_robust.m success=1
+
+JOB_START jobR_integrated02.m
+Error using phase6_add_controls/add (line 121)
+There is no block named 'simulink/Math Operations/Fcn'
+
+Error in phase6_add_controls (line 53)
+mag=add('simulink/Math Operations/Fcn',[dc '/AC supply magnitude'],[395 75 595 115]);set_param(mag,'Expr','sqrt((u(1)^2+u(2)^2+u(3)^2)/3)*sqrt(3)/6600');line(dc,sel,1,mag,1);
+
+Error in build_phase6_model (line 59)
+ctrl = phase6_add_controls(mdl,P,S,net,LF);
+
+Error in jobR_integrated02 (line 2)
+info=build_phase6_model('Scenario',struct('stopTime_s',.1));
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END jobR_integrated02.m success=0
+
+JOB_START jobN_network06_fresh_profiles.m
+PHASE3_BASELINE LFstatus=1 LFgenQ=27.6166455MVAr Vrms=[12701.7046853 12701.706212 12701.705546] P=359.953703MW neutral=5.93699366e-11A maxSpeedError=9.91051197e-09pu AUX_V=[3812.303736 3816.031668 3813.107971] AUX_P=14.0008036MW
+PHASE3_BASELINE_NORMAL_02_PASS
+PHASE5_STUDY LFstatus=1 LFgenQ=24.8200871MVAr Vrms=[12701.7106207 12701.7096645 12701.7101546] P=359.954246MW neutral=4.73601563e-11A maxSpeedError=6.39166322e-08pu AUX_V=[3814.904542 3813.243355 3812.822558] AUX_P=13.999631MW
+PHASE5_STUDY_NORMAL_02_PASS
+FRESH_NETWORK_PROFILES_LF_NORMAL_02_PASS
+JOB_END jobN_network06_fresh_profiles.m success=1
+
+JOB_START jobR_integrated03.m
+Error using phase6_add_controls/line (line 128)
+The destination port already has a line connection
+
+Error in phase6_add_controls/fr (line 132)
+        if nargin>=5,line(parent,p,1,dst,in);end
+
+Error in phase6_add_controls (line 99)
+fr(net.subsystems.generator,'Mechanical power input','P6_PM',[10 65 110 95],net.generator,1);
+
+Error in build_phase6_model (line 59)
+ctrl = phase6_add_controls(mdl,P,S,net,LF);
+
+Error in jobR_integrated03 (line 2)
+info=build_phase6_model('Scenario',struct('stopTime_s',.1));
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END jobR_integrated03.m success=0
+
+JOB_START jobR_integrated04.m
+INTEGRATED_MODEL_BUILD_PASS
+Error using save
+Cannot create 'integrated_normal.mat' because 'Phase6\logs' does not exist.
+
+Error in jobR_integrated04 (line 5)
+save('Phase6/logs/integrated_normal.mat','info','out','-v7.3');
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
+JOB_END jobR_integrated04.m success=0
+PHASE6_WORKER_STOPPED
+[Warning: Cannot close the model 'P6_NETWORK_TEST' because it has been changed. Use the command 'save_system' to first save the model] 
+[Warning: Cannot close the model 'P6_NETWORK_PHASE3_BASELINE' because it has been changed. Use the command 'save_system' to first save the
+model] 
+[Warning: Cannot close the model 'P6_NETWORK_PHASE5_STUDY' because it has been changed. Use the command 'save_system' to first save the
+model] 

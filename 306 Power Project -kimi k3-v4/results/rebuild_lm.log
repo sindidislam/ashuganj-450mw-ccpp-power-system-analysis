@@ -1,0 +1,12 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+=== BUILD Ashuganj_South_Main : case LF1 ===
+  Rated dispatch, GAT out of service
+  P(G1) = 389.30 MW (Rated) | GAT out | coupler closed | topology radial
+  backup : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\simulink\backups\Ashuganj_South_Main_v008.slx
+  powergui defaults: Pbase=100e6 f=60 UnitsV=kV UnitsW=MW ErrMax=1e-4 Iter=50
+  powergui set:      Pbase=100000000 f=50 Hz (frequencyindice=50 Hz)
+  blocks: 12   lines: 42   backups now: 8
+  saved  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\simulink\main\Ashuganj_South_Main.slx

@@ -1,0 +1,3610 @@
+PHASE-2 TASK 1 REVIEW PACKAGE
+STATUS: DONE_WITH_CONCERNS; recovered implementation retained, Task 1 only.
+Original RED: capability=0/4 generator=473/3 total=473/7.
+Original and fresh GREEN: capability=207/0 generator=476/0 base=39/0 total=722/0.
+Fresh targeted MATLAB and identity batches both exited 0. Baseline 915/0 and four LF captures inspected, not rerun.
+Review is direct self-review, not an independent/subagent review. No Tasks 2-6 or repository operations.
+The runtime-writing script below is HISTORICAL EVIDENCE: DO NOT RERUN it to recover completed work.
+Format: UTF-8 headers; raw file/diff contents copied byte-for-byte. BYTES excludes surrounding package separators.
+Diff exit 1 means differences (two authorized originals); exit 0 means identical (four frozen originals).
+Full report below documents signatures, interfaces, count breakdown, concerns, and deferred integration.
+
+TARGETED RERUN FROM WORKSPACE ROOT (use a new logfile; do not replace original evidence):
+matlab -wait -batch "addpath(genpath('matlab')); rehash; [a,b]=test_generator_capability(); [c,d]=test_generator_data(); [e,f]=test_base_conversion(); fprintf('TASK1_REVIEW capability=%d/%d generator=%d/%d base=%d/%d total=%d/%d\n',a,b,c,d,e,f,a+c+e,b+d+f); assert(isequal([a b c d e f],[207 0 476 0 39 0]));" -logfile "docs/validation/rev31_phase2/task-1-review-rerun.log"
+
+=== BEGIN DIFF matlab/ashuganj.m ===
+COMMAND: git -c core.autocrlf=false --no-pager diff --no-index --no-ext-diff --no-textconv --no-color -- "docs/validation/rev31_phase2/originals/matlab/ashuganj.m.original" "matlab/ashuganj.m"
+EXIT_CODE: 0
+BYTES: 0
+STDERR: 
+=== RAW DIFF BYTES ===
+
+=== END DIFF matlab/ashuganj.m ===
+
+=== BEGIN DIFF matlab/data/ashuganj_generators.m ===
+COMMAND: git -c core.autocrlf=false --no-pager diff --no-index --no-ext-diff --no-textconv --no-color -- "docs/validation/rev31_phase2/originals/matlab/data/ashuganj_generators.m.original" "matlab/data/ashuganj_generators.m"
+EXIT_CODE: 1
+BYTES: 3613
+STDERR: 
+=== RAW DIFF BYTES ===
+diff --git a/docs/validation/rev31_phase2/originals/matlab/data/ashuganj_generators.m.original b/matlab/data/ashuganj_generators.m
+index c5dd4d8..0c8b77d 100644
+--- a/docs/validation/rev31_phase2/originals/matlab/data/ashuganj_generators.m.original
++++ b/matlab/data/ashuganj_generators.m
+@@ -34,8 +34,25 @@ G.Legacy=struct('Dataset_ID','GEN-LEGACY-SIEMENS-SATURATED','Designation','LEGAC
+ G.Legacy.Source_document='Generator Data_South.pdf'; G.Legacy.Source_locator='PDF p.1 / report p.6 section 2.1.1'; G.Legacy.Saturation_condition='SATURATED';
+ for n={'Xd','Xdp','Xdpp'}, r=record(G.Legacy.Source_document,G.Legacy.Source_locator,G.Legacy.(n{1}),'pu',G.Legacy.Dataset_ID); r.Raw_value=100*G.Legacy.(n{1}); r.Raw_unit='%'; r.Base=G.Reactance_base; r.Designation=G.Legacy.Designation; r.Saturation_condition='SATURATED'; r.Interpretation_note='Explicit (sat.) source label; traceability only, not primary.'; G.Legacy.Provenance.(n{1})=r; end
+ G.LF_BusType='PV'; G.Vset_pu=1.00; G.Vset_Status='ENGINEERING_ASSUMPTION'; G.Vset_Note='AVR setpoint not documented';
+-G.Qmin_MVAr=-inf; G.Qmax_MVAr=inf; G.Qlim_Status='NOT_APPLICABLE'; G.Qlim_Note='Unconstrained until capability curve digitization is verified';
+-G.Qcurve_Status='AVAILABLE_NOT_DIGITIZED'; G.Qcurve_Source='Siemens Generator Protection Setting Report Attachment 1'; G.Qcurve_Note='Old PSAF scalar limits invalid';
++% Physical capability only: frozen PV builder solver settings stay unbounded
++% by explicit user approval. They are neither physical Q nor grounding data.
++G.capabilityCurve=struct('P_MW',[0 100 200 300 389.3 458], ...
++    'Qmax_MVAr',[335 329 311 280 241 0], 'Qmin_MVAr',[-231 -231 -220 -205 -182 0], ...
++    'status','PRIMARY_SOURCE_EXTRACTED', 'source_status','PRIMARY_SOURCE_EXTRACTED', ...
++    'source','Siemens Generator Protection Setting Report', 'source_locator','Attachment 1', ...
++    'extraction_method','MANUAL_GRAPH_EXTRACTION', 'extracted_by','USER', ...
++    'confirmation_date','2026-09-15', 'attachment_locally_inspected',false, ...
++    'confidence','User-confirmed graph extraction; graphical uncertainty not quantified', ...
++    'rationale','Six user-supplied graph readings, not directly tabulated manufacturer values; original attachment not locally inspected.', ...
++    'P_unit','MW', 'Q_unit','MVAr', 'interpolation','linear', 'extrapolation','REJECT', ...
++    'interpretation_status','QUALIFIED', ...
++    'applicability','Source envelope through 458 MW is not dispatch authorization; primary active capacity remains 360 MW.');
++[G.Qmin_MVAr,G.Qmax_MVAr]=generatorCapability(G.P_capacity_MW,G.capabilityCurve);
++G.Qlim_P_MW=G.P_capacity_MW;
++G.Qlim_Status='DERIVED_FROM_PRIMARY_SOURCE_EXTRACTED'; G.Qlim_Source_status=G.capabilityCurve.status;
++G.Qlim_Note='Physical compatibility bounds at Qlim_P_MW only; interpolate at actual dispatch. Frozen unconstrained solver is an approved exception, not physical capability.';
++G.Qcurve_Status=G.capabilityCurve.status; G.Qcurve_Source='Siemens Generator Protection Setting Report Attachment 1';
++G.Qcurve_Note='User-supplied manual graph extraction; attachment not locally inspected. Old PSAF scalar limits remain invalid.';
+ G.Uexc0_V=122; G.Uexc0_Status='VERIFIED_ENGINEERING_DOCUMENT'; G.Uexc0_Source='Generator Data South page 6';
+ G.SFC_DC_link_kV=2.28; G.SFC_DC_link_Status='VERIFIED_ENGINEERING_DOCUMENT'; G.SFC_Imax_A=1876; G.SFC_Imax_Status='VERIFIED_ENGINEERING_DOCUMENT';
+ G.I2max_pct=7.64; G.I2max_Status='VERIFIED_ENGINEERING_DOCUMENT'; G.K_negative_seq_s=7.41; G.K_negative_seq_Status='VERIFIED_ENGINEERING_DOCUMENT';
+
+=== END DIFF matlab/data/ashuganj_generators.m ===
+
+=== BEGIN DIFF matlab/data/ashuganj_master_data.m ===
+COMMAND: git -c core.autocrlf=false --no-pager diff --no-index --no-ext-diff --no-textconv --no-color -- "docs/validation/rev31_phase2/originals/matlab/data/ashuganj_master_data.m.original" "matlab/data/ashuganj_master_data.m"
+EXIT_CODE: 0
+BYTES: 0
+STDERR: 
+=== RAW DIFF BYTES ===
+
+=== END DIFF matlab/data/ashuganj_master_data.m ===
+
+=== BEGIN DIFF matlab/tests/run_all_tests.m ===
+COMMAND: git -c core.autocrlf=false --no-pager diff --no-index --no-ext-diff --no-textconv --no-color -- "docs/validation/rev31_phase2/originals/matlab/tests/run_all_tests.m.original" "matlab/tests/run_all_tests.m"
+EXIT_CODE: 0
+BYTES: 0
+STDERR: 
+=== RAW DIFF BYTES ===
+
+=== END DIFF matlab/tests/run_all_tests.m ===
+
+=== BEGIN DIFF matlab/tests/test_generator_data.m ===
+COMMAND: git -c core.autocrlf=false --no-pager diff --no-index --no-ext-diff --no-textconv --no-color -- "docs/validation/rev31_phase2/originals/matlab/tests/test_generator_data.m.original" "matlab/tests/test_generator_data.m"
+EXIT_CODE: 1
+BYTES: 6904
+STDERR: 
+=== RAW DIFF BYTES ===
+diff --git a/docs/validation/rev31_phase2/originals/matlab/tests/test_generator_data.m.original b/matlab/tests/test_generator_data.m
+index 47930ad..e9f623d 100644
+--- a/docs/validation/rev31_phase2/originals/matlab/tests/test_generator_data.m.original
++++ b/matlab/tests/test_generator_data.m
+@@ -55,18 +55,18 @@ for i = 1:size(spec,1)
+         T = T.eq(g.(name),expected,[name ' normalized workbook text']);
+     end
+     T = T.eq(g.(name),g.Primary.(name),[name ' compatibility view comes from PRIMARY']);
+-    r = g.Provenance.(name);
+-    if isnumeric(expected) && ~strcmp(name,'Ra_ohm')
+-        T = T.near(str2double(r.Raw_value),expected,1e-12,[name ' raw numeric source']);
+-    end
+-    if startsWith(name,'X')
+-        T = T.eq(r.Raw_unit,'pu',[name ' raw reactance unit']);
+-        T = T.eq(r.Normalized_unit,'pu',[name ' normalized reactance unit']);
+-        T = T.eq(r.Raw_group_heading,'Reactance in pu',[name ' raw reactance group']);
+-    elseif endsWith(name,'_s') && ~strcmp(name,'H_s')
+-        T = T.eq(r.Raw_unit,'sec',[name ' raw time unit']);
+-        T = T.eq(r.Normalized_unit,'s',[name ' normalized time unit']);
+-        T = T.eq(r.Raw_group_heading,'Time Constants (sec)',[name ' raw time group']);
++    r = g.Provenance.(name);
++    if isnumeric(expected) && ~strcmp(name,'Ra_ohm')
++        T = T.near(str2double(r.Raw_value),expected,1e-12,[name ' raw numeric source']);
++    end
++    if startsWith(name,'X')
++        T = T.eq(r.Raw_unit,'pu',[name ' raw reactance unit']);
++        T = T.eq(r.Normalized_unit,'pu',[name ' normalized reactance unit']);
++        T = T.eq(r.Raw_group_heading,'Reactance in pu',[name ' raw reactance group']);
++    elseif endsWith(name,'_s') && ~strcmp(name,'H_s')
++        T = T.eq(r.Raw_unit,'sec',[name ' raw time unit']);
++        T = T.eq(r.Normalized_unit,'s',[name ' normalized time unit']);
++        T = T.eq(r.Raw_group_heading,'Time Constants (sec)',[name ' raw time group']);
+     end
+     T = T.eq(r.Source_document,'Ahsuganj South (2).xlsx',[name ' workbook identity']);
+     T = T.eq(r.Source_sheet,'Ashuganj South ',[name ' exact sheet including trailing space']);
+@@ -82,43 +82,43 @@ end
+ T = T.near(g.xd_pct,178.3,1e-12,'percent view Xd = 178.3');
+ T = T.near(g.xdp_pct,32.56,1e-12,'percent view Xdp = 32.56');
+ T = T.near(g.xdpp_pct,26.08,1e-12,'percent view Xdpp = 26.08, not saturated');
+-if isfield(g,'Primary')
+-    headings={
+-['Snom_MVA'],['Total Rated MVA'];
+-['P_capacity_MW'],[' Capacity ' char(10) '(MW)'];
+-['Vnom_kV'],['Generating' char(10) ' kV'];
+-['H_s'],['Inertia Constant, H' char(10) '(kW-sec/kVA)'];
+-['SCR'],['Short circuit Ratio'];
+-['Xd'],['Xd'];
+-['Xdp'],['Xd'''];
+-['Xdpp'],['Xd"'];
+-['Xdpp_sat'],['Xd"(sat)'];
+-['Xq'],['Xq'];
+-['Xqp'],['Xq'''];
+-['Xqpp'],['Xq"'];
+-['Xl'],['Xl'];
+-['X2'],['X2 (sat)'];
+-['X0'],['X0 (sat)'];
+-['Ra_ohm'],['Ra'];
+-['Rf_numeric'],['Rf'];
+-['Td0p_s'],['T''d0'];
+-['Td0pp_s'],['T''''d0'];
+-['Tq0p_s'],['T''q0'];
+-['Tq0pp_s'],['T''''q0'];
+-['Tdp_s'],['T''d'];
+-['Tdpp_s'],['T''''d'];
+-['Tqp_s'],['T''q'];
+-['Tqpp_s'],['T''''q'];
+-['Ta_s'],['Ta or Ta(3)'];
+-['S10'],['S(1.0)'];
+-['S12'],['S(1.2)'];
+-['Excitation_type'],['excitation system type and parameter  '];
+-['Excitation_designation'],['excitation controllers type and their detailed description, structural scheme and settings'];
+-    };
+-    for j=1:size(headings,1)
+-        T = T.eq(g.Provenance.(headings{j,1}).Raw_heading,headings{j,2},[headings{j,1} ' exact workbook heading']);
++if isfield(g,'Primary')
++    headings={
++['Snom_MVA'],['Total Rated MVA'];
++['P_capacity_MW'],[' Capacity ' char(10) '(MW)'];
++['Vnom_kV'],['Generating' char(10) ' kV'];
++['H_s'],['Inertia Constant, H' char(10) '(kW-sec/kVA)'];
++['SCR'],['Short circuit Ratio'];
++['Xd'],['Xd'];
++['Xdp'],['Xd'''];
++['Xdpp'],['Xd"'];
++['Xdpp_sat'],['Xd"(sat)'];
++['Xq'],['Xq'];
++['Xqp'],['Xq'''];
++['Xqpp'],['Xq"'];
++['Xl'],['Xl'];
++['X2'],['X2 (sat)'];
++['X0'],['X0 (sat)'];
++['Ra_ohm'],['Ra'];
++['Rf_numeric'],['Rf'];
++['Td0p_s'],['T''d0'];
++['Td0pp_s'],['T''''d0'];
++['Tq0p_s'],['T''q0'];
++['Tq0pp_s'],['T''''q0'];
++['Tdp_s'],['T''d'];
++['Tdpp_s'],['T''''d'];
++['Tqp_s'],['T''q'];
++['Tqpp_s'],['T''''q'];
++['Ta_s'],['Ta or Ta(3)'];
++['S10'],['S(1.0)'];
++['S12'],['S(1.2)'];
++['Excitation_type'],['excitation system type and parameter  '];
++['Excitation_designation'],['excitation controllers type and their detailed description, structural scheme and settings'];
++    };
++    for j=1:size(headings,1)
++        T = T.eq(g.Provenance.(headings{j,1}).Raw_heading,headings{j,2},[headings{j,1} ' exact workbook heading']);
+     end
+-    T = T.chk(g.Xd > g.Xdp && g.Xdp > g.Xdpp,'retained d-axis ordering check');
++    T = T.chk(g.Xd > g.Xdp && g.Xdp > g.Xdpp,'retained d-axis ordering check');
+     T = T.chk(g.Xdpp ~= g.Xdpp_sat,'unqualified and saturated Xdpp are distinct');
+     T = T.near(g.Ra_pu_machine,0.000842190082644628,1e-12,'machine-base Ra');
+     T = T.chk(g.Ra_ohm ~= g.Ra_pu_machine,'ohm and pu resistance are distinct');
+@@ -166,18 +166,15 @@ T = T.chk(contains(g.Earthing,'High resistance') && contains(g.Earthing,'NER'),
+ % ---- load-flow treatment ----------------------------------------------
+ T = T.eq(g.LF_BusType, 'PV', 'modelled as a PV bus');
+ T = T.eq(g.Vset_pu, 1.00, 'terminal voltage setpoint 1.00 pu (approved assumption)');
+-% Q3a rejected the CYME diesel-generator Q-limit template outright, so the
+-% machine is UNCONSTRAINED in reactive power - not missing one. The distinction
+-% is deliberate and is the reason the status is NOT_APPLICABLE rather than
+-% MISSING: a limit that was never asked for is not a gap in the data. NaN would
+-% have been wrong here, and would also have propagated into the solver as a
+-% genuinely undefined bound.
+-T = T.eq(g.Qmin_MVAr, -inf, ...
+-    'Qmin = -inf: reactive power UNCONSTRAINED, Q3a rejected the diesel template');
+-T = T.eq(g.Qmax_MVAr, +inf, ...
+-    'Qmax = +inf: reactive power UNCONSTRAINED, Q3a rejected the diesel template');
+-T = T.eq(g.Qlim_Status, 'NOT_APPLICABLE', ...
+-    'and the status is NOT_APPLICABLE, not MISSING - unconstrained is not a data gap');
++% Physical limits at primary 360 MW now come from the extracted source curve.
++% Frozen builder unbounded solver settings remain an approved exception;
++% these physical metadata fields must not be confused with solver controls.
++T = T.near(g.Qmin_MVAr, -205+60*23/89.3, 1e-12, ...
++    'finite physical Qmin at primary 360 MW from source interpolation');
++T = T.near(g.Qmax_MVAr, 280-60*39/89.3, 1e-12, ...
++    'finite physical Qmax at primary 360 MW from source interpolation');
++T = T.eq(g.Qlim_Status, 'DERIVED_FROM_PRIMARY_SOURCE_EXTRACTED', ...
++    'physical bounds retain graph-extraction derivation status');
+ T = T.chk(contains(g.Model_block, 'Source'), ...
+     'modelled with a Three-Phase Source, not a Synchronous Machine block');
+ 
+
+=== END DIFF matlab/tests/test_generator_data.m ===
+
+=== BEGIN DIFF matlab/tests/test_topology.m ===
+COMMAND: git -c core.autocrlf=false --no-pager diff --no-index --no-ext-diff --no-textconv --no-color -- "docs/validation/rev31_phase2/originals/matlab/tests/test_topology.m.original" "matlab/tests/test_topology.m"
+EXIT_CODE: 0
+BYTES: 0
+STDERR: 
+=== RAW DIFF BYTES ===
+
+=== END DIFF matlab/tests/test_topology.m ===
+
+=== BEGIN FILE matlab/data/ashuganj_generators.m ===
+BYTES: 14912
+SHA256: 5C128F4B4118207A6C415E37C9BFE8047529C7FC420668768ABFE967B248C90A
+=== RAW FILE BYTES ===
+function G = ashuganj_generators()
+%ASHUGANJ_GENERATORS Generator registry for Ashuganj South.
+G.Name='G1'; G.Label='G1 SGen5-2000H'; G.KKS='10MKA10'; G.Bus='B22';
+G.Manufacturer='Siemens'; G.Model='SGen5-2000H'; G.Train='SCC5-PAC 4000F/3000 1S single shaft'; G.Train_Status='VERIFIED_ENGINEERING_DOCUMENT';
+%% REV3.1 workbook-primary registry. Legacy retained; LF physics unchanged.
+[P, provenance] = primary_workbook();
+G.Primary=P; G.Provenance=provenance; G.Dataset_ID='GEN-R31-WORKBOOK-ROW3'; G.Designation='PRIMARY';
+names=fieldnames(P); for k=1:numel(names), G.(names{k})=P.(names{k}); end
+G.Vnom_V=G.Vnom_kV*1000; G.Vnom_Status='VERIFIED_PROJECT_DATA'; G.Vnom_Source='Ahsuganj South (2).xlsx D3';
+G.Snom_Status='VERIFIED_PROJECT_DATA'; G.Snom_Source='Ahsuganj South (2).xlsx C3';
+G.Smax_MVA=518; G.Smax_Status='VERIFIED_ENGINEERING_DOCUMENT'; G.Smax_Source='Generator protection report'; G.Smax_Note='Maximum at 30 C cold gas';
+G.pf=0.85; G.pf_Status='VERIFIED_PLANT'; G.pf_Source='Generator nameplate';
+G.Inom_A=12019; G.Inom_Status='VERIFIED_PLANT'; G.Inom_Source='Generator nameplate';
+G.f_Hz=50; G.f_Status='VERIFIED_PLANT'; G.f_Source='Generator nameplate';
+G.Winding='YY'; G.Winding_Status='VERIFIED_PLANT'; G.Earthing='High resistance through NER 10BAB11'; G.Earthing_Status='VERIFIED_PLANT'; G.H2_pressure_barg=5; G.H2_Status='VERIFIED_PLANT';
+G.PF_rated=G.pf; G.P_pf_reference_MW=G.Snom_MVA*G.PF_rated;
+G.P_owner_derated_MW=342.01; G.P_owner_derated_Boundary_status='QUALIFIED';
+G.P_owner_derated_Note='Owner Site De-rated Active Power (P_net); exact boundary unresolved, not established net export or generator-terminal power.';
+G.Machine_base=struct('S_MVA',G.Snom_MVA,'V_kV',G.Vnom_kV,'Status','QUALIFIED','Note','Base interpreted from row rating; no separate literal base declaration.');
+G.Reactance_base='Own rating 458 MVA 22 kV (selected interpretation)'; G.Reactance_base_Status='QUALIFIED';
+names={'Xd','Xdp','Xdpp','Xdpp_sat','Xq','Xqp','Xqpp','Xl','X2','X0'};
+for k=1:numel(names), n=names{k}; G.([lower(n) '_pct'])=100*G.(n); G.([lower(n) '_Status'])='VERIFIED_PROJECT_DATA'; end
+G.System_base=struct('S_MVA',100,'V_kV',G.Vnom_kV,'Status','ENGINEERING_ASSUMPTION');
+G.Zbase_machine_ohm=G.Vnom_kV^2/G.Snom_MVA; G.Zbase_100MVA_ohm=G.Vnom_kV^2/G.System_base.S_MVA;
+G.Ra_pu_machine=G.Ra_ohm/G.Zbase_machine_ohm; G.Ra_pu_100MVA=G.Ra_ohm/G.Zbase_100MVA_ohm;
+G.Xdpp_100MVA=G.Xdpp*G.System_base.S_MVA/G.Snom_MVA; G.Xdpp_sat_100MVA=G.Xdpp_sat*G.System_base.S_MVA/G.Snom_MVA;
+G.Ra_pu=G.Ra_pu_machine; G.Ra_Status='DERIVED_FROM_VERIFIED_DATA';
+G.H_MWs_per_MVA=G.H_s; G.H_Status='VERIFIED_PROJECT_DATA'; G.Td0p_Status='VERIFIED_PROJECT_DATA';
+G.Rf_Interpretation_status='QUALIFIED'; G.Rf_Field_base='UNRESOLVED';
+G.Controller_parameters_Status='MISSING'; G.OCC_Status='MISSING';
+G.Missing=struct('XD_damper',NaN,'XQ_damper',NaN,'Xf',NaN,'RD_damper',NaN,'RQ_damper',NaN,'Ta1_s',NaN,'Damping',NaN);
+G.Missing_Source_cells=struct('XD_damper','R3','XQ_damper','S3','Xf','T3','RD_damper','W3','RQ_damper','X3','Ta1_s','AH3','Damping','NOT_SUPPLIED');
+G.Legacy=struct('Dataset_ID','GEN-LEGACY-SIEMENS-SATURATED','Designation','LEGACY / SATURATED SOURCE DATA','Selected_primary',false,'Xd',1.663,'Xdp',0.2865,'Xdpp',0.2248);
+G.Legacy.Source_document='Generator Data_South.pdf'; G.Legacy.Source_locator='PDF p.1 / report p.6 section 2.1.1'; G.Legacy.Saturation_condition='SATURATED';
+for n={'Xd','Xdp','Xdpp'}, r=record(G.Legacy.Source_document,G.Legacy.Source_locator,G.Legacy.(n{1}),'pu',G.Legacy.Dataset_ID); r.Raw_value=100*G.Legacy.(n{1}); r.Raw_unit='%'; r.Base=G.Reactance_base; r.Designation=G.Legacy.Designation; r.Saturation_condition='SATURATED'; r.Interpretation_note='Explicit (sat.) source label; traceability only, not primary.'; G.Legacy.Provenance.(n{1})=r; end
+G.LF_BusType='PV'; G.Vset_pu=1.00; G.Vset_Status='ENGINEERING_ASSUMPTION'; G.Vset_Note='AVR setpoint not documented';
+% Physical capability only: frozen PV builder solver settings stay unbounded
+% by explicit user approval. They are neither physical Q nor grounding data.
+G.capabilityCurve=struct('P_MW',[0 100 200 300 389.3 458], ...
+    'Qmax_MVAr',[335 329 311 280 241 0], 'Qmin_MVAr',[-231 -231 -220 -205 -182 0], ...
+    'status','PRIMARY_SOURCE_EXTRACTED', 'source_status','PRIMARY_SOURCE_EXTRACTED', ...
+    'source','Siemens Generator Protection Setting Report', 'source_locator','Attachment 1', ...
+    'extraction_method','MANUAL_GRAPH_EXTRACTION', 'extracted_by','USER', ...
+    'confirmation_date','2026-09-15', 'attachment_locally_inspected',false, ...
+    'confidence','User-confirmed graph extraction; graphical uncertainty not quantified', ...
+    'rationale','Six user-supplied graph readings, not directly tabulated manufacturer values; original attachment not locally inspected.', ...
+    'P_unit','MW', 'Q_unit','MVAr', 'interpolation','linear', 'extrapolation','REJECT', ...
+    'interpretation_status','QUALIFIED', ...
+    'applicability','Source envelope through 458 MW is not dispatch authorization; primary active capacity remains 360 MW.');
+[G.Qmin_MVAr,G.Qmax_MVAr]=generatorCapability(G.P_capacity_MW,G.capabilityCurve);
+G.Qlim_P_MW=G.P_capacity_MW;
+G.Qlim_Status='DERIVED_FROM_PRIMARY_SOURCE_EXTRACTED'; G.Qlim_Source_status=G.capabilityCurve.status;
+G.Qlim_Note='Physical compatibility bounds at Qlim_P_MW only; interpolate at actual dispatch. Frozen unconstrained solver is an approved exception, not physical capability.';
+G.Qcurve_Status=G.capabilityCurve.status; G.Qcurve_Source='Siemens Generator Protection Setting Report Attachment 1';
+G.Qcurve_Note='User-supplied manual graph extraction; attachment not locally inspected. Old PSAF scalar limits remain invalid.';
+G.Uexc0_V=122; G.Uexc0_Status='VERIFIED_ENGINEERING_DOCUMENT'; G.Uexc0_Source='Generator Data South page 6';
+G.SFC_DC_link_kV=2.28; G.SFC_DC_link_Status='VERIFIED_ENGINEERING_DOCUMENT'; G.SFC_Imax_A=1876; G.SFC_Imax_Status='VERIFIED_ENGINEERING_DOCUMENT';
+G.I2max_pct=7.64; G.I2max_Status='VERIFIED_ENGINEERING_DOCUMENT'; G.K_negative_seq_s=7.41; G.K_negative_seq_Status='VERIFIED_ENGINEERING_DOCUMENT';
+G.Dispatch.Rated.P_MW=G.P_pf_reference_MW; G.Dispatch.Rated.Status='DERIVED_FROM_VERIFIED_DATA'; G.Dispatch.Rated.Source='458 MVA times 0.85'; G.Dispatch.Rated.Label='Legacy PF reference, not capacity'; G.Dispatch.Rated.Designation='LEGACY_CASE_REFERENCE';
+G.Dispatch.Derated.P_MW=G.P_owner_derated_MW; G.Dispatch.Derated.Status='VERIFIED_PROJECT_DATA'; G.Dispatch.Derated.Source='Project data derated reference'; G.Dispatch.Derated.Label='Qualified owner/site scenario'; G.Dispatch.Derated.Boundary_status='QUALIFIED';
+G.Dispatch_Note='Neither case is measured. LF1-LF4 frozen in Phase 1; capacity guard/case migration requires Phase 2 authorization.';
+G.Model_block='sps_lib/Sources/Three-Phase Source'; G.Model_treatment='ideal'; G.Model_treatment_Note='Balanced load flow PV representation';
+assert(abs(sqrt(3)*G.Vnom_V*G.Inom_A/1e6-G.Snom_MVA)/G.Snom_MVA < 0.005);
+assert(abs(G.Snom_MVA*G.pf-G.Dispatch.Rated.P_MW) < 0.01);
+G=additional_provenance(G);
+end
+
+function [P, records]=primary_workbook()
+% Verified read-only workbook transcription. Raw numeric serialization retained.
+rows={
+'Snom_MVA',458,'C3','Total Rated MVA','458','MVA','MVA';
+'P_capacity_MW',360,'B3',[' Capacity ' char(10) '(MW)'],'360','MW','MW';
+'Vnom_kV',22,'D3',['Generating' char(10) ' kV'],'22','kV','kV';
+'H_s',5.2869999999999999,'F3',['Inertia Constant, H' char(10) '(kW-sec/kVA)'],'5.2869999999999999','kW-sec/kVA','s';
+'SCR',0.60099999999999998,'G3','Short circuit Ratio','0.60099999999999998','dimensionless','dimensionless';
+'Xd',1.7829999999999999,'H3','Xd','1.7829999999999999','pu','pu';
+'Xdp',0.3256,'I3','Xd''','0.3256','pu','pu';
+'Xdpp',0.26079999999999998,'J3','Xd"','0.26079999999999998','pu','pu';
+'Xdpp_sat',0.2248,'K3','Xd"(sat)','0.2248','pu','pu';
+'Xq',1.7509999999999999,'L3','Xq','1.7509999999999999','pu','pu';
+'Xqp',0.50870000000000004,'M3','Xq''','0.50870000000000004','pu','pu';
+'Xqpp',0.25929999999999997,'N3','Xq"','0.25929999999999997','pu','pu';
+'Xl',0.20269999999999999,'O3','Xl','0.20269999999999999','pu','pu';
+'X2',0.22420000000000001,'P3','X2 (sat)','0.22420000000000001','pu','pu';
+'X0',0.128,'Q3','X0 (sat)','0.128','pu','pu';
+'Ra_ohm',0.00089,'U3','Ra','0.00089 ohm','ohm','ohm';
+'Rf_numeric',0.10631,'V3','Rf','0.10631','pu or ohm (unresolved)','UNRESOLVED';
+'Td0p_s',7.5469999999999997,'Y3','T''d0','7.5469999999999997','sec','s';
+'Td0pp_s',4.4999999999999998E-2,'Z3','T''''d0','4.4999999999999998E-2','sec','s';
+'Tq0p_s',0.83899999999999997,'AA3','T''q0','0.83899999999999997','sec','s';
+'Tq0pp_s',7.0000000000000007E-2,'AB3','T''''q0','7.0000000000000007E-2','sec','s';
+'Tdp_s',1.2130000000000001,'AC3','T''d','1.2130000000000001','sec','s';
+'Tdpp_s',3.5000000000000003E-2,'AD3','T''''d','3.5000000000000003E-2','sec','s';
+'Tqp_s',0.214,'AE3','T''q','0.214','sec','s';
+'Tqpp_s',3.5000000000000003E-2,'AF3','T''''q','3.5000000000000003E-2','sec','s';
+'Ta_s',0.70399999999999996,'AG3','Ta or Ta(3)','0.70399999999999996','sec','s';
+'S10',8.6499999999999994E-2,'AI3','S(1.0)','8.6499999999999994E-2','dimensionless','dimensionless';
+'S12',0.40799999999999997,'AJ3','S(1.2)','0.40799999999999997','dimensionless','dimensionless';
+'Excitation_type','Static','AS3','excitation system type and parameter  ','Static ','text','text';
+'Excitation_designation','SEMIPOL','AT3','excitation controllers type and their detailed description, structural scheme and settings','SEMIPOL ','text','text';
+};
+P=struct(); records=struct();
+for k=1:size(rows,1)
+    n=rows{k,1}; P.(n)=rows{k,2};
+    r=record('Ahsuganj South (2).xlsx','row 3',P.(n),rows{k,7},'GEN-R31-WORKBOOK-ROW3');
+    r.Source_sheet='Ashuganj South '; r.Source_cell=rows{k,3}; r.Raw_heading=rows{k,4};
+    r.Raw_value=rows{k,5}; r.Raw_unit=rows{k,6}; r.Source_status='VERIFIED_PROJECT_DATA';
+    r.Source_SHA256='6D4286B9D0B771CEE80FB305F3C0AE7B9D34CC1EA8A3B8F2F022BA0D07240A60';
+    if startsWith(n,'X')
+        r.Raw_group_heading='Reactance in pu'; r.Base='458 MVA / 22 kV machine (interpreted)';
+        r.Interpretation_status='QUALIFIED'; r.Saturation_condition='UNQUALIFIED_IN_SOURCE';
+        r.Interpretation_note='Machine base selected from C3/D3; unqualified reactance is not a literal unsaturated declaration.';
+        if ismember(n,{'Xdpp_sat','X2','X0'}), r.Saturation_condition='SATURATED'; end
+    elseif startsWith(n,'T')
+        r.Raw_group_heading='Time Constants (sec)';
+    elseif ismember(n,{'S10','S12'})
+        r.Raw_group_heading='Saturation data'; r.Interpretation_note='Source coefficients only, not a full measured OCC.';
+    elseif startsWith(n,'Excitation')
+        r.Raw_group_heading='Excitation'; r.Interpretation_note='Type/designation only; not verified controller parameters or a validated controller model.';
+    end
+    if strcmp(n,'H_s')
+        r.Raw_group_heading='Combined Inertia data of Generator and Turbine'; r.Base='458 MVA selected train base';
+        r.Interpretation_note='H is combined turbine-generator inertia; kW-sec/kVA equals seconds.';
+    elseif strcmp(n,'Ra_ohm')
+        r.Raw_group_heading='Resistance in pu or ohm'; r.Interpretation_note='Cell explicitly states ohm; temperature/test conditions not supplied.';
+    elseif strcmp(n,'Rf_numeric')
+        r.Raw_group_heading='Resistance in pu or ohm'; r.Base='UNRESOLVED FIELD BASE'; r.Interpretation_status='QUALIFIED';
+        r.Confidence='High numeric / qualified unit'; r.Interpretation_note='Numeric preserved; unit and field base unresolved. Never use stator-base conversion or identify a detailed rotor circuit.';
+    elseif strcmp(n,'Ta_s')
+        r.Interpretation_note='Ta or Ta(3) retained; Ta(1) is separately blank at AH3.';
+    end
+    records.(n)=r;
+end
+end
+
+function r=record(doc,locator,value,unit,dataset)
+r=struct('Source_document',doc,'Source_sheet','NOT_APPLICABLE','Source_cell','NOT_APPLICABLE', ...
+    'Source_locator',locator,'Source_SHA256','NOT_RECORDED','Raw_value',value,'Raw_unit',unit, ...
+    'Raw_heading',locator,'Raw_group_heading','','Normalized_value',value,'Normalized_unit',unit, ...
+    'Base','NOT_APPLICABLE','Source_status','VERIFIED_ENGINEERING_DOCUMENT','Confidence','High', ...
+    'Dataset_ID',dataset,'Designation','PRIMARY','Interpretation_status','DIRECT', ...
+    'Interpretation_note','Verified source data; no physical model validation implied.', ...
+    'Saturation_condition','NOT_APPLICABLE','Derivation','');
+end
+
+function G=additional_provenance(G)
+r=record('Generator Name Plate_South.pdf','p.2',G.PF_rated,'dimensionless',G.Dataset_ID); r.Source_status='VERIFIED_PLANT'; r.Interpretation_note='Rated/reference PF, not operating PF control.'; G.Provenance.PF_rated=r;
+r=record('Generator Data_South.pdf','PDF p.1 / report p.6 section 2.1.1',G.P_pf_reference_MW,'MW',G.Dataset_ID); r.Source_status='DERIVED_FROM_VERIFIED_DATA'; r.Derivation='Snom_MVA * PF_rated'; r.Interpretation_note='PF-derived/OEM reference, NOT primary active-power capacity.'; G.Provenance.P_pf_reference_MW=r;
+r=record('Google Sheet Form_Filled Up By APSCL.pdf','Site De-rated Active Power / P_net',G.P_owner_derated_MW,'MW',G.Dataset_ID); r.Source_status='VERIFIED_PROJECT_DATA'; r.Interpretation_status='QUALIFIED'; r.Interpretation_note=G.P_owner_derated_Note; G.Provenance.P_owner_derated_MW=r;
+r=record('Generator Data_South.pdf','PDF p.1 / report p.6 NER',G.Earthing,'text',G.Dataset_ID); r.Interpretation_note='High-resistance NER 10BAB11; workbook AQ3 Solid Ground belongs to GSUT, not generator.'; G.Provenance.Earthing=r;
+spec={'Zbase_machine_ohm','C3,D3','ohm','Vnom_kV^2 / Snom_MVA','458 MVA / 22 kV';
+'Zbase_100MVA_ohm','D3','ohm','Vnom_kV^2 / 100','100 MVA / 22 kV';
+'Ra_pu_machine','U3,C3,D3','pu','Ra_ohm / Zbase_machine_ohm','458 MVA / 22 kV';
+'Ra_pu_100MVA','U3,D3','pu','Ra_ohm / Zbase_100MVA_ohm','100 MVA / 22 kV';
+'Xdpp_100MVA','J3,C3,D3','pu','Xdpp * 100 / Snom_MVA','100 MVA / 22 kV';
+'Xdpp_sat_100MVA','K3,C3,D3','pu','Xdpp_sat * 100 / Snom_MVA','100 MVA / 22 kV'};
+for k=1:size(spec,1)
+    n=spec{k,1}; r=G.Provenance.Ra_ohm; r.Source_cell=spec{k,2};
+    r.Raw_value='DERIVED: see source cells and equation'; r.Raw_unit='source units';
+    r.Raw_heading='Derived view'; r.Raw_group_heading='';
+    r.Normalized_value=G.(n); r.Normalized_unit=spec{k,3}; r.Base=spec{k,5};
+    r.Source_status='DERIVED_FROM_VERIFIED_DATA'; r.Interpretation_status='QUALIFIED'; r.Derivation=spec{k,4};
+    r.Interpretation_note='Single conversion from primary machine data; 100 MVA reporting base is an assumption.';
+    G.Provenance.(n)=r;
+end
+G.Provenance.Xdpp_100MVA.Saturation_condition=G.Provenance.Xdpp.Saturation_condition;
+G.Provenance.Xdpp_sat_100MVA.Saturation_condition=G.Provenance.Xdpp_sat.Saturation_condition;
+end
+
+=== END FILE matlab/data/ashuganj_generators.m ===
+
+=== BEGIN FILE matlab/data/generatorCapability.m ===
+BYTES: 1859
+SHA256: 4BBA4F5197AB3179EACEFF8DAA2DA8BE5E47D027BEBA3B28ED1786B87DF4295B
+=== RAW FILE BYTES ===
+function [Qmin_MVAr,Qmax_MVAr] = generatorCapability(P_MW,curve)
+%GENERATORCAPABILITY Piecewise-linear physical capability, lower then upper.
+% [Qmin_MVAr,Qmax_MVAr] = generatorCapability(P_MW [,curve])
+% P_MW is a nonempty real finite numeric array in [0,458] MW. Output arrays
+% retain its shape. No extrapolation, clipping or dispatch authorization.
+% Optional scalar curve has numeric vector fields P_MW, Qmin_MVAr,
+% Qmax_MVAr, equal lengths >=2, strictly increasing P from 0 to 458,
+% finite real entries and ordered Q bounds. It supports provider construction
+% without recursion. Omitted curve comes from ashuganj_generators().
+if ~isnumeric(P_MW) || isempty(P_MW) || ~isreal(P_MW) || ...
+        any(~isfinite(P_MW(:))) || any(P_MW(:)<0 | P_MW(:)>458)
+    error('generatorCapability:InvalidP','P must be real finite numeric MW in [0,458].');
+end
+if nargin < 2
+    G = ashuganj_generators();
+    curve = G.capabilityCurve;
+end
+fields = {'P_MW','Qmin_MVAr','Qmax_MVAr'};
+if ~isstruct(curve) || ~isscalar(curve) || ~all(isfield(curve,fields))
+    error('generatorCapability:InvalidCurve','Curve must contain P and both Q bounds.');
+end
+for k=1:numel(fields)
+    v = curve.(fields{k});
+    if ~isnumeric(v) || ~isvector(v) || ~isreal(v) || numel(v)<2 || any(~isfinite(v(:)))
+        error('generatorCapability:InvalidCurve','Curve fields must be real finite numeric vectors.');
+    end
+end
+p = double(curve.P_MW(:)); lo = double(curve.Qmin_MVAr(:)); hi = double(curve.Qmax_MVAr(:));
+if numel(p)~=numel(lo) || numel(p)~=numel(hi) || ...
+        any(diff(p)<=0) || p(1)~=0 || p(end)~=458 || any(lo>hi)
+    error('generatorCapability:InvalidCurve','Curve lengths, domain or bound ordering are invalid.');
+end
+Qmin_MVAr = reshape(interp1(p,lo,double(P_MW(:)),'linear'),size(P_MW));
+Qmax_MVAr = reshape(interp1(p,hi,double(P_MW(:)),'linear'),size(P_MW));
+end
+
+=== END FILE matlab/data/generatorCapability.m ===
+
+=== BEGIN FILE matlab/data/phase2_parameter.m ===
+BYTES: 2875
+SHA256: 8E67D4883D25953992578C654FBCF7D2B603B6D78B71185EC95AFF6830482EA9
+=== RAW FILE BYTES ===
+function r = phase2_parameter(value,unit,source,source_locator,status,confidence,rationale,varargin)
+%PHASE2_PARAMETER Construct a normalized lowercase metadata record.
+% r = phase2_parameter(value,unit,source,source_locator,status,confidence,
+%                      rationale,Name,Value,...)
+% Seven required inputs: numeric/text value and six nonempty text metadata
+% fields. Names: assumption_basis (default NOT_APPLICABLE), reasonable_range
+% and assumed_range (default []), source_status (default status), derivation
+% (default ''), interpretation_status (default DIRECT). selected_value=value.
+% ENGINEERING_ASSUMPTION requires finite real numeric value, explicit basis,
+% and finite ordered [lower upper] ranges; assumed range must be contained
+% within reasonable range and contain every selected value. Degenerate
+% ranges are permitted for an explicitly fixed approved assumption.
+% Source records may retain NaN for MISSING and UNRESOLVED units. This helper
+% never invents units, replaces missing evidence or upgrades source status.
+p = inputParser;
+p.FunctionName = 'phase2_parameter';
+p.PartialMatching = false;
+text = @(x) (ischar(x) && isrow(x) && ~isempty(strtrim(x))) || ...
+    (isstring(x) && isscalar(x) && ~ismissing(x) && strlength(strtrim(x))>0);
+p.addRequired('value',@(x) isnumeric(x) || islogical(x) || ischar(x) || isstring(x));
+p.addRequired('unit',text); p.addRequired('source',text);
+p.addRequired('source_locator',text); p.addRequired('status',text);
+p.addRequired('confidence',text); p.addRequired('rationale',text);
+p.addParameter('assumption_basis','NOT_APPLICABLE',text);
+p.addParameter('reasonable_range',[],@isnumeric);
+p.addParameter('assumed_range',[],@isnumeric);
+p.addParameter('source_status',status,text);
+p.addParameter('derivation','',@(x) ischar(x) || (isstring(x) && isscalar(x)));
+p.addParameter('interpretation_status','DIRECT',text);
+p.parse(value,unit,source,source_locator,status,confidence,rationale,varargin{:});
+r = p.Results;
+for name = {'unit','source','source_locator','status','confidence','rationale', ...
+        'assumption_basis','source_status','derivation','interpretation_status'}
+    r.(name{1}) = char(r.(name{1}));
+end
+r.selected_value = value;
+if strcmp(r.status,'ENGINEERING_ASSUMPTION')
+    a = r.assumed_range; b = r.reasonable_range;
+    valid = isnumeric(value) && ~isempty(value) && isreal(value) && all(isfinite(value(:))) && ...
+        ~strcmp(r.assumption_basis,'NOT_APPLICABLE') && ...
+        isreal(a) && numel(a)==2 && all(isfinite(a(:))) && a(1)<=a(2) && ...
+        isreal(b) && numel(b)==2 && all(isfinite(b(:))) && b(1)<=b(2);
+    if ~valid || a(1)<b(1) || a(2)>b(2) || any(value(:)<a(1) | value(:)>a(2))
+        error('phase2_parameter:InvalidAssumption', ...
+            'Assumptions require finite selected values, explicit basis and consistent containing ranges.');
+    end
+end
+end
+
+=== END FILE matlab/data/phase2_parameter.m ===
+
+=== BEGIN FILE matlab/data/phase2_source_data.m ===
+BYTES: 6074
+SHA256: 42E344436CC17ED03A92079B90102FFDE84CB4EBB561B955A901004D1A05ECDF
+=== RAW FILE BYTES ===
+function S = phase2_source_data(G)
+%PHASE2_SOURCE_DATA Read-only normalized Task-1 source/provenance view.
+% S = phase2_source_data() uses ashuganj_generators(); S=phase2_source_data(G)
+% accepts that scalar generator record, never an assembled master dataset.
+% No provider is modified. S.generator has one parameter record per field
+% in G.Provenance, each with raw_provenance retaining the full original.
+% Other groups: capabilityCurve (same authoritative object), excitation,
+% sfc, ner, grid and cooling. Group leaves are phase2_parameter records;
+% S.dataset_id identifies the generator. Units are explicit at every leaf.
+% Source status, derivation and interpretation are distinct. Additional
+% records are contextual only: no grid/transformer/grounding model changes,
+% no conversion of field resistance and no inferred SFC power or DC wiring.
+if nargin < 1
+    G = ashuganj_generators();
+end
+S.dataset_id = G.Dataset_ID;
+names = fieldnames(G.Provenance);
+for k=1:numel(names)
+    n = names{k}; old = G.Provenance.(n);
+    locator = old.Source_locator;
+    if ~strcmp(old.Source_sheet,'NOT_APPLICABLE')
+        locator = [locator '; sheet "' old.Source_sheet '"'];
+    end
+    if ~strcmp(old.Source_cell,'NOT_APPLICABLE')
+        locator = [locator '; cell ' old.Source_cell];
+    end
+    r = phase2_parameter(old.Normalized_value,old.Normalized_unit, ...
+        old.Source_document,locator,old.Source_status,old.Confidence, ...
+        old.Interpretation_note,'source_status',old.Source_status, ...
+        'derivation',old.Derivation,'interpretation_status',old.Interpretation_status);
+    r.raw_provenance = old;
+    S.generator.(n) = r;
+end
+S.capabilityCurve = G.capabilityCurve;
+S.excitation.type = S.generator.Excitation_type;
+S.excitation.designation = S.generator.Excitation_designation;
+doc = 'Generator Data_South.pdf';
+loc = 'PDF p.1 / report p.6 section 2.1.1';
+verified = 'VERIFIED_ENGINEERING_DOCUMENT';
+S.excitation.no_load_voltage_V = phase2_parameter(G.Uexc0_V,'V',doc,loc, ...
+    G.Uexc0_Status,'High','No-load excitation voltage only; not a controller parameter or a defined per-unit field base.');
+S.sfc.dc_link_kV = phase2_parameter(G.SFC_DC_link_kV,'kV',doc,loc, ...
+    G.SFC_DC_link_Status,'High','SFC DC-link voltage, separate from generator field and station DC.');
+S.sfc.dc_link_kV.side = 'DC_LINK';
+S.sfc.max_starting_output_A = phase2_parameter(G.SFC_Imax_A,'A',doc,loc, ...
+    G.SFC_Imax_Status,'High','Maximum starting OUTPUT current; not DC-link current. Do not multiply by DC-link voltage to claim verified power.');
+S.sfc.max_starting_output_A.side = 'OUTPUT';
+loc = 'PDF p.2 / report p.7 section 2.3 Neutral Earthing Transformer (BAB), 10BAB11';
+S.ner.primary_kV = phase2_parameter(22/sqrt(3),'kV',doc,loc,verified,'High', ...
+    'Source 22/sqrt(3) kV primary phase voltage; not a line-line 22 kV winding rating.', ...
+    'derivation','22 / sqrt(3)');
+S.ner.secondary_V = phase2_parameter(500,'V',doc,loc,verified,'High','NER secondary rating.');
+S.ner.rating_kVA = phase2_parameter(135,'kVA',doc,loc,verified,'High','Short-time rating, valid for 20 s, not continuous.');
+S.ner.duration_s = phase2_parameter(20,'s',doc,loc,verified,'High','Duration associated with 135 kVA rating.');
+S.ner.hv_dc_resistance_ohm = phase2_parameter(60,'ohm',doc,loc,verified,'Qualified / approximate', ...
+    'HV-winding DC resistance approximately 60 ohm; source carries a question mark. Not a verified zero-sequence equivalent.', ...
+    'interpretation_status','QUALIFIED');
+S.ner.loading_resistance_ohm = phase2_parameter(2.62,'ohm',doc,loc,verified,'Qualified / approximate', ...
+    'Secondary loading resistor approximately 2.62 ohm; source carries question marks. Do not add directly to HV resistance across different sides.', ...
+    'interpretation_status','QUALIFIED');
+S.ner.grounding = S.generator.Earthing;
+loc = 'PDF p.2 / report p.7 section 2.4 High voltage network (GRID)';
+S.grid.estimate_Isc_kA = phase2_parameter(50,'kA',doc,loc,'ESTIMATED','Estimated', ...
+    'Report estimated grid context; frozen provider uses 50 kA GIS withstand proxy, not verified PGCB fault strength.');
+S.grid.estimate_Ssc_GVA = phase2_parameter(19.919,'GVA',doc,loc,'ESTIMATED','Estimated', ...
+    'Source rounded 19,919 MVA = 19.919 GVA; not a replacement for frozen sqrt(3)*230*50 MVA arithmetic.', ...
+    'derivation','19919 MVA / 1000');
+secondary = 'Secondary 2019 fault-level compilation, ASHUGANJ S 230 kV';
+locator = 'Existing project reconciliation: matlab/studies/rev3_b1_derivations.m secondary sensitivity; original secondary attachment not re-inspected';
+S.grid.sensitivity_Isc_kA = phase2_parameter(45.01,'kA',secondary,locator, ...
+    'SECONDARY_SOURCE_CONTEXT','Qualified secondary context','Sensitivity only, not selected frozen grid strength.');
+S.grid.sensitivity_XR = phase2_parameter(10.99,'dimensionless',secondary,locator, ...
+    'SECONDARY_SOURCE_CONTEXT','Qualified secondary context','Sensitivity only; frozen grid R=0 and infinite X/R remain untouched.');
+doc = 'GSUT Data Sheet_South.pdf';
+loc = 'CTI 1.7 loss table, 515 MVA ODAF stage; existing rev3_b1_derivations source transcription';
+S.cooling.gsut_total_kW = phase2_parameter(1282,'kW',doc,loc,verified,'High','Total source loss at 515 MVA cooling stage; contextual accounting only.');
+S.cooling.gsut_no_load_kW = phase2_parameter(159,'kW',doc,loc,verified,'High','Source no-load loss; numerical transformer provider unchanged.');
+S.cooling.gsut_load_kW = phase2_parameter(1095,'kW',doc,loc,verified,'High','Source load loss at 515 MVA; numerical transformer provider unchanged.');
+cooling = S.cooling.gsut_total_kW.value-S.cooling.gsut_no_load_kW.value-S.cooling.gsut_load_kW.value;
+S.cooling.gsut_cooling_kW = phase2_parameter(cooling,'kW',doc,loc, ...
+    'DERIVED_FROM_VERIFIED_DATA','High arithmetic / source-qualified', ...
+    'Residual source cooling loss, not added to frozen LF demand or transformer losses; auxiliary overlap unresolved.', ...
+    'source_status',verified,'derivation','1282 - 159 - 1095','interpretation_status','QUALIFIED');
+end
+
+=== END FILE matlab/data/phase2_source_data.m ===
+
+=== BEGIN FILE matlab/tests/test_generator_capability.m ===
+BYTES: 9603
+SHA256: 0166A544D7F3B216719EE467DB65ADE1DB2F727CF2DEADE89B8397C20E3E6239
+=== RAW FILE BYTES ===
+function [np, nf] = test_generator_capability()
+%TEST_GENERATOR_CAPABILITY Task-1 source, interpolation and metadata contracts.
+% Literal source fixtures catch transcription, sign, interpolation, provenance
+% promotion, side/base confusion and validation regressions. No model mocks.
+T = t_case('test_generator_capability');
+G = ashuganj_generators();
+T = T.chk(isfield(G,'capabilityCurve'),'authoritative capabilityCurve exists');
+if isfield(G,'capabilityCurve')
+    C = G.capabilityCurve;
+    T = T.eq(C.P_MW,[0 100 200 300 389.3 458],'exact six extracted P points');
+    T = T.eq(C.Qmax_MVAr,[335 329 311 280 241 0],'exact extracted upper points');
+    T = T.eq(C.Qmin_MVAr,[-231 -231 -220 -205 -182 0],'exact extracted lower points');
+    T = T.eq(C.status,'PRIMARY_SOURCE_EXTRACTED','extraction is not tabulated manufacturer data');
+    T = T.eq(C.extraction_method,'MANUAL_GRAPH_EXTRACTION','manual extraction explicit');
+    T = T.eq(C.extracted_by,'USER','user supplied graph readings');
+    T = T.eq(C.attachment_locally_inspected,false,'no local attachment inspection claim');
+    T = T.eq(C.source_locator,'Attachment 1','attachment locator retained');
+    T = T.eq(C.interpolation,'linear','piecewise-linear interpretation');
+    T = T.eq(C.extrapolation,'REJECT','no extrapolation');
+    T = T.eq(G.Qlim_P_MW,360,'physical compatibility limits apply at primary capacity');
+    T = T.eq(G.Qlim_Source_status,'PRIMARY_SOURCE_EXTRACTED','physical limit source status separate');
+end
+T = T.chk(exist('generatorCapability','file') == 2,'generatorCapability function exists');
+if exist('generatorCapability','file') == 2
+    [lo,hi] = generatorCapability([0 100 200 300 389.3 458]);
+    T = T.eq(lo,[-231 -231 -220 -205 -182 0],'all lower endpoints including zero-Q tip');
+    T = T.eq(hi,[335 329 311 280 241 0],'all upper endpoints including zero-Q tip');
+    [lo,hi] = generatorCapability([50 150 250 344.65 423.65]);
+    T = T.near(lo,[-231 -225.5 -212.5 -193.5 -91],1e-10,'lower midpoint on every segment');
+    T = T.near(hi,[332 320 295.5 260.5 120.5],1e-10,'upper midpoint on every segment');
+    [lo,hi] = generatorCapability(360);
+    T = T.near(lo,-205+60*23/89.3,1e-12,'360 MW lower independent formula');
+    T = T.near(hi,280-60*39/89.3,1e-12,'360 MW upper independent formula');
+    [lo,hi] = generatorCapability([0;100;458]);
+    T = T.eq(size(lo),[3 1],'column lower shape preserved');
+    T = T.eq(size(hi),[3 1],'column upper shape preserved');
+    [lo,hi] = generatorCapability([0 100;200 458]);
+    T = T.eq(lo,[-231 -231;-220 0],'matrix lower shape and values');
+    T = T.eq(hi,[335 329;311 0],'matrix upper shape and values');
+    custom = struct('P_MW',[0 458],'Qmin_MVAr',[-10 0],'Qmax_MVAr',[20 0]);
+    [lo,hi] = generatorCapability(229,custom);
+    T = T.near([lo hi],[-5 10],1e-12,'explicit curve honored without provider recursion');
+    bad = {-eps,458+eps(458),NaN,Inf,-Inf,1+1i,[100 NaN],[], '100',true};
+    for k=1:numel(bad)
+        T = T.chk(throws_id(@() generatorCapability(bad{k}), ...
+            'generatorCapability:InvalidP'),sprintf('invalid P input %d rejected',k));
+    end
+    badCurves = {struct(),struct('P_MW',[0 0 458],'Qmin_MVAr',[-1 -1 0],'Qmax_MVAr',[1 1 0]), ...
+        struct('P_MW',[0 458],'Qmin_MVAr',[-1 0],'Qmax_MVAr',[1 NaN]), ...
+        struct('P_MW',[0 458],'Qmin_MVAr',[2 0],'Qmax_MVAr',[1 0]), ...
+        struct('P_MW',[0 458],'Qmin_MVAr',[-1 0 0],'Qmax_MVAr',[1 0]), ...
+        struct('P_MW',[0 400],'Qmin_MVAr',[-1 0],'Qmax_MVAr',[1 0])};
+    for k=1:numel(badCurves)
+        T = T.chk(throws_id(@() generatorCapability(200,badCurves{k}), ...
+            'generatorCapability:InvalidCurve'),sprintf('malformed curve %d rejected',k));
+    end
+end
+T = T.chk(exist('phase2_parameter','file') == 2,'normalized parameter helper exists');
+if exist('phase2_parameter','file') == 2
+    r = phase2_parameter(122,'V','source','section','VERIFIED_ENGINEERING_DOCUMENT','High','No-load only');
+    required = {'value','unit','source','source_locator','status','confidence','rationale', ...
+        'assumption_basis','reasonable_range','assumed_range','selected_value', ...
+        'source_status','derivation','interpretation_status'};
+    T = T.chk(all(isfield(r,required)),'lowercase parameter schema complete');
+    T = T.eq(r.value,122,'source value retained');
+    T = T.eq(r.source_status,'VERIFIED_ENGINEERING_DOCUMENT','source classification defaults honestly');
+    T = T.eq(r.assumption_basis,'NOT_APPLICABLE','source record not presented as assumption');
+    T = T.eq(r.selected_value,122,'selected value explicit');
+    a = phase2_parameter(200,'pu/pu','Academic assumption','AVR','ENGINEERING_ASSUMPTION','Assumed','Illustration', ...
+        'assumption_basis','Generic academic AVR','reasonable_range',[50 400],'assumed_range',[100 300]);
+    T = T.eq(a.assumed_range,[100 300],'assumed range retained');
+    T = T.eq(a.source_status,'ENGINEERING_ASSUMPTION','assumption never promoted');
+    T = T.chk(throws_id(@() phase2_parameter(200,'pu','a','b','ENGINEERING_ASSUMPTION','c','d'), ...
+        'phase2_parameter:InvalidAssumption'),'assumptions require basis and finite ranges');
+    T = T.chk(throws_id(@() phase2_parameter(500,'pu','a','b','ENGINEERING_ASSUMPTION','c','d', ...
+        'assumption_basis','test','reasonable_range',[0 400],'assumed_range',[0 300]), ...
+        'phase2_parameter:InvalidAssumption'),'out-of-range assumption rejected');
+    r = phase2_parameter(NaN,'UNRESOLVED','source','blank','MISSING','Missing','No evidence');
+    T = T.isnan(r.value,'missing source is not a finite assumed parameter');
+end
+T = T.chk(exist('phase2_source_data','file') == 2,'normalized source view exists');
+if exist('phase2_source_data','file') == 2
+    S = phase2_source_data(G);
+    T = T.chk(isequaln(S,phase2_source_data()),'default and injected provider yield same source view');
+    names = fieldnames(G.Provenance);
+    for k=1:numel(names)
+        n = names{k}; r = S.generator.(n); old = G.Provenance.(n);
+        T = T.chk(isequaln(r.value,old.Normalized_value),[n ' normalized value follows original provenance']);
+        T = T.eq(r.source_status,old.Source_status,[n ' original source status retained']);
+        T = T.chk(isequaln(r.raw_provenance,old),[n ' full original provenance retained']);
+    end
+    T = T.eq(S.generator.Rf_numeric.unit,'UNRESOLVED','field-resistance unit not invented');
+    T = T.eq(S.generator.Rf_numeric.interpretation_status,'QUALIFIED','unit qualification separate');
+    T = T.eq(S.generator.Xdpp.value,0.2608,'unqualified reactance not replaced by saturated');
+    T = T.eq(S.generator.Xdpp_sat.value,0.2248,'saturated reactance separate');
+    T = T.eq(S.excitation.type.value,'Static','workbook excitation type');
+    T = T.eq(S.excitation.designation.value,'SEMIPOL','workbook excitation designation');
+    T = T.eq(S.excitation.no_load_voltage_V.value,122,'source no-load excitation voltage');
+    T = T.eq(S.sfc.dc_link_kV.value,2.28,'SFC DC link not field voltage');
+    T = T.eq(S.sfc.max_starting_output_A.value,1876,'SFC output current not DC-link current');
+    T = T.eq(S.sfc.max_starting_output_A.side,'OUTPUT','output side explicit');
+    T = T.eq(S.sfc.dc_link_kV.side,'DC_LINK','DC link side explicit');
+    T = T.near(S.ner.primary_kV.value,22/sqrt(3),1e-12,'NER phase voltage');
+    T = T.eq(S.ner.secondary_V.value,500,'NER secondary voltage');
+    T = T.eq(S.ner.rating_kVA.value,135,'NER short-time rating');
+    T = T.eq(S.ner.duration_s.value,20,'NER rating duration');
+    T = T.eq(S.ner.hv_dc_resistance_ohm.value,60,'approximate HV DC resistance');
+    T = T.eq(S.ner.loading_resistance_ohm.value,2.62,'approximate secondary loading resistor');
+    T = T.eq(S.ner.hv_dc_resistance_ohm.interpretation_status,'QUALIFIED','source question mark not erased');
+    T = T.eq(S.ner.loading_resistance_ohm.interpretation_status,'QUALIFIED','secondary uncertainty retained');
+    T = T.eq(S.grid.estimate_Isc_kA.value,50,'frozen grid estimate context');
+    T = T.eq(S.grid.estimate_Ssc_GVA.value,19.919,'source rounded 19.919 GVA retained');
+    T = T.eq(S.grid.estimate_Ssc_GVA.status,'ESTIMATED','grid estimate not promoted to verified');
+    T = T.eq(S.grid.sensitivity_Isc_kA.value,45.01,'secondary sensitivity current separate');
+    T = T.eq(S.grid.sensitivity_XR.value,10.99,'secondary sensitivity X/R separate');
+    T = T.eq(S.grid.sensitivity_XR.status,'SECONDARY_SOURCE_CONTEXT','secondary source not selected grid');
+    T = T.eq(S.cooling.gsut_total_kW.value,1282,'source total loss');
+    T = T.eq(S.cooling.gsut_no_load_kW.value,159,'source no-load loss');
+    T = T.eq(S.cooling.gsut_load_kW.value,1095,'source full-load loss');
+    T = T.eq(S.cooling.gsut_cooling_kW.value,28,'cooling closure 1282-159-1095');
+    T = T.eq(S.cooling.gsut_cooling_kW.derivation,'1282 - 159 - 1095','cooling arithmetic explicit');
+    T = T.eq(S.cooling.gsut_cooling_kW.source_status,'VERIFIED_ENGINEERING_DOCUMENT','derived cooling keeps input provenance');
+    T = T.eq(S.capabilityCurve,G.capabilityCurve,'source view uses authoritative curve');
+    altered = G; altered.Provenance.Snom_MVA.Normalized_value = 459;
+    view = phase2_source_data(altered);
+    T = T.eq(view.generator.Snom_MVA.value,459,'injected provenance is normalized, not independently hard-coded');
+end
+[np,nf] = T.done();
+end
+
+function ok = throws_id(f,id)
+ok = false;
+try
+    f();
+catch ME
+    ok = strcmp(ME.identifier,id);
+end
+end
+
+=== END FILE matlab/tests/test_generator_capability.m ===
+
+=== BEGIN FILE matlab/tests/test_generator_data.m ===
+BYTES: 10045
+SHA256: CFBC9B6256EEDD9E489E06F3E868FB386EEB29F08336958E0814D35E88B2C536
+=== RAW FILE BYTES ===
+function [np, nf] = test_generator_data()
+%TEST_GENERATOR_DATA  Checks on the Siemens SGen5-2000H record.
+%
+%   REV3.1 Phase 1: verified workbook data, explicit bases and legacy records.
+%   Supplied machine data are not missing. Detailed controls/rotor parameters
+%   remain unresolved; these tests do not validate a dynamic or fault model.
+T = t_case('test_generator_data');
+G = ashuganj_generators();
+
+T = T.eq(numel(G), 1, ...
+    'exactly ONE generator: SCC5-PAC 4000F/3000 (1S) is single-shaft');
+
+g = G(1);
+
+% ---- nameplate, verbatim from the Siemens data ------------------------
+T = T.eq(g.Vnom_V,   22000, 'terminal voltage 22 kV');
+T = T.eq(g.Snom_MVA,   458, 'rated apparent power 458 MVA at 50 C cold gas');
+T = T.eq(g.Smax_MVA,   518, 'maximum apparent power 518 MVA at 30 C cold gas');
+T = T.eq(g.pf,        0.85, 'rated power factor 0.85');
+T = T.eq(g.f_Hz,        50, 'frequency 50 Hz - Bangladesh, not 60 Hz');
+T = T.eq(g.Inom_A,   12019, 'rated stator current 12019 A');
+T = T.eq(g.H2_pressure_barg, 5, 'hydrogen pressure 5 bar(g)');
+
+% ---- internal consistency of the nameplate ----------------------------
+Icalc = g.Snom_MVA*1e6 / (sqrt(3)*g.Vnom_V);
+T = T.near(Icalc, g.Inom_A, 0.005*g.Inom_A, ...
+    sprintf('S/(sqrt3 V) = %.1f A agrees with the stated 12019 A', Icalc));
+Pcalc = g.Snom_MVA * g.pf;
+T = T.near(Pcalc, 389.3, 0.05, ...
+    sprintf('458 MVA x 0.85 = %.2f MW is a PF reference, not capacity', Pcalc));
+
+% ---- canonical workbook fields and cell-level provenance --------------
+spec = { ...
+    'Snom_MVA',458,'C3'; 'P_capacity_MW',360,'B3'; 'Vnom_kV',22,'D3';
+    'H_s',5.287,'F3'; 'SCR',0.601,'G3';
+    'Xd',1.783,'H3'; 'Xdp',0.3256,'I3'; 'Xdpp',0.2608,'J3';
+    'Xdpp_sat',0.2248,'K3'; 'Xq',1.751,'L3'; 'Xqp',0.5087,'M3';
+    'Xqpp',0.2593,'N3'; 'Xl',0.2027,'O3'; 'X2',0.2242,'P3'; 'X0',0.128,'Q3';
+    'Ra_ohm',0.00089,'U3'; 'Rf_numeric',0.10631,'V3';
+    'Td0p_s',7.547,'Y3'; 'Td0pp_s',0.045,'Z3';
+    'Tq0p_s',0.839,'AA3'; 'Tq0pp_s',0.070,'AB3';
+    'Tdp_s',1.213,'AC3'; 'Tdpp_s',0.035,'AD3';
+    'Tqp_s',0.214,'AE3'; 'Tqpp_s',0.035,'AF3'; 'Ta_s',0.704,'AG3';
+    'S10',0.0865,'AI3'; 'S12',0.408,'AJ3';
+    'Excitation_type','Static','AS3'; 'Excitation_designation','SEMIPOL','AT3'};
+for i = 1:size(spec,1)
+    name = spec{i,1}; expected = spec{i,2};
+    present = isfield(g,name) && isfield(g,'Primary') && ...
+        isfield(g.Primary,name) && isfield(g,'Provenance') && isfield(g.Provenance,name);
+    T = T.chk(present, [name ' canonical primary field and provenance exist']);
+    if ~present, continue; end
+    if isnumeric(expected)
+        T = T.near(g.(name),expected,1e-12,[name ' verified workbook value']);
+    else
+        T = T.eq(g.(name),expected,[name ' normalized workbook text']);
+    end
+    T = T.eq(g.(name),g.Primary.(name),[name ' compatibility view comes from PRIMARY']);
+    r = g.Provenance.(name);
+    if isnumeric(expected) && ~strcmp(name,'Ra_ohm')
+        T = T.near(str2double(r.Raw_value),expected,1e-12,[name ' raw numeric source']);
+    end
+    if startsWith(name,'X')
+        T = T.eq(r.Raw_unit,'pu',[name ' raw reactance unit']);
+        T = T.eq(r.Normalized_unit,'pu',[name ' normalized reactance unit']);
+        T = T.eq(r.Raw_group_heading,'Reactance in pu',[name ' raw reactance group']);
+    elseif endsWith(name,'_s') && ~strcmp(name,'H_s')
+        T = T.eq(r.Raw_unit,'sec',[name ' raw time unit']);
+        T = T.eq(r.Normalized_unit,'s',[name ' normalized time unit']);
+        T = T.eq(r.Raw_group_heading,'Time Constants (sec)',[name ' raw time group']);
+    end
+    T = T.eq(r.Source_document,'Ahsuganj South (2).xlsx',[name ' workbook identity']);
+    T = T.eq(r.Source_sheet,'Ashuganj South ',[name ' exact sheet including trailing space']);
+    T = T.eq(r.Source_cell,spec{i,3},[name ' source cell']);
+    T = T.eq(r.Normalized_value,g.(name),[name ' normalized provenance agrees']);
+    T = T.eq(r.Designation,'PRIMARY',[name ' primary designation']);
+    T = T.eq(r.Dataset_ID,g.Dataset_ID,[name ' dataset lineage']);
+    T = T.chk(~isempty(r.Raw_value) && ~isempty(r.Raw_unit) && ...
+        ~isempty(r.Normalized_unit) && ~isempty(r.Base) && ...
+        ~isempty(r.Source_status) && ~isempty(r.Confidence) && ...
+        ~isempty(r.Interpretation_note),[name ' complete qualified metadata']);
+end
+T = T.near(g.xd_pct,178.3,1e-12,'percent view Xd = 178.3');
+T = T.near(g.xdp_pct,32.56,1e-12,'percent view Xdp = 32.56');
+T = T.near(g.xdpp_pct,26.08,1e-12,'percent view Xdpp = 26.08, not saturated');
+if isfield(g,'Primary')
+    headings={
+['Snom_MVA'],['Total Rated MVA'];
+['P_capacity_MW'],[' Capacity ' char(10) '(MW)'];
+['Vnom_kV'],['Generating' char(10) ' kV'];
+['H_s'],['Inertia Constant, H' char(10) '(kW-sec/kVA)'];
+['SCR'],['Short circuit Ratio'];
+['Xd'],['Xd'];
+['Xdp'],['Xd'''];
+['Xdpp'],['Xd"'];
+['Xdpp_sat'],['Xd"(sat)'];
+['Xq'],['Xq'];
+['Xqp'],['Xq'''];
+['Xqpp'],['Xq"'];
+['Xl'],['Xl'];
+['X2'],['X2 (sat)'];
+['X0'],['X0 (sat)'];
+['Ra_ohm'],['Ra'];
+['Rf_numeric'],['Rf'];
+['Td0p_s'],['T''d0'];
+['Td0pp_s'],['T''''d0'];
+['Tq0p_s'],['T''q0'];
+['Tq0pp_s'],['T''''q0'];
+['Tdp_s'],['T''d'];
+['Tdpp_s'],['T''''d'];
+['Tqp_s'],['T''q'];
+['Tqpp_s'],['T''''q'];
+['Ta_s'],['Ta or Ta(3)'];
+['S10'],['S(1.0)'];
+['S12'],['S(1.2)'];
+['Excitation_type'],['excitation system type and parameter  '];
+['Excitation_designation'],['excitation controllers type and their detailed description, structural scheme and settings'];
+    };
+    for j=1:size(headings,1)
+        T = T.eq(g.Provenance.(headings{j,1}).Raw_heading,headings{j,2},[headings{j,1} ' exact workbook heading']);
+    end
+    T = T.chk(g.Xd > g.Xdp && g.Xdp > g.Xdpp,'retained d-axis ordering check');
+    T = T.chk(g.Xdpp ~= g.Xdpp_sat,'unqualified and saturated Xdpp are distinct');
+    T = T.near(g.Ra_pu_machine,0.000842190082644628,1e-12,'machine-base Ra');
+    T = T.chk(g.Ra_ohm ~= g.Ra_pu_machine,'ohm and pu resistance are distinct');
+    T = T.eq(g.PF_rated,0.85,'rated PF retained separately');
+    T = T.near(g.P_pf_reference_MW,389.30,1e-12,'PF-derived OEM reference');
+    T = T.eq(g.P_owner_derated_MW,342.01,'owner scenario retained');
+    T = T.chk(g.P_pf_reference_MW ~= g.P_capacity_MW && ...
+        g.P_owner_derated_MW ~= g.P_capacity_MW,'capacity is neither reference nor scenario');
+    T = T.eq(g.P_owner_derated_Boundary_status,'QUALIFIED','owner power boundary not invented');
+    T = T.eq(g.Provenance.Ra_ohm.Raw_value,'0.00089 ohm','raw resistance text retained');
+    T = T.eq(g.Provenance.Rf_numeric.Raw_heading,'Rf','raw field resistance heading');
+    T = T.eq(g.Provenance.Rf_numeric.Raw_group_heading,'Resistance in pu or ohm','mixed unit heading');
+    T = T.eq(g.Rf_Interpretation_status,'QUALIFIED','field resistance interpretation qualified');
+    T = T.eq(g.Rf_Field_base,'UNRESOLVED','no invented rotor field base');
+    T = T.chk(~isfield(g,'Rf_pu') && ~isfield(g,'Rf_ohm'),'no invented Rf conversion');
+    T = T.eq(g.Provenance.Excitation_type.Raw_value,'Static ','raw excitation space preserved');
+    T = T.eq(g.Provenance.Excitation_designation.Raw_value,'SEMIPOL ','raw designation space preserved');
+    T = T.eq(g.Provenance.Xdpp.Saturation_condition,'UNQUALIFIED_IN_SOURCE','unqualified source retained');
+    for name = {'Xdpp_sat','X2','X0'}
+        T = T.eq(g.Provenance.(name{1}).Saturation_condition,'SATURATED',[name{1} ' source saturation']);
+    end
+    T = T.eq(g.Machine_base.S_MVA,458,'machine apparent-power base');
+    T = T.eq(g.Machine_base.V_kV,22,'line-line machine voltage base');
+    T = T.eq(g.Machine_base.Status,'QUALIFIED','base is selected interpretation, not literal declaration');
+    T = T.chk(contains(g.Provenance.H_s.Interpretation_note,'combined'),'combined turbine-generator inertia');
+    T = T.eq(g.Controller_parameters_Status,'MISSING','controller settings still missing');
+    T = T.eq(g.OCC_Status,'MISSING','two saturation coefficients are not a full OCC');
+    for name = {'XD_damper','XQ_damper','Xf','RD_damper','RQ_damper','Ta1_s','Damping'}
+        T = T.isnan(g.Missing.(name{1}),[name{1} ' genuinely missing']);
+    end
+    T = T.eq(g.Legacy.Designation,'LEGACY / SATURATED SOURCE DATA','legacy explicitly designated');
+    T = T.near([g.Legacy.Xd g.Legacy.Xdp g.Legacy.Xdpp],[1.663 0.2865 0.2248],1e-12,'legacy reactances retained');
+    T = T.chk(~g.Legacy.Selected_primary,'legacy cannot be the selected primary');
+    T = T.eq(g.Provenance.Xd.Source_SHA256, ...
+        '6D4286B9D0B771CEE80FB305F3C0AE7B9D34CC1EA8A3B8F2F022BA0D07240A60','verified workbook hash');
+    D = ashuganj_master_data();
+    T = T.chk(isequaln(D.gen,g),'existing master owns the same generator provider');
+    T = T.eq([D.cases.Gen_P_MW],[389.30 389.30 342.01 342.01],'Phase 1 freezes all four historical LF dispatches');
+    T = T.near(g.Ra_pu,g.Ra_pu_machine,1e-15,'old Ra interface is derived machine pu');
+    T = T.eq(g.H_MWs_per_MVA,g.H_s,'old inertia interface is derived seconds');
+end
+T = T.chk(contains(g.Earthing,'High resistance') && contains(g.Earthing,'NER'), ...
+    'generator retains NER, never GSUT solid grounding');
+
+% ---- load-flow treatment ----------------------------------------------
+T = T.eq(g.LF_BusType, 'PV', 'modelled as a PV bus');
+T = T.eq(g.Vset_pu, 1.00, 'terminal voltage setpoint 1.00 pu (approved assumption)');
+% Physical limits at primary 360 MW now come from the extracted source curve.
+% Frozen builder unbounded solver settings remain an approved exception;
+% these physical metadata fields must not be confused with solver controls.
+T = T.near(g.Qmin_MVAr, -205+60*23/89.3, 1e-12, ...
+    'finite physical Qmin at primary 360 MW from source interpolation');
+T = T.near(g.Qmax_MVAr, 280-60*39/89.3, 1e-12, ...
+    'finite physical Qmax at primary 360 MW from source interpolation');
+T = T.eq(g.Qlim_Status, 'DERIVED_FROM_PRIMARY_SOURCE_EXTRACTED', ...
+    'physical bounds retain graph-extraction derivation status');
+T = T.chk(contains(g.Model_block, 'Source'), ...
+    'modelled with a Three-Phase Source, not a Synchronous Machine block');
+
+[np, nf] = T.done();
+end
+
+=== END FILE matlab/tests/test_generator_data.m ===
+
+=== BEGIN FILE docs/validation/rev31_phase2/task-1-write-runtime.ps1 ===
+BYTES: 14249
+SHA256: 4686A72FA2220EA5F7A55E1900B66B32A66E458EA883AE5272227A83B184DED3
+=== RAW FILE BYTES ===
+$ErrorActionPreference = 'Stop'
+$utf8 = New-Object System.Text.UTF8Encoding($false)
+function Write-Matlab([string]$path, [string]$content) {
+    [System.IO.File]::WriteAllText((Join-Path (Get-Location) $path), $content.Replace("`r`n", "`n") + "`n", $utf8)
+}
+$path = 'matlab/data/ashuganj_generators.m'
+$original = [System.IO.File]::ReadAllText((Join-Path (Get-Location) 'docs/validation/rev31_phase2/originals/matlab/data/ashuganj_generators.m.original'))
+$old = @'
+G.Qmin_MVAr=-inf; G.Qmax_MVAr=inf; G.Qlim_Status='NOT_APPLICABLE'; G.Qlim_Note='Unconstrained until capability curve digitization is verified';
+G.Qcurve_Status='AVAILABLE_NOT_DIGITIZED'; G.Qcurve_Source='Siemens Generator Protection Setting Report Attachment 1'; G.Qcurve_Note='Old PSAF scalar limits invalid';
+'@
+$new = @'
+% Physical capability only: frozen PV builder solver settings stay unbounded
+% by explicit user approval. They are neither physical Q nor grounding data.
+G.capabilityCurve=struct('P_MW',[0 100 200 300 389.3 458], ...
+    'Qmax_MVAr',[335 329 311 280 241 0], 'Qmin_MVAr',[-231 -231 -220 -205 -182 0], ...
+    'status','PRIMARY_SOURCE_EXTRACTED', 'source_status','PRIMARY_SOURCE_EXTRACTED', ...
+    'source','Siemens Generator Protection Setting Report', 'source_locator','Attachment 1', ...
+    'extraction_method','MANUAL_GRAPH_EXTRACTION', 'extracted_by','USER', ...
+    'confirmation_date','2026-09-15', 'attachment_locally_inspected',false, ...
+    'confidence','User-confirmed graph extraction; graphical uncertainty not quantified', ...
+    'rationale','Six user-supplied graph readings, not directly tabulated manufacturer values; original attachment not locally inspected.', ...
+    'P_unit','MW', 'Q_unit','MVAr', 'interpolation','linear', 'extrapolation','REJECT', ...
+    'interpretation_status','QUALIFIED', ...
+    'applicability','Source envelope through 458 MW is not dispatch authorization; primary active capacity remains 360 MW.');
+[G.Qmin_MVAr,G.Qmax_MVAr]=generatorCapability(G.P_capacity_MW,G.capabilityCurve);
+G.Qlim_P_MW=G.P_capacity_MW;
+G.Qlim_Status='DERIVED_FROM_PRIMARY_SOURCE_EXTRACTED'; G.Qlim_Source_status=G.capabilityCurve.status;
+G.Qlim_Note='Physical compatibility bounds at Qlim_P_MW only; interpolate at actual dispatch. Frozen unconstrained solver is an approved exception, not physical capability.';
+G.Qcurve_Status=G.capabilityCurve.status; G.Qcurve_Source='Siemens Generator Protection Setting Report Attachment 1';
+G.Qcurve_Note='User-supplied manual graph extraction; attachment not locally inspected. Old PSAF scalar limits remain invalid.';
+'@
+# Preserve the original CRLF bytes outside the exact replacement.
+$old = $old.Replace("`r`n", "`n").Replace("`n", "`r`n")
+$new = $new.Replace("`r`n", "`n").Replace("`n", "`r`n")
+if (-not $original.Contains($old)) { throw 'Original generator search block missing' }
+[System.IO.File]::WriteAllText((Join-Path (Get-Location) $path), $original.Replace($old,$new), $utf8)
+Write-Matlab 'matlab/data/generatorCapability.m' @'
+function [Qmin_MVAr,Qmax_MVAr] = generatorCapability(P_MW,curve)
+%GENERATORCAPABILITY Piecewise-linear physical capability, lower then upper.
+% [Qmin_MVAr,Qmax_MVAr] = generatorCapability(P_MW [,curve])
+% P_MW is a nonempty real finite numeric array in [0,458] MW. Output arrays
+% retain its shape. No extrapolation, clipping or dispatch authorization.
+% Optional scalar curve has numeric vector fields P_MW, Qmin_MVAr,
+% Qmax_MVAr, equal lengths >=2, strictly increasing P from 0 to 458,
+% finite real entries and ordered Q bounds. It supports provider construction
+% without recursion. Omitted curve comes from ashuganj_generators().
+if ~isnumeric(P_MW) || isempty(P_MW) || ~isreal(P_MW) || ...
+        any(~isfinite(P_MW(:))) || any(P_MW(:)<0 | P_MW(:)>458)
+    error('generatorCapability:InvalidP','P must be real finite numeric MW in [0,458].');
+end
+if nargin < 2
+    G = ashuganj_generators();
+    curve = G.capabilityCurve;
+end
+fields = {'P_MW','Qmin_MVAr','Qmax_MVAr'};
+if ~isstruct(curve) || ~isscalar(curve) || ~all(isfield(curve,fields))
+    error('generatorCapability:InvalidCurve','Curve must contain P and both Q bounds.');
+end
+for k=1:numel(fields)
+    v = curve.(fields{k});
+    if ~isnumeric(v) || ~isvector(v) || ~isreal(v) || numel(v)<2 || any(~isfinite(v(:)))
+        error('generatorCapability:InvalidCurve','Curve fields must be real finite numeric vectors.');
+    end
+end
+p = double(curve.P_MW(:)); lo = double(curve.Qmin_MVAr(:)); hi = double(curve.Qmax_MVAr(:));
+if numel(p)~=numel(lo) || numel(p)~=numel(hi) || ...
+        any(diff(p)<=0) || p(1)~=0 || p(end)~=458 || any(lo>hi)
+    error('generatorCapability:InvalidCurve','Curve lengths, domain or bound ordering are invalid.');
+end
+Qmin_MVAr = reshape(interp1(p,lo,double(P_MW(:)),'linear'),size(P_MW));
+Qmax_MVAr = reshape(interp1(p,hi,double(P_MW(:)),'linear'),size(P_MW));
+end
+'@
+Write-Matlab 'matlab/data/phase2_parameter.m' @'
+function r = phase2_parameter(value,unit,source,source_locator,status,confidence,rationale,varargin)
+%PHASE2_PARAMETER Construct a normalized lowercase metadata record.
+% r = phase2_parameter(value,unit,source,source_locator,status,confidence,
+%                      rationale,Name,Value,...)
+% Seven required inputs: numeric/text value and six nonempty text metadata
+% fields. Names: assumption_basis (default NOT_APPLICABLE), reasonable_range
+% and assumed_range (default []), source_status (default status), derivation
+% (default ''), interpretation_status (default DIRECT). selected_value=value.
+% ENGINEERING_ASSUMPTION requires finite real numeric value, explicit basis,
+% and finite ordered [lower upper] ranges; assumed range must be contained
+% within reasonable range and contain every selected value. Degenerate
+% ranges are permitted for an explicitly fixed approved assumption.
+% Source records may retain NaN for MISSING and UNRESOLVED units. This helper
+% never invents units, replaces missing evidence or upgrades source status.
+p = inputParser;
+p.FunctionName = 'phase2_parameter';
+p.PartialMatching = false;
+text = @(x) (ischar(x) && isrow(x) && ~isempty(strtrim(x))) || ...
+    (isstring(x) && isscalar(x) && ~ismissing(x) && strlength(strtrim(x))>0);
+p.addRequired('value',@(x) isnumeric(x) || islogical(x) || ischar(x) || isstring(x));
+p.addRequired('unit',text); p.addRequired('source',text);
+p.addRequired('source_locator',text); p.addRequired('status',text);
+p.addRequired('confidence',text); p.addRequired('rationale',text);
+p.addParameter('assumption_basis','NOT_APPLICABLE',text);
+p.addParameter('reasonable_range',[],@isnumeric);
+p.addParameter('assumed_range',[],@isnumeric);
+p.addParameter('source_status',status,text);
+p.addParameter('derivation','',@(x) ischar(x) || (isstring(x) && isscalar(x)));
+p.addParameter('interpretation_status','DIRECT',text);
+p.parse(value,unit,source,source_locator,status,confidence,rationale,varargin{:});
+r = p.Results;
+for name = {'unit','source','source_locator','status','confidence','rationale', ...
+        'assumption_basis','source_status','derivation','interpretation_status'}
+    r.(name{1}) = char(r.(name{1}));
+end
+r.selected_value = value;
+if strcmp(r.status,'ENGINEERING_ASSUMPTION')
+    a = r.assumed_range; b = r.reasonable_range;
+    valid = isnumeric(value) && ~isempty(value) && isreal(value) && all(isfinite(value(:))) && ...
+        ~strcmp(r.assumption_basis,'NOT_APPLICABLE') && ...
+        isreal(a) && numel(a)==2 && all(isfinite(a(:))) && a(1)<=a(2) && ...
+        isreal(b) && numel(b)==2 && all(isfinite(b(:))) && b(1)<=b(2);
+    if ~valid || a(1)<b(1) || a(2)>b(2) || any(value(:)<a(1) | value(:)>a(2))
+        error('phase2_parameter:InvalidAssumption', ...
+            'Assumptions require finite selected values, explicit basis and consistent containing ranges.');
+    end
+end
+end
+'@
+Write-Matlab 'matlab/data/phase2_source_data.m' @'
+function S = phase2_source_data(G)
+%PHASE2_SOURCE_DATA Read-only normalized Task-1 source/provenance view.
+% S = phase2_source_data() uses ashuganj_generators(); S=phase2_source_data(G)
+% accepts that scalar generator record, never an assembled master dataset.
+% No provider is modified. S.generator has one parameter record per field
+% in G.Provenance, each with raw_provenance retaining the full original.
+% Other groups: capabilityCurve (same authoritative object), excitation,
+% sfc, ner, grid and cooling. Group leaves are phase2_parameter records;
+% S.dataset_id identifies the generator. Units are explicit at every leaf.
+% Source status, derivation and interpretation are distinct. Additional
+% records are contextual only: no grid/transformer/grounding model changes,
+% no conversion of field resistance and no inferred SFC power or DC wiring.
+if nargin < 1
+    G = ashuganj_generators();
+end
+S.dataset_id = G.Dataset_ID;
+names = fieldnames(G.Provenance);
+for k=1:numel(names)
+    n = names{k}; old = G.Provenance.(n);
+    locator = old.Source_locator;
+    if ~strcmp(old.Source_sheet,'NOT_APPLICABLE')
+        locator = [locator '; sheet "' old.Source_sheet '"'];
+    end
+    if ~strcmp(old.Source_cell,'NOT_APPLICABLE')
+        locator = [locator '; cell ' old.Source_cell];
+    end
+    r = phase2_parameter(old.Normalized_value,old.Normalized_unit, ...
+        old.Source_document,locator,old.Source_status,old.Confidence, ...
+        old.Interpretation_note,'source_status',old.Source_status, ...
+        'derivation',old.Derivation,'interpretation_status',old.Interpretation_status);
+    r.raw_provenance = old;
+    S.generator.(n) = r;
+end
+S.capabilityCurve = G.capabilityCurve;
+S.excitation.type = S.generator.Excitation_type;
+S.excitation.designation = S.generator.Excitation_designation;
+doc = 'Generator Data_South.pdf';
+loc = 'PDF p.1 / report p.6 section 2.1.1';
+verified = 'VERIFIED_ENGINEERING_DOCUMENT';
+S.excitation.no_load_voltage_V = phase2_parameter(G.Uexc0_V,'V',doc,loc, ...
+    G.Uexc0_Status,'High','No-load excitation voltage only; not a controller parameter or a defined per-unit field base.');
+S.sfc.dc_link_kV = phase2_parameter(G.SFC_DC_link_kV,'kV',doc,loc, ...
+    G.SFC_DC_link_Status,'High','SFC DC-link voltage, separate from generator field and station DC.');
+S.sfc.dc_link_kV.side = 'DC_LINK';
+S.sfc.max_starting_output_A = phase2_parameter(G.SFC_Imax_A,'A',doc,loc, ...
+    G.SFC_Imax_Status,'High','Maximum starting OUTPUT current; not DC-link current. Do not multiply by DC-link voltage to claim verified power.');
+S.sfc.max_starting_output_A.side = 'OUTPUT';
+loc = 'PDF p.2 / report p.7 section 2.3 Neutral Earthing Transformer (BAB), 10BAB11';
+S.ner.primary_kV = phase2_parameter(22/sqrt(3),'kV',doc,loc,verified,'High', ...
+    'Source 22/sqrt(3) kV primary phase voltage; not a line-line 22 kV winding rating.', ...
+    'derivation','22 / sqrt(3)');
+S.ner.secondary_V = phase2_parameter(500,'V',doc,loc,verified,'High','NER secondary rating.');
+S.ner.rating_kVA = phase2_parameter(135,'kVA',doc,loc,verified,'High','Short-time rating, valid for 20 s, not continuous.');
+S.ner.duration_s = phase2_parameter(20,'s',doc,loc,verified,'High','Duration associated with 135 kVA rating.');
+S.ner.hv_dc_resistance_ohm = phase2_parameter(60,'ohm',doc,loc,verified,'Qualified / approximate', ...
+    'HV-winding DC resistance approximately 60 ohm; source carries a question mark. Not a verified zero-sequence equivalent.', ...
+    'interpretation_status','QUALIFIED');
+S.ner.loading_resistance_ohm = phase2_parameter(2.62,'ohm',doc,loc,verified,'Qualified / approximate', ...
+    'Secondary loading resistor approximately 2.62 ohm; source carries question marks. Do not add directly to HV resistance across different sides.', ...
+    'interpretation_status','QUALIFIED');
+S.ner.grounding = S.generator.Earthing;
+loc = 'PDF p.2 / report p.7 section 2.4 High voltage network (GRID)';
+S.grid.estimate_Isc_kA = phase2_parameter(50,'kA',doc,loc,'ESTIMATED','Estimated', ...
+    'Report estimated grid context; frozen provider uses 50 kA GIS withstand proxy, not verified PGCB fault strength.');
+S.grid.estimate_Ssc_GVA = phase2_parameter(19.919,'GVA',doc,loc,'ESTIMATED','Estimated', ...
+    'Source rounded 19,919 MVA = 19.919 GVA; not a replacement for frozen sqrt(3)*230*50 MVA arithmetic.', ...
+    'derivation','19919 MVA / 1000');
+secondary = 'Secondary 2019 fault-level compilation, ASHUGANJ S 230 kV';
+locator = 'Existing project reconciliation: matlab/studies/rev3_b1_derivations.m secondary sensitivity; original secondary attachment not re-inspected';
+S.grid.sensitivity_Isc_kA = phase2_parameter(45.01,'kA',secondary,locator, ...
+    'SECONDARY_SOURCE_CONTEXT','Qualified secondary context','Sensitivity only, not selected frozen grid strength.');
+S.grid.sensitivity_XR = phase2_parameter(10.99,'dimensionless',secondary,locator, ...
+    'SECONDARY_SOURCE_CONTEXT','Qualified secondary context','Sensitivity only; frozen grid R=0 and infinite X/R remain untouched.');
+doc = 'GSUT Data Sheet_South.pdf';
+loc = 'CTI 1.7 loss table, 515 MVA ODAF stage; existing rev3_b1_derivations source transcription';
+S.cooling.gsut_total_kW = phase2_parameter(1282,'kW',doc,loc,verified,'High','Total source loss at 515 MVA cooling stage; contextual accounting only.');
+S.cooling.gsut_no_load_kW = phase2_parameter(159,'kW',doc,loc,verified,'High','Source no-load loss; numerical transformer provider unchanged.');
+S.cooling.gsut_load_kW = phase2_parameter(1095,'kW',doc,loc,verified,'High','Source load loss at 515 MVA; numerical transformer provider unchanged.');
+cooling = S.cooling.gsut_total_kW.value-S.cooling.gsut_no_load_kW.value-S.cooling.gsut_load_kW.value;
+S.cooling.gsut_cooling_kW = phase2_parameter(cooling,'kW',doc,loc, ...
+    'DERIVED_FROM_VERIFIED_DATA','High arithmetic / source-qualified', ...
+    'Residual source cooling loss, not added to frozen LF demand or transformer losses; auxiliary overlap unresolved.', ...
+    'source_status',verified,'derivation','1282 - 159 - 1095','interpretation_status','QUALIFIED');
+end
+'@
+Write-Output 'Restored original generator with scoped replacement; wrote three new runtime files without editor formatting.'
+
+=== END FILE docs/validation/rev31_phase2/task-1-write-runtime.ps1 ===
+
+=== BEGIN FILE docs/validation/rev31_phase2/task-1-report.md ===
+BYTES: 26072
+SHA256: 5050D34BF0D17B8AAEC1DF4FEAA5F33FE6D731ACB6CFA6D9DE65CFE75D45C778
+=== RAW FILE BYTES ===
+# Phase-2 Task 1 — recovery, verification, and handoff report
+
+**Status: DONE_WITH_CONCERNS — Task 1 only.**
+
+Recovered and verified on 2026-09-16 with MATLAB 24.1.0.2537033 (R2024a), Windows 11, and PowerShell. **No existing Task-1 runtime or test file was changed during recovery.** Inspection, fresh targeted verification, preservation evidence, this report, and the review package complete the interrupted Task 1. Tasks 2–6 were not started. No subagents, repository creation, commits, worktrees, model rebuilds, or load-flow reruns were used.
+
+Concerns below are source qualifications and deferred integration boundaries, not failing targeted tests. This report does not declare all of Phase 2 complete or validate an operating point, dynamic model, or protection study.
+
+## 1. Authorization and recovered state
+
+Scope: [Task-1 brief](task-1-brief.md), [implementation plan Task 1](IMPLEMENTATION_PLAN.md:24), [approved design](DESIGN.md:17), and the user's explicit Task-1-only recovery instruction.
+
+- The pre-change baseline was already captured: **915 passed / 0 failed**, plus four saved historical LF cases with OK verdicts. It was inspected, not repeated.
+- Implementation and modified generator expectations already existed. The [original red log](task-1-red.log) records expected absent-interface and obsolete-physical-limit failures.
+- The [original green log tail](task-1-green.log:763) is complete: **207/0 capability + 476/0 generator + 39/0 base = 722/0**.
+- The [fresh recovery green log](task-1-recovery-green.log) reproduces those counts against current files. The batch asserts all six pass/fail counters and exits 0.
+- The existing [runtime-writing script](task-1-write-runtime.ps1) was inspected but **not executed**. It is historical editing evidence; rerunning it would rewrite completed work.
+- The existing [progress ledger](progress.md:41) is stale: it still describes an incomplete baseline and unstarted tasks. It was deliberately not edited. This report supersedes that state **for Task 1 only**.
+
+## 2. Requirement-by-requirement disposition
+
+| Task-1 requirement | Evidence/result |
+|---|---|
+| Exact six curve arrays and honest manual-extraction metadata | Present in the provider; exact arrays, source status, manual/user extraction, and no-inspection flag tested. |
+| Endpoint/interpolation/domain tests | All six endpoints, all five segment midpoints, independent 360 MW formulas, shapes, explicit curve, ten invalid-power cases, and six malformed curves pass. |
+| RED before implementation | Existing log records 0/4 capability and 473/3 generator: four missing interfaces and three obsolete physical-Q expectations. |
+| Finite compatibility limits at primary capacity | Provider interpolates at 360 MW using its explicit curve; lower/upper bounds are finite and dispatch applicability is explicit. |
+| Preserve raw machine/source data | Runtime equality confirms all 30 primary fields, 40 full provenance records, legacy data, resistance/base quantities, and unrelated original generator fields. |
+| Normalize provenance; qualify NER, excitation/SFC, grid | Implemented in the read-only source view; unresolved field units remain explicit. Context does not alter frozen numerical providers. |
+| Run capability/generator/base tests; inspect diff and identity | Fresh 722/0, exact no-index backup comparisons, 937-original hash audit, and runtime identity checks completed. |
+
+No failing Task-1 requirement was found during recovery. Therefore no production/test edits or new TDD cycle were necessary. Original RED/GREEN evidence was preserved rather than reconstructed.
+
+## 3. Authoritative capability and physical meaning
+
+The authoritative object is [`G.capabilityCurve`](../../../matlab/data/ashuganj_generators.m:39).
+
+| P MW | Lower Q MVAr | Upper Q MVAr |
+|---:|---:|---:|
+| 0 | -231 | 335 |
+| 100 | -231 | 329 |
+| 200 | -220 | 311 |
+| 300 | -205 | 280 |
+| 389.3 | -182 | 241 |
+| 458 | 0 | 0 |
+
+Source: Siemens Generator Protection Setting Report, Attachment 1. Classification is [`PRIMARY_SOURCE_EXTRACTED`](../../../matlab/data/ashuganj_generators.m:41); extraction method is [`MANUAL_GRAPH_EXTRACTION`](../../../matlab/data/ashuganj_generators.m:43), extracted by USER, confirmed 2026-09-15. Local attachment inspection is explicitly false. These are user-confirmed graph readings, not directly tabulated manufacturer values; graphical uncertainty is not quantified.
+
+Interpolation is piecewise linear; extrapolation is rejected. There is no clipping, smoothing, fitted envelope, or dispatch authorization. Primary capacity remains **360 MW** and rating remains **458 MVA**. The 458 MW tip is retained as source data only.
+
+At 360 MW, independent expected formulas are:
+
+- Lower: −205 + 60 × 23 / 89.3 = **−189.546472564389717 MVAr**.
+- Upper: 280 − 60 × 39 / 89.3 = **253.796192609182526 MVAr**.
+
+The formulas are [test expectations](../../../matlab/tests/test_generator_capability.m:31), not production hard-coded limits. The [provider](../../../matlab/data/ashuganj_generators.m:50) obtains both from interpolation. Actual values appear in the [identity log](task-1-identity.log). Scalar compatibility bounds apply only at the recorded 360 MW dispatch; another dispatch requires interpolation again. Supplied signs are preserved.
+
+## 4. Complete signatures and interfaces
+
+### 4.1 Generator provider
+
+Signature: [`G = ashuganj_generators()`](../../../matlab/data/ashuganj_generators.m:1). No inputs; returns the existing scalar generator registry, extended rather than replaced.
+
+- Added: [`capabilityCurve, Qlim_P_MW, Qlim_Source_status`](../../../matlab/data/ashuganj_generators.m:39).
+- Changed existing values: [`Qmin_MVAr, Qmax_MVAr, Qlim_Status, Qlim_Note, Qcurve_Status, Qcurve_Note`](../../../matlab/data/ashuganj_generators.m:50).
+- [`Qcurve_Source`](../../../matlab/data/ashuganj_generators.m:54) remains unchanged.
+- All 140 original fields remain: **134 unchanged, six intentionally changed**; three additions produce 143 current fields.
+- [`Primary, Provenance`](../../../matlab/data/ashuganj_generators.m:7) and [`Legacy`](../../../matlab/data/ashuganj_generators.m:33) are exactly equal to original runtime output.
+
+Curve fields: [`P_MW, Qmax_MVAr, Qmin_MVAr, status, source_status, source, source_locator, extraction_method, extracted_by, confirmation_date, attachment_locally_inspected, confidence, rationale, P_unit, Q_unit, interpolation, extrapolation, interpretation_status, applicability`](../../../matlab/data/ashuganj_generators.m:39). Units are MW/MVAr; interpolation and extrapolation policies are explicit.
+
+Physical-limit status is [`DERIVED_FROM_PRIMARY_SOURCE_EXTRACTED`](../../../matlab/data/ashuganj_generators.m:52). Underlying source status stays extraction-qualified, not promoted to verified tabulation.
+
+### 4.2 Capability interpolator
+
+Signature: [`[Qmin_MVAr,Qmax_MVAr] = generatorCapability(P_MW,curve)`](../../../matlab/data/generatorCapability.m:1); second input optional.
+
+- Power input: nonempty real finite numeric array, all entries in **[0,458] MW**.
+- Outputs: **lower first, upper second**, in MVAr, retaining input shape. Interpolation converts numeric data to double.
+- Without a curve, obtains the generator's authoritative object. Explicit injection during provider construction prevents recursion.
+- Curve: scalar structure with [`P_MW, Qmin_MVAr, Qmax_MVAr`](../../../matlab/data/generatorCapability.m:18), each a real finite numeric vector. Equal lengths of at least two; strictly increasing P beginning at 0 and ending at 458; lower never above upper.
+- Errors: [`generatorCapability:InvalidP`](../../../matlab/data/generatorCapability.m:12) and [`generatorCapability:InvalidCurve`](../../../matlab/data/generatorCapability.m:20).
+- Evaluates the envelope only: no 360 MW dispatch guard, MVA-circle check, operating-point acceptance, or PV-to-PQ switching.
+
+### 4.3 Normalized parameter helper
+
+Signature: [`r = phase2_parameter(value,unit,source,source_locator,status,confidence,rationale,varargin)`](../../../matlab/data/phase2_parameter.m:1).
+
+Seven positional inputs, then optional name/value pairs. Value accepts numeric, logical, character, or string data. The six required metadata arguments must be nonempty text; metadata text is converted to character representation. Partial option-name matching is disabled.
+
+| Returned field / option | Contract |
+|---|---|
+| [`value`](../../../matlab/data/phase2_parameter.m:20) | Retains supplied value. |
+| [`unit, source, source_locator, status, confidence, rationale`](../../../matlab/data/phase2_parameter.m:21) | Required nonempty text. Units and qualifications are not invented. |
+| [`selected_value`](../../../matlab/data/phase2_parameter.m:36) | Set to supplied value. |
+| [`assumption_basis`](../../../matlab/data/phase2_parameter.m:24) | Default NOT_APPLICABLE. |
+| [`reasonable_range, assumed_range`](../../../matlab/data/phase2_parameter.m:25) | Default empty numeric arrays for ordinary source records. |
+| [`source_status`](../../../matlab/data/phase2_parameter.m:27) | Defaults to status; separately overridable to retain input-source classification on a derived record. |
+| [`derivation`](../../../matlab/data/phase2_parameter.m:28) | Default empty text; equation may be recorded separately. |
+| [`interpretation_status`](../../../matlab/data/phase2_parameter.m:29) | Default DIRECT; qualification separate from source classification. |
+
+These are the required **14 lowercase fields**. Records classified exactly as [`ENGINEERING_ASSUMPTION`](../../../matlab/data/phase2_parameter.m:37) require nonempty finite real numeric selected values, explicit basis, finite ordered two-element ranges, assumed range inside reasonable range, and every selected value inside the assumed range. Degenerate ranges allow an explicitly fixed assumption. Violations raise [`phase2_parameter:InvalidAssumption`](../../../matlab/data/phase2_parameter.m:44).
+
+Missing evidence may retain NaN with missing status/unresolved units. This helper constructs records and validates assumption ranges; it is not an independent source-verification service or complete physical validator. Callers remain responsible for honest status/source inputs.
+
+### 4.4 Read-only normalized source view
+
+Signature: [`S = phase2_source_data(G)`](../../../matlab/data/phase2_source_data.m:1). No input uses the generator automatically. An injected input must be the scalar generator record, **not the assembled master**.
+
+Top-level fields: [`dataset_id, generator, capabilityCurve, excitation, sfc, ner, grid, cooling`](../../../matlab/data/phase2_source_data.m:1).
+
+- [`generator`](../../../matlab/data/phase2_source_data.m:17): 40 normalized records from existing provenance; each retains full [`raw_provenance`](../../../matlab/data/phase2_source_data.m:31). Values follow provenance rather than an independent primary registry. Tests alter an injected provenance value and verify the view follows it.
+- Locators retain original sheet/cell details, including original sheet text/trailing space.
+- [`capabilityCurve`](../../../matlab/data/phase2_source_data.m:34): same authoritative object. This specialized curve object is not an ordinary parameter leaf.
+- Other group leaves are parameter records, with additional SFC side labels where applicable.
+
+| Group/leaves | Values and qualification |
+|---|---|
+| [`excitation.type, excitation.designation, excitation.no_load_voltage_V`](../../../matlab/data/phase2_source_data.m:35) | Static, SEMIPOL, 122 V no-load excitation. Not controller gains, commissioned settings, or a defined field base. |
+| [`sfc.dc_link_kV, sfc.max_starting_output_A`](../../../matlab/data/phase2_source_data.m:42) | 2.28 kV DC link; 1876 A maximum starting OUTPUT current. DC_LINK and OUTPUT side labels prevent conflation; their product is not verified converter power. |
+| [`ner.primary_kV, ner.secondary_V, ner.rating_kVA, ner.duration_s`](../../../matlab/data/phase2_source_data.m:49) | 22/√3 kV phase voltage, 500 V secondary, 135 kVA for 20 s, not continuous. |
+| [`ner.hv_dc_resistance_ohm, ner.loading_resistance_ohm, ner.grounding`](../../../matlab/data/phase2_source_data.m:55) | Approximate 60 ohm HV DC resistance and 2.62 ohm secondary loading resistor; source question marks and QUALIFIED interpretation retained. High-resistance NER 10BAB11 remains. Not added across sides or promoted to a zero-sequence equivalent. |
+| [`grid.estimate_Isc_kA, grid.estimate_Ssc_GVA`](../../../matlab/data/phase2_source_data.m:63) | 50 kA and source-rounded 19.919 GVA, ESTIMATED; do not replace frozen grid arithmetic. |
+| [`grid.sensitivity_Isc_kA, grid.sensitivity_XR`](../../../matlab/data/phase2_source_data.m:70) | 45.01 kA, X/R 10.99; separate SECONDARY_SOURCE_CONTEXT, not selected grid strength. Original secondary attachment not re-inspected. |
+| [`cooling.gsut_total_kW, cooling.gsut_no_load_kW, cooling.gsut_load_kW, cooling.gsut_cooling_kW`](../../../matlab/data/phase2_source_data.m:76) | 1282, 159, 1095 kW; residual **28 kW = 1282 − 159 − 1095**. Derivation and source classification separate; nothing added to frozen LF demand. |
+
+Field-resistance units/base remain unresolved. Unqualified subtransient reactance **0.2608 pu** stays distinct from saturated **0.2248 pu**. Raw stator resistance **0.00089 ohm** and original machine/system-base conversions remain unchanged.
+
+### 4.5 Test interfaces
+
+- [`[np,nf] = test_generator_capability()`](../../../matlab/tests/test_generator_capability.m:1).
+- [`[np,nf] = test_generator_data()`](../../../matlab/tests/test_generator_data.m:1).
+- [`[np,nf] = test_base_conversion()`](../../../matlab/tests/test_base_conversion.m:1).
+
+The [hand-rolled assertion recorder](../../../matlab/tests/t_case.m:42) emits one PASS/FAIL line per check and returns **assertion counts**, not MATLAB unit-test object counts. Recovery counted log lines independently and matched all per-file summaries.
+
+## 5. Exact tests, counts, and verification
+
+### 5.1 Existing baseline: inspected, not rerun
+
+The [baseline summary](baseline_tests.log:955) records:
+
+| Suite | Passed | Failed |
+|---|---:|---:|
+| [Bus data](../../../matlab/tests/test_bus_data.m) | 61 | 0 |
+| [Generator data](../../../matlab/tests/test_generator_data.m) | 476 | 0 |
+| [Transformer data](../../../matlab/tests/test_transformer_data.m) | 85 | 0 |
+| [Line data](../../../matlab/tests/test_line_data.m) | 47 | 0 |
+| [Load data](../../../matlab/tests/test_load_data.m) | 58 | 0 |
+| [Base conversion](../../../matlab/tests/test_base_conversion.m) | 39 | 0 |
+| [Topology](../../../matlab/tests/test_topology.m) | 52 | 0 |
+| [Transformer phase shift](../../../matlab/tests/test_transformer_phase_shift.m) | 18 | 0 |
+| [Grid sensitivity](../../../matlab/tests/test_grid_sensitivity.m) | 38 | 0 |
+| [Magnetising sensitivity](../../../matlab/tests/test_magnetising_sensitivity.m) | 41 | 0 |
+| **Total** | **915** | **0** |
+
+Read-only checks of [baseline_lf.mat](baseline_lf.mat) confirm four result records, baseline 915/0 counters, IDs LF1–LF4, four OK verdicts, and exact equality of all saved case records with current frozen definitions. This is **not** a fresh numerical solve comparison.
+
+### 5.2 Original TDD and fresh recovery evidence
+
+| Stage | Capability pass/fail | Generator pass/fail | Base pass/fail | Total pass/fail |
+|---|---:|---:|---:|---:|
+| Original RED | 0/4 | 473/3 | Not run in that log | **473/7** |
+| Original GREEN | 207/0 | 476/0 | 39/0 | **722/0** |
+| Fresh recovery GREEN | 207/0 | 476/0 | 39/0 | **722/0** |
+
+Seven RED failures: missing curve, interpolator, parameter helper, source view; old negative-infinite lower bound; old positive-infinite upper bound; obsolete physical-limit status. Tests guard missing interfaces, so RED reports four existence failures rather than attempting all downstream capability assertions.
+
+Generator tests remain at 476 checks: only three obsolete expectations/comments were replaced. Base tests were unmodified. The 722 targeted count is not a complete post-change suite and must not be added to the old 915 baseline as one fresh run.
+
+### 5.3 Capability assertion breakdown
+
+| Area | Passing assertions |
+|---|---:|
+| Curve/provider, exact arrays, extraction metadata, applicability | 13 |
+| Interpolator, endpoints, midpoints, 360 MW formulas, shapes, custom curve, invalid inputs/curves | 28 |
+| Parameter helper/schema/defaults/ranges/missing-source distinction | 11 |
+| Source view: existence/default equivalence, 120 checks across 40 provenance records, 33 further source/qualification checks | 155 |
+| **Total** | **207** |
+
+Ten invalid power cases: below zero, just above 458, NaN, positive/negative infinity, complex, array containing NaN, empty, text, logical. Six malformed curves: absent fields, repeated P, nonfinite Q, reversed bounds, mismatched lengths, wrong domain endpoint. Exact equality checks endpoints; midpoint tolerance is 1e-10; independent 360 MW and injected-curve tolerance is 1e-12.
+
+### 5.4 Fresh execution and analyzer findings
+
+Fresh targeted batch began **2026-09-16 06:41:21 Asia/Dhaka**, MATLAB **24.1.0.2537033 (R2024a)**. All six checked functions resolved to this workspace. Code Analyzer ran on four runtime and two test files, followed by direct invocation of all three targeted suites and an assertion of exact counters 207,0,476,0,39,0. Success marker and **process exit 0** were confirmed. Existing interactive MATLAB was not stopped or reused.
+
+Analyzer result: **65 non-fatal advisories**, not a lint-clean claim: six inherited newline/readability advisories, 57 inherited unnecessary-bracket advisories, and two string-growth/performance advisories in new source-view locator construction. All files parsed and relevant runtime paths executed. No unrelated style/formatter edits were made.
+
+### 5.5 Runtime identity checks
+
+A separate [identity batch](task-1-identity.log), exit **0**, evaluated a temporary copy of the original backed-up generator in the batch process, removed its path, then evaluated current data. The temporary copy/subdirectory was removed; backups/current sources were not edited.
+
+Confirmed:
+
+1. All 140 original fields remain; only the six authorized capability-related values differ; exactly three fields added.
+2. All **30 primary fields**, **40 full provenance records**, and legacy data are exactly equal.
+3. Every master field except the intentionally extended generator is exactly equal to original runtime output.
+4. Baseline 915/0 and four OK saved cases; **4/4 exact case-record identities**.
+5. Both voltage setpoints **1.00 pu**; auxiliary demand **14 MW at 0.85 PF**.
+6. Finite physical bounds at 360 MW with the values above.
+
+Identity checks are separate from, and not counted in, the 722 assertions. Exact targeted rerun instructions are in the [review package](task-1-review-package.txt).
+
+## 6. Changed files and scope preservation
+
+### 6.1 Product changes relative to original baseline
+
+| File | Task-1 change, already present when recovery started |
+|---|---|
+| [`matlab/data/ashuganj_generators.m`](../../../matlab/data/ashuganj_generators.m) | Replace only obsolete physical-Q/undigitized-curve block with curve/provenance and derived bounds. |
+| [`matlab/tests/test_generator_data.m`](../../../matlab/tests/test_generator_data.m) | Replace only three obsolete physical-Q assertions and explanatory comments. |
+| [`matlab/data/generatorCapability.m`](../../../matlab/data/generatorCapability.m) | New interpolator. |
+| [`matlab/data/phase2_parameter.m`](../../../matlab/data/phase2_parameter.m) | New normalized parameter helper. |
+| [`matlab/data/phase2_source_data.m`](../../../matlab/data/phase2_source_data.m) | New read-only normalized source view. |
+| [`matlab/tests/test_generator_capability.m`](../../../matlab/tests/test_generator_capability.m) | New capability/provenance/helper tests. |
+
+Recovery rewrote none of these. Their exact SHA-256 and byte counts are in the [start snapshot](task-1-recovery-start-hashes.csv) and review package.
+
+### 6.2 Original-file audit
+
+The [baseline inventory](baseline_hashes.csv) covers **937 originals**. The [integrity manifest](task-1-original-integrity.csv) records baseline/current hash, size, and status for each:
+
+- **935 unchanged; two modified; zero missing**.
+- Modified originals are exactly the generator provider and generator test above.
+- All **six backups** match their original baseline hashes.
+- Protected groups entirely unchanged: **46 Rev2, 75 results, 40 Simulink, nine builder, and 15 supplied engineer-document-directory files**. Original files outside those groups are also covered by the 937-entry manifest.
+
+No solver, builder, transformer/grid/load numerical provider, source document, historical output, master, dispatcher, suite runner, or topology-test edit was made. The [master](../../../matlab/data/ashuganj_master_data.m), [dispatcher](../../../matlab/ashuganj.m), [suite runner](../../../matlab/tests/run_all_tests.m), and [topology test](../../../matlab/tests/test_topology.m) match backups exactly. Hash comparison establishes preservation, not semantic source-document inspection.
+
+### 6.3 New recovery artifacts
+
+[Report](task-1-report.md), [review package](task-1-review-package.txt), [fresh targeted log](task-1-recovery-green.log), [identity log](task-1-identity.log), [original integrity manifest](task-1-original-integrity.csv), [recovery-start snapshot](task-1-recovery-start-hashes.csv), and [final verification log](task-1-final-verification.log).
+
+The start snapshot covers **27 pre-existing files**: six Task-1 product files and all pre-existing Phase-2 evidence, including baseline artifacts, original RED/GREEN logs, plans/briefs/ledger, editing script, and six backups. These are rechecked at completion. Temporary identity-copy material is removed, not a deliverable.
+
+## 7. Exact review package
+
+The [plain-text package](task-1-review-package.txt) contains:
+
+1. Scope/status, targeted counts, rerun command, and diff-exit semantics.
+2. **Actual Git no-index diff output for all six backed-up originals versus their current counterparts**, with exact command and exit code: two modified pairs return 1; four unchanged pairs return 0. No repository is needed or created.
+3. **Full unabridged text of all six current Task-1 runtime/test files**, including four new files and both modified originals, with path/byte count/SHA-256.
+4. Full existing runtime-writing script, clearly marked historical and not rerun.
+5. This report and the original RED/GREEN, fresh targeted, and identity logs.
+
+File contents are copied directly as byte-counted sections, not reformatted or reconstructed. Diff generation disables external diff/text-conversion hooks and automatic line-ending conversion. Final verification checks section bytes against source files and regenerates all six diffs for comparison.
+
+## 8. Direct review findings and concerns
+
+**No blocking Task-1 defect found.** Review was direct in this session, not an independent reviewer/subagent review.
+
+1. **Extraction uncertainty:** manual graph readings are user-approved, but graphical uncertainty is unquantified and the attachment was not independently inspected. The 458 MW tip is not dispatch approval.
+2. **Physical versus solver limits:** physical generator bounds are finite at 360 MW. The approved [PV builder settings](../../../matlab/build/build_generator_system.m:74) remain mathematically unbounded to preserve the frozen solve. They are not physical capability or grounding, and Task 1 does not enforce/clamp operating points.
+3. **Frozen historical case/grid metadata:** the unchanged [master case limit field](../../../matlab/data/ashuganj_master_data.m:21) still contains infinite historical limits, and the [grid provider](../../../matlab/data/ashuganj_grid.m:133) retains its approved unlimited mathematical context. Task 1 does not claim all repository limit fields are finite. Case/profile physical-limit migration belongs to later authorized work; it was not performed here.
+4. **Integration deferred:** the [explicit suite list](../../../matlab/tests/run_all_tests.m:38) does not yet register the new capability suite; recovery invoked it directly. The master does not yet expose the new normalized source object or update its status vocabulary. Those changes are outside Task 1. No complete post-change suite, new LF solve, or six-profile integration is claimed.
+5. **Source qualification:** unresolved field resistance/base, approximate/question-marked NER resistance, estimated grid strength, secondary sensitivity context, and unresolved cooling/auxiliary overlap remain. No physical field base, verified SFC power, grounding equivalent, or electrical coupling is inferred.
+6. **Review/test limits:** analyzer advisories remain; existing test guards provide RED absence checks rather than exhaustive validation of every unsupported data type. The source-view injected argument is a trusted generator record, not a general untrusted-input API. The parameter helper cannot independently certify a caller's provenance labels.
+7. **Stale documentation:** the progress ledger and any historical unlimited-Q wording remain untouched to honor preservation. This report documents the Task-1 handoff rather than silently rewriting history.
+
+These concerns justify DONE_WITH_CONCERNS without expanding scope. No Rev2, solver, builder, source/history, master, runner, or later-task edits were made.
+
+## 9. Final disposition
+
+**DONE_WITH_CONCERNS.** Task 1's existing implementation is retained, its complete original GREEN is confirmed, fresh targeted tests pass **722/0**, runtime primary/provenance identity is verified, and the original-file boundary is preserved. The report and exact review package complete the interrupted handoff. **Stop at Task 1; Tasks 2–6 remain unexecuted by this recovery.**
+
+=== END FILE docs/validation/rev31_phase2/task-1-report.md ===
+
+=== BEGIN FILE docs/validation/rev31_phase2/task-1-red.log ===
+BYTES: 19761
+SHA256: 12FBCF7BFAC6264E931E2A2BF248A303FC409874C5ECE8BAE4A0EC2A31C752BD
+=== RAW FILE BYTES ===
+BASELINE VERIFIED: 915/0, four captured OK cases
+
+--- test_generator_capability -----------------------------------------
+  FAIL  authoritative capabilityCurve exists
+  FAIL  generatorCapability function exists
+  FAIL  normalized parameter helper exists
+  FAIL  normalized source view exists
+  => test_generator_capability: 0 passed, 4 FAILED
+
+--- test_generator_data -----------------------------------------------
+  PASS  exactly ONE generator: SCC5-PAC 4000F/3000 (1S) is single-shaft
+  PASS  terminal voltage 22 kV
+  PASS  rated apparent power 458 MVA at 50 C cold gas
+  PASS  maximum apparent power 518 MVA at 30 C cold gas
+  PASS  rated power factor 0.85
+  PASS  frequency 50 Hz - Bangladesh, not 60 Hz
+  PASS  rated stator current 12019 A
+  PASS  hydrogen pressure 5 bar(g)
+  PASS  S/(sqrt3 V) = 12019.4 A agrees with the stated 12019 A
+  PASS  458 MVA x 0.85 = 389.30 MW is a PF reference, not capacity
+  PASS  Snom_MVA canonical primary field and provenance exist
+  PASS  Snom_MVA verified workbook value
+  PASS  Snom_MVA compatibility view comes from PRIMARY
+  PASS  Snom_MVA raw numeric source
+  PASS  Snom_MVA workbook identity
+  PASS  Snom_MVA exact sheet including trailing space
+  PASS  Snom_MVA source cell
+  PASS  Snom_MVA normalized provenance agrees
+  PASS  Snom_MVA primary designation
+  PASS  Snom_MVA dataset lineage
+  PASS  Snom_MVA complete qualified metadata
+  PASS  P_capacity_MW canonical primary field and provenance exist
+  PASS  P_capacity_MW verified workbook value
+  PASS  P_capacity_MW compatibility view comes from PRIMARY
+  PASS  P_capacity_MW raw numeric source
+  PASS  P_capacity_MW workbook identity
+  PASS  P_capacity_MW exact sheet including trailing space
+  PASS  P_capacity_MW source cell
+  PASS  P_capacity_MW normalized provenance agrees
+  PASS  P_capacity_MW primary designation
+  PASS  P_capacity_MW dataset lineage
+  PASS  P_capacity_MW complete qualified metadata
+  PASS  Vnom_kV canonical primary field and provenance exist
+  PASS  Vnom_kV verified workbook value
+  PASS  Vnom_kV compatibility view comes from PRIMARY
+  PASS  Vnom_kV raw numeric source
+  PASS  Vnom_kV workbook identity
+  PASS  Vnom_kV exact sheet including trailing space
+  PASS  Vnom_kV source cell
+  PASS  Vnom_kV normalized provenance agrees
+  PASS  Vnom_kV primary designation
+  PASS  Vnom_kV dataset lineage
+  PASS  Vnom_kV complete qualified metadata
+  PASS  H_s canonical primary field and provenance exist
+  PASS  H_s verified workbook value
+  PASS  H_s compatibility view comes from PRIMARY
+  PASS  H_s raw numeric source
+  PASS  H_s workbook identity
+  PASS  H_s exact sheet including trailing space
+  PASS  H_s source cell
+  PASS  H_s normalized provenance agrees
+  PASS  H_s primary designation
+  PASS  H_s dataset lineage
+  PASS  H_s complete qualified metadata
+  PASS  SCR canonical primary field and provenance exist
+  PASS  SCR verified workbook value
+  PASS  SCR compatibility view comes from PRIMARY
+  PASS  SCR raw numeric source
+  PASS  SCR workbook identity
+  PASS  SCR exact sheet including trailing space
+  PASS  SCR source cell
+  PASS  SCR normalized provenance agrees
+  PASS  SCR primary designation
+  PASS  SCR dataset lineage
+  PASS  SCR complete qualified metadata
+  PASS  Xd canonical primary field and provenance exist
+  PASS  Xd verified workbook value
+  PASS  Xd compatibility view comes from PRIMARY
+  PASS  Xd raw numeric source
+  PASS  Xd raw reactance unit
+  PASS  Xd normalized reactance unit
+  PASS  Xd raw reactance group
+  PASS  Xd workbook identity
+  PASS  Xd exact sheet including trailing space
+  PASS  Xd source cell
+  PASS  Xd normalized provenance agrees
+  PASS  Xd primary designation
+  PASS  Xd dataset lineage
+  PASS  Xd complete qualified metadata
+  PASS  Xdp canonical primary field and provenance exist
+  PASS  Xdp verified workbook value
+  PASS  Xdp compatibility view comes from PRIMARY
+  PASS  Xdp raw numeric source
+  PASS  Xdp raw reactance unit
+  PASS  Xdp normalized reactance unit
+  PASS  Xdp raw reactance group
+  PASS  Xdp workbook identity
+  PASS  Xdp exact sheet including trailing space
+  PASS  Xdp source cell
+  PASS  Xdp normalized provenance agrees
+  PASS  Xdp primary designation
+  PASS  Xdp dataset lineage
+  PASS  Xdp complete qualified metadata
+  PASS  Xdpp canonical primary field and provenance exist
+  PASS  Xdpp verified workbook value
+  PASS  Xdpp compatibility view comes from PRIMARY
+  PASS  Xdpp raw numeric source
+  PASS  Xdpp raw reactance unit
+  PASS  Xdpp normalized reactance unit
+  PASS  Xdpp raw reactance group
+  PASS  Xdpp workbook identity
+  PASS  Xdpp exact sheet including trailing space
+  PASS  Xdpp source cell
+  PASS  Xdpp normalized provenance agrees
+  PASS  Xdpp primary designation
+  PASS  Xdpp dataset lineage
+  PASS  Xdpp complete qualified metadata
+  PASS  Xdpp_sat canonical primary field and provenance exist
+  PASS  Xdpp_sat verified workbook value
+  PASS  Xdpp_sat compatibility view comes from PRIMARY
+  PASS  Xdpp_sat raw numeric source
+  PASS  Xdpp_sat raw reactance unit
+  PASS  Xdpp_sat normalized reactance unit
+  PASS  Xdpp_sat raw reactance group
+  PASS  Xdpp_sat workbook identity
+  PASS  Xdpp_sat exact sheet including trailing space
+  PASS  Xdpp_sat source cell
+  PASS  Xdpp_sat normalized provenance agrees
+  PASS  Xdpp_sat primary designation
+  PASS  Xdpp_sat dataset lineage
+  PASS  Xdpp_sat complete qualified metadata
+  PASS  Xq canonical primary field and provenance exist
+  PASS  Xq verified workbook value
+  PASS  Xq compatibility view comes from PRIMARY
+  PASS  Xq raw numeric source
+  PASS  Xq raw reactance unit
+  PASS  Xq normalized reactance unit
+  PASS  Xq raw reactance group
+  PASS  Xq workbook identity
+  PASS  Xq exact sheet including trailing space
+  PASS  Xq source cell
+  PASS  Xq normalized provenance agrees
+  PASS  Xq primary designation
+  PASS  Xq dataset lineage
+  PASS  Xq complete qualified metadata
+  PASS  Xqp canonical primary field and provenance exist
+  PASS  Xqp verified workbook value
+  PASS  Xqp compatibility view comes from PRIMARY
+  PASS  Xqp raw numeric source
+  PASS  Xqp raw reactance unit
+  PASS  Xqp normalized reactance unit
+  PASS  Xqp raw reactance group
+  PASS  Xqp workbook identity
+  PASS  Xqp exact sheet including trailing space
+  PASS  Xqp source cell
+  PASS  Xqp normalized provenance agrees
+  PASS  Xqp primary designation
+  PASS  Xqp dataset lineage
+  PASS  Xqp complete qualified metadata
+  PASS  Xqpp canonical primary field and provenance exist
+  PASS  Xqpp verified workbook value
+  PASS  Xqpp compatibility view comes from PRIMARY
+  PASS  Xqpp raw numeric source
+  PASS  Xqpp raw reactance unit
+  PASS  Xqpp normalized reactance unit
+  PASS  Xqpp raw reactance group
+  PASS  Xqpp workbook identity
+  PASS  Xqpp exact sheet including trailing space
+  PASS  Xqpp source cell
+  PASS  Xqpp normalized provenance agrees
+  PASS  Xqpp primary designation
+  PASS  Xqpp dataset lineage
+  PASS  Xqpp complete qualified metadata
+  PASS  Xl canonical primary field and provenance exist
+  PASS  Xl verified workbook value
+  PASS  Xl compatibility view comes from PRIMARY
+  PASS  Xl raw numeric source
+  PASS  Xl raw reactance unit
+  PASS  Xl normalized reactance unit
+  PASS  Xl raw reactance group
+  PASS  Xl workbook identity
+  PASS  Xl exact sheet including trailing space
+  PASS  Xl source cell
+  PASS  Xl normalized provenance agrees
+  PASS  Xl primary designation
+  PASS  Xl dataset lineage
+  PASS  Xl complete qualified metadata
+  PASS  X2 canonical primary field and provenance exist
+  PASS  X2 verified workbook value
+  PASS  X2 compatibility view comes from PRIMARY
+  PASS  X2 raw numeric source
+  PASS  X2 raw reactance unit
+  PASS  X2 normalized reactance unit
+  PASS  X2 raw reactance group
+  PASS  X2 workbook identity
+  PASS  X2 exact sheet including trailing space
+  PASS  X2 source cell
+  PASS  X2 normalized provenance agrees
+  PASS  X2 primary designation
+  PASS  X2 dataset lineage
+  PASS  X2 complete qualified metadata
+  PASS  X0 canonical primary field and provenance exist
+  PASS  X0 verified workbook value
+  PASS  X0 compatibility view comes from PRIMARY
+  PASS  X0 raw numeric source
+  PASS  X0 raw reactance unit
+  PASS  X0 normalized reactance unit
+  PASS  X0 raw reactance group
+  PASS  X0 workbook identity
+  PASS  X0 exact sheet including trailing space
+  PASS  X0 source cell
+  PASS  X0 normalized provenance agrees
+  PASS  X0 primary designation
+  PASS  X0 dataset lineage
+  PASS  X0 complete qualified metadata
+  PASS  Ra_ohm canonical primary field and provenance exist
+  PASS  Ra_ohm verified workbook value
+  PASS  Ra_ohm compatibility view comes from PRIMARY
+  PASS  Ra_ohm workbook identity
+  PASS  Ra_ohm exact sheet including trailing space
+  PASS  Ra_ohm source cell
+  PASS  Ra_ohm normalized provenance agrees
+  PASS  Ra_ohm primary designation
+  PASS  Ra_ohm dataset lineage
+  PASS  Ra_ohm complete qualified metadata
+  PASS  Rf_numeric canonical primary field and provenance exist
+  PASS  Rf_numeric verified workbook value
+  PASS  Rf_numeric compatibility view comes from PRIMARY
+  PASS  Rf_numeric raw numeric source
+  PASS  Rf_numeric workbook identity
+  PASS  Rf_numeric exact sheet including trailing space
+  PASS  Rf_numeric source cell
+  PASS  Rf_numeric normalized provenance agrees
+  PASS  Rf_numeric primary designation
+  PASS  Rf_numeric dataset lineage
+  PASS  Rf_numeric complete qualified metadata
+  PASS  Td0p_s canonical primary field and provenance exist
+  PASS  Td0p_s verified workbook value
+  PASS  Td0p_s compatibility view comes from PRIMARY
+  PASS  Td0p_s raw numeric source
+  PASS  Td0p_s raw time unit
+  PASS  Td0p_s normalized time unit
+  PASS  Td0p_s raw time group
+  PASS  Td0p_s workbook identity
+  PASS  Td0p_s exact sheet including trailing space
+  PASS  Td0p_s source cell
+  PASS  Td0p_s normalized provenance agrees
+  PASS  Td0p_s primary designation
+  PASS  Td0p_s dataset lineage
+  PASS  Td0p_s complete qualified metadata
+  PASS  Td0pp_s canonical primary field and provenance exist
+  PASS  Td0pp_s verified workbook value
+  PASS  Td0pp_s compatibility view comes from PRIMARY
+  PASS  Td0pp_s raw numeric source
+  PASS  Td0pp_s raw time unit
+  PASS  Td0pp_s normalized time unit
+  PASS  Td0pp_s raw time group
+  PASS  Td0pp_s workbook identity
+  PASS  Td0pp_s exact sheet including trailing space
+  PASS  Td0pp_s source cell
+  PASS  Td0pp_s normalized provenance agrees
+  PASS  Td0pp_s primary designation
+  PASS  Td0pp_s dataset lineage
+  PASS  Td0pp_s complete qualified metadata
+  PASS  Tq0p_s canonical primary field and provenance exist
+  PASS  Tq0p_s verified workbook value
+  PASS  Tq0p_s compatibility view comes from PRIMARY
+  PASS  Tq0p_s raw numeric source
+  PASS  Tq0p_s raw time unit
+  PASS  Tq0p_s normalized time unit
+  PASS  Tq0p_s raw time group
+  PASS  Tq0p_s workbook identity
+  PASS  Tq0p_s exact sheet including trailing space
+  PASS  Tq0p_s source cell
+  PASS  Tq0p_s normalized provenance agrees
+  PASS  Tq0p_s primary designation
+  PASS  Tq0p_s dataset lineage
+  PASS  Tq0p_s complete qualified metadata
+  PASS  Tq0pp_s canonical primary field and provenance exist
+  PASS  Tq0pp_s verified workbook value
+  PASS  Tq0pp_s compatibility view comes from PRIMARY
+  PASS  Tq0pp_s raw numeric source
+  PASS  Tq0pp_s raw time unit
+  PASS  Tq0pp_s normalized time unit
+  PASS  Tq0pp_s raw time group
+  PASS  Tq0pp_s workbook identity
+  PASS  Tq0pp_s exact sheet including trailing space
+  PASS  Tq0pp_s source cell
+  PASS  Tq0pp_s normalized provenance agrees
+  PASS  Tq0pp_s primary designation
+  PASS  Tq0pp_s dataset lineage
+  PASS  Tq0pp_s complete qualified metadata
+  PASS  Tdp_s canonical primary field and provenance exist
+  PASS  Tdp_s verified workbook value
+  PASS  Tdp_s compatibility view comes from PRIMARY
+  PASS  Tdp_s raw numeric source
+  PASS  Tdp_s raw time unit
+  PASS  Tdp_s normalized time unit
+  PASS  Tdp_s raw time group
+  PASS  Tdp_s workbook identity
+  PASS  Tdp_s exact sheet including trailing space
+  PASS  Tdp_s source cell
+  PASS  Tdp_s normalized provenance agrees
+  PASS  Tdp_s primary designation
+  PASS  Tdp_s dataset lineage
+  PASS  Tdp_s complete qualified metadata
+  PASS  Tdpp_s canonical primary field and provenance exist
+  PASS  Tdpp_s verified workbook value
+  PASS  Tdpp_s compatibility view comes from PRIMARY
+  PASS  Tdpp_s raw numeric source
+  PASS  Tdpp_s raw time unit
+  PASS  Tdpp_s normalized time unit
+  PASS  Tdpp_s raw time group
+  PASS  Tdpp_s workbook identity
+  PASS  Tdpp_s exact sheet including trailing space
+  PASS  Tdpp_s source cell
+  PASS  Tdpp_s normalized provenance agrees
+  PASS  Tdpp_s primary designation
+  PASS  Tdpp_s dataset lineage
+  PASS  Tdpp_s complete qualified metadata
+  PASS  Tqp_s canonical primary field and provenance exist
+  PASS  Tqp_s verified workbook value
+  PASS  Tqp_s compatibility view comes from PRIMARY
+  PASS  Tqp_s raw numeric source
+  PASS  Tqp_s raw time unit
+  PASS  Tqp_s normalized time unit
+  PASS  Tqp_s raw time group
+  PASS  Tqp_s workbook identity
+  PASS  Tqp_s exact sheet including trailing space
+  PASS  Tqp_s source cell
+  PASS  Tqp_s normalized provenance agrees
+  PASS  Tqp_s primary designation
+  PASS  Tqp_s dataset lineage
+  PASS  Tqp_s complete qualified metadata
+  PASS  Tqpp_s canonical primary field and provenance exist
+  PASS  Tqpp_s verified workbook value
+  PASS  Tqpp_s compatibility view comes from PRIMARY
+  PASS  Tqpp_s raw numeric source
+  PASS  Tqpp_s raw time unit
+  PASS  Tqpp_s normalized time unit
+  PASS  Tqpp_s raw time group
+  PASS  Tqpp_s workbook identity
+  PASS  Tqpp_s exact sheet including trailing space
+  PASS  Tqpp_s source cell
+  PASS  Tqpp_s normalized provenance agrees
+  PASS  Tqpp_s primary designation
+  PASS  Tqpp_s dataset lineage
+  PASS  Tqpp_s complete qualified metadata
+  PASS  Ta_s canonical primary field and provenance exist
+  PASS  Ta_s verified workbook value
+  PASS  Ta_s compatibility view comes from PRIMARY
+  PASS  Ta_s raw numeric source
+  PASS  Ta_s raw time unit
+  PASS  Ta_s normalized time unit
+  PASS  Ta_s raw time group
+  PASS  Ta_s workbook identity
+  PASS  Ta_s exact sheet including trailing space
+  PASS  Ta_s source cell
+  PASS  Ta_s normalized provenance agrees
+  PASS  Ta_s primary designation
+  PASS  Ta_s dataset lineage
+  PASS  Ta_s complete qualified metadata
+  PASS  S10 canonical primary field and provenance exist
+  PASS  S10 verified workbook value
+  PASS  S10 compatibility view comes from PRIMARY
+  PASS  S10 raw numeric source
+  PASS  S10 workbook identity
+  PASS  S10 exact sheet including trailing space
+  PASS  S10 source cell
+  PASS  S10 normalized provenance agrees
+  PASS  S10 primary designation
+  PASS  S10 dataset lineage
+  PASS  S10 complete qualified metadata
+  PASS  S12 canonical primary field and provenance exist
+  PASS  S12 verified workbook value
+  PASS  S12 compatibility view comes from PRIMARY
+  PASS  S12 raw numeric source
+  PASS  S12 workbook identity
+  PASS  S12 exact sheet including trailing space
+  PASS  S12 source cell
+  PASS  S12 normalized provenance agrees
+  PASS  S12 primary designation
+  PASS  S12 dataset lineage
+  PASS  S12 complete qualified metadata
+  PASS  Excitation_type canonical primary field and provenance exist
+  PASS  Excitation_type normalized workbook text
+  PASS  Excitation_type compatibility view comes from PRIMARY
+  PASS  Excitation_type workbook identity
+  PASS  Excitation_type exact sheet including trailing space
+  PASS  Excitation_type source cell
+  PASS  Excitation_type normalized provenance agrees
+  PASS  Excitation_type primary designation
+  PASS  Excitation_type dataset lineage
+  PASS  Excitation_type complete qualified metadata
+  PASS  Excitation_designation canonical primary field and provenance exist
+  PASS  Excitation_designation normalized workbook text
+  PASS  Excitation_designation compatibility view comes from PRIMARY
+  PASS  Excitation_designation workbook identity
+  PASS  Excitation_designation exact sheet including trailing space
+  PASS  Excitation_designation source cell
+  PASS  Excitation_designation normalized provenance agrees
+  PASS  Excitation_designation primary designation
+  PASS  Excitation_designation dataset lineage
+  PASS  Excitation_designation complete qualified metadata
+  PASS  percent view Xd = 178.3
+  PASS  percent view Xdp = 32.56
+  PASS  percent view Xdpp = 26.08, not saturated
+  PASS  Snom_MVA exact workbook heading
+  PASS  P_capacity_MW exact workbook heading
+  PASS  Vnom_kV exact workbook heading
+  PASS  H_s exact workbook heading
+  PASS  SCR exact workbook heading
+  PASS  Xd exact workbook heading
+  PASS  Xdp exact workbook heading
+  PASS  Xdpp exact workbook heading
+  PASS  Xdpp_sat exact workbook heading
+  PASS  Xq exact workbook heading
+  PASS  Xqp exact workbook heading
+  PASS  Xqpp exact workbook heading
+  PASS  Xl exact workbook heading
+  PASS  X2 exact workbook heading
+  PASS  X0 exact workbook heading
+  PASS  Ra_ohm exact workbook heading
+  PASS  Rf_numeric exact workbook heading
+  PASS  Td0p_s exact workbook heading
+  PASS  Td0pp_s exact workbook heading
+  PASS  Tq0p_s exact workbook heading
+  PASS  Tq0pp_s exact workbook heading
+  PASS  Tdp_s exact workbook heading
+  PASS  Tdpp_s exact workbook heading
+  PASS  Tqp_s exact workbook heading
+  PASS  Tqpp_s exact workbook heading
+  PASS  Ta_s exact workbook heading
+  PASS  S10 exact workbook heading
+  PASS  S12 exact workbook heading
+  PASS  Excitation_type exact workbook heading
+  PASS  Excitation_designation exact workbook heading
+  PASS  retained d-axis ordering check
+  PASS  unqualified and saturated Xdpp are distinct
+  PASS  machine-base Ra
+  PASS  ohm and pu resistance are distinct
+  PASS  rated PF retained separately
+  PASS  PF-derived OEM reference
+  PASS  owner scenario retained
+  PASS  capacity is neither reference nor scenario
+  PASS  owner power boundary not invented
+  PASS  raw resistance text retained
+  PASS  raw field resistance heading
+  PASS  mixed unit heading
+  PASS  field resistance interpretation qualified
+  PASS  no invented rotor field base
+  PASS  no invented Rf conversion
+  PASS  raw excitation space preserved
+  PASS  raw designation space preserved
+  PASS  unqualified source retained
+  PASS  Xdpp_sat source saturation
+  PASS  X2 source saturation
+  PASS  X0 source saturation
+  PASS  machine apparent-power base
+  PASS  line-line machine voltage base
+  PASS  base is selected interpretation, not literal declaration
+  PASS  combined turbine-generator inertia
+  PASS  controller settings still missing
+  PASS  two saturation coefficients are not a full OCC
+  PASS  XD_damper genuinely missing
+  PASS  XQ_damper genuinely missing
+  PASS  Xf genuinely missing
+  PASS  RD_damper genuinely missing
+  PASS  RQ_damper genuinely missing
+  PASS  Ta1_s genuinely missing
+  PASS  Damping genuinely missing
+  PASS  legacy explicitly designated
+  PASS  legacy reactances retained
+  PASS  legacy cannot be the selected primary
+  PASS  verified workbook hash
+  PASS  existing master owns the same generator provider
+  PASS  Phase 1 freezes all four historical LF dispatches
+  PASS  old Ra interface is derived machine pu
+  PASS  old inertia interface is derived seconds
+  PASS  generator retains NER, never GSUT solid grounding
+  PASS  modelled as a PV bus
+  PASS  terminal voltage setpoint 1.00 pu (approved assumption)
+  FAIL  finite physical Qmin at primary 360 MW from source interpolation   [got -Inf, expected -189.54647 +/- 1e-12]
+  FAIL  finite physical Qmax at primary 360 MW from source interpolation   [got Inf, expected 253.79619 +/- 1e-12]
+  FAIL  physical bounds retain graph-extraction derivation status   [got 'NOT_APPLICABLE', expected 'DERIVED_FROM_PRIMARY_SOURCE_EXTRACTED']
+  PASS  modelled with a Three-Phase Source, not a Synchronous Machine block
+  => test_generator_data: 473 passed, 3 FAILED
+TASK1_RED capability=0/4 generator=473/3 total=473/7
+
+=== END FILE docs/validation/rev31_phase2/task-1-red.log ===
+
+=== BEGIN FILE docs/validation/rev31_phase2/task-1-green.log ===
+BYTES: 35477
+SHA256: 4FEF724F598A3F50FA3D3C488E4D6B28CD2C1FF4253E14ECA6AE6409C43AD3F3
+=== RAW FILE BYTES ===
+PARSER ashuganj_generators
+L 72 (C 40-47): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+L 73 (C 33-40): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+L 74 (C 54-61): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+
+PARSER generatorCapability
+PARSER phase2_parameter
+PARSER phase2_source_data
+L 22 (C 9-15): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 25 (C 9-15): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+
+PARSER test_generator_capability
+PARSER test_generator_data
+L 87 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 87 (C 14): NBRAK2: Use of brackets [] is unnecessary.
+L 88 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 88 (C 33-40): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+L 89 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 89 (C 27-34): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+L 90 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 90 (C 32-39): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+L 91 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 91 (C 9): NBRAK2: Use of brackets [] is unnecessary.
+L 92 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 92 (C 8): NBRAK2: Use of brackets [] is unnecessary.
+L 93 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 93 (C 9): NBRAK2: Use of brackets [] is unnecessary.
+L 94 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 94 (C 10): NBRAK2: Use of brackets [] is unnecessary.
+L 95 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 95 (C 14): NBRAK2: Use of brackets [] is unnecessary.
+L 96 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 96 (C 8): NBRAK2: Use of brackets [] is unnecessary.
+L 97 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 97 (C 9): NBRAK2: Use of brackets [] is unnecessary.
+L 98 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 98 (C 10): NBRAK2: Use of brackets [] is unnecessary.
+L 99 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 99 (C 8): NBRAK2: Use of brackets [] is unnecessary.
+L 100 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 100 (C 8): NBRAK2: Use of brackets [] is unnecessary.
+L 101 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 101 (C 8): NBRAK2: Use of brackets [] is unnecessary.
+L 102 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 102 (C 12): NBRAK2: Use of brackets [] is unnecessary.
+L 103 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 103 (C 16): NBRAK2: Use of brackets [] is unnecessary.
+L 104 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 104 (C 12): NBRAK2: Use of brackets [] is unnecessary.
+L 105 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 105 (C 13): NBRAK2: Use of brackets [] is unnecessary.
+L 106 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 106 (C 12): NBRAK2: Use of brackets [] is unnecessary.
+L 107 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 107 (C 13): NBRAK2: Use of brackets [] is unnecessary.
+L 108 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 108 (C 11): NBRAK2: Use of brackets [] is unnecessary.
+L 109 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 109 (C 12): NBRAK2: Use of brackets [] is unnecessary.
+L 110 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 110 (C 11): NBRAK2: Use of brackets [] is unnecessary.
+L 111 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 111 (C 12): NBRAK2: Use of brackets [] is unnecessary.
+L 112 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 112 (C 10): NBRAK2: Use of brackets [] is unnecessary.
+L 113 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 113 (C 9): NBRAK2: Use of brackets [] is unnecessary.
+L 114 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 114 (C 9): NBRAK2: Use of brackets [] is unnecessary.
+L 115 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 115 (C 21): NBRAK2: Use of brackets [] is unnecessary.
+L 116 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 116 (C 28): NBRAK2: Use of brackets [] is unnecessary.
+
+
+--- test_generator_capability -----------------------------------------
+  PASS  authoritative capabilityCurve exists
+  PASS  exact six extracted P points
+  PASS  exact extracted upper points
+  PASS  exact extracted lower points
+  PASS  extraction is not tabulated manufacturer data
+  PASS  manual extraction explicit
+  PASS  user supplied graph readings
+  PASS  no local attachment inspection claim
+  PASS  attachment locator retained
+  PASS  piecewise-linear interpretation
+  PASS  no extrapolation
+  PASS  physical compatibility limits apply at primary capacity
+  PASS  physical limit source status separate
+  PASS  generatorCapability function exists
+  PASS  all lower endpoints including zero-Q tip
+  PASS  all upper endpoints including zero-Q tip
+  PASS  lower midpoint on every segment
+  PASS  upper midpoint on every segment
+  PASS  360 MW lower independent formula
+  PASS  360 MW upper independent formula
+  PASS  column lower shape preserved
+  PASS  column upper shape preserved
+  PASS  matrix lower shape and values
+  PASS  matrix upper shape and values
+  PASS  explicit curve honored without provider recursion
+  PASS  invalid P input 1 rejected
+  PASS  invalid P input 2 rejected
+  PASS  invalid P input 3 rejected
+  PASS  invalid P input 4 rejected
+  PASS  invalid P input 5 rejected
+  PASS  invalid P input 6 rejected
+  PASS  invalid P input 7 rejected
+  PASS  invalid P input 8 rejected
+  PASS  invalid P input 9 rejected
+  PASS  invalid P input 10 rejected
+  PASS  malformed curve 1 rejected
+  PASS  malformed curve 2 rejected
+  PASS  malformed curve 3 rejected
+  PASS  malformed curve 4 rejected
+  PASS  malformed curve 5 rejected
+  PASS  malformed curve 6 rejected
+  PASS  normalized parameter helper exists
+  PASS  lowercase parameter schema complete
+  PASS  source value retained
+  PASS  source classification defaults honestly
+  PASS  source record not presented as assumption
+  PASS  selected value explicit
+  PASS  assumed range retained
+  PASS  assumption never promoted
+  PASS  assumptions require basis and finite ranges
+  PASS  out-of-range assumption rejected
+  PASS  missing source is not a finite assumed parameter
+  PASS  normalized source view exists
+  PASS  default and injected provider yield same source view
+  PASS  Snom_MVA normalized value follows original provenance
+  PASS  Snom_MVA original source status retained
+  PASS  Snom_MVA full original provenance retained
+  PASS  P_capacity_MW normalized value follows original provenance
+  PASS  P_capacity_MW original source status retained
+  PASS  P_capacity_MW full original provenance retained
+  PASS  Vnom_kV normalized value follows original provenance
+  PASS  Vnom_kV original source status retained
+  PASS  Vnom_kV full original provenance retained
+  PASS  H_s normalized value follows original provenance
+  PASS  H_s original source status retained
+  PASS  H_s full original provenance retained
+  PASS  SCR normalized value follows original provenance
+  PASS  SCR original source status retained
+  PASS  SCR full original provenance retained
+  PASS  Xd normalized value follows original provenance
+  PASS  Xd original source status retained
+  PASS  Xd full original provenance retained
+  PASS  Xdp normalized value follows original provenance
+  PASS  Xdp original source status retained
+  PASS  Xdp full original provenance retained
+  PASS  Xdpp normalized value follows original provenance
+  PASS  Xdpp original source status retained
+  PASS  Xdpp full original provenance retained
+  PASS  Xdpp_sat normalized value follows original provenance
+  PASS  Xdpp_sat original source status retained
+  PASS  Xdpp_sat full original provenance retained
+  PASS  Xq normalized value follows original provenance
+  PASS  Xq original source status retained
+  PASS  Xq full original provenance retained
+  PASS  Xqp normalized value follows original provenance
+  PASS  Xqp original source status retained
+  PASS  Xqp full original provenance retained
+  PASS  Xqpp normalized value follows original provenance
+  PASS  Xqpp original source status retained
+  PASS  Xqpp full original provenance retained
+  PASS  Xl normalized value follows original provenance
+  PASS  Xl original source status retained
+  PASS  Xl full original provenance retained
+  PASS  X2 normalized value follows original provenance
+  PASS  X2 original source status retained
+  PASS  X2 full original provenance retained
+  PASS  X0 normalized value follows original provenance
+  PASS  X0 original source status retained
+  PASS  X0 full original provenance retained
+  PASS  Ra_ohm normalized value follows original provenance
+  PASS  Ra_ohm original source status retained
+  PASS  Ra_ohm full original provenance retained
+  PASS  Rf_numeric normalized value follows original provenance
+  PASS  Rf_numeric original source status retained
+  PASS  Rf_numeric full original provenance retained
+  PASS  Td0p_s normalized value follows original provenance
+  PASS  Td0p_s original source status retained
+  PASS  Td0p_s full original provenance retained
+  PASS  Td0pp_s normalized value follows original provenance
+  PASS  Td0pp_s original source status retained
+  PASS  Td0pp_s full original provenance retained
+  PASS  Tq0p_s normalized value follows original provenance
+  PASS  Tq0p_s original source status retained
+  PASS  Tq0p_s full original provenance retained
+  PASS  Tq0pp_s normalized value follows original provenance
+  PASS  Tq0pp_s original source status retained
+  PASS  Tq0pp_s full original provenance retained
+  PASS  Tdp_s normalized value follows original provenance
+  PASS  Tdp_s original source status retained
+  PASS  Tdp_s full original provenance retained
+  PASS  Tdpp_s normalized value follows original provenance
+  PASS  Tdpp_s original source status retained
+  PASS  Tdpp_s full original provenance retained
+  PASS  Tqp_s normalized value follows original provenance
+  PASS  Tqp_s original source status retained
+  PASS  Tqp_s full original provenance retained
+  PASS  Tqpp_s normalized value follows original provenance
+  PASS  Tqpp_s original source status retained
+  PASS  Tqpp_s full original provenance retained
+  PASS  Ta_s normalized value follows original provenance
+  PASS  Ta_s original source status retained
+  PASS  Ta_s full original provenance retained
+  PASS  S10 normalized value follows original provenance
+  PASS  S10 original source status retained
+  PASS  S10 full original provenance retained
+  PASS  S12 normalized value follows original provenance
+  PASS  S12 original source status retained
+  PASS  S12 full original provenance retained
+  PASS  Excitation_type normalized value follows original provenance
+  PASS  Excitation_type original source status retained
+  PASS  Excitation_type full original provenance retained
+  PASS  Excitation_designation normalized value follows original provenance
+  PASS  Excitation_designation original source status retained
+  PASS  Excitation_designation full original provenance retained
+  PASS  PF_rated normalized value follows original provenance
+  PASS  PF_rated original source status retained
+  PASS  PF_rated full original provenance retained
+  PASS  P_pf_reference_MW normalized value follows original provenance
+  PASS  P_pf_reference_MW original source status retained
+  PASS  P_pf_reference_MW full original provenance retained
+  PASS  P_owner_derated_MW normalized value follows original provenance
+  PASS  P_owner_derated_MW original source status retained
+  PASS  P_owner_derated_MW full original provenance retained
+  PASS  Earthing normalized value follows original provenance
+  PASS  Earthing original source status retained
+  PASS  Earthing full original provenance retained
+  PASS  Zbase_machine_ohm normalized value follows original provenance
+  PASS  Zbase_machine_ohm original source status retained
+  PASS  Zbase_machine_ohm full original provenance retained
+  PASS  Zbase_100MVA_ohm normalized value follows original provenance
+  PASS  Zbase_100MVA_ohm original source status retained
+  PASS  Zbase_100MVA_ohm full original provenance retained
+  PASS  Ra_pu_machine normalized value follows original provenance
+  PASS  Ra_pu_machine original source status retained
+  PASS  Ra_pu_machine full original provenance retained
+  PASS  Ra_pu_100MVA normalized value follows original provenance
+  PASS  Ra_pu_100MVA original source status retained
+  PASS  Ra_pu_100MVA full original provenance retained
+  PASS  Xdpp_100MVA normalized value follows original provenance
+  PASS  Xdpp_100MVA original source status retained
+  PASS  Xdpp_100MVA full original provenance retained
+  PASS  Xdpp_sat_100MVA normalized value follows original provenance
+  PASS  Xdpp_sat_100MVA original source status retained
+  PASS  Xdpp_sat_100MVA full original provenance retained
+  PASS  field-resistance unit not invented
+  PASS  unit qualification separate
+  PASS  unqualified reactance not replaced by saturated
+  PASS  saturated reactance separate
+  PASS  workbook excitation type
+  PASS  workbook excitation designation
+  PASS  source no-load excitation voltage
+  PASS  SFC DC link not field voltage
+  PASS  SFC output current not DC-link current
+  PASS  output side explicit
+  PASS  DC link side explicit
+  PASS  NER phase voltage
+  PASS  NER secondary voltage
+  PASS  NER short-time rating
+  PASS  NER rating duration
+  PASS  approximate HV DC resistance
+  PASS  approximate secondary loading resistor
+  PASS  source question mark not erased
+  PASS  secondary uncertainty retained
+  PASS  frozen grid estimate context
+  PASS  source rounded 19.919 GVA retained
+  PASS  grid estimate not promoted to verified
+  PASS  secondary sensitivity current separate
+  PASS  secondary sensitivity X/R separate
+  PASS  secondary source not selected grid
+  PASS  source total loss
+  PASS  source no-load loss
+  PASS  source full-load loss
+  PASS  cooling closure 1282-159-1095
+  PASS  cooling arithmetic explicit
+  PASS  derived cooling keeps input provenance
+  PASS  source view uses authoritative curve
+  PASS  injected provenance is normalized, not independently hard-coded
+  => test_generator_capability: 207 passed, 0 failed
+
+--- test_generator_data -----------------------------------------------
+  PASS  exactly ONE generator: SCC5-PAC 4000F/3000 (1S) is single-shaft
+  PASS  terminal voltage 22 kV
+  PASS  rated apparent power 458 MVA at 50 C cold gas
+  PASS  maximum apparent power 518 MVA at 30 C cold gas
+  PASS  rated power factor 0.85
+  PASS  frequency 50 Hz - Bangladesh, not 60 Hz
+  PASS  rated stator current 12019 A
+  PASS  hydrogen pressure 5 bar(g)
+  PASS  S/(sqrt3 V) = 12019.4 A agrees with the stated 12019 A
+  PASS  458 MVA x 0.85 = 389.30 MW is a PF reference, not capacity
+  PASS  Snom_MVA canonical primary field and provenance exist
+  PASS  Snom_MVA verified workbook value
+  PASS  Snom_MVA compatibility view comes from PRIMARY
+  PASS  Snom_MVA raw numeric source
+  PASS  Snom_MVA workbook identity
+  PASS  Snom_MVA exact sheet including trailing space
+  PASS  Snom_MVA source cell
+  PASS  Snom_MVA normalized provenance agrees
+  PASS  Snom_MVA primary designation
+  PASS  Snom_MVA dataset lineage
+  PASS  Snom_MVA complete qualified metadata
+  PASS  P_capacity_MW canonical primary field and provenance exist
+  PASS  P_capacity_MW verified workbook value
+  PASS  P_capacity_MW compatibility view comes from PRIMARY
+  PASS  P_capacity_MW raw numeric source
+  PASS  P_capacity_MW workbook identity
+  PASS  P_capacity_MW exact sheet including trailing space
+  PASS  P_capacity_MW source cell
+  PASS  P_capacity_MW normalized provenance agrees
+  PASS  P_capacity_MW primary designation
+  PASS  P_capacity_MW dataset lineage
+  PASS  P_capacity_MW complete qualified metadata
+  PASS  Vnom_kV canonical primary field and provenance exist
+  PASS  Vnom_kV verified workbook value
+  PASS  Vnom_kV compatibility view comes from PRIMARY
+  PASS  Vnom_kV raw numeric source
+  PASS  Vnom_kV workbook identity
+  PASS  Vnom_kV exact sheet including trailing space
+  PASS  Vnom_kV source cell
+  PASS  Vnom_kV normalized provenance agrees
+  PASS  Vnom_kV primary designation
+  PASS  Vnom_kV dataset lineage
+  PASS  Vnom_kV complete qualified metadata
+  PASS  H_s canonical primary field and provenance exist
+  PASS  H_s verified workbook value
+  PASS  H_s compatibility view comes from PRIMARY
+  PASS  H_s raw numeric source
+  PASS  H_s workbook identity
+  PASS  H_s exact sheet including trailing space
+  PASS  H_s source cell
+  PASS  H_s normalized provenance agrees
+  PASS  H_s primary designation
+  PASS  H_s dataset lineage
+  PASS  H_s complete qualified metadata
+  PASS  SCR canonical primary field and provenance exist
+  PASS  SCR verified workbook value
+  PASS  SCR compatibility view comes from PRIMARY
+  PASS  SCR raw numeric source
+  PASS  SCR workbook identity
+  PASS  SCR exact sheet including trailing space
+  PASS  SCR source cell
+  PASS  SCR normalized provenance agrees
+  PASS  SCR primary designation
+  PASS  SCR dataset lineage
+  PASS  SCR complete qualified metadata
+  PASS  Xd canonical primary field and provenance exist
+  PASS  Xd verified workbook value
+  PASS  Xd compatibility view comes from PRIMARY
+  PASS  Xd raw numeric source
+  PASS  Xd raw reactance unit
+  PASS  Xd normalized reactance unit
+  PASS  Xd raw reactance group
+  PASS  Xd workbook identity
+  PASS  Xd exact sheet including trailing space
+  PASS  Xd source cell
+  PASS  Xd normalized provenance agrees
+  PASS  Xd primary designation
+  PASS  Xd dataset lineage
+  PASS  Xd complete qualified metadata
+  PASS  Xdp canonical primary field and provenance exist
+  PASS  Xdp verified workbook value
+  PASS  Xdp compatibility view comes from PRIMARY
+  PASS  Xdp raw numeric source
+  PASS  Xdp raw reactance unit
+  PASS  Xdp normalized reactance unit
+  PASS  Xdp raw reactance group
+  PASS  Xdp workbook identity
+  PASS  Xdp exact sheet including trailing space
+  PASS  Xdp source cell
+  PASS  Xdp normalized provenance agrees
+  PASS  Xdp primary designation
+  PASS  Xdp dataset lineage
+  PASS  Xdp complete qualified metadata
+  PASS  Xdpp canonical primary field and provenance exist
+  PASS  Xdpp verified workbook value
+  PASS  Xdpp compatibility view comes from PRIMARY
+  PASS  Xdpp raw numeric source
+  PASS  Xdpp raw reactance unit
+  PASS  Xdpp normalized reactance unit
+  PASS  Xdpp raw reactance group
+  PASS  Xdpp workbook identity
+  PASS  Xdpp exact sheet including trailing space
+  PASS  Xdpp source cell
+  PASS  Xdpp normalized provenance agrees
+  PASS  Xdpp primary designation
+  PASS  Xdpp dataset lineage
+  PASS  Xdpp complete qualified metadata
+  PASS  Xdpp_sat canonical primary field and provenance exist
+  PASS  Xdpp_sat verified workbook value
+  PASS  Xdpp_sat compatibility view comes from PRIMARY
+  PASS  Xdpp_sat raw numeric source
+  PASS  Xdpp_sat raw reactance unit
+  PASS  Xdpp_sat normalized reactance unit
+  PASS  Xdpp_sat raw reactance group
+  PASS  Xdpp_sat workbook identity
+  PASS  Xdpp_sat exact sheet including trailing space
+  PASS  Xdpp_sat source cell
+  PASS  Xdpp_sat normalized provenance agrees
+  PASS  Xdpp_sat primary designation
+  PASS  Xdpp_sat dataset lineage
+  PASS  Xdpp_sat complete qualified metadata
+  PASS  Xq canonical primary field and provenance exist
+  PASS  Xq verified workbook value
+  PASS  Xq compatibility view comes from PRIMARY
+  PASS  Xq raw numeric source
+  PASS  Xq raw reactance unit
+  PASS  Xq normalized reactance unit
+  PASS  Xq raw reactance group
+  PASS  Xq workbook identity
+  PASS  Xq exact sheet including trailing space
+  PASS  Xq source cell
+  PASS  Xq normalized provenance agrees
+  PASS  Xq primary designation
+  PASS  Xq dataset lineage
+  PASS  Xq complete qualified metadata
+  PASS  Xqp canonical primary field and provenance exist
+  PASS  Xqp verified workbook value
+  PASS  Xqp compatibility view comes from PRIMARY
+  PASS  Xqp raw numeric source
+  PASS  Xqp raw reactance unit
+  PASS  Xqp normalized reactance unit
+  PASS  Xqp raw reactance group
+  PASS  Xqp workbook identity
+  PASS  Xqp exact sheet including trailing space
+  PASS  Xqp source cell
+  PASS  Xqp normalized provenance agrees
+  PASS  Xqp primary designation
+  PASS  Xqp dataset lineage
+  PASS  Xqp complete qualified metadata
+  PASS  Xqpp canonical primary field and provenance exist
+  PASS  Xqpp verified workbook value
+  PASS  Xqpp compatibility view comes from PRIMARY
+  PASS  Xqpp raw numeric source
+  PASS  Xqpp raw reactance unit
+  PASS  Xqpp normalized reactance unit
+  PASS  Xqpp raw reactance group
+  PASS  Xqpp workbook identity
+  PASS  Xqpp exact sheet including trailing space
+  PASS  Xqpp source cell
+  PASS  Xqpp normalized provenance agrees
+  PASS  Xqpp primary designation
+  PASS  Xqpp dataset lineage
+  PASS  Xqpp complete qualified metadata
+  PASS  Xl canonical primary field and provenance exist
+  PASS  Xl verified workbook value
+  PASS  Xl compatibility view comes from PRIMARY
+  PASS  Xl raw numeric source
+  PASS  Xl raw reactance unit
+  PASS  Xl normalized reactance unit
+  PASS  Xl raw reactance group
+  PASS  Xl workbook identity
+  PASS  Xl exact sheet including trailing space
+  PASS  Xl source cell
+  PASS  Xl normalized provenance agrees
+  PASS  Xl primary designation
+  PASS  Xl dataset lineage
+  PASS  Xl complete qualified metadata
+  PASS  X2 canonical primary field and provenance exist
+  PASS  X2 verified workbook value
+  PASS  X2 compatibility view comes from PRIMARY
+  PASS  X2 raw numeric source
+  PASS  X2 raw reactance unit
+  PASS  X2 normalized reactance unit
+  PASS  X2 raw reactance group
+  PASS  X2 workbook identity
+  PASS  X2 exact sheet including trailing space
+  PASS  X2 source cell
+  PASS  X2 normalized provenance agrees
+  PASS  X2 primary designation
+  PASS  X2 dataset lineage
+  PASS  X2 complete qualified metadata
+  PASS  X0 canonical primary field and provenance exist
+  PASS  X0 verified workbook value
+  PASS  X0 compatibility view comes from PRIMARY
+  PASS  X0 raw numeric source
+  PASS  X0 raw reactance unit
+  PASS  X0 normalized reactance unit
+  PASS  X0 raw reactance group
+  PASS  X0 workbook identity
+  PASS  X0 exact sheet including trailing space
+  PASS  X0 source cell
+  PASS  X0 normalized provenance agrees
+  PASS  X0 primary designation
+  PASS  X0 dataset lineage
+  PASS  X0 complete qualified metadata
+  PASS  Ra_ohm canonical primary field and provenance exist
+  PASS  Ra_ohm verified workbook value
+  PASS  Ra_ohm compatibility view comes from PRIMARY
+  PASS  Ra_ohm workbook identity
+  PASS  Ra_ohm exact sheet including trailing space
+  PASS  Ra_ohm source cell
+  PASS  Ra_ohm normalized provenance agrees
+  PASS  Ra_ohm primary designation
+  PASS  Ra_ohm dataset lineage
+  PASS  Ra_ohm complete qualified metadata
+  PASS  Rf_numeric canonical primary field and provenance exist
+  PASS  Rf_numeric verified workbook value
+  PASS  Rf_numeric compatibility view comes from PRIMARY
+  PASS  Rf_numeric raw numeric source
+  PASS  Rf_numeric workbook identity
+  PASS  Rf_numeric exact sheet including trailing space
+  PASS  Rf_numeric source cell
+  PASS  Rf_numeric normalized provenance agrees
+  PASS  Rf_numeric primary designation
+  PASS  Rf_numeric dataset lineage
+  PASS  Rf_numeric complete qualified metadata
+  PASS  Td0p_s canonical primary field and provenance exist
+  PASS  Td0p_s verified workbook value
+  PASS  Td0p_s compatibility view comes from PRIMARY
+  PASS  Td0p_s raw numeric source
+  PASS  Td0p_s raw time unit
+  PASS  Td0p_s normalized time unit
+  PASS  Td0p_s raw time group
+  PASS  Td0p_s workbook identity
+  PASS  Td0p_s exact sheet including trailing space
+  PASS  Td0p_s source cell
+  PASS  Td0p_s normalized provenance agrees
+  PASS  Td0p_s primary designation
+  PASS  Td0p_s dataset lineage
+  PASS  Td0p_s complete qualified metadata
+  PASS  Td0pp_s canonical primary field and provenance exist
+  PASS  Td0pp_s verified workbook value
+  PASS  Td0pp_s compatibility view comes from PRIMARY
+  PASS  Td0pp_s raw numeric source
+  PASS  Td0pp_s raw time unit
+  PASS  Td0pp_s normalized time unit
+  PASS  Td0pp_s raw time group
+  PASS  Td0pp_s workbook identity
+  PASS  Td0pp_s exact sheet including trailing space
+  PASS  Td0pp_s source cell
+  PASS  Td0pp_s normalized provenance agrees
+  PASS  Td0pp_s primary designation
+  PASS  Td0pp_s dataset lineage
+  PASS  Td0pp_s complete qualified metadata
+  PASS  Tq0p_s canonical primary field and provenance exist
+  PASS  Tq0p_s verified workbook value
+  PASS  Tq0p_s compatibility view comes from PRIMARY
+  PASS  Tq0p_s raw numeric source
+  PASS  Tq0p_s raw time unit
+  PASS  Tq0p_s normalized time unit
+  PASS  Tq0p_s raw time group
+  PASS  Tq0p_s workbook identity
+  PASS  Tq0p_s exact sheet including trailing space
+  PASS  Tq0p_s source cell
+  PASS  Tq0p_s normalized provenance agrees
+  PASS  Tq0p_s primary designation
+  PASS  Tq0p_s dataset lineage
+  PASS  Tq0p_s complete qualified metadata
+  PASS  Tq0pp_s canonical primary field and provenance exist
+  PASS  Tq0pp_s verified workbook value
+  PASS  Tq0pp_s compatibility view comes from PRIMARY
+  PASS  Tq0pp_s raw numeric source
+  PASS  Tq0pp_s raw time unit
+  PASS  Tq0pp_s normalized time unit
+  PASS  Tq0pp_s raw time group
+  PASS  Tq0pp_s workbook identity
+  PASS  Tq0pp_s exact sheet including trailing space
+  PASS  Tq0pp_s source cell
+  PASS  Tq0pp_s normalized provenance agrees
+  PASS  Tq0pp_s primary designation
+  PASS  Tq0pp_s dataset lineage
+  PASS  Tq0pp_s complete qualified metadata
+  PASS  Tdp_s canonical primary field and provenance exist
+  PASS  Tdp_s verified workbook value
+  PASS  Tdp_s compatibility view comes from PRIMARY
+  PASS  Tdp_s raw numeric source
+  PASS  Tdp_s raw time unit
+  PASS  Tdp_s normalized time unit
+  PASS  Tdp_s raw time group
+  PASS  Tdp_s workbook identity
+  PASS  Tdp_s exact sheet including trailing space
+  PASS  Tdp_s source cell
+  PASS  Tdp_s normalized provenance agrees
+  PASS  Tdp_s primary designation
+  PASS  Tdp_s dataset lineage
+  PASS  Tdp_s complete qualified metadata
+  PASS  Tdpp_s canonical primary field and provenance exist
+  PASS  Tdpp_s verified workbook value
+  PASS  Tdpp_s compatibility view comes from PRIMARY
+  PASS  Tdpp_s raw numeric source
+  PASS  Tdpp_s raw time unit
+  PASS  Tdpp_s normalized time unit
+  PASS  Tdpp_s raw time group
+  PASS  Tdpp_s workbook identity
+  PASS  Tdpp_s exact sheet including trailing space
+  PASS  Tdpp_s source cell
+  PASS  Tdpp_s normalized provenance agrees
+  PASS  Tdpp_s primary designation
+  PASS  Tdpp_s dataset lineage
+  PASS  Tdpp_s complete qualified metadata
+  PASS  Tqp_s canonical primary field and provenance exist
+  PASS  Tqp_s verified workbook value
+  PASS  Tqp_s compatibility view comes from PRIMARY
+  PASS  Tqp_s raw numeric source
+  PASS  Tqp_s raw time unit
+  PASS  Tqp_s normalized time unit
+  PASS  Tqp_s raw time group
+  PASS  Tqp_s workbook identity
+  PASS  Tqp_s exact sheet including trailing space
+  PASS  Tqp_s source cell
+  PASS  Tqp_s normalized provenance agrees
+  PASS  Tqp_s primary designation
+  PASS  Tqp_s dataset lineage
+  PASS  Tqp_s complete qualified metadata
+  PASS  Tqpp_s canonical primary field and provenance exist
+  PASS  Tqpp_s verified workbook value
+  PASS  Tqpp_s compatibility view comes from PRIMARY
+  PASS  Tqpp_s raw numeric source
+  PASS  Tqpp_s raw time unit
+  PASS  Tqpp_s normalized time unit
+  PASS  Tqpp_s raw time group
+  PASS  Tqpp_s workbook identity
+  PASS  Tqpp_s exact sheet including trailing space
+  PASS  Tqpp_s source cell
+  PASS  Tqpp_s normalized provenance agrees
+  PASS  Tqpp_s primary designation
+  PASS  Tqpp_s dataset lineage
+  PASS  Tqpp_s complete qualified metadata
+  PASS  Ta_s canonical primary field and provenance exist
+  PASS  Ta_s verified workbook value
+  PASS  Ta_s compatibility view comes from PRIMARY
+  PASS  Ta_s raw numeric source
+  PASS  Ta_s raw time unit
+  PASS  Ta_s normalized time unit
+  PASS  Ta_s raw time group
+  PASS  Ta_s workbook identity
+  PASS  Ta_s exact sheet including trailing space
+  PASS  Ta_s source cell
+  PASS  Ta_s normalized provenance agrees
+  PASS  Ta_s primary designation
+  PASS  Ta_s dataset lineage
+  PASS  Ta_s complete qualified metadata
+  PASS  S10 canonical primary field and provenance exist
+  PASS  S10 verified workbook value
+  PASS  S10 compatibility view comes from PRIMARY
+  PASS  S10 raw numeric source
+  PASS  S10 workbook identity
+  PASS  S10 exact sheet including trailing space
+  PASS  S10 source cell
+  PASS  S10 normalized provenance agrees
+  PASS  S10 primary designation
+  PASS  S10 dataset lineage
+  PASS  S10 complete qualified metadata
+  PASS  S12 canonical primary field and provenance exist
+  PASS  S12 verified workbook value
+  PASS  S12 compatibility view comes from PRIMARY
+  PASS  S12 raw numeric source
+  PASS  S12 workbook identity
+  PASS  S12 exact sheet including trailing space
+  PASS  S12 source cell
+  PASS  S12 normalized provenance agrees
+  PASS  S12 primary designation
+  PASS  S12 dataset lineage
+  PASS  S12 complete qualified metadata
+  PASS  Excitation_type canonical primary field and provenance exist
+  PASS  Excitation_type normalized workbook text
+  PASS  Excitation_type compatibility view comes from PRIMARY
+  PASS  Excitation_type workbook identity
+  PASS  Excitation_type exact sheet including trailing space
+  PASS  Excitation_type source cell
+  PASS  Excitation_type normalized provenance agrees
+  PASS  Excitation_type primary designation
+  PASS  Excitation_type dataset lineage
+  PASS  Excitation_type complete qualified metadata
+  PASS  Excitation_designation canonical primary field and provenance exist
+  PASS  Excitation_designation normalized workbook text
+  PASS  Excitation_designation compatibility view comes from PRIMARY
+  PASS  Excitation_designation workbook identity
+  PASS  Excitation_designation exact sheet including trailing space
+  PASS  Excitation_designation source cell
+  PASS  Excitation_designation normalized provenance agrees
+  PASS  Excitation_designation primary designation
+  PASS  Excitation_designation dataset lineage
+  PASS  Excitation_designation complete qualified metadata
+  PASS  percent view Xd = 178.3
+  PASS  percent view Xdp = 32.56
+  PASS  percent view Xdpp = 26.08, not saturated
+  PASS  Snom_MVA exact workbook heading
+  PASS  P_capacity_MW exact workbook heading
+  PASS  Vnom_kV exact workbook heading
+  PASS  H_s exact workbook heading
+  PASS  SCR exact workbook heading
+  PASS  Xd exact workbook heading
+  PASS  Xdp exact workbook heading
+  PASS  Xdpp exact workbook heading
+  PASS  Xdpp_sat exact workbook heading
+  PASS  Xq exact workbook heading
+  PASS  Xqp exact workbook heading
+  PASS  Xqpp exact workbook heading
+  PASS  Xl exact workbook heading
+  PASS  X2 exact workbook heading
+  PASS  X0 exact workbook heading
+  PASS  Ra_ohm exact workbook heading
+  PASS  Rf_numeric exact workbook heading
+  PASS  Td0p_s exact workbook heading
+  PASS  Td0pp_s exact workbook heading
+  PASS  Tq0p_s exact workbook heading
+  PASS  Tq0pp_s exact workbook heading
+  PASS  Tdp_s exact workbook heading
+  PASS  Tdpp_s exact workbook heading
+  PASS  Tqp_s exact workbook heading
+  PASS  Tqpp_s exact workbook heading
+  PASS  Ta_s exact workbook heading
+  PASS  S10 exact workbook heading
+  PASS  S12 exact workbook heading
+  PASS  Excitation_type exact workbook heading
+  PASS  Excitation_designation exact workbook heading
+  PASS  retained d-axis ordering check
+  PASS  unqualified and saturated Xdpp are distinct
+  PASS  machine-base Ra
+  PASS  ohm and pu resistance are distinct
+  PASS  rated PF retained separately
+  PASS  PF-derived OEM reference
+  PASS  owner scenario retained
+  PASS  capacity is neither reference nor scenario
+  PASS  owner power boundary not invented
+  PASS  raw resistance text retained
+  PASS  raw field resistance heading
+  PASS  mixed unit heading
+  PASS  field resistance interpretation qualified
+  PASS  no invented rotor field base
+  PASS  no invented Rf conversion
+  PASS  raw excitation space preserved
+  PASS  raw designation space preserved
+  PASS  unqualified source retained
+  PASS  Xdpp_sat source saturation
+  PASS  X2 source saturation
+  PASS  X0 source saturation
+  PASS  machine apparent-power base
+  PASS  line-line machine voltage base
+  PASS  base is selected interpretation, not literal declaration
+  PASS  combined turbine-generator inertia
+  PASS  controller settings still missing
+  PASS  two saturation coefficients are not a full OCC
+  PASS  XD_damper genuinely missing
+  PASS  XQ_damper genuinely missing
+  PASS  Xf genuinely missing
+  PASS  RD_damper genuinely missing
+  PASS  RQ_damper genuinely missing
+  PASS  Ta1_s genuinely missing
+  PASS  Damping genuinely missing
+  PASS  legacy explicitly designated
+  PASS  legacy reactances retained
+  PASS  legacy cannot be the selected primary
+  PASS  verified workbook hash
+  PASS  existing master owns the same generator provider
+  PASS  Phase 1 freezes all four historical LF dispatches
+  PASS  old Ra interface is derived machine pu
+  PASS  old inertia interface is derived seconds
+  PASS  generator retains NER, never GSUT solid grounding
+  PASS  modelled as a PV bus
+  PASS  terminal voltage setpoint 1.00 pu (approved assumption)
+  PASS  finite physical Qmin at primary 360 MW from source interpolation
+  PASS  finite physical Qmax at primary 360 MW from source interpolation
+  PASS  physical bounds retain graph-extraction derivation status
+  PASS  modelled with a Three-Phase Source, not a Synchronous Machine block
+  => test_generator_data: 476 passed, 0 failed
+
+--- test_base_conversion ----------------------------------------------
+  PASS  same base is the identity
+  PASS  10.5 % at 25 MVA -> 42 % at 100 MVA (factor Snew/Sold)
+  PASS  16 % at 515 MVA -> 3.1068 % at 100 MVA
+  PASS  12 % at 25 MVA -> 48 % at 100 MVA
+  PASS  round trip 515 -> 100 -> 515 MVA returns the original
+  PASS  same voltage base is the identity
+  PASS  voltage-base form scales by (Vold/Vnew)^2
+  PASS  6.9 kV -> 6.6 kV rebasing inflates an impedance by 9.2975 %
+  PASS  x_d'' 26.08 % at 458 MVA -> 5.6943 % at 100 MVA
+  PASS  explicit machine resistance exists
+  PASS  machine Zbase
+  PASS  system Zbase
+  PASS  raw ohm resistance
+  PASS  machine pu resistance
+  PASS  system pu resistance
+  PASS  ohm to machine pu
+  PASS  ohm to system pu
+  PASS  machine inverse returns ohms
+  PASS  system inverse returns ohms
+  PASS  resistance single conversion
+  PASS  resistance round trip
+  PASS  unqualified Xdpp system view
+  PASS  saturated Xdpp system view
+  PASS  Xdpp single conversion
+  PASS  saturated Xdpp single conversion
+  PASS  Xdpp inverse
+  PASS  saturated Xdpp inverse
+  PASS  distinct system reactances
+  PASS  distinct resistance quantities
+  PASS  Zbase at 230 kV, 100 MVA = 529 ohm
+  PASS  grid 2.6558 ohm = 0.50204 % on the 100 MVA / 230 kV base
+  PASS  grid L is X/(2*pi*50) - the 50 Hz dependence is explicit
+  PASS  GSUT 10BAT10 block X_pu = 0.159986 is on its own 515 MVA rating, NOT converted to 100 MVA
+  PASS  GSUT 10BAT10 has NOT been double-converted (0.159986 pu own base vs 0.031065 pu on 100 MVA)
+  PASS  UAT 10BBT10 block X_pu = 0.104924 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  UAT 10BBT10 has NOT been double-converted (0.104924 pu own base vs 0.419695 pu on 100 MVA)
+  PASS  GAT 10BBT20 block X_pu = 0.119896 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  GAT 10BBT20 has NOT been double-converted (0.119896 pu own base vs 0.479583 pu on 100 MVA)
+  PASS  a zero source base is rejected rather than returning Inf
+  => test_base_conversion: 39 passed, 0 failed
+TASK1_GREEN capability=207/0 generator=476/0 base=39/0 total=722/0
+
+=== END FILE docs/validation/rev31_phase2/task-1-green.log ===
+
+=== BEGIN FILE docs/validation/rev31_phase2/task-1-recovery-green.log ===
+BYTES: 37172
+SHA256: C7FFD65536B2ECEFBF23FF195174A7847FBE9F20443A3EA573A34B2DE85577CE
+=== RAW FILE BYTES ===
+TASK1_RECOVERY MATLAB=24.1.0.2537033 (R2024a) START=20260916T064121
+PARSER ashuganj_generators PATH=F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project -opencode now claude\matlab\data\ashuganj_generators.m
+L 72 (C 40-47): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+L 73 (C 33-40): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+L 74 (C 54-61): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+
+PARSER generatorCapability PATH=F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project -opencode now claude\matlab\data\generatorCapability.m
+PARSER phase2_parameter PATH=F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project -opencode now claude\matlab\data\phase2_parameter.m
+PARSER phase2_source_data PATH=F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project -opencode now claude\matlab\data\phase2_source_data.m
+L 22 (C 9-15): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+L 25 (C 9-15): AGROW: Variable appears to change size on every loop iteration. Consider preallocating for speed.
+
+PARSER test_generator_capability PATH=F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project -opencode now claude\matlab\tests\test_generator_capability.m
+PARSER test_generator_data PATH=F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project -opencode now claude\matlab\tests\test_generator_data.m
+L 87 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 87 (C 14): NBRAK2: Use of brackets [] is unnecessary.
+L 88 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 88 (C 33-40): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+L 89 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 89 (C 27-34): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+L 90 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 90 (C 32-39): CHARTEN: For readability, consider using 'newline' instead of 'char(10)'.
+L 91 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 91 (C 9): NBRAK2: Use of brackets [] is unnecessary.
+L 92 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 92 (C 8): NBRAK2: Use of brackets [] is unnecessary.
+L 93 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 93 (C 9): NBRAK2: Use of brackets [] is unnecessary.
+L 94 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 94 (C 10): NBRAK2: Use of brackets [] is unnecessary.
+L 95 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 95 (C 14): NBRAK2: Use of brackets [] is unnecessary.
+L 96 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 96 (C 8): NBRAK2: Use of brackets [] is unnecessary.
+L 97 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 97 (C 9): NBRAK2: Use of brackets [] is unnecessary.
+L 98 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 98 (C 10): NBRAK2: Use of brackets [] is unnecessary.
+L 99 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 99 (C 8): NBRAK2: Use of brackets [] is unnecessary.
+L 100 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 100 (C 8): NBRAK2: Use of brackets [] is unnecessary.
+L 101 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 101 (C 8): NBRAK2: Use of brackets [] is unnecessary.
+L 102 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 102 (C 12): NBRAK2: Use of brackets [] is unnecessary.
+L 103 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 103 (C 16): NBRAK2: Use of brackets [] is unnecessary.
+L 104 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 104 (C 12): NBRAK2: Use of brackets [] is unnecessary.
+L 105 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 105 (C 13): NBRAK2: Use of brackets [] is unnecessary.
+L 106 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 106 (C 12): NBRAK2: Use of brackets [] is unnecessary.
+L 107 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 107 (C 13): NBRAK2: Use of brackets [] is unnecessary.
+L 108 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 108 (C 11): NBRAK2: Use of brackets [] is unnecessary.
+L 109 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 109 (C 12): NBRAK2: Use of brackets [] is unnecessary.
+L 110 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 110 (C 11): NBRAK2: Use of brackets [] is unnecessary.
+L 111 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 111 (C 12): NBRAK2: Use of brackets [] is unnecessary.
+L 112 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 112 (C 10): NBRAK2: Use of brackets [] is unnecessary.
+L 113 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 113 (C 9): NBRAK2: Use of brackets [] is unnecessary.
+L 114 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 114 (C 9): NBRAK2: Use of brackets [] is unnecessary.
+L 115 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 115 (C 21): NBRAK2: Use of brackets [] is unnecessary.
+L 116 (C 1): NBRAK2: Use of brackets [] is unnecessary.
+L 116 (C 28): NBRAK2: Use of brackets [] is unnecessary.
+
+
+--- test_generator_capability -----------------------------------------
+  PASS  authoritative capabilityCurve exists
+  PASS  exact six extracted P points
+  PASS  exact extracted upper points
+  PASS  exact extracted lower points
+  PASS  extraction is not tabulated manufacturer data
+  PASS  manual extraction explicit
+  PASS  user supplied graph readings
+  PASS  no local attachment inspection claim
+  PASS  attachment locator retained
+  PASS  piecewise-linear interpretation
+  PASS  no extrapolation
+  PASS  physical compatibility limits apply at primary capacity
+  PASS  physical limit source status separate
+  PASS  generatorCapability function exists
+  PASS  all lower endpoints including zero-Q tip
+  PASS  all upper endpoints including zero-Q tip
+  PASS  lower midpoint on every segment
+  PASS  upper midpoint on every segment
+  PASS  360 MW lower independent formula
+  PASS  360 MW upper independent formula
+  PASS  column lower shape preserved
+  PASS  column upper shape preserved
+  PASS  matrix lower shape and values
+  PASS  matrix upper shape and values
+  PASS  explicit curve honored without provider recursion
+  PASS  invalid P input 1 rejected
+  PASS  invalid P input 2 rejected
+  PASS  invalid P input 3 rejected
+  PASS  invalid P input 4 rejected
+  PASS  invalid P input 5 rejected
+  PASS  invalid P input 6 rejected
+  PASS  invalid P input 7 rejected
+  PASS  invalid P input 8 rejected
+  PASS  invalid P input 9 rejected
+  PASS  invalid P input 10 rejected
+  PASS  malformed curve 1 rejected
+  PASS  malformed curve 2 rejected
+  PASS  malformed curve 3 rejected
+  PASS  malformed curve 4 rejected
+  PASS  malformed curve 5 rejected
+  PASS  malformed curve 6 rejected
+  PASS  normalized parameter helper exists
+  PASS  lowercase parameter schema complete
+  PASS  source value retained
+  PASS  source classification defaults honestly
+  PASS  source record not presented as assumption
+  PASS  selected value explicit
+  PASS  assumed range retained
+  PASS  assumption never promoted
+  PASS  assumptions require basis and finite ranges
+  PASS  out-of-range assumption rejected
+  PASS  missing source is not a finite assumed parameter
+  PASS  normalized source view exists
+  PASS  default and injected provider yield same source view
+  PASS  Snom_MVA normalized value follows original provenance
+  PASS  Snom_MVA original source status retained
+  PASS  Snom_MVA full original provenance retained
+  PASS  P_capacity_MW normalized value follows original provenance
+  PASS  P_capacity_MW original source status retained
+  PASS  P_capacity_MW full original provenance retained
+  PASS  Vnom_kV normalized value follows original provenance
+  PASS  Vnom_kV original source status retained
+  PASS  Vnom_kV full original provenance retained
+  PASS  H_s normalized value follows original provenance
+  PASS  H_s original source status retained
+  PASS  H_s full original provenance retained
+  PASS  SCR normalized value follows original provenance
+  PASS  SCR original source status retained
+  PASS  SCR full original provenance retained
+  PASS  Xd normalized value follows original provenance
+  PASS  Xd original source status retained
+  PASS  Xd full original provenance retained
+  PASS  Xdp normalized value follows original provenance
+  PASS  Xdp original source status retained
+  PASS  Xdp full original provenance retained
+  PASS  Xdpp normalized value follows original provenance
+  PASS  Xdpp original source status retained
+  PASS  Xdpp full original provenance retained
+  PASS  Xdpp_sat normalized value follows original provenance
+  PASS  Xdpp_sat original source status retained
+  PASS  Xdpp_sat full original provenance retained
+  PASS  Xq normalized value follows original provenance
+  PASS  Xq original source status retained
+  PASS  Xq full original provenance retained
+  PASS  Xqp normalized value follows original provenance
+  PASS  Xqp original source status retained
+  PASS  Xqp full original provenance retained
+  PASS  Xqpp normalized value follows original provenance
+  PASS  Xqpp original source status retained
+  PASS  Xqpp full original provenance retained
+  PASS  Xl normalized value follows original provenance
+  PASS  Xl original source status retained
+  PASS  Xl full original provenance retained
+  PASS  X2 normalized value follows original provenance
+  PASS  X2 original source status retained
+  PASS  X2 full original provenance retained
+  PASS  X0 normalized value follows original provenance
+  PASS  X0 original source status retained
+  PASS  X0 full original provenance retained
+  PASS  Ra_ohm normalized value follows original provenance
+  PASS  Ra_ohm original source status retained
+  PASS  Ra_ohm full original provenance retained
+  PASS  Rf_numeric normalized value follows original provenance
+  PASS  Rf_numeric original source status retained
+  PASS  Rf_numeric full original provenance retained
+  PASS  Td0p_s normalized value follows original provenance
+  PASS  Td0p_s original source status retained
+  PASS  Td0p_s full original provenance retained
+  PASS  Td0pp_s normalized value follows original provenance
+  PASS  Td0pp_s original source status retained
+  PASS  Td0pp_s full original provenance retained
+  PASS  Tq0p_s normalized value follows original provenance
+  PASS  Tq0p_s original source status retained
+  PASS  Tq0p_s full original provenance retained
+  PASS  Tq0pp_s normalized value follows original provenance
+  PASS  Tq0pp_s original source status retained
+  PASS  Tq0pp_s full original provenance retained
+  PASS  Tdp_s normalized value follows original provenance
+  PASS  Tdp_s original source status retained
+  PASS  Tdp_s full original provenance retained
+  PASS  Tdpp_s normalized value follows original provenance
+  PASS  Tdpp_s original source status retained
+  PASS  Tdpp_s full original provenance retained
+  PASS  Tqp_s normalized value follows original provenance
+  PASS  Tqp_s original source status retained
+  PASS  Tqp_s full original provenance retained
+  PASS  Tqpp_s normalized value follows original provenance
+  PASS  Tqpp_s original source status retained
+  PASS  Tqpp_s full original provenance retained
+  PASS  Ta_s normalized value follows original provenance
+  PASS  Ta_s original source status retained
+  PASS  Ta_s full original provenance retained
+  PASS  S10 normalized value follows original provenance
+  PASS  S10 original source status retained
+  PASS  S10 full original provenance retained
+  PASS  S12 normalized value follows original provenance
+  PASS  S12 original source status retained
+  PASS  S12 full original provenance retained
+  PASS  Excitation_type normalized value follows original provenance
+  PASS  Excitation_type original source status retained
+  PASS  Excitation_type full original provenance retained
+  PASS  Excitation_designation normalized value follows original provenance
+  PASS  Excitation_designation original source status retained
+  PASS  Excitation_designation full original provenance retained
+  PASS  PF_rated normalized value follows original provenance
+  PASS  PF_rated original source status retained
+  PASS  PF_rated full original provenance retained
+  PASS  P_pf_reference_MW normalized value follows original provenance
+  PASS  P_pf_reference_MW original source status retained
+  PASS  P_pf_reference_MW full original provenance retained
+  PASS  P_owner_derated_MW normalized value follows original provenance
+  PASS  P_owner_derated_MW original source status retained
+  PASS  P_owner_derated_MW full original provenance retained
+  PASS  Earthing normalized value follows original provenance
+  PASS  Earthing original source status retained
+  PASS  Earthing full original provenance retained
+  PASS  Zbase_machine_ohm normalized value follows original provenance
+  PASS  Zbase_machine_ohm original source status retained
+  PASS  Zbase_machine_ohm full original provenance retained
+  PASS  Zbase_100MVA_ohm normalized value follows original provenance
+  PASS  Zbase_100MVA_ohm original source status retained
+  PASS  Zbase_100MVA_ohm full original provenance retained
+  PASS  Ra_pu_machine normalized value follows original provenance
+  PASS  Ra_pu_machine original source status retained
+  PASS  Ra_pu_machine full original provenance retained
+  PASS  Ra_pu_100MVA normalized value follows original provenance
+  PASS  Ra_pu_100MVA original source status retained
+  PASS  Ra_pu_100MVA full original provenance retained
+  PASS  Xdpp_100MVA normalized value follows original provenance
+  PASS  Xdpp_100MVA original source status retained
+  PASS  Xdpp_100MVA full original provenance retained
+  PASS  Xdpp_sat_100MVA normalized value follows original provenance
+  PASS  Xdpp_sat_100MVA original source status retained
+  PASS  Xdpp_sat_100MVA full original provenance retained
+  PASS  field-resistance unit not invented
+  PASS  unit qualification separate
+  PASS  unqualified reactance not replaced by saturated
+  PASS  saturated reactance separate
+  PASS  workbook excitation type
+  PASS  workbook excitation designation
+  PASS  source no-load excitation voltage
+  PASS  SFC DC link not field voltage
+  PASS  SFC output current not DC-link current
+  PASS  output side explicit
+  PASS  DC link side explicit
+  PASS  NER phase voltage
+  PASS  NER secondary voltage
+  PASS  NER short-time rating
+  PASS  NER rating duration
+  PASS  approximate HV DC resistance
+  PASS  approximate secondary loading resistor
+  PASS  source question mark not erased
+  PASS  secondary uncertainty retained
+  PASS  frozen grid estimate context
+  PASS  source rounded 19.919 GVA retained
+  PASS  grid estimate not promoted to verified
+  PASS  secondary sensitivity current separate
+  PASS  secondary sensitivity X/R separate
+  PASS  secondary source not selected grid
+  PASS  source total loss
+  PASS  source no-load loss
+  PASS  source full-load loss
+  PASS  cooling closure 1282-159-1095
+  PASS  cooling arithmetic explicit
+  PASS  derived cooling keeps input provenance
+  PASS  source view uses authoritative curve
+  PASS  injected provenance is normalized, not independently hard-coded
+  => test_generator_capability: 207 passed, 0 failed
+
+--- test_generator_data -----------------------------------------------
+  PASS  exactly ONE generator: SCC5-PAC 4000F/3000 (1S) is single-shaft
+  PASS  terminal voltage 22 kV
+  PASS  rated apparent power 458 MVA at 50 C cold gas
+  PASS  maximum apparent power 518 MVA at 30 C cold gas
+  PASS  rated power factor 0.85
+  PASS  frequency 50 Hz - Bangladesh, not 60 Hz
+  PASS  rated stator current 12019 A
+  PASS  hydrogen pressure 5 bar(g)
+  PASS  S/(sqrt3 V) = 12019.4 A agrees with the stated 12019 A
+  PASS  458 MVA x 0.85 = 389.30 MW is a PF reference, not capacity
+  PASS  Snom_MVA canonical primary field and provenance exist
+  PASS  Snom_MVA verified workbook value
+  PASS  Snom_MVA compatibility view comes from PRIMARY
+  PASS  Snom_MVA raw numeric source
+  PASS  Snom_MVA workbook identity
+  PASS  Snom_MVA exact sheet including trailing space
+  PASS  Snom_MVA source cell
+  PASS  Snom_MVA normalized provenance agrees
+  PASS  Snom_MVA primary designation
+  PASS  Snom_MVA dataset lineage
+  PASS  Snom_MVA complete qualified metadata
+  PASS  P_capacity_MW canonical primary field and provenance exist
+  PASS  P_capacity_MW verified workbook value
+  PASS  P_capacity_MW compatibility view comes from PRIMARY
+  PASS  P_capacity_MW raw numeric source
+  PASS  P_capacity_MW workbook identity
+  PASS  P_capacity_MW exact sheet including trailing space
+  PASS  P_capacity_MW source cell
+  PASS  P_capacity_MW normalized provenance agrees
+  PASS  P_capacity_MW primary designation
+  PASS  P_capacity_MW dataset lineage
+  PASS  P_capacity_MW complete qualified metadata
+  PASS  Vnom_kV canonical primary field and provenance exist
+  PASS  Vnom_kV verified workbook value
+  PASS  Vnom_kV compatibility view comes from PRIMARY
+  PASS  Vnom_kV raw numeric source
+  PASS  Vnom_kV workbook identity
+  PASS  Vnom_kV exact sheet including trailing space
+  PASS  Vnom_kV source cell
+  PASS  Vnom_kV normalized provenance agrees
+  PASS  Vnom_kV primary designation
+  PASS  Vnom_kV dataset lineage
+  PASS  Vnom_kV complete qualified metadata
+  PASS  H_s canonical primary field and provenance exist
+  PASS  H_s verified workbook value
+  PASS  H_s compatibility view comes from PRIMARY
+  PASS  H_s raw numeric source
+  PASS  H_s workbook identity
+  PASS  H_s exact sheet including trailing space
+  PASS  H_s source cell
+  PASS  H_s normalized provenance agrees
+  PASS  H_s primary designation
+  PASS  H_s dataset lineage
+  PASS  H_s complete qualified metadata
+  PASS  SCR canonical primary field and provenance exist
+  PASS  SCR verified workbook value
+  PASS  SCR compatibility view comes from PRIMARY
+  PASS  SCR raw numeric source
+  PASS  SCR workbook identity
+  PASS  SCR exact sheet including trailing space
+  PASS  SCR source cell
+  PASS  SCR normalized provenance agrees
+  PASS  SCR primary designation
+  PASS  SCR dataset lineage
+  PASS  SCR complete qualified metadata
+  PASS  Xd canonical primary field and provenance exist
+  PASS  Xd verified workbook value
+  PASS  Xd compatibility view comes from PRIMARY
+  PASS  Xd raw numeric source
+  PASS  Xd raw reactance unit
+  PASS  Xd normalized reactance unit
+  PASS  Xd raw reactance group
+  PASS  Xd workbook identity
+  PASS  Xd exact sheet including trailing space
+  PASS  Xd source cell
+  PASS  Xd normalized provenance agrees
+  PASS  Xd primary designation
+  PASS  Xd dataset lineage
+  PASS  Xd complete qualified metadata
+  PASS  Xdp canonical primary field and provenance exist
+  PASS  Xdp verified workbook value
+  PASS  Xdp compatibility view comes from PRIMARY
+  PASS  Xdp raw numeric source
+  PASS  Xdp raw reactance unit
+  PASS  Xdp normalized reactance unit
+  PASS  Xdp raw reactance group
+  PASS  Xdp workbook identity
+  PASS  Xdp exact sheet including trailing space
+  PASS  Xdp source cell
+  PASS  Xdp normalized provenance agrees
+  PASS  Xdp primary designation
+  PASS  Xdp dataset lineage
+  PASS  Xdp complete qualified metadata
+  PASS  Xdpp canonical primary field and provenance exist
+  PASS  Xdpp verified workbook value
+  PASS  Xdpp compatibility view comes from PRIMARY
+  PASS  Xdpp raw numeric source
+  PASS  Xdpp raw reactance unit
+  PASS  Xdpp normalized reactance unit
+  PASS  Xdpp raw reactance group
+  PASS  Xdpp workbook identity
+  PASS  Xdpp exact sheet including trailing space
+  PASS  Xdpp source cell
+  PASS  Xdpp normalized provenance agrees
+  PASS  Xdpp primary designation
+  PASS  Xdpp dataset lineage
+  PASS  Xdpp complete qualified metadata
+  PASS  Xdpp_sat canonical primary field and provenance exist
+  PASS  Xdpp_sat verified workbook value
+  PASS  Xdpp_sat compatibility view comes from PRIMARY
+  PASS  Xdpp_sat raw numeric source
+  PASS  Xdpp_sat raw reactance unit
+  PASS  Xdpp_sat normalized reactance unit
+  PASS  Xdpp_sat raw reactance group
+  PASS  Xdpp_sat workbook identity
+  PASS  Xdpp_sat exact sheet including trailing space
+  PASS  Xdpp_sat source cell
+  PASS  Xdpp_sat normalized provenance agrees
+  PASS  Xdpp_sat primary designation
+  PASS  Xdpp_sat dataset lineage
+  PASS  Xdpp_sat complete qualified metadata
+  PASS  Xq canonical primary field and provenance exist
+  PASS  Xq verified workbook value
+  PASS  Xq compatibility view comes from PRIMARY
+  PASS  Xq raw numeric source
+  PASS  Xq raw reactance unit
+  PASS  Xq normalized reactance unit
+  PASS  Xq raw reactance group
+  PASS  Xq workbook identity
+  PASS  Xq exact sheet including trailing space
+  PASS  Xq source cell
+  PASS  Xq normalized provenance agrees
+  PASS  Xq primary designation
+  PASS  Xq dataset lineage
+  PASS  Xq complete qualified metadata
+  PASS  Xqp canonical primary field and provenance exist
+  PASS  Xqp verified workbook value
+  PASS  Xqp compatibility view comes from PRIMARY
+  PASS  Xqp raw numeric source
+  PASS  Xqp raw reactance unit
+  PASS  Xqp normalized reactance unit
+  PASS  Xqp raw reactance group
+  PASS  Xqp workbook identity
+  PASS  Xqp exact sheet including trailing space
+  PASS  Xqp source cell
+  PASS  Xqp normalized provenance agrees
+  PASS  Xqp primary designation
+  PASS  Xqp dataset lineage
+  PASS  Xqp complete qualified metadata
+  PASS  Xqpp canonical primary field and provenance exist
+  PASS  Xqpp verified workbook value
+  PASS  Xqpp compatibility view comes from PRIMARY
+  PASS  Xqpp raw numeric source
+  PASS  Xqpp raw reactance unit
+  PASS  Xqpp normalized reactance unit
+  PASS  Xqpp raw reactance group
+  PASS  Xqpp workbook identity
+  PASS  Xqpp exact sheet including trailing space
+  PASS  Xqpp source cell
+  PASS  Xqpp normalized provenance agrees
+  PASS  Xqpp primary designation
+  PASS  Xqpp dataset lineage
+  PASS  Xqpp complete qualified metadata
+  PASS  Xl canonical primary field and provenance exist
+  PASS  Xl verified workbook value
+  PASS  Xl compatibility view comes from PRIMARY
+  PASS  Xl raw numeric source
+  PASS  Xl raw reactance unit
+  PASS  Xl normalized reactance unit
+  PASS  Xl raw reactance group
+  PASS  Xl workbook identity
+  PASS  Xl exact sheet including trailing space
+  PASS  Xl source cell
+  PASS  Xl normalized provenance agrees
+  PASS  Xl primary designation
+  PASS  Xl dataset lineage
+  PASS  Xl complete qualified metadata
+  PASS  X2 canonical primary field and provenance exist
+  PASS  X2 verified workbook value
+  PASS  X2 compatibility view comes from PRIMARY
+  PASS  X2 raw numeric source
+  PASS  X2 raw reactance unit
+  PASS  X2 normalized reactance unit
+  PASS  X2 raw reactance group
+  PASS  X2 workbook identity
+  PASS  X2 exact sheet including trailing space
+  PASS  X2 source cell
+  PASS  X2 normalized provenance agrees
+  PASS  X2 primary designation
+  PASS  X2 dataset lineage
+  PASS  X2 complete qualified metadata
+  PASS  X0 canonical primary field and provenance exist
+  PASS  X0 verified workbook value
+  PASS  X0 compatibility view comes from PRIMARY
+  PASS  X0 raw numeric source
+  PASS  X0 raw reactance unit
+  PASS  X0 normalized reactance unit
+  PASS  X0 raw reactance group
+  PASS  X0 workbook identity
+  PASS  X0 exact sheet including trailing space
+  PASS  X0 source cell
+  PASS  X0 normalized provenance agrees
+  PASS  X0 primary designation
+  PASS  X0 dataset lineage
+  PASS  X0 complete qualified metadata
+  PASS  Ra_ohm canonical primary field and provenance exist
+  PASS  Ra_ohm verified workbook value
+  PASS  Ra_ohm compatibility view comes from PRIMARY
+  PASS  Ra_ohm workbook identity
+  PASS  Ra_ohm exact sheet including trailing space
+  PASS  Ra_ohm source cell
+  PASS  Ra_ohm normalized provenance agrees
+  PASS  Ra_ohm primary designation
+  PASS  Ra_ohm dataset lineage
+  PASS  Ra_ohm complete qualified metadata
+  PASS  Rf_numeric canonical primary field and provenance exist
+  PASS  Rf_numeric verified workbook value
+  PASS  Rf_numeric compatibility view comes from PRIMARY
+  PASS  Rf_numeric raw numeric source
+  PASS  Rf_numeric workbook identity
+  PASS  Rf_numeric exact sheet including trailing space
+  PASS  Rf_numeric source cell
+  PASS  Rf_numeric normalized provenance agrees
+  PASS  Rf_numeric primary designation
+  PASS  Rf_numeric dataset lineage
+  PASS  Rf_numeric complete qualified metadata
+  PASS  Td0p_s canonical primary field and provenance exist
+  PASS  Td0p_s verified workbook value
+  PASS  Td0p_s compatibility view comes from PRIMARY
+  PASS  Td0p_s raw numeric source
+  PASS  Td0p_s raw time unit
+  PASS  Td0p_s normalized time unit
+  PASS  Td0p_s raw time group
+  PASS  Td0p_s workbook identity
+  PASS  Td0p_s exact sheet including trailing space
+  PASS  Td0p_s source cell
+  PASS  Td0p_s normalized provenance agrees
+  PASS  Td0p_s primary designation
+  PASS  Td0p_s dataset lineage
+  PASS  Td0p_s complete qualified metadata
+  PASS  Td0pp_s canonical primary field and provenance exist
+  PASS  Td0pp_s verified workbook value
+  PASS  Td0pp_s compatibility view comes from PRIMARY
+  PASS  Td0pp_s raw numeric source
+  PASS  Td0pp_s raw time unit
+  PASS  Td0pp_s normalized time unit
+  PASS  Td0pp_s raw time group
+  PASS  Td0pp_s workbook identity
+  PASS  Td0pp_s exact sheet including trailing space
+  PASS  Td0pp_s source cell
+  PASS  Td0pp_s normalized provenance agrees
+  PASS  Td0pp_s primary designation
+  PASS  Td0pp_s dataset lineage
+  PASS  Td0pp_s complete qualified metadata
+  PASS  Tq0p_s canonical primary field and provenance exist
+  PASS  Tq0p_s verified workbook value
+  PASS  Tq0p_s compatibility view comes from PRIMARY
+  PASS  Tq0p_s raw numeric source
+  PASS  Tq0p_s raw time unit
+  PASS  Tq0p_s normalized time unit
+  PASS  Tq0p_s raw time group
+  PASS  Tq0p_s workbook identity
+  PASS  Tq0p_s exact sheet including trailing space
+  PASS  Tq0p_s source cell
+  PASS  Tq0p_s normalized provenance agrees
+  PASS  Tq0p_s primary designation
+  PASS  Tq0p_s dataset lineage
+  PASS  Tq0p_s complete qualified metadata
+  PASS  Tq0pp_s canonical primary field and provenance exist
+  PASS  Tq0pp_s verified workbook value
+  PASS  Tq0pp_s compatibility view comes from PRIMARY
+  PASS  Tq0pp_s raw numeric source
+  PASS  Tq0pp_s raw time unit
+  PASS  Tq0pp_s normalized time unit
+  PASS  Tq0pp_s raw time group
+  PASS  Tq0pp_s workbook identity
+  PASS  Tq0pp_s exact sheet including trailing space
+  PASS  Tq0pp_s source cell
+  PASS  Tq0pp_s normalized provenance agrees
+  PASS  Tq0pp_s primary designation
+  PASS  Tq0pp_s dataset lineage
+  PASS  Tq0pp_s complete qualified metadata
+  PASS  Tdp_s canonical primary field and provenance exist
+  PASS  Tdp_s verified workbook value
+  PASS  Tdp_s compatibility view comes from PRIMARY
+  PASS  Tdp_s raw numeric source
+  PASS  Tdp_s raw time unit
+  PASS  Tdp_s normalized time unit
+  PASS  Tdp_s raw time group
+  PASS  Tdp_s workbook identity
+  PASS  Tdp_s exact sheet including trailing space
+  PASS  Tdp_s source cell
+  PASS  Tdp_s normalized provenance agrees
+  PASS  Tdp_s primary designation
+  PASS  Tdp_s dataset lineage
+  PASS  Tdp_s complete qualified metadata
+  PASS  Tdpp_s canonical primary field and provenance exist
+  PASS  Tdpp_s verified workbook value
+  PASS  Tdpp_s compatibility view comes from PRIMARY
+  PASS  Tdpp_s raw numeric source
+  PASS  Tdpp_s raw time unit
+  PASS  Tdpp_s normalized time unit
+  PASS  Tdpp_s raw time group
+  PASS  Tdpp_s workbook identity
+  PASS  Tdpp_s exact sheet including trailing space
+  PASS  Tdpp_s source cell
+  PASS  Tdpp_s normalized provenance agrees
+  PASS  Tdpp_s primary designation
+  PASS  Tdpp_s dataset lineage
+  PASS  Tdpp_s complete qualified metadata
+  PASS  Tqp_s canonical primary field and provenance exist
+  PASS  Tqp_s verified workbook value
+  PASS  Tqp_s compatibility view comes from PRIMARY
+  PASS  Tqp_s raw numeric source
+  PASS  Tqp_s raw time unit
+  PASS  Tqp_s normalized time unit
+  PASS  Tqp_s raw time group
+  PASS  Tqp_s workbook identity
+  PASS  Tqp_s exact sheet including trailing space
+  PASS  Tqp_s source cell
+  PASS  Tqp_s normalized provenance agrees
+  PASS  Tqp_s primary designation
+  PASS  Tqp_s dataset lineage
+  PASS  Tqp_s complete qualified metadata
+  PASS  Tqpp_s canonical primary field and provenance exist
+  PASS  Tqpp_s verified workbook value
+  PASS  Tqpp_s compatibility view comes from PRIMARY
+  PASS  Tqpp_s raw numeric source
+  PASS  Tqpp_s raw time unit
+  PASS  Tqpp_s normalized time unit
+  PASS  Tqpp_s raw time group
+  PASS  Tqpp_s workbook identity
+  PASS  Tqpp_s exact sheet including trailing space
+  PASS  Tqpp_s source cell
+  PASS  Tqpp_s normalized provenance agrees
+  PASS  Tqpp_s primary designation
+  PASS  Tqpp_s dataset lineage
+  PASS  Tqpp_s complete qualified metadata
+  PASS  Ta_s canonical primary field and provenance exist
+  PASS  Ta_s verified workbook value
+  PASS  Ta_s compatibility view comes from PRIMARY
+  PASS  Ta_s raw numeric source
+  PASS  Ta_s raw time unit
+  PASS  Ta_s normalized time unit
+  PASS  Ta_s raw time group
+  PASS  Ta_s workbook identity
+  PASS  Ta_s exact sheet including trailing space
+  PASS  Ta_s source cell
+  PASS  Ta_s normalized provenance agrees
+  PASS  Ta_s primary designation
+  PASS  Ta_s dataset lineage
+  PASS  Ta_s complete qualified metadata
+  PASS  S10 canonical primary field and provenance exist
+  PASS  S10 verified workbook value
+  PASS  S10 compatibility view comes from PRIMARY
+  PASS  S10 raw numeric source
+  PASS  S10 workbook identity
+  PASS  S10 exact sheet including trailing space
+  PASS  S10 source cell
+  PASS  S10 normalized provenance agrees
+  PASS  S10 primary designation
+  PASS  S10 dataset lineage
+  PASS  S10 complete qualified metadata
+  PASS  S12 canonical primary field and provenance exist
+  PASS  S12 verified workbook value
+  PASS  S12 compatibility view comes from PRIMARY
+  PASS  S12 raw numeric source
+  PASS  S12 workbook identity
+  PASS  S12 exact sheet including trailing space
+  PASS  S12 source cell
+  PASS  S12 normalized provenance agrees
+  PASS  S12 primary designation
+  PASS  S12 dataset lineage
+  PASS  S12 complete qualified metadata
+  PASS  Excitation_type canonical primary field and provenance exist
+  PASS  Excitation_type normalized workbook text
+  PASS  Excitation_type compatibility view comes from PRIMARY
+  PASS  Excitation_type workbook identity
+  PASS  Excitation_type exact sheet including trailing space
+  PASS  Excitation_type source cell
+  PASS  Excitation_type normalized provenance agrees
+  PASS  Excitation_type primary designation
+  PASS  Excitation_type dataset lineage
+  PASS  Excitation_type complete qualified metadata
+  PASS  Excitation_designation canonical primary field and provenance exist
+  PASS  Excitation_designation normalized workbook text
+  PASS  Excitation_designation compatibility view comes from PRIMARY
+  PASS  Excitation_designation workbook identity
+  PASS  Excitation_designation exact sheet including trailing space
+  PASS  Excitation_designation source cell
+  PASS  Excitation_designation normalized provenance agrees
+  PASS  Excitation_designation primary designation
+  PASS  Excitation_designation dataset lineage
+  PASS  Excitation_designation complete qualified metadata
+  PASS  percent view Xd = 178.3
+  PASS  percent view Xdp = 32.56
+  PASS  percent view Xdpp = 26.08, not saturated
+  PASS  Snom_MVA exact workbook heading
+  PASS  P_capacity_MW exact workbook heading
+  PASS  Vnom_kV exact workbook heading
+  PASS  H_s exact workbook heading
+  PASS  SCR exact workbook heading
+  PASS  Xd exact workbook heading
+  PASS  Xdp exact workbook heading
+  PASS  Xdpp exact workbook heading
+  PASS  Xdpp_sat exact workbook heading
+  PASS  Xq exact workbook heading
+  PASS  Xqp exact workbook heading
+  PASS  Xqpp exact workbook heading
+  PASS  Xl exact workbook heading
+  PASS  X2 exact workbook heading
+  PASS  X0 exact workbook heading
+  PASS  Ra_ohm exact workbook heading
+  PASS  Rf_numeric exact workbook heading
+  PASS  Td0p_s exact workbook heading
+  PASS  Td0pp_s exact workbook heading
+  PASS  Tq0p_s exact workbook heading
+  PASS  Tq0pp_s exact workbook heading
+  PASS  Tdp_s exact workbook heading
+  PASS  Tdpp_s exact workbook heading
+  PASS  Tqp_s exact workbook heading
+  PASS  Tqpp_s exact workbook heading
+  PASS  Ta_s exact workbook heading
+  PASS  S10 exact workbook heading
+  PASS  S12 exact workbook heading
+  PASS  Excitation_type exact workbook heading
+  PASS  Excitation_designation exact workbook heading
+  PASS  retained d-axis ordering check
+  PASS  unqualified and saturated Xdpp are distinct
+  PASS  machine-base Ra
+  PASS  ohm and pu resistance are distinct
+  PASS  rated PF retained separately
+  PASS  PF-derived OEM reference
+  PASS  owner scenario retained
+  PASS  capacity is neither reference nor scenario
+  PASS  owner power boundary not invented
+  PASS  raw resistance text retained
+  PASS  raw field resistance heading
+  PASS  mixed unit heading
+  PASS  field resistance interpretation qualified
+  PASS  no invented rotor field base
+  PASS  no invented Rf conversion
+  PASS  raw excitation space preserved
+  PASS  raw designation space preserved
+  PASS  unqualified source retained
+  PASS  Xdpp_sat source saturation
+  PASS  X2 source saturation
+  PASS  X0 source saturation
+  PASS  machine apparent-power base
+  PASS  line-line machine voltage base
+  PASS  base is selected interpretation, not literal declaration
+  PASS  combined turbine-generator inertia
+  PASS  controller settings still missing
+  PASS  two saturation coefficients are not a full OCC
+  PASS  XD_damper genuinely missing
+  PASS  XQ_damper genuinely missing
+  PASS  Xf genuinely missing
+  PASS  RD_damper genuinely missing
+  PASS  RQ_damper genuinely missing
+  PASS  Ta1_s genuinely missing
+  PASS  Damping genuinely missing
+  PASS  legacy explicitly designated
+  PASS  legacy reactances retained
+  PASS  legacy cannot be the selected primary
+  PASS  verified workbook hash
+  PASS  existing master owns the same generator provider
+  PASS  Phase 1 freezes all four historical LF dispatches
+  PASS  old Ra interface is derived machine pu
+  PASS  old inertia interface is derived seconds
+  PASS  generator retains NER, never GSUT solid grounding
+  PASS  modelled as a PV bus
+  PASS  terminal voltage setpoint 1.00 pu (approved assumption)
+  PASS  finite physical Qmin at primary 360 MW from source interpolation
+  PASS  finite physical Qmax at primary 360 MW from source interpolation
+  PASS  physical bounds retain graph-extraction derivation status
+  PASS  modelled with a Three-Phase Source, not a Synchronous Machine block
+  => test_generator_data: 476 passed, 0 failed
+
+--- test_base_conversion ----------------------------------------------
+  PASS  same base is the identity
+  PASS  10.5 % at 25 MVA -> 42 % at 100 MVA (factor Snew/Sold)
+  PASS  16 % at 515 MVA -> 3.1068 % at 100 MVA
+  PASS  12 % at 25 MVA -> 48 % at 100 MVA
+  PASS  round trip 515 -> 100 -> 515 MVA returns the original
+  PASS  same voltage base is the identity
+  PASS  voltage-base form scales by (Vold/Vnew)^2
+  PASS  6.9 kV -> 6.6 kV rebasing inflates an impedance by 9.2975 %
+  PASS  x_d'' 26.08 % at 458 MVA -> 5.6943 % at 100 MVA
+  PASS  explicit machine resistance exists
+  PASS  machine Zbase
+  PASS  system Zbase
+  PASS  raw ohm resistance
+  PASS  machine pu resistance
+  PASS  system pu resistance
+  PASS  ohm to machine pu
+  PASS  ohm to system pu
+  PASS  machine inverse returns ohms
+  PASS  system inverse returns ohms
+  PASS  resistance single conversion
+  PASS  resistance round trip
+  PASS  unqualified Xdpp system view
+  PASS  saturated Xdpp system view
+  PASS  Xdpp single conversion
+  PASS  saturated Xdpp single conversion
+  PASS  Xdpp inverse
+  PASS  saturated Xdpp inverse
+  PASS  distinct system reactances
+  PASS  distinct resistance quantities
+  PASS  Zbase at 230 kV, 100 MVA = 529 ohm
+  PASS  grid 2.6558 ohm = 0.50204 % on the 100 MVA / 230 kV base
+  PASS  grid L is X/(2*pi*50) - the 50 Hz dependence is explicit
+  PASS  GSUT 10BAT10 block X_pu = 0.159986 is on its own 515 MVA rating, NOT converted to 100 MVA
+  PASS  GSUT 10BAT10 has NOT been double-converted (0.159986 pu own base vs 0.031065 pu on 100 MVA)
+  PASS  UAT 10BBT10 block X_pu = 0.104924 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  UAT 10BBT10 has NOT been double-converted (0.104924 pu own base vs 0.419695 pu on 100 MVA)
+  PASS  GAT 10BBT20 block X_pu = 0.119896 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  GAT 10BBT20 has NOT been double-converted (0.119896 pu own base vs 0.479583 pu on 100 MVA)
+  PASS  a zero source base is rejected rather than returning Inf
+  => test_base_conversion: 39 passed, 0 failed
+TASK1_RECOVERY_GREEN capability=207/0 generator=476/0 base=39/0 total=722/0
+BASELINE_MAT_CONTENTS
+  Name      Size             Bytes  Class     Attributes
+
+  S         1x4             288856  struct              
+  nf        1x1                  8  double              
+  np        1x1                  8  double              
+
+BASELINE_VARIABLE S class=struct
+    {'ID'                }
+    {'Name'              }
+    {'Case'              }
+    {'LF'                }
+    {'B'                 }
+    {'R'                 }
+    {'res'               }
+    {'node'              }
+    {'Gen_P_MW'          }
+    {'Gen_Q_MVAr'        }
+    {'Export_P_MW'       }
+    {'Export_Q_MVAr'     }
+    {'Loss_P_MW'         }
+    {'Branch_Loss_MW'    }
+    {'Worst_Residual_MVA'}
+    {'Iterations'        }
+    {'Solve_s'           }
+    {'Verdict'           }
+
+BASELINE_VARIABLE nf class=double
+BASELINE_VARIABLE np class=double
+TASK1_RECOVERY_BATCH_OK
+
+=== END FILE docs/validation/rev31_phase2/task-1-recovery-green.log ===
+
+=== BEGIN FILE docs/validation/rev31_phase2/task-1-identity.log ===
+BYTES: 667
+SHA256: 2C0D03761638D27F0705BB79B24C464DA3DA3371E97C4C674F0819F5613CD4A4
+=== RAW FILE BYTES ===
+ORIGINAL_GENERATOR_FIELDS total=140 unchanged=134 changed=6
+    {'Qmin_MVAr'    }
+    {'Qmax_MVAr'    }
+    {'Qlim_Status'  }
+    {'Qlim_Note'    }
+    {'Qcurve_Status'}
+    {'Qcurve_Note'  }
+
+ADDED_GENERATOR_FIELDS=3
+    {'Qlim_P_MW'         }
+    {'Qlim_Source_status'}
+    {'capabilityCurve'   }
+
+PRIMARY_IDENTITY_OK fields=30
+PROVENANCE_IDENTITY_OK records=40
+LEGACY_IDENTITY_OK
+MASTER_NON_GENERATOR_IDENTITY_OK
+BASELINE_ARCHIVE_OK tests=915/0 cases=4/4_OK CASE_RECORD_IDENTITY=4/4
+FROZEN_SETPOINTS_AND_AUX_OK gen=1.00 grid=1.00 aux_MW=14 PF=0.85
+PHYSICAL_Q_AT_360_MW lower=-189.546472564389717 upper=253.796192609182526 MVAr
+TASK1_IDENTITY_OK NO_LOAD_FLOW_RERUN
+
+=== END FILE docs/validation/rev31_phase2/task-1-identity.log ===
+
+END TASK-1 REVIEW PACKAGE. DIFF_PAIRS=6 FULL_FILES=12. Task 1 only.

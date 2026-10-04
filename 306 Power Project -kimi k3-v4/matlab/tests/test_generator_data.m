@@ -1,0 +1,182 @@
+function [np, nf] = test_generator_data()
+%TEST_GENERATOR_DATA  Checks on the Siemens SGen5-2000H record.
+%
+%   REV3.1 Phase 1: verified workbook data, explicit bases and legacy records.
+%   Supplied machine data are not missing. Detailed controls/rotor parameters
+%   remain unresolved; these tests do not validate a dynamic or fault model.
+T = t_case('test_generator_data');
+G = ashuganj_generators();
+
+T = T.eq(numel(G), 1, ...
+    'exactly ONE generator: SCC5-PAC 4000F/3000 (1S) is single-shaft');
+
+g = G(1);
+
+% ---- nameplate, verbatim from the Siemens data ------------------------
+T = T.eq(g.Vnom_V,   22000, 'terminal voltage 22 kV');
+T = T.eq(g.Snom_MVA,   458, 'rated apparent power 458 MVA at 50 C cold gas');
+T = T.eq(g.Smax_MVA,   518, 'maximum apparent power 518 MVA at 30 C cold gas');
+T = T.eq(g.pf,        0.85, 'rated power factor 0.85');
+T = T.eq(g.f_Hz,        50, 'frequency 50 Hz - Bangladesh, not 60 Hz');
+T = T.eq(g.Inom_A,   12019, 'rated stator current 12019 A');
+T = T.eq(g.H2_pressure_barg, 5, 'hydrogen pressure 5 bar(g)');
+
+% ---- internal consistency of the nameplate ----------------------------
+Icalc = g.Snom_MVA*1e6 / (sqrt(3)*g.Vnom_V);
+T = T.near(Icalc, g.Inom_A, 0.005*g.Inom_A, ...
+    sprintf('S/(sqrt3 V) = %.1f A agrees with the stated 12019 A', Icalc));
+Pcalc = g.Snom_MVA * g.pf;
+T = T.near(Pcalc, 389.3, 0.05, ...
+    sprintf('458 MVA x 0.85 = %.2f MW is a PF reference, not capacity', Pcalc));
+
+% ---- canonical workbook fields and cell-level provenance --------------
+spec = { ...
+    'Snom_MVA',458,'C3'; 'P_capacity_MW',360,'B3'; 'Vnom_kV',22,'D3';
+    'H_s',5.287,'F3'; 'SCR',0.601,'G3';
+    'Xd',1.783,'H3'; 'Xdp',0.3256,'I3'; 'Xdpp',0.2608,'J3';
+    'Xdpp_sat',0.2248,'K3'; 'Xq',1.751,'L3'; 'Xqp',0.5087,'M3';
+    'Xqpp',0.2593,'N3'; 'Xl',0.2027,'O3'; 'X2',0.2242,'P3'; 'X0',0.128,'Q3';
+    'Ra_ohm',0.00089,'U3'; 'Rf_numeric',0.10631,'V3';
+    'Td0p_s',7.547,'Y3'; 'Td0pp_s',0.045,'Z3';
+    'Tq0p_s',0.839,'AA3'; 'Tq0pp_s',0.070,'AB3';
+    'Tdp_s',1.213,'AC3'; 'Tdpp_s',0.035,'AD3';
+    'Tqp_s',0.214,'AE3'; 'Tqpp_s',0.035,'AF3'; 'Ta_s',0.704,'AG3';
+    'S10',0.0865,'AI3'; 'S12',0.408,'AJ3';
+    'Excitation_type','Static','AS3'; 'Excitation_designation','SEMIPOL','AT3'};
+for i = 1:size(spec,1)
+    name = spec{i,1}; expected = spec{i,2};
+    present = isfield(g,name) && isfield(g,'Primary') && ...
+        isfield(g.Primary,name) && isfield(g,'Provenance') && isfield(g.Provenance,name);
+    T = T.chk(present, [name ' canonical primary field and provenance exist']);
+    if ~present, continue; end
+    if isnumeric(expected)
+        T = T.near(g.(name),expected,1e-12,[name ' verified workbook value']);
+    else
+        T = T.eq(g.(name),expected,[name ' normalized workbook text']);
+    end
+    T = T.eq(g.(name),g.Primary.(name),[name ' compatibility view comes from PRIMARY']);
+    r = g.Provenance.(name);
+    if isnumeric(expected) && ~strcmp(name,'Ra_ohm')
+        T = T.near(str2double(r.Raw_value),expected,1e-12,[name ' raw numeric source']);
+    end
+    if startsWith(name,'X')
+        T = T.eq(r.Raw_unit,'pu',[name ' raw reactance unit']);
+        T = T.eq(r.Normalized_unit,'pu',[name ' normalized reactance unit']);
+        T = T.eq(r.Raw_group_heading,'Reactance in pu',[name ' raw reactance group']);
+    elseif endsWith(name,'_s') && ~strcmp(name,'H_s')
+        T = T.eq(r.Raw_unit,'sec',[name ' raw time unit']);
+        T = T.eq(r.Normalized_unit,'s',[name ' normalized time unit']);
+        T = T.eq(r.Raw_group_heading,'Time Constants (sec)',[name ' raw time group']);
+    end
+    T = T.eq(r.Source_document,'Ahsuganj South (2).xlsx',[name ' workbook identity']);
+    T = T.eq(r.Source_sheet,'Ashuganj South ',[name ' exact sheet including trailing space']);
+    T = T.eq(r.Source_cell,spec{i,3},[name ' source cell']);
+    T = T.eq(r.Normalized_value,g.(name),[name ' normalized provenance agrees']);
+    T = T.eq(r.Designation,'PRIMARY',[name ' primary designation']);
+    T = T.eq(r.Dataset_ID,g.Dataset_ID,[name ' dataset lineage']);
+    T = T.chk(~isempty(r.Raw_value) && ~isempty(r.Raw_unit) && ...
+        ~isempty(r.Normalized_unit) && ~isempty(r.Base) && ...
+        ~isempty(r.Source_status) && ~isempty(r.Confidence) && ...
+        ~isempty(r.Interpretation_note),[name ' complete qualified metadata']);
+end
+T = T.near(g.xd_pct,178.3,1e-12,'percent view Xd = 178.3');
+T = T.near(g.xdp_pct,32.56,1e-12,'percent view Xdp = 32.56');
+T = T.near(g.xdpp_pct,26.08,1e-12,'percent view Xdpp = 26.08, not saturated');
+if isfield(g,'Primary')
+    headings={
+['Snom_MVA'],['Total Rated MVA'];
+['P_capacity_MW'],[' Capacity ' char(10) '(MW)'];
+['Vnom_kV'],['Generating' char(10) ' kV'];
+['H_s'],['Inertia Constant, H' char(10) '(kW-sec/kVA)'];
+['SCR'],['Short circuit Ratio'];
+['Xd'],['Xd'];
+['Xdp'],['Xd'''];
+['Xdpp'],['Xd"'];
+['Xdpp_sat'],['Xd"(sat)'];
+['Xq'],['Xq'];
+['Xqp'],['Xq'''];
+['Xqpp'],['Xq"'];
+['Xl'],['Xl'];
+['X2'],['X2 (sat)'];
+['X0'],['X0 (sat)'];
+['Ra_ohm'],['Ra'];
+['Rf_numeric'],['Rf'];
+['Td0p_s'],['T''d0'];
+['Td0pp_s'],['T''''d0'];
+['Tq0p_s'],['T''q0'];
+['Tq0pp_s'],['T''''q0'];
+['Tdp_s'],['T''d'];
+['Tdpp_s'],['T''''d'];
+['Tqp_s'],['T''q'];
+['Tqpp_s'],['T''''q'];
+['Ta_s'],['Ta or Ta(3)'];
+['S10'],['S(1.0)'];
+['S12'],['S(1.2)'];
+['Excitation_type'],['excitation system type and parameter  '];
+['Excitation_designation'],['excitation controllers type and their detailed description, structural scheme and settings'];
+    };
+    for j=1:size(headings,1)
+        T = T.eq(g.Provenance.(headings{j,1}).Raw_heading,headings{j,2},[headings{j,1} ' exact workbook heading']);
+    end
+    T = T.chk(g.Xd > g.Xdp && g.Xdp > g.Xdpp,'retained d-axis ordering check');
+    T = T.chk(g.Xdpp ~= g.Xdpp_sat,'unqualified and saturated Xdpp are distinct');
+    T = T.near(g.Ra_pu_machine,0.000842190082644628,1e-12,'machine-base Ra');
+    T = T.chk(g.Ra_ohm ~= g.Ra_pu_machine,'ohm and pu resistance are distinct');
+    T = T.eq(g.PF_rated,0.85,'rated PF retained separately');
+    T = T.near(g.P_pf_reference_MW,389.30,1e-12,'PF-derived OEM reference');
+    T = T.eq(g.P_owner_derated_MW,342.01,'owner scenario retained');
+    T = T.chk(g.P_pf_reference_MW ~= g.P_capacity_MW && ...
+        g.P_owner_derated_MW ~= g.P_capacity_MW,'capacity is neither reference nor scenario');
+    T = T.eq(g.P_owner_derated_Boundary_status,'QUALIFIED','owner power boundary not invented');
+    T = T.eq(g.Provenance.Ra_ohm.Raw_value,'0.00089 ohm','raw resistance text retained');
+    T = T.eq(g.Provenance.Rf_numeric.Raw_heading,'Rf','raw field resistance heading');
+    T = T.eq(g.Provenance.Rf_numeric.Raw_group_heading,'Resistance in pu or ohm','mixed unit heading');
+    T = T.eq(g.Rf_Interpretation_status,'QUALIFIED','field resistance interpretation qualified');
+    T = T.eq(g.Rf_Field_base,'UNRESOLVED','no invented rotor field base');
+    T = T.chk(~isfield(g,'Rf_pu') && ~isfield(g,'Rf_ohm'),'no invented Rf conversion');
+    T = T.eq(g.Provenance.Excitation_type.Raw_value,'Static ','raw excitation space preserved');
+    T = T.eq(g.Provenance.Excitation_designation.Raw_value,'SEMIPOL ','raw designation space preserved');
+    T = T.eq(g.Provenance.Xdpp.Saturation_condition,'UNQUALIFIED_IN_SOURCE','unqualified source retained');
+    for name = {'Xdpp_sat','X2','X0'}
+        T = T.eq(g.Provenance.(name{1}).Saturation_condition,'SATURATED',[name{1} ' source saturation']);
+    end
+    T = T.eq(g.Machine_base.S_MVA,458,'machine apparent-power base');
+    T = T.eq(g.Machine_base.V_kV,22,'line-line machine voltage base');
+    T = T.eq(g.Machine_base.Status,'QUALIFIED','base is selected interpretation, not literal declaration');
+    T = T.chk(contains(g.Provenance.H_s.Interpretation_note,'combined'),'combined turbine-generator inertia');
+    T = T.eq(g.Controller_parameters_Status,'MISSING','controller settings still missing');
+    T = T.eq(g.OCC_Status,'MISSING','two saturation coefficients are not a full OCC');
+    for name = {'XD_damper','XQ_damper','Xf','RD_damper','RQ_damper','Ta1_s','Damping'}
+        T = T.isnan(g.Missing.(name{1}),[name{1} ' genuinely missing']);
+    end
+    T = T.eq(g.Legacy.Designation,'LEGACY / SATURATED SOURCE DATA','legacy explicitly designated');
+    T = T.near([g.Legacy.Xd g.Legacy.Xdp g.Legacy.Xdpp],[1.663 0.2865 0.2248],1e-12,'legacy reactances retained');
+    T = T.chk(~g.Legacy.Selected_primary,'legacy cannot be the selected primary');
+    T = T.eq(g.Provenance.Xd.Source_SHA256, ...
+        '6D4286B9D0B771CEE80FB305F3C0AE7B9D34CC1EA8A3B8F2F022BA0D07240A60','verified workbook hash');
+    D = ashuganj_master_data();
+    T = T.chk(isequaln(D.gen,g),'existing master owns the same generator provider');
+    T = T.eq([D.cases.Gen_P_MW],[389.30 389.30 342.01 342.01],'Phase 1 freezes all four historical LF dispatches');
+    T = T.near(g.Ra_pu,g.Ra_pu_machine,1e-15,'old Ra interface is derived machine pu');
+    T = T.eq(g.H_MWs_per_MVA,g.H_s,'old inertia interface is derived seconds');
+end
+T = T.chk(contains(g.Earthing,'High resistance') && contains(g.Earthing,'NER'), ...
+    'generator retains NER, never GSUT solid grounding');
+
+% ---- load-flow treatment ----------------------------------------------
+T = T.eq(g.LF_BusType, 'PV', 'modelled as a PV bus');
+T = T.eq(g.Vset_pu, 1.00, 'terminal voltage setpoint 1.00 pu (approved assumption)');
+% Physical limits at primary 360 MW now come from the extracted source curve.
+% Frozen builder unbounded solver settings remain an approved exception;
+% these physical metadata fields must not be confused with solver controls.
+T = T.near(g.Qmin_MVAr, -205+60*23/89.3, 1e-12, ...
+    'finite physical Qmin at primary 360 MW from source interpolation');
+T = T.near(g.Qmax_MVAr, 280-60*39/89.3, 1e-12, ...
+    'finite physical Qmax at primary 360 MW from source interpolation');
+T = T.eq(g.Qlim_Status, 'DERIVED_FROM_PRIMARY_SOURCE_EXTRACTED', ...
+    'physical bounds retain graph-extraction derivation status');
+T = T.chk(contains(g.Model_block, 'Source'), ...
+    'modelled with a Three-Phase Source, not a Synchronous Machine block');
+
+[np, nf] = T.done();
+end

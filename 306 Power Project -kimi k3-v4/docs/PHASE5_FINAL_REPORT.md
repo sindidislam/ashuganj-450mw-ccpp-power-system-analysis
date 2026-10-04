@@ -1,0 +1,123 @@
+# PHASE 5 FINAL ENGINEERING REPORT
+
+Status: READY_FOR_REVIEW
+
+This package is a numerically closed preliminary engineering study. Assumed settings are not claimed as commissioned plant settings.
+
+## Reproduction and verification
+
+`matlab -batch "addpath(genpath('matlab')); run_phase5b_production('final-engineering','overwrite',true);"`
+
+run_phase5b_tests() PASS = 528; FAIL = 0
+
+Validation: 14/14 implementation legs pass. All protected Phase-2/3/4 baseline hashes are checked before and after production.
+
+## Coordination result
+
+12 PRIMARY PASS; 12 CONDITIONAL-PASS; 0 FAIL; 24 NO-TRIP; 48 NO-PAIR (96 total matrix rows).
+
+The final TMS values remain GEN-51 0.10, GSUT-51 0.55, Q0-51 0.80 and GEN-51N 0.15. No tuning adjustment was required after correcting current bases and faulted-phase selection. Conditional passes are not counted as unconditional primary passes.
+
+## Central relay settings
+
+| Function | Primary pickup | CT | Secondary pickup | Characteristic / timer | Classification |
+|---|---:|---:|---:|---|---|
+| GEN-51 | 17170.8 A | 15000/1 | 1.14472 A | IEC SI, TMS 0.10 | DERIVED pickup; assumed TMS |
+| GEN-51N | 4 A | 20/1 | 0.20 A | IEC SI, TMS 0.15 | ENGINEERING_ASSUMPTION |
+| GSUT-51 | 1380 A | 1600/1 | 0.8625 A | IEC SI, TMS 0.55 | DERIVED pickup; assumed CT/TMS |
+| Q0-51 | 1500 A | 1600/1 | 0.9375 A | IEC SI, TMS 0.80 | CONDITIONAL_ASSUMPTION |
+| 87G | 2403.8 A (0.20 pu of 12019 A) | 15000/1 | 0.160253 A | 0.045 s detection proxy; high-set OFF | ENGINEERING_STUDY_PROXY timing |
+| 87T | 387.84 A (0.30 pu of 1292.8 A) | 1600/1 study | 0.2424 A | slopes 30/60%; 0.045 s proxy | ENGINEERING_STUDY_PROXY |
+| 87B | 320 A (0.20 pu on 1600 A CT base) | 1600/1 | 0.20 A | slope 30%; 0.035 s proxy | ENGINEERING_STUDY_PROXY |
+| 7SD5221 | 320 A (0.20 In on 1600 A CT base) | 1600/1 | 0.20 A | 0.035 s detection; 0.050 s scheme clearing | ENGINEERING_STUDY_PROXY |
+
+The actual installed value could not be obtained, so the practical engineering values above were adopted for the study. In particular, the 20/1 dedicated neutral CT is a study selection consistent with sensitive stator-ground protection.
+
+## Derivations and numerical closure
+
+GEN-51: 1.20 x 14309 = 17170.8 A. GSUT maximum-load anchor: 458e6/(sqrt(3)*230e3) = 1149.680101 A. GSUT exact rated current: 515e6/(sqrt(3)*230e3) = 1292.762559 A, rounded to 1292.8 A.
+
+The GSUT load-based pickup is 1.20 times the 458-MVA through-load anchor, rounded to 1380 A. The 515-MVA nameplate current is used for the 87T base. These two currents have distinct fields and purposes.
+
+Grid derivation: |Zth| = 230000/(sqrt(3)*45010) = 2.950245766 ohm; Rth = |Zth|/sqrt(1+10.99^2) = 0.267343748 ohm; Xth = 10.99 Rth = 2.938107792 ohm. Z2=Z1 and Z0=3Z1 are preliminary screening assumptions.
+
+South line per circuit: 0.7(0.080+j0.350)=0.056+j0.245 ohm; zero sequence 0.7(0.250+j1.20)=0.175+j0.840 ohm. Two circuits are recorded; per-circuit and parallel-equivalent quantities are explicitly distinguished.
+
+Distance backup: Zone 1=0.0448+j0.196 ohm (0 s proxy), Zone 2=0.0672+j0.294 ohm (0.30 s), Zone 3=0.112+j0.490 ohm (0.80 s). These are system-study backup reaches, not installed settings.
+
+50BF timers: 230 kV 0.15 s; 22 kV 0.12 s. Functional 86/trip actions are in phase5_trip_logic.csv, with adjacent affected-bus breaker sets represented without invented physical names.
+
+Grounding study: NGT 22 kV/sqrt(3) to 500 V, rated 135 kVA for 20 s. The qualified 60-ohm HV-winding component plus the reflected 2.62-ohm loading resistor gives 1750.773333 ohm effective neutral resistance. Sensitivities vary the HV-winding component to 57/60/63 ohm; commissioning measurement remains unavailable.
+
+64G study defaults: U20 MIN 1.0 V, I20 MIN 10 mA, trip resistance 20 ohm, alarm resistance 100 ohm, trip delay 1 s, alarm delay 10 s and correction angle 0 degrees. Primary-test adjustment is required before commissioning. No local manual page was found proving a commissioned setting.
+
+Generator sequence resistance is derived from 0.00089 ohm on the 458-MVA/22-kV base; R2=R1 and R0=1.5R1 are assumptions. GSUT R=0.9122/515 and X=sqrt(0.1663^2-R^2). YNd1 zero-sequence blocking is preserved. See the parameter ledger for exact values and source qualifications.
+
+The master ledger contains 188 finite numerical parameters, each with unit, status, basis, source file/section, derivation, engineering reason, sensitivity and verification requirement. See [PHASE5_ASSUMPTIONS.csv](PHASE5_ASSUMPTIONS.csv) and [PHASE5_SOURCE_AUDIT.md](PHASE5_SOURCE_AUDIT.md).
+
+## Sensitivities actually executed
+
+| Family | Scenario values | Numerical metric rows |
+|---|---|---:|
+| GEN_NEUTRAL_CT | 10 20 25 | 496 |
+| GEN_NEUTRAL_PICKUP | 4 5 | 328 |
+| NER | 57 60 63 | 672 |
+| GSUT_CT | 1500 1600 | 18 |
+| GSUT_CT_FIXED_DIAL | 1500 1600 | 18 |
+| GRID_STRENGTH | 30 40 45.01 50 | 64 |
+| GRID_XR | 5 10.99 20 | 48 |
+| GRID_ZERO | 2 3 4 | 48 |
+| GRID_REPORTED_Z | 3.25 | 17 |
+| GSUT_IMPEDANCE | 0.16 0.1663 | 10 |
+| GSUT_COPPER_LOSS | 0.9122 1.095 | 8 |
+| MOTOR | 4 5 6 | 24 |
+| CT_SATURATION | 0 20 40 | 36 |
+| BREAKER_RATING | 50 63 | 6 |
+
+Neutral CT cases keep the 0.20-A secondary dial fixed, giving 2/4/5-A primary thresholds at 10/20/25 ratios. The separate 4/5-A pickup comparison keeps the 20/1 CT fixed. GSUT documentary CT cases show both a retained 1380-A primary pickup and a fixed-secondary-dial sensitivity.
+
+CT saturation cases are injected screening currents: ideal, the 32-kA 5P20 boundary, and an explicitly assumed high-current transfer reduction. A nominal 5P20 limit is not proof of CT failure; excitation and burden data are absent. Motor screening uses 12 MW + 5 MVAr divided into 9-MW MV and 3-MW LV equivalent groups, with ILR/Ir 4/5/6.
+
+## Breaker-duty result
+
+Q0: maximum 6.897015 kA / 50 kA = 0.137940. 52G: maximum 55.048710 kA / 100 kA = 0.550487. 0 duty exceedances.
+
+All non-exceedance verdicts remain conditional Ikpp screenings. The approximately 72-kA source number for a 22-kV fault is on the fault reference base; it cannot be compared directly to a 230-kV Q0 rating. The duty CSV retains raw_branch_kA, source_voltage_kV and breaker_voltage_kV alongside the physical conversion. No fault current or equipment rating was changed to obtain a favorable verdict.
+
+## Protection effectiveness
+
+40 central rows: 28 CONDITIONAL-DETECTABILITY, 4 NO-TRIP, 8 NO-PAIR/OUT-OF-ZONE; 8 separate DT sensitivity rows.
+
+Each detectability result is conditional on the stated simplified protection model. The 3-s DT historical comparator is SENSITIVITY only. It is not an asserted commissioned Siemens setting.
+
+## Documentary conflicts
+- GSUT CT: manufacturer protection schedule indicates 1500/1; as-built SLD and later nameplate indicate 1600/1. Central study uses 1600/1 as ENGINEERING_ASSUMPTION. The installed function-to-core assignment remains unverified. 1500/1 is a calculated documentary sensitivity.
+- GSUT impedance/loss: workbook study data give 16.63% and copper loss 912.2 kW (1067.5 minus 155.3 kW); manufacturer design sheet gives 16% and 1095 kW. The workbook-derived profile is the requested local Phase-5 study profile, not a claim that the OEM design sheet states those numbers.
+- Grid: the secondary historical 45.01 kA, X/R 10.99 result implies |Z| about 2.9502 ohm at voltage factor c=1. Its reported 3.25 ohm uses an unverified convention; an implied c about 1.102 could explain the discrepancy. The requested c=1 derivation is central and 3.25 ohm is a numerical sensitivity. Neither is an official current PGCB equivalent.
+- Grounding: the report marks 60 ohm as HV-winding DC resistance with a question mark and 2.62 ohm as the LV loading resistor with qualification. The frozen effective neutral resistance is 60 + n^2*2.62 ohm, where n=(22000/sqrt(3))/500. Treating 60 ohm alone as the effective neutral resistance would contradict the approximately 7.27 A central stator-earth fault.
+- Regional line identity: the original 52 km Ashuganj-Kishoreganj row is in the 132-kV table. North-Bhulta is 400 kV. Regional values are reference/screening records and are not injected into the frozen South network.
+- Breaker identity: Q0 is a repeated device label, not a globally unique breaker name. The central conditional mapping is the GSUT GIS bay 10ADA10/D07, 52-1(Q0). Q1/Q2 are bus-selector disconnectors, Q9 a line-side disconnector; none is invented as a circuit breaker. Line protection trips functional local/remote line-end breaker equivalents; a direct trip of the transformer-bay Q0 is not assigned without an established intertrip route.
+
+## Limits of this study
+- The 40-row coordination input is the locked Phase-4 Ikpp backbone. Grid, motor and GSUT alternatives have separate PHASE-5 ANALYTICAL SCREENING SENSITIVITY calculations. South line impedance also determines backup distance reaches. Updated generator sequence values and regional line totals are reference profile data; they have not regenerated the full Phase-4 network or its prefault solution.
+- The Phase-4 contribution CSV stores |Ia| on the fault voltage base. Phase-5 recovers faulted B/C phasors, verifies their |Ia| identity against that archive, and converts physical current by Vfault/Vdevice. No upstream fault current is edited.
+- The legacy matrix columns I_down_A and I_up_A contain CT-secondary amperes. Their ct_down/ct_up columns give the ratios. phase5_relay_currents.csv explicitly provides both primary and secondary amperes and branch-specific zero-sequence current.
+- Breaker duty uses maxABC physical branch Ikpp as a screening comparison. It is not an interrupting-time Ib, asymmetric DC, making-current, short-time thermal or TRV compliance study.
+- 87G/87T/87B/7SD results establish study observability only. CT matching, vector-group compensation, differential/restraint current, through-fault stability and CT saturation are not a manufacturer relay algorithm. Timing values are explicit proxies.
+- F1 and F2 LG map to the same 22-kV fault node. Their raw terminal branches contain circulating/load current, not differential current. The earth-fault proxy uses the approximately 7.27-A neutral residual; 87G remains below its 2403.8-A start, and the HV-referred 87T proxy is about 0.696 A versus 387.84 A. Both are NO-TRIP. Dedicated 51N/64G provide the study earth-protection representation.
+- NO-TRIP times are infinity: a resolved non-operation, not an unresolved parameter. NOT_APPLICABLE_TO_ROW marks structurally irrelevant heterogeneous columns, such as TMS for a differential pickup or an upstream time when no relay pair exists. Installed-value verification is separate from the fully specified study value.
+
+## Remaining verification-only items
+- Installed relay setting files, CT protection core/tap schedule, excitation curves and actual burdens.
+- Current PGCB positive/negative/zero-sequence equivalent, fault-level date and operating topology.
+- Q0 exact installed transformer-bay breaker/nameplate mapping, contact-parting time, DC capability and TRV.
+- GEN neutral CT ratio and commissioning test, NGT/loading-resistor interpretation and measured resistance.
+- 87T/87B/7SD bias, vector compensation, communication and remote-end settings; actual 86/50BF wiring.
+- 7UM62 64G manual/settings pages and primary injection adjustment; the supplied default values are study values.
+- South route/conductor geometry and individual motor test data. The numerical study already contains practical substitutes.
+
+## Files and integrity
+
+All ten requested CSVs, both TCC PNGs, the parameter ledger, trip matrix and TCC metadata are generated under results/phase5_protection_v2. Final manifest.json and sha256.txt are created after these reports and plots; the workflow then verifies every recorded digest, including both PNGs.
+
+Superseded final-report copies are replaced by synchronized root/docs reports. The v1 results directory remains historical regression evidence and is not a current Phase-5b result.

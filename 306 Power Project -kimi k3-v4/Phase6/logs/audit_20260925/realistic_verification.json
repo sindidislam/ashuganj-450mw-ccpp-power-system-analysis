@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "profile": "PHASE5_STUDY",
+  "matlab": "24.1.0.2537033 (R2024a)",
+  "differentialChecks": 31,
+  "integrationChecks": 22,
+  "default87BTrip_s": 0.187,
+  "edited87BTrip_s": 0.252,
+  "tripShift_s": 0.065,
+  "zones": [
+    {
+      "location": "GEN",
+      "relay": "87G",
+      "trip_s": 0.197
+    },
+    {
+      "location": "GSUT_HV",
+      "relay": "87T",
+      "trip_s": 0.197
+    },
+    {
+      "location": "LINE230",
+      "relay": "87L",
+      "trip_s": 0.192
+    }
+  ],
+  "normal": {
+    "generator_MW": 359.28906404096239,
+    "generator_MVAr": 24.786608671436554,
+    "generator_kV": 22.000309781344285,
+    "frequency_Hz": 49.999931986864958,
+    "bus_kV": 230.07501633117309,
+    "aux_kV": 6.6055391069380365,
+    "mechanicalInput_MW": 360.2394468443897,
+    "ratedFrictionLoss_MW": 0.458,
+    "Rgrid_ohm": 0.26734374814821
+  },
+  "finished": "2026-09-25 08:57:32"
+}

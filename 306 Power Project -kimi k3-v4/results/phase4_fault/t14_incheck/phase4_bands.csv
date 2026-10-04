@@ -1,0 +1,2 @@
+group,fault_type,min_Ik_kA,max_Ik_kA,min_leg,max_leg,mid_Ik_kA,mid_leg,incomplete,note
+F3_LG_t14_incheck,LG,45.8917695676112,45.8917695676112,GAT-IN,GAT-IN,45.8917695676112,GAT-IN,1,"point without band: single-leg group, no spread band"

@@ -1,0 +1,14 @@
+Error using assert
+Measured relay/DC Level-2 wrappers must exist.
+
+Error in test_phase6_protection_sfunctions (line 4)
+assert(exist('phase6_relay_sfun','file')==2 && exist('phase6_dc_sfun','file')==2, ...
+
+Error in job028_protection_wrappers_red (line 4)
+test_phase6_protection_sfunctions;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

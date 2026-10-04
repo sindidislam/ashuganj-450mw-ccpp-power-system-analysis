@@ -1,0 +1,6 @@
+Time_s,Event_group,Device,Transition,Source
+0.021,DC_state,Charger_failure,cleared,logged_signal_transition
+0.15,scenario_schedule,GIS230,fault_on,scenario_setting_not_measured_switch_state
+0.161,DC_state,Charger_failure,asserted,logged_signal_transition
+0.23,scenario_schedule,GIS230,fault_off,scenario_setting_not_measured_switch_state
+0.249,DC_state,Charger_failure,cleared,logged_signal_transition

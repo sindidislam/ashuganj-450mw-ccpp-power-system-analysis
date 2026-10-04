@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashuganj South 450 MW — Protection Relays, Settings & Purpose Manual</title>
+<meta name="description" content="Comprehensive engineering defense manual documenting all protection relays, numerical settings, CT ratios, operating times, and purposes for the Ashuganj South 450 MW CCPP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f2b3c;
+  --navy-light: #18425d;
+  --teal: #0d8b87;
+  --teal-light: #e4f5f4;
+  --blue: #1a73e8;
+  --blue-light: #e8f0fe;
+  --red: #d93025;
+  --red-light: #fce8e6;
+  --amber: #f59e0b;
+  --amber-light: #fef7ee;
+  --green: #10b981;
+  --green-light: #ecfdf5;
+  --purple: #8b5cf6;
+  --purple-light: #f5f3ff;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --line: #cbd5e1;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --font-scale: 1.15;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: calc(16px * var(--font-scale));
+}
+.shell { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 330px;
+  background: var(--navy);
+  color: #fff;
+  padding: 26px 20px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: calc(17px * var(--font-scale));
+  margin: 0 0 6px 0;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+.sidebar small {
+  display: block;
+  color: #94a3b8;
+  margin-bottom: 20px;
+  font-size: calc(12.5px * var(--font-scale));
+}
+.nav a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  font-size: calc(13px * var(--font-scale));
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.nav a.active {
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+}
+.sidebar-box {
+  margin-top: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 14px;
+  font-size: calc(12px * var(--font-scale));
+  color: #94a3b8;
+  line-height: 1.6;
+}
+.sidebar-box b { color: #f1f5f9; }
+
+.main {
+  flex: 1;
+  padding: 36px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+html.full-width .main { max-width: 100%; }
+
+/* PRESENTATION TOOLBAR */
+.presentation-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 16px rgba(15, 43, 60, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.pbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: calc(14px * var(--font-scale));
+}
+.pbar-badge {
+  background: var(--teal-light);
+  color: var(--teal);
+  border: 1px solid var(--teal);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: calc(11.5px * var(--font-scale));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.pbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pbar-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: calc(13px * var(--font-scale));
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.pbar-btn:hover {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+.pbar-btn.active {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+
+.eyebrow {
+  color: var(--teal);
+  text-transform: uppercase;
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0 0 6px 0;
+}
+h1 {
+  font-size: calc(34px * var(--font-scale));
+  color: var(--navy);
+  margin: 0 0 14px 0;
+  line-height: 1.25;
+  font-weight: 900;
+}
+.lead {
+  font-size: calc(17px * var(--font-scale));
+  color: #475569;
+  margin-bottom: 30px;
+  max-width: 1100px;
+  line-height: 1.75;
+}
+
+/* KPI CARDS */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.kpi-card {
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.kpi-title {
+  font-size: calc(12px * var(--font-scale));
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #64748b;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.kpi-value {
+  font-size: calc(26px * var(--font-scale));
+  font-weight: 900;
+  color: var(--navy);
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 4px;
+}
+.kpi-sub {
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 600;
+}
+.kpi-green { color: var(--green); }
+.kpi-blue { color: var(--blue); }
+.kpi-teal { color: var(--teal); }
+.kpi-amber { color: var(--amber); }
+
+/* SECTIONS & CARDS */
+.card {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 28px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 3px 12px rgba(15, 43, 60, 0.05);
+}
+.card h2 {
+  font-size: calc(22px * var(--font-scale));
+  color: var(--navy);
+  margin: 0 0 16px 0;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.status-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: calc(11px * var(--font-scale));
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.pill-verdict { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
+.pill-fault { background: var(--red-light); color: var(--red); border: 1px solid var(--red); }
+.pill-duty { background: var(--blue-light); color: var(--blue); border: 1px solid var(--blue); }
+.pill-relay { background: var(--teal-light); color: var(--teal); border: 1px solid var(--teal); }
+.pill-warn { background: var(--amber-light); color: #b45309; border: 1px solid var(--amber); }
+
+/* TABLES */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 20px 0;
+  font-size: calc(14px * var(--font-scale));
+}
+th {
+  background: var(--navy);
+  color: #fff;
+  text-align: left;
+  padding: 12px 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #f1f5f9; }
+
+.code-cell {
+  font-family: 'JetBrains Mono', monospace;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 600;
+  color: #1e293b;
+}
+.tag-badge {
+  display: inline-block;
+  font-size: calc(10.5px * var(--font-scale));
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-top: 4px;
+}
+.tag-diff { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.tag-oc { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+.tag-ef { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+.tag-inst { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+}
+.bullet-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  font-size: calc(15px * var(--font-scale));
+  line-height: 1.7;
+}
+.bullet-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--teal);
+  font-weight: 900;
+  font-size: calc(15px * var(--font-scale));
+}
+.bullet-list.bullet-alert li::before {
+  content: "⚡";
+  color: var(--red);
+}
+
+.callout-box {
+  background: #f8fafc;
+  border-left: 5px solid var(--teal);
+  padding: 16px 20px;
+  border-radius: 0 10px 10px 0;
+  margin: 18px 0;
+  font-size: calc(14.5px * var(--font-scale));
+}
+.callout-box h4 {
+  margin: 0 0 6px 0;
+  color: var(--navy);
+  font-size: calc(15px * var(--font-scale));
+}
+
+/* SEARCH BOX */
+.search-container {
+  margin-bottom: 20px;
+}
+.search-box {
+  width: 100%;
+  padding: 12px 18px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  font-size: calc(14.5px * var(--font-scale));
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+.search-box:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(13, 139, 135, 0.15);
+}
+
+@media print {
+  .sidebar, .presentation-bar { display: none !important; }
+  .main { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+  body { font-size: 11pt !important; background: #fff !important; }
+  .card { box-shadow: none !important; border: 1px solid #ccc !important; page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <!-- SIDEBAR NAVIGATION -->
+  <aside class="sidebar">
+    <h2>Protection Manual</h2>
+    <small>Ashuganj South 450 MW · EEE 306</small>
+    <nav class="nav">
+      <a href="#overview" class="active">1 · Philosophy & Architecture</a>
+      <a href="#matrix">2 · Master Relay & Purpose Directory</a>
+      <a href="#hardware-vs-settings">3 · Original Hardware vs. Study Settings</a>
+      <a href="#relay-derivations">4 · Step-by-Step Settings Derivation</a>
+      <a href="#dc-interlock">5 · Breaker Delay & DC Trip Gating</a>
+      <a href="#scenario-response">6 · Scenario Response Across Faults (F1-F5)</a>
+      <a href="#event-timeline">7 · Simulation Closed-Loop Timeline</a>
+      <a href="#viva">8 · Viva Defense & Teacher Questions</a>
+    </nav>
+    <div class="sidebar-box">
+      <b>Protection Highlights:</b><br>
+      • <b>Fastest Relay:</b> 35 ms (GIS-87B)<br>
+      • <b>Machine Trip:</b> 45 ms (GEN-87G / 87T)<br>
+      • <b>Ground Trip:</b> 1.75 s @ 7.27 A (GEN-51N)<br>
+      • <b>Grading Margin:</b> CTI = 300 ms (IEEE 242)<br>
+      • <b>Breaker Action:</b> 50 ms mechanical delay<br>
+      • <b>DC Health Gate:</b> Vdc ≥ 88 V trip interlock
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <!-- PRESENTATION TOOLBAR -->
+    <div class="presentation-bar">
+      <div class="pbar-left">
+        <span class="pbar-badge">Engineering Reference</span>
+        <span>Presentation Scale:</span>
+      </div>
+      <div class="pbar-actions">
+        <button class="pbar-btn" id="btn-scale-1" onclick="setFontScale(1.0, this)">100%</button>
+        <button class="pbar-btn active" id="btn-scale-2" onclick="setFontScale(1.18, this)">120% Large</button>
+        <button class="pbar-btn" id="btn-scale-3" onclick="setFontScale(1.42, this)">📽️ 145% Projector</button>
+        <button class="pbar-btn" id="btn-scale-4" onclick="setFontScale(1.65, this)">🔍 165% XL</button>
+        <button class="pbar-btn" id="btn-full-width" onclick="toggleFullWidth(this)">⛶ Full Width</button>
+        <button class="pbar-btn" onclick="window.print()">🖨️ Print / PDF</button>
+      </div>
+    </div>
+
+    <p class="eyebrow">Ashuganj South 450 MW CCPP · EEE 306 Protection & Switchgear</p>
+    <h1>Protection Relays, Settings & Purpose Manual</h1>
+    <p class="lead">A complete, exhaustive technical reference detailing <b>every protective relay, CT ratio, pickup setting, time multiplier, operating delay, and physical engineering purpose</b> across the complete electrical power train of the Ashuganj South 450 MW power plant.</p>
+
+    <!-- SECTION 1: OVERVIEW & PHILOSOPHY -->
+    <section id="overview" class="card">
+      <span class="status-pill pill-relay">Protection Architecture</span>
+      <h2>1 · Protection Philosophy & The 4 Defensive Pillars</h2>
+      <p>The protective relay system is structured into four distinct, overlapping defense zones to guarantee 100% selectivity, zero uncoordinated blackouts, and sub-100 ms fault clearing:</p>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-title">Pillar 1 · Unit Differential</div>
+          <div class="kpi-value kpi-teal">87G &amp; 87T</div>
+          <div class="kpi-sub">45 ms Instantaneous Clearing</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Pillar 2 · Bus &amp; Line Diff</div>
+          <div class="kpi-value kpi-blue">87B &amp; 87L</div>
+          <div class="kpi-sub">35–40 ms Fiber/Spill Clearing</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Pillar 3 · Graded Backup</div>
+          <div class="kpi-value kpi-amber">51 Overcurrent</div>
+          <div class="kpi-sub">Strict 300 ms CTI Coordination</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Pillar 4 · Ground Defense</div>
+          <div class="kpi-value kpi-green">51N + NER</div>
+          <div class="kpi-sub">Crushes Ground Fault to 7.27 A</div>
+        </div>
+      </div>
+
+      <ul class="bullet-list">
+        <li><b>Zone 1 — Generator Zone (87G):</b> Bounded by neutral CTs and GCB CTs. Detects internal stator winding faults without intentional delay.</li>
+        <li><b>Zone 2 — Transformer Zone (87T):</b> Bounded by GCB CTs and 230 kV GIS CTs. Protects the 515 MVA GSUT against internal turn-to-turn and bushing flashovers with vector group (YNd1, −30°) compensation.</li>
+        <li><b>Zone 3 — Switchyard Busbar Zone (87B):</b> Decentralized busbar differential protecting 230 kV GIS Bus 1 and Bus 2, clearing severe 50.53 kA bus faults in 35 ms.</li>
+        <li><b>Zone 4 — Transmission Line Zone (87L &amp; 21):</b> Optical fiber line differential (87L) clearing 50% line faults in 40 ms, backed up by 3-zone distance protection (21).</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 2: MASTER RELAY & PURPOSE DIRECTORY -->
+    <section id="matrix" class="card">
+      <span class="status-pill pill-verdict">Master Directory</span>
+      <h2>2 · Master Relay, Settings & Purpose Directory</h2>
+      <p>Use the interactive table below to review every relay, its ANSI function, physical location, CT sizing, exact mathematical settings, and physical purpose in mitigating catastrophic failures:</p>
+
+      <div class="search-container">
+        <input type="text" id="relay-search" class="search-box" placeholder="🔍 Search by relay tag, ANSI number, setting, purpose, or failure prevented..." oninput="filterRelays()">
+      </div>
+
+      <div style="overflow-x:auto;">
+        <table id="relay-table">
+          <thead>
+            <tr>
+              <th style="width:14%;">Relay Tag &amp; ANSI</th>
+              <th style="width:16%;">Hardware Model &amp; Location</th>
+              <th style="width:14%;">Sensing CT / VT Ratio</th>
+              <th style="width:18%;">Calculated Settings</th>
+              <th style="width:38%;">Primary Engineering Purpose &amp; Failure Prevented</th>
+            </tr>
+          </thead>
+          <tbody id="relay-body">
+            <tr>
+              <td>
+                <b>GEN-87G</b><br>
+                <span class="code-cell">ANSI 87</span><br>
+                <span class="tag-badge tag-diff">DIFFERENTIAL</span>
+              </td>
+              <td><b>Siemens 7UM622</b><br>Generator Protection Panel (+10CHA)</td>
+              <td><b>15,000 / 1 A</b> Phase CTs<br>(Class 5P20, 30 VA, 3 cores)</td>
+              <td>
+                <span class="code-cell">Ip = 2,403.8 A</span> ($0.20 	imes I_n$)<br>
+                Slope = <b>30%</b><br>
+                Delay = <b>0.045 s (45 ms)</b>
+              </td>
+              <td>
+                <b>Primary Stator Phase Fault Protection:</b> Compares currents entering stator neutral vs leaving stator terminals. Detects internal phase-to-phase short circuits within 45 ms.<br>
+                <b style="color:var(--red);">Failure Prevented:</b> Prevents 126.21 kA stator arc from melting copper bars, welding stator core iron, and setting machine on fire. Triggers Master Unit Trip (86) to de-excite rotor field.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>GSUT-87T</b><br>
+                <span class="code-cell">ANSI 87T</span><br>
+                <span class="tag-badge tag-diff">DIFFERENTIAL</span>
+              </td>
+              <td><b>Siemens 7UT633</b><br>Transformer Protection Panel (F12/F13)</td>
+              <td>
+                <b>15,000 / 1 A</b> (LV 22 kV)<br>
+                <b>1,600 / 1 A</b> (HV 230 kV)
+              </td>
+              <td>
+                <span class="code-cell">Ip = 387.84 A</span> ($0.30 	imes I_{	ext{nom,HV}}$)<br>
+                Slope 1 = <b>30%</b>, Slope 2 = <b>60%</b><br>
+                Knee = <b>2,585.6 A</b> (2.0 pu)<br>
+                Delay = <b>0.045 s (45 ms)</b>
+              </td>
+              <td>
+                <b>Primary Transformer Unit Protection:</b> Automatically compensates for the $-30^\circ$ phase shift of the $YNd1$ vector group and filters zero-sequence currents.<br>
+                <b style="color:var(--red);">Failure Prevented:</b> Clears internal winding faults before $5,000^\circ	ext{C}$ electric arcs vaporize transformer oil into hydrogen gas, preventing explosive tank rupture and boiling oil fireballs.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>GIS-87B</b><br>
+                <span class="code-cell">ANSI 87B</span><br>
+                <span class="tag-badge tag-diff">DIFFERENTIAL</span>
+              </td>
+              <td><b>Siemens 7SS523</b><br>Decentralized Busbar Protection Panel</td>
+              <td><b>1,600 / 1 A</b> Switchyard Bay CTs</td>
+              <td>
+                <span class="code-cell">Ip = 320.0 A</span> ($0.20 	imes 1,600	ext{ A}$)<br>
+                Slope = <b>30%</b><br>
+                Delay = <b>0.035 s (35 ms)</b>
+              </td>
+              <td>
+                <b>High-Speed Switchyard Busbar Defense:</b> Continuously monitors Kirchhoff's current sum across all 230 kV GIS bays (GSUT bay, Line 1, Line 2, Coupler, GAT).<br>
+                <b style="color:var(--red);">Failure Prevented:</b> Converts a catastrophic 7.28-second overcurrent delay into a clean <b>~90 ms total clearance</b>, preventing SF6 switchgear vaporization and complete national substation blackout.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>LINE-87L</b><br>
+                <span class="code-cell">ANSI 87L</span><br>
+                <span class="tag-badge tag-diff">DIFFERENTIAL</span>
+              </td>
+              <td><b>Siemens 7SD522</b><br>Line Protection Panel (Bay 10ADA10)</td>
+              <td><b>1,600 / 1 A</b> Line Terminal CTs</td>
+              <td>
+                <span class="code-cell">Ip = 320.0 A</span> ($0.20 	imes I_n$)<br>
+                Delay = <b>0.040 s (40 ms)</b><br>
+                (35 ms sensing + 5 ms optical link)
+              </td>
+              <td>
+                <b>Unit Transmission Line Protection:</b> Uses synchronized optical fiber communications between Ashuganj plant and PGCB substation to compare line entrance and exit currents.<br>
+                <b style="color:var(--red);">Failure Prevented:</b> Instantly clears mid-line faults in 40 ms regardless of fault resistance, ensuring generator rotor stability ($< 100	ext{ ms}$) without waiting for distance relay Zone 2 delays.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>GEN-51</b><br>
+                <span class="code-cell">ANSI 51</span><br>
+                <span class="tag-badge tag-oc">OVERCURRENT</span>
+              </td>
+              <td><b>Siemens 7UM622</b><br>Generator Protection Panel (+10CHA)</td>
+              <td><b>15,000 / 1 A</b> Phase CTs</td>
+              <td>
+                <span class="code-cell">Ip = 17,170.8 A</span> ($1.20 	imes I_{	ext{max}}$)<br>
+                Secondary = <b>1.1447 A</b><br>
+                Curve: <b>IEC Standard Inverse</b><br>
+                <span class="code-cell">TMS = 0.10</span>
+              </td>
+              <td>
+                <b>Generator Time-Overcurrent Backup:</b> Acts as coordinated safety net if differential relay 87G fails. Set at $1.20 	imes$ maximum emergency continuous machine rating ($518	ext{ MVA}$ at $0.95	ext{ pu}$ voltage).<br>
+                <b style="color:var(--red);">Failure Prevented:</b> Trips GCB in 0.594 s for a 126.21 kA fault, maintaining a 1.76 s safety coordination grading above downstream GSUT-51.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>GEN-51N</b><br>
+                <span class="code-cell">ANSI 51N</span><br>
+                <span class="tag-badge tag-ef">EARTH FAULT</span>
+              </td>
+              <td><b>Siemens 7UM622</b><br>Generator Neutral Earthing Circuit</td>
+              <td>
+                <b>20 / 1 A</b> Dedicated Neutral CT<br>
+                <span style="color:var(--teal); font-weight:700;">(Added by Our Study)</span>
+              </td>
+              <td>
+                <span class="code-cell">Ip = 4.0 A primary</span><br>
+                Secondary = <b>0.20 A</b><br>
+                Curve: <b>IEC Standard Inverse</b><br>
+                <span class="code-cell">TMS = 0.15</span>, Trips in <b>1.746 s</b>
+              </td>
+              <td>
+                <b>Sensitive Stator Ground Protection:</b> Solves the "Phase CT Blindness" problem. Standard 15,000/1 A CTs produce only 0.48 mA at 7.27 A ground fault (undetectable). The dedicated 20/1 CT steps 7.27 A into 0.364 A.<br>
+                <b style="color:var(--red);">Failure Prevented:</b> Restricts stator ground faults in coordination with the 1,750.8 Ω NER to 7.27 A and clears in 1.75 s, preventing stator iron lamination burning and millions of dollars in repair costs.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>GSUT-HV-51</b><br>
+                <span class="code-cell">ANSI 51</span><br>
+                <span class="tag-badge tag-oc">OVERCURRENT</span>
+              </td>
+              <td><b>Siemens 7UT633</b><br>Transformer HV Side (230 kV)</td>
+              <td><b>1,600 / 1 A</b> HV Bushing CTs</td>
+              <td>
+                <span class="code-cell">Ip = 1,380.0 A</span> ($1.20 	imes I_{	ext{load}}$)<br>
+                Secondary = <b>0.8625 A</b><br>
+                Curve: <b>IEC Standard Inverse</b><br>
+                <span class="code-cell">TMS = 0.55</span>
+              </td>
+              <td>
+                <b>Transformer HV Backup Overcurrent:</b> Set at 120% of rated full-load current (1,149.7 A). Provides inverse-time thermal and short-circuit backup for the 515 MVA transformer.<br>
+                <b style="color:var(--red);">Failure Prevented:</b> Mathematically satisfies the mandatory 300 ms Coordination Time Interval (CTI) grading against bay breaker Q0-51, preventing false transformer trips during line faults.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>GIS-Q0-51</b><br>
+                <span class="code-cell">ANSI 51</span><br>
+                <span class="tag-badge tag-oc">OVERCURRENT</span>
+              </td>
+              <td><b>Siemens 8DN9 GIS</b><br>Transformer Bay Breaker (Q0)</td>
+              <td><b>1,600 / 1 A</b> Bay CTs</td>
+              <td>
+                <span class="code-cell">Ip = 1,500.0 A</span><br>
+                Secondary = <b>0.9375 A</b><br>
+                Curve: <b>IEC Standard Inverse</b><br>
+                <span class="code-cell">TMS = 0.80</span>
+              </td>
+              <td>
+                <b>230 kV Switchyard Bay Backup:</b> Set above maximum transformer full load (1,292.8 A) and well within the 2,000 A continuous bay rating. Provides remote backup for external grid faults.<br>
+                <b style="color:var(--red);">Failure Prevented:</b> Serves as ultimate backstop tripping Q0 in 4.54 s to 7.48 s if remote utility grid breakers fail to clear external line short circuits.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>RELAY-78</b><br>
+                <span class="code-cell">ANSI 78</span><br>
+                <span class="tag-badge tag-inst">OUT-OF-STEP</span>
+              </td>
+              <td><b>Siemens 7UM622</b><br>Generator Impedance Protection</td>
+              <td>
+                15,000/1 A CTs<br>
+                22 kV / 100 V VTs
+              </td>
+              <td>
+                Blinder Resistance Limits<br>
+                Trip Delay = <b>0.100 s (100 ms)</b>
+              </td>
+              <td>
+                <b>Pole-Slip / Loss-of-Synchronism Protection:</b> Monitors the trajectory of apparent impedance $Z = V/I$. Senses when the electrical center of a power swing enters the generator stator or step-up transformer.<br>
+                <b style="color:var(--red);">Failure Prevented:</b> Trips GCB within 100 ms before a full pole-slip occurs, preventing violent oscillating torsional shockwaves from twisting and shearing the multi-ton turbine-generator steel shaft.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ORIGINAL HARDWARE VS STUDY SETTINGS -->
+    <section id="hardware-vs-settings" class="card">
+      <span class="status-pill pill-duty">Traceability Audit</span>
+      <h2>3 · Original SLD Hardware vs. Study-Engineered Settings</h2>
+      <p>A critical engineering contribution of this project was converting the uncalibrated OEM hardware into a mathematically graded, selective protection defense:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width:25%;">Protection Equipment</th>
+            <th style="width:35%;">What the Original SLD / OEM Documents Gave (Group A)</th>
+            <th style="width:40%;">What Was Missing & Engineered by Our Study (Group B)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Generator Protection (7UM622)</b></td>
+            <td>Hardware model number, terminal box wiring, 15,000/1 A CTs. (Pages 8–39 of Siemens report were missing; all settings were blank/NaN).</td>
+            <td>Calculated GEN-51 pickup ($17,170.8	ext{ A}$), TMS ($0.10$), IEC Standard Inverse curve, and 87G restraint slopes (30%) and pickup ($2,403.8	ext{ A}$).</td>
+          </tr>
+          <tr>
+            <td><b>Stator Ground Fault Sensing</b></td>
+            <td>NER 10BAB11 rating (60 Ω primary, 2.62 Ω secondary, 25.4:1 transformer). Standard phase CTs were blind to 7.27 A ground current.</td>
+            <td>Engineered and added a <b>dedicated 20/1 Neutral CT</b>, sized GEN-51N pickup to 4.0 A (0.20 A dial), and set TMS = 0.15 for a safe 1.75 s trip.</td>
+          </tr>
+          <tr>
+            <td><b>Transformer Differential (7UT633)</b></td>
+            <td>Hardware panel tag (F12/F13) and CT ratings (15,000/1 A and 1,600/1 A).</td>
+            <td>Derived dual-slope percentage restraint (Slope 1 = 30%, Slope 2 = 60%, knee = 2,585.6 A), 45 ms trip delay, and $YNd1$ vector phase shift matrix.</td>
+          </tr>
+          <tr>
+            <td><b>Busbar Differential (7SS523)</b></td>
+            <td>Decentralized 7SS523 relay presence on 230 kV GIS Bus 1 and Bus 2.</td>
+            <td>Calculated 320 A differential spill current pickup and 35 ms high-speed operating timer, replacing a dangerous 7.28-second overcurrent backup delay.</td>
+          </tr>
+          <tr>
+            <td><b>Line Differential (7SD522)</b></td>
+            <td>Dual 7SD522 relay hardware on Bay 10ADA10 for Line 1 and Line 2.</td>
+            <td>Derived 320 A pickup threshold, 5 ms optical communications channel budget, and effective 40 ms clearing time.</td>
+          </tr>
+          <tr>
+            <td><b>Circuit Breaker Mechanism & DC System</b></td>
+            <td>100 kA GCB and 50 kA GIS breakers; 110 V station DC battery schedule.</td>
+            <td>Implemented 50 ms mechanical contact separation lag, 2 kW trip coil release pulse, and DC voltage trip interlock ($V_{dc} \ge 88	ext{ V}$).</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4: STEP-BY-STEP DERIVATIONS -->
+    <section id="relay-derivations" class="card">
+      <span class="status-pill pill-relay">Mathematical Rigor</span>
+      <h2>4 · Mathematical Derivation of Key Protection Settings</h2>
+
+      <div class="callout-box">
+        <h4>1. Generator Time-Overcurrent (GEN-51)</h4>
+        $$	ext{Machine Maximum Continuous MVA} = 518	ext{ MVA}, \quad V_{	ext{min}} = 22	ext{ kV} 	imes 0.95 = 20.9	ext{ kV}$$
+        $$I_{	ext{max}} = rac{518 	imes 10^6}{\sqrt{3} 	imes 20,900} = 14,309.28	ext{ A}$$
+        $$I_{	ext{pickup}} = 1.20 	imes 14,309.28 = \mathbf{17,170.8	ext{ A primary}} \quad \longrightarrow \quad I_{	ext{sec}} = rac{17,170.8}{15,000} = \mathbf{1.1447	ext{ A}}$$
+        Enforcing $	ext{TMS} = 0.10$ on the IEC Normal Inverse curve clears a 126.21 kA fault in <b>0.594 s</b>, maintaining a 1.76 s safety margin above downstream relays.
+      </div>
+
+      <div class="callout-box">
+        <h4>2. Sensitive Ground Protection & The 7.27 A NER Story (GEN-51N)</h4>
+        Single-phase grounding transformer ratio: $n = rac{22,000 / \sqrt{3}}{500} = 25.4034$.<br>
+        Referred secondary resistor: $R_{	ext{ref}} = n^2 	imes 2.62\ \Omega = (25.4034)^2 	imes 2.62 = 1,690.8\ \Omega$.<br>
+        Total loop zero-sequence resistance: $R_{	ext{loop}} = 60\ \Omega	ext{ (primary)} + 1,690.8\ \Omega = \mathbf{1,750.8\ \Omega}$.<br>
+        Prospective 1-phase ground fault current:
+        $$I_{	ext{LG}} = rac{22,000 / \sqrt{3}}{1,750.8\ \Omega} = \mathbf{7.27	ext{ A}}$$
+        Because 7.27 A on a 15,000/1 A CT gives only <b>0.48 mA</b> (blind), we installed a <b>20/1 Neutral CT</b>:
+        $$I_{	ext{sec}} = rac{7.27	ext{ A}}{20} = \mathbf{0.3635	ext{ A}} \quad (	ext{Operating Margin} = 1.82	imes 	ext{ against } 0.20	ext{ A pickup})$$
+        Tripping time at $	ext{TMS} = 0.15$ is <b>1.746 s</b>, safely extinguishing the arc before stator lamination iron burns.
+      </div>
+
+      <div class="callout-box">
+        <h4>3. GSUT-HV-51 & Coordination Time Interval (CTI = 300 ms)</h4>
+        Nominal 458 MVA full-load current on 230 kV side:
+        $$I_{	ext{load}} = rac{458 	imes 10^6}{\sqrt{3} 	imes 230,000} = 1,149.68	ext{ A} \quad \longrightarrow \quad I_{	ext{pickup}} = 1.20 	imes 1,149.68 = \mathbf{1,380.0	ext{ A}}$$
+        Secondary current on 1,600/1 A CT: $I_{	ext{sec}} = rac{1,380}{1,600} = \mathbf{0.8625	ext{ A}}$.<br>
+        Setting $	ext{TMS} = 0.55$ ensures that for any downstream fault on the 230 kV switchyard or lines, GSUT-HV-51 waits at least <b>300 ms longer</b> than the downstream bay breaker, preventing uncoordinated plant shutdowns.
+      </div>
+    </section>
+
+    <!-- SECTION 5: BREAKER DELAY & DC INTERLOCK -->
+    <section id="dc-interlock" class="card">
+      <span class="status-pill pill-duty">Closed-Loop Control</span>
+      <h2>5 · Circuit Breaker Mechanism Delays & Station DC Trip Interlock</h2>
+      <ul class="bullet-list">
+        <li><b>Physical 50 ms Breaker Opening Mechanism:</b> Real SF6 circuit breakers do not open in zero time. The Level-2 S-function block enforces a certified 50 ms delay (<span class="code-cell">C.breakerDelay_s = 0.050 s</span>) representing the mechanical latch release, spring discharge, contact parting, and SF6 gas puffer arc extinction.</li>
+        <li><b>Station DC Health Supervisory Gating:</b> Protection relays command trips, but the station battery supplies the physical solenoid energy:
+          <br><span class="code-cell" style="font-size:calc(14.5px * var(--font-scale)); font-weight:700;">Demand = TripRequest &amp; dcHealthy</span>
+          <br>If DC bus voltage sags below <span class="code-cell">88 V (0.80 pu)</span>, the trip coil cannot release the mechanical latch.</li>
+        <li><b>2 kW Release Solenoid Energy Pulse:</b> The breaker control model injects a real-world 2 kW (0.2 s, 400 J) pulse into the 110 V DC bus during every trip request, verifying that station batteries do not experience a brownout under multiple simultaneous breaker trips.</li>
+        <li><b>Current Extinction Criterion:</b> Current interruption is verified when phase current crosses zero and stays below <span class="code-cell">max(1 A, 0.1% pre-fault)</span> for a full 20 ms post-arc duration.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 6: SCENARIO RESPONSE ACROSS FAULTS -->
+    <section id="scenario-response" class="card">
+      <span class="status-pill pill-fault">Scenario Verification</span>
+      <h2>6 · Protection System Response Across All 5 Fault Locations</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Fault Location</th>
+            <th>Voltage</th>
+            <th>Primary Relay Action</th>
+            <th>Primary Clearing Time</th>
+            <th>Backup Relay Action</th>
+            <th>Backup Clearing Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>F1 — Generator Bus</b></td>
+            <td>22 kV</td>
+            <td><b>GEN-87G</b> (Phase)<br><b>GEN-51N</b> (Ground)</td>
+            <td><b>0.045 s (45 ms)</b><br>1.746 s (Ground)</td>
+            <td>GEN-51 (Overcurrent)<br>GSUT-HV-51</td>
+            <td>0.594 s<br>2.354 s</td>
+          </tr>
+          <tr>
+            <td><b>F2 — GSUT LV Delta</b></td>
+            <td>22 kV</td>
+            <td><b>GSUT-87T</b> (Differential)</td>
+            <td><b>0.045 s (45 ms)</b></td>
+            <td>GSUT-HV-51 (Overcurrent)</td>
+            <td>2.354 s</td>
+          </tr>
+          <tr>
+            <td><b>F3 — 230 kV GIS Bus</b></td>
+            <td>230 kV</td>
+            <td><b>GIS-87B</b> (Bus Differential)</td>
+            <td><b>0.035 s (35 ms)</b></td>
+            <td>GIS-Q0-51 (Overcurrent)</td>
+            <td><b>7.280 s</b> (Without 87B!)</td>
+          </tr>
+          <tr>
+            <td><b>F4 — 230 kV Line Mid</b></td>
+            <td>230 kV</td>
+            <td><b>LINE-87L</b> (Line Differential)<br>Relay 21 Zone 1</td>
+            <td><b>0.040 s (40 ms)</b></td>
+            <td>Relay 21 Zone 2<br>GIS-Q0-51</td>
+            <td>0.340 s<br>7.420 s</td>
+          </tr>
+          <tr>
+            <td><b>F5 — Remote Grid Bus</b></td>
+            <td>230 kV</td>
+            <td>Remote Substation Relays<br><b>(Plant Relays RESTRAIN)</b></td>
+            <td>External Clearing</td>
+            <td>GIS-Q0-51 (Local Overcurrent)</td>
+            <td>4.54 s to 7.48 s</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 7: EVENT TIMELINE -->
+    <section id="event-timeline" class="card">
+      <span class="status-pill pill-relay">Dynamic Evidence</span>
+      <h2>7 · Measured Closed-Loop Simulation Event Timeline (`bus_3ph`)</h2>
+      <p>The exact millisecond-by-millisecond execution log extracted from the closed-loop Simulink test engine demonstrates perfect relay coordination:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Simulation Time (s)</th>
+            <th>Elapsed Time</th>
+            <th>Physical Plant Event</th>
+            <th>Log Source</th>
+            <th>Engineering Interpretation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>0.1500 s</b></td>
+            <td>0.0 ms</td>
+            <td><b>Fault Applied</b></td>
+            <td><span class="code-cell">events.csv</span></td>
+            <td>Bolted 3-phase short circuit initiated on 230 kV GIS Busbar.</td>
+          </tr>
+          <tr>
+            <td><b>0.1530 s</b></td>
+            <td>+3.0 ms</td>
+            <td><b>87B Pickup Detected</b></td>
+            <td><span class="code-cell">relay_times.csv</span></td>
+            <td>Differential spill current exceeds 320 A; internal 35 ms timer starts.</td>
+          </tr>
+          <tr>
+            <td><b>0.1870 s</b></td>
+            <td>+37.0 ms</td>
+            <td><b>87B Trip Signal Emitted</b></td>
+            <td><span class="code-cell">relay_times.csv</span></td>
+            <td>Relay timer expires; trip command dispatched to breaker multiplex bus.</td>
+          </tr>
+          <tr>
+            <td><b>0.1880 s</b></td>
+            <td>+38.0 ms</td>
+            <td><b>Trip Solenoids Energized</b></td>
+            <td><span class="code-cell">events.csv</span></td>
+            <td>DC supervisory check verifies healthy 118 V battery voltage and fires coils.</td>
+          </tr>
+          <tr>
+            <td><b>0.2370 s</b></td>
+            <td>+87.0 ms</td>
+            <td><b>Breaker Contacts Part</b></td>
+            <td><span class="code-cell">breaker_times.csv</span></td>
+            <td>Exactly 50 ms mechanical delay expires; breaker contacts mechanically part.</td>
+          </tr>
+          <tr>
+            <td><b>0.2412 – 0.2476 s</b></td>
+            <td>+91 to +97 ms</td>
+            <td><b>Arc Extinction (Current Zero)</b></td>
+            <td><span class="code-cell">breaker_times.csv</span></td>
+            <td>SF6 puffer quenches arc at current zero; Phase A at 0.2412s, Phase C at 0.2476s.</td>
+          </tr>
+          <tr>
+            <td><b>0.2630 – 0.2680 s</b></td>
+            <td>+113 to +118 ms</td>
+            <td><b>Relay Dropout &amp; Reset</b></td>
+            <td><span class="code-cell">events.csv</span></td>
+            <td>Current is zero; differential relay drops out and resets to standby state.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 8: VIVA DEFENSE GUIDE -->
+    <section id="viva" class="card">
+      <span class="status-pill pill-practical">Exam Preparation</span>
+      <h2>8 · Comprehensive Viva Q&amp;A: Protection Relays &amp; Settings</h2>
+
+      <div style="background:#f8fafc; border-left:5px solid var(--teal); padding:16px 20px; margin-bottom:18px; border-radius:0 10px 10px 0;">
+        <h3 style="margin-top:0; color:var(--navy);">Q1: "Why do we need a dedicated 20/1 Neutral CT when we already have 15,000/1 A phase CTs?"</h3>
+        <p style="color:#334155; margin-bottom:0;">
+          <b>Answer:</b> <i>"Because of the <b>Phase CT Blindness</b> problem. The 1,750.8 Ω Neutral Grounding Resistor (NER) limits stator ground faults to 7.27 A. When 7.27 A passes through a 15,000/1 A CT, the secondary current is only <b>0.485 mA</b>, which is far below any relay's measurement sensitivity. By adding a dedicated 20/1 Neutral CT, 7.27 A produces <b>0.3635 A secondary</b>, which is 1.82 times the 0.20 A pickup setting of Relay 51N, ensuring positive, fast trip operation."</i>
+        </p>
+      </div>
+
+      <div style="background:#f8fafc; border-left:5px solid var(--teal); padding:16px 20px; margin-bottom:18px; border-radius:0 10px 10px 0;">
+        <h3 style="margin-top:0; color:var(--navy);">Q2: "Why is Busbar Differential Protection (87B) so critical on the 230 kV GIS bus?"</h3>
+        <p style="color:#334155; margin-bottom:0;">
+          <b>Answer:</b> <i>"Because prospective 3-phase fault current on the 230 kV bus is <b>50.53 kA</b>. Relay 87B detects the internal spill current and trips in <b>35 ms</b> (total clearing ~90 ms). If 87B did not exist, the backup overcurrent relay (Q0-51) would take <b>7.28 seconds</b> to trip due to coordination grading. Allowing a 50 kA electric arc to burn inside an SF6 enclosure for 7 seconds would cause an explosive rupture of the GIS hall."</i>
+        </p>
+      </div>
+
+      <div style="background:#f8fafc; border-left:5px solid var(--teal); padding:16px 20px; margin-bottom:18px; border-radius:0 10px 10px 0;">
+        <h3 style="margin-top:0; color:var(--navy);">Q3: "How does the GSUT Delta winding protect the generator during 230 kV ground faults?"</h3>
+        <p style="color:#334155; margin-bottom:0;">
+          <b>Answer:</b> <i>"The GSUT vector group is $YNd1$. The 230 kV side is star-grounded ($YN$), while the 22 kV generator side is delta ($d$). Zero-sequence ground currents caused by 230 kV ground faults circulate harmlessly inside the closed delta winding and cannot cross the magnetic barrier into the 22 kV bus. Thus, 230 kV ground faults cannot inject ground current into the generator stator."</i>
+        </p>
+      </div>
+
+      <div style="background:#f8fafc; border-left:5px solid var(--teal); padding:16px 20px; border-radius:0 10px 10px 0;">
+        <h3 style="margin-top:0; color:var(--navy);">Q4: "Why did you add a 50 ms breaker delay and DC voltage interlock in Simulink?"</h3>
+        <p style="color:#334155; margin-bottom:0;">
+          <b>Answer:</b> <i>"In simple academic projects, breakers open in zero seconds, which is physically impossible. Real Siemens SF6 breakers have mechanical spring release and arc-extinction times of 50 ms (~2.5 cycles). Furthermore, circuit breakers cannot trip if station DC battery voltage collapses. Our model enforces <code>demand = tripRequest & dcHealthy</code> ($V_{dc} \ge 88	ext{ V}$), verifying that the 110 V battery bank can deliver the 2 kW solenoid trip pulse."</i>
+        </p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function setFontScale(scale, btn) {
+  document.documentElement.style.setProperty('--font-scale', scale);
+  document.querySelectorAll('.pbar-btn').forEach(b => {
+    if (b.id !== 'btn-full-width') b.classList.remove('active');
+  });
+  if (btn) btn.classList.add('active');
+  localStorage.setItem('protectionFontScale', scale);
+}
+
+function toggleFullWidth(btn) {
+  document.documentElement.classList.toggle('full-width');
+  const isFull = document.documentElement.classList.contains('full-width');
+  btn.classList.toggle('active', isFull);
+  localStorage.setItem('protectionFullWidth', isFull ? '1' : '0');
+}
+
+function filterRelays() {
+  const query = document.getElementById('relay-search').value.toLowerCase().trim();
+  const rows = document.querySelectorAll('#relay-body tr');
+  rows.forEach(r => {
+    const text = r.innerText.toLowerCase();
+    r.style.display = (!query || text.includes(query)) ? '' : 'none';
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedScale = localStorage.getItem('protectionFontScale');
+  if (savedScale) {
+    const s = parseFloat(savedScale);
+    let target = document.getElementById('btn-scale-2');
+    if (s <= 1.05) target = document.getElementById('btn-scale-1');
+    else if (s >= 1.6) target = document.getElementById('btn-scale-4');
+    else if (s >= 1.35) target = document.getElementById('btn-scale-3');
+    setFontScale(s, target);
+  }
+  const savedFull = localStorage.getItem('protectionFullWidth');
+  if (savedFull === '1') toggleFullWidth(document.getElementById('btn-full-width'));
+});
+</script>
+</body>
+</html>

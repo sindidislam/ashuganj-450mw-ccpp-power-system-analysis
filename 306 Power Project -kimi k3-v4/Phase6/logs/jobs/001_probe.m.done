@@ -1,0 +1,1 @@
+{"job":"001_probe.m","success":false,"started":"22-Sep-2026 08:06:59","error":"Error using run (line 112)\nError: Invalid text character. Check for unsupported symbol, invisible character, or pasting of non-ASCII characters.\n\nError in phase6_session_worker (line 21)\n            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));","finished":"22-Sep-2026 08:07:00"}

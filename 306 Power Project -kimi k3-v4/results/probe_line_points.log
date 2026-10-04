@@ -1,0 +1,20 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+port A(L) 1: [275  196]   port B(L) 1: [575  204]
+
+-- as routed --
+  line 1: 5 segments  points [275 185;275 180;560 180;560 220;575 220;575 204]
+  line 2: 5 segments  points [300 185;300 180;560 180;560 220;600 220;600 204]
+  line 3: 5 segments  points [325 185;325 180;560 180;560 220;625 220;625 204]
+
+-- forcing Points to the two endpoints --
+  line 1: asked [275 185;575 215] -> got [275 185;575 215;575 204] (2 segments)
+  line 2: asked [300 185;600 215] -> got [300 185;600 215;600 204] (2 segments)
+  line 3: asked [325 185;625 215] -> got [325 185;625 215;625 204] (2 segments)
+
+-- does it still resolve electrically? --
+  lines still connected: 3 of 3 have a source port

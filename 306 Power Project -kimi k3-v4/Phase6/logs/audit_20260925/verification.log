@@ -1,0 +1,52 @@
+PHASE6_SCENARIO_VALIDATION_PASS
+PHASE6_RUN_COMPLETION_GATE_PASS
+PHASE6_REFERENCE_NONFINITE_GATE_PASS
+
+--- test_phase6_dynamic_trip ------------------------------------------
+Preserved integration evidence: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35
+PHASE6_V4_BUILD_PASS C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP.slx
+  PASS  build metadata names the actual saved model
+  PASS  working model and active-setting evidence exist
+  PASS  saved workspace metadata names the working model
+  PASS  saved model contains no unconnected relay hook
+  PASS  saved model contains the measured-current relay engine
+  PASS  normal case returns a SimulationOutput
+  PASS  normal case has no relay trips
+  PASS  normal case retains the four initially closed breakers
+  PASS  normal measured generator power is within 1 percent of 360 MW
+[Warning: Vectorized content might take a long time to create, or it might contain unexpected results. Set 'ContentType' to 'image' for
+better performance. <a href="matlab:warning('off', 'MATLAB:print:ContentTypeImageSuggested')">Click here</a> to not see this message
+again.] 
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+PHASE6_V4_SIMULATION_PASS C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35
+  PASS  fault evidence comes from the full Simulink run
+  PASS  measured relay CSV and protection figure are exported
+  PASS  export identifies actual logged simulation samples
+  PASS  87B issues a measured trip while the bus fault is still applied
+  PASS  Q0 opens after the 50 ms mechanism delay within sample latency
+  PASS  Q0 has sustained measured three-phase current cessation before fault removal
+  PASS  LineLocal opens after the 50 ms mechanism delay within sample latency
+  PASS  LineLocal has sustained measured three-phase current cessation before fault removal
+  PASS  electrical waveform record reaches the requested stop time
+  PASS  persisted trip time matches the measured result
+  PASS  disabled protection produces no relay trips
+  PASS  disabled protection keeps the initially closed breakers closed during the fault
+  PASS  disabled protection retains measured bus-fault current before scheduled removal
+  => test_phase6_dynamic_trip: 22 passed, 0 failed
+PHASE6_MEASURED_DYNAMIC_TRIP_PASS: 22 checks; C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\regression_170b59eb-0aae-4914-ad5a-d28ae9a55b35
+[Warning: Vectorized content might take a long time to create, or it might contain unexpected results. Set 'ContentType' to 'image' for
+better performance. <a href="matlab:warning('off', 'MATLAB:print:ContentTypeImageSuggested')">Click here</a> to not see this message
+again.] 
+MATLAB has experienced a low-level graphics error, and may not have drawn correctly.
+Read about what you can do to prevent this issue by running this command: opengl problems,
+then restart MATLAB.
+To share details of this issue with MathWorks technical support, please
+include this file with your service request: C:\Users\sindi\AppData\Local\Temp\jogl.ex.14616
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\manual_bus_default; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+PHASE6_V4_SIMULATION_PASS C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\manual_bus_default
+[Warning: Vectorized content might take a long time to create, or it might contain unexpected results. Set 'ContentType' to 'image' for
+better performance. <a href="matlab:warning('off', 'MATLAB:print:ContentTypeImageSuggested')">Click here</a> to not see this message
+again.] 
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\manual_bus_delay_100ms; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+PHASE6_V4_SIMULATION_PASS C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\manual_bus_delay_100ms
+MANUAL_SETTING_RERUN_PASS default=0.187000 edited=0.252000 shift=0.065000

@@ -1,0 +1,44 @@
+TASK2 FIX1 GREEN 17-Sep-2026 06:25:14 MATLAB 24.1.0.2537033 (R2024a)
+
+--- test_engineering_assumptions --------------------------------------
+  PASS  metadata_contract
+  PASS  exciter_defaults
+  PASS  limiter_bases
+  PASS  sfc_defaults
+  PASS  battery_defaults
+  PASS  charger_defaults
+  PASS  load_budget
+  PASS  governor_defaults
+  PASS  pss_disabled
+  => test_engineering_assumptions: 9 passed, 0 failed
+
+--- test_phase2_systems -----------------------------------------------
+  PASS  identities_and_defaults
+  PASS  all_leaves_are_records
+  PASS  exact_source_identity
+  PASS  recognized_primary_status_mapping
+  PASS  reject_nonprimary_frequency_status
+  PASS  reject_nonprimary_component_status
+  PASS  reject_nonprimary_qualified_source
+  PASS  oel_not_a_voltage_base
+  PASS  uel_source_curve
+  PASS  sfc_side_separation
+  PASS  station_dc_configuration
+  PASS  primary_sixth_order_selection
+  PASS  central_record_coverage
+  PASS  override_propagation
+  PASS  range_boundary_override
+  PASS  reject_malformed_records
+  PASS  reject_inconsistent_battery
+  PASS  reject_inconsistent_exciter
+  PASS  reject_inconsistent_charger
+  PASS  reject_charger_cutoff_shortfall
+  PASS  accept_charger_cutoff_boundary
+  PASS  reject_charger_power_shortfall
+  PASS  reject_invalid_generator
+  PASS  preserve_inputs
+  => test_phase2_systems: 24 passed, 0 failed
+TASK2 FIX1 GREEN COUNTS assumptions=9/0 systems=24/0 total=33/0
+DEFAULT_ASSUMPTIONS_AND_SYSTEMS_EXACTLY_UNCHANGED
+TESTS_UNCHANGED_SINCE_RED
+TASK2 FIX1 GREEN VERIFIED 33 passed 0 failed

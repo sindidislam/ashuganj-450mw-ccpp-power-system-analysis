@@ -1,0 +1,7 @@
+
+--- Phase 2 Load-Flow & Capability Checks -----------------------------
+{Undefined function 'check_generator_operating_point' for input arguments of type 'double'.
+
+Error in test_phase2_load_flow (line 15)
+res_nom = check_generator_operating_point(360, 100);
+} 

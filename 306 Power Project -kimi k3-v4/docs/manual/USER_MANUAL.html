@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ashuganj South Load Flow - User Manual</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:#1a1a1a;background:#fff;-webkit-font-smoothing:antialiased}
+header,nav,section,footer{max-width:1000px;margin:0 auto;padding:0 32px}
+header{padding-top:56px;padding-bottom:32px;border-bottom:3px solid #1a1a1a}
+.course{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#666;font-weight:600}
+h1{font-size:31px;line-height:1.25;margin:14px 0 12px;font-weight:700;letter-spacing:-.015em}
+.sub{font-size:17px;color:#333}
+.meta{font-size:12.5px;color:#777;margin-top:10px;font-variant-numeric:tabular-nums}
+nav{margin:32px auto;padding:20px 32px;background:#f7f7f5;border-radius:6px}
+nav b{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#666}
+nav ol{margin:10px 0 0;padding-left:22px;columns:2;column-gap:36px}
+nav li{margin:3px 0}
+nav a{color:#1a1a1a;text-decoration:none;border-bottom:1px solid #ccc}
+nav a:hover{border-bottom-color:#1a1a1a}
+section{padding-top:40px;padding-bottom:8px}
+h2{font-size:23px;margin:0 0 18px;padding-bottom:9px;border-bottom:2px solid #e0e0dc;font-weight:700;letter-spacing:-.01em}
+h3{font-size:16.5px;margin:30px 0 9px;font-weight:650}
+h4{font-size:14.5px;margin:22px 0 6px;font-weight:650}
+p{margin:11px 0}
+.why{color:#666;font-size:14px;margin:4px 0 12px}
+code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f2f2ef;
+  padding:1.5px 5px;border-radius:3px}
+pre.code{background:#1c1c1a;color:#e8e8e3;padding:16px 20px;border-radius:6px;overflow-x:auto;
+  font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+th{text-align:left;font-weight:650;padding:8px 11px;background:#f2f2ef;border-bottom:2px solid #d8d8d3;
+  font-size:12px;letter-spacing:.03em}
+td{padding:8px 11px;border-bottom:1px solid #ecece8;vertical-align:top}
+tr:last-child td{border-bottom:none}
+table.num td,table.num th{text-align:right;font-variant-numeric:tabular-nums}
+table.num td:first-child,table.num th:first-child,
+table.num td:nth-child(2),table.num th:nth-child(2){text-align:left}
+table.files td:first-child{width:38%;white-space:nowrap}
+td.tag{font:12.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:nowrap}
+td.bad{color:#a81b1b;font-weight:700}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+.card{background:#f7f7f5;border-radius:6px;padding:15px 16px}
+.cl{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#777;font-weight:650}
+.cv{font-size:22px;font-weight:700;margin:5px 0 3px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cn{font-size:12px;color:#666;line-height:1.45}
+p.note{background:#f7f7f5;border-left:3px solid #b8b8b0;padding:12px 16px;border-radius:0 4px 4px 0;font-size:13.5px}
+p.warn{background:#fdf6ec;border-left:3px solid #d99b3d;padding:12px 16px;border-radius:0 4px 4px 0;font-size:13.5px}
+ol,ul{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+figure{margin:20px 0}
+figure img{width:100%;display:block;border:1px solid #e0e0dc;border-radius:5px;background:#fff}
+figcaption{font-size:12.5px;color:#666;margin-top:8px;line-height:1.5}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:18px 0}
+.grid2 figure{margin:0}
+.snip{margin:20px 0}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-bottom:6px}
+.sh span{font-size:12.5px;color:#666;text-align:right}
+.sl{font-size:11.5px;color:#999;margin-top:5px;font-variant-numeric:tabular-nums}
+ol.steps{padding-left:0;list-style:none;counter-reset:st}
+ol.steps>li{counter-increment:st;position:relative;padding:0 0 4px 42px;margin:20px 0}
+ol.steps>li:before{content:counter(st);position:absolute;left:0;top:-1px;width:28px;height:28px;
+  border-radius:50%;background:#1a1a1a;color:#fff;font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+ol.steps>li>b:first-child{display:block;margin-bottom:2px}
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+.box{border:1px solid #e0e0dc;border-radius:6px;padding:16px 18px}
+.box h4{margin-top:0}
+footer{margin-top:52px;padding-top:22px;padding-bottom:52px;border-top:2px solid #e0e0dc;
+  color:#777;font-size:12.5px}
+@media print{nav{break-after:page}section{break-inside:avoid-page}
+  figure,.snip,table{break-inside:avoid}}
+@media(max-width:820px){.grid4{grid-template-columns:repeat(2,1fr)}nav ol{columns:1}
+  .grid2,.cards2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="course">EEE 306 &middot; Power System I Laboratory &middot; January 2026 &middot; Group-03, Section C-1</div>
+<h1>User manual &mdash; how to run and<br>demonstrate the load flow model</h1>
+<div class="sub">Ashuganj 450 MW Combined Cycle Power Plant (South) &mdash; balanced steady-state load flow</div>
+<div class="meta">Generated on this installation: MATLAB 24.1.0.2537033 (R2024a) &middot; PCWIN64 &middot; 4 cases on disk &middot; 100 MVA base &middot; 50 Hz</div>
+</header>
+<nav><b>Contents</b><ol>
+<li><a href="#m1">1. Before you begin</a></li>
+<li><a href="#m2">2. The one command</a></li>
+<li><a href="#m3">3. The full rebuild, step by step</a></li>
+<li><a href="#m4">4. The live demonstration</a></li>
+<li><a href="#m5">5. Reading the tool's own screen</a></li>
+<li><a href="#m6">6. The four cases</a></li>
+<li><a href="#m7">7. Where the answers are</a></li>
+<li><a href="#m8">8. Changing something safely</a></li>
+<li><a href="#m9">9. When it goes wrong</a></li>
+<li><a href="#m10">10. Moving it to another PC</a></li>
+<li><a href="#m11">11. What this study does not do</a></li>
+</ol></nav>
+<section id="m1"><h2>1. Before you begin</h2>
+<p>The model is a Simulink / Simscape Electrical model solved by the Specialized Power Systems load flow engine. It is entirely offline: no internet, no licence server beyond MATLAB itself, no extra toolboxes, no data files to download.</p>
+<table><thead><tr><th>What you need</th><th>Status on the machine that generated this page</th></tr></thead><tbody>
+<tr><td>MATLAB</td><td><code>24.1.0.2537033 (R2024a)</code></td></tr>
+<tr><td>Platform</td><td><code>PCWIN64</code></td></tr>
+<tr><td>Simulink</td><td>present (<code>sim</code> resolves)</td></tr>
+<tr><td>Simscape Electrical (Specialized Power Systems)</td><td>present (<code>powergui</code> resolves)</td></tr>
+<tr><td>The load flow engine</td><td>present (<code>power_loadflow</code> resolves)</td></tr>
+</tbody></table>
+<h3>Where the project is</h3>
+<pre class="code">F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project</pre>
+<p>If that path contains a space &mdash; this one does &mdash; it must be quoted when you type it at a Windows or Git-Bash prompt. Inside MATLAB, quote it as a string and it is fine. Nothing in the project stores this path: every script finds the root from its own location, so the folder can be moved or copied anywhere. See &sect;10.</p>
+<p class="note"><b>One rule.</b> The project folders are not on the MATLAB path when MATLAB starts. Something has to put them there, once per session. Every route in this manual does it for you &mdash; that is the reason the entry points exist. If you ever see <i>Unrecognized function or variable</i>, that step was skipped.</p>
+</section>
+<section id="m2"><h2>2. The one command</h2>
+<p><code>RUN_ME.m</code> sits in the project root, next to the folders, where somebody who has never seen the project will find it. Make the project root the current folder in MATLAB and type:</p>
+<pre class="code">RUN_ME</pre>
+<p>That solves all four operating cases from the dataset, redraws every figure, and regenerates this manual and the project update. It takes a few minutes. It overwrites the contents of <code>results/</code> and <code>docs/manual/</code> and nothing else &mdash; the dataset and the source models are inputs and are never rewritten by a run.</p>
+<table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
+<tr><td><code>RUN_ME</code></td><td>solve the four cases, redraw the figures, regenerate all three documents</td></tr>
+<tr><td><code>RUN_ME check</code></td><td>report MATLAB version, toolboxes, what is already on disk, and whether <code>results/</code> can be written. Changes nothing &mdash; run this first on a new PC</td></tr>
+<tr><td><code>RUN_ME open</code></td><td>open <code>simulink/main/Ashuganj_South_Main.slx</code> ready to present</td></tr>
+<tr><td><code>RUN_ME solve</code></td><td>solve the four cases only</td></tr>
+<tr><td><code>RUN_ME figures</code></td><td>redraw the plots and the annotated diagrams only</td></tr>
+<tr><td><code>RUN_ME docs</code></td><td>regenerate this manual, the project update and the lab report from the results already on disk</td></tr>
+<tr><td><code>RUN_ME tests</code></td><td>run the validation suite</td></tr>
+<tr><td><code>RUN_ME setup</code></td><td>put the project folders on the MATLAB path and stop</td></tr>
+</tbody></table>
+<p>Inside MATLAB, once the path is set, <code>ashuganj</code> is the same command with the same arguments &mdash; <code>RUN_ME</code> is a wrapper around it that also fixes the path first. Use whichever you remember.</p>
+</section>
+<section id="m3"><h2>3. The full rebuild, step by step</h2>
+<p>Use this route when you want to see each stage separately, or when one stage failed and you want to repeat only that stage. It is exactly what <code>RUN_ME</code> does, typed out.</p>
+<pre class="code">cd 'F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project'
+addpath('matlab'); ashuganj_setup;
+
+run_load_flow_study      % solve the four cases
+make_load_flow_plots     % four PNGs
+make_annotated_diagrams  % four annotated single-line sheets
+build_project_update     % PROJECT_UPDATE.html
+build_user_manual        % USER_MANUAL.html (this page)</pre>
+<table><thead><tr><th>Step</th><th>What it does</th><th>What it leaves behind</th></tr></thead><tbody>
+<tr><td><code>ashuganj_setup</code></td><td>Puts every project folder on the MATLAB path and creates any output folder that is missing. Must run once per MATLAB session, before anything else.</td><td>nothing on disk except the empty output folders it creates</td></tr>
+<tr><td><code>run_load_flow_study</code></td><td>Builds a fresh Simulink model for each of the four cases from the dataset, solves each one, rebuilds every branch flow independently of the solver, and cross-checks the two against each other at every bus.</td><td>6 CSV tables and 4 powergui reports in <code>results/load_flow/</code>, 9 models in <code>simulink/studies/</code></td></tr>
+<tr><td><code>make_load_flow_plots</code></td><td>Draws the voltage profile, the power balance, and the transformer and line loading, for all four cases on one axis each.</td><td>4 PNGs in <code>results/plots/</code></td></tr>
+<tr><td><code>make_annotated_diagrams</code></td><td>Writes the solved numbers onto a copy of the single-line diagram, one sheet per case, so a reader sees the flows on the drawing instead of in a table.</td><td>4 PNGs in <code>results/diagrams/</code> and the matching annotated models</td></tr>
+<tr><td><code>build_project_update</code></td><td>Writes the presentation document: what the model is, what was found, what is assumed, what remains.</td><td><code>docs/manual/PROJECT_UPDATE.html</code></td></tr>
+<tr><td><code>build_user_manual</code></td><td>Writes this page.</td><td><code>docs/manual/USER_MANUAL.html</code> and <code>index.html</code></td></tr>
+</tbody></table>
+<h3>The validation suite</h3>
+<p>Optional, and the slowest step. It checks the dataset against itself and the solved network against the dataset &mdash; that impedances convert correctly between bases, that the transformer phase shifts have the right sign, that no bus is left floating, and that the answers do not move when the two weakest inputs are perturbed.</p>
+<pre class="code">run_all_tests</pre>
+<p>There are <b>10</b> test files in <code>matlab/tests/</code>. Run this after changing any parameter, and before quoting a number to anybody.</p>
+</section>
+<section id="m4"><h2>4. The live demonstration</h2>
+<p>The diagram in <code>simulink/main/Ashuganj_South_Main.slx</code> is laid out to be read, and it <b>solves on its own</b> &mdash; it is case LF1. So the live demonstration runs on the readable drawing, not on a generated study model. Its solution was compared against the generated LF1 model and agrees on every node.</p>
+<ol class="steps">
+<li><b>Open MATLAB and wait for the prompt.</b> Make the project root the current folder.</li>
+<li><b>Open the diagram.</b> One command, which also fixes the path:
+<pre class="code">RUN_ME open</pre>
+<p>Or from the Current Folder browser: <code>simulink</code> &rarr; <code>main</code> &rarr; double-click <code>Ashuganj_South_Main.slx</code>. The path is not set up if you do it that way, which is fine for showing the diagram but not for running any script.</p></li>
+<li><b>Let the audience read it before you touch anything.</b> Left to right is generation to grid; the auxiliary branch hangs below. Name the blocks out loud: <code>G1</code>, <code>22 kV GEN BUS</code>, <code>GSUT 10BAT10</code>, <code>230 kV BUS 1</code> and <code>BUS 2</code>, <code>UAT 10BBT10</code>, <code>6.6 kV MV BUS</code>, <code>GAT 10BBT20</code>, <code>EXT GRID</code>.</li>
+<li><b>Double-click <code>powergui</code></b>, top left. Show the two fields that matter: <code>Simulation type</code> is <b>Continuous</b> (a phasor solution, not a discretised one) and <code>Frequency</code> is <b>50 Hz</b>. Show the frequency deliberately &mdash; see &sect;5.</li>
+<li><b>Open the Load Flow tool.</b> Either the <i>Load Flow</i> entry in the powergui dialog, or one command, which is the reliable route on a projector:
+<pre class="code">powerLoadFlow   % takes no arguments - it reads the open model itself</pre>
+<p>Passing the model name throws <code>MATLAB:TooManyInputs</code>. Type it bare.</p></li>
+<li><b>Press <code>Compute</code>, then <code>Report</code>.</b> It solves in <b>2 iterations</b>. The report that appears is the same content as <code>results/load_flow/LF1_powergui_report.rep</code>, which is already on disk if the projector lets you down.</li>
+<li><b>Read the numbers off the screen using &sect;5</b>, which explains the three things in that window that look wrong and are not.</li>
+<li><b>Do not press <code>Add bus blocks</code>.</b> It inserts unwired placeholder blocks, and the next solve then fails with <i>"is not properly connected to the network"</i>. If you press it by accident: undo, and close the model without saving.</li>
+</ol>
+<h3>Showing a different case</h3>
+<p>The main diagram is the rated case with the station auxiliary bay open. For the other three, open the matching study model instead &mdash; everything above applies unchanged.</p>
+<pre class="code">open('simulink/studies/Load_Flow_LF2.slx')   % rated, station bay CLOSED
+open('simulink/studies/Load_Flow_LF3.slx')   % derated, bay open
+open('simulink/studies/Load_Flow_LF4.slx')   % derated, bay closed</pre>
+<h3>If you would rather not run anything live</h3>
+<p>The annotated sheets carry the solved numbers on the drawing itself. They are PNGs: they open on any machine, with or without MATLAB, and they are the safest thing to put on a projector.</p>
+<figure><img src="Load_Flow_LF1_Annotated.png" alt="Load_Flow_LF1_Annotated.png"><figcaption>Case LF1 &mdash; rated dispatch, station auxiliary bay open. The same sheet exists for all four cases in <code>results/diagrams/</code>.</figcaption></figure>
+</section>
+<section id="m5"><h2>5. Reading the tool's own screen</h2>
+<p>Three things in the Load Flow Analyzer window look like mistakes and are not. Say each of them before somebody in the audience spots it.</p>
+<h3>The buses are called <code>*1*</code> to <code>*5*</code></h3>
+<p>The tool numbers the nodes itself and does not know the plant's names. The mapping below was <b>derived</b> from the report the tool wrote for case LF1, matched against <code>bus_results.csv</code> on three things the tool prints for itself: base voltage, bus type, and solved voltage. It is re-derived every time this page is generated, because the numbering is the solver's and it changes if the network does.</p>
+<table class="num"><thead><tr><th>Tool ID</th><th>It is</th><th>Base</th><th>Type</th><th>V on screen</th><th>V in the tables</th></tr></thead><tbody>
+<tr><td class="tag">*1*</td><td><b>GAT_HV</b></td><td>230 kV</td><td>PQ</td><td>0.957 pu</td><td>0.957242</td></tr>
+<tr><td class="tag">*2*</td><td><b>B6_6</b> &mdash; 6.6 kV MV BUS</td><td>6.6 kV</td><td>PQ</td><td>1.001 pu</td><td>1.000911</td></tr>
+<tr><td class="tag">*3*</td><td><b>B22</b> &mdash; 22 kV GEN BUS</td><td>22 kV</td><td>PV</td><td>1.000 pu</td><td>1.000000</td></tr>
+<tr><td class="tag">*4*</td><td><b>BGRID230</b> &mdash; EXT GRID 230 kV</td><td>230 kV</td><td>swing</td><td>1.000 pu</td><td>1.000000</td></tr>
+<tr><td class="tag">*5*</td><td><b>B230_1</b> &mdash; 230 kV BUS 1 + BUS 2 (coupler closed)</td><td>230 kV</td><td>PQ</td><td>0.999 pu</td><td>0.998672</td></tr>
+</tbody></table>
+<p><b>The rule to use on stage, not the table:</b> there is exactly one <i>swing</i> bus and that is the grid, and exactly one <i>PV</i> bus and that is the generator. Find those two and the rest follow from the base voltage. Never identify a bus by its index &mdash; the index is the solver's and is not stable.</p>
+<p><b>Why 8 buses become 5 nodes.</b> A closed breaker and a zero-impedance connection are not branches to a load flow &mdash; they are identities. The three 6.6 kV load nodes are one node because the feeder impedances between them are not in the document set, and the two 230 kV busbars are one node because the coupler is closed. The CSV keeps all 8 rows so nothing looks overlooked, but only the first bus of each group carries the solver's injection; the other 3 name the bus they merged into and report no injection of their own. Otherwise a reader could add the column up and find three times the auxiliary load the plant has.</p>
+<h3>There is a <code>60</code> in the powergui dialog</h3>
+<p>It is the FFT scope's default frequency, not the system frequency. The mask's own label for that field reads <code>Fundamental (PSBFFTSCOPE)</code> &mdash; it names the scope in its own prompt. The system frequency is the <code>Frequency</code> field, and it is <b>50 Hz</b>; the solved frequency is written into every results table as <code>f_Hz = 50</code>.</p>
+<p class="note">Mention this <i>before</i> anybody asks. A previous study of this same plant, in CYME PSAF, was actually built at 60 Hz &mdash; that is logged as one of its defects. An examiner who spots a stray 60 on your screen will reasonably suspect the same mistake, and the answer is one sentence long if you get there first.</p>
+<h3>The summary says total generation is a small number</h3>
+<p>The tool's own summary block for case LF1 reads <b>14.82 MW</b> of total generation on a plant dispatching <b>389.30 MW</b>. It is right. The summary nets <i>all</i> generation, and the grid is a generator too &mdash; a negative one, because it is absorbing the export:</p>
+<pre class="code">G1                  +389.30 MW
+swing bus (grid)    -374.48 MW   the grid absorbs the export
+                  ----------
+total                +14.82 MW = 14.000 MW auxiliary load + 0.816 MW losses
+</pre>
+<p>389.3000 &minus; 374.4835 = 14.8165 MW, and 14.000 + 0.8165 = 14.8165 MW. It is an exact identity, and it is a good moment in a presentation: the wrong-looking number is the auxiliary load plus the losses, and it proves the balance closes.</p>
+<p><b>And quote the total loss, not the tool's loss line.</b> The same block reports <code>Total losses 0.62 MW</code> and <code>Total Zshunt load 0.19 MW</code> separately: the first is the series copper loss, the second is the iron and magnetising loss. Together they are 0.81 MW, which is the 0.8165 MW that <code>system_summary.csv</code> reports as the loss for this case.</p>
+<p class="sl">Report read from <code>LF1_powergui_report.rep</code>, which records convergence in 2 iterations.</p>
+</section>
+<section id="m6"><h2>6. The four cases</h2>
+<p>Two questions had no single answer in the source documents, so both were kept: how much the unit is dispatching, and whether the station auxiliary transformer bay is closed. Two choices each gives four cases, and all four are solved and reported rather than one being picked.</p>
+<table class="num"><thead><tr><th>Case</th><th>What it is</th><th>Generated<br>MW</th><th>Exported<br>MW</th><th>Losses<br>MW</th><th>230 kV<br>pu</th><th>Iter</th></tr></thead><tbody>
+<tr><td><b>LF1</b></td><td>Rated dispatch, GAT out of service</td><td>389.30</td><td>374.48</td><td>0.816</td><td>0.99867</td><td>2</td></tr>
+<tr><td><b>LF2</b></td><td>Rated dispatch, GAT in service</td><td>389.30</td><td>374.47</td><td>0.833</td><td>0.99848</td><td>2</td></tr>
+<tr><td><b>LF3</b></td><td>Site-derated dispatch, GAT out of service</td><td>342.01</td><td>327.33</td><td>0.680</td><td>0.99896</td><td>2</td></tr>
+<tr><td><b>LF4</b></td><td>Site-derated dispatch, GAT in service</td><td>342.01</td><td>327.32</td><td>0.690</td><td>0.99877</td><td>2</td></tr>
+</tbody></table>
+<p>Every case carries the same auxiliary demand, 14.000 MW at 8.676 MVAr, and the same 100 MVA reporting base.</p>
+<h3>Transformer loading, which is where the interesting answer is</h3>
+<p>Loading is reported against <b>every</b> cooling stage, lowest and highest, not just the top one. A transformer quoted only against its forced-cooling rating can look comfortable while being over its natural-cooling nameplate, and that is exactly what happens here.</p>
+<table class="num"><thead><tr><th>Case</th><th>Transformer</th><th>Lowest stage %</th><th>Highest stage %</th></tr></thead><tbody>
+<tr><td>LF1</td><td>GSUT 10BAT10</td><td class="bad">105.87</td><td>72.98</td></tr>
+<tr><td>LF1</td><td>UAT 10BBT10</td><td>91.09</td><td>69.23</td></tr>
+<tr><td>LF1</td><td>GAT 10BBT20</td><td>0.34</td><td>0.26</td></tr>
+<tr><td>LF2</td><td>GSUT 10BAT10</td><td class="bad">104.21</td><td>71.83</td></tr>
+<tr><td>LF2</td><td>UAT 10BBT10</td><td class="bad">109.60</td><td>83.30</td></tr>
+<tr><td>LF2</td><td>GAT 10BBT20</td><td>40.82</td><td>31.02</td></tr>
+<tr><td>LF3</td><td>GSUT 10BAT10</td><td>92.49</td><td>63.75</td></tr>
+<tr><td>LF3</td><td>UAT 10BBT10</td><td>91.09</td><td>69.23</td></tr>
+<tr><td>LF3</td><td>GAT 10BBT20</td><td>0.35</td><td>0.26</td></tr>
+<tr><td>LF4</td><td>GSUT 10BAT10</td><td>91.26</td><td>62.91</td></tr>
+<tr><td>LF4</td><td>UAT 10BBT10</td><td class="bad">101.50</td><td>77.14</td></tr>
+<tr><td>LF4</td><td>GAT 10BBT20</td><td>34.49</td><td>26.21</td></tr>
+</tbody></table>
+<p>The figures in red are above the nameplate of the lowest cooling stage. What they mean, and why the unit auxiliary transformer is worst in the closed-bay cases while delivering no extra power, is &sect;8 of <a href="PROJECT_UPDATE.html">PROJECT_UPDATE.html</a>.</p>
+<figure><img src="transformer_loading.png" alt="transformer_loading.png"><figcaption>Transformer loading, all four cases, against each cooling stage.</figcaption></figure>
+</section>
+<section id="m7"><h2>7. Where the answers are</h2>
+<p>Everything a run produces goes under <code>results/</code> and <code>docs/manual/</code>. Nothing else is written.</p>
+<table><thead><tr><th>File</th><th>What is in it</th></tr></thead><tbody>
+<tr><td><code>results/load_flow/system_summary.csv</code></td><td>One row per case: dispatch, export, losses, the voltage at each level, the flow through each transformer, iterations, and the worst cross-check error. Start here.</td></tr>
+<tr><td><code>results/load_flow/bus_results.csv</code></td><td>Every bus: type, nominal and base voltage, solved voltage in pu and kV, angle, and the injection the solver reports. Merged buses are marked and carry no injection of their own.</td></tr>
+<tr><td><code>results/load_flow/transformer_results.csv</code></td><td>Each transformer: vector group, impedance and the rating it is quoted on, flow at both windings, losses, HV current, tap used, and loading against every cooling stage.</td></tr>
+<tr><td><code>results/load_flow/line_results.csv</code></td><td>Each branch, including the ones that carry no observable flow &mdash; those are reported as blank rather than zero, because a blank is the truth and a zero is a measurement.</td></tr>
+<tr><td><code>results/load_flow/residuals.csv</code></td><td>The cross-check. At each bus, the solver's injection against the sum of the branch flows rebuilt outside the solver. This is the column that says whether to believe the rest.</td></tr>
+<tr><td><code>results/load_flow/*.rep</code></td><td>The powergui report for each case, as the tool wrote it. This is what the audience sees on screen.</td></tr>
+<tr><td><code>results/plots/*.png</code></td><td>Voltage profile, power balance, transformer loading, line loading &mdash; all four cases per figure.</td></tr>
+<tr><td><code>results/diagrams/*.png</code></td><td>The single-line diagram with the solved numbers written onto it, one sheet per case.</td></tr>
+<tr><td><code>docs/manual/PROJECT_UPDATE.html</code></td><td>What the study found and what remains. The document to present.</td></tr>
+<tr><td><code>docs/manual/LAB_REPORT.html</code></td><td>The same study in the EEE 306 labsheet form: theory, the calculations worked through by hand, the result tables, discussion, report questions, and what to perform next. The document to submit.</td></tr>
+<tr><td><code>docs/manual/USER_MANUAL.html</code></td><td>This page.</td></tr>
+</tbody></table>
+<h3>One convention to know before you read a flow</h3>
+<p>Each branch's flow is measured <b>at its own From bus</b>, and for the two auxiliary transformers the From bus is the 6.6 kV side. Flow leaving that bus into the branch counts as positive, so a unit auxiliary transformer that is feeding the board &mdash; delivering power <i>into</i> the bus &mdash; reports a <b>negative</b> number. The sign is not an error and it is not a fault direction: read the <code>From_bus</code> column before reading any sign as physical.</p>
+<figure><img src="bus_voltage_profile.png" alt="bus_voltage_profile.png"><figcaption>Bus voltages, all four cases. Every bus is within about 2 per cent of nominal.</figcaption></figure>
+</section>
+<section id="m8"><h2>8. Changing something safely</h2>
+<p><b>Never edit the Simulink file to change a number.</b> The models are generated from the dataset, so the next run overwrites anything typed into a block dialog, and in the meantime the diagram and the tables disagree without saying so. Change the dataset and rebuild.</p>
+<h3>Where the numbers live</h3>
+<table class="files"><tbody>
+<tr><td><code>matlab/data/ashuganj_buses.m</code></td><td>Bus (node) database - Ashuganj 450 MW CCPP SOUTH.</td></tr>
+<tr><td><code>matlab/data/ashuganj_generators.m</code></td><td>Generator database - Ashuganj 450 MW CCPP SOUTH.</td></tr>
+<tr><td><code>matlab/data/ashuganj_grid.m</code></td><td>External grid equivalent - Ashuganj 450 MW CCPP SOUTH.</td></tr>
+<tr><td><code>matlab/data/ashuganj_lines.m</code></td><td>Line / cable / series-branch database - Ashuganj SOUTH.</td></tr>
+<tr><td><code>matlab/data/ashuganj_loads.m</code></td><td>Load database - Ashuganj 450 MW CCPP SOUTH.</td></tr>
+<tr><td><code>matlab/data/ashuganj_master_data.m</code></td><td>Single entry point for the whole Ashuganj SOUTH dataset.</td></tr>
+<tr><td><code>matlab/data/ashuganj_transformers.m</code></td><td>Transformer database - Ashuganj 450 MW CCPP SOUTH.</td></tr>
+</tbody></table>
+<p>Every value in those files carries where it came from: the document, the page or sheet, and a status &mdash; verified from the plant, verified from an engineering document, derived, assumed, estimated, missing or conflicting. Keep that column truthful when you add anything. A number without a source is worse than a gap, because a gap gets filled and a wrong source gets trusted.</p>
+<h3>Assumptions are kept somewhere else on purpose</h3>
+<p>There are <b>5</b> of them, in <code>matlab/data/assumptions/</code>, never mixed into the verified dataset. Each one records what was assumed, why, and what it affects.</p>
+<table class="files"><tbody>
+<tr><td><code>aux_load_allocation_split</code></td><td>APPROVED ASSUMPTION - auxiliary load distribution.</td></tr>
+<tr><td><code>generator_voltage_setpoint</code></td><td>ASSUMPTION - G1 terminal voltage setpoint.</td></tr>
+<tr><td><code>gis_bus_coupler_closed</code></td><td>APPROVED ASSUMPTION - 230 kV GIS bus coupler state.</td></tr>
+<tr><td><code>grid_series_resistance_zero</code></td><td>APPROVED ASSUMPTION - external grid X/R.</td></tr>
+<tr><td><code>transformer_magnetising_inductance</code></td><td>SUPERSEDED - Lm is now DERIVED, not assumed.</td></tr>
+</tbody></table>
+<p>If you need a value that is not in the documents, add it here as an assumption with its reason &mdash; do not put it in the dataset and do not take a textbook figure quietly. &sect;9 of <a href="PROJECT_UPDATE.html">PROJECT_UPDATE.html</a> lists what each assumption is worth in the answers.</p>
+<h3>The sequence, and the backup rule</h3>
+<ol>
+<li><b>Back up the model first.</b> <code>simulink/backups/</code> holds <b>26</b> numbered copies. Copy <code>Ashuganj_South_Main.slx</code> to the next free <code>_vNNN.slx</code> before anything else. A working model is not something to lose to a bad afternoon.</li>
+<li>Change the dataset file, keeping the source and status columns honest.</li>
+<li><code>run_all_tests</code> &mdash; the dataset checks catch a value that contradicts another one.</li>
+<li><code>run_load_flow_study</code> &mdash; solve all four cases again, not just the one you care about.</li>
+<li>Open <code>results/load_flow/residuals.csv</code> and look at the worst residual. If it grew, the change broke the agreement between the solver and the independent flow calculation, and the new numbers are not to be quoted yet.</li>
+<li><code>RUN_ME docs</code> &mdash; regenerate all three documents so they match the new numbers.</li>
+</ol>
+<p class="note"><b>Why all four cases.</b> The four differ in dispatch and in whether the station auxiliary bay is closed. A parameter change that looks harmless in the radial cases can move the circulating power in the looped ones by much more, because there the flow is a small difference between two large ones.</p>
+</section>
+<section id="m9"><h2>9. When it goes wrong</h2>
+<table><thead><tr><th>What you see</th><th>Why</th><th>What to do</th></tr></thead><tbody>
+<tr><td><code>Unrecognized function or variable</code> for any project function</td><td>The project folders are not on the MATLAB path. This is the single most common failure and it is not a broken installation.</td><td><code>RUN_ME setup</code>, or <code>ashuganj setup</code> if the path is already partly there.</td></tr>
+<tr><td>A model opens with unsaved changes, or a build complains that a model is already open</td><td>A previous run left a model in memory, and the builder will not overwrite an open model.</td><td><code>bdclose('all')</code>, then run again.</td></tr>
+<tr><td><code>The Load Flow Bus block ... is not properly connected to the network</code></td><td><code>Add bus blocks</code> was pressed in the Load Flow Analyzer. It inserts unwired placeholder blocks and the solve then refuses.</td><td>Undo, or close the model without saving. Nothing on disk is harmed.</td></tr>
+<tr><td><code>MATLAB:TooManyInputs</code> from <code>powerLoadFlow</code></td><td>It takes no arguments &mdash; it reads whichever model is open.</td><td>Type <code>powerLoadFlow</code> bare.</td></tr>
+<tr><td>The load flow does not converge after you changed a parameter</td><td>Usually a value in the wrong unit or on the wrong base &mdash; a per-unit impedance entered as a percentage, or an impedance left on the transformer rating instead of the study base.</td><td>Check the value you changed and its base. Do not raise the iteration limit to force convergence: a solve that only converges when pushed is telling you the network is wrong.</td></tr>
+<tr><td>Numbers in a solved model do not match the CSVs</td><td>Solving writes the solution back into the blocks, so a model that has been solved by hand is no longer in its as-built state.</td><td>Ignore the model's stored values and re-run <code>run_load_flow_study</code>, which rebuilds every case from the dataset before solving it.</td></tr>
+<tr><td>A figure or a document is missing or out of date</td><td>The plot and document scripts read the CSVs; they do not solve anything themselves.</td><td><code>RUN_ME</code> for everything, or <code>RUN_ME figures</code> then <code>RUN_ME docs</code>.</td></tr>
+<tr><td>Nothing can be written to <code>results/</code></td><td>The project is being run from inside a ZIP, or from a folder marked read-only after a copy.</td><td>Extract or copy it somewhere writable and run <code>RUN_ME check</code>, which reports writability before anything else.</td></tr>
+</tbody></table>
+</section>
+<section id="m10"><h2>10. Moving it to another PC</h2>
+<p>Copy the project folder. That is the whole procedure &mdash; any drive, any directory, any machine. Nothing has to be edited afterwards, because no file stores where the project lives: each script finds the root from its own location.</p>
+<p class="note"><b>Checked when this page was generated.</b> All 68 MATLAB files that a run touches &mdash; the dataset, the builders, the analysis, the studies and the tests &mdash; were scanned, and <b>none</b> contains an absolute path on a code line.</p>
+<p class="sl">Comments are excluded from that scan: a few of them quote where MATLAB itself is installed, which is documentation and not a dependency. Separately, <code>matlab/env/</code> holds 54 one-off probe scripts that measured the solver's behaviour while the study was being built; 6 of them name the machine they were run on. They are deliberately kept off the MATLAB path, nothing calls them, and a run does not touch them.</p>
+<h3>What to copy, and what can be thrown away</h3>
+<table><thead><tr><th>Folder</th><th>Keep it?</th></tr></thead><tbody>
+<tr><td><code>matlab/</code></td><td>Yes &mdash; the dataset and every script. This is the project. Plain text.</td></tr>
+<tr><td><code>simulink/main/</code></td><td>Yes &mdash; the diagram you present. Regenerable, but it is the readable layout.</td></tr>
+<tr><td><code>simulink/studies/</code></td><td>Regenerable by <code>RUN_ME solve</code>.</td></tr>
+<tr><td><code>simulink/backups/</code></td><td>Yes, if you value the history. Nothing reads them.</td></tr>
+<tr><td><code>data/</code></td><td>Yes &mdash; the parameter registry the dataset was built from.</td></tr>
+<tr><td><code>docs/</code></td><td>Yes &mdash; the manuals, the validation notes, and the list of data still to collect.</td></tr>
+<tr><td><code>results/</code></td><td>Regenerable by <code>RUN_ME</code>. Keep it if the recipient has no MATLAB.</td></tr>
+<tr><td><code>Labsheets/, PDFs</code></td><td>Yes &mdash; the source documents. Every parameter traces back to one of them.</td></tr>
+</tbody></table>
+<p class="sl">The project is currently 718 files, about 53 MB in total, most of it the source PDFs and the Simulink files.</p>
+<h3>On the new machine, in this order</h3>
+<ol>
+<li>Install or open MATLAB with <b>Simulink</b> and <b>Simscape Electrical</b>. Nothing else is needed, and no internet connection is needed.</li>
+<li>Make the project root the current folder in MATLAB.</li>
+<li>Run the environment check, which changes nothing:
+<pre class="code">RUN_ME check</pre>
+<p>It reports the MATLAB version, whether the toolboxes resolve, what is already on disk with its date, and whether <code>results/</code> can be written.</p></li>
+<li>Run the study:
+<pre class="code">RUN_ME</pre>
+</li>
+<li>Open <code>docs/manual/index.html</code>.</li>
+</ol>
+<h3>Two things worth knowing before you hand it over</h3>
+<p><b>The <code>.slx</code> files were written by MATLAB 24.1.0.2537033 (R2024a).</b> Simulink models are binary and are not readable by older releases. This does not block anybody: the models are generated from the dataset, which is plain text, so <code>RUN_ME solve</code> rebuilds them on any release that has Simscape Electrical. If a block name has changed between releases the builder will say so rather than silently substituting one.</p>
+<p><b><code>docs/manual/</code> stands on its own.</b> The three HTML pages and their figures are in that one folder with no external references, so it can be zipped, emailed or put on a phone and it still reads &mdash; no MATLAB, no project folder, no internet.</p>
+</section>
+<section id="m11"><h2>11. What this study does not do</h2>
+<p>Say this before anybody asks, because every item below is deliberate and each one has a reason.</p>
+<ul>
+<li><b>No faults, and no protection settings.</b> This is the load flow stage. Short-circuit currents, three-phase and unbalanced faults, relay grading and coordination are the next stages, and they need data this stage did not &mdash; sequence impedances, relay models, CT and VT ratios, and the tripping curves.</li>
+<li><b>Balanced, positive-sequence, steady state only.</b> One phasor per bus. No unbalance, no harmonics, no switching transients, no machine dynamics, no stability.</li>
+<li><b>The losses are a floor, not an estimate.</b> They are the copper and iron losses of the three transformers. The cables, busbars and bay conductors have no documented impedance, so they contribute nothing. The real plant loses slightly more.</li>
+<li><b>The grid is an equivalent, and it is the weakest number in the model.</b> Its impedance was derived from the switchgear's withstand rating because no PGCB short-circuit level for this bus was issued. The sensitivity tests show the answers barely move with it, which is the reason it is tolerable rather than a reason it is right.</li>
+<li><b>The generator's reactive limits are not enforced.</b> The capability curve was not in the document set, so the solve is not bounded by one. The solved reactive output must be checked against the curve when it arrives.</li>
+<li><b>The 400 V boards carry no demand.</b> Their loading is not in the document set, so they are represented but not loaded. Whatever they draw is missing from the 6.6 kV total.</li>
+<li><b>The voltage reference is an assumption.</b> The generator is held at its nominal voltage because no operating set-point was found. Every voltage in every table is relative to that choice.</li>
+</ul>
+<p>The complete list of what is assumed, what is missing, what conflicts between documents, and what has to be collected next is &sect;9 and &sect;10 of <a href="PROJECT_UPDATE.html">PROJECT_UPDATE.html</a>, with the long form in <code>docs/validation/</code> and <code>docs/DATA_TO_COLLECT.md</code>.</p>
+</section>
+<footer>
+<p>Generated by <code>matlab/studies/build_user_manual.m</code>. The case figures come from <code>results/load_flow/*.csv</code>, the on-screen figures from the <code>.rep</code> reports powergui wrote itself, and the file counts from the folders as they stand. Nothing on this page is retyped.</p>
+<p>Companion documents: <a href="PROJECT_UPDATE.html">PROJECT_UPDATE.html</a> &mdash; what the study found, and what is left to do; <a href="LAB_REPORT.html">LAB_REPORT.html</a> &mdash; the same study written up in the EEE 306 labsheet form.</p>
+<p>Dept. of EEE, BUET &middot; EEE 306 Power System I Laboratory</p>
+</footer>
+</body></html>

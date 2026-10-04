@@ -1,0 +1,59 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+=== MATLAB 24.1.0.2537033 (R2024a) ===
+
+--- 1. PORT OFFSETS FROM BLOCK CENTRE (orientation 'down') ---
+block                            w     h  L ports (dx)           R ports (dx)          
+tx2                             80   100  [-25 0 25]             [-25 0 25]            
+tx2                             90   120  [-30 0 30]             [-30 0 30]            
+breaker                         70    80  [-25 0 25]             [-25 0 25]            
+breaker                         80   100  [-25 0 25]             [-25 0 25]            
+source                          70    90  []                     [-25 0 25]            
+source                          80   110  []                     [-25 0 25]            
+load                            70    70  [-25 0 25]             []                    
+load                            80    80  [-25 0 25]             []                    
+series                          70    60  [-25 0 25]             [-25 0 25]            
+series                          80    60  [-25 0 25]             [-25 0 25]            
+
+  Interpretation: if the dx spread grows with w, the inset is FIXED
+  and (w - 2*inset)/2 is the port spacing. If dx is unchanged, it SCALES.
+
+--- 2. BLOCK COLOUR PARAMETERS ---
+  BackgroundColor 'red'            -> OK   red
+  BackgroundColor 'orange'         -> OK   orange
+  BackgroundColor 'lightBlue'      -> OK   lightBlue
+  BackgroundColor 'blue'           -> OK   blue
+  BackgroundColor 'green'          -> OK   green
+  BackgroundColor 'gray'           -> OK   gray
+  BackgroundColor 'white'          -> OK   white
+  BackgroundColor 'black'          -> OK   black
+  BackgroundColor '[0.9 0.95 1]'   -> OK   [0.900000, 0.950000, 1.000000]
+  BackgroundColor '[1 0.9 0.8]'    -> OK   [1.000000, 0.900000, 0.800000]
+  BackgroundColor 'none'           -> FAIL Invalid setting in Three-Phase Transformer (Two Windings) block (mask) 'p01' for parameter 'BackgroundColor'
+  BackgroundColor 'automatic'      -> OK   automatic
+  ForegroundColor 'red'            -> OK   red
+  ForegroundColor 'orange'         -> OK   orange
+  ForegroundColor 'lightBlue'      -> OK   lightBlue
+  ForegroundColor 'blue'           -> OK   blue
+  ForegroundColor 'green'          -> OK   green
+  ForegroundColor 'gray'           -> OK   gray
+  ForegroundColor 'white'          -> OK   [0.916667, 0.916667, 0.916667]
+  ForegroundColor 'black'          -> OK   black
+  ForegroundColor '[0.9 0.95 1]'   -> OK   [0.866667, 0.916667, 0.966667]
+  ForegroundColor '[1 0.9 0.8]'    -> OK   [1.000000, 0.900000, 0.800000]
+  ForegroundColor 'none'           -> FAIL Invalid setting in Three-Phase Transformer (Two Windings) block (mask) 'p01' for parameter 'ForegroundColor'
+  ForegroundColor 'automatic'      -> OK   [0.916667, 0.916667, 0.916667]
+
+--- 3. ANNOTATION PROPERTIES (for zone boxes) ---
+  properties: Position, InternalMargins, IsImage, FixedHeight, FixedWidth, HorizontalAlignment, VerticalAlignment, ForegroundColor, BackgroundColor, Text, PlainText, DropShadow, AnnotationType, Interpreter, TeXMode, ShowInLibBrowser, MarkupType, ClickFcn, LoadFcn, DeleteFcn, UseDisplayTextAsClickCallback, UserData, Path, FontName, FontSize, FontWeight, FontAngle, Selected, Name, Tag, Description, Type, Parent, Handle, HiliteAncestors, RequirementInfo
+  has BorderColor          : 0
+  has BorderWidth          : 0
+  has DropShadow           : 1
+  has Interpreter          : 1
+  has VerticalAlignment    : 1
+  set BackgroundColor    = white      -> OK (now white)
+  set ForegroundColor    = red        -> OK (now red)
+
+=== probe_style done ===

@@ -1,0 +1,616 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+########################################################################
+#  ASHUGANJ 450 MW CCPP (SOUTH) - PHASE 11 VALIDATION SUITE            #
+#  10 test files, selection 'all'
+########################################################################
+
+--- test_bus_data -----------------------------------------------------
+  PASS  bus list is not empty
+  PASS  bus names are unique
+  PASS  bus 1 has a Name
+  PASS  BGRID230 has a Label
+  PASS  BGRID230 Vnom is a positive finite number
+  PASS  BGRID230 has a Zone
+  PASS  bus 2 has a Name
+  PASS  B230_1 has a Label
+  PASS  B230_1 Vnom is a positive finite number
+  PASS  B230_1 has a Zone
+  PASS  bus 3 has a Name
+  PASS  B230_2 has a Label
+  PASS  B230_2 Vnom is a positive finite number
+  PASS  B230_2 has a Zone
+  PASS  bus 4 has a Name
+  PASS  B22 has a Label
+  PASS  B22 Vnom is a positive finite number
+  PASS  B22 has a Zone
+  PASS  bus 5 has a Name
+  PASS  B6_6 has a Label
+  PASS  B6_6 Vnom is a positive finite number
+  PASS  B6_6 has a Zone
+  PASS  bus 6 has a Name
+  PASS  B6_6_WI1 has a Label
+  PASS  B6_6_WI1 Vnom is a positive finite number
+  PASS  B6_6_WI1 has a Zone
+  PASS  bus 7 has a Name
+  PASS  B6_6_WI2 has a Label
+  PASS  B6_6_WI2 Vnom is a positive finite number
+  PASS  B6_6_WI2 has a Zone
+  PASS  bus 8 has a Name
+  PASS  B0_4 has a Label
+  PASS  B0_4 Vnom is a positive finite number
+  PASS  B0_4 has a Zone
+  PASS  bus 9 has a Name
+  PASS  B3_32 has a Label
+  PASS  B3_32 Vnom is a positive finite number
+  PASS  B3_32 has a Zone
+  PASS  bus 10 has a Name
+  PASS  BNER has a Label
+  PASS  BNER Vnom is a positive finite number
+  PASS  BNER has a Zone
+  PASS  400 V auxiliary bus exists
+  PASS  400 V board is 400 V (NOT 400 kV)
+  PASS  no 400 kV bus anywhere - the 400 kV GIS belongs to the North plant
+  PASS  highest voltage in the South model is 230 kV
+  PASS  BGRID230 Vnom 230000 V is one of the documented plant voltages
+  PASS  B230_1 Vnom 230000 V is one of the documented plant voltages
+  PASS  B230_2 Vnom 230000 V is one of the documented plant voltages
+  PASS  B22 Vnom 22000 V is one of the documented plant voltages
+  PASS  B6_6 Vnom 6600 V is one of the documented plant voltages
+  PASS  B6_6_WI1 Vnom 6600 V is one of the documented plant voltages
+  PASS  B6_6_WI2 Vnom 6600 V is one of the documented plant voltages
+  PASS  B0_4 Vnom 400 V is one of the documented plant voltages
+  PASS  B3_32 Vnom 3320 V is one of the documented plant voltages
+  PASS  BNER Vnom 500 V is one of the documented plant voltages
+  PASS  load-flow bus BGRID230 is defined
+  PASS  load-flow bus B230_1 is defined
+  PASS  load-flow bus B230_2 is defined
+  PASS  load-flow bus B22 is defined
+  PASS  load-flow bus B6_6 is defined
+  => test_bus_data: 61 passed, 0 failed
+
+--- test_generator_data -----------------------------------------------
+  PASS  exactly ONE generator: SCC5-PAC 4000F/3000 (1S) is single-shaft
+  PASS  terminal voltage 22 kV
+  PASS  rated apparent power 458 MVA at 50 C cold gas
+  PASS  maximum apparent power 518 MVA at 30 C cold gas
+  PASS  rated power factor 0.85
+  PASS  frequency 50 Hz - Bangladesh, not 60 Hz
+  PASS  rated stator current 12019 A
+  PASS  hydrogen pressure 5 bar(g)
+  PASS  S/(sqrt3 V) = 12019.4 A agrees with the stated 12019 A
+  PASS  458 MVA x 0.85 = 389.30 MW matches the 389.30 MW rated dispatch
+  PASS  x_d   = 166.30 %
+  PASS  x_d'  =  28.65 %
+  PASS  x_d'' =  22.48 %
+  PASS  x_d > x_d' > x_d'' as physics requires
+  PASS  reactances are recorded as being on the machine base, not the system base
+  PASS  x_q      stays MISSING (NaN) - not substituted
+  PASS  x_q''    stays MISSING (NaN)
+  PASS  x_2      stays MISSING (NaN)
+  PASS  x_0      stays MISSING (NaN)
+  PASS  Ra       stays MISSING (NaN)
+  PASS  H        stays MISSING (NaN)
+  PASS  Td0'     stays MISSING (NaN)
+  PASS  modelled as a PV bus
+  PASS  terminal voltage setpoint 1.00 pu (approved assumption)
+  PASS  Qmin = -inf: reactive power UNCONSTRAINED, Q3a rejected the diesel template
+  PASS  Qmax = +inf: reactive power UNCONSTRAINED, Q3a rejected the diesel template
+  PASS  and the status is NOT_APPLICABLE, not MISSING - unconstrained is not a data gap
+  PASS  modelled with a Three-Phase Source, not a Synchronous Machine block
+  => test_generator_data: 28 passed, 0 failed
+
+--- test_transformer_data ---------------------------------------------
+  PASS  three transformers: GSUT, UAT, GAT
+  PASS  GSUT 10BAT10: X = sqrt(Z^2-R^2) = 15.998622 %
+  PASS  GSUT 10BAT10: X < Z
+  PASS  GSUT 10BAT10: Z_pu is on its own 515 MVA rating, not the system base
+  PASS  GSUT 10BAT10: R_pu on own rating
+  PASS  GSUT 10BAT10: X_pu on own rating
+  PASS  GSUT 10BAT10: R1 = R/2
+  PASS  GSUT 10BAT10: R2 = R/2
+  PASS  GSUT 10BAT10: L1 = X/2
+  PASS  GSUT 10BAT10: L2 = X/2
+  PASS  GSUT 10BAT10: split preserves R
+  PASS  GSUT 10BAT10: split preserves X
+  PASS  GSUT 10BAT10: Rm = S/P_noload = 3239.0 pu (159 kW at 515 MVA)
+  PASS  GSUT 10BAT10: L0_pu from Z0 %
+  PASS  GSUT 10BAT10: principal tap 9 is inside 1..25
+  PASS  GSUT 10BAT10: model uses the DOCUMENTED principal tap (Q8a), not an optimised one
+  PASS  GSUT 10BAT10: 50 Hz
+  PASS  UAT 10BBT10: X = sqrt(Z^2-R^2) = 10.492378 %
+  PASS  UAT 10BBT10: X < Z
+  PASS  UAT 10BBT10: Z_pu is on its own 25 MVA rating, not the system base
+  PASS  UAT 10BBT10: R_pu on own rating
+  PASS  UAT 10BBT10: X_pu on own rating
+  PASS  UAT 10BBT10: R1 = R/2
+  PASS  UAT 10BBT10: R2 = R/2
+  PASS  UAT 10BBT10: L1 = X/2
+  PASS  UAT 10BBT10: L2 = X/2
+  PASS  UAT 10BBT10: split preserves R
+  PASS  UAT 10BBT10: split preserves X
+  PASS  UAT 10BBT10: Rm = S/P_noload = 1785.7 pu (14 kW at 25 MVA)
+  PASS  UAT 10BBT10: L0_pu from Z0 %
+  PASS  UAT 10BBT10: principal tap 3 is inside 1..5
+  PASS  UAT 10BBT10: model uses the DOCUMENTED principal tap (Q8a), not an optimised one
+  PASS  UAT 10BBT10: 50 Hz
+  PASS  GAT 10BBT20: X = sqrt(Z^2-R^2) = 11.989579 %
+  PASS  GAT 10BBT20: X < Z
+  PASS  GAT 10BBT20: Z_pu is on its own 25 MVA rating, not the system base
+  PASS  GAT 10BBT20: R_pu on own rating
+  PASS  GAT 10BBT20: X_pu on own rating
+  PASS  GAT 10BBT20: R1 = R/2
+  PASS  GAT 10BBT20: R2 = R/2
+  PASS  GAT 10BBT20: L1 = X/2
+  PASS  GAT 10BBT20: L2 = X/2
+  PASS  GAT 10BBT20: split preserves R
+  PASS  GAT 10BBT20: split preserves X
+  PASS  GAT 10BBT20: Rm = S/P_noload = 1087.0 pu (23 kW at 25 MVA)
+  PASS  GAT 10BBT20: L0_pu from Z0 %
+  PASS  GAT 10BBT20: principal tap 13 is inside 1..25
+  PASS  GAT 10BBT20: model uses the DOCUMENTED principal tap (Q8a), not an optimised one
+  PASS  GAT 10BBT20: 50 Hz
+  PASS  GSUT selected by Name (Label is 'GSUT 10BAT10')
+  PASS  GSUT KKS 10BAT10
+  PASS  GSUT HV 230 kV
+  PASS  GSUT LV 22 kV
+  PASS  GSUT Z 16 %
+  PASS  GSUT Z is quoted at the 515 MVA ODAF rating
+  PASS  GSUT YNd1
+  PASS  GSUT ONAN/ODAN/ODAF 355/460/515 MVA
+  PASS  GSUT three cooling stages named
+  PASS  GSUT has no per-winding rating list - it is a two-winding unit
+  PASS  GSUT no-load loss 159 kW
+  PASS  GSUT OLTC 25 positions
+  PASS  GSUT principal tap 9
+  PASS  GSUT tap 9 = 230000 V
+  PASS  UAT KKS 10BBT10
+  PASS  UAT HV 22 kV
+  PASS  CONFLICT C13 PRESERVED: UAT LV winding is 6.9 kV
+  PASS  UAT Z 10.5 %
+  PASS  UAT Dyn11
+  PASS  UAT tap changer is OFF-CIRCUIT, on the HV winding ("Off-circuit on HV")
+  PASS  UAT cannot be re-tapped in service - the tap is a fixed model input
+  PASS  GSUT has an ON-LOAD tap changer ("OLTC on HV"), held at the documented principal tap by Q8a
+  PASS  GAT KKS 10BBT20
+  PASS  GAT HV 230 kV
+  PASS  CONFLICT C13 PRESERVED: GAT LV winding is 6.9 kV
+  PASS  GAT tertiary 3.32 kV recorded
+  PASS  GAT per-winding ratings 25 / 25 / 8.33 MVA (HV / LV / tertiary)
+  PASS  GAT ONAN/ONAF 19/25 MVA cooling stages
+  PASS  GAT Z_PS 12 %
+  PASS  GAT Z_PT stays MISSING (NaN)
+  PASS  GAT Z_ST stays MISSING (NaN)
+  PASS  GAT modelled as a TWO-winding transformer (Q5a): unloaded tertiary omitted
+  PASS  modelling 22/6.6 instead of 22/6.9 would misplace the MV bus by 4.55 %
+  PASS  GSUT 16 % at 515 MVA = 3.1068 % on 100 MVA
+  PASS  UAT 10.5 % at 25 MVA = 42.00 % on 100 MVA
+  PASS  GAT 12 % at 25 MVA = 48.00 % on 100 MVA
+  => test_transformer_data: 85 passed, 0 failed
+
+--- test_line_data ----------------------------------------------------
+  PASS  branch register holds 7 entries: 1 grid equivalent, 3 GIS bays, 1 IPB, 2 feeders
+  PASS  exactly ONE series branch is modelled (Q7a forbids inventing transmission)
+  PASS  and it is the grid equivalent, not a line
+  PASS  the modelled branch terminates at the plant 230 kV boundary
+  PASS  GRID EQUIV Z has zero length - no line invented
+  PASS  GRID EQUIV Z length is NOT_APPLICABLE, not MISSING: a Thevenin equivalent has no length, which is not the same as a length being unknown
+  PASS  no R1_ohm_per_km field exists in the register - a per-km constant was never even created
+  PASS  no X1_ohm_per_km field exists in the register - a per-km constant was never even created
+  PASS  no B1_S_per_km field exists in the register - a per-km constant was never even created
+  PASS  no R0_ohm_per_km field exists in the register - a per-km constant was never even created
+  PASS  no X0_ohm_per_km field exists in the register - a per-km constant was never even created
+  PASS  BAY 10BAY11 records WHY it is excluded, so the omission is auditable
+  PASS  BAY 10BAY11 records how it is treated instead (direct connection (zero impedance))
+  PASS  BAY 10BAY12 records WHY it is excluded, so the omission is auditable
+  PASS  BAY 10BAY12 records how it is treated instead (direct connection (zero impedance) + switching breaker)
+  PASS  BAY 10BAY20 records WHY it is excluded, so the omission is auditable
+  PASS  BAY 10BAY20 records how it is treated instead (direct connection (zero impedance))
+  PASS  22 kV IPB records WHY it is excluded, so the omission is auditable
+  PASS  22 kV IPB records how it is treated instead (direct connection (zero impedance))
+  PASS  6.6 kV FDR WI1 records WHY it is excluded, so the omission is auditable
+  PASS  6.6 kV FDR WI1 records how it is treated instead (direct connection (zero impedance))
+  PASS  6.6 kV FDR WI2 records WHY it is excluded, so the omission is auditable
+  PASS  6.6 kV FDR WI2 records how it is treated instead (direct connection (zero impedance))
+  PASS  FDR_WI1 is present in the register
+  PASS  FDR_WI1 current rating stays MISSING (NaN) - no cable size invented
+  PASS  FDR_WI1 rating labelled MISSING
+  PASS  FDR_WI1 states that size, length AND impedance are all missing
+  PASS  FDR_WI2 is present in the register
+  PASS  FDR_WI2 current rating stays MISSING (NaN) - no cable size invented
+  PASS  FDR_WI2 rating labelled MISSING
+  PASS  FDR_WI2 states that size, length AND impedance are all missing
+  PASS  BAY_GSUT carries the documented 3150 A 8DN9 bay rating
+  PASS  BAY_GSUT rating is VERIFIED
+  PASS  BAY_GAT carries the documented 3150 A 8DN9 bay rating
+  PASS  BAY_GAT rating is VERIFIED
+  PASS  BAY_GRID carries the documented 3150 A 8DN9 bay rating
+  PASS  BAY_GRID rating is VERIFIED
+  PASS  22 kV IPB carries the documented 12400 A rating
+  PASS  no branch above 230 kV: the 400 kV GIS is Ashuganj NORTH and is out of scope
+  PASS  and specifically nothing at 400000 V - the 400 V / 400 kV trap
+  PASS  grid equivalent terminates at the plant 230 kV boundary, not down a line
+  PASS  grid series resistance exactly 0 - X/R is undocumented (Q1a)
+  PASS  grid equivalent 2.6558 ohm
+  PASS  grid inductance derived at 50 Hz, so the model must solve at 50 Hz
+  PASS  grid impedance is labelled ESTIMATED, never VERIFIED
+  PASS  the register's X comes from ashuganj_grid() - the estimate exists in exactly one place
+  PASS  and carries the same ESTIMATED status with it
+  => test_line_data: 47 passed, 0 failed
+
+--- test_load_data ----------------------------------------------------
+  PASS  three auxiliary loads are modelled (6.6 kV boards)
+  PASS  allocated P sums to 14.000000 MW = 14.0 MW
+  PASS  allocated Q sums to 8.676421 MVAr
+  PASS  shares sum to exactly 1
+  PASS  allocation ratio is the approved 9050 : 2500 : 2500 (Q6B)
+  PASS  MV BUS aux group share = 9050 / 14050
+  PASS  MV BUS aux group P = 14.0 x share = 9.0178 MW
+  PASS  Water intake / motor group 1 share = 2500 / 14050
+  PASS  Water intake / motor group 1 P = 14.0 x share = 2.4911 MW
+  PASS  Water intake / motor group 2 share = 2500 / 14050
+  PASS  Water intake / motor group 2 P = 14.0 x share = 2.4911 MW
+  PASS  MV BUS aux group power factor 0.8500 lagging
+  PASS  MV BUS aux group Q is inductive (positive)
+  PASS  Water intake / motor group 1 power factor 0.8500 lagging
+  PASS  Water intake / motor group 1 Q is inductive (positive)
+  PASS  Water intake / motor group 2 power factor 0.8500 lagging
+  PASS  Water intake / motor group 2 Q is inductive (positive)
+  PASS  total auxiliary power factor 0.8500 lagging
+  PASS  the apportioned load carries a Status field
+  PASS  MV BUS aux group apportioned P is labelled ENGINEERING_ASSUMPTION (Q6: "the allocation must be labelled an assumption")
+  PASS  MV BUS aux group underlying motor rating is VERIFIED_PROJECT_DATA
+  PASS  MV BUS aux group share is DERIVED, not assumed - the ratio is arithmetic on documented ratings; the assumption is in P_MW
+  PASS  Water intake / motor group 1 apportioned P is labelled ENGINEERING_ASSUMPTION (Q6: "the allocation must be labelled an assumption")
+  PASS  Water intake / motor group 1 underlying motor rating is VERIFIED_PROJECT_DATA
+  PASS  Water intake / motor group 1 share is DERIVED, not assumed - the ratio is arithmetic on documented ratings; the assumption is in P_MW
+  PASS  Water intake / motor group 2 apportioned P is labelled ENGINEERING_ASSUMPTION (Q6: "the allocation must be labelled an assumption")
+  PASS  Water intake / motor group 2 underlying motor rating is VERIFIED_PROJECT_DATA
+  PASS  Water intake / motor group 2 share is DERIVED, not assumed - the ratio is arithmetic on documented ratings; the assumption is in P_MW
+  PASS  and the assumption has its own record in matlab/data/assumptions/
+  PASS  MV BUS aux group referenced to the 6.6 kV PLANT BUS nominal
+  PASS  MV BUS aux group at 50 Hz
+  PASS  MV BUS aux group modelled constant PQ - no invented voltage dependence
+  PASS  MV BUS aux group no power-factor correction invented
+  PASS  Water intake / motor group 1 referenced to the 6.6 kV PLANT BUS nominal
+  PASS  Water intake / motor group 1 at 50 Hz
+  PASS  Water intake / motor group 1 modelled constant PQ - no invented voltage dependence
+  PASS  Water intake / motor group 1 no power-factor correction invented
+  PASS  Water intake / motor group 2 referenced to the 6.6 kV PLANT BUS nominal
+  PASS  Water intake / motor group 2 at 50 Hz
+  PASS  Water intake / motor group 2 modelled constant PQ - no invented voltage dependence
+  PASS  Water intake / motor group 2 no power-factor correction invented
+  PASS  the three loads sit on three DISTINCT register buses, so the split is reportable
+  PASS  one modelled load sits on B6_6
+  PASS  one modelled load sits on B6_6_WI1
+  PASS  one modelled load sits on B6_6_WI2
+  PASS  MV BUS aux group bus B6_6 exists in the bus register
+  PASS  MV BUS aux group bus B6_6 is a 6.6 kV node
+  PASS  Water intake / motor group 1 bus B6_6_WI1 exists in the bus register
+  PASS  Water intake / motor group 1 bus B6_6_WI1 is a 6.6 kV node
+  PASS  Water intake / motor group 2 bus B6_6_WI2 exists in the bus register
+  PASS  Water intake / motor group 2 bus B6_6_WI2 is a 6.6 kV node
+  PASS  FDR_WI1 is zero impedance, so its node is NOT electrically separate - the split is honest about motor grouping, not about feeder voltage drop
+  PASS  FDR_WI2 is zero impedance, so its node is NOT electrically separate - the split is honest about motor grouping, not about feeder voltage drop
+  PASS  the 400 V board appears in the register
+  PASS  400 V board P stays MISSING (NaN), not invented
+  PASS  400 V board Q stays MISSING (NaN), not invented
+  PASS  400 V board excluded from the load flow
+  PASS  400 V board is FOUR HUNDRED VOLTS
+  => test_load_data: 58 passed, 0 failed
+
+--- test_base_conversion ----------------------------------------------
+  PASS  same base is the identity
+  PASS  10.5 % at 25 MVA -> 42 % at 100 MVA (factor Snew/Sold)
+  PASS  16 % at 515 MVA -> 3.1068 % at 100 MVA
+  PASS  12 % at 25 MVA -> 48 % at 100 MVA
+  PASS  round trip 515 -> 100 -> 515 MVA returns the original
+  PASS  same voltage base is the identity
+  PASS  voltage-base form scales by (Vold/Vnew)^2
+  PASS  6.9 kV -> 6.6 kV rebasing inflates an impedance by 9.2975 %
+  PASS  x_d'' 22.48 % at 458 MVA -> 4.9083 % at 100 MVA
+  PASS  Zbase at 230 kV, 100 MVA = 529 ohm
+  PASS  grid 2.6558 ohm = 0.50204 % on the 100 MVA / 230 kV base
+  PASS  grid L is X/(2*pi*50) - the 50 Hz dependence is explicit
+  PASS  GSUT 10BAT10 block X_pu = 0.159986 is on its own 515 MVA rating, NOT converted to 100 MVA
+  PASS  GSUT 10BAT10 has NOT been double-converted (0.159986 pu own base vs 0.031065 pu on 100 MVA)
+  PASS  UAT 10BBT10 block X_pu = 0.104924 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  UAT 10BBT10 has NOT been double-converted (0.104924 pu own base vs 0.419695 pu on 100 MVA)
+  PASS  GAT 10BBT20 block X_pu = 0.119896 is on its own 25 MVA rating, NOT converted to 100 MVA
+  PASS  GAT 10BBT20 has NOT been double-converted (0.119896 pu own base vs 0.479583 pu on 100 MVA)
+  PASS  a zero source base is rejected rather than returning Inf
+  => test_base_conversion: 19 passed, 0 failed
+
+--- test_topology -----------------------------------------------------
+  PASS  generator G1 sits on a defined bus (B22)
+  PASS  GSUT 10BAT10 HV bus B230_1 is defined
+  PASS  GSUT 10BAT10 LV bus B22 is defined
+  PASS  UAT 10BBT10 HV bus B22 is defined
+  PASS  UAT 10BBT10 LV bus B6_6 is defined
+  PASS  GAT 10BBT20 HV bus B230_2 is defined
+  PASS  GAT 10BBT20 LV bus B6_6 is defined
+  PASS  load MV BUS aux group sits on a defined bus (B6_6)
+  PASS  load Water intake / motor group 1 sits on a defined bus (B6_6_WI1)
+  PASS  load Water intake / motor group 2 sits on a defined bus (B6_6_WI2)
+  PASS  load 400 V LV board load sits on a defined bus (B0_4)
+  PASS  grid boundary bus is defined
+  PASS  GSUT 10BAT10 HV 230000 V matches bus B230_1 nominal
+  PASS  GSUT 10BAT10 LV 22000 V matches bus B22 nominal
+  PASS  UAT 10BBT10 HV 22000 V matches bus B22 nominal
+  PASS  UAT 10BBT10 LV winding 6900 V vs bus B6_6 nominal 6600 V is the RECORDED conflict C13, not an error
+  PASS  GAT 10BBT20 HV 230000 V matches bus B230_2 nominal
+  PASS  GAT 10BBT20 LV winding 6900 V vs bus B6_6 nominal 6600 V is the RECORDED conflict C13, not an error
+  PASS  the modelled network is a single connected island
+  PASS  five load-flow nodes (the 6th, GAT HV, appears only when GAT is in)
+  PASS  no 400 kV bus - South plant scope
+  PASS  no 400 kV transformer winding
+  PASS  highest voltage is 230 kV
+  PASS  four load-flow cases: Q2c dispatch x Q4c GAT state
+  PASS  two dispatch levels
+  PASS  dispatch levels are 342.01 MW site-derated and 389.30 MW rated
+  PASS  GAT in and GAT out both represented
+  PASS  case LF1 at 50 Hz
+  PASS  case LF1 on the 100 MVA base
+  PASS  case LF1 has the bus coupler closed (assumption, normal state not documented)
+  PASS  case LF1 generator setpoint 1.00 pu
+  PASS  case LF1 grid setpoint 1.00 pu
+  PASS  case LF1 aux load 14.0 MW
+  PASS  case LF2 at 50 Hz
+  PASS  case LF2 on the 100 MVA base
+  PASS  case LF2 has the bus coupler closed (assumption, normal state not documented)
+  PASS  case LF2 generator setpoint 1.00 pu
+  PASS  case LF2 grid setpoint 1.00 pu
+  PASS  case LF2 aux load 14.0 MW
+  PASS  case LF3 at 50 Hz
+  PASS  case LF3 on the 100 MVA base
+  PASS  case LF3 has the bus coupler closed (assumption, normal state not documented)
+  PASS  case LF3 generator setpoint 1.00 pu
+  PASS  case LF3 grid setpoint 1.00 pu
+  PASS  case LF3 aux load 14.0 MW
+  PASS  case LF4 at 50 Hz
+  PASS  case LF4 on the 100 MVA base
+  PASS  case LF4 has the bus coupler closed (assumption, normal state not documented)
+  PASS  case LF4 generator setpoint 1.00 pu
+  PASS  case LF4 grid setpoint 1.00 pu
+  PASS  case LF4 aux load 14.0 MW
+  PASS  all four dispatch x GAT combinations are distinct
+  => test_topology: 52 passed, 0 failed
+
+--- test_transformer_phase_shift --------------------------------------
+  PASS  power balance closes at every bus with the DOCUMENTED shifts: worst residual 8.64e-08 MVA (branch flows from documented impedances vs solver injections)
+  PASS    BGRID230  residual 8.638e-08 MVA (dP -8.18e-09 MW, dQ -8.60e-08 MVAr)
+  PASS    B22       residual 2.746e-10 MVA (dP +2.74e-10 MW, dQ +6.35e-12 MVAr)
+  PASS    B6_6      residual 1.026e-09 MVA (dP +9.52e-10 MW, dQ -3.83e-10 MVAr)
+  PASS    B230_1    residual 8.407e-08 MVA (dP -7.15e-08 MW, dQ -4.42e-08 MVAr)
+  PASS    GAT_HV    residual 8.129e-10 MVA (dP -2.34e-10 MW, dQ +7.78e-10 MVAr)
+  PASS  GSUT YNd1 (+30 deg) and UAT Dyn11 (-30 deg) reproduce the 22 kV bus balance: 389.3000 MW vs the generator's 389.3000 MW
+  PASS  the OPPOSITE shifts are decisively wrong: 22 kV balance becomes -2746.0 MW against 389.3 MW, an error of 3135.3 MW - so the documented signs are confirmed by measurement, not by the block name
+  PASS  GSUT carries power LV -> HV (export): 375.2201 MW leaves the 22 kV bus
+  PASS  GSUT: with the 30 deg group shift removed, the 22 kV side LEADS the 230 kV side by 6.6962 deg, which is the correct direction for export
+  PASS  UAT carries power HV -> LV (auxiliary supply): -14.0191 MW at the 6.6 kV side
+  PASS  UAT: with the 30 deg group shift removed, the 6.6 kV side LAGS the 22 kV side by 3.4402 deg, correct for a downward feed
+  PASS  raw 230 kV -> 22 kV angle step -23.304 deg: a -30 deg group shift plus a +6.696 deg export angle
+  PASS  raw 22 kV -> 6.6 kV angle step +26.560 deg: a +30 deg group shift plus a -3.440 deg load angle
+  PASS  case LF2 has the GAT in service, closing the 230/22/6.6 kV loop
+  PASS  vector-group shifts around the 230 kV -> GSUT -> 22 kV -> UAT -> 6.6 kV -> GAT -> 230 kV loop sum to 0 deg. A non-zero sum would make the loop physically unclosable; the GAT being YNyn0 is what permits it
+  PASS  LF2 (loop closed) power balance also closes: worst residual 6.21e-04 MVA. A wrong shift anywhere in a LOOPED network produces circulating power, so this is the stronger of the two topologies to test
+  PASS  GAT loop flow is 7.5568 MVA, within its 25 MVA rating - no circulating power from a mismatched phase shift
+  => test_transformer_phase_shift: 18 passed, 0 failed
+
+--- test_grid_sensitivity ---------------------------------------------
+  PASS  Z =  1.328 ohm (x0.5): V230 = 0.999335 pu, angle +0.5390 deg, Qgen = +29.0568 MVAr, V6.6 = 1.0013903 pu
+  PASS  Z =  2.656 ohm (x1.0): V230 = 0.998686 pu, angle +1.0787 deg, Qgen = +31.1595 MVAr, V6.6 = 1.0013903 pu
+  PASS  Z =  5.312 ohm (x2.0): V230 = 0.997419 pu, angle +2.1605 deg, Qgen = +35.2593 MVAr, V6.6 = 1.0013903 pu
+  PASS  Z = 10.623 ohm (x4.0): V230 = 0.994964 pu, angle +4.3347 deg, Qgen = +43.2040 MVAr, V6.6 = 1.0013904 pu
+  PASS  grid equivalent dissipates 0.000e+00 MW at x0.5 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x1.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x2.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent dissipates 0.000e+00 MW at x4.0 - exactly zero, as R = 0 and X/R = inf require (Q1a)
+  PASS  grid equivalent absorbs 7.0849 MVAr reactive at the documented estimate
+  PASS  boundary voltage falls monotonically as the grid weakens: 0.99934 -> 0.99869 -> 0.99742 -> 0.99496 pu. A weaker grid sags more under the same export - the expected direction
+  PASS  generator reactive output rises monotonically as the grid weakens: +29.057 -> +31.159 -> +35.259 -> +43.204 MVAr. The machine holds 22 kV at 1.00 pu, so it must supply whatever the weaker grid absorbs
+  PASS  angle across the equivalent grows with impedance: +0.5390 -> +1.0787 -> +2.1605 -> +4.3347 deg
+  PASS  the estimate UNDERSTATES boundary voltage deviation, exactly as G.Isc_Warning states: 0.1314 % at the estimate against 0.2581 % at twice the impedance. Direction of the error is known; magnitude is not
+  PASS  the 22 kV generator bus stays at 1.000000 pu for every grid strength - it is a PV bus
+  PASS  the 6.6 kV auxiliary bus is INDEPENDENT of grid strength (1.0013903 pu throughout, spread 8.05e-08 pu). The auxiliary system hangs off a regulated 22 kV bus, so the weakest number in the model cannot corrupt it
+  PASS  UAT loading is likewise independent of grid strength: 16.485340 MVA throughout, spread 1.68e-04 MVA (1.0e-05 relative) across an 8x range of grid impedance
+  PASS  and the residual is 6.71e-04 % of the UAT's 25 MVA rating - below any engineering significance, and attributable to the snubber artefact and solver tolerance rather than to grid strength
+  PASS  solved angle across the grid equivalent +1.0787 deg matches the hand calculation atan(P*X/V^2) = +1.0771 deg at 374.48 MW export - the prediction written into ashuganj_grid.m before the model was solved
+  PASS  and it matches the ~1.1 deg stated in G.Expected_effect (1.0787 deg)
+  PASS  boundary current 943.0 A is within the 8DN9 3150 A busbar rating (29.9 % of it)
+  PASS  X/R =   Inf: R = 0.0000 ohm, X = 2.6558 ohm, |Z| = 2.6558 ohm, V230 = 0.998686 pu, angle +1.0787 deg, Qgen = +31.1595 MVAr, ZGRID loss = 0.0000 MW
+  PASS  X/R =    20: R = 0.1326 ohm, X = 2.6525 ohm, |Z| = 2.6558 ohm, V230 = 0.999497 pu, angle +1.0801 deg, Qgen = +28.5344 MVAr, ZGRID loss = 0.3535 MW
+  PASS  X/R =    10: R = 0.2643 ohm, X = 2.6426 ohm, |Z| = 2.6558 ohm, V230 = 1.000304 pu, angle +1.0795 deg, Qgen = +25.9209 MVAr, ZGRID loss = 0.7040 MW
+  PASS  X/R =     5: R = 0.5208 ohm, X = 2.6042 ohm, |Z| = 2.6558 ohm, V230 = 1.001889 pu, angle +1.0729 deg, Qgen = +20.7928 MVAr, ZGRID loss = 1.3862 MW
+  PASS  |Z| stayed at the documented 2.6558 ohm estimate at every X/R, so what follows measures the R = 0 assumption alone and not the magnitude estimate swept in Part 1
+  PASS  at the assumed X/R = inf the equivalent dissipates exactly 0 MW
+  PASS  loss in the equivalent rises as X/R falls: 0.0000 -> 0.3535 -> 0.7040 -> 1.3862 MW. At X/R = 10 it is 0.7040 MW - COMPARABLE TO THE WHOLE PLANT'S 0.8161 MW of internal loss. The assumption therefore does not make a small change to reported system loss, it changes what "system loss" MEANS: with R = 0 the reported figure is plant loss only, which for a plant study is the defensible reading, but the report must say so rather than imply the grid is lossless
+  PASS  while the plant's OWN loss stays at 0.81612 MW (spread 8.34e-04 MW) across the whole X/R range. The two loss figures are genuinely separable, which is what licenses reporting the plant figure alone
+  PASS  the 22 kV bus holds 1.000000 pu at every X/R - the PV constraint is upstream of the grid
+  PASS  the 6.6 kV auxiliary bus is unmoved by X/R (1.0013903 pu, spread 3.71e-08 pu)
+  PASS  UAT loading is unmoved by X/R (16.485340 MVA, spread 1.34e-04 MVA)
+  PASS  and the power the plant actually delivers to the boundary is unmoved: 374.4839 MW, spread 8.34e-04 MW. The grid resistance changes what happens BEYOND the plant, not what the plant produces - which is precisely why this assumption is tolerable in a plant study
+  PASS  the angle across the equivalent is INVARIANT under X/R, not overstated: +1.0787 -> +1.0801 -> +1.0795 -> +1.0729 deg, total spread 0.0072 deg (0.67 % of the +1.0787 deg shift itself) and NOT monotonic. The assumption record's "angle slightly overstated" claim is contradicted: X is pinned by |Z|, so there is almost nothing left for the R/X split to move
+  PASS  and the boundary voltage RISES as X/R falls: 0.998686 -> 0.999497 -> 1.000304 -> 1.001889 pu. So R = 0 OVERSTATES the boundary sag by 1.62e-03 pu at a realistic X/R = 10 - the model is PESSIMISTIC about boundary voltage by 0.1619 % of nominal, not optimistic as the assumption record claimed
+  PASS  and the rise is BOUNDED BY THE HAND CALCULATION that explains it: R*P = (0.2643/529.0)*(+3.738) = +1.867e-03 pu against a measured rise of +1.619e-03 pu, the balance being the smaller X*Q term moving the other way. Sign and size both predicted, so the direction is mechanism and not coincidence
+  PASS  and it is LARGER than the uncertainty carried by the magnitude estimate: X/R inf->10 moves the boundary voltage 1.62e-03 pu, while DOUBLING the estimated |Z| moves it only 1.27e-03 pu (1.3x less). The reason is that the plant delivers +3.745 pu of P and only -0.297 pu of Q at the swing node, a ratio of 12.6 to 1, so R*P dominates X*Q and the term that was ASSUMED away is the bigger one. Both grid numbers must therefore be flagged in the report - it is NOT enough to flag the estimate alone, which is what the earlier version of this test concluded from the opposite assertion
+  PASS  generator REACTIVE output falls monotonically as R is introduced: +31.1595 -> +28.5344 -> +25.9209 -> +20.7928 MVAr - -16.81 % at a realistic X/R = 10 and -33.27 % at X/R = 5. The assumption record's "no effect on generator output" is therefore WRONG for MVAr: the reported Qgen of 31.1595 MVAr is a consequence of the R = 0 assumption to within about a third of its own value
+  PASS  while generator REAL output is untouched at 389.30 MW in every case (spread 4.33e-08 MW), because it is a dispatch setpoint and not a solved quantity. So the record's claim survives for MW and fails for MVAr - exactly the distinction it failed to draw
+  => test_grid_sensitivity: 38 passed, 0 failed
+
+--- test_magnetising_sensitivity --------------------------------------
+  PASS  GSUT Lm is numerically open (1e6 pu)
+  PASS  GSUT Lm is labelled ENGINEERING_ASSUMPTION, never derived or verified
+  PASS  GSUT Rm IS derived from the documented 159 kW no-load loss
+  PASS  GSUT Rm = 515 MVA / 159 kW = 3239.0 pu
+  PASS  GSUT no-load current stays MISSING - a magnetising current is never invented
+  PASS  UAT Lm is numerically open (1e6 pu)
+  PASS  UAT Lm is labelled ENGINEERING_ASSUMPTION, never derived or verified
+  PASS  UAT Rm IS derived from the documented 14 kW no-load loss
+  PASS  UAT Rm = 25 MVA / 14 kW = 1785.7 pu
+  PASS  UAT no-load current stays MISSING - a magnetising current is never invented
+  PASS  GAT Lm is numerically open (1e6 pu)
+  PASS  GAT Lm is labelled ENGINEERING_ASSUMPTION, never derived or verified
+  PASS  GAT Rm IS derived from the documented 23 kW no-load loss
+  PASS  GAT Rm = 25 MVA / 23 kW = 1087.0 pu
+  PASS  GAT no-load current stays MISSING - a magnetising current is never invented
+  PASS  Lm =    1e+06 pu (as built (open) ): Qgen = +31.1595 MVAr, P_loss = 0.81612 MW, V6.6 = 1.0013903 pu, V230 = 0.998686 pu
+  PASS  Lm =      500 pu (~0.2 % Im       ): Qgen = +31.8476 MVAr, P_loss = 0.81642 MW, V6.6 = 1.0010583 pu, V230 = 0.998663 pu
+  PASS  Lm =      200 pu (~0.5 % Im       ): Qgen = +32.8801 MVAr, P_loss = 0.81688 MW, V6.6 = 1.0005606 pu, V230 = 0.998630 pu
+  PASS  Lm =      100 pu (~1.0 % Im       ): Qgen = +34.6000 MVAr, P_loss = 0.81766 MW, V6.6 = 0.9997322 pu, V230 = 0.998574 pu
+  PASS  reactive demand rises monotonically as Lm closes: +31.159 -> +31.848 -> +32.880 -> +34.600 MVAr. The omission therefore UNDERSTATES reactive absorption, which is precisely what the assumption record claims
+  PASS  worst-case reactive error is +3.4406 MVAr (11.04 % of the 31.159 MVAr the generator supplies), and that is at a 1 % magnetising current, well above what these units would show. This is the bound the report should quote
+  PASS  the 22 kV bus is unaffected - the machine regulates it
+  PASS  the 6.6 kV bus moves by at most 1.66e-03 pu (0.166 % of nominal) across the whole sweep, and only 0.033 % at the realistic ~0.2 % magnetising current, so the missing Lm does not corrupt any reported voltage
+  PASS  and it is 27x smaller than conflict C13, which moves the SAME bus voltage by 4.55 % depending on whether 6600 V or the 6.9 kV winding is taken as the base. The unresolved source conflict dominates the undocumented magnetising current by more than an order of magnitude - that, not a chosen threshold, is why Lm is not the limiting uncertainty at the MV bus
+  PASS  the 230 kV boundary moves by at most 1.12e-04 pu across the whole sweep
+  PASS  total real loss moves by at most 0.00154 MW across the sweep: the no-load LOSS is documented and already in the model, only the no-load CURRENT is missing
+  PASS  solved total loss 0.8161 MW is reproduced to 0.37 % by the nameplate decomposition 0.8131 MW = 0.1937 MW iron (documented no-load losses at the solved voltages) + 0.6194 MW copper (nameplate R at the solved loadings). Independent confirmation that Rm and R entered the model correctly
+  PASS  iron loss 0.1937 MW is within 10 kW of the documented 159 + 14 + 23 = 196 kW sum, so all three no-load losses are being honoured - including the GAT's, which is energised from the 6.6 kV side with its bay open
+  => test_magnetising_sensitivity: 28 passed, 0 failed
+
+########################################################################
+#  SUMMARY                                                             #
+########################################################################
+  PASS  test_bus_data                        61 passed    0 failed     0.4 s
+  PASS  test_generator_data                  28 passed    0 failed     0.1 s
+  PASS  test_transformer_data                85 passed    0 failed     0.4 s
+  PASS  test_line_data                       47 passed    0 failed     0.1 s
+  PASS  test_load_data                       58 passed    0 failed     0.1 s
+  PASS  test_base_conversion                 19 passed    0 failed     0.2 s
+  PASS  test_topology                        52 passed    0 failed     0.3 s
+  PASS  test_transformer_phase_shift         18 passed    0 failed   279.7 s
+  PASS  test_grid_sensitivity                38 passed    0 failed    33.7 s
+  PASS  test_magnetising_sensitivity         28 passed    0 failed    16.6 s
+  --------------------------------------------------------------------
+  TOTAL                                     434 passed    0 failed   331.5 s
+
+  ALL CHECKS PASSED.
+
+
+==== SUITE: 434 passed, 0 failed ====
+
+==== SUITE GREEN - running the four-case study ====
+
+============================================================================
+  ASHUGANJ 450 MW CCPP (SOUTH) - PHASE 12 BALANCED LOAD FLOW STUDY
+============================================================================
+  system base   : 100 MVA
+  frequency     : 50 Hz  (Bangladesh grid - the prior CYME model used 60)
+  cases         : LF1, LF2, LF3, LF4
+  reporting base: 100 MVA (Q11a); transformer loading against every cooling stage
+
+============================================================================
+  CASE LF1
+============================================================================
+  Rated dispatch, GAT out of service
+  G1 389.30 MW (rated) | GAT OUT | coupler CLOSED | radial | aux 14.000 MW + j8.676 MVAr
+  solved in 1.4 s, 2 iterations, worst KCL residual 8.64e-08 MVA
+  P_gen 389.3000 MW | aux 14.0000 MW | losses 0.81612 MW | export 374.4839 MW
+  Q_gen 31.1595 MVAr | export -29.7049 MVAr | branch losses 0.81612 MW
+  verdict: OK
+
+  BUS       LABEL                                    TYPE     |V| pu   ang deg       P MW     Q MVAr
+  BGRID230  EXT GRID 230 kV                         swing   1.000000    0.0000  -374.4839    29.7049
+  B22       22 kV GEN BUS                              PV   1.000000  -22.2251   389.3000    31.1595
+  B6_6      6.6 kV MV BUS                              PQ   1.001390    4.3347   -14.0000    -8.6764
+  B6_6_WI1  6.6 kV WI-1  [= B6_6]                      PQ   1.001390    4.3347        NaN        NaN
+  B6_6_WI2  6.6 kV WI-2  [= B6_6]                      PQ   1.001390    4.3347        NaN        NaN
+  B230_1    230 kV BUS 1 + BUS 2 (coupler closed)      PQ   0.998686    1.0787     0.0000     0.0000
+  B230_2    230 kV BUS 2  [= B230_1]                   PQ   0.998686    1.0787        NaN        NaN
+  GAT_HV    GAT_HV                                     PQ   0.957864    4.3321    -0.0000     0.0000
+  (3 of 8 register buses are the SAME solved node as another and show NaN injection;
+   their allocated load shares are in the P_load_alloc columns of bus_results.csv)
+
+============================================================================
+  CASE LF2
+============================================================================
+  Rated dispatch, GAT in service
+  G1 389.30 MW (rated) | GAT IN | coupler CLOSED | looped | aux 14.000 MW + j8.676 MVAr
+  solved in 1.1 s, 2 iterations, worst KCL residual 6.21e-04 MVA
+  P_gen 389.3000 MW | aux 14.0000 MW | losses 0.83326 MW | export 374.4667 MW
+  Q_gen 27.0027 MVAr | export -33.3646 MVAr | branch losses 0.83323 MW
+  verdict: OK
+
+  BUS       LABEL                                    TYPE     |V| pu   ang deg       P MW     Q MVAr
+  BGRID230  EXT GRID 230 kV                         swing   1.000000    0.0000  -374.4667    33.3646
+  B22       22 kV GEN BUS                              PV   1.000000  -22.3297   389.3000    27.0027
+  B6_6      6.6 kV MV BUS                              PQ   1.020460    2.7963   -14.0000    -8.6764
+  B6_6_WI1  6.6 kV WI-1  [= B6_6]                      PQ   1.020460    2.7963        NaN        NaN
+  B6_6_WI2  6.6 kV WI-2  [= B6_6]                      PQ   1.020460    2.7963        NaN        NaN
+  B230_1    230 kV BUS 1 + BUS 2 (coupler closed)      PQ   0.998502    1.0788     0.0000     0.0000
+  B230_2    230 kV BUS 2  [= B230_1]                   PQ   0.998502    1.0788        NaN        NaN
+  GAT_HV    GAT_HV                                     PQ   0.998504    1.0789    -0.0000    -0.0000
+  (3 of 8 register buses are the SAME solved node as another and show NaN injection;
+   their allocated load shares are in the P_load_alloc columns of bus_results.csv)
+
+============================================================================
+  CASE LF3
+============================================================================
+  Site-derated dispatch, GAT out of service
+  G1 342.01 MW (derated) | GAT OUT | coupler CLOSED | radial | aux 14.000 MW + j8.676 MVAr
+  solved in 1.1 s, 2 iterations, worst KCL residual 8.64e-08 MVA
+  P_gen 342.0100 MW | aux 14.0000 MW | losses 0.67984 MW | export 327.3302 MW
+  Q_gen 25.6583 MVAr | export -23.1365 MVAr | branch losses 0.67984 MW
+  verdict: OK
+
+  BUS       LABEL                                    TYPE     |V| pu   ang deg       P MW     Q MVAr
+  BGRID230  EXT GRID 230 kV                         swing   1.000000    0.0000  -327.3302    23.1365
+  B22       22 kV GEN BUS                              PV   1.000000  -23.2095   342.0100    25.6583
+  B6_6      6.6 kV MV BUS                              PQ   1.001387    3.3503   -14.0000    -8.6764
+  B6_6_WI1  6.6 kV WI-1  [= B6_6]                      PQ   1.001387    3.3503        NaN        NaN
+  B6_6_WI2  6.6 kV WI-2  [= B6_6]                      PQ   1.001387    3.3503        NaN        NaN
+  B230_1    230 kV BUS 1 + BUS 2 (coupler closed)      PQ   0.998974    0.9426     0.0000     0.0000
+  B230_2    230 kV BUS 2  [= B230_1]                   PQ   0.998974    0.9426        NaN        NaN
+  GAT_HV    GAT_HV                                     PQ   0.957857    3.3477    -0.0000     0.0000
+  (3 of 8 register buses are the SAME solved node as another and show NaN injection;
+   their allocated load shares are in the P_load_alloc columns of bus_results.csv)
+
+============================================================================
+  CASE LF4
+============================================================================
+  Site-derated dispatch, GAT in service
+  G1 342.01 MW (derated) | GAT IN | coupler CLOSED | looped | aux 14.000 MW + j8.676 MVAr
+  solved in 1.1 s, 2 iterations, worst KCL residual 5.27e-04 MVA
+  P_gen 342.0100 MW | aux 14.0000 MW | losses 0.69012 MW | export 327.3199 MW
+  Q_gen 21.5491 MVAr | export -26.8917 MVAr | branch losses 0.69009 MW
+  verdict: OK
+
+  BUS       LABEL                                    TYPE     |V| pu   ang deg       P MW     Q MVAr
+  BGRID230  EXT GRID 230 kV                         swing   1.000000    0.0000  -327.3199    26.8917
+  B22       22 kV GEN BUS                              PV   1.000000  -23.2863   342.0100    21.5491
+  B6_6      6.6 kV MV BUS                              PQ   1.020998    2.2236   -14.0000    -8.6764
+  B6_6_WI1  6.6 kV WI-1  [= B6_6]                      PQ   1.020998    2.2236        NaN        NaN
+  B6_6_WI2  6.6 kV WI-2  [= B6_6]                      PQ   1.020998    2.2236        NaN        NaN
+  B230_1    230 kV BUS 1 + BUS 2 (coupler closed)      PQ   0.998785    0.9427     0.0000     0.0000
+  B230_2    230 kV BUS 2  [= B230_1]                   PQ   0.998785    0.9427        NaN        NaN
+  GAT_HV    GAT_HV                                     PQ   0.998787    0.9428    -0.0000    -0.0000
+  (3 of 8 register buses are the SAME solved node as another and show NaN injection;
+   their allocated load shares are in the P_load_alloc columns of bus_results.csv)
+
+============================================================================
+  DELIVERABLE MODELS
+============================================================================
+  simulink/main/Ashuganj_South_Main.slx        (case LF1, clean build)
+  simulink/studies/Load_Flow_LF1.slx        (case LF1, clean build)
+  simulink/studies/Load_Flow_LF2.slx        (case LF2, clean build)
+  simulink/studies/Load_Flow_LF3.slx        (case LF3, clean build)
+  simulink/studies/Load_Flow_LF4.slx        (case LF4, clean build)
+  simulink/studies/Load_Flow.slx               (case LF1, the name the brief asks for)
+
+============================================================================
+  STUDY SUMMARY
+============================================================================
+  CASE  DESCRIPTION                         P_gen MW  P_exp MW Q_gen MVA   Loss MW     ITER  CHECKS
+  LF1   Rated dispatch, GAT out of service  389.3000  374.4839   31.1595   0.81612        2  OK
+  LF2   Rated dispatch, GAT in service      389.3000  374.4667   27.0027   0.83326        2  OK
+  LF3   Site-derated dispatch, GAT out ...  342.0100  327.3302   25.6583   0.67984        2  OK
+  LF4   Site-derated dispatch, GAT in s...  342.0100  327.3199   21.5491   0.69012        2  OK
+
+  All 4 cases converged and passed every cross-check.
+  results written to results/load_flow/
+
+
+==== STUDY COMPLETE ====

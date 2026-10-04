@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ashuganj South - Load Flow Model - Project Update</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:#1a1a1a;background:#fff;-webkit-font-smoothing:antialiased}
+header,nav,section,footer{max-width:1000px;margin:0 auto;padding:0 32px}
+header{padding-top:56px;padding-bottom:32px;border-bottom:3px solid #1a1a1a}
+.course{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#666;font-weight:600}
+h1{font-size:31px;line-height:1.25;margin:14px 0 12px;font-weight:700;letter-spacing:-.015em}
+.sub{font-size:17px;color:#333}
+.meta{font-size:12.5px;color:#777;margin-top:10px;font-variant-numeric:tabular-nums}
+nav{margin:32px auto;padding:20px 32px;background:#f7f7f5;border-radius:6px}
+nav b{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#666}
+nav ol{margin:10px 0 0;padding-left:22px;columns:2;column-gap:36px}
+nav li{margin:3px 0}
+nav a{color:#1a1a1a;text-decoration:none;border-bottom:1px solid #ccc}
+nav a:hover{border-bottom-color:#1a1a1a}
+section{padding-top:40px;padding-bottom:8px}
+h2{font-size:23px;margin:0 0 18px;padding-bottom:9px;border-bottom:2px solid #e0e0dc;font-weight:700;letter-spacing:-.01em}
+h3{font-size:16.5px;margin:30px 0 9px;font-weight:650}
+h4{font-size:14.5px;margin:22px 0 6px;font-weight:650}
+p{margin:11px 0}
+.why{color:#666;font-size:14px;margin:4px 0 12px}
+code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f2f2ef;
+  padding:1.5px 5px;border-radius:3px}
+pre.code{background:#1c1c1a;color:#e8e8e3;padding:16px 20px;border-radius:6px;overflow-x:auto;
+  font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+th{text-align:left;font-weight:650;padding:8px 11px;background:#f2f2ef;border-bottom:2px solid #d8d8d3;
+  font-size:12px;letter-spacing:.03em}
+td{padding:8px 11px;border-bottom:1px solid #ecece8;vertical-align:top}
+tr:last-child td{border-bottom:none}
+table.num td,table.num th{text-align:right;font-variant-numeric:tabular-nums}
+table.num td:first-child,table.num th:first-child,
+table.num td:nth-child(2),table.num th:nth-child(2){text-align:left}
+table.files td:first-child{width:38%;white-space:nowrap}
+td.tag{font:12.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:nowrap}
+td.bad{color:#a81b1b;font-weight:700}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+.card{background:#f7f7f5;border-radius:6px;padding:15px 16px}
+.cl{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#777;font-weight:650}
+.cv{font-size:22px;font-weight:700;margin:5px 0 3px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cn{font-size:12px;color:#666;line-height:1.45}
+p.note{background:#f7f7f5;border-left:3px solid #b8b8b0;padding:12px 16px;border-radius:0 4px 4px 0;font-size:13.5px}
+p.warn{background:#fdf6ec;border-left:3px solid #d99b3d;padding:12px 16px;border-radius:0 4px 4px 0;font-size:13.5px}
+ol,ul{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+figure{margin:20px 0}
+figure img{width:100%;display:block;border:1px solid #e0e0dc;border-radius:5px;background:#fff}
+figcaption{font-size:12.5px;color:#666;margin-top:8px;line-height:1.5}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:18px 0}
+.grid2 figure{margin:0}
+.snip{margin:20px 0}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-bottom:6px}
+.sh span{font-size:12.5px;color:#666;text-align:right}
+.sl{font-size:11.5px;color:#999;margin-top:5px;font-variant-numeric:tabular-nums}
+ol.steps{padding-left:0;list-style:none;counter-reset:st}
+ol.steps>li{counter-increment:st;position:relative;padding:0 0 4px 42px;margin:20px 0}
+ol.steps>li:before{content:counter(st);position:absolute;left:0;top:-1px;width:28px;height:28px;
+  border-radius:50%;background:#1a1a1a;color:#fff;font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+ol.steps>li>b:first-child{display:block;margin-bottom:2px}
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+.box{border:1px solid #e0e0dc;border-radius:6px;padding:16px 18px}
+.box h4{margin-top:0}
+footer{margin-top:52px;padding-top:22px;padding-bottom:52px;border-top:2px solid #e0e0dc;
+  color:#777;font-size:12.5px}
+@media print{nav{break-after:page}section{break-inside:avoid-page}
+  figure,.snip,table{break-inside:avoid}}
+@media(max-width:820px){.grid4{grid-template-columns:repeat(2,1fr)}nav ol{columns:1}
+  .grid2,.cards2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="course">EEE 306 &middot; Power System I Laboratory &middot; January 2026 &middot; Group-03, Section C-1</div>
+<h1>Protection Coordination and Fault Analysis of the<br>Ashuganj 450 MW Combined Cycle Power Plant (South)</h1>
+<div class="sub">Project update &mdash; <b>Stage 1 of 3: balanced steady-state load flow</b></div>
+<div class="meta">Model: MATLAB R2024a &middot; Simulink 24.1 &middot; Simscape Electrical (Specialized Power Systems) &middot; 50 Hz &middot; 100 MVA base</div>
+</header>
+<nav><b>Contents</b><ol>
+<li><a href="#s1">1. Where the project stands</a></li>
+<li><a href="#s2">2. What the model represents</a></li>
+<li><a href="#s3">3. How to run it</a></li>
+<li><a href="#s4">4. The Simulink model, block by block</a></li>
+<li><a href="#s5">5. The MATLAB code, file by file</a></li>
+<li><a href="#s6">6. Key code, and what each piece does</a></li>
+<li><a href="#s7">7. Load flow results</a></li>
+<li><a href="#s8">8. What the results mean</a></li>
+<li><a href="#s9">9. Assumptions and missing data</a></li>
+<li><a href="#s10">10. What remains</a></li>
+<li><a href="#s11">11. Complete file map</a></li>
+</ol></nav>
+<section id="s1"><h2>1. Where the project stands</h2>
+<p>The plant's electrical single-line diagram has been rebuilt as a working Simulink model and a balanced load flow has been solved on it. Four operating cases converge and cross-check. Nothing about faults or protection has been attempted yet &mdash; that is the next stage, and this stage is its input.</p>
+<div class="grid4">
+<div class="card"><div class="cl">Model</div><div class="cv">12 blocks</div><div class="cn">one-line layout matched to drawing DE-0001 Rev 03</div></div>
+<div class="card"><div class="cl">Cases solved</div><div class="cv">4 of 4</div><div class="cn">all converged in 2 iterations</div></div>
+<div class="card"><div class="cl">Validation</div><div class="cv">10 test files</div><div class="cn">dataset consistency plus solved-network checks</div></div>
+<div class="card"><div class="cl">Worst KCL error</div><div class="cv">6e-04 MVA</div><div class="cn">flows rebuilt outside the solver and compared</div></div>
+</div>
+<p class="note"><b>Stage plan.</b> (1) <b>Load flow &mdash; done, this document.</b> (2) Short-circuit study: three-phase, single-line-to-ground, line-to-line, double-line-to-ground. (3) Protection coordination and relay settings. Stages 2 and 3 need data the load flow does not &mdash; listed in &sect;9.</p>
+</section>
+<section id="s2"><h2>2. What the model represents</h2>
+<p>Ashuganj South is a <b>single-shaft</b> combined cycle unit: a Siemens SCC5-PAC 4000F/3000 (1S) train &mdash; one SGT5-4000F gas turbine and one SST-3000 steam turbine on a common shaft, driving <b>one</b> 458 MVA generator. That is why a "450 MW" plant has a single machine on the diagram rather than three.</p>
+<p>Power leaves at 22 kV, steps up through the generator step-up transformer to the 230 kV switchyard, and exports to the PGCB grid. The unit's own auxiliaries &mdash; pumps, fans, water intake &mdash; are fed at 6.6 kV from the unit auxiliary transformer, with a station auxiliary transformer from 230 kV as the alternative supply.</p>
+<table><thead><tr><th>Equipment</th><th>Tag</th><th>Rating</th><th>Data status</th></tr></thead><tbody>
+<tr><td>Generator G1</td><td class="tag">10MKA10</td><td>458 MVA, 22 kV, pf 0.85</td><td>nameplate</td></tr>
+<tr><td>Generator step-up (GSUT)</td><td class="tag">10BAT10</td><td>230/22 kV, 355/460/515 MVA, YNd1, Z 16 %</td><td>nameplate</td></tr>
+<tr><td>Unit auxiliary (UAT)</td><td class="tag">10BBT10</td><td>22/6.9 kV, 19/25 MVA, Dyn11, Z 10.5 %</td><td>nameplate</td></tr>
+<tr><td>Station auxiliary (GAT)</td><td class="tag">10BBT20</td><td>230/6.9 kV, 19/25 MVA, YNyn0+d11, Z 12 %</td><td>nameplate</td></tr>
+<tr><td>230 kV switchgear</td><td class="tag">8DN9</td><td>GIS, 3150 A, 50 kA / 1 s, double busbar</td><td>nameplate</td></tr>
+<tr><td>6.6 kV auxiliary load</td><td class="tag">10BBA10</td><td>14.000 MW / 8.676 MVAr at pf 0.85</td><td>total documented, split assumed</td></tr>
+<tr><td>External grid</td><td class="tag">&mdash;</td><td>230 kV, Z = j2.6558 &Omega;</td><td>estimated from the 50 kA rating</td></tr>
+</tbody></table>
+<p class="note"><b>South only.</b> Ashuganj North is a different project (400 kV GIS, separate interbus transformers) and is not in this model. The highest voltage here is <b>230 kV</b>. Any 400 kV data in the source documents belongs to North and was deliberately left out.</p>
+</section>
+<section id="s3"><h2>3. How to run it</h2>
+<p>Everything is scripted. Nothing has to be dragged or wired by hand.</p>
+<h3>The short version</h3>
+<p>Open MATLAB, change to the <code>matlab</code> folder of the project, and run:</p>
+<pre class="code">ashuganj_setup();          % puts every project folder on the path
+run_load_flow_study();     % solves all four cases, writes every table</pre>
+<p>That single call builds the model from the dataset four times, solves each case, cross-checks the answers, writes the CSVs to <code>results/load_flow/</code>, and saves the Simulink files. It takes about a minute.</p>
+<h3>To look at the diagram</h3>
+<pre class="code">open('simulink/main/Ashuganj_South_Main.slx')
+
+% To solve it interactively instead:
+%   double-click the powergui block (top-left)
+%   choose Load Flow
+%   press Compute</pre>
+<h3>Every entry point</h3>
+<table><thead><tr><th>Command</th><th>What it does</th><th>Time</th></tr></thead><tbody>
+<tr><td><code>ashuganj_setup()</code></td><td>Sets the MATLAB path. Must be first, every session.</td><td>&lt;1 s</td></tr>
+<tr><td><code>run_load_flow_study()</code></td><td>The main driver: solve all four cases, write all tables and models.</td><td>~60 s</td></tr>
+<tr><td><code>run_all_tests()</code></td><td>The full validation suite, 447 checks.</td><td>~3 min</td></tr>
+<tr><td><code>run_all_tests('data')</code></td><td>Dataset checks only, no solver.</td><td>~2 s</td></tr>
+<tr><td><code>run_build()</code></td><td>Build the diagram and compile-check it, without solving.</td><td>~20 s</td></tr>
+<tr><td><code>make_annotated_diagrams()</code></td><td>The presentation copy: the one-line with solved flows written on it.</td><td>~90 s</td></tr>
+<tr><td><code>make_load_flow_plots()</code></td><td>The result figures, drawn from the CSVs.</td><td>~10 s</td></tr>
+<tr><td><code>build_project_update()</code></td><td>Regenerates this document from the current results.</td><td>~5 s</td></tr>
+</tbody></table>
+<h3>Demonstrating it to someone else</h3>
+<p>Order to follow if the model is being shown live, and what to say at each step. Nothing here needs anything typed except step&nbsp;1.</p>
+<table><thead><tr><th>Step</th><th>What to do</th><th>What is on screen</th></tr></thead><tbody>
+<tr><td class="tag">1</td><td>In MATLAB, <code>cd</code> to the project's <code>matlab</code> folder and run <code>ashuganj_setup()</code>.</td><td>A confirmation of the path and the MATLAB version. Nothing visual yet.</td></tr>
+<tr><td class="tag">2</td><td>Run <code>run_load_flow_study()</code> and let it print.</td><td>The four cases solving one after another, each printing its dispatch, its convergence and its cross-check verdict. This is the evidence that the study runs end to end.</td></tr>
+<tr><td class="tag">3</td><td>Open <code>simulink/main/Ashuganj_South_Main.slx</code>.</td><td>The one-line diagram, laid out to match the plant drawing. Put the plant drawing beside it &mdash; the columns and tiers correspond.</td></tr>
+<tr><td class="tag">4</td><td>Double-click <b>powergui</b>, choose <b>Load Flow</b>, press <b>Compute</b>.</td><td>The solver's own bus table, produced by Simulink rather than by our scripts. Useful precisely because it is not our code.</td></tr>
+<tr><td class="tag">5</td><td>Open <code>simulink/studies/Load_Flow_LF1_Annotated.slx</code>.</td><td>The same diagram with the solved flows, voltages and loading written onto every element. This is the sheet to present.</td></tr>
+<tr><td class="tag">6</td><td>Show <code>results/load_flow/system_summary.csv</code>.</td><td>One row per case: generation, auxiliary demand, losses, export, iterations, cross-check verdict.</td></tr>
+<tr><td class="tag">7</td><td>Show this page.</td><td>The findings and what is still missing.</td></tr>
+</tbody></table>
+<p class="note"><b>If something does not run.</b> Almost every failure is the path: <code>ashuganj_setup()</code> has to be run once per MATLAB session, before anything else. The second most likely cause is a stale model left open &mdash; <code>bdclose('all')</code> clears it. The study closes each model itself, so no manual cleanup is normally needed.</p>
+</section>
+<section id="s4"><h2>4. The Simulink model, block by block</h2>
+<p>12 blocks in total. The layout copies drawing DE-0001 Rev 03 so the two sheets can be laid side by side and checked element by element: generator at the bottom of the left column, step-up transformer directly above it, auxiliary transformer in its own column to the right, switchyard across the top. Colour carries voltage level &mdash; red 230 kV, orange 22 kV, blue 6.6 kV.</p>
+<figure><img src="Load_Flow_LF1_Annotated.png" alt="Load_Flow_LF1_Annotated.png"><figcaption>The model at case LF1, with the solved result written onto each element. Generated by make_annotated_diagrams() straight from the solved network, so the numbers on the sheet and the numbers in &sect;7 are the same numbers. The other three cases are in results/diagrams/ as separate sheets.</figcaption></figure>
+<table><thead><tr><th>Block on the diagram</th><th>Simulink block used</th><th>Why that block, and what it stands for</th></tr></thead><tbody>
+<tr><td class="tag">G1 10MKA10</td><td><code>Three-Phase Source (PV)</code></td><td>The generator. An <b>ideal</b> source on PV control, not the synchronous machine block. The machine block would additionally need x<sub>q</sub>, armature resistance, inertia and four time constants, none of which is in the source documents &mdash; and a balanced load flow uses none of them. A PV bus is fully specified by |V| and P.</td></tr>
+<tr><td class="tag">GSUT 10BAT10</td><td><code>Three-Phase Transformer (Two Windings)</code></td><td>Generator step-up, 230/22 kV YNd1. Impedance, resistance, iron loss and magnetising current all come from the nameplate; the tap is on the principal position 9 of 25.</td></tr>
+<tr><td class="tag">UAT 10BBT10</td><td><code>Three-Phase Transformer (Two Windings)</code></td><td>Unit auxiliary, 22/6.9 kV Dyn11. Normal supply to the 6.6 kV auxiliary board.</td></tr>
+<tr><td class="tag">GAT 10BBT20</td><td><code>Three-Phase Transformer (Two Windings)</code></td><td>Station auxiliary, 230/6.9 kV. The real unit has a third 3.32 kV delta winding, but only its two-winding positive-sequence impedance is documented, so it is modelled with two windings and the tertiary is noted as omitted rather than given invented data.</td></tr>
+<tr><td class="tag">10BAY12 COUPLER</td><td><code>Three-Phase Breaker</code></td><td>The GIS bus coupler between 230 kV BUS 1 and BUS 2. Closed in all four cases.</td></tr>
+<tr><td class="tag">10BAY20 CB</td><td><code>Three-Phase Breaker</code></td><td>The station auxiliary transformer's 230 kV bay breaker. This is the switch the case matrix opens and closes.</td></tr>
+<tr><td class="tag">EXT GRID</td><td><code>Three-Phase Source (swing)</code></td><td>The PGCB grid, represented at the plant boundary as the swing bus &mdash; it absorbs whatever the plant exports and sets the system reference angle.</td></tr>
+<tr><td class="tag">ZGRID</td><td><code>Three-Phase Series RLC Branch</code></td><td>The grid's source impedance, kept as a <b>separate visible block</b> rather than hidden inside the source, because it is the one estimated impedance in the model and it should be visible as such.</td></tr>
+<tr><td class="tag">LOAD_B6_6 &times;3</td><td><code>Three-Phase Parallel RLC Load</code></td><td>The three 6.6 kV auxiliary groups: main board, and two water-intake motor groups.</td></tr>
+<tr><td class="tag">powergui</td><td><code>Environment block</code></td><td>Not plant equipment &mdash; it is the solver, and the button you press to run the load flow. Set to 50 Hz.</td></tr>
+</tbody></table>
+<p class="note"><b>What is deliberately not a block.</b> Bay conductors, disconnectors, earthing switches, current and voltage transformer burdens, the generator circuit breaker and the isolated phase busbar run all appear on the plant drawing but carry <b>no documented impedance</b>. They are drawn as ideal connections and labelled as such. Giving them textbook impedances would put invented numbers into a study whose whole purpose is to be traceable.</p>
+<h3>How the layout is held to the plant drawing</h3>
+<p>The positions are not eyeballed. One file holds every column and every tier as a named coordinate, and asserts the relationships that make the sheet readable as a single-line diagram &mdash; so the layout cannot drift as blocks are added.</p>
+<div class="snip"><div class="sh"><code>build/sps_geom.m</code><span>Column coordinates, and the assertions that keep them in the drawing's order</span></div>
+<pre class="code">g.col.g1      =  200;   % GENERATOR 10MKA10 - bottom of the left-hand chain
+g.col.gsut    =  200;   % GSUT 10BAT10 - directly ABOVE the generator
+g.col.uat     =  480;   % UAT 10BBT10 - its own column, tapped off 22 kV
+g.col.grid    =  700;   % EXT GRID source and the grid equivalent branch
+g.col.coupler = 1000;   % bus coupler 10BAY12
+g.col.gat     = 1620;   % GAT 10BBT20 and its bay breaker 10BAY20 - far right
+g.col.load    = [480, 860, 1240];   % the three 6.6 kV load groups
+
+% The generator shares the GSUT's column. That is the one column identity the
+% drawing DOES use: 10BAT10, the isolated phase busbars and 10MKA10 are all on
+% the same vertical centre line, so the 22 kV connection is a single straight
+% run. Breaking this would turn the drawing's cleanest feature into a detour.
+assert(g.col.g1 == g.col.gsut, ...
+    ['sps_geom: the generator must share the GSUT column. DE-0001 Rev 03 puts ', ...
+</pre>
+<div class="sl">build/sps_geom.m, lines 97&ndash;110</div></div>
+</section>
+<section id="s5"><h2>5. The MATLAB code, file by file</h2>
+<p>The code is layered so that data, model construction, solving and checking never mix. Reading order is top to bottom.</p>
+<h3>Dataset</h3>
+<p class="why">Every plant parameter, with its source document and a status flag on each number. Nothing downstream may contain a parameter value.</p>
+<table class="files"><tbody>
+<tr><td><code>data/ashuganj_master_data.m</code></td><td>Assembles the whole dataset and the four case definitions. Everything else reads this.</td></tr>
+<tr><td><code>data/ashuganj_buses.m</code></td><td>The eight electrical nodes, their nominal voltages and bases.</td></tr>
+<tr><td><code>data/ashuganj_generators.m</code></td><td>Generator nameplate: 458/518 MVA, 22 kV, pf 0.85, and the reactances kept for the fault study.</td></tr>
+<tr><td><code>data/ashuganj_transformers.m</code></td><td>The three transformers. Also derives X from Z and R, and the magnetising branch from no-load loss and excitation current.</td></tr>
+<tr><td><code>data/ashuganj_loads.m</code></td><td>The 6.6 kV auxiliary load and its split across the three nodes.</td></tr>
+<tr><td><code>data/ashuganj_grid.m</code></td><td>The external grid equivalent, estimated from the switchgear 50 kA rating.</td></tr>
+<tr><td><code>data/ashuganj_lines.m</code></td><td>The plant's internal connections, and the record that their impedances are undocumented.</td></tr>
+<tr><td><code>data/assumptions/*.m</code></td><td>One file per assumption, kept apart from verified data on purpose. Five files.</td></tr>
+</tbody></table>
+<h3>Model builders</h3>
+<p class="why">Turn the dataset into a Simulink model. These files contain geometry and block wiring - no electrical values.</p>
+<table class="files"><tbody>
+<tr><td><code>build/build_ashuganj_main.m</code></td><td>The driver: creates the model, calls each zone builder, wires the zones together, draws busbars, captions and the footer tables, saves.</td></tr>
+<tr><td><code>build/sps_geom.m</code></td><td>The single layout authority: every column, tier, block size and colour. The reason the diagram matches the plant drawing.</td></tr>
+<tr><td><code>build/sps_wire.m</code></td><td>Adds blocks, draws orthogonal connections, busbars, captions and zone panels.</td></tr>
+<tr><td><code>build/sps_blocks.m</code></td><td>The library paths of the Simscape blocks used, and a note on the ones deliberately not used.</td></tr>
+<tr><td><code>build/build_generator_system.m</code></td><td>The generator zone.</td></tr>
+<tr><td><code>build/build_gsut_system.m</code></td><td>The step-up transformer zone.</td></tr>
+<tr><td><code>build/build_230kv_system.m</code></td><td>The 230 kV switchyard: busbars, coupler, station-auxiliary bay.</td></tr>
+<tr><td><code>build/build_auxiliary_system.m</code></td><td>The 6.6 kV system: both auxiliary transformers and the three load groups.</td></tr>
+<tr><td><code>build/build_external_grid.m</code></td><td>The grid swing source and its series impedance.</td></tr>
+</tbody></table>
+<h3>Solve and analyse</h3>
+<p class="why">Run the study and extract results.</p>
+<table class="files"><tbody>
+<tr><td><code>studies/run_load_flow_study.m</code></td><td>The main driver. Builds each case fresh, solves it, cross-checks it, writes every table.</td></tr>
+<tr><td><code>analysis/ashuganj_bus_map.m</code></td><td>Works out which solved bus is which named node - the solver numbers buses, it does not name them.</td></tr>
+<tr><td><code>analysis/ashuganj_branch_flows.m</code></td><td>Rebuilds every branch flow from the solved voltages and the documented impedances - an independent check, not a readout.</td></tr>
+<tr><td><code>analysis/ashuganj_bus_results.m</code></td><td>The per-bus table, and the KCL residual at every node.</td></tr>
+<tr><td><code>analysis/make_load_flow_plots.m</code></td><td>The figures, drawn from the CSVs so they cannot disagree with the tables.</td></tr>
+<tr><td><code>studies/make_annotated_diagrams.m</code></td><td>The presentation one-line with solved flows written onto it.</td></tr>
+<tr><td><code>utilities/convert_to_system_base.m</code></td><td>Per-unit base conversion.</td></tr>
+</tbody></table>
+<h3>Validation</h3>
+<p class="why">The suite that has to pass before any result is quoted. It checks the dataset for internal consistency, and the built model against the dataset.</p>
+<table class="files"><tbody>
+<tr><td><code>tests/run_all_tests.m</code></td><td>Runs everything and prints the summary.</td></tr>
+<tr><td><code>tests/test_bus_data.m</code></td><td>Bus register consistency (61 checks).</td></tr>
+<tr><td><code>tests/test_generator_data.m</code></td><td>Generator data and its per-unit conversions (28).</td></tr>
+<tr><td><code>tests/test_transformer_data.m</code></td><td>All three transformers, every derived quantity (85).</td></tr>
+<tr><td><code>tests/test_line_data.m</code></td><td>Connection records, and that no impedance was invented (47).</td></tr>
+<tr><td><code>tests/test_load_data.m</code></td><td>Load totals and the split (58).</td></tr>
+<tr><td><code>tests/test_base_conversion.m</code></td><td>Per-unit arithmetic (19).</td></tr>
+<tr><td><code>tests/test_topology.m</code></td><td>That the built network matches the register (52).</td></tr>
+<tr><td><code>tests/test_transformer_phase_shift.m</code></td><td>That the vector groups produce the right phase shifts in the solved model (18).</td></tr>
+<tr><td><code>tests/test_grid_sensitivity.m</code></td><td>How much the estimated grid impedance actually matters (38).</td></tr>
+<tr><td><code>tests/test_magnetising_sensitivity.m</code></td><td>How much the magnetising branch matters (41).</td></tr>
+</tbody></table>
+</section>
+<section id="s6"><h2>6. Key code, and what each piece does</h2>
+<p>The excerpts below carry the engineering, with what each one is for. They are <b>quoted from the source files at the moment this page is generated</b>, with the line numbers shown, so they cannot go out of date against the code they describe. Everything else in the project is bookkeeping around these.</p>
+<h3>Where the numbers come from</h3>
+<p>Nameplates give impedance as a magnitude and a resistance percentage. The model needs reactance, split windings and a magnetising branch. That conversion happens in exactly one place, from nameplate quantities only.</p>
+<div class="snip"><div class="sh"><code>data/ashuganj_transformers.m</code><span>Nameplate Z, R, no-load loss and excitation current &rarr; the block's parameters</span></div>
+<pre class="code">Zpu = T(i).Z_pct/100;
+Rpu = T(i).R_pct/100;
+
+assert(Rpu &lt; Zpu, ['ashuganj_transformers: %s has R &gt;= Z, so X would be ', ...
+    'imaginary. Check the nameplate transcription.'], T(i).Name);
+
+T(i).X_pu               = sqrt(Zpu^2 - Rpu^2);
+T(i).X_pct              = 100*T(i).X_pu;
+T(i).X_Status           = 'DERIVED_FROM_VERIFIED_DATA';
+T(i).X_Derivation       = 'X = sqrt(Z^2 - R^2) from nameplate Z and R';
+T(i).R_pu               = Rpu;
+T(i).Z_pu               = Zpu;
+T(i).XR_ratio           = T(i).X_pu/Rpu;
+T(i).XR_Status          = 'DERIVED_FROM_VERIFIED_DATA';
+
+</pre>
+<div class="sl">data/ashuganj_transformers.m, lines 352&ndash;366</div></div>
+<p>The <code>assert</code> is not decoration: if R ever exceeded Z the square root would go imaginary and produce a complex "reactance" that Simulink would accept and quietly mis-solve. The magnetising resistance comes from no-load loss, and the magnetising inductance from excitation current with the iron-loss component removed &mdash; not from the excitation current alone, which is the common shortcut.</p>
+<p>The grid is the one component with no nameplate. Its impedance is inferred from the switchgear's 50 kA rating, which is a rating and not a grid study &mdash; so the derivation is written out in full and the value is flagged as estimated everywhere it appears.</p>
+<div class="snip"><div class="sh"><code>data/ashuganj_grid.m</code><span>The external grid equivalent, inferred from the GIS short-circuit rating</span></div>
+<pre class="code">G.Ssc_MVA           = sqrt(3)*G.Vnom_V*G.Isc_kA*1000/1e6;
+G.Ssc_Status        = 'DERIVED_FROM_VERIFIED_DATA';   % derived FROM AN ESTIMATE
+G.Ssc_Derivation    = 'S = sqrt(3) * 230 kV * 50 kA';
+G.Ssc_Note          = ['DERIVED_FROM_VERIFIED_DATA describes the ARITHMETIC ', ...
+                       'only. The INPUT is ESTIMATED, so the result inherits ', ...
+                       'ESTIMATED confidence. Do not quote this as verified.'];
+</pre>
+<div class="sl">data/ashuganj_grid.m, lines 74&ndash;79</div></div>
+<p>R is set to <b>zero exactly</b>, not to a textbook X/R. No grid X/R is documented, and a fabricated one would look like data. The cost of that choice is stated in &sect;9 rather than hidden.</p>
+<h3>How the model gets built</h3>
+<p>The build files contain no electrical values at all &mdash; they read the dataset and write it into blocks. This is the whole of the transformer parameterisation, and it is worth reading as the answer to "where did that block's numbers come from".</p>
+<div class="snip"><div class="sh"><code>build/build_auxiliary_system.m</code><span>Dataset struct &rarr; Three-Phase Transformer block parameters</span></div>
+<pre class="code">function apply_tx2(blk, t)
+%APPLY_TX2  Populate one SPS two-winding transformer block from a registry row.
+set_param(blk, ...
+    'UNITS',              'pu', ...
+    'NominalPower',       sprintf('[ %.10g , %.10g ]', t.S_rating_MVA*1e6, t.f_Hz), ...
+    'Winding1',           sprintf('[ %.10g , %.12g , %.12g ]', t.V_HV_V, t.R1_pu, t.L1_pu), ...
+    'Winding2',           sprintf('[ %.10g , %.12g , %.12g ]', t.V_LV_V, t.R2_pu, t.L2_pu), ...
+    'Winding1Connection', t.Conn_HV, ...
+    'Winding2Connection', t.Conn_LV, ...
+    'CoreType',           t.Model_coretype, ...
+    'SetSaturation',      t.Model_saturation, ...
+    'Rm',                 sprintf('%.10g', t.Rm_pu), ...
+    'Lm',                 sprintf('%.10g', t.Lm_pu), ...
+    'L0',                 sprintf('%.10g', t.L0_pu));
+sps_wire('setopt', blk, 'Measurements', 'None');
+end
+</pre>
+<div class="sl">build/build_auxiliary_system.m, lines 167&ndash;182</div></div>
+<p>Note <code>UNITS'pu'</code> first: the order matters, because the block reinterprets the numbers already in its winding fields when the unit system changes. Note also that saturation is left off &mdash; a saturation characteristic is not in the source documents, and a balanced load flow does not use one.</p>
+<p>The two breakers are the only blocks whose state encodes the case matrix. Their switching times are pushed far into the future so that nothing ever operates: for a load flow they are static links, open or closed.</p>
+<div class="snip"><div class="sh"><code>build/build_230kv_system.m</code><span>The bay breaker and bus coupler, set once per case and never switched</span></div>
+<pre class="code">function set_breaker(blk, closed)
+%SET_BREAKER  Fix a Three-Phase Breaker permanently open or permanently closed.
+%   SwitchTimes is pushed far beyond any simulation horizon rather than left
+%   empty: an empty matrix makes the block's mask initialisation fail
+%   ("Failed to evaluate mask initialization commands"), verified in
+%   matlab/env/probe_ports.m.
+if closed, st = 'closed'; else, st = 'open'; end
+set_param(blk, ...
+    'InitialState',        st, ...
+    'SwitchA',             'on', ...
+    'SwitchB',             'on', ...
+    'SwitchC',             'on', ...
+    'SwitchTimes',         '[1e6]', ...
+    'External',            'off', ...
+    'BreakerResistance',   '0.01', ...
+    'SnubberResistance',   '1e6', ...
+    'SnubberCapacitance',  'inf');
+sps_wire('setopt', blk, 'Measurements', 'None');
+end
+</pre>
+<div class="sl">build/build_230kv_system.m, lines 113&ndash;131</div></div>
+<p>Two settings in the model driver matter more than they look. The solver choice is what Specialized Power Systems needs for a circuit containing magnetising branches; the frequency has to be written <b>twice</b>, because the dialog field and the field the analysis tools actually read are different parameters. Setting only the visible one leaves a 50 Hz-looking model solving at 60 Hz &mdash; which is exactly the defect found in the plant's previous study.</p>
+<div class="snip"><div class="sh"><code>build/build_ashuganj_main.m</code><span>Solver configuration for a Specialized Power Systems network</span></div>
+<pre class="code">set_param(mdl, ...
+    'SolverType',     'Variable-step', ...
+    'Solver',         'ode23tb', ...
+    'StartTime',      '0.0', ...
+    'StopTime',       '0.1', ...
+    'RelTol',         '1e-4', ...
+    'AbsTol',         'auto', ...
+    'MaxStep',        'auto', ...
+    'SaveOutput',     'off', ...
+    'SaveTime',       'off');
+
+</pre>
+<div class="sl">build/build_ashuganj_main.m, lines 259&ndash;269</div></div>
+<div class="snip"><div class="sh"><code>build/build_ashuganj_main.m</code><span>Setting 50 Hz where the load flow will actually read it</span></div>
+<pre class="code">fHz = D.base.f_Hz;
+dp  = get_param(pg, 'DialogParameters');
+if ~isfield(dp, 'frequencyindice')
+    error('build_ashuganj_main:noFreqIndice', ...
+        ['This powergui has no ''frequencyindice'' parameter, so the frequency ' ...
+         'the load flow will use cannot be set with confidence. Re-verify the ' ...
+         'frequency mechanism for this MATLAB release before building.']);
+end
+set_param(pg, 'frequency',       sprintf('%.10g', fHz));
+set_param(pg, 'frequencyindice', sprintf('%.10g', fHz));
+</pre>
+<div class="sl">build/build_ashuganj_main.m, lines 307&ndash;316</div></div>
+<h3>Solving, and proving the answer</h3>
+<p>The solve is one call. The report is requested in the <b>same</b> call that returns the solution, because solving writes the answer back into the blocks &mdash; a second solve would describe a slightly different network.</p>
+<div class="snip"><div class="sh"><code>studies/run_load_flow_study.m</code><span>The load flow itself</span></div>
+<pre class="code">if isempty(rptPath)
+    LF = power_loadflow(info.model, 'solve');
+else
+    LF = power_loadflow(info.model, 'solve', 'report', rptPath);
+end
+</pre>
+<div class="sl">studies/run_load_flow_study.m, lines 189&ndash;193</div></div>
+<p>Then the gate that everything downstream depends on. <code>power_loadflow</code> does <b>not</b> throw when it fails to converge; it returns a status and strips the solution fields. Without this check a failed case would surface as a confusing error deep in post-processing, or worse, as a table.</p>
+<div class="snip"><div class="sh"><code>studies/run_load_flow_study.m</code><span>Convergence is checked before a single number is post-processed</span></div>
+<pre class="code">if LF.status ~= 1 || ~isempty(LF.error)
+    fprintf('  *** DID NOT CONVERGE: status %d, "%s"\n', LF.status, LF.error);
+    s = failed_case(C, LF, secs);
+    bdclose(info.model);
+    return
+end
+</pre>
+<div class="sl">studies/run_load_flow_study.m, lines 204&ndash;209</div></div>
+<p>The results are then rebuilt from scratch, outside the solver. This is the part that makes the study defensible rather than merely produced: the off-nominal turns ratio and the vector-group phase shift are applied independently, the branch is solved as a T-network by hand, and the answer is compared against what the solver reported.</p>
+<div class="snip"><div class="sh"><code>analysis/ashuganj_branch_flows.m</code><span>Off-nominal ratio and vector-group shift, applied independently of the solver</span></div>
+<pre class="code">ratio = (x.V_HV_V / x.V_LV_V) * (BL.Vnom_V / BH.Vnom_V);
+switch x.VectorGroup
+    case 'YNd1',                th =  30;    % LV lags HV
+    case 'Dyn11',               th = -30;    % LV leads HV
+    case {'YNyn0','YNyn0+d11'}, th =   0;
+    otherwise
+        th   = 0;
+        note = strtrim([note ' | UNRECOGNISED vector group ' x.VectorGroup ...
+                        ': no phase shift applied, angles are not trustworthy']);
+end
+
+</pre>
+<div class="sl">analysis/ashuganj_branch_flows.m, lines 128&ndash;138</div></div>
+<div class="snip"><div class="sh"><code>analysis/ashuganj_branch_flows.m</code><span>The transformer T-network solved by hand from the solved bus voltages</span></div>
+<pre class="code">VA = (VLref/Z2 + VH/Z1) / (1/Z1 + 1/Z2 + Ym);
+I1 = (VA - VH) / Z1;                            % node A -&gt; HV bus
+I2 = (VLref - VA) / Z2;                         % LV bus -&gt; node A
+
+</pre>
+<div class="sl">analysis/ashuganj_branch_flows.m, lines 144&ndash;147</div></div>
+<p>The <code>YNd1</code> &rarr; +30&deg;, <code>Dyn11</code> &rarr; &minus;30&deg; mapping is the mechanism behind Finding&nbsp;2, and the <code>otherwise</code> branch refuses to guess: an unrecognised vector group produces a warning attached to the result rather than a silent zero.</p>
+<p>Before any of that is trusted, one sanity check on the solver's own units. If a future release ever reported bus injections in MW instead of per unit, every number in the study would be wrong by a factor of a hundred while still looking entirely plausible. The generator injection is known exactly from the case definition, so it is used as the probe.</p>
+<div class="snip"><div class="sh"><code>analysis/ashuganj_bus_results.m</code><span>A guard against the solver's units changing underneath the study</span></div>
+<pre class="code">if abs(real(LF.bus(kPV).Sbus)*Sb - C.Gen_P_MW) &gt; 1e-3
+    error('ashuganj_bus_results:sbusUnits', ...
+        ['Generator bus injection is %.6g on the reported scale; case %s ' ...
+         'dispatches %.2f MW. LF.bus.Sbus is not per unit on the %g MVA base ' ...
+         'as assumed, so no result below can be trusted.'], ...
+        real(LF.bus(kPV).Sbus), C.ID, C.Gen_P_MW, Sb);
+end
+</pre>
+<div class="sl">analysis/ashuganj_bus_results.m, lines 66&ndash;72</div></div>
+<p>And finally the cross-check itself: at every bus, the sum of the independently computed branch flows against the injection the solver reports. Agreement to a fraction of a microwatt means two separate calculations agree on which network was solved.</p>
+<div class="snip"><div class="sh"><code>analysis/ashuganj_bus_results.m</code><span>The KCL residual &mdash; the number quoted at the top of this page</span></div>
+<pre class="code">    inj = Bres(j).P_inj_MW + 1i*Bres(j).Q_inj_MVAr;
+    n = numel(resid) + 1;
+    resid(n).Name        = Bres(j).Name;
+    resid(n).Inj_MVA     = inj;
+    resid(n).Branches_MVA= Sn;
+    resid(n).dP_MW       = real(inj - Sn);
+    resid(n).dQ_MVAr     = imag(inj - Sn);
+    resid(n).Residual_MVA= abs(inj - Sn);
+end
+</pre>
+<div class="sl">analysis/ashuganj_bus_results.m, lines 191&ndash;199</div></div>
+</section>
+<section id="s7"><h2>7. Load flow results</h2>
+<p>Four cases. Two things vary independently: how hard the unit is running, and whether the station auxiliary transformer's 230 kV bay is closed. Varying them separately is the point &mdash; reporting only two cases would confuse the effect of dispatch with the effect of the bay.</p>
+<table><thead><tr><th>Case</th><th>Dispatch</th><th>Station aux bay</th><th>Network</th></tr></thead><tbody>
+<tr><td class="tag">LF1</td><td>389.30 MW (rated)</td><td>OUT</td><td>radial</td></tr>
+<tr><td class="tag">LF2</td><td>389.30 MW (rated)</td><td>IN</td><td>looped</td></tr>
+<tr><td class="tag">LF3</td><td>342.01 MW (derated)</td><td>OUT</td><td>radial</td></tr>
+<tr><td class="tag">LF4</td><td>342.01 MW (derated)</td><td>IN</td><td>looped</td></tr>
+</tbody></table>
+<h3>System summary</h3>
+<table class="num"><thead><tr><th>Case</th><th>Generation<br>MW</th><th>Reactive<br>MVAr</th><th>Auxiliary<br>MW</th><th>Losses<br>MW</th><th>Export<br>MW</th><th>Loss<br>%</th><th>Iter.</th></tr></thead><tbody>
+<tr><td class="tag">LF1</td><td>389.30</td><td>+31.68</td><td>14.00</td><td>0.816</td><td>374.48</td><td>0.210</td><td>2</td></tr>
+<tr><td class="tag">LF2</td><td>389.30</td><td>+27.46</td><td>14.00</td><td>0.833</td><td>374.47</td><td>0.214</td><td>2</td></tr>
+<tr><td class="tag">LF3</td><td>342.01</td><td>+26.17</td><td>14.00</td><td>0.680</td><td>327.33</td><td>0.199</td><td>2</td></tr>
+<tr><td class="tag">LF4</td><td>342.01</td><td>+22.01</td><td>14.00</td><td>0.690</td><td>327.32</td><td>0.202</td><td>2</td></tr>
+</tbody></table>
+<h3>Voltages</h3>
+<p>Per-unit, on each bus's own nominal voltage. The 22 kV bus is exactly 1.000 because that is where the generator holds voltage.</p>
+<table class="num"><thead><tr><th>Case</th><th>230 kV bus</th><th>22 kV bus</th><th>6.6 kV bus<br>(6600 V base)</th><th>6.6 kV bus<br>(6900 V base)</th></tr></thead><tbody>
+<tr><td class="tag">LF1</td><td>0.9987</td><td>1.0000</td><td>1.0009</td><td>0.9574</td></tr>
+<tr><td class="tag">LF2</td><td>0.9985</td><td>1.0000</td><td>1.0203</td><td>0.9759</td></tr>
+<tr><td class="tag">LF3</td><td>0.9990</td><td>1.0000</td><td>1.0009</td><td>0.9574</td></tr>
+<tr><td class="tag">LF4</td><td>0.9988</td><td>1.0000</td><td>1.0208</td><td>0.9764</td></tr>
+</tbody></table>
+<p class="note">Two columns for the same bus, because the transformer windings are rated <b>6.9 kV</b> while the board and its motors are <b>6.6 kV</b>. That is a real off-nominal ratio in the plant, worth 4.55 % on the reported voltage, and it is shown both ways rather than quietly resolved.</p>
+<h3>Bus detail, case LF1</h3>
+<p>Every bus in the register gets a row. Where two rows share one solved node, only the first carries the injection and the second names the node it merged into &mdash; repeating the figure on both would double the reported load. Injections are generation-positive.</p>
+<table class="num"><thead><tr><th>Bus</th><th>Label</th><th>Type</th><th>Nominal<br>kV</th><th>V pu</th><th>kV</th><th>Angle &deg;</th><th>P inj<br>MW</th><th>Q inj<br>MVAr</th></tr></thead><tbody>
+<tr><td class="tag">BGRID230</td><td>EXT GRID 230 kV</td><td>swing</td><td>230</td><td>1.0000</td><td>230.000</td><td>+0.000</td><td>-374.484</td><td>+29.986</td></tr>
+<tr><td class="tag">B22</td><td>22 kV GEN BUS</td><td>PV</td><td>22</td><td>1.0000</td><td>22.000</td><td>-22.225</td><td>+389.300</td><td>+31.676</td></tr>
+<tr><td class="tag">B6_6</td><td>6.6 kV MV BUS</td><td>PQ</td><td>6.6</td><td>1.0009</td><td>6.606</td><td>+4.334</td><td>-14.000</td><td>-8.676</td></tr>
+<tr><td class="tag">B6_6_WI1</td><td>6.6 kV WI-1<div class="sl">same node as B6_6</div></td><td>PQ</td><td>6.6</td><td>1.0009</td><td>6.606</td><td>+4.334</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td class="tag">B6_6_WI2</td><td>6.6 kV WI-2<div class="sl">same node as B6_6</div></td><td>PQ</td><td>6.6</td><td>1.0009</td><td>6.606</td><td>+4.334</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td class="tag">B230_1</td><td>230 kV BUS 1 + BUS 2 (coupler closed)</td><td>PQ</td><td>230</td><td>0.9987</td><td>229.694</td><td>+1.079</td><td>+0.000</td><td>+0.000</td></tr>
+<tr><td class="tag">B230_2</td><td>230 kV BUS 2<div class="sl">same node as B230_1</div></td><td>PQ</td><td>230</td><td>0.9987</td><td>229.694</td><td>+1.079</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td class="tag">GAT_HV</td><td>GAT_HV</td><td>PQ</td><td>230</td><td>0.9572</td><td>220.166</td><td>+4.332</td><td>-0.000</td><td>+0.000</td></tr>
+</tbody></table>
+<p class="note"><b>Three rows need a word of explanation.</b> <b>3 of the 8 rows</b> are merged members. The two water-intake nodes merge into the main 6.6 kV bus because the feeders between them have no documented impedance &mdash; a zero-impedance connection is not a branch to a load flow, it is an identity. 230 kV BUS 2 merges into BUS 1 because the coupler is closed, which also means the coupler current is not observable. And <code>GAT_HV</code> is not a busbar at all: with the station auxiliary bay open it is a transformer terminal back-energised from the 6.6 kV side, so its 0.9572 pu is a turns ratio and not a system voltage.</p>
+<h3>Transformer loading</h3>
+<p>Against the <b>lowest</b> cooling stage &mdash; the rating in force before fans and pumps start. This is where the two findings are.</p>
+<table class="num"><thead><tr><th>Case</th><th>Transformer</th><th>Rating stages<br>MVA</th><th>Flow MW</th><th>MVA</th><th>Loading, lowest stage</th><th>Loading, highest stage</th><th>Loss MW</th></tr></thead><tbody>
+<tr><td class="tag">LF1</td><td>GSUT 10BAT10</td><td>355 460 515</td><td>374.49</td><td>375.19</td><td class="bad">105.9 %</td><td>73.0 %</td><td>0.7340</td></tr>
+<tr><td class="tag">LF1</td><td>UAT 10BBT10</td><td>19 25</td><td>14.08</td><td>17.31</td><td>91.1 %</td><td>69.2 %</td><td>0.0612</td></tr>
+<tr><td class="tag">LF1</td><td>GAT 10BBT20</td><td>19 25</td><td>0.00</td><td>0.00</td><td>0.3 %</td><td>0.3 %</td><td>0.0211</td></tr>
+<tr><td class="tag">LF2</td><td>GSUT 10BAT10</td><td>355 460 515</td><td>368.60</td><td>369.23</td><td class="bad">104.2 %</td><td>71.8 %</td><td>0.7160</td></tr>
+<tr><td class="tag">LF2</td><td>UAT 10BBT10</td><td>19 25</td><td>19.99</td><td>20.82</td><td class="bad">109.6 %</td><td>83.3 %</td><td>0.0829</td></tr>
+<tr><td class="tag">LF2</td><td>GAT 10BBT20</td><td>19 25</td><td>5.87</td><td>7.75</td><td>40.8 %</td><td>31.0 %</td><td>0.0344</td></tr>
+<tr><td class="tag">LF3</td><td>GSUT 10BAT10</td><td>355 460 515</td><td>327.33</td><td>327.83</td><td>92.5 %</td><td>63.8 %</td><td>0.5978</td></tr>
+<tr><td class="tag">LF3</td><td>UAT 10BBT10</td><td>19 25</td><td>14.08</td><td>17.31</td><td>91.1 %</td><td>69.2 %</td><td>0.0612</td></tr>
+<tr><td class="tag">LF3</td><td>GAT 10BBT20</td><td>19 25</td><td>0.00</td><td>0.00</td><td>0.3 %</td><td>0.3 %</td><td>0.0211</td></tr>
+<tr><td class="tag">LF4</td><td>GSUT 10BAT10</td><td>355 460 515</td><td>322.99</td><td>323.43</td><td>91.3 %</td><td>62.9 %</td><td>0.5862</td></tr>
+<tr><td class="tag">LF4</td><td>UAT 10BBT10</td><td>19 25</td><td>18.43</td><td>19.28</td><td class="bad">101.5 %</td><td>77.1 %</td><td>0.0731</td></tr>
+<tr><td class="tag">LF4</td><td>GAT 10BBT20</td><td>19 25</td><td>4.33</td><td>6.55</td><td>34.5 %</td><td>26.2 %</td><td>0.0310</td></tr>
+</tbody></table>
+<p class="note">Red marks a transformer over its natural-cooling rating. In the two cases where the station auxiliary bay is closed, <b>both</b> auxiliary paths are loaded and the unit transformer goes over nameplate while the load it supplies has not changed &mdash; see Finding 2.</p>
+<h3>Generator</h3>
+<table class="num"><thead><tr><th>Case</th><th>MW</th><th>MVAr</th><th>MVA</th><th>pf</th><th>Current A</th><th>% of 458 MVA</th></tr></thead><tbody>
+<tr><td class="tag">LF1</td><td>389.30</td><td>+31.68</td><td>390.59</td><td>0.9967</td><td>10250</td><td>85.3 %</td></tr>
+<tr><td class="tag">LF2</td><td>389.30</td><td>+27.46</td><td>390.27</td><td>0.9975</td><td>10242</td><td>85.2 %</td></tr>
+<tr><td class="tag">LF3</td><td>342.01</td><td>+26.17</td><td>343.01</td><td>0.9971</td><td>9002</td><td>74.9 %</td></tr>
+<tr><td class="tag">LF4</td><td>342.01</td><td>+22.01</td><td>342.72</td><td>0.9979</td><td>8994</td><td>74.8 %</td></tr>
+</tbody></table>
+<h3>The same results as figures</h3>
+<p>Drawn from the CSVs above by <code>make_load_flow_plots()</code>, so a figure cannot disagree with its table.</p>
+<div class="grid2">
+<figure><img src="power_balance.png" alt="power_balance.png"><figcaption>Generation, auxiliary demand, losses and export, per case.</figcaption></figure>
+<figure><img src="bus_voltage_profile.png" alt="bus_voltage_profile.png"><figcaption>Bus voltages against nominal. The 22 kV bus is the regulated point.</figcaption></figure>
+<figure><img src="transformer_loading.png" alt="transformer_loading.png"><figcaption>Transformer loading against every cooling stage &mdash; where both findings show up.</figcaption></figure>
+<figure><img src="line_loading.png" alt="line_loading.png"><figcaption>Branch loading, including the circulating flow through the auxiliary loop.</figcaption></figure>
+</div>
+</section>
+<section id="s8"><h2>8. What the results mean</h2>
+<h3>The numbers are consistent</h3>
+<p>All four cases converge in <b>2 iterations</b>, which is what a well-conditioned network of this size should do. More useful than convergence: every branch flow was <b>rebuilt from the solved voltages and the nameplate impedances, outside the solver</b>, and compared against the solver's own bus injections at every node.</p>
+<p>The worst mismatch is <b>8.6e-08 MVA</b> in the two radial cases and <b>6.1e-04 MVA</b> in the two looped ones. The looped cases are worse for a reason worth stating: there the circulating power is the small difference between two much larger flows, so it inherits proportionally more of the solver's convergence tolerance. Even so, 6.1e-04 MVA on a 100 MVA base is below the tolerance the solve was asked to meet.</p>
+<p>Separately, generation minus auxiliary demand minus losses equals export to <b>7e-13 MW</b> &mdash; machine precision, in every case. The answers are arithmetically sound; whether they are the right answers depends on the input data, which is what &sect;9 is about.</p>
+<h3>Finding 1 &mdash; the step-up transformer needs forced cooling at full output</h3>
+<p>At rated dispatch the step-up transformer carries <b>105.9 % of its 355 MVA natural-cooling rating</b>. It is comfortable on the highest stage &mdash; 73.0 % of 515 MVA &mdash; so nothing is over-rated, but the oil pumps and fans are <b>not optional</b> at full load. This is a straightforward consequence of the ratings, and it is the kind of thing that is easy to miss if loading is only ever quoted against the top cooling stage.</p>
+<h3>Finding 2 &mdash; closing the station auxiliary bay makes power circulate</h3>
+<p>With the station auxiliary bay closed, the 6.6 kV board is fed from <b>both ends at once</b> &mdash; through the unit transformer from 22 kV, and through the station transformer from 230 kV. The two paths form a loop, and the loop carries circulating power.</p>
+<p>The unit transformer delivers <b>19.90 MW</b> into a <b>14.00 MW</b> load. The surplus &mdash; <b>5.90 MW</b> &mdash; leaves again through the station transformer and back into the 230 kV system. It is not consumed by anything; it simply goes round. The independent check is that the station transformer reports almost exactly that figure flowing the other way (5.90 MW), and the step-up transformer's throughput drops by the same amount.</p>
+<p><b>Why it is allowed to happen at all:</b> the vector groups permit it. Going round the loop, the step-up transformer contributes +30&deg;, the station transformer 0&deg; and the unit transformer &minus;30&deg;, which sums to zero. There is no phase barrier to stop the flow.</p>
+<p><b>Why it matters:</b> this pushes the unit auxiliary transformer to <b>109.6 % of its 19 MVA natural-cooling rating</b> &mdash; over its nameplate, to supply a load well inside it. On the forced-cooling stage it is 83.3 %, so the unit is not endangered, but running both supplies in parallel is loading a transformer for no delivered power. Whether the plant actually does this is a question for the operators; the model shows what happens if it does.</p>
+<figure><img src="Load_Flow_LF2_Annotated.png" alt="Load_Flow_LF2_Annotated.png"><figcaption>Case LF2 on the sheet. Compare the unit transformer's flow with the auxiliary load beneath it: the difference is the circulating power, and it reappears on the station auxiliary transformer at the far right.</figcaption></figure>
+<h3>Finding 3 &mdash; losses and voltages are unremarkable, which is itself the result</h3>
+<p>Losses run 0.680&ndash;0.833 MW, 0.20&ndash;0.21 % of generation. Every bus sits within 2.08 % of nominal. There is no voltage problem and no reactive problem at any of the four operating points, which is the answer the load flow was asked for &mdash; and it is the baseline the fault study will be measured against.</p>
+<p>One caveat on the losses: they are <b>copper and iron losses in the transformers only</b>. The plant's cables, busbars and bay conductors have no documented impedance, so they contribute zero. The real plant loses slightly more. The figure is a floor, not an estimate.</p>
+<h3>Dispatch makes less difference than expected</h3>
+<p>Dropping from 389.30 to 342.01 MW cuts losses by 17 % but moves the 230 kV voltage by only 0.0003 pu. The grid is strong relative to the plant, so the boundary voltage barely notices the unit's output. This also means the estimated grid impedance is not doing much damage to the answers &mdash; which the sensitivity tests confirm separately.</p>
+</section>
+<section id="s9"><h2>9. Assumptions and missing data</h2>
+<p>Four assumptions are live in the model. Each is in its own file under <code>matlab/data/assumptions/</code>, kept out of the verified dataset so the two can never be confused.</p>
+<table><thead><tr><th>What was assumed</th><th>Value</th><th>Why</th><th>Effect on the answers</th></tr></thead><tbody>
+<tr><td><b>Grid series resistance</b></td><td class="tag">R = 0</td><td>No grid X/R is documented anywhere in the source set.</td><td>Grid losses read as zero. Reactive output understated by up to 17 %. This is the pessimistic choice, not a convenient one.</td></tr>
+<tr><td><b>Auxiliary load split</b></td><td class="tag">9050 : 2500 : 2500 kW</td><td>The 14 MW total is documented; the division between the three boards is not stated as such.</td><td>None on any solved quantity - the three nodes are electrically one node, because the feeder impedances are undocumented.</td></tr>
+<tr><td><b>Bus coupler position</b></td><td class="tag">closed</td><td>The normal operating position is not stated in any available drawing or procedure.</td><td>This is what closes the loop in the two cases where the station auxiliary bay is also closed, so it is what produces Finding 2.</td></tr>
+<tr><td><b>Generator voltage setpoint</b></td><td class="tag">1.00 pu</td><td>No AVR setpoint, voltage schedule or measured operating voltage was found. A PV bus requires a magnitude.</td><td>Sets the reference for every voltage in the model. All per-unit results are relative to it.</td></tr>
+</tbody></table>
+<p class="warn"><b>The setpoint assumption still needs a decision.</b> The other three follow approved choices. The 1.00 pu generator setpoint was necessary to build the model at all and is flagged unapproved in its own file. If the plant runs to a different schedule &mdash; 1.02 pu is common &mdash; every per-unit voltage in &sect;7 shifts with it.</p>
+<h3>Data still missing, and what it blocks</h3>
+<table><thead><tr><th>Missing</th><th>Blocks</th></tr></thead><tbody>
+<tr><td>Generator x<sub>q</sub>, x<sub>2</sub>, x<sub>0</sub>, armature resistance, inertia H, time constants</td><td>Unbalanced fault analysis and any transient stability work. x<sub>d</sub>, x<sub>d</sub>&prime;, x<sub>d</sub>&Prime; <i>are</i> available.</td></tr>
+<tr><td>Cable and busbar impedances and lengths (all internal connections)</td><td>Realistic loss figures, and fault current at anything other than a bus.</td></tr>
+<tr><td>Grid short-circuit MVA and X/R from PGCB</td><td>Fault levels at the 230 kV boundary. The present grid impedance is inferred from the switchgear rating, not from a grid study.</td></tr>
+<tr><td>Zero-sequence data for the transformers beyond Z<sub>0</sub>, and neutral earthing resistor values</td><td>Earth-fault current calculation, which is the main input to earth-fault protection.</td></tr>
+<tr><td>Relay makes, models, CT and VT ratios, and present settings</td><td>The whole of stage 3. Nothing about coordination can start without these.</td></tr>
+<tr><td>Station auxiliary transformer third-winding impedances (Z<sub>PT</sub>, Z<sub>ST</sub>)</td><td>Any fault study that involves the 3.32 kV winding.</td></tr>
+<tr><td>Measured operating data - a real dispatch point, real bus voltages</td><td>Validating the model against the plant. At present both dispatch cases are ratings, not measurements.</td></tr>
+</tbody></table>
+</section>
+<section id="s10"><h2>10. What remains</h2>
+<h3>Stage 2 &mdash; short-circuit and fault analysis</h3>
+<ol>
+<li>Collect the zero- and negative-sequence data listed in &sect;9. Without it only three-phase faults can be done properly.</li>
+<li>Get a grid short-circuit level from PGCB, to replace the impedance currently inferred from the switchgear rating.</li>
+<li>Compute three-phase fault current at each bus, using the load flow above as the pre-fault condition.</li>
+<li>Add the sequence networks and compute single-line-to-ground, line-to-line and double-line-to-ground faults.</li>
+<li>Check the results against the switchgear ratings already in the dataset &mdash; 50 kA at 230 kV, 31.5 kA at 6.6 kV, and the generator breaker's 12.4 kA.</li>
+</ol>
+<h3>Stage 3 &mdash; protection coordination</h3>
+<ol>
+<li>Collect relay and instrument transformer data. This is the hard dependency.</li>
+<li>Build time-current curves for the overcurrent devices from the fault currents of stage 2.</li>
+<li>Check grading between the 6.6 kV feeders, the auxiliary transformers and the 230 kV bays.</li>
+<li>Verify differential protection zones on the generator and the three transformers.</li>
+</ol>
+<h3>Smaller items on this stage</h3>
+<ul>
+<li>Get a decision on the generator voltage setpoint, so it stops being an unapproved assumption.</li>
+<li>Settle the 6.9 kV / 6.6 kV question with the plant &mdash; it is worth 4.55 % on the reported auxiliary bus voltage.</li>
+<li>Confirm the normal bus-coupler position and whether both auxiliary supplies really do run in parallel. Finding 2 depends on the answer.</li>
+<li>Ask whether the circulating flow in Finding 2 is a known operating condition at the plant.</li>
+</ul>
+</section>
+<section id="s11"><h2>11. Complete file map</h2>
+<p>Counted off the disk when this page was generated, not maintained by hand &mdash; so it is complete by construction. Folder by folder, with what lives there and why it is separate from everything else.</p>
+<table><thead><tr><th>Folder</th><th>Files</th><th>What is in it</th></tr></thead><tbody>
+<tr><td class="tag">matlab/data</td><td class="tag">7 &times; *.m</td><td>The dataset. Every plant parameter with its source and status. No code that builds or solves anything.</td></tr>
+<tr><td class="tag">matlab/data/assumptions</td><td class="tag">5 &times; *.m</td><td>One file per assumption, deliberately outside the dataset so verified data and assumed data can never be read as the same thing.</td></tr>
+<tr><td class="tag">matlab/build</td><td class="tag">9 &times; *.m</td><td>Model construction and layout geometry. Contains no electrical values.</td></tr>
+<tr><td class="tag">matlab/analysis</td><td class="tag">4 &times; *.m</td><td>Post-processing: bus mapping, the independent branch-flow rebuild, result tables, figures.</td></tr>
+<tr><td class="tag">matlab/studies</td><td class="tag">5 &times; *.m</td><td>The drivers that produce deliverables - the load flow study, the annotated diagrams, this page.</td></tr>
+<tr><td class="tag">matlab/tests</td><td class="tag">13 &times; *.m</td><td>The validation suite. Has to pass before a result is quoted.</td></tr>
+<tr><td class="tag">matlab/utilities</td><td class="tag">3 &times; *.m</td><td>Per-unit conversion and small shared helpers.</td></tr>
+<tr><td class="tag">matlab/env</td><td class="tag">54 &times; *.m</td><td>One-off probes that measured how the solver actually behaves. Evidence for the validation notes, not library code - deliberately kept off the MATLAB path.</td></tr>
+<tr><td class="tag">simulink/main</td><td class="tag">1 &times; *.slx</td><td>The model itself.</td></tr>
+<tr><td class="tag">simulink/studies</td><td class="tag">9 &times; *.slx</td><td>The annotated per-case copies used for presentation.</td></tr>
+<tr><td class="tag">simulink/backups</td><td class="tag">26 &times; *.slx</td><td>Versioned backups, written before any rebuild. No working model is ever overwritten in place.</td></tr>
+<tr><td class="tag">results/load_flow</td><td class="tag">6 &times; *.csv</td><td>Every solved number. The tables in this page are read from here.</td></tr>
+<tr><td class="tag">results/load_flow</td><td class="tag">4 &times; *.rep</td><td>The solver's own reports, one per case - independent of our post-processing.</td></tr>
+<tr><td class="tag">results/plots</td><td class="tag">4 &times; *.png</td><td>The result figures.</td></tr>
+<tr><td class="tag">results/diagrams</td><td class="tag">4 &times; *.png</td><td>The annotated one-line, exported as an image.</td></tr>
+<tr><td class="tag">docs/validation</td><td class="tag">9 &times; *.md</td><td>The audit trail: source inventory, verified parameters, conflicts, missing data, assumptions, prior-model defects, solver behaviour.</td></tr>
+<tr><td class="tag">docs/manual</td><td class="tag">4 &times; *.html</td><td>This document, and the figures it embeds.</td></tr>
+</tbody></table>
+<h3>Every MATLAB file, by folder</h3>
+<table class="files"><tbody>
+<tr><td><code>matlab/data/</code></td><td>ashuganj_buses.m &middot; ashuganj_generators.m &middot; ashuganj_grid.m &middot; ashuganj_lines.m &middot; ashuganj_loads.m &middot; ashuganj_master_data.m &middot; ashuganj_transformers.m<div class="sl">7 files, 1710 lines</div></td></tr>
+<tr><td><code>matlab/data/assumptions/</code></td><td>aux_load_allocation_split.m &middot; generator_voltage_setpoint.m &middot; gis_bus_coupler_closed.m &middot; grid_series_resistance_zero.m &middot; transformer_magnetising_inductance.m<div class="sl">5 files, 530 lines</div></td></tr>
+<tr><td><code>matlab/build/</code></td><td>build_230kv_system.m &middot; build_ashuganj_main.m &middot; build_auxiliary_system.m &middot; build_external_grid.m &middot; build_generator_system.m &middot; build_gsut_system.m &middot; sps_blocks.m &middot; sps_geom.m &middot; sps_wire.m<div class="sl">9 files, 2099 lines</div></td></tr>
+<tr><td><code>matlab/analysis/</code></td><td>ashuganj_branch_flows.m &middot; ashuganj_bus_map.m &middot; ashuganj_bus_results.m &middot; make_load_flow_plots.m<div class="sl">4 files, 1070 lines</div></td></tr>
+<tr><td><code>matlab/studies/</code></td><td>build_lab_report.m &middot; build_project_update.m &middot; build_user_manual.m &middot; make_annotated_diagrams.m &middot; run_load_flow_study.m<div class="sl">5 files, 1833 lines</div></td></tr>
+<tr><td><code>matlab/tests/</code></td><td>run_all_tests.m &middot; t_case.m &middot; t_solve.m &middot; test_base_conversion.m &middot; test_bus_data.m &middot; test_generator_data.m &middot; test_grid_sensitivity.m &middot; test_line_data.m &middot; test_load_data.m &middot; test_magnetising_sensitivity.m &middot; test_topology.m &middot; test_transformer_data.m &middot; test_transformer_phase_shift.m<div class="sl">13 files, 1820 lines</div></td></tr>
+<tr><td><code>matlab/utilities/</code></td><td>ashuganj_html_css.m &middot; ashuganj_root.m &middot; convert_to_system_base.m<div class="sl">3 files, 168 lines</div></td></tr>
+<tr><td><code>matlab/env/</code></td><td>crop_annotated.m &middot; crop_layout.m &middot; crop_res.m &middot; crop_sld.m &middot; crop_sld2.m &middot; crop_sld3.m &middot; crop_sld4.m &middot; crop_sld5.m &middot; <i>and 46 more</i><div class="sl">54 files, 5298 lines</div></td></tr>
+<tr><td><code>matlab/</code></td><td>ashuganj.m &middot; ashuganj_setup.m &middot; run_build.m<div class="sl">3 files, 261 lines</div></td></tr>
+</tbody></table>
+<p class="note"><b>103 MATLAB files, 14789 lines</b> in total.</p>
+</section>
+<footer>
+<p>Generated by <code>matlab/studies/build_project_update.m</code> from <code>results/load_flow/*.csv</code>. Every figure on this page is read from those tables; none is retyped.</p>
+<p>Companion documents: <a href="LAB_REPORT.html">LAB_REPORT.html</a> &mdash; the same study in the EEE 306 labsheet form, with the calculations worked through and the report questions answered; <a href="USER_MANUAL.html">USER_MANUAL.html</a> &mdash; how to run and demonstrate it.</p>
+<p>Dept. of EEE, BUET &middot; EEE 306 Power System I Laboratory &middot; Group-03, Section C-1</p>
+</footer>
+</body></html>

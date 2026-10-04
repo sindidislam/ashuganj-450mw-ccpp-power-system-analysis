@@ -1,0 +1,14 @@
+Error using assert
+Assertion failed.
+
+Error in test_phase6_dc (line 11)
+assert(abs(Y.Vdc_V-123.75)<1e-9 && abs(Y.Ibattery_A)<1e-9);
+
+Error in job021_dc_green (line 4)
+test_phase6_dc;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

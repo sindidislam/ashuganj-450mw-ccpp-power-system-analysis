@@ -1,0 +1,31 @@
+run_phase4_matrix t14_stages: legs=1 locs=1 types=2 stages=2
+  legs: base
+  locs: F3  types: LG,LLG  stages: Ib,Isteady
+  SUBSET GUARD: F4 runs use m=0.5 single section; full m-set belongs to production runs.
+  Ib DEFAULT: t_break=0.06 s chosen study reference time (not a measured breaker clearing time).
+phase4_sources LF360_GAT_OUT sat: |Etwo|=1.004951 ref=1.051411 rel=0.0442; |Eq|=1.787100 ref=1.786786 rel=0.0002; res_t=2.22e-16 res_s=1.11e-16
+phase4_solve LF360_GAT_OUT LG ds=P m=0.500: pre_res=0.033194 (n1=0.022967 n2=0.033102 n4=0.033194)
+phase4_solve LF360_GAT_OUT B6_6: solved=1.007887 pu target=1.000909 pu d6=0.028700 tol=0.05
+phase4_solve LF360_GAT_OUT F3 LG Zf=0: |I1|=60.492667 |I2|=60.492667 |I0|=60.492667 Zth1=0.000352+0.005019j audit=3.4e-15 r=0.0702 k=1.81388 ip=465.528824
+phase4_sources LF360_GAT_OUT sat: |Etwo|=1.004951 ref=1.051411 rel=0.0442; |Eq|=1.787100 ref=1.786786 rel=0.0002; res_t=2.22e-16 res_s=1.11e-16
+phase4_solve LF360_GAT_OUT LG ds=P m=0.500: pre_res=0.034401 (n1=0.031716 n2=0.034374 n4=0.034401)
+phase4_solve LF360_GAT_OUT B6_6: solved=1.009278 pu target=1.000909 pu d6=0.037450 tol=0.05
+phase4_solve LF360_GAT_OUT F3 LG Zf=0: |I1|=59.801454 |I2|=59.801454 |I0|=59.801454 Zth1=0.000380+0.005211j audit=2.2e-15 r=0.0729 k=1.80746 ip=458.580888
+phase4_sources LF360_GAT_OUT sat: |Etwo|=1.004951 ref=1.051411 rel=0.0442; |Eq|=1.787100 ref=1.786786 rel=0.0002; res_t=2.22e-16 res_s=1.11e-16
+phase4_solve LF360_GAT_OUT LLG ds=P m=0.500: pre_res=0.033194 (n1=0.022967 n2=0.033102 n4=0.033194)
+phase4_solve LF360_GAT_OUT B6_6: solved=1.007887 pu target=1.000909 pu d6=0.028700 tol=0.05
+phase4_solve LF360_GAT_OUT F3 LLG Zf=0: |I1|=127.300073 |I2|=72.290872 |I0|=55.009217 Zth1=0.000352+0.005019j audit=2.97e-15 r=0.0702 k=1.81388 ip=491.469559
+phase4_sources LF360_GAT_OUT sat: |Etwo|=1.004951 ref=1.051411 rel=0.0442; |Eq|=1.787100 ref=1.786786 rel=0.0002; res_t=2.22e-16 res_s=1.11e-16
+phase4_solve LF360_GAT_OUT LLG ds=P m=0.500: pre_res=0.034401 (n1=0.031716 n2=0.034374 n4=0.034401)
+phase4_solve LF360_GAT_OUT B6_6: solved=1.009278 pu target=1.000909 pu d6=0.037450 tol=0.05
+phase4_solve LF360_GAT_OUT F3 LLG Zf=0: |I1|=124.258407 |I2|=70.563578 |I0|=53.694845 Zth1=0.000380+0.005211j audit=3.06e-15 r=0.0729 k=1.80746 ip=478.028862
+phase4_sources LF360_GAT_OUT sat: |Etwo|=1.004951 ref=1.051411 rel=0.0442; |Eq|=1.787100 ref=1.786786 rel=0.0002; res_t=2.22e-16 res_s=1.11e-16
+phase4_solve LF360_GAT_OUT LLL ds=P m=0.500: pre_res=0.032777 (n1=0.019948 n2=0.032663 n4=0.032777)
+phase4_solve LF360_GAT_OUT B6_6: solved=1.007457 pu target=1.000909 pu d6=0.025691 tol=0.05
+phase4_solve LF360_GAT_OUT F3 LLL Zf=0: |I1|=201.300739 |I2|=0.000000 |I0|=0.000000 Zth1=0.000344+0.004953j audit=1.51e-16 r=0.0694 k=1.81587 ip=516.945663
+phase4_sources LF360_GAT_OUT sat: |Etwo|=1.004951 ref=1.051411 rel=0.0442; |Eq|=1.787100 ref=1.786786 rel=0.0002; res_t=2.22e-16 res_s=1.11e-16
+phase4_solve LF360_GAT_OUT LLL ds=P m=0.500: pre_res=0.032777 (n1=0.019948 n2=0.032663 n4=0.032777)
+phase4_solve LF360_GAT_OUT B6_6: solved=1.007457 pu target=1.000909 pu d6=0.025691 tol=0.05
+phase4_solve LF360_GAT_OUT F3 LLL Zf=0: |I1|=201.300739 |I2|=0.000000 |I0|=0.000000 Zth1=0.000344+0.004953j audit=1.51e-16 r=0.0694 k=1.81587 ip=516.945663
+legDrift guard: base F3 LLL Ikpp mirror matches phase4_contrib over 6 shared legs (worst rel 0).
+run_phase4_matrix t14_stages: 4 currents rows, 4 contrib rows, 0 band rows, 40 ct rows in C:\Users\sindi\Downloads\306 Power Project -union alpha\results\phase4_fault\t14_stages (1.0 s)

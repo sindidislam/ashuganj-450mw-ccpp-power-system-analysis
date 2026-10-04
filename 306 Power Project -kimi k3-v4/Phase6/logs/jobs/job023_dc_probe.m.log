@@ -1,0 +1,15 @@
+               Vdc_V: 0
+          Ibattery_A: 0
+          Icharger_A: 0
+             Iload_A: 0
+                 SOC: 1
+     unservedPower_W: 2400
+          lowVoltage: 1
+          batteryLow: 1
+      chargerFailure: 1
+           dcHealthy: 0
+     tripUnavailable: 1
+    chargerACPower_W: 0
+     tripCoilPower_W: 0
+
+unserved_minus_2400=4.5474735088646412e-13

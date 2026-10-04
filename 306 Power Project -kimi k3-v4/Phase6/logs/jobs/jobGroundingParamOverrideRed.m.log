@@ -1,0 +1,14 @@
+Error using ==
+Comparison between double and string is not supported.
+
+Error in test_phase6_parameters (line 72)
+assert(written.Value(written.Parameter=="scenario.networkProfile")=="PHASE5_STUDY", ...
+
+Error in jobGroundingParamOverrideRed (line 4)
+test_phase6_parameters;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

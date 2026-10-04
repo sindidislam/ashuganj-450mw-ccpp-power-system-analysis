@@ -1,0 +1,122 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+============================================================================
+  ASHUGANJ 450 MW CCPP (SOUTH) - PHASE 12 BALANCED LOAD FLOW STUDY
+============================================================================
+  system base   : 100 MVA
+  frequency     : 50 Hz  (Bangladesh grid - the prior CYME model used 60)
+  cases         : LF1, LF2, LF3, LF4
+  reporting base: 100 MVA (Q11a); transformer loading against every cooling stage
+
+============================================================================
+  CASE LF1
+============================================================================
+  Rated dispatch, GAT out of service
+  G1 389.30 MW (rated) | GAT OUT | coupler CLOSED | radial | aux 14.000 MW + j8.676 MVAr
+  solved in 17.3 s, 2 iterations, worst KCL residual 8.61e-08 MVA
+  P_gen 389.3000 MW | aux 14.0000 MW | losses 0.81649 MW | export 374.4835 MW
+  Q_gen 31.6759 MVAr | export -29.9862 MVAr | branch losses 0.81649 MW
+  verdict: OK
+
+  BUS       LABEL                                    TYPE     |V| pu   ang deg       P MW     Q MVAr
+  BGRID230  EXT GRID 230 kV                         swing   1.000000    0.0000  -374.4835    29.9862
+  B22       22 kV GEN BUS                              PV   1.000000  -22.2247   389.3000    31.6759
+  B6_6      6.6 kV MV BUS                              PQ   1.000911    4.3342   -14.0000    -8.6764
+  B6_6_WI1  6.6 kV WI-1  [= B6_6]                      PQ   1.000911    4.3342        NaN        NaN
+  B6_6_WI2  6.6 kV WI-2  [= B6_6]                      PQ   1.000911    4.3342        NaN        NaN
+  B230_1    230 kV BUS 1 + BUS 2 (coupler closed)      PQ   0.998672    1.0787     0.0000     0.0000
+  B230_2    230 kV BUS 2  [= B230_1]                   PQ   0.998672    1.0787        NaN        NaN
+  GAT_HV    GAT_HV                                     PQ   0.957242    4.3320    -0.0000     0.0000
+  (3 of 8 register buses are the SAME solved node as another and show NaN injection;
+   their allocated load shares are in the P_load_alloc columns of bus_results.csv)
+
+============================================================================
+  CASE LF2
+============================================================================
+  Rated dispatch, GAT in service
+  G1 389.30 MW (rated) | GAT IN | coupler CLOSED | looped | aux 14.000 MW + j8.676 MVAr
+  solved in 4.8 s, 2 iterations, worst KCL residual 6.14e-04 MVA
+  P_gen 389.3000 MW | aux 14.0000 MW | losses 0.83342 MW | export 374.4666 MW
+  Q_gen 27.4610 MVAr | export -33.7044 MVAr | branch losses 0.83340 MW
+  verdict: OK
+
+  BUS       LABEL                                    TYPE     |V| pu   ang deg       P MW     Q MVAr
+  BGRID230  EXT GRID 230 kV                         swing   1.000000    0.0000  -374.4666    33.7044
+  B22       22 kV GEN BUS                              PV   1.000000  -22.3292   389.3000    27.4610
+  B6_6      6.6 kV MV BUS                              PQ   1.020280    2.7965   -14.0000    -8.6764
+  B6_6_WI1  6.6 kV WI-1  [= B6_6]                      PQ   1.020280    2.7965        NaN        NaN
+  B6_6_WI2  6.6 kV WI-2  [= B6_6]                      PQ   1.020280    2.7965        NaN        NaN
+  B230_1    230 kV BUS 1 + BUS 2 (coupler closed)      PQ   0.998485    1.0789     0.0000     0.0000
+  B230_2    230 kV BUS 2  [= B230_1]                   PQ   0.998485    1.0789        NaN        NaN
+  GAT_HV    GAT_HV                                     PQ   0.998487    1.0790    -0.0000    -0.0000
+  (3 of 8 register buses are the SAME solved node as another and show NaN injection;
+   their allocated load shares are in the P_load_alloc columns of bus_results.csv)
+
+============================================================================
+  CASE LF3
+============================================================================
+  Site-derated dispatch, GAT out of service
+  G1 342.01 MW (derated) | GAT OUT | coupler CLOSED | radial | aux 14.000 MW + j8.676 MVAr
+  solved in 4.6 s, 2 iterations, worst KCL residual 8.62e-08 MVA
+  P_gen 342.0100 MW | aux 14.0000 MW | losses 0.68019 MW | export 327.3298 MW
+  Q_gen 26.1744 MVAr | export -23.4175 MVAr | branch losses 0.68019 MW
+  verdict: OK
+
+  BUS       LABEL                                    TYPE     |V| pu   ang deg       P MW     Q MVAr
+  BGRID230  EXT GRID 230 kV                         swing   1.000000    0.0000  -327.3298    23.4175
+  B22       22 kV GEN BUS                              PV   1.000000  -23.2091   342.0100    26.1744
+  B6_6      6.6 kV MV BUS                              PQ   1.000908    3.3497   -14.0000    -8.6764
+  B6_6_WI1  6.6 kV WI-1  [= B6_6]                      PQ   1.000908    3.3497        NaN        NaN
+  B6_6_WI2  6.6 kV WI-2  [= B6_6]                      PQ   1.000908    3.3497        NaN        NaN
+  B230_1    230 kV BUS 1 + BUS 2 (coupler closed)      PQ   0.998960    0.9426     0.0000     0.0000
+  B230_2    230 kV BUS 2  [= B230_1]                   PQ   0.998960    0.9426        NaN        NaN
+  GAT_HV    GAT_HV                                     PQ   0.957235    3.3476    -0.0000     0.0000
+  (3 of 8 register buses are the SAME solved node as another and show NaN injection;
+   their allocated load shares are in the P_load_alloc columns of bus_results.csv)
+
+============================================================================
+  CASE LF4
+============================================================================
+  Site-derated dispatch, GAT in service
+  G1 342.01 MW (derated) | GAT IN | coupler CLOSED | looped | aux 14.000 MW + j8.676 MVAr
+  solved in 1.7 s, 2 iterations, worst KCL residual 5.18e-04 MVA
+  P_gen 342.0100 MW | aux 14.0000 MW | losses 0.69026 MW | export 327.3197 MW
+  Q_gen 22.0070 MVAr | export -27.2311 MVAr | branch losses 0.69025 MW
+  verdict: OK
+
+  BUS       LABEL                                    TYPE     |V| pu   ang deg       P MW     Q MVAr
+  BGRID230  EXT GRID 230 kV                         swing   1.000000    0.0000  -327.3197    27.2311
+  B22       22 kV GEN BUS                              PV   1.000000  -23.2859   342.0100    22.0070
+  B6_6      6.6 kV MV BUS                              PQ   1.020818    2.2238   -14.0000    -8.6764
+  B6_6_WI1  6.6 kV WI-1  [= B6_6]                      PQ   1.020818    2.2238        NaN        NaN
+  B6_6_WI2  6.6 kV WI-2  [= B6_6]                      PQ   1.020818    2.2238        NaN        NaN
+  B230_1    230 kV BUS 1 + BUS 2 (coupler closed)      PQ   0.998768    0.9427     0.0000     0.0000
+  B230_2    230 kV BUS 2  [= B230_1]                   PQ   0.998768    0.9427        NaN        NaN
+  GAT_HV    GAT_HV                                     PQ   0.998770    0.9428    -0.0000    -0.0000
+  (3 of 8 register buses are the SAME solved node as another and show NaN injection;
+   their allocated load shares are in the P_load_alloc columns of bus_results.csv)
+
+============================================================================
+  DELIVERABLE MODELS
+============================================================================
+  simulink/main/Ashuganj_South_Main.slx        (case LF1, clean build)
+  simulink/studies/Load_Flow_LF1.slx        (case LF1, clean build)
+  simulink/studies/Load_Flow_LF2.slx        (case LF2, clean build)
+  simulink/studies/Load_Flow_LF3.slx        (case LF3, clean build)
+  simulink/studies/Load_Flow_LF4.slx        (case LF4, clean build)
+  simulink/studies/Load_Flow.slx               (case LF1, the name the brief asks for)
+
+============================================================================
+  STUDY SUMMARY
+============================================================================
+  CASE  DESCRIPTION                         P_gen MW  P_exp MW Q_gen MVA   Loss MW     ITER  CHECKS
+  LF1   Rated dispatch, GAT out of service  389.3000  374.4835   31.6759   0.81649        2  OK
+  LF2   Rated dispatch, GAT in service      389.3000  374.4666   27.4610   0.83342        2  OK
+  LF3   Site-derated dispatch, GAT out ...  342.0100  327.3298   26.1744   0.68019        2  OK
+  LF4   Site-derated dispatch, GAT in s...  342.0100  327.3197   22.0070   0.69026        2  OK
+
+  All 4 cases converged and passed every cross-check.
+  results written to results/load_flow/
+

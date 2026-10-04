@@ -1,0 +1,22 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+--- AnnotationType values ---
+  default AnnotationType : note_annotation
+  default MarkupType     : model
+
+--- create area_annotation ---
+  'area_annotation   ' -> FAIL annotation parameter 'AnnotationType' is read-only
+  'area              ' -> FAIL annotation parameter 'AnnotationType' is read-only
+  'note_annotation   ' -> FAIL annotation parameter 'AnnotationType' is read-only
+  'image_annotation  ' -> FAIL annotation parameter 'AnnotationType' is read-only
+
+--- find_system for annotation types present ---
+  a1                           type=note_annotation    pos=[0  0  0  0]
+
+--- filled panel + block z-order test ---
+  panel position honoured: 1
+  exported: F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\tmp\probe_area.png (6508 bytes)
+
+=== probe_area done ===

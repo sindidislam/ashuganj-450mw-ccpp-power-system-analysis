@@ -1,0 +1,14 @@
+Error using assert
+Central parameter provider is missing.
+
+Error in test_phase6_parameters (line 4)
+assert(exist('init_phase6_parameters','file')==2, ...
+
+Error in jobGroundingParamRed (line 4)
+test_phase6_parameters;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

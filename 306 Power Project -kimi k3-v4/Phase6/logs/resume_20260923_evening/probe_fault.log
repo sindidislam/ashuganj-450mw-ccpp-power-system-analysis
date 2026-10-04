@@ -1,0 +1,14 @@
+FAULT_PROBE_BUILD_PASS
+FAULT_PROBE_SIM_PASS
+[Warning: Vectorized content might take a long time to create, or it might contain unexpected results. Set 'ContentType' to 'image' for
+better performance. <a href="matlab:warning('off', 'MATLAB:print:ContentTypeImageSuggested')">Click here</a> to not see this message
+again.] 
+PHASE6_EXPORT_PASS: C:\Users\sindi\Downloads\306 Power Project -kimi k3\Phase6\results\bus_3ph; 16 CSV tables; 5 PNG/PDF figures; original simulation MAT.
+{Unrecognized field name "relayTimes".
+
+Error in probe_fault (line 12)
+disp(result.tables.relay_times);disp(result.tables.breaker_times);
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+} 

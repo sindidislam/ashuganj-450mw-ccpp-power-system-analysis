@@ -1,0 +1,4 @@
+device,voltage_kV,Iload_A,pickup_A,TMS,curve,I_fault_A,t_op_s,provenance
+FEEDER-6.6kV-51,6.6,1440.8028108119,1728.96337297428,0.1,SI,15000,0.317045259304939,"Task-8 study: 14MW@0.85/6.6kV load, 1.20x pickup, TMS 0.10 SI; fault 15kA study level"
+GEN-51-SI-BACKUP,22,12019,17170.8,0.2,SI,55048.7096805279,1.18776269059784,"Pickup 17170.8A frozen GEN-51 derivation; TMS 0.20 Task-8 backup (frozen TMS 0.10); branch 55048.71A F1-LLL GEN-51 phase5_relay_currents.csv; system F1 LLL 126.21kA phase4_fault_currents.csv"
+GEN-87G-50-INST,22,12019,2403.8,NaN,DT-INST,NaN,0.04,"Task-8 definite 0.040s generator-zone instant proxy (frozen 87G operate proxy 0.045s); threshold 2403.8A frozen 87G pickup"

@@ -1,0 +1,6 @@
+{Error using assert
+Accepted categorical settings must be normalized for the control panel.
+
+Error in test_phase6_input_and_evidence (line 9)
+assert(strcmp(accepted.faultType,'SLG') && strcmp(accepted.faultLocation,'GIS230'), ...
+} 

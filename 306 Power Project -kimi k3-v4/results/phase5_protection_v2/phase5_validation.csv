@@ -1,0 +1,15 @@
+leg,pass,residual,note,provenance,scope
+R0,1,0,Locked Phase-4 identity: F3 50.5308851865 kA; F1 0.007272004428 kA,DERIVED:independent engineering validation,PRIMARY
+B01,1,0,GSUT documentary conflict; dedicated neutral CT,DERIVED:independent engineering validation,PRIMARY
+B02,1,0,Numerical 3 s documentary comparator; not commissioned,DERIVED:independent engineering validation,PRIMARY
+B03,1,0,Rated versus maximum-load semantics and derived phase pickups,DERIVED:independent engineering validation,PRIMARY
+B04,1,0,Faulted B/C phase recovery and physical CT-base conversion,DERIVED:independent engineering validation,PRIMARY
+B05,1,0,Q0 50 kA conditional rating; branch duty ratio,DERIVED:independent engineering validation,PRIMARY
+B06,1,0,Functional engineering trip matrix represented,DERIVED:independent engineering validation,PRIMARY
+B07,1,0,Study detectability and explicit numerical timing proxies,DERIVED:independent engineering validation,PRIMARY
+B08,1,0,All required numerical sensitivity families executed,DERIVED:independent engineering validation,PRIMARY
+B09,1,0,4 A PRIMARY; 5 A sensitivity only,DERIVED:independent engineering validation,PRIMARY
+B10,1,0,Primary and conditional coordination segregated,DERIVED:independent engineering validation,PRIMARY
+B11,1,0,All finite IEC SI coordination times independently recalculated,DERIVED:independent engineering validation,PRIMARY
+B12,1,0,Numerical closure and per-parameter provenance,DERIVED:independent engineering validation,PRIMARY
+B13,1,0,Same tolerances and protected byte identity for 55 upstream files,DERIVED:independent engineering validation,PRIMARY

@@ -1,0 +1,1288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phase 4 Fault Analysis & Equipment Protection Manual — Ashuganj South 450 MW CCPP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f2b3c;
+  --navy-light: #18425d;
+  --teal: #0d8b87;
+  --teal-light: #e4f5f4;
+  --blue: #1a73e8;
+  --blue-light: #e8f0fe;
+  --red: #d93025;
+  --red-light: #fce8e6;
+  --amber: #f2994a;
+  --amber-light: #fef7ee;
+  --green: #1e8e3e;
+  --green-light: #e6f4ea;
+  --purple: #7e22ce;
+  --purple-light: #f3e8ff;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --line: #cbd5e1;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --font-scale: 1.15; /* Presentation-optimized default scale */
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: calc(16.5px * var(--font-scale));
+}
+.shell { display: flex; min-height: 100vh; transition: all 0.25s ease; }
+.sidebar {
+  width: 310px;
+  background: var(--navy);
+  color: #fff;
+  padding: 26px 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: 4px 0 16px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, margin 0.25s ease;
+  flex-shrink: 0;
+}
+.sidebar h2 { font-size: calc(17px * var(--font-scale)); margin: 0 0 6px; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
+.sidebar small { color: #99f6e4; font-size: calc(13px * var(--font-scale)); font-weight: 600; display: block; margin-bottom: 22px; }
+.nav a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 10px 14px;
+  margin: 4px 0;
+  border-radius: 8px;
+  font-size: calc(14px * var(--font-scale));
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+.nav a:hover, .nav a.active { background: rgba(255,255,255,0.16); color: #fff; transform: translateX(3px); }
+.sidebar-box {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 14px;
+  margin-top: 24px;
+  font-size: calc(13px * var(--font-scale));
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* Presentation Toolbar (Sticky Top Bar) */
+.presentation-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border-bottom: 2px solid var(--teal);
+  padding: 12px 24px;
+  margin: -36px -44px 28px -44px;
+  box-shadow: 0 4px 14px rgba(15, 43, 60, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.pbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: calc(14px * var(--font-scale));
+  color: var(--navy);
+  font-weight: 700;
+}
+.pbar-badge {
+  background: var(--navy);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: calc(12px * var(--font-scale));
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.pbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pbar-btn {
+  background: #f1f5f9;
+  color: var(--navy);
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: calc(13.5px * var(--font-scale));
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+.pbar-btn:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+.pbar-btn.active {
+  background: var(--teal);
+  color: #ffffff;
+  border-color: var(--teal);
+  box-shadow: 0 2px 8px rgba(13, 139, 135, 0.35);
+}
+.pbar-btn.pbar-projector {
+  background: #dc2626;
+  color: #ffffff;
+  border-color: #b91c1c;
+}
+.pbar-btn.pbar-projector:hover {
+  background: #b91c1c;
+}
+.pbar-btn.pbar-projector.active {
+  background: #991b1b;
+  border-color: #7f1d1d;
+  box-shadow: 0 2px 10px rgba(220, 38, 38, 0.45);
+}
+
+.main { flex: 1; padding: 36px 44px; max-width: 1260px; transition: all 0.25s ease; }
+html.full-width .sidebar { margin-left: -310px; }
+html.full-width .main { max-width: 100%; padding: 36px 60px; }
+
+.eyebrow {
+  color: var(--teal);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-size: calc(13px * var(--font-scale));
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+h1 { color: var(--navy); font-size: calc(34px * var(--font-scale)); font-weight: 900; margin: 0 0 12px; letter-spacing: -0.025em; line-height: 1.25; }
+.lead { font-size: calc(18px * var(--font-scale)); color: #334155; max-width: 1020px; margin-bottom: 28px; line-height: 1.7; font-weight: 450; }
+.card {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  padding: 30px 34px;
+  margin: 28px 0;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+}
+.card h2 { color: var(--navy); margin-top: 0; font-size: calc(25px * var(--font-scale)); font-weight: 800; letter-spacing: -0.015em; line-height: 1.3; }
+.card h3 { color: var(--navy-light); font-size: calc(19px * var(--font-scale)); margin: 22px 0 10px; font-weight: 700; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+@media (max-width: 1024px) {
+  .grid2, .grid3 { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .main { padding: 20px; }
+  .presentation-bar { margin: -20px -20px 20px -20px; padding: 10px 14px; }
+}
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: calc(13px * var(--font-scale));
+  font-weight: 800;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: calc(13.5px * var(--font-scale));
+  font-weight: 800;
+}
+.badge-f1 { background: #fee2e2; color: #b91c1c; border: 1.5px solid #fca5a5; }
+.badge-f2 { background: #ffedd5; color: #c2410c; border: 1.5px solid #fdba74; }
+.badge-f3 { background: #fef3c7; color: #b45309; border: 1.5px solid #fde68a; }
+.badge-f4 { background: #dbeafe; color: #1d4ed8; border: 1.5px solid #bfdbfe; }
+.badge-f5 { background: #f3e8ff; color: #7e22ce; border: 1.5px solid #d8b4fe; }
+
+/* Enhanced Large Tables */
+table { border-collapse: collapse; width: 100%; font-size: calc(15px * var(--font-scale)); margin: 16px 0; }
+th, td { border: 1.5px solid var(--line); padding: 12px 16px; text-align: left; vertical-align: top; }
+th { background: #f1f5f9; color: var(--navy); font-weight: 800; font-size: calc(15.5px * var(--font-scale)); }
+tr:nth-child(even) td { background: #f8fafc; }
+.num { text-align: right; font-variant-numeric: tabular-nums; font-family: 'JetBrains Mono', monospace; font-size: calc(15px * var(--font-scale)); font-weight: 700; }
+.formula-box {
+  background: #f8fafc;
+  border-left: 5px solid var(--teal);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+  margin: 14px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: calc(15px * var(--font-scale));
+  color: #0f172a;
+  line-height: 1.7;
+}
+
+/* Figures & Diagrams */
+figure {
+  margin: 22px 0;
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+.figure-top-ctrl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.figure-tag {
+  font-size: calc(13px * var(--font-scale));
+  font-weight: 800;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.figure-zoom-btn {
+  background: #eef2ff;
+  color: #3730a3;
+  border: 1px solid #c7d2fe;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s;
+}
+.figure-zoom-btn:hover { background: #e0e7ff; transform: translateY(-1px); }
+figure img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+figure img:hover { transform: scale(1.006); box-shadow: 0 8px 24px rgba(15, 43, 60, 0.12); }
+figcaption {
+  font-size: calc(15px * var(--font-scale));
+  color: var(--text-muted);
+  margin-top: 14px;
+  line-height: 1.65;
+}
+figcaption b { color: var(--navy); font-weight: 800; font-size: calc(15.5px * var(--font-scale)); }
+
+code {
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: calc(14px * var(--font-scale));
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+pre {
+  background: var(--navy);
+  color: #f1f5f9;
+  padding: 18px 22px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: calc(14px * var(--font-scale));
+  line-height: 1.6;
+}
+a { color: var(--teal); text-decoration: none; font-weight: 700; }
+a:hover { text-decoration: underline; }
+
+/* Enhanced Viva Cards */
+.viva-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-left: 6px solid var(--teal);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 18px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.viva-q {
+  font-weight: 800;
+  color: var(--navy);
+  font-size: calc(18px * var(--font-scale));
+  margin-bottom: 12px;
+  line-height: 1.45;
+}
+.viva-a {
+  font-size: calc(16px * var(--font-scale));
+  color: #1e293b;
+  line-height: 1.7;
+}
+.viva-a p, .viva-a ul { margin: 8px 0; }
+.viva-a li { margin: 6px 0; }
+
+/* Lightbox Modal */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(15, 23, 42, 0.96);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 24px;
+}
+.lightbox-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95vw;
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+}
+.lightbox-btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lightbox-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.lightbox-btn:hover { background: rgba(255,255,255,0.3); }
+.lightbox img {
+  max-width: 96vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+  transition: transform 0.2s ease;
+}
+</style>
+</head>
+<body>
+
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-topbar">
+    <span id="lightbox-title">High-Definition Presentation Diagram Viewer</span>
+    <div class="lightbox-btns">
+      <button class="lightbox-btn" onclick="zoomLightbox(1.2)">➕ Zoom In</button>
+      <button class="lightbox-btn" onclick="zoomLightbox(0.8)">➖ Zoom Out</button>
+      <button class="lightbox-btn" onclick="resetLightboxZoom()">↺ Reset</button>
+      <button class="lightbox-btn" style="background:#dc2626;" onclick="closeLightbox()">✖ Close (Esc)</button>
+    </div>
+  </div>
+  <div style="flex:1; display:flex; align-items:center; justify-content:center; overflow:auto; width:100%;" onclick="closeLightbox(event)">
+    <img id="lightbox-img" src="" alt="Zoomed snapshot" onclick="event.stopPropagation()">
+  </div>
+</div>
+
+<div class="shell">
+  <!-- SIDEBAR NAVIGATION -->
+  <aside class="sidebar">
+    <h2>Phase 4 Fault Manual</h2>
+    <small>Ashuganj South 450MW · EEE 306</small>
+    <nav class="nav">
+      <a href="#purpose" class="active">1 · Why Do Fault Analysis?</a>
+      <a href="#locations">2 · The 5 Fault Locations</a>
+      <a href="#visuals">3 · Marked SLD & Simulink</a>
+      <a href="#sld-detail">3b · Master SLD Close-Ups (F1–F5)</a>
+      <a href="#results">4 · Symmetrical Fault Results</a>
+      <a href="#equipment">5 · Equipment Mitigation Mapping</a>
+      <a href="#consequences">6 · Catastrophic Failure Physics</a>
+      <a href="#viva">7 · Viva Questions & Answers</a>
+      <a href="#repro">8 · Code Verification & Repro</a>
+    </nav>
+    <div class="sidebar-box">
+      <b>Fault Positions:</b><br>
+      <span class="badge badge-f1">F1</span> 22 kV Generator Bus<br>
+      <span class="badge badge-f2">F2</span> GSUT 22 kV LV Terminals<br>
+      <span class="badge badge-f3">F3</span> 230 kV GIS Switchyard<br>
+      <span class="badge badge-f4">F4</span> 230 kV Line Mid-Point<br>
+      <span class="badge badge-f5">F5</span> 230 kV Remote Grid Bus<br><br>
+      <b>Click any diagram</b> to view high-resolution zoomable image.
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <!-- PRESENTATION & DISPLAY SCALING TOOLBAR -->
+    <div class="presentation-bar">
+      <div class="pbar-left">
+        <span class="pbar-badge">Presentation Controls</span>
+        <span>Display Scale for Screen & Projector:</span>
+      </div>
+      <div class="pbar-actions">
+        <button class="pbar-btn" id="btn-scale-1" onclick="setFontScale(1.0, this)">100% Standard</button>
+        <button class="pbar-btn active" id="btn-scale-2" onclick="setFontScale(1.18, this)">120% Large</button>
+        <button class="pbar-btn pbar-projector" id="btn-scale-3" onclick="setFontScale(1.42, this)">📽️ 145% Projector / Viva</button>
+        <button class="pbar-btn" id="btn-scale-4" onclick="setFontScale(1.65, this)">🔍 165% Extra Large</button>
+        <button class="pbar-btn" id="btn-full-width" onclick="toggleFullWidth(this)">⛶ Full Width Mode</button>
+      </div>
+    </div>
+
+    <p class="eyebrow">Phase 4 Documentation · Symmetrical Fault Study & Equipment Defense</p>
+    <h1>Fault Analysis, Equipment Protection Mapping & Viva Guide</h1>
+    <p class="lead">A complete, presentation-ready engineering manual explaining <b>why</b> fault analysis is performed at each of the 5 plant locations, <b>what currents flow</b>, <b>which equipment is used to detect, limit, and isolate each fault</b>, and <b>what catastrophic damage would occur if protection failed</b> — complete with marked Single Line Diagrams, Simulink snapshots, and viva questions.</p>
+
+    <!-- SECTION 1: WHY DO FAULT ANALYSIS -->
+    <section id="purpose" class="card">
+      <span class="status-pill" style="background:#e0f2fe; color:#0369a1;">Power System Engineering Principles</span>
+      <h2>1 · Why Do We Perform Fault Analysis? (Engineering Purpose)</h2>
+      <p>Short-circuit fault analysis is not merely a theoretical calculation — it is the <b>absolute foundation of physical substation design, equipment selection, and system safety</b> according to IEEE C37 and IEC 60909 standards. We perform fault calculations for four critical engineering purposes:</p>
+      
+      <div class="grid2">
+        <div style="background:#f8fafc; border:1px solid var(--line); border-radius:10px; padding:16px;">
+          <h3 style="margin-top:0; color:var(--navy);">1. Equipment Rating & Withstand Verification</h3>
+          <p style="color:#475569;">
+            Circuit breakers, disconnectors, current transformers, and isolated phase busbars (IPB) must withstand the <b>electromagnetic forces (proportional to $i_p^2$)</b> and <b>thermal energy ($I^2 t$)</b> of short-circuit currents. Fault analysis dictates the required breaking capacity (e.g., GCB 100 kA, GIS 50 kA). If a breaker is installed with a rating below the prospective fault current, attempting to interrupt the fault will cause explosive arc chamber rupture.
+          </p>
+        </div>
+        <div style="background:#f8fafc; border:1px solid var(--line); border-radius:10px; padding:16px;">
+          <h3 style="margin-top:0; color:var(--navy);">2. Protective Relay Pickup & Setting Derivation</h3>
+          <p style="color:#475569;">
+            Protective relays cannot be configured arbitrarily. Symmetrical fault analysis provides the exact minimum and maximum fault currents for all fault types (3-phase LLL, single-line-to-ground LG, line-to-line LL, double-line-to-ground LLG). Overcurrent pickup currents ($I_p$), differential percentage restraint slopes (Slope 1/2), and knee points are mathematically calibrated from these values.
+          </p>
+        </div>
+        <div style="background:#f8fafc; border:1px solid var(--line); border-radius:10px; padding:16px;">
+          <h3 style="margin-top:0; color:var(--navy);">3. Selective Coordination & Grading (CTI = 300 ms)</h3>
+          <p style="color:#475569;">
+            When a short circuit occurs, only the circuit breaker closest to the fault must trip. Upstream breakers must remain closed to maintain power continuity to healthy zones. Fault calculations allow engineers to calculate time multiplier settings (TMS) ensuring a mandatory <b>300 ms Coordination Time Interval (CTI)</b> between downstream and upstream relays.
+          </p>
+        </div>
+        <div style="background:#f8fafc; border:1px solid var(--line); border-radius:10px; padding:16px;">
+          <h3 style="margin-top:0; color:var(--navy);">4. Grounding & Zero-Sequence Control</h3>
+          <p style="color:#475569;">
+            Single-line-to-ground faults represent over 70% of power system events. Fault analysis verifies the performance of Neutral Grounding Resistors (NER) in limiting stator damage on the 22 kV bus while ensuring sufficient zero-sequence current exists for sensitive relays to trip.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE 5 FAULT LOCATIONS -->
+    <section id="locations" class="card">
+      <span class="status-pill" style="background:#fef3c7; color:#92400e;">Strategic Plant Nodes</span>
+      <h2>2 · The 5 Strategic Fault Locations — Why Test Each Position?</h2>
+      <p>To rigorously test the entire plant from generation to transmission, five distinct electrical nodes were chosen for short-circuit analysis:</p>
+
+      <table>
+        <tr>
+          <th>Fault Tag</th>
+          <th>Physical Location in Plant</th>
+          <th>Voltage Level</th>
+          <th>Why Test a Fault on This Position? (Engineering Purpose)</th>
+        </tr>
+        <tr>
+          <td><span class="badge badge-f1">F1</span></td>
+          <td><b>Generator Bus / Stator Terminals</b><br>(Between Generator & GCB)</td>
+          <td class="num"><b>22 kV</b></td>
+          <td>
+            <b>1. Maximum Machine Stress:</b> Tests the absolute maximum short-circuit current the generator can produce (126.21 kA LLL) to verify generator stator thermal and mechanical bracing.<br>
+            <b>2. GCB Rating Check:</b> Verifies that the Generator Circuit Breaker (GCB 10BAC10, 100 kA rating) can safely clear internal faults.<br>
+            <b>3. Stator Ground Fault Check:</b> Tests the Neutral Earthing Resistor (NER) limitation to 7.27 A to prevent irreversible stator iron core burning.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-f2">F2</span></td>
+          <td><b>GSUT Low-Voltage Terminals</b><br>(Between GCB & Transformer LV Delta)</td>
+          <td class="num"><b>22 kV</b></td>
+          <td>
+            <b>1. Transformer Differential (87T) Verification:</b> Inside the 515 MVA GSUT unit protection zone. Tests differential trip response on through-faults vs internal faults.<br>
+            <b>2. Vector Group Phase Shift:</b> Proves that the relay correctly compensates for the $+30^\circ$ phase shift of the <code>YNd1</code> transformer.<br>
+            <b>3. Delta Winding Zero-Sequence Trapping:</b> Proves that ground faults on the 22 kV side remain isolated from the 230 kV side.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-f3">F3</span></td>
+          <td><b>230 kV GIS Switchyard Busbar</b><br>(Bus 1 / Bus 2 Compartments)</td>
+          <td class="num"><b>230 kV</b></td>
+          <td>
+            <b>1. Busbar Differential (87B) Speed:</b> Tests the 35 ms high-speed busbar protection. Without 87B, overcurrent backup takes 7.28 s, which would blow up the GIS switchgear.<br>
+            <b>2. GIS Switchgear Duty:</b> Verifies that the 50.53 kA fault does not exceed the Siemens 8DN9 GIS 50 kA rating.<br>
+            <b>3. Grounding Verification:</b> Demonstrates that unlike 22 kV, the 230 kV grid is solidly grounded, generating a massive 45.74 kA ground fault.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-f4">F4</span></td>
+          <td><b>230 kV Transmission Line Mid-Point</b><br>(50% along the 230 kV corridor)</td>
+          <td class="num"><b>230 kV</b></td>
+          <td>
+            <b>1. Line Current Differential (87L):</b> Tests the optical fiber line differential relay (Siemens 7SD5221) clearing mid-line faults in 40 ms.<br>
+            <b>2. Distance Relay Zone Reach:</b> Verifies that distance Zone 1 covers 80% of the line instantaneously, while Zone 2 covers the remaining 20% with time grading.<br>
+            <b>3. System Stability:</b> Ensures rapid isolation of the line without disturbing the generator's rotor angle stability.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-f5">F5</span></td>
+          <td><b>Remote Grid Substation Bus</b><br>(Ghorashal / Comilla 230 kV Bus)</td>
+          <td class="num"><b>230 kV</b></td>
+          <td>
+            <b>1. Protection Zone Boundary Selectivity:</b> Proves that external grid faults DO NOT cause false tripping of our plant's differential relays (87G, 87T, 87B, 87L all restrain).<br>
+            <b>2. Coordinated Backup:</b> Verifies that local breaker Q0 provides coordinated time-overcurrent backup (4.54 s to 7.48 s) only if the remote substation's own breakers fail.
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- SECTION 3: MARKED VISUALS (SLD & SIMULINK) -->
+    <section id="visuals" class="card">
+      <span class="status-pill" style="background:#ecfdf5; color:#047857;">Visual Model & Drawing Evidence</span>
+      <h2>3 · Visual Positions: Marked Master SLD & Simulink Snapshots</h2>
+      <p>Below are the official project diagrams with all 5 fault study locations ($F_1$ to $F_5$) clearly highlighted, circled, and labeled. <i>Click any diagram to open full-screen in high definition.</i></p>
+
+      <figure>
+        <div class="figure-top-ctrl">
+          <span class="figure-tag">Drawing 1 · Master Single Line Diagram</span>
+          <button type="button" class="figure-zoom-btn" onclick="openLightbox('snapshots/sld_fault_locations_marked.png')">🔍 Full-Screen HD View</button>
+        </div>
+        <img src="snapshots/sld_fault_locations_marked.png" alt="Master Single Line Diagram with Fault Locations Marked" onclick="openLightbox(this.src)">
+        <figcaption><b>Fig. 1 — Master Single Line Diagram (SLD) with 5 Fault Locations Marked.</b> Original OEM drawing showing the electrical nodes: <span class="badge badge-f1">F1</span> Generator Terminals (22 kV), <span class="badge badge-f2">F2</span> GSUT LV Terminals (22 kV), <span class="badge badge-f3">F3</span> 230 kV GIS Switchyard Busbar, <span class="badge badge-f4">F4</span> 230 kV Line Mid-Point ($m = 0.5$), and <span class="badge badge-f5">F5</span> 230 kV Remote Grid Substation Bus.</figcaption>
+      </figure>
+
+      <figure>
+        <div class="figure-top-ctrl">
+          <span class="figure-tag">Drawing 2 · Simulink Dynamic Model Architecture</span>
+          <button type="button" class="figure-zoom-btn" onclick="openLightbox('snapshots/simulink_fault_locations_marked.png')">🔍 Full-Screen HD View</button>
+        </div>
+        <img src="snapshots/simulink_fault_locations_marked.png" alt="Top-Level Simulink Model with Fault Locations Marked" onclick="openLightbox(this.src)">
+        <figcaption><b>Fig. 2 — Top-Level Simulink Dynamic Model with Fault Locations Marked.</b> Architecture of <code>PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL.slx</code> showing where faults are injected inside each physical subsystem block.</figcaption>
+      </figure>
+
+      
+      
+      <!-- SECTION 3B: HIGH-DEFINITION SLD CLOSE-UP DETAIL VIEWS -->
+      <div id="sld-detail" style="margin-top: 40px; padding-top: 20px; border-top: 2px dashed var(--line);">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
+          <div>
+            <h3 style="margin:0; color:var(--navy); font-size:calc(22px * var(--font-scale)); font-weight:800; letter-spacing:-0.015em;">
+              🔍 Master SLD Close-Up Inspection — 1:1 Scale Views of Zones F1 to F5
+            </h3>
+            <p style="margin:6px 0 0; color:var(--text-muted); font-size:calc(15px * var(--font-scale)); max-width:850px;">
+              To ensure 100% legibility on projectors and from a distance, below are high-definition 1:1 scale crops from the OEM Master Single Line Diagram. Each crop highlights the exact physical busbar, circuit breaker numbers, instrument transformers, and IEC 60909 fault currents. <i>Click any image to expand full-screen.</i>
+            </p>
+          </div>
+          <span class="status-pill" style="background:#fef3c7; color:#b45309; font-size:calc(13px * var(--font-scale)); font-weight:800; margin-bottom:0;">
+            1:1 Native Resolution Crops
+          </span>
+        </div>
+
+        <div class="grid2">
+          <!-- CARD F1 -->
+          <figure style="margin: 10px 0;">
+            <div class="figure-top-ctrl">
+              <span class="figure-tag"><span class="badge badge-f1">F1</span> Generator Bus Detail · 10MKA10</span>
+              <button type="button" class="figure-zoom-btn" onclick="openLightbox('snapshots/sld_crop_f1_generator.png')">🔍 HD View</button>
+            </div>
+            <img src="snapshots/sld_crop_f1_generator.png" alt="F1 Generator Bus SLD Detail" onclick="openLightbox(this.src)" style="cursor:zoom-in;">
+            <figcaption>
+              <b>Fig. 2a — F1 Generator Stator & Breaker Zone.</b> Shows Generator <code>10MKA10</code> stator terminals, Generator Circuit Breaker <code>10BAC10</code> (100 kA rating), and Neutral Earthing Resistor <code>10BAB11</code>.
+              <div style="margin-top:8px; font-size:calc(13px * var(--font-scale)); background:#f8fafc; padding:8px 12px; border-radius:6px; border:1px solid var(--line);">
+                <b>Study Values:</b> $I_k'' = 126.21\text{ kA}$ (3-Ph) · $i_p = 348.26\text{ kA}$ · $I_k''\text{ LG} = 7.27\text{ A}$ (NER limited) · <b>Primary Relay:</b> 87G (Generator Diff).
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- CARD F2 -->
+          <figure style="margin: 10px 0;">
+            <div class="figure-top-ctrl">
+              <span class="figure-tag"><span class="badge badge-f2">F2</span> GSUT LV Terminals Detail · 10BAT10</span>
+              <button type="button" class="figure-zoom-btn" onclick="openLightbox('snapshots/sld_crop_f2_gsut_lv.png')">🔍 HD View</button>
+            </div>
+            <img src="snapshots/sld_crop_f2_gsut_lv.png" alt="F2 GSUT LV Terminals SLD Detail" onclick="openLightbox(this.src)" style="cursor:zoom-in;">
+            <figcaption>
+              <b>Fig. 2b — F2 GSUT Low-Voltage Delta Terminals.</b> Shows 515 MVA GSUT <code>10BAT10</code> LV delta connection (22 kV side), Unit Auxiliary Transformer <code>10BBT10</code> (25 MVA) take-off, and IPB busduct.
+              <div style="margin-top:8px; font-size:calc(13px * var(--font-scale)); background:#f8fafc; padding:8px 12px; border-radius:6px; border:1px solid var(--line);">
+                <b>Study Values:</b> $I_k'' = 126.21\text{ kA}$ (3-Ph) · $i_p = 348.26\text{ kA}$ · Vector Shift: $+30^\circ$ (YNd1) · <b>Primary Relay:</b> 87T (Transformer Diff).
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- CARD F3 -->
+          <figure style="margin: 10px 0;">
+            <div class="figure-top-ctrl">
+              <span class="figure-tag"><span class="badge badge-f3">F3</span> 230 kV GIS Bus Detail · 10BAC01/02</span>
+              <button type="button" class="figure-zoom-btn" onclick="openLightbox('snapshots/sld_crop_f3_gis_switchyard.png')">🔍 HD View</button>
+            </div>
+            <img src="snapshots/sld_crop_f3_gis_switchyard.png" alt="F3 230 kV GIS Bus SLD Detail" onclick="openLightbox(this.src)" style="cursor:zoom-in;">
+            <figcaption>
+              <b>Fig. 2c — F3 230 kV GIS Switchyard Busbars.</b> Shows Siemens 8DN9 Gas-Insulated Switchgear Bus 1 <code>10BAC01</code> and Bus 2 <code>10BAC02</code>, GSUT Bay <code>10BAY11</code>, and Disconnectors Q1/Q2.
+              <div style="margin-top:8px; font-size:calc(13px * var(--font-scale)); background:#f8fafc; padding:8px 12px; border-radius:6px; border:1px solid var(--line);">
+                <b>Study Values:</b> $I_k'' = 50.53\text{ kA}$ (3-Ph) · $i_p = 136.98\text{ kA}$ · $I_k''\text{ LG} = 45.74\text{ kA}$ · <b>Primary Relay:</b> 87B Busbar Diff (35 ms high speed).
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- CARD F4 -->
+          <figure style="margin: 10px 0;">
+            <div class="figure-top-ctrl">
+              <span class="figure-tag"><span class="badge badge-f4">F4</span> 230 kV Line Corridor Detail · Line 1/2</span>
+              <button type="button" class="figure-zoom-btn" onclick="openLightbox('snapshots/sld_crop_f4_line_midpoint.png')">🔍 HD View</button>
+            </div>
+            <img src="snapshots/sld_crop_f4_line_midpoint.png" alt="F4 Transmission Line Corridor SLD Detail" onclick="openLightbox(this.src)" style="cursor:zoom-in;">
+            <figcaption>
+              <b>Fig. 2d — F4 230 kV Transmission Line Mid-Point ($m = 0.5$).</b> Shows dual-circuit overhead lines (0.7 km Mallard 795 MCM), line disconnectors, and optical current differential relay interface.
+              <div style="margin-top:8px; font-size:calc(13px * var(--font-scale)); background:#f8fafc; padding:8px 12px; border-radius:6px; border:1px solid var(--line);">
+                <b>Study Values:</b> $I_k'' = 51.06\text{ kA}$ (3-Ph) · $i_p = 138.60\text{ kA}$ · $I_k''\text{ LG} = 46.12\text{ kA}$ · <b>Primary Relay:</b> 87L Line Diff (40 ms) / 21 Distance Zone 1.
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- CARD F5 WIDE -->
+        <figure style="margin: 16px 0;">
+          <div class="figure-top-ctrl">
+            <span class="figure-tag"><span class="badge badge-f5">F5</span> 230 kV Remote Grid Substation Bus Detail · B230_REMOTE / BGRID230</span>
+            <button type="button" class="figure-zoom-btn" onclick="openLightbox('snapshots/sld_crop_f5_remote_grid.png')">🔍 HD View</button>
+          </div>
+          <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
+            <div style="flex:1; min-width:320px;">
+              <img src="snapshots/sld_crop_f5_remote_grid.png" alt="F5 Remote Grid Substation SLD Detail" onclick="openLightbox(this.src)" style="cursor:zoom-in; max-height:360px; object-fit:contain;">
+            </div>
+            <div style="flex:1; min-width:300px; font-size:calc(14.5px * var(--font-scale)); line-height:1.7;">
+              <b>Fig. 2e — F5 Remote Grid Substation & External Interface.</b><br>
+              Shows the receiving-end 230 kV utility busbar (PGCB national grid node), tie breakers, and external grid Thévenin source equivalent ($|Z| = 2.656\ \Omega$).<br><br>
+              <div style="background:#f8fafc; padding:12px 16px; border-radius:8px; border:1.5px solid var(--line);">
+                <b>• 3-Phase Symmetrical Fault Current:</b> $I_k'' = 53.09\text{ kA}$<br>
+                <b>• Peak Asymmetrical Current:</b> $i_p = 144.11\text{ kA}$<br>
+                <b>• 1-Phase-to-Ground Fault Current:</b> $I_k''\text{ LG} = 48.47\text{ kA}$<br>
+                <b>• Relay Action:</b> Plant differential relays (87G, 87T, 87B, 87L) <b>RESTRAIN</b>; fault is cleared exclusively by remote grid utility breakers.
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
+
+
+      <h3>Individual Simulink Fault Injection Subsystems:</h3>
+      <div class="grid3">
+        <figure>
+          <img src="snapshots/F1_generator_fault_block.png" alt="F1 Generator Fault Block" onclick="openLightbox(this.src)">
+          <figcaption><b>F1 — Generator Bus Fault Block.</b> Located inside <code>&lt;root&gt;/Generator</code>. Injects 126.21 kA LLL / 7.27 A LG faults directly at generator stator terminals.</figcaption>
+        </figure>
+        <figure>
+          <img src="snapshots/F2_transformer_LV_fault_block.png" alt="F2 GSUT LV Connection Fault Block" onclick="openLightbox(this.src)">
+          <figcaption><b>F2 — GSUT LV Connection Fault.</b> Located inside <code>&lt;root&gt;/Transformer</code> at the 22 kV delta connection terminals.</figcaption>
+        </figure>
+        <figure>
+          <img src="snapshots/F3_GIS_bus_fault_block.png" alt="F3 GIS Switchyard Bus Fault Block" onclick="openLightbox(this.src)">
+          <figcaption><b>F3 — 230 kV GIS Busbar Fault.</b> Located inside <code>&lt;root&gt;/Switchyard</code> on the main 230 kV GIS busbar.</figcaption>
+        </figure>
+        <figure>
+          <img src="snapshots/F4_line_midpoint_fault_block.png" alt="F4 Transmission Line Midpoint Fault Block" onclick="openLightbox(this.src)">
+          <figcaption><b>F4 — Transmission Line Mid-Point.</b> Located inside <code>&lt;root&gt;/Transmission Line</code> between Circuit 1 plant-half and remote-half.</figcaption>
+        </figure>
+        <figure>
+          <img src="snapshots/F5_remote_bus_fault_block.png" alt="F5 Remote Grid Bus Fault Block" onclick="openLightbox(this.src)">
+          <figcaption><b>F5 — Remote Grid Substation Bus.</b> Located at the remote 230 kV grid boundary interface.</figcaption>
+        </figure>
+        <figure>
+          <img src="snapshots/protection_zones_map.png" alt="Protection Zones Map" onclick="openLightbox(this.src)">
+          <figcaption><b>Protection Zones Reference Map.</b> Color-coded zone boundaries for Zone 1 (Gen), Zone 2 (GSUT), Zone 3 (GIS), and Zone 4 (Lines).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FAULT RESULTS -->
+    <section id="results" class="card">
+      <span class="status-pill" style="background:#fee2e2; color:#991b1b;">Phase 4 Computational Results</span>
+      <h2>4 · Symmetrical Component Fault Analysis Results</h2>
+      <p>The table below presents the verified symmetrical short-circuit currents calculated across all five locations using the IEC 60909 / symmetrical components solver in Phase 4:</p>
+
+      <table>
+        <tr>
+          <th>Fault Node</th>
+          <th>Voltage</th>
+          <th>3-Phase (LLL)<br>Symmetrical $I_k''$</th>
+          <th>Peak Make<br>Current ($i_p$)</th>
+          <th>1-Phase-to-Ground<br>(LG) $I_k''$</th>
+          <th>Line-to-Line<br>(LL) $I_k''$</th>
+          <th>Double-Line-to-Ground<br>(LLG) $I_k''$</th>
+          <th>Short-Circuit<br>Fault MVA</th>
+        </tr>
+        <tr>
+          <td><span class="badge badge-f1">F1</span> Generator Terminals</td>
+          <td>22 kV</td>
+          <td class="num"><b>126.21 kA</b></td>
+          <td class="num" style="color:var(--red); font-weight:700;">348.26 kA</td>
+          <td class="num" style="color:var(--teal); font-weight:700;">0.00727 kA (7.27 A)</td>
+          <td class="num">109.25 kA</td>
+          <td class="num">109.25 kA</td>
+          <td class="num"><b>4,809 MVA</b></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-f2">F2</span> GSUT LV Terminals</td>
+          <td>22 kV</td>
+          <td class="num"><b>126.21 kA</b></td>
+          <td class="num">348.26 kA</td>
+          <td class="num" style="color:var(--teal); font-weight:700;">0.00727 kA (7.27 A)</td>
+          <td class="num">109.25 kA</td>
+          <td class="num">109.25 kA</td>
+          <td class="num"><b>4,809 MVA</b></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-f3">F3</span> 230 kV GIS Bus</td>
+          <td>230 kV</td>
+          <td class="num"><b>50.53 kA</b></td>
+          <td class="num">129.80 kA</td>
+          <td class="num"><b>45.74 kA</b></td>
+          <td class="num">43.76 kA</td>
+          <td class="num">48.50 kA</td>
+          <td class="num"><b>20,130 MVA</b></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-f4">F4</span> 230 kV Line Mid-Point</td>
+          <td>230 kV</td>
+          <td class="num"><b>51.06 kA</b></td>
+          <td class="num">131.30 kA</td>
+          <td class="num"><b>46.12 kA</b></td>
+          <td class="num">44.22 kA</td>
+          <td class="num">48.97 kA</td>
+          <td class="num"><b>20,340 MVA</b></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-f5">F5</span> 230 kV Remote Grid</td>
+          <td>230 kV</td>
+          <td class="num"><b>53.09 kA</b></td>
+          <td class="num">137.40 kA</td>
+          <td class="num"><b>48.47 kA</b></td>
+          <td class="num">45.97 kA</td>
+          <td class="num">51.18 kA</td>
+          <td class="num"><b>21,148 MVA</b></td>
+        </tr>
+      </table>
+
+      <div style="background:#f1f5f9; border-radius:8px; padding:14px 18px; margin-top:12px; font-size:13px; color:#475569;">
+        <b>The Striking Physics Contrast:</b><br>
+        • Notice that at <b>F1 (22 kV Generator Bus)</b>, the single-line-to-ground fault is restricted to only <b>7.27 A</b> because of the generator's Neutral Earthing Resistor (NER).<br>
+        • Conversely, at <b>F3 (230 kV GIS Bus)</b>, the ground fault explodes to <b>45.74 kA</b> because the 230 kV grid and the GSUT HV wye neutral are solidly grounded!
+      </div>
+    </section>
+
+    <!-- SECTION 5: EQUIPMENT MITIGATION MAPPING -->
+    <section id="equipment" class="card">
+      <span class="status-pill" style="background:#e0e7ff; color:#3730a3;">Equipment Defense Strategy</span>
+      <h2>5 · Equipment Mitigation Mapping: What Equipments We Use & For What Purpose</h2>
+      <p>To safely detect, limit, and isolate faults at each position, an entire coordinated defense system of electrical equipment is deployed. Here is the exact mapping of equipment used to protect against faults at each location:</p>
+
+      <!-- F1 EQUIPMENT TABLE -->
+      <div style="margin-bottom:20px;">
+        <h3 style="color:var(--navy);"><span class="badge badge-f1">F1</span> Defense Equipment for 22 kV Generator Bus Faults:</h3>
+        <table>
+          <tr>
+            <th>Equipment Category</th>
+            <th>Specific Equipment Model / Tag</th>
+            <th>Primary Purpose & Role in Fault Mitigation</th>
+          </tr>
+          <tr>
+            <td><b>Primary Sensing</b></td>
+            <td><b>15,000 / 1 A Phase CTs</b><br>(Class 5P20, 30 VA, 3 cores)</td>
+            <td>Steps down high phase currents (up to 126 kA) to safe secondary levels for measurement by the 87G differential and 51 overcurrent relays.</td>
+          </tr>
+          <tr>
+            <td><b>Dedicated Ground Sensing</b></td>
+            <td><b>20 / 1 A Neutral CT</b><br>(Added by Our Study)</td>
+            <td><b>Solves phase CT blindness.</b> Steps down the 7.27 A ground fault current into 0.3635 A secondary current so the sensitive ground relay (51N) can trip.</td>
+          </tr>
+          <tr>
+            <td><b>Primary Protection Relay</b></td>
+            <td><b>GEN-87G (Siemens 7UM622)</b><br>Generator Percentage Differential</td>
+            <td>Detects internal stator phase faults within <b>0.045 s (45 ms)</b> by comparing inner vs. terminal CT currents. Emits an instantaneous Master Unit Trip.</td>
+          </tr>
+          <tr>
+            <td><b>Backup Protection Relay</b></td>
+            <td><b>GEN-51 (Siemens 7UM622)</b><br>Time-Overcurrent ($I_p = 17,170.8\text{ A}$)</td>
+            <td>Provides coordinated time-delayed backup protection, tripping in <b>0.594 s</b> if differential protection fails.</td>
+          </tr>
+          <tr>
+            <td><b>Sensitive Ground Relay</b></td>
+            <td><b>GEN-51N (Siemens 7UM622)</b><br>Stator Earth Fault ($I_p = 4.0\text{ A}$)</td>
+            <td>Operates on the 20/1 neutral CT current. Senses the 7.27 A ground fault and trips in <b>1.746 s</b> to prevent stator lamination melting.</td>
+          </tr>
+          <tr>
+            <td><b>Current-Limiting Hardware</b></td>
+            <td><b>Neutral Grounding Resistor</b><br>(NER 10BAB11, 60 Ω + 2.62 Ω)</td>
+            <td><b>Limits prospective ground fault current from 100+ kA down to 7.27 A</b>, preventing catastrophic core melting during single-phase stator insulation breakdown.</td>
+          </tr>
+          <tr>
+            <td><b>Power Interruption Breaker</b></td>
+            <td><b>Generator Circuit Breaker (GCB)</b><br>(Siemens 10BAC10, 100 kA breaking)</td>
+            <td>Physically separates the generator from the 22 kV bus within 50 ms, stopping generator current contribution.</td>
+          </tr>
+          <tr>
+            <td><b>Machine De-energization</b></td>
+            <td><b>AVR Field Circuit Breaker & Turbine ESV</b></td>
+            <td>A spinning generator continues to produce EMF even if the breaker opens! The unit trip trips the exciter field breaker (rapid de-excitation) and closes turbine Emergency Stop Valves (ESV) to stop gas/steam flow.</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- F2 EQUIPMENT TABLE -->
+      <div style="margin-bottom:20px;">
+        <h3 style="color:var(--navy);"><span class="badge badge-f2">F2</span> Defense Equipment for GSUT 22 kV LV Connection Faults:</h3>
+        <table>
+          <tr>
+            <th>Equipment Category</th>
+            <th>Specific Equipment Model / Tag</th>
+            <th>Primary Purpose & Role in Fault Mitigation</th>
+          </tr>
+          <tr>
+            <td><b>Primary Sensing</b></td>
+            <td><b>15,000/1 A LV CTs & 1,600/1 A HV CTs</b></td>
+            <td>Measures currents on both sides of the GSUT to calculate differential spill current.</td>
+          </tr>
+          <tr>
+            <td><b>Primary Protection Relay</b></td>
+            <td><b>GSUT-87T (Siemens 7UT6331)</b><br>Transformer Differential Relay</td>
+            <td>Detects winding/bushing faults inside the transformer zone in <b>0.045 s</b>. Features dual restraint slopes (30%/60%) to prevent false tripping during inrush.</td>
+          </tr>
+          <tr>
+            <td><b>Backup Protection Relay</b></td>
+            <td><b>GSUT-HV-51 (Siemens 7UT6331)</b><br>Time-Overcurrent ($I_p = 1,380\text{ A}$)</td>
+            <td>Provides backup overcurrent protection on the 230 kV side, tripping in <b>2.35 s</b> if 87T is disabled.</td>
+          </tr>
+          <tr>
+            <td><b>Isolation Breakers</b></td>
+            <td><b>GCB (22 kV) + Q0 Breaker (230 kV)</b></td>
+            <td>Trips both the low-voltage GCB and high-voltage 230 kV bay breaker Q0 simultaneously, isolating the transformer from both generator and grid sources.</td>
+          </tr>
+          <tr>
+            <td><b>Mechanical Detection</b></td>
+            <td><b>Buchholz Relay & Pressure Relief Device</b></td>
+            <td>Detects oil gas accumulation and explosive pressure waves inside the transformer oil tank, triggering an electrical lockout trip.</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- F3 EQUIPMENT TABLE -->
+      <div style="margin-bottom:20px;">
+        <h3 style="color:var(--navy);"><span class="badge badge-f3">F3</span> Defense Equipment for 230 kV GIS Switchyard Bus Faults:</h3>
+        <table>
+          <tr>
+            <th>Equipment Category</th>
+            <th>Specific Equipment Model / Tag</th>
+            <th>Primary Purpose & Role in Fault Mitigation</th>
+          </tr>
+          <tr>
+            <td><b>Primary Sensing</b></td>
+            <td><b>1,600 / 1 A GIS Bay CTs</b></td>
+            <td>Monitors all incoming and outgoing branch currents (GSUT bay, Line 1, Line 2, GAT bay).</td>
+          </tr>
+          <tr>
+            <td><b>Primary Protection Relay</b></td>
+            <td><b>GIS-87B (Siemens 7SS523)</b><br>Busbar Differential Protection</td>
+            <td><b>The savior of the switchyard.</b> Computes Kirchhoff's Current Law ($\sum I = 0$). Trips within <b>0.035 s (35 ms)</b> for a 50.53 kA bus fault, clearing in <b>~90 ms total</b>.</td>
+          </tr>
+          <tr>
+            <td><b>Backup Protection Relay</b></td>
+            <td><b>GIS-Q0-51 (Overcurrent Backup)</b></td>
+            <td>Backup overcurrent protection tripping in <b>7.28 s</b> if bus differential fails.</td>
+          </tr>
+          <tr>
+            <td><b>Power Interruption Breakers</b></td>
+            <td><b>Q0, LineLocal, and GAT Bay Breakers</b><br>(Siemens 8DN9 GIS, 50 kA rating)</td>
+            <td>Trips all breakers connected to the faulted bus section simultaneously, cutting all inward feed paths.</td>
+          </tr>
+          <tr>
+            <td><b>Tripping & DC System</b></td>
+            <td><b>110 V DC Battery Bank & 86 Lockout</b></td>
+            <td>Provides instantaneous tripping energy to all breaker coils and locks out reclosing until manual inspection.</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- F4 EQUIPMENT TABLE -->
+      <div style="margin-bottom:20px;">
+        <h3 style="color:var(--navy);"><span class="badge badge-f4">F4</span> Defense Equipment for 230 kV Transmission Line Mid-Point Faults:</h3>
+        <table>
+          <tr>
+            <th>Equipment Category</th>
+            <th>Specific Equipment Model / Tag</th>
+            <th>Primary Purpose & Role in Fault Mitigation</th>
+          </tr>
+          <tr>
+            <td><b>Primary Protection Relay</b></td>
+            <td><b>LINE-7SD (Siemens 7SD5221)</b><br>Line Current Differential (87L)</td>
+            <td>Compares current vectors at plant and remote substation over a dedicated optical fiber communication channel. Operates in <b>0.040 s effective</b>.</td>
+          </tr>
+          <tr>
+            <td><b>Backup Protection Relay</b></td>
+            <td><b>Distance Relay (ANSI 21)</b><br>Zone 1 (Instantaneous) & Zone 2 (Graded)</td>
+            <td>Measures line impedance ($Z = V/I$). Zone 1 clears faults within 80% of the line with 0 s delay; Zone 2 clears remaining 20% in 0.30 s.</td>
+          </tr>
+          <tr>
+            <td><b>Surge Protection</b></td>
+            <td><b>230 kV ZnO Surge Arresters</b></td>
+            <td>Discharges atmospheric lightning strikes and switching surges to ground, preventing line insulation flashover.</td>
+          </tr>
+          <tr>
+            <td><b>Line Circuit Breakers</b></td>
+            <td><b>Local & Remote 230 kV Line Breakers</b></td>
+            <td>Opens breakers at both line terminals to completely de-energize the faulted transmission span.</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- F5 EQUIPMENT TABLE -->
+      <div>
+        <h3 style="color:var(--navy);"><span class="badge badge-f5">F5</span> Defense Strategy for 230 kV Remote Grid Substation Bus Faults:</h3>
+        <table>
+          <tr>
+            <th>Equipment Category</th>
+            <th>Specific Equipment Model / Tag</th>
+            <th>Primary Purpose & Role in Fault Mitigation</th>
+          </tr>
+          <tr>
+            <td><b>Primary Clearing</b></td>
+            <td><b>Remote Substation Bus Protection</b><br>(Outside Ashuganj South Scope)</td>
+            <td>Primary high-speed clearing is handled by the remote utility substation's own bus differential relays.</td>
+          </tr>
+          <tr>
+            <td><b>Unit Protection Restraint</b></td>
+            <td><b>Plant Relays (87G, 87T, 87B, 87L)</b></td>
+            <td><b>Selective Restraint:</b> Plant unit differential relays see high through-current but zero spill current. They properly <b>restrain (do not trip)</b>, keeping the plant running.</td>
+          </tr>
+          <tr>
+            <td><b>Local Backup Protection</b></td>
+            <td><b>Q0-51 Overcurrent & Distance Zone 3</b></td>
+            <td>If remote breakers fail to clear the fault, local breaker Q0 provides backup tripping in <b>4.54 s to 7.48 s</b>, saving Ashuganj from sustained backfeed.</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CATASTROPHIC FAILURE PHYSICS -->
+    <section id="consequences" class="card">
+      <span class="status-pill" style="background:#fee2e2; color:#991b1b;">Physical Damage & Safety Risks</span>
+      <h2>6 · Catastrophic Consequences: What Happens if Protection Fails?</h2>
+      <p>To appreciate why these protection systems exist, here is the physical reality of what would happen if a fault occurred and the protection failed to trip, explained in simple, vivid language:</p>
+
+      <div class="grid2">
+        <!-- F1 Catastrophe -->
+        <div style="background:#fff5f5; border:1px solid #fecaca; border-radius:10px; padding:18px;">
+          <h3 style="color:#b91c1c; margin-top:0;">F1 Failure: Stator Core Melting & Generator Explosion</h3>
+          <p style="font-size:13.5px; color:#334155;">
+            <b>At 126.21 kA (348 kA peak):</b> The magnetic forces between copper stator conductors exceed hundreds of tons. Unbraced windings will physically rip out of the stator slots with explosive force.<br><br>
+            <b>The 7.27 A Ground Fault Danger:</b> If the 51N relay fails to detect a 7.27 A ground fault, the localized arc burns through the thin mica insulation between stator laminations. The high-temperature arc welds the thousands of insulated steel sheets into a solid lump of molten iron. Once laminations fuse, massive circulating eddy currents destroy the entire stator core. <b>Repair cost: $15–20 million; plant shutdown: 12 to 18 months.</b>
+          </p>
+        </div>
+
+        <!-- F2 Catastrophe -->
+        <div style="background:#fff5f5; border:1px solid #fecaca; border-radius:10px; padding:18px;">
+          <h3 style="color:#b91c1c; margin-top:0;">F2 Failure: Transformer Tank Rupture & Boiling Oil Fireball</h3>
+          <p style="font-size:13.5px; color:#334155;">
+            <b>At 126.21 kA on the 22 kV Bushings:</b> The short circuit creates an electric arc under mineral insulating oil exceeding 5,000°C. The arc instantly vaporizes liquid oil into hydrogen and acetylene gas.<br><br>
+            Because oil is incompressible, pressure inside the sealed steel tank rises at over 1,000 psi per second. If 87T does not trip within 45 ms, <b>the steel tank ruptures violently</b>, spraying thousands of gallons of boiling, pressurized oil into the atmosphere, creating a massive explosion and fireball that incinerates adjacent transformers.
+          </p>
+        </div>
+
+        <!-- F3 Catastrophe -->
+        <div style="background:#fff5f5; border:1px solid #fecaca; border-radius:10px; padding:18px;">
+          <h3 style="color:#b91c1c; margin-top:0;">F3 Failure: GIS Enclosure Blowout & Lethal Toxic Gas Release</h3>
+          <p style="font-size:13.5px; color:#334155;">
+            <b>At 50.53 kA inside the 230 kV GIS:</b> The arc creates an explosive plasma arc inside the sealed aluminum compartment. Overcurrent backup takes <b>7.28 seconds</b> — an eternity in power systems.<br><br>
+            Sustaining a 50 kA arc for 7 seconds vaporizes copper busbars into metallic gas. The intense heat decomposes non-toxic $SF_6$ gas into <b>highly toxic, corrosive byproducts: Sulfur Dioxide ($SO_2$), Hydrofluoric Acid ($HF$), and Disulfur Decafluoride ($S_2F_{10}$)</b>. Overpressure blows out burst discs and tears enclosure seams, venting lethal poisonous gas clouds across the substation. 87B prevents this by clearing in 90 ms!
+          </p>
+        </div>
+
+        <!-- F4 & F5 Catastrophe -->
+        <div style="background:#fff5f5; border:1px solid #fecaca; border-radius:10px; padding:18px;">
+          <h3 style="color:#b91c1c; margin-top:0;">F4/F5 Failure: Conductor Annealing & Regional Grid Blackout</h3>
+          <p style="font-size:13.5px; color:#334155;">
+            <b>F4 Transmission Line Annealing:</b> When 51.06 kA flows continuously through aluminum conductor steel-reinforced (ACSR) cables, temperatures exceed 300°C within seconds. Aluminum loses its tensile strength (annealing) and permanently stretches. The line sags onto roadways or snaps, dropping high-voltage cables onto the ground.<br><br>
+            <b>F5 Regional Blackout & Rotor Pole-Slipping:</b> A sustained fault at the 230 kV grid collapses national grid voltage to near zero. Generator mechanical turbine power cannot be exported electrically, accelerating the rotor out of synchronism. The generator begins "pole-slipping", creating violent torsional shockwaves that fracture the turbine-generator shaft and trigger a nationwide cascading blackout.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: VIVA PREPARATION GUIDE -->
+    <section id="viva" class="card">
+      <span class="status-pill" style="background:#f3e8ff; color:#6b21a8;">Oral Exam & Viva Preparation</span>
+      <h2>7 · Viva Preparation Guide (16 High-Yield Questions & Model Answers)</h2>
+      <p>These questions are frequently asked by university professors, external examiners, and power utility boards during project presentations and oral defenses:</p>
+
+      <div class="viva-card">
+        <div class="viva-q">Q1. Why is the single-line-to-ground fault current at F1 (22 kV bus) only 7.27 A, while at F3 (230 kV bus) it is 45.74 kA?</div>
+        <div class="viva-a">
+          <b>Answer:</b> Because of the grounding method!
+          <ul>
+            <li><b>At 22 kV (F1):</b> The generator neutral is grounded through a high-resistance <b>Neutral Grounding Resistor (NER 10BAB11)</b> with an effective resistance of 1,750.8 Ω. By Ohm's law, $I_{\text{LG}} \approx \frac{22,000/\sqrt{3}}{1,750.8} \approx 7.27\text{ A}$. This deliberate limitation prevents stator core damage.</li>
+            <li><b>At 230 kV (F3):</b> The national transmission grid and the GSUT HV wye neutral are <b>solidly grounded</b> (zero intentional resistance). The ground fault path consists only of tiny transformer and line impedances, resulting in a massive 45.74 kA fault current.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q2. Why can standard 15,000/1 A phase CTs not detect a 7.27 A stator ground fault, and how did our study solve this?</div>
+        <div class="viva-a">
+          <b>Answer:</b> With a 15,000/1 A phase CT ratio, a primary current of 7.27 A produces a secondary current of:
+          $$I_{\text{secondary}} = \frac{7.27\text{ A}}{15,000} = 0.000485\text{ A} = 0.485\text{ mA}$$
+          This is far below the minimum operating threshold and noise floor of modern numerical relays (typically 50–100 mA). The relay is completely blind.<br>
+          <b>Our Solution:</b> We introduced a dedicated <b>20/1 sensitive neutral CT</b> on the generator neutral earthing lead. This produces a secondary current of $I_{\text{sec}} = \frac{7.27}{20} = 0.3635\text{ A}$, which easily and reliably operates our 4.0 A pickup (0.20 A secondary dial) with an operating margin of 1.82×.
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q3. Why does the GSUT YNd1 transformer block zero-sequence current from passing between 230 kV and 22 kV?</div>
+        <div class="viva-a">
+          <b>Answer:</b> The GSUT has a delta connection on its 22 kV low-voltage winding. In a delta winding, zero-sequence currents ($I_0$) circulate trapped inside the delta loop and cannot enter or leave the line terminals. Therefore, ground faults on the 230 kV grid produce exactly 0 A in the 22 kV generator neutral grounding path, isolating the generator from external ground disturbances.
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q4. What is the difference between Symmetrical RMS Current ($I_k''$) and Peak Make Current ($i_p$)?</div>
+        <div class="viva-a">
+          <b>Answer:</b>
+          <ul>
+            <li><b>Symmetrical RMS Current ($I_k''$):</b> The pure AC component of the short-circuit current at the first instant of the fault (e.g., 126.21 kA at F1). Used for calculating thermal heating ($I^2 t$) and breaking capacity.</li>
+            <li><b>Peak Make Current ($i_p$):</b> The absolute maximum instantaneous peak value of current in the first half-cycle ($t \approx 10\text{ ms}$), caused by the addition of the maximum DC offset: $i_p = \kappa \sqrt{2} I_k''$ (where $\kappa \approx 1.8 - 1.95$). At F1, $i_p = 348.26\text{ kA}$! This value dictates the peak electromagnetic forces that attempt to tear busbars and breaker contacts apart.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q5. What is Coordination Time Interval (CTI), why is 300 ms chosen, and how was TMS calculated?</div>
+        <div class="viva-a">
+          <b>Answer:</b>
+          <ul>
+            <li><b>CTI (Coordination Time Interval):</b> The safety time margin maintained between a downstream breaker and an upstream backup breaker.</li>
+            <li><b>Why 300 ms?</b> 300 ms accounts for: breaker operating time (50 ms) + relay overtravel/overshoot (30 ms) + CT saturation errors (50 ms) + safety margin (170 ms). This ensures the downstream breaker clears the fault before the upstream relay trips.</li>
+            <li><b>TMS Calculation:</b> Using the IEC Standard Inverse equation $t = \frac{0.14 \times \text{TMS}}{(I/I_p)^{0.02}-1}$, the required upstream operating time $t_{\text{upstream}} = t_{\text{downstream}} + \text{CTI}$ is substituted to mathematically solve for $\text{TMS}$. For GSUT-HV-51, this gave $\text{TMS} = 0.55$.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q6. What is the difference between Unit Protection and Non-Unit Protection?</div>
+        <div class="viva-a">
+          <b>Answer:</b>
+          <ul>
+            <li><b>Unit Protection (Differential 87G, 87T, 87B, 87L):</b> Protects a strictly defined physical zone bounded by current transformers. It is 100% selective: it trips instantaneously for internal faults and restrains for external through-faults without needing time grading delays.</li>
+            <li><b>Non-Unit Protection (Overcurrent 51, Ground 51N):</b> Has no defined boundary. It responds to current magnitude anywhere in the system and relies on intentional time delays (grading) to achieve selectivity.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q7. What is the role of the Master Trip Lockout Relay (ANSI 86)?</div>
+        <div class="viva-a">
+          <b>Answer:</b> When a severe electrical fault occurs (such as 87G or 87T), the 86 lockout relay trips and mechanically latches in the trip state. It simultaneously trips the GCB, trips Q0, trips the turbine Emergency Stop Valves, trips the field breaker, and <b>mechanically blocks any automatic or manual reclosing</b> until the plant engineers physically inspect the equipment and manually reset the relay.
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q8. What would happen if busbar differential relay 87B did not exist during an F3 fault?</div>
+        <div class="viva-a">
+          <b>Answer:</b> Without 87B, the 50.53 kA bus fault would have to be cleared by backup overcurrent relay Q0-51, which takes <b>7.28 seconds</b> to operate. Sustaining a 50 kA arc for over 7 seconds would release over 1,000 MJ of thermal energy, melting copper busbars into vapor, decomposing $SF_6$ into lethal toxic gases ($HF, SO_2$), and blowing out the GIS enclosure. 87B eliminates this by clearing in <b>35 ms</b> (total ~90 ms with breaker).
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q9. What is Breaker Duty Ratio and what was our screening verdict?</div>
+        <div class="viva-a">
+          <b>Answer:</b> Duty Ratio = $\frac{\text{Maximum Calculated Fault Current}}{\text{Breaker Certified Breaking Rating}}$.
+          <ul>
+            <li>For GCB: Duty Ratio = $\frac{55.05\text{ kA}}{100\text{ kA}} = \mathbf{0.550} < 1.0$ (PASS).</li>
+            <li>For Q0: Duty Ratio = $\frac{6.90\text{ kA}}{50\text{ kA}} = \mathbf{0.138} < 1.0$ (PASS).</li>
+          </ul>
+          Our study achieved <b>zero exceedances</b> across all 96 fault evaluations, proving all breakers can safely interrupt maximum prospective currents.
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q10. Why must the turbine Emergency Stop Valves (ESV) trip during an electrical fault?</div>
+        <div class="viva-a">
+          <b>Answer:</b> If the Generator Circuit Breaker (GCB) opens while the gas turbine is supplying 300+ MW of mechanical torque, the mechanical load suddenly drops to zero. Without electrical counter-torque, the rotor will accelerate violently towards catastrophic mechanical overspeed (&gt;120% speed), which would shatter turbine blades. Tripping the ESV cuts fuel gas within 100 ms to prevent turbine overspeed.
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q11. How do directional elements (ANSI 67 / 67N) prevent false tripping on parallel lines or backfeed?</div>
+        <div class="viva-a">
+          <b>Answer:</b> On parallel transmission lines or interconnected networks, fault current can flow in either forward or reverse direction. A standard non-directional overcurrent relay (51) cannot distinguish between forward fault current (flowing into a faulted line) and reverse through-current (flowing from healthy lines toward a fault behind the bus). Directional relays (67/67N) compare the phase angle between the measured fault current and a reference polarizing voltage (from VTs) or neutral zero-sequence flux. If power flows backward into the source bus, tripping is blocked, keeping healthy circuits online.
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q12. Why does a transformer require both electrical 87T protection and mechanical Buchholz / PRD protection?</div>
+        <div class="viva-a">
+          <b>Answer:</b> Because they protect against entirely different fault physics:
+          <ul>
+            <li><b>Electrical Differential 87T:</b> High-speed protection (45 ms) for high-energy phase-to-phase and phase-to-ground faults producing clear current imbalances. However, 87T is insensitive to incipient faults (minor turn-to-turn insulation breakdown or localized hot spots drawing negligible fault current).</li>
+            <li><b>Mechanical Buchholz Relay:</b> Detects slow gas accumulation from decomposing mineral oil caused by low-energy arcing, loose connections, or partial discharge long before it escalates into a severe electrical fault.</li>
+            <li><b>Pressure Relief Device (PRD):</b> A spring-loaded mechanical diaphragm that vents instantaneous hydraulic shockwaves in the oil tank to prevent catastrophic structural rupture if an arc occurs.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q13. What is the significance of the X/R ratio in short-circuit analysis and how does it affect DC offset?</div>
+        <div class="viva-a">
+          <b>Answer:</b> The $X/R$ ratio determines the time constant of the DC component decay during a short circuit: $\tau_{\text{DC}} = \frac{L}{R} = \frac{X}{2\pi f R}$. At the generator terminals (F1), $X/R \approx 32.5$, giving a long DC decay time constant ($\tau_{\text{DC}} \approx 100\text{ ms}$). This causes a near 100% DC offset in the first cycles, massively increasing the peak make current ($i_p$) and causing "delayed current zeros" where the waveform does not cross zero for several cycles, demanding high-capability breaker arc extinguishing chambers.
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q14. Why do we install both Line Current Differential (87L) and Distance (ANSI 21) relays on the 230 kV lines?</div>
+        <div class="viva-a">
+          <b>Answer:</b> To adhere to the industry-standard principle of <b>Primary and Autonomous Backup Protection</b>:
+          <ul>
+            <li><b>Primary (87L via Optical Fiber):</b> Provides absolute unit protection. It compares currents at both terminals over optical fiber and clears 100% of the line in 40 ms. However, it depends on communication channels.</li>
+            <li><b>Backup (Distance ANSI 21):</b> Completely independent of communication. It measures local $V$ and $I$ to calculate apparent impedance ($Z = V/I$). If fiber communication fails, the distance relay independently clears faults in Zone 1 (80% of line instantaneously) and Zone 2 (remaining 20% in 300 ms).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q15. How does the generator AVR and de-excitation field circuit breaker protect the machine during an internal stator fault?</div>
+        <div class="viva-a">
+          <b>Answer:</b> Opening the GCB disconnects the generator from the grid, stopping grid current from feeding the fault. However, the generator rotor continues spinning at 3,000 RPM with intense DC magnetic excitation, meaning the machine continues generating voltage and feeding hundreds of amperes into its own internal arc. To stop internal destruction, the unit trip simultaneously trips the <b>Automatic Voltage Regulator (AVR) field circuit breaker</b>, which inserts a high-speed discharge resistor across the field winding to collapse the magnetic flux within hundreds of milliseconds.
+        </div>
+      </div>
+
+      <div class="viva-card">
+        <div class="viva-q">Q16. In our Simulink dynamic model, how are the faults simulated and synchronized with protection tripping?</div>
+        <div class="viva-a">
+          <b>Answer:</b> In <code>PHASE6_ASHUGANJ_CCPP_DYNAMIC_MODEL.slx</code>:
+          <ol>
+            <li>Faults are initiated by a <b>Three-Phase Fault Block</b> programmed with a transition time vector (e.g., <code>[0.2, 0.35]</code> seconds) and configurable ground resistance $R_{\text{on}}$ and $R_g$.</li>
+            <li>Measurement blocks sample instantaneous three-phase voltages and currents at 10 kHz.</li>
+            <li>These signals enter our C-MEX S-Function and MATLAB function protection blocks (87G, 87T, 87B, 87L, 51, 51N).</li>
+            <li>When the relay logic satisfies pickup and time delay thresholds, it outputs a logical <code>1</code> trip signal that commands the Simscape Three-Phase Breaker to open its internal contacts at the next current zero, isolating the fault dynamically.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: REPRODUCTION & COMPANION FILES -->
+    <section id="repro" class="card">
+      <span class="status-pill" style="background:#f1f5f9; color:#475569;">Code & Evidence Reproducibility</span>
+      <h2>8 · Verification Commands & File Index</h2>
+      <p>All fault calculations, symmetrical component matrices, and protection models can be reproduced directly in MATLAB:</p>
+
+      <pre>
+% Inside MATLAB Command Window:
+cd('c:/Users/Sindid/OneDrive/Desktop/MouseWithoutBorders/306 Power Project -ekkebare f/306 Power Project -kimi k3-v4')
+
+% 1. Re-run complete Phase 4 symmetrical fault analysis & production tests:
+addpath(genpath('matlab'));
+run_phase4_production();
+
+% 2. Verify all Phase 5 protection settings & grading margins:
+run_phase5b_tests();   % PASS = 528, FAIL = 0
+
+% 3. Run Phase 6 Relay Engine Verification:
+addpath('Phase6/scripts'); addpath('Phase6/scripts/tests');
+test_phase6_relays();
+test_phase6_protection_sfunctions();
+      </pre>
+
+      <h3 style="margin-top:20px;">Companion Artifacts in <code>Phase 4 Docs/</code>:</h3>
+      <ul style="line-height:1.7;">
+        <li><a href="snapshots/sld_fault_locations_marked.png"><code>snapshots/sld_fault_locations_marked.png</code></a> — Master SLD with circled fault positions.</li>
+        <li><a href="snapshots/simulink_fault_locations_marked.png"><code>snapshots/simulink_fault_locations_marked.png</code></a> — Top-level Simulink plant overview with circled fault positions.</li>
+        <li><a href="snapshots/F1_generator_fault_block.png"><code>snapshots/F1_generator_fault_block.png</code></a> — Simulink F1 Generator fault block snapshot.</li>
+        <li><a href="snapshots/F2_transformer_LV_fault_block.png"><code>snapshots/F2_transformer_LV_fault_block.png</code></a> — Simulink F2 GSUT LV connection fault block.</li>
+        <li><a href="snapshots/F3_GIS_bus_fault_block.png"><code>snapshots/F3_GIS_bus_fault_block.png</code></a> — Simulink F3 230 kV GIS bus fault block.</li>
+        <li><a href="snapshots/F4_line_midpoint_fault_block.png"><code>snapshots/F4_line_midpoint_fault_block.png</code></a> — Simulink F4 Transmission line midpoint fault block.</li>
+        <li><a href="snapshots/F5_remote_bus_fault_block.png"><code>snapshots/F5_remote_bus_fault_block.png</code></a> — Simulink F5 Remote grid bus fault block.</li>
+        <li><a href="FAULT_ANALYSIS_MANUAL.md"><code>FAULT_ANALYSIS_MANUAL.md</code></a> — Complete printable Markdown twin.</li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<script>
+let currentScale = 1.18;
+let lbZoom = 1;
+
+function setFontScale(scale, btn) {
+  currentScale = scale;
+  document.documentElement.style.setProperty('--font-scale', scale);
+  document.querySelectorAll('.pbar-actions .pbar-btn').forEach(b => {
+    if (b.id !== 'btn-full-width') b.classList.remove('active');
+  });
+  if (btn) btn.classList.add('active');
+  localStorage.setItem('faultManualFontScale', scale);
+}
+
+function toggleFullWidth(btn) {
+  document.documentElement.classList.toggle('full-width');
+  const isFull = document.documentElement.classList.contains('full-width');
+  if (btn) btn.classList.toggle('active', isFull);
+  btn.textContent = isFull ? '⛶ Normal Width' : '⛶ Full Width Mode';
+  localStorage.setItem('faultManualFullWidth', isFull ? '1' : '0');
+}
+
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  img.src = src;
+  lbZoom = 1;
+  img.style.transform = `scale(${lbZoom})`;
+  lb.style.display = 'flex';
+}
+
+function closeLightbox(e) {
+  if (!e || e.target.id === 'lightbox' || e.target.parentElement?.id === 'lightbox' || e.target.tagName === 'BUTTON') {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+}
+
+function zoomLightbox(factor) {
+  lbZoom = Math.min(3.0, Math.max(0.6, lbZoom * factor));
+  document.getElementById('lightbox-img').style.transform = `scale(${lbZoom})`;
+}
+
+function resetLightboxZoom() {
+  lbZoom = 1;
+  document.getElementById('lightbox-img').style.transform = `scale(1)`;
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+});
+
+// Load saved display preferences
+window.addEventListener('DOMContentLoaded', () => {
+  const savedScale = localStorage.getItem('faultManualFontScale');
+  if (savedScale) {
+    const s = parseFloat(savedScale);
+    let targetBtn = document.getElementById('btn-scale-2');
+    if (s <= 1.05) targetBtn = document.getElementById('btn-scale-1');
+    else if (s >= 1.6) targetBtn = document.getElementById('btn-scale-4');
+    else if (s >= 1.35) targetBtn = document.getElementById('btn-scale-3');
+    setFontScale(s, targetBtn);
+  } else {
+    setFontScale(1.18, document.getElementById('btn-scale-2'));
+  }
+  const savedFull = localStorage.getItem('faultManualFullWidth');
+  if (savedFull === '1') {
+    toggleFullWidth(document.getElementById('btn-full-width'));
+  }
+});
+</script>
+</body>
+</html>

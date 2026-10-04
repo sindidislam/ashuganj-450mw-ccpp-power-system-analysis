@@ -1,0 +1,94 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+=================================================================
+ 1. THE *n* -> NAMED BUS MAPPING, EVERY CASE
+=================================================================
+ Identify by BASE VOLTAGE and BUS TYPE, which are printed by the tool,
+ rather than by index - indices shift when the GAT bay closes.
+
+ Load_Flow_LF1  (status 1, 5 nodes)
+ tool ID  vbase V    type        |V| pu       V volts   angle deg
+ *1*      2.3e+05    PQ        0.957864   220308.7451    +4.33212
+ *2*      6600       PQ        1.001390     6609.1759    +4.33472
+ *3*      2.2e+04    PV        1.000000    22000.0000   -22.22509
+ *4*      2.3e+05    swing     1.000000   230000.0000    +0.00000
+ *5*      2.3e+05    PQ        0.998686   229697.7033    +1.07868
+
+ Load_Flow_LF2  (status 1, 5 nodes)
+ tool ID  vbase V    type        |V| pu       V volts   angle deg
+ *1*      2.3e+05    PQ        0.998504   229655.9595    +1.07894
+ *2*      6600       PQ        1.020460     6735.0341    +2.79626
+ *3*      2.2e+04    PV        1.000000    22000.0000   -22.32972
+ *4*      2.3e+05    swing     1.000000   230000.0000    +0.00000
+ *5*      2.3e+05    PQ        0.998502   229655.4483    +1.07883
+
+ Load_Flow_LF3  (status 1, 5 nodes)
+ tool ID  vbase V    type        |V| pu       V volts   angle deg
+ *1*      2.3e+05    PQ        0.957857   220307.1036    +3.34773
+ *2*      6600       PQ        1.001387     6609.1524    +3.35031
+ *3*      2.2e+04    PV        1.000000    22000.0000   -23.20951
+ *4*      2.3e+05    swing     1.000000   230000.0000    +0.00000
+ *5*      2.3e+05    PQ        0.998974   229763.9327    +0.94257
+
+ Load_Flow_LF4  (status 1, 5 nodes)
+ tool ID  vbase V    type        |V| pu       V volts   angle deg
+ *1*      2.3e+05    PQ        0.998787   229720.9526    +0.94283
+ *2*      6600       PQ        1.020998     6738.5874    +2.22362
+ *3*      2.2e+04    PV        1.000000    22000.0000   -23.28635
+ *4*      2.3e+05    swing     1.000000   230000.0000    +0.00000
+ *5*      2.3e+05    PQ        0.998785   229720.5754    +0.94272
+
+=================================================================
+ 2. WHAT IS simulink/studies/Load_Flow.slx ?
+=================================================================
+ blocks : 12
+ G1             Pref=389300000  BusType=PV  
+ GAT BAY CB     InitialState=open  
+ BUS COUPLER    InitialState=closed  
+ case annotation: Case LF1 : Rated dispatch, GAT out of service | G1 = 389.30 MW (rated dispatch) | GAT OUT OF SERVICE | bus coupler CLOSED | radial System base 100 ...
+ solves : status 1, 2 iterations, 5 nodes
+
+=================================================================
+ 3. HOW THE powergui DIALOG IS OPENED
+=================================================================
+   OpenFcn                : sps_rtmsupport('OpenFcn',gcbh)
+   MaskType               : PSB option menu block
+   MaskSelfModifiable     : on
+   AttributesFormatString : <empty>
+
+   load-flow related entry points that resolve on this installation:
+      powergui             C:\Program Files\MATLAB\R2024a\toolbox\physmod\powersys\powersys\powergui.p
+      power_loadflow       C:\Program Files\MATLAB\R2024a\toolbox\physmod\powersys\powersys\power_loadflow.m
+      power_init           C:\Program Files\MATLAB\R2024a\toolbox\physmod\powersys\powersys\power_init.m
+      power_analyze        C:\Program Files\MATLAB\R2024a\toolbox\physmod\powersys\powersys\power_analyze.m
+      power_report         C:\Program Files\MATLAB\R2024a\toolbox\physmod\powersys\powersys\power_report.mlapp
+      power_loadflowGUI    <not found>
+      powerguiLoadFlow     <not found>
+      power_steadystate    C:\Program Files\MATLAB\R2024a\toolbox\physmod\powersys\powersys\power_steadystate.m
+
+=================================================================
+ 4. power_loadflow OPTIONS, FROM ITS OWN HELP
+=================================================================
+     POWER_LOADFLOW Computes the load flow of a Simscape Electrical Specialized Power Systems model.
+    
+       LF = POWER_LOADFLOW(SYS,'solve') computes the load flow of SYS using the default load flow parameters. 
+       The model is initialized with the load flow solution. 
+    
+       LF = POWER_LOADFLOW(SYS,'parameters') returns the load flow parameters
+       of SYS. LF can be edited to customize new load flow solution.
+    
+       LF = POWER_LOADFLOW(SYS,'solve',LF)computes the load flow of SYS with the load
+       flow parameters defined in LF structure. LF is augmented with the load flow results.
+       The model is initialized with the load flow solution.
+    
+       POWER_LOADFLOW(SYS,'solve','report',FNAME) computes the load flow 
+       then save detailed information in FNAME MATLAB file.
+    
+       POWER_LOADFLOW(SYS,'solve','ExcelReport',FNAME) computes the load flow 
+       then save detailed information in FNAME Excel file.
+       Documentation for power_loadflow
+          doc power_loadflow
+   
+
+PROBE COMPLETE

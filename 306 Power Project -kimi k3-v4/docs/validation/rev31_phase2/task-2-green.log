@@ -1,0 +1,54 @@
+TASK2 GREEN 16-Sep-2026 22:34:59 MATLAB 24.1.0.2537033 (R2024a)
+ANALYZER matlab/data/engineering_assumptions.m
+ANALYZER matlab/data/ashuganj_phase2_systems.m
+         id: 'ISCL'
+    message: 'To improve performance, use 'isscalar' instead of length comparison.'
+        fix: 1
+       line: 176
+     column: [4 18]
+
+ANALYZER matlab/tests/test_engineering_assumptions.m
+ANALYZER matlab/tests/test_phase2_systems.m
+  2x1 struct array with fields:
+
+    id
+    message
+    fix
+    line
+    column
+
+
+--- test_engineering_assumptions --------------------------------------
+  PASS  metadata_contract
+  PASS  exciter_defaults
+  PASS  limiter_bases
+  PASS  sfc_defaults
+  PASS  battery_defaults
+  PASS  charger_defaults
+  PASS  load_budget
+  PASS  governor_defaults
+  PASS  pss_disabled
+  => test_engineering_assumptions: 9 passed, 0 failed
+
+--- test_phase2_systems -----------------------------------------------
+  PASS  identities_and_defaults
+  PASS  all_leaves_are_records
+  PASS  exact_source_identity
+  PASS  oel_not_a_voltage_base
+  PASS  uel_source_curve
+  PASS  sfc_side_separation
+  PASS  station_dc_configuration
+  PASS  primary_sixth_order_selection
+  PASS  central_record_coverage
+  PASS  override_propagation
+  PASS  range_boundary_override
+  PASS  reject_malformed_records
+  PASS  reject_inconsistent_battery
+  PASS  reject_inconsistent_exciter
+  PASS  reject_inconsistent_charger
+  PASS  reject_invalid_generator
+  PASS  preserve_inputs
+  => test_phase2_systems: 17 passed, 0 failed
+TASK2 COUNTS 9 0 17 0
+CENTRAL_RECORDS 72
+TASK2 GREEN VERIFIED

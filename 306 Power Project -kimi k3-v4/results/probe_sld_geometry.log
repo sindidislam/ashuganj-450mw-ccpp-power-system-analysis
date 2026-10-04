@@ -1,0 +1,39 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+=== 1. PORT GEOMETRY ===
+tx2              right  pos=[100 100 200 200]  LConn: n=3 x=[96 96 96] y=[115 150 185]  RConn: n=3 x=[204 204 204] y=[115 150 185]
+tx2              left   pos=[100 100 200 200]  LConn: n=3 x=[204 204 204] y=[115 150 185]  RConn: n=3 x=[96 96 96] y=[115 150 185]
+tx2              up     pos=[100 100 200 200]  LConn: n=3 x=[115 150 185] y=[204 204 204]  RConn: n=3 x=[115 150 185] y=[96 96 96]
+tx2              down   pos=[100 100 200 200]  LConn: n=3 x=[115 150 185] y=[96 96 96]  RConn: n=3 x=[115 150 185] y=[204 204 204]
+breaker          right  pos=[100 100 170 180]  LConn: n=3 x=[96 96 96] y=[115 140 165]  RConn: n=3 x=[174 174 174] y=[115 140 165]
+breaker          left   pos=[100 100 170 180]  LConn: n=3 x=[174 174 174] y=[115 140 165]  RConn: n=3 x=[96 96 96] y=[115 140 165]
+breaker          up     pos=[100 100 170 180]  LConn: n=3 x=[110 135 160] y=[179 179 179]  RConn: n=3 x=[110 135 160] y=[101 101 101]
+breaker          down   pos=[100 100 170 180]  LConn: n=3 x=[110 135 160] y=[101 101 101]  RConn: n=3 x=[110 135 160] y=[179 179 179]
+load             right  pos=[100 100 170 170]  LConn: n=3 x=[96 96 96] y=[110 135 160]  RConn: -none-
+load             left   pos=[100 100 170 170]  LConn: n=3 x=[174 174 174] y=[110 135 160]  RConn: -none-
+load             up     pos=[100 100 170 170]  LConn: n=3 x=[110 135 160] y=[174 174 174]  RConn: -none-
+load             down   pos=[100 100 170 170]  LConn: n=3 x=[110 135 160] y=[96 96 96]  RConn: -none-
+source           right  pos=[100 100 180 190]  LConn: -none-  RConn: n=3 x=[184 184 184] y=[115 145 175]
+source           left   pos=[100 100 180 190]  LConn: -none-  RConn: n=3 x=[96 96 96] y=[115 145 175]
+source           up     pos=[100 100 180 190]  LConn: -none-  RConn: n=3 x=[110 140 170] y=[101 101 101]
+source           down   pos=[100 100 180 190]  LConn: -none-  RConn: n=3 x=[110 140 170] y=[189 189 189]
+series           right  pos=[100 100 200 160]  LConn: n=3 x=[96 96 96] y=[110 130 150]  RConn: n=3 x=[204 204 204] y=[110 130 150]
+series           left   pos=[100 100 200 160]  LConn: n=3 x=[204 204 204] y=[110 130 150]  RConn: n=3 x=[96 96 96] y=[110 130 150]
+series           up     pos=[100 100 200 160]  LConn: n=3 x=[130 150 170] y=[184 184 184]  RConn: n=3 x=[130 150 170] y=[76 76 76]
+series           down   pos=[100 100 200 160]  LConn: n=3 x=[130 150 170] y=[76 76 76]  RConn: n=3 x=[130 150 170] y=[184 184 184]
+
+=== 2. ANNOTATION PROPERTIES ===
+properties: Position, InternalMargins, IsImage, FixedHeight, FixedWidth, HorizontalAlignment, VerticalAlignment, ForegroundColor, BackgroundColor, Text, PlainText, DropShadow, AnnotationType, Interpreter, TeXMode, ShowInLibBrowser, MarkupType, ClickFcn, LoadFcn, DeleteFcn, UseDisplayTextAsClickCallback, UserData, Path, FontName, FontSize, FontWeight, FontAngle, Selected, Name, Tag, Description, Type, Parent, Handle, HiliteAncestors, RequirementInfo
+  BackgroundColor        = white
+  ForegroundColor        = black
+  Interpreter            = off
+  DropShadow             = off
+  HorizontalAlignment    = left
+  VerticalAlignment      = top
+  FontSize               = -1
+  FontWeight             = auto
+  FixedHeight            = off
+  FixedWidth             = off
+  -> set BackgroundColor=black, Position=[200 400 600 407]  OK, actual=[200 400 204 415]

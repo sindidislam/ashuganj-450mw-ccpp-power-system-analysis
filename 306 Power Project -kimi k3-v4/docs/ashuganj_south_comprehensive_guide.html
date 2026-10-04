@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashuganj 450 MW CCPP (South) — Comprehensive Electrical Engineering Reference Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0f1d;
+    --bg-secondary: #121a2f;
+    --bg-card: rgba(22, 32, 58, 0.75);
+    --bg-card-hover: rgba(30, 43, 77, 0.9);
+    --border-color: rgba(66, 153, 225, 0.2);
+    --border-glow: rgba(66, 153, 225, 0.4);
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --text-highlight: #38bdf8;
+    --accent-blue: #0284c7;
+    --accent-cyan: #06b6d4;
+    --accent-green: #10b981;
+    --accent-amber: #f59e0b;
+    --accent-red: #ef4444;
+    --accent-purple: #8b5cf6;
+    --tag-bg: rgba(56, 189, 248, 0.12);
+    --tag-border: rgba(56, 189, 248, 0.3);
+    --code-bg: #070c17;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: radial-gradient(circle at 10% 20%, #0d152a 0%, var(--bg-primary) 90%);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  /* Navigation Bar */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(10, 15, 29, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.85rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar-brand {
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    letter-spacing: -0.02em;
+  }
+  .navbar-brand span { color: var(--accent-cyan); }
+  .nav-links {
+    display: flex;
+    gap: 1.2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+  }
+  .nav-links a:hover {
+    color: var(--text-highlight);
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  /* Container */
+  .container {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+  }
+
+  /* Header Hero */
+  .hero-header {
+    background: linear-gradient(135deg, rgba(18, 26, 47, 0.95), rgba(15, 23, 42, 0.8));
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-primary { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+  .badge-success { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+  .badge-warning { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+  .badge-purple { background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3); }
+  
+  .hero-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+  }
+  .hero-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 900px;
+    margin-bottom: 1.5rem;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2rem;
+    background: rgba(7, 12, 23, 0.6);
+    padding: 1.2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .meta-item { display: flex; flex-direction: column; }
+  .meta-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.2rem; }
+  .meta-value { font-size: 0.95rem; font-weight: 700; color: #fff; }
+
+  /* Sections */
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 3rem 0 1.2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 1.6rem;
+    background: var(--accent-cyan);
+    border-radius: 3px;
+  }
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    margin-top: -0.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  /* Cards & Grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.6rem;
+    backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-glow);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.4);
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.8rem;
+  }
+  .card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .card-kks {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    background: rgba(6, 182, 212, 0.12);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+  }
+
+  /* Specs List */
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin: 0.8rem 0;
+  }
+  .specs-table td {
+    padding: 0.45rem 0.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+  .specs-table td:first-child {
+    color: var(--text-muted);
+    width: 42%;
+    font-weight: 500;
+  }
+  .specs-table td:last-child {
+    color: #fff;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.84rem;
+    text-align: right;
+  }
+  .card-body-text {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-top: 0.8rem;
+    line-height: 1.5;
+  }
+  .highlight-box {
+    background: rgba(2, 132, 199, 0.1);
+    border-left: 3px solid var(--accent-cyan);
+    padding: 0.75rem 1rem;
+    border-radius: 0 6px 6px 0;
+    margin-top: 0.9rem;
+    font-size: 0.84rem;
+    color: #bae6fd;
+  }
+  .warning-box {
+    background: rgba(245, 158, 11, 0.1);
+    border-left: 3px solid var(--accent-amber);
+    padding: 0.75rem 1rem;
+    border-radius: 0 6px 6px 0;
+    margin-top: 0.9rem;
+    font-size: 0.84rem;
+    color: #fde68a;
+  }
+
+  /* Diagram Visualizer */
+  .sld-diagram-container {
+    background: #070c17;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.7);
+    overflow-x: auto;
+  }
+  .sld-svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: 850px;
+    height: auto;
+  }
+
+  /* Interactive Case Matrix Table */
+  .matrix-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  .data-table th {
+    background: rgba(18, 26, 47, 0.95);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.9rem 1.1rem;
+    border-bottom: 2px solid var(--border-color);
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+  }
+  .data-table td {
+    padding: 0.85rem 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+  }
+  .data-table tr:hover {
+    background: rgba(56, 189, 248, 0.05);
+  }
+  .data-table .val-num {
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+  }
+  .status-pill {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .pill-green { background: rgba(16, 185, 129, 0.18); color: #34d399; }
+  .pill-red { background: rgba(239, 68, 68, 0.18); color: #f87171; }
+  .pill-amber { background: rgba(245, 158, 11, 0.18); color: #fbbf24; }
+  .pill-blue { background: rgba(56, 189, 248, 0.18); color: #38bdf8; }
+
+  /* Findings Cards */
+  .finding-card {
+    background: linear-gradient(135deg, rgba(22, 32, 58, 0.8), rgba(15, 23, 42, 0.9));
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .finding-card.finding-critical { border-left: 5px solid var(--accent-amber); }
+  .finding-card.finding-cooling { border-left: 5px solid var(--accent-cyan); }
+  .finding-card.finding-reactive { border-left: 5px solid var(--accent-purple); }
+  .finding-card.finding-switchgear { border-left: 5px solid var(--accent-green); }
+
+  .finding-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  .finding-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .finding-desc {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+  }
+  .talking-points {
+    background: rgba(7, 12, 23, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+  }
+  .talking-points h4 {
+    color: var(--accent-cyan);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+  .talking-points p {
+    font-size: 0.88rem;
+    color: #e2e8f0;
+    font-style: italic;
+  }
+
+  /* Remaining Roadmap */
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .roadmap-step {
+    background: rgba(18, 26, 47, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.4rem;
+    position: relative;
+  }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--accent-cyan);
+    color: #070c17;
+    font-weight: 800;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
+  .step-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+  .step-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border-color);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 4rem;
+  }
+  footer span { color: var(--accent-cyan); }
+
+  /* Search & Filter */
+  .filter-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .search-input {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 400px;
+    outline: none;
+    transition: all 0.2s;
+  }
+  .search-input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="navbar-brand">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+    Ashuganj South <span>450 MW CCPP</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#sld">Single-Line Diagram</a></li>
+    <li><a href="#equipment">Equipment Specs</a></li>
+    <li><a href="#cases">Case Matrix</a></li>
+    <li><a href="#results">Results & Significance</a></li>
+    <li><a href="#remaining">Remaining Scope</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <!-- Hero Header -->
+  <header class="hero-header" id="overview">
+    <div class="badge-row">
+      <span class="badge badge-primary">BUET EEE 306 Power System I</span>
+      <span class="badge badge-success">50.0 Hz Verified Base</span>
+      <span class="badge badge-purple">Single-Shaft SCC5-PAC 4000F/3000</span>
+      <span class="badge badge-warning">Group 03 · Section C-1</span>
+    </div>
+    <h1>Ashuganj 450 MW Combined Cycle Power Plant (South)</h1>
+    <p>Comprehensive technical sheet detailing electrical equipment specifications, single-line diagram operating principles, multi-case steady-state load flow analysis, and physical findings.</p>
+    
+    <div class="meta-grid">
+      <div class="meta-item">
+        <span class="meta-label">Total Gross Capacity</span>
+        <span class="meta-value">458 MVA / 389.30 MW (Rated)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Grid Connection</span>
+        <span class="meta-value">230 kV GIS (Siemens 8DN9)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Generator Voltage</span>
+        <span class="meta-value">22 kV (SGen5-2000H)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Auxiliary House Demand</span>
+        <span class="meta-value">14.0 MW @ 0.85 pf lagging</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Simulation Toolchain</span>
+        <span class="meta-value">MATLAB R2024a Simscape SPS</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section: Single Line Diagram Operation -->
+  <section id="sld">
+    <h2 class="section-title">Single-Line Diagram (SLD) & Operating Dynamics</h2>
+    <p class="section-sub">Physical power flow topology from generation terminals to the national transmission grid.</p>
+
+    <div class="sld-diagram-container">
+      <!-- SVG Electrical Flow Diagram -->
+      <svg class="sld-svg" viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad230" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#b91c1c" stop-opacity="0.9"/>
+          </linearGradient>
+          <linearGradient id="grad22" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#d97706" stop-opacity="0.9"/>
+          </linearGradient>
+          <linearGradient id="grad66" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0284c7" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#0369a1" stop-opacity="0.9"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Grid Block -->
+        <rect x="400" y="20" width="200" height="40" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+        <text x="500" y="45" fill="#38bdf8" font-size="14" font-weight="700" text-anchor="middle" font-family="Inter">EXT GRID (230 kV Swing Bus)</text>
+
+        <!-- Grid Impedance -->
+        <line x1="500" y1="60" x2="500" y2="100" stroke="#94a3b8" stroke-width="3"/>
+        <rect x="460" y="80" width="80" height="30" rx="4" fill="#0f172a" stroke="#94a3b8" stroke-width="1.5"/>
+        <text x="500" y="100" fill="#94a3b8" font-size="11" font-family="Fira Code" text-anchor="middle">ZGRID (2.656 Ω)</text>
+
+        <!-- 230 kV GIS Bus 1 & Bus 2 -->
+        <line x1="120" y1="130" x2="480" y2="130" stroke="#ef4444" stroke-width="6"/>
+        <text x="240" y="122" fill="#ef4444" font-size="12" font-weight="700" font-family="Inter">230 kV BUS 1 (10BAC01)</text>
+
+        <!-- Bus Coupler Bay 10BAY12 -->
+        <rect x="480" y="120" width="40" height="20" rx="3" fill="#10b981" stroke="#fff" stroke-width="1"/>
+        <text x="500" y="134" fill="#070c17" font-size="9" font-weight="800" text-anchor="middle">10BAY12</text>
+        <line x1="520" y1="130" x2="880" y2="130" stroke="#ef4444" stroke-width="6"/>
+        <text x="760" y="122" fill="#ef4444" font-size="12" font-weight="700" font-family="Inter">230 kV BUS 2 (10BAC02)</text>
+
+        <!-- GSUT Bay 10BAY11 & GSUT -->
+        <line x1="200" y1="130" x2="200" y2="180" stroke="#94a3b8" stroke-width="3"/>
+        <rect x="180" y="160" width="40" height="20" rx="3" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+        <text x="200" y="174" fill="#38bdf8" font-size="9" font-weight="700" text-anchor="middle">10BAY11</text>
+        
+        <circle cx="200" cy="210" r="22" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+        <circle cx="200" cy="235" r="22" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+        <text x="245" y="228" fill="#fff" font-size="12" font-weight="700" font-family="Inter">GSUT 10BAT10</text>
+        <text x="245" y="244" fill="#94a3b8" font-size="10" font-family="Fira Code">230/22 kV · YNd1 · 515 MVA</text>
+
+        <!-- 22 kV Gen Bus -->
+        <line x1="100" y1="280" x2="350" y2="280" stroke="#f59e0b" stroke-width="6"/>
+        <text x="180" y="272" fill="#f59e0b" font-size="12" font-weight="700" font-family="Inter">22 kV GEN BUS (10BAC10)</text>
+
+        <!-- G1 Generator -->
+        <line x1="180" y1="280" x2="180" y2="340" stroke="#94a3b8" stroke-width="3"/>
+        <circle cx="180" cy="370" r="30" fill="#1e293b" stroke="#f59e0b" stroke-width="2.5"/>
+        <text x="180" y="366" fill="#fff" font-size="14" font-weight="800" text-anchor="middle" font-family="Inter">G1</text>
+        <text x="180" y="382" fill="#f59e0b" font-size="9" font-weight="600" text-anchor="middle" font-family="Fira Code">SGen5-2000H</text>
+        <text x="180" y="420" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="Inter">458 MVA · 22 kV · 50 Hz</text>
+
+        <!-- UAT Transformer Tap -->
+        <line x1="300" y1="280" x2="300" y2="330" stroke="#94a3b8" stroke-width="3"/>
+        <circle cx="300" cy="350" r="18" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+        <circle cx="300" cy="372" r="18" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+        <text x="335" y="362" fill="#fff" font-size="11" font-weight="700" font-family="Inter">UAT 10BBT10</text>
+        <text x="335" y="376" fill="#94a3b8" font-size="9" font-family="Fira Code">22/6.9 kV · Dyn11 · 25 MVA</text>
+
+        <!-- GAT Transformer Tap from 230 kV -->
+        <line x1="800" y1="130" x2="800" y2="240" stroke="#94a3b8" stroke-width="3"/>
+        <rect x="780" y="170" width="40" height="20" rx="3" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+        <text x="800" y="184" fill="#fff" font-size="9" font-weight="700" text-anchor="middle">10BAY20</text>
+        <text x="830" y="184" fill="#94a3b8" font-size="9" font-family="Inter">(GAT Bay: Open/Closed)</text>
+        
+        <circle cx="800" cy="270" r="18" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+        <circle cx="800" cy="292" r="18" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+        <text x="835" y="280" fill="#fff" font-size="11" font-weight="700" font-family="Inter">GAT 10BBT20</text>
+        <text x="835" y="295" fill="#94a3b8" font-size="9" font-family="Fira Code">230/6.9 kV · YNyn0 · 25 MVA</text>
+
+        <!-- 6.6 kV MV Aux Bus -->
+        <line x1="260" y1="430" x2="840" y2="430" stroke="#0284c7" stroke-width="6"/>
+        <line x1="300" y1="390" x2="300" y2="430" stroke="#0284c7" stroke-width="3"/>
+        <line x1="800" y1="310" x2="800" y2="430" stroke="#0284c7" stroke-width="3"/>
+        <text x="550" y="422" fill="#38bdf8" font-size="12" font-weight="700" font-family="Inter" text-anchor="middle">6.6 kV MV AUX BUS (10BBA10) — 14 MW + j8.68 MVAr House Load</text>
+      </svg>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <h3 class="card-title">1. Normal Generating Mode</h3>
+            <span class="status-pill pill-green">Case LF1 / LF3</span>
+          </div>
+          <p class="card-body-text">
+            <strong>Power Export:</strong> Generator G1 supplies ~389.3 MW at 22 kV. Power flows across GSUT (230/22 kV) into the 230 kV GIS and exports ~374.5 MW to the national grid.<br><br>
+            <strong>House Load:</strong> The UAT (22/6.9 kV) taps ~14.0 MW from the 22 kV generator bus to power auxiliary pumps, fans, and compressors.<br><br>
+            <strong>GAT State:</strong> Bay 10BAY20 breaker is <strong>OPEN</strong> on standby.
+          </p>
+        </div>
+        <div class="highlight-box">Most efficient steady state: No circulating loop power.</div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <h3 class="card-title">2. Blackout / Plant Startup Mode</h3>
+            <span class="status-pill pill-amber">Offline / Starting</span>
+          </div>
+          <p class="card-body-text">
+            <strong>Startup Supply:</strong> With G1 offline (0 V), the plant draws electricity <em>from the 230 kV national grid</em> through GAT bay 10BAY20 and the GAT transformer (230/6.9 kV).<br><br>
+            <strong>Auxiliary Drives:</strong> GAT powers the Static Frequency Converter (SFC), cranking motors, boiler feed pumps, and fuel compressors to spin the turbine up to ignition speed.
+          </p>
+        </div>
+        <div class="highlight-box">UAT remains de-energized until G1 is synchronized to grid.</div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-header">
+            <h3 class="card-title">3. Looped / Paralleled Mode</h3>
+            <span class="status-pill pill-red">Case LF2 / LF4</span>
+          </div>
+          <p class="card-body-text">
+            <strong>The Closed Loop:</strong> If GAT bay 10BAY20 is closed while UAT is energized, a closed parallel loop is formed across 22 kV and 230 kV.<br><br>
+            <strong>Circulating Detour:</strong> Due to transformer ratio and impedance differences, ~5.9 MW detours down through UAT and circulates <em>upwards</em> through GAT, overloading UAT to 109.5% ONAN.
+          </p>
+        </div>
+        <div class="warning-box">Interlocks normally prevent continuous steady-state paralleling.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Detailed Equipment Catalog -->
+  <section id="equipment">
+    <h2 class="section-title">Equipment Catalog — Basic to Advanced Specifications</h2>
+    <p class="section-sub">Comprehensive parameter registry, nameplate data, and mathematical bases used in the simulation model.</p>
+
+    <div class="filter-bar">
+      <input type="text" id="equipmentSearch" class="search-input" placeholder="Search equipment (e.g., GSUT, UAT, SGen5, GIS)..." onkeyup="filterEquipment()">
+    </div>
+
+    <div class="card-grid" id="equipmentGrid">
+
+      <!-- Generator Card -->
+      <div class="card equipment-item">
+        <div>
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Main Turbo-Generator</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Siemens SGen5-2000H (Hydrogen Cooled)</p>
+            </div>
+            <span class="card-kks">10MKA10</span>
+          </div>
+          <table class="specs-table">
+            <tr><td>Rated Apparent Power ($S_N$)</td><td>458 MVA (50°C cold gas)</td></tr>
+            <tr><td>Max Continuous Power ($S_{\max}$)</td><td>518 MVA (30°C cold gas)</td></tr>
+            <tr><td>Rated Voltage ($U_N$)</td><td>22.0 kV ± 5%</td></tr>
+            <tr><td>Rated Current ($I_N$)</td><td>12,019 A</td></tr>
+            <tr><td>Rated Power Factor</td><td>0.85 lagging (overexcited)</td></tr>
+            <tr><td>Rated Active Power ($P_N$)</td><td>389.30 MW (at 458 MVA)</td></tr>
+            <tr><td>Synchronous Reactance ($x_d$)</td><td>166.30 %</td></tr>
+            <tr><td>Transient Reactance ($x'_d$)</td><td>28.65 %</td></tr>
+            <tr><td>Sub-transient Reactance ($x''_d$)</td><td>22.48 %</td></tr>
+            <tr><td>Stator Winding Connection</td><td>Double-Star (YY)</td></tr>
+          </table>
+          <p class="card-body-text">
+            <strong>Role in System:</strong> Converts mechanical torque from the single-shaft gas and steam turbine train into electrical power at 22 kV. Acts as the <strong>PV Bus</strong> in load flow with setpoint $V = 1.00\text{ pu}$.
+          </p>
+        </div>
+      </div>
+
+      <!-- GSUT Transformer Card -->
+      <div class="card equipment-item">
+        <div>
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Generator Step-Up Transformer (GSUT)</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Siemens Transformer Guangzhou</p>
+            </div>
+            <span class="card-kks">10BAT10</span>
+          </div>
+          <table class="specs-table">
+            <tr><td>Voltage Ratio</td><td>230 / 22 kV</td></tr>
+            <tr><td>Vector Group & Shift</td><td>YNd1 (+30° HV/LV phase shift)</td></tr>
+            <tr><td>Cooling Stage 1 (ONAN)</td><td>355 MVA (Natural cooling)</td></tr>
+            <tr><td>Cooling Stage 2 (ODAN)</td><td>460 MVA (Forced oil/air)</td></tr>
+            <tr><td>Cooling Stage 3 (ODAF)</td><td>515 MVA (Max forced cooling)</td></tr>
+            <tr><td>Impedance Voltage ($Z$)</td><td>16.0 % on 515 MVA base</td></tr>
+            <tr><td>Resistive Component ($R$)</td><td>0.21 % ($X/R = 76.2$)</td></tr>
+            <tr><td>No-Load Loss / Current</td><td>159 kW / 0.13 % excitation</td></tr>
+            <tr><td>On-Load Tap Changer (OLTC)</td><td>VACUTAP 25 taps (Tap 9 = 230 kV)</td></tr>
+            <tr><td>Zero-Sequence ($Z_0$)</td><td>15.8 % on 515 MVA</td></tr>
+          </table>
+          <p class="card-body-text">
+            <strong>Role in System:</strong> Steps up power from 22 kV to the 230 kV grid level. High $X/R$ ratio minimizes transmission losses while providing high short-circuit reactance.
+          </p>
+        </div>
+      </div>
+
+      <!-- UAT Transformer Card -->
+      <div class="card equipment-item">
+        <div>
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Unit Auxiliary Transformer (UAT)</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Siemens Transformer Wuhan</p>
+            </div>
+            <span class="card-kks">10BBT10</span>
+          </div>
+          <table class="specs-table">
+            <tr><td>Voltage Ratio</td><td>22 / 6.9 kV (to 6.6 kV bus)</td></tr>
+            <tr><td>Vector Group & Shift</td><td>Dyn11 (-30° HV/LV shift)</td></tr>
+            <tr><td>Rating (ONAN / ONAF)</td><td>19 MVA / 25 MVA</td></tr>
+            <tr><td>Impedance Voltage ($Z$)</td><td>10.5 % on 25 MVA base</td></tr>
+            <tr><td>Resistive Component ($R$)</td><td>0.40 % ($X/R = 26.2$)</td></tr>
+            <tr><td>No-Load Loss / Current</td><td>14 kW / 0.30 % excitation</td></tr>
+            <tr><td>Off-Circuit Tap Changer</td><td>5 taps (Tap 3 = 22.0 kV)</td></tr>
+            <tr><td>Zero-Sequence ($Z_0$)</td><td>9.3 % on 25 MVA</td></tr>
+          </table>
+          <p class="card-body-text">
+            <strong>Role in System:</strong> Supplies the plant's 14 MW house load directly from the generator terminals during continuous operation.
+          </p>
+        </div>
+      </div>
+
+      <!-- GAT Transformer Card -->
+      <div class="card equipment-item">
+        <div>
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Station Auxiliary Transformer (GAT)</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Siemens Wuhan (Standby / Startup)</p>
+            </div>
+            <span class="card-kks">10BBT20</span>
+          </div>
+          <table class="specs-table">
+            <tr><td>Voltage Ratio</td><td>230 / 6.9 / 3.32 kV (3-winding)</td></tr>
+            <tr><td>Vector Group</td><td>YNyn0+d11 (0° main shift)</td></tr>
+            <tr><td>Rating (Primary / Secondary)</td><td>19 MVA ONAN / 25 MVA ONAF</td></tr>
+            <tr><td>Impedance ($Z_{PS}$)</td><td>12.0 % on 25 MVA base</td></tr>
+            <tr><td>Resistive Component ($R$)</td><td>0.50 % ($X/R = 24.0$)</td></tr>
+            <tr><td>No-Load Loss / Current</td><td>23 kW / 0.30 % excitation</td></tr>
+            <tr><td>On-Load Tap Changer (OLTC)</td><td>25 taps (Tap 13 = 230 kV)</td></tr>
+            <tr><td>Stabilizing Tertiary</td><td>8.33 MVA delta (unloaded)</td></tr>
+          </table>
+          <p class="card-body-text">
+            <strong>Role in System:</strong> Energizes the auxiliary bus from the 230 kV grid during startup, unit trip, or emergency shutdown.
+          </p>
+        </div>
+      </div>
+
+      <!-- 230 kV GIS Switchgear Card -->
+      <div class="card equipment-item">
+        <div>
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">230 kV GIS Switchgear</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Siemens 8DN9 Gas-Insulated Switchgear</p>
+            </div>
+            <span class="card-kks">10BAC01 / 10BAC02</span>
+          </div>
+          <table class="specs-table">
+            <tr><td>Rated System Voltage ($U_m$)</td><td>245 kV / 230 kV Nominal</td></tr>
+            <tr><td>Busbar Continuous Current</td><td>3,150 A</td></tr>
+            <tr><td>Short-Circuit Withstand ($I_{sc}$)</td><td>50 kA for 1.0 second</td></tr>
+            <tr><td>Peak Withstand Current ($I_p$)</td><td>125 kA peak</td></tr>
+            <tr><td>Insulating Medium</td><td>SF₆ Gas</td></tr>
+            <tr><td>Bus Configuration</td><td>Double-Busbar, Single-Breaker</td></tr>
+            <tr><td>Coupler Bay Tag</td><td>10BAY12 (Normal: Closed)</td></tr>
+          </table>
+          <p class="card-body-text">
+            <strong>Role in System:</strong> Provides flexible switching and fault clearing for the GSUT incomer, GAT incomer, and outgoing grid lines.
+          </p>
+        </div>
+      </div>
+
+      <!-- Auxiliary Loads & NER Card -->
+      <div class="card equipment-item">
+        <div>
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Auxiliary System & Grounding</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">6.6 kV MV Distribution & Neutral Earthing</p>
+            </div>
+            <span class="card-kks">10BBA10 / 10BAB11</span>
+          </div>
+          <table class="specs-table">
+            <tr><td>Total Auxiliary Real Demand</td><td>14.000 MW</td></tr>
+            <tr><td>Auxiliary Reactive Demand</td><td>8.676 MVAr (0.85 pf lagging)</td></tr>
+            <tr><td>Apparent Power ($S_{\text{aux}}$)</td><td>16.471 MVA</td></tr>
+            <tr><td>Plant MV Bus Rating</td><td>6.6 kV nominal (7.2 kV max)</td></tr>
+            <tr><td>Generator Neutral Grounding</td><td>NER 10BAB11 (High resistance)</td></tr>
+            <tr><td>GSUT HV Grounding</td><td>Solidly grounded neutral</td></tr>
+            <tr><td>Emergency Supply (EDG)</td><td>2x Diesel Generators (Standby)</td></tr>
+          </table>
+          <p class="card-body-text">
+            <strong>Role in System:</strong> Distributes house power to plant machinery and limits single line-to-ground fault currents on the 22 kV bus.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Load Flow Case Matrix -->
+  <section id="cases">
+    <h2 class="section-title">The Four Load Flow Cases — Why There Are Four</h2>
+    <p class="section-sub">A $2 \times 2$ matrix separating generator output dispatch from auxiliary transformer topology.</p>
+
+    <div class="matrix-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Case ID</th>
+            <th>Generator Dispatch</th>
+            <th>GAT Bay 10BAY20</th>
+            <th>Network Topology</th>
+            <th>Operational Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: var(--accent-cyan);">Case LF1</strong></td>
+            <td><span class="val-num">389.30 MW</span> (Rated Gross)</td>
+            <td><span class="status-pill pill-red">OPEN (Out)</span></td>
+            <td>Radial</td>
+            <td><strong>Base Case:</strong> Standard full-power operation under design ambient conditions.</td>
+          </tr>
+          <tr>
+            <td><strong style="color: var(--accent-cyan);">Case LF2</strong></td>
+            <td><span class="val-num">389.30 MW</span> (Rated Gross)</td>
+            <td><span class="status-pill pill-green">CLOSED (In)</span></td>
+            <td>Looped / Parallel</td>
+            <td><strong>Paralleled Study:</strong> Evaluates circulating currents if GAT and UAT are paralleled.</td>
+          </tr>
+          <tr>
+            <td><strong style="color: var(--accent-cyan);">Case LF3</strong></td>
+            <td><span class="val-num">342.01 MW</span> (Site Derated)</td>
+            <td><span class="status-pill pill-red">OPEN (Out)</span></td>
+            <td>Radial</td>
+            <td><strong>Summer Operation:</strong> High-ambient temperature derating in Bangladesh.</td>
+          </tr>
+          <tr>
+            <td><strong style="color: var(--accent-cyan);">Case LF4</strong></td>
+            <td><span class="val-num">342.01 MW</span> (Site Derated)</td>
+            <td><span class="status-pill pill-green">CLOSED (In)</span></td>
+            <td>Looped / Parallel</td>
+            <td><strong>Derated Parallel:</strong> Bounding comparison of summer derating with GAT in service.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section: Numerical Results & Physical Findings -->
+  <section id="results">
+    <h2 class="section-title">Numerical Results & What They Signify</h2>
+    <p class="section-sub">Exact results calculated by Newton-Raphson load flow solver at 50 Hz on a 100 MVA base.</p>
+
+    <div class="matrix-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Parameter / Measured Value</th>
+            <th>LF1 (Base Radial)</th>
+            <th>LF2 (Rated Looped)</th>
+            <th>LF3 (Derated Radial)</th>
+            <th>LF4 (Derated Looped)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Generator Injection ($P_{\text{gen}}$)</strong></td>
+            <td class="val-num">389.300 MW</td>
+            <td class="val-num">389.300 MW</td>
+            <td class="val-num">342.010 MW</td>
+            <td class="val-num">342.010 MW</td>
+          </tr>
+          <tr>
+            <td><strong>Generator Reactive ($Q_{\text{gen}}$)</strong></td>
+            <td class="val-num">+31.676 MVAr</td>
+            <td class="val-num">+27.461 MVAr</td>
+            <td class="val-num">+26.174 MVAr</td>
+            <td class="val-num">+22.007 MVAr</td>
+          </tr>
+          <tr>
+            <td><strong>Auxiliary House Load ($P_{\text{aux}}$)</strong></td>
+            <td class="val-num">14.000 MW</td>
+            <td class="val-num">14.000 MW</td>
+            <td class="val-num">14.000 MW</td>
+            <td class="val-num">14.000 MW</td>
+          </tr>
+          <tr>
+            <td><strong>Total Plant Losses ($P_{\text{loss}}$)</strong></td>
+            <td class="val-num">0.816 MW (0.21%)</td>
+            <td class="val-num">0.833 MW (0.21%)</td>
+            <td class="val-num">0.680 MW (0.20%)</td>
+            <td class="val-num">0.690 MW (0.20%)</td>
+          </tr>
+          <tr>
+            <td><strong>Active Power Exported ($P_{\text{exp}}$)</strong></td>
+            <td class="val-num" style="color: var(--accent-green); font-weight:700;">374.484 MW</td>
+            <td class="val-num" style="color: var(--accent-green); font-weight:700;">374.467 MW</td>
+            <td class="val-num" style="color: var(--accent-green); font-weight:700;">327.330 MW</td>
+            <td class="val-num" style="color: var(--accent-green); font-weight:700;">327.320 MW</td>
+          </tr>
+          <tr>
+            <td><strong>Reactive Power Exported ($Q_{\text{exp}}$)</strong></td>
+            <td class="val-num" style="color: var(--accent-purple);">−29.986 MVAr</td>
+            <td class="val-num" style="color: var(--accent-purple);">−33.704 MVAr</td>
+            <td class="val-num" style="color: var(--accent-purple);">−23.418 MVAr</td>
+            <td class="val-num" style="color: var(--accent-purple);">−27.231 MVAr</td>
+          </tr>
+          <tr>
+            <td><strong>230 kV Switchyard Bus Voltage</strong></td>
+            <td class="val-num">0.9987 pu (229.7 kV)</td>
+            <td class="val-num">0.9985 pu (229.7 kV)</td>
+            <td class="val-num">0.9990 pu (229.8 kV)</td>
+            <td class="val-num">0.9988 pu (229.7 kV)</td>
+          </tr>
+          <tr>
+            <td><strong>6.6 kV MV Aux Bus Voltage</strong></td>
+            <td class="val-num">1.0009 pu (6.61 kV)</td>
+            <td class="val-num">1.0203 pu (6.73 kV)</td>
+            <td class="val-num">1.0009 pu (6.61 kV)</td>
+            <td class="val-num">1.0208 pu (6.74 kV)</td>
+          </tr>
+          <tr>
+            <td><strong>GSUT Loading vs 355 MVA ONAN</strong></td>
+            <td class="val-num" style="color: var(--accent-amber); font-weight:700;">105.87 %</td>
+            <td class="val-num" style="color: var(--accent-amber); font-weight:700;">104.20 %</td>
+            <td class="val-num">92.48 %</td>
+            <td class="val-num">91.26 %</td>
+          </tr>
+          <tr>
+            <td><strong>GSUT Loading vs 515 MVA ODAF</strong></td>
+            <td class="val-num">72.97 %</td>
+            <td class="val-num">71.83 %</td>
+            <td class="val-num">63.75 %</td>
+            <td class="val-num">62.91 %</td>
+          </tr>
+          <tr>
+            <td><strong>UAT Loading vs 19 MVA ONAN</strong></td>
+            <td class="val-num">90.64 %</td>
+            <td class="val-num" style="color: var(--accent-red); font-weight:700;">109.50 %</td>
+            <td class="val-num">90.65 %</td>
+            <td class="val-num" style="color: var(--accent-red); font-weight:700;">101.39 %</td>
+          </tr>
+          <tr>
+            <td><strong>UAT Loading vs 25 MVA ONAF</strong></td>
+            <td class="val-num">68.89 %</td>
+            <td class="val-num">83.22 %</td>
+            <td class="val-num">68.89 %</td>
+            <td class="val-num">77.06 %</td>
+          </tr>
+          <tr>
+            <td><strong>Max 230 kV GIS Busbar Current</strong></td>
+            <td class="val-num">943 A (30.0%)</td>
+            <td class="val-num">944 A (30.0%)</td>
+            <td class="val-num">824 A (26.2%)</td>
+            <td class="val-num">824 A (26.2%)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Core Physical Interpretations -->
+    <div class="finding-card finding-critical">
+      <div class="finding-header">
+        <span class="status-pill pill-red">Critical Finding 1</span>
+        <h3 class="finding-title">UAT Overload in Looped Mode is Circulating Loop Power</h3>
+      </div>
+      <p class="finding-desc">
+        In Case LF2, total auxiliary demand remains exactly 14.0 MW, yet the UAT carries <strong>19.91 MW / 20.81 MVA (109.50% of its ONAN rating)</strong>.
+        Due to transformer ratio and impedance mismatch across the loop, <strong>5.9 MW of export power detours down through the UAT and flows BACK UP through the GAT into the 230 kV busbar</strong>.
+      </p>
+      <div class="talking-points">
+        <h4>What to Tell Teachers</h4>
+        <p>"The UAT overload is circulating power caused by paralleling two transformers with different vector groups and ratios. This physical finding proves why modern power plants strictly interlock the UAT and GAT against continuous parallel operation."</p>
+      </div>
+    </div>
+
+    <div class="finding-card finding-cooling">
+      <div class="finding-header">
+        <span class="status-pill pill-blue">Design Finding 2</span>
+        <h3 class="finding-title">GSUT Requires Active Forced Cooling (ODAF) at Rated Dispatch</h3>
+      </div>
+      <p class="finding-desc">
+        At 389.30 MW gross generation (LF1), the GSUT carries 375.82 MVA, reaching <strong>105.87% of its natural ONAN stage (355 MVA)</strong>.
+        Against its maximum forced oil/air rating (515 MVA ODAF), it is loaded to only <strong>72.97%</strong> (27% thermal margin).
+      </p>
+      <div class="talking-points">
+        <h4>What to Tell Teachers</h4>
+        <p>"This is an intentional design feature. Full rated power requires the transformer's forced oil circulation and cooling fans (ODAF). The 355 MVA ONAN rating is not intended for continuous full-plant dispatch."</p>
+      </div>
+    </div>
+
+    <div class="finding-card finding-reactive">
+      <div class="finding-header">
+        <span class="status-pill pill-purple">Network Finding 3</span>
+        <h3 class="finding-title">Plant Exports Real Power (MW) but Absorbs Reactive Power (MVAr)</h3>
+      </div>
+      <p class="finding-desc">
+        $Q_{\text{exp}} = -29.99\text{ MVAr}$ (negative export = grid import). The GSUT series inductive reactance alone absorbs <strong>43.86 MVAr</strong>.
+        Because the plant has no capacitor banks, the generator's +31.68 MVAr output covers internal needs while remaining reactive losses are absorbed from the 230 kV grid.
+      </p>
+      <div class="talking-points">
+        <h4>What to Tell Teachers</h4>
+        <p>"Say 'the plant absorbs MVAr', not 'exports negative MVAr'. The absorption is predominantly due to transformer inductive reactance losses ($I^2X$), which is typical for thermal plants without shunt compensation."</p>
+      </div>
+    </div>
+
+    <div class="finding-card finding-switchgear">
+      <div class="finding-header">
+        <span class="status-pill pill-green">Capacity Finding 4</span>
+        <h3 class="finding-title">230 kV GIS Switchyard Has Enormous Thermal Headroom</h3>
+      </div>
+      <p class="finding-desc">
+        The maximum continuous current across the 230 kV busbars is <strong>943 A</strong>, which represents only <strong>30.0%</strong> of the 3,150 A Siemens 8DN9 continuous rating.
+      </p>
+      <div class="talking-points">
+        <h4>What to Tell Teachers</h4>
+        <p>"The switchgear is nowhere near thermal capacity. It was dimensioned to withstand 50 kA / 1 s short-circuit fault currents rather than continuous steady-state current limits."</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Section: Remaining Scope & Future Work -->
+  <section id="remaining">
+    <h2 class="section-title">Remaining Project Scope (Phase 2 Roadmap)</h2>
+    <p class="section-sub">Now that the steady-state base load flow is fully validated, the project transitions into fault analysis and protection coordination.</p>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-step">
+        <div class="step-num">1</div>
+        <h3 class="step-title">Symmetrical Fault Analysis</h3>
+        <p class="step-desc">Apply 3-phase (LLL) short-circuits at 22 kV generator bus, 230 kV GIS, and 6.6 kV MV bus to calculate maximum symmetrical sub-transient fault currents ($I''_{k}$).</p>
+      </div>
+
+      <div class="roadmap-step">
+        <div class="step-num">2</div>
+        <h3 class="step-title">Unsymmetrical Fault Analysis</h3>
+        <p class="step-desc">Simulate Line-to-Ground (LG), Line-to-Line (LL), and Double Line-to-Ground (LLG) faults using zero-sequence transformer impedances ($Z_0$) and neutral grounding resistors (NER).</p>
+      </div>
+
+      <div class="roadmap-step">
+        <div class="step-num">3</div>
+        <h3 class="step-title">Circuit Breaker Duty Sizing</h3>
+        <p class="step-desc">Compare calculated symmetrical and asymmetrical breaking currents against switchgear ratings (50 kA at 230 kV, 12 kA at 22 kV) to verify interrupt capability.</p>
+      </div>
+
+      <div class="roadmap-step">
+        <div class="step-num">4</div>
+        <h3 class="step-title">Overcurrent Relay Coordination</h3>
+        <p class="step-desc">Calculate precise Plug Settings (PS) and Time Multiplier Settings (TMS) for IEC standard inverse (SI) relays, ensuring time grading margin $\Delta t \ge 0.3\text{ s}$.</p>
+      </div>
+
+      <div class="roadmap-step">
+        <div class="step-num">5</div>
+        <h3 class="step-title">Differential Protection (87G/87T)</h3>
+        <p class="step-desc">Implement biased differential protection schemes for generator (87G), GSUT (87T), and UAT, accounting for vector group phase compensation and CT saturation.</p>
+      </div>
+
+      <div class="roadmap-step">
+        <div class="step-num">6</div>
+        <h3 class="step-title">Selectivity Verification</h3>
+        <p class="step-desc">Re-simulate fault events in Simulink Fault Analyzer to verify that relays isolate only the faulted zone without a total plant blackout.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>BUET Department of Electrical & Electronic Engineering · <strong>EEE 306 Power System I Laboratory</strong></p>
+  <p>Ashuganj 450 MW CCPP (South) Project Reference Sheet · Powered by <span>MATLAB R2024a & Simscape Electrical</span></p>
+</footer>
+
+<script>
+  function filterEquipment() {
+    const input = document.getElementById('equipmentSearch').value.toLowerCase();
+    const items = document.getElementsByClassName('equipment-item');
+    for (let i = 0; i < items.length; i++) {
+      const text = items[i].innerText.toLowerCase();
+      if (text.includes(input)) {
+        items[i].style.display = 'flex';
+      } else {
+        items[i].style.display = 'none';
+      }
+    }
+  }
+</script>
+</body>
+</html>

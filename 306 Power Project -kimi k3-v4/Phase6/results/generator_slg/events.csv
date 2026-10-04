@@ -1,0 +1,6 @@
+Time_s,Event_group,Device,Transition,Source
+0.021,DC_state,Charger_failure,cleared,logged_signal_transition
+0.15,scenario_schedule,GEN,fault_on,scenario_setting_not_measured_switch_state
+0.166,relay_pickup,GEN51N,pickup,logged_signal_transition
+0.45,scenario_schedule,GEN,fault_off,scenario_setting_not_measured_switch_state
+0.461,relay_pickup,GEN51N,dropout,logged_signal_transition

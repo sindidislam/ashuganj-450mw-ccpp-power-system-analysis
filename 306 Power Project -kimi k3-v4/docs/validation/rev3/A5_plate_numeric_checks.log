@@ -1,0 +1,90 @@
+
+===== RATING-PLATE NUMERIC CHECKS (A5 / section 3.9e) =====
+
+[1] GAT HV OLTC -- tap VOLTAGES vs the datasheet rule 230 kV +-12x1.25%
+    A: rating plate p.4 tap table (tier 1 OEM drawing)
+    B: CTI datasheet rule "230 +-12x1.25%" (tier 1, DIFFERENT document)  -> INDEPENDENT
+  [PASS] tap  1 voltage                   264.5000  vs       264.5000  kV
+  [PASS] tap 12 voltage                   232.8750  vs       232.8750  kV
+  [PASS] tap 13 voltage                   230.0000  vs       230.0000  kV
+  [PASS] tap 14 voltage                   227.1250  vs       227.1250  kV
+  [PASS] tap 25 voltage                   195.5000  vs       195.5000  kV
+    step = 2875 V = 1.2500 % of 230 kV ; full range +-15.0 % over 25 positions
+
+[2] GAT tap CURRENTS -- constant-MVA closure
+    A: plate current column   B: plate 25 MVA header + plate voltage column
+    -> INTERNAL (proves the plate is self-consistent at constant 25 MVA)
+  [PASS] tap  1 current                    54.5700  vs        54.6000  A
+  [PASS] tap 12 current                    61.9807  vs        62.0000  A
+  [PASS] tap 13 current                    62.7555  vs        62.8000  A
+  [PASS] tap 14 current                    63.5498  vs        63.5000  A
+  [PASS] tap 25 current                    73.8300  vs        73.8000  A
+
+[3] UAT HV off-load taps -- 22 kV +-2x2.5% and constant 25 MVA
+    voltages: A = plate tap table, B = 22 kV +-2x2.5% rule -> INDEPENDENT
+  [PASS] UAT tap 1 voltage                 23.1000  vs        23.1000  kV
+  [PASS] UAT tap 2 voltage                 22.5500  vs        22.5500  kV
+  [PASS] UAT tap 3 voltage                 22.0000  vs        22.0000  kV
+  [PASS] UAT tap 4 voltage                 21.4500  vs        21.4500  kV
+  [PASS] UAT tap 5 voltage                 20.9000  vs        20.9000  kV
+    currents: INTERNAL
+  [PASS] UAT tap 1 current                624.8380  vs       624.8000  A
+  [DOC ] UAT tap 2 current                640.0779  vs       640.0000  A   (dev +0.0779)
+        DOCUMENTED DEVIATION, not a transcription error: plate prints 640.0; exact 640.0779 rounds to 640.1. Re-read at 3x zoom, transcription confirmed. Source-document rounding slip, 0.012 %.
+  [PASS] UAT tap 3 current                656.0799  vs       656.1000  A
+  [PASS] UAT tap 4 current                672.9024  vs       672.9000  A
+  [PASS] UAT tap 5 current                690.6104  vs       690.6000  A
+    Plate states the tap DIRECTION itself: arrows label pos 1 "Max.",
+    pos 3 "Rated", pos 5 "Min." -- so 22000 V is the rated tap and the
+    min/max assignment is read, not inferred (same situation as C-45).
+
+[4] LV winding rating, BOTH plates: 6900 V / 2091.8 A  (INTERNAL,
+    but printed identically on two separately-drawn plates)
+  [PASS] LV apparent power                 24.9994  vs        25.0000  MVA
+
+[5] GAT STABILIZING WINDING -- the one genuinely INDEPENDENT check
+    A: plate winding row 3320 V / 1448.6 A
+    B: plate rated-power header "25/25+8.33 MVA"
+    -> two different fields of the plate, populated from different design
+       quantities, so agreement is corroboration and not a restatement.
+  [PASS] stabilizing winding S              8.3300  vs         8.3300  MVA
+        exact: 8330042 VA.  Had the design figure been 8.333 MVA the current row
+        would read 1449.1 A, not 1448.6 A -> the plate is built on 8.33 exactly.
+
+[6] Cooling class ONAN/ONAF 76%/100% -> the 19/25 MVA dual rating
+    A: plate cooling row + plate 25 MVA header
+    B: CTI datasheet "19/25 MVA ONAN/ONAF" (different document) -> INDEPENDENT
+  [PASS] UAT ONAN rating                   19.0000  vs        19.0000  MVA
+  [PASS] GAT ONAN rating                   19.0000  vs        19.0000  MVA
+        GAT stabilizing winding at ONAN: 0.76 x 8.33 = 6.33 MVA
+
+[7] UAT plate "Max. system short-circuit power HV/LV = 6600/500 MVA"
+    Plausibility of 6600 MVA @ 22 kV as a DESIGN ENVELOPE (not a measurement)
+        6600 MVA @ 22 kV  ->  Ik = 173.2 kA
+        generator 458/0.2248 =  2037.4 MVA ( 53.5 kA)
+        GSUT      460/0.16   =  2875.0 MVA ( 75.4 kA)
+        sum                  =  4912.4 MVA (128.9 kA); at c=1.10 -> 141.8 kA
+        plate envelope exceeds the c=1.10 computed level by 22.1 %
+        VERDICT: same order of magnitude, envelope sits ABOVE the computed
+        level -> consistent with a manufacturer DESIGN BASIS (IEC 60076-5
+        through-fault). It is NOT evidence of a measured plant fault level,
+        and must never be entered in the registry as one.  (C-48)
+
+    LV side vs IEC 60076-5 Table 1 standard value for Um 7.2 kV -> INDEPENDENT
+  [PASS] LV design SC power vs IEC 60076-5 Tbl 1       500.0000  vs       500.0000  MVA
+        (the HV figure 6600 MVA is NOT the Table 1 value for Um 24 kV, so the
+        HV side is project-specific rather than standard boilerplate)
+
+[8] Consequence check -- the UAT impedance BASE (C-47)
+        Z = 10.50 % on 25 MVA  ==  7.980 % on 19 MVA (same physical impedance)
+        Mistaking the 25 MVA figure for a 19 MVA one overstates Z by 31.6 %
+        -> this is why the plate printing "(at 25MVA)" explicitly matters.
+
+[9] Consequence check -- GAT OLTC range vs the D1 network builder
+        positions 1..25, nominal 13, constant 25 MVA throughput
+        turns ratio span 0.8500 .. 1.1500 (pu of nominal)
+  [PASS] OLTC max ratio                     1.1500  vs         1.1500  pu
+  [PASS] OLTC min ratio                     0.8500  vs         0.8500  pu
+
+===== 26 PASS, 1 DOCUMENTED DEVIATION, 0 FAIL =====
+

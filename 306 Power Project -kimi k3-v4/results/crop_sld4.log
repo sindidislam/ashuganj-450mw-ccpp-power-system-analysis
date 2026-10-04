@@ -1,0 +1,8 @@
+source F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project\tmp\pdfs\south_sld_page2.png  4525x3200
+
+bft40_wire_up    1280..1620 x 1280..2060  z3 -> 1023x2343  D1 10BFT40 LV wire, upper run
+bft40_wire_dn    1280..1620 x 2010..2960  z3 -> 1023x2853  D1 10BFT40 LV wire, lower run
+lowbus_l         1150..2300 x 1950..2450  z2 -> 2302x1002  D2 any 400 V bus below the main row, left
+lowbus_r         2250..3400 x 1950..2450  z2 -> 2302x1002  D2 any 400 V bus below the main row, right
+
+CROP4 COMPLETE

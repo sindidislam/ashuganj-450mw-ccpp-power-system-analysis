@@ -1,0 +1,13 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+UNIT        Rm_pu   I0_pct      Lm_pu       1/I0    Qm_MVAr
+GSUT    3238.9937     0.13   791.8868     769.23     0.6503  DERIVED_FROM_VERIFIED_DATA
+UAT     1785.7143     0.30   339.2971     333.33     0.0737  DERIVED_FROM_VERIFIED_DATA
+GAT     1086.9565     0.30   350.2074     333.33     0.0714  DERIVED_FROM_VERIFIED_DATA
+TOTAL                                                0.7954
+
+superseded fields: transformer_magnetising_inductance
+live assumptions: grid_series_resistance_zero, aux_load_allocation_split, gis_bus_coupler_closed
+status=SUPERSEDED  superseded_by present=1

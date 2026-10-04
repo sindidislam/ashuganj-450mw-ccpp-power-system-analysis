@@ -1,0 +1,5 @@
+Error using run (line 112)
+Error: Invalid text character. Check for unsupported symbol, invisible character, or pasting of non-ASCII characters.
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));

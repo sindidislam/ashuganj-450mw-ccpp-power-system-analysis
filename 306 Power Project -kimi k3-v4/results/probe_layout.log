@@ -1,0 +1,22 @@
+Ashuganj South project path configured.
+  root  : F:\LOCAL DISK E\idm\compressed\ Level 3 Term 1\306 Power Project
+  MATLAB: 24.1.0.2537033 (R2024a)
+
+BLOCK                              TYPE                           L     T     R     B  ORIENT
+BUS COUPLER                        SubSystem                    520    45   600   115  down  
+EXT GRID                           SubSystem                    925   -60  1005    30  left  
+G1                                 SubSystem                    375  1450   465  1530  up    
+GAT 10BBT20                        SubSystem                     60   450   160   550  down  
+GAT BAY CB                         SubSystem                    360   185   440   255  down  
+GSUT 10BAT10                       SubSystem                    710  1260   810  1360  down  
+LOAD_B6_6                          PMComponent                   90   725   160   795  right 
+LOAD_B6_6_WI1                      PMComponent                   90   625   160   695  right 
+LOAD_B6_6_WI2                      PMComponent                  375  1290   445  1360  right 
+UAT 10BBT10                        SubSystem                     60  1175   160  1275  down  
+ZGRID                              PMComponent                  745   -35   845    25  right 
+powergui                           SubSystem                     51   828   181   883  right 
+
+bounding box: x 51..1005   y -60..1530
+lines: 42
+total line segments: 124  (avg 3.0 per line)
+overlapping block pairs: 0

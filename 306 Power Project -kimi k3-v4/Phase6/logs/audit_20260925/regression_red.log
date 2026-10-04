@@ -1,0 +1,9 @@
+
+--- test_phase6_dynamic_trip ------------------------------------------
+Preserved integration evidence: C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\results\regression_233a16cf-ef7a-4286-a9d4-e55ff0aa9b10
+{Error using assert
+The builder must return a real model build, not a copied placeholder.
+
+Error in test_phase6_dynamic_trip (line 15)
+assert(isfield(S,'info') && isfield(S,'sim_mode') ...
+} 

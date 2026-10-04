@@ -1,0 +1,11 @@
+Ashuganj South project path configured.
+  root  : G:\Other computers\My Computer (2)\Level 3 Term 1\306 Power Project -gemini flash
+  MATLAB: 24.1.0.2537033 (R2024a)
+Error using ashuganj_operating_profiles
+Too many input arguments.
+
+Error in run_eval (line 1)
+try; run('matlab/ashuganj_setup.m'); D=ashuganj_phase2_systems(); C=ashuganj_operating_profiles('LF360_GAT_OUT', D); sys=build_system(D,C); LF=load_flow(sys); val=validate_phase3_network(LF, D, C, sys.info); disp(val); catch ME; disp(getReport(ME)); end
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));

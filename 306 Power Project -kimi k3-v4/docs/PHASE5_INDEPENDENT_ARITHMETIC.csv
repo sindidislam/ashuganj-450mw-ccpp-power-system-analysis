@@ -1,0 +1,236 @@
+parameter,runtime_value,independent_value,absolute_error,tolerance,unit,verdict,equation
+GEN_51_pickup_A,17170.8,17170.8,0,1e-09,A,PASS,1.20*14309
+GSUT_maximum_load_anchor_A,1149.68010125586,1149.68010125586,0,1e-09,A,PASS,458e6/(sqrt(3)*230e3)
+GSUT_rated_exact_A,1292.76255927242,1292.76255927242,2.27373675443232e-13,1e-09,A,PASS,515e6/(sqrt(3)*230e3)
+GSUT_rated_A,1292.8,1292.8,0,1e-09,A,PASS,nameplate-current equation rounded to 0.1 A
+GSUT_51_pickup_A,1380,1380,0,1e-09,A,PASS,1.2 times maximum-load anchor rounded to 10 A
+GSUT_51_secondary_A,0.8625,0.8625,0,1e-12,A,PASS,1380/1600
+Q0_51_secondary_A,0.9375,0.9375,0,1e-12,A,PASS,1500/1600
+GEN_87G_pickup_A,2403.8,2403.8,0,1e-09,A,PASS,0.20*12019
+GSUT_87T_pickup_A,387.84,387.84,0,1e-09,A,PASS,0.30*1292.8
+GEN_51N_pickup_A,4,4,0,1e-12,A,PASS,0.20*20
+GEN_51_secondary_A,1.14472,1.14472,0,1e-12,A,PASS,17170.8/15000
+SOUTH_R1_total_ohm,0.056,0.056,0,1e-12,ohm,PASS,0.7*0.08
+SOUTH_X1_total_ohm,0.245,0.245,0,1e-12,ohm,PASS,0.7*0.35
+SOUTH_R0_total_ohm,0.175,0.175,0,1e-12,ohm,PASS,0.7*0.25
+SOUTH_X0_total_ohm,0.84,0.84,0,1e-12,ohm,PASS,0.7*1.20
+GRID_Zth_ohm,2.95024576568793,2.95024576568793,0,1e-12,ohm,PASS,230000/(sqrt(3)*45010)
+GRID_Rth_ohm,0.26734374814821,0.26734374814821,0,1e-12,ohm,PASS,Zth/sqrt(1+10.99^2)
+GRID_Xth_ohm,2.93810779214883,2.93810779214883,0,1e-12,ohm,PASS,10.99*Rth
+GRID_Ssc_GVA,17.9307095751953,17.9307095751953,0,1e-12,GVA,PASS,sqrt(3)*230000*45010/1e9
+CT_accuracy_boundary_A,32000,32000,0,1e-09,A,PASS,20*1600
+GEN_R1_pu,0.000842190082644628,0.000842190082644628,0,1e-12,pu,PASS,0.00089/(22^2/458)=0.0008421900826; not rounded 0.000843
+GEN_R2_pu,0.000842190082644628,0.000842190082644628,0,1e-12,pu,PASS,assumption R2=R1 exact derivation
+GEN_R0_pu,0.00126328512396694,0.00126328512396694,0,1e-12,pu,PASS,assumption R0=1.5*R1 exact derivation
+GSUT_R1_pu,0.00177126213592233,0.00177126213592233,0,1e-12,pu,PASS,(workbook AN3-AL3)/1000/AK3
+GSUT_X1_pu,0.166290566871503,0.166290566871503,0,1e-12,pu,PASS,sqrt(0.1663^2-(0.9122/515)^2)
+NGT_ratio,25.4034118443435,25.4034118443435,3.5527136788005e-15,1e-12,1,PASS,(22000/sqrt(3))/500
+NER_effective_HV_ohm,1750.77333333333,1750.77333333333,2.27373675443232e-13,1e-09,ohm,PASS,60+(22000/sqrt(3)/500)^2*2.62
+GEN_51_TMS,0.1,0.1,0,1e-12,1,PASS,user central coordination starting TMS
+GEN_51_SI_TIME_2x,1.00290270200469,1.00290270200469,0,1e-09,s,PASS,0.14*0.1/(2^0.02-1)
+GEN_51_SI_TIME_5x,0.427972007094537,0.427972007094537,0,1e-09,s,PASS,0.14*0.1/(5^0.02-1)
+GEN_51_SI_TIME_10x,0.297059862418842,0.297059862418842,0,1e-09,s,PASS,0.14*0.1/(10^0.02-1)
+GSUT_51_TMS,0.55,0.55,0,1e-12,1,PASS,user central coordination starting TMS
+GSUT_51_SI_TIME_2x,5.51596486102578,5.51596486102578,0,1e-09,s,PASS,0.14*0.55/(2^0.02-1)
+GSUT_51_SI_TIME_5x,2.35384603901996,2.35384603901996,0,1e-09,s,PASS,0.14*0.55/(5^0.02-1)
+GSUT_51_SI_TIME_10x,1.63382924330363,1.63382924330363,0,1e-09,s,PASS,0.14*0.55/(10^0.02-1)
+Q0_51_TMS,0.8,0.8,0,1e-12,1,PASS,user central coordination starting TMS
+Q0_51_SI_TIME_2x,8.0232216160375,8.0232216160375,0,1e-09,s,PASS,0.14*0.8/(2^0.02-1)
+Q0_51_SI_TIME_5x,3.4237760567563,3.4237760567563,0,1e-09,s,PASS,0.14*0.8/(5^0.02-1)
+Q0_51_SI_TIME_10x,2.37647889935073,2.37647889935073,0,1e-09,s,PASS,0.14*0.8/(10^0.02-1)
+GEN_51N_TMS,0.15,0.15,0,1e-12,1,PASS,user central coordination starting TMS
+GEN_51N_SI_TIME_2x,1.50435405300703,1.50435405300703,0,1e-09,s,PASS,0.14*0.15/(2^0.02-1)
+GEN_51N_SI_TIME_5x,0.641958010641806,0.641958010641806,0,1e-09,s,PASS,0.14*0.15/(5^0.02-1)
+GEN_51N_SI_TIME_10x,0.445589793628262,0.445589793628262,0,1e-09,s,PASS,0.14*0.15/(10^0.02-1)
+M001_down_GEN-51_operating_time_s,0.593881345298921,0.593881345298921,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M001_up_GSUT-HV-51_operating_time_s,2.35448934339138,2.35448934339138,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M002_down_GSUT-HV-51_operating_time_s,2.35448934339138,2.35448934339138,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M002_up_GIS-Q0-51_operating_time_s,3.61491502209167,3.61491502209167,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M003_down_GEN-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M003_up_GSUT-HV-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M004_down_GSUT-HV-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M004_up_GIS-Q0-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M005_down_GEN-51N_operating_time_s,1.74614454927095,1.74614454927095,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M005_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M006_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M006_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M007_down_GEN-51_operating_time_s,0.627120896235227,0.627120896235227,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M007_up_GSUT-HV-51_operating_time_s,2.35448934339138,2.35448934339138,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M008_down_GSUT-HV-51_operating_time_s,2.35448934339138,2.35448934339138,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M008_up_GIS-Q0-51_operating_time_s,3.61491502209167,3.61491502209167,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M009_down_GEN-51_operating_time_s,0.627104743325408,0.627104743325408,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M009_up_GSUT-HV-51_operating_time_s,2.3544893433914,2.3544893433914,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M010_down_GSUT-HV-51_operating_time_s,2.3544893433914,2.3544893433914,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M010_up_GIS-Q0-51_operating_time_s,3.61491502209167,3.61491502209167,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M011_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M011_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M012_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M012_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M013_down_GEN-51_operating_time_s,0.593881345298921,0.593881345298921,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M013_up_GSUT-HV-51_operating_time_s,2.35448934339138,2.35448934339138,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M014_down_GSUT-HV-51_operating_time_s,2.35448934339138,2.35448934339138,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M014_up_GIS-Q0-51_operating_time_s,3.61491502209167,3.61491502209167,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M015_down_GEN-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M015_up_GSUT-HV-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M016_down_GSUT-HV-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M016_up_GIS-Q0-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M017_down_GEN-51N_operating_time_s,1.74614454927095,1.74614454927095,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M017_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M018_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M018_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M019_down_GEN-51_operating_time_s,0.627120896235227,0.627120896235227,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M019_up_GSUT-HV-51_operating_time_s,2.35448934339138,2.35448934339138,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M020_down_GSUT-HV-51_operating_time_s,2.35448934339138,2.35448934339138,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M020_up_GIS-Q0-51_operating_time_s,3.61491502209167,3.61491502209167,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M021_down_GEN-51_operating_time_s,0.627104743325408,0.627104743325408,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M021_up_GSUT-HV-51_operating_time_s,2.3544893433914,2.3544893433914,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M022_down_GSUT-HV-51_operating_time_s,2.3544893433914,2.3544893433914,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M022_up_GIS-Q0-51_operating_time_s,3.61491502209167,3.61491502209167,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M023_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M023_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M024_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M024_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M025_down_GIS-Q0-51_operating_time_s,7.27955016159817,7.27955016159817,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M025_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M026_down_GIS-Q0-51_operating_time_s,4.46304578242018,4.46304578242018,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M026_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M027_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M027_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M028_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M028_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M029_down_GIS-Q0-51_operating_time_s,7.45300837106393,7.45300837106393,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M029_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M030_down_GIS-Q0-51_operating_time_s,4.88164238679543,4.88164238679543,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M030_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M031_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M031_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M032_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M032_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M033_down_GIS-Q0-51_operating_time_s,7.42143266064313,7.42143266064313,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M033_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M034_down_GIS-Q0-51_operating_time_s,4.57254459176743,4.57254459176743,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M034_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M035_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M035_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M036_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M036_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M037_down_GIS-Q0-51_operating_time_s,7.58497747610213,7.58497747610213,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M037_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M038_down_GIS-Q0-51_operating_time_s,5.01402674918844,5.01402674918844,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M038_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M039_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M039_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M040_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M040_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M041_down_GIS-Q0-51_operating_time_s,7.31211646625481,7.31211646625481,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M041_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M042_down_GIS-Q0-51_operating_time_s,4.53900224994442,4.53900224994442,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M042_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M043_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M043_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M044_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M044_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M045_down_GIS-Q0-51_operating_time_s,7.48317505241084,7.48317505241084,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M045_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M046_down_GIS-Q0-51_operating_time_s,4.96274952487512,4.96274952487512,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M046_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M047_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M047_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M048_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M048_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M049_down_GEN-51_operating_time_s,0.59489188195674,0.59489188195674,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M049_up_GSUT-HV-51_operating_time_s,2.36337610100214,2.36337610100214,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M050_down_GSUT-HV-51_operating_time_s,2.36337610100214,2.36337610100214,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M050_up_GIS-Q0-51_operating_time_s,3.62929581012677,3.62929581012677,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M051_down_GEN-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M051_up_GSUT-HV-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M052_down_GSUT-HV-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M052_up_GIS-Q0-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M053_down_GEN-51N_operating_time_s,1.74690313695682,1.74690313695682,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M053_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M054_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M054_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M055_down_GEN-51_operating_time_s,0.62786791092108,0.62786791092108,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M055_up_GSUT-HV-51_operating_time_s,2.36347554478287,2.36347554478287,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M056_down_GSUT-HV-51_operating_time_s,2.36347554478287,2.36347554478287,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M056_up_GIS-Q0-51_operating_time_s,3.6294567657406,3.6294567657406,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M057_down_GEN-51_operating_time_s,0.627851766926035,0.627851766926035,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M057_up_GSUT-HV-51_operating_time_s,2.3634755462939,2.3634755462939,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M058_down_GSUT-HV-51_operating_time_s,2.3634755462939,2.3634755462939,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M058_up_GIS-Q0-51_operating_time_s,3.62945676818628,3.62945676818628,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M059_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M059_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M060_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M060_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M061_down_GEN-51_operating_time_s,0.59489188195674,0.59489188195674,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M061_up_GSUT-HV-51_operating_time_s,2.36337610100214,2.36337610100214,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M062_down_GSUT-HV-51_operating_time_s,2.36337610100214,2.36337610100214,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M062_up_GIS-Q0-51_operating_time_s,3.62929581012677,3.62929581012677,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M063_down_GEN-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M063_up_GSUT-HV-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M064_down_GSUT-HV-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M064_up_GIS-Q0-51_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M065_down_GEN-51N_operating_time_s,1.74690313695682,1.74690313695682,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M065_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M066_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M066_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M067_down_GEN-51_operating_time_s,0.62786791092108,0.62786791092108,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M067_up_GSUT-HV-51_operating_time_s,2.36347554478287,2.36347554478287,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M068_down_GSUT-HV-51_operating_time_s,2.36347554478287,2.36347554478287,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M068_up_GIS-Q0-51_operating_time_s,3.6294567657406,3.6294567657406,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M069_down_GEN-51_operating_time_s,0.627851766926035,0.627851766926035,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M069_up_GSUT-HV-51_operating_time_s,2.3634755462939,2.3634755462939,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M070_down_GSUT-HV-51_operating_time_s,2.3634755462939,2.3634755462939,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M070_up_GIS-Q0-51_operating_time_s,3.62945676818628,3.62945676818628,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M071_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M071_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M072_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M072_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M073_down_GIS-Q0-51_operating_time_s,7.51131469558901,7.51131469558901,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M073_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M074_down_GIS-Q0-51_operating_time_s,4.50228289746965,4.50228289746965,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M074_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M075_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M075_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M076_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M076_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M077_down_GIS-Q0-51_operating_time_s,7.68397246929356,7.68397246929356,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M077_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M078_down_GIS-Q0-51_operating_time_s,4.92874557338953,4.92874557338953,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M078_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M079_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M079_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M080_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M080_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M081_down_GIS-Q0-51_operating_time_s,7.66250754160499,7.66250754160499,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M081_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M082_down_GIS-Q0-51_operating_time_s,4.61534056097983,4.61534056097983,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M082_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M083_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M083_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M084_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M084_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M085_down_GIS-Q0-51_operating_time_s,7.82423185794281,7.82423185794281,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M085_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M086_down_GIS-Q0-51_operating_time_s,5.06554149192102,5.06554149192102,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M086_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M087_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M087_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M088_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M088_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M089_down_GIS-Q0-51_operating_time_s,7.54639835131367,7.54639835131367,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M089_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M090_down_GIS-Q0-51_operating_time_s,4.58210662560625,4.58210662560625,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M090_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M091_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M091_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M092_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M092_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M093_down_GIS-Q0-51_operating_time_s,7.71634717333973,7.71634717333973,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M093_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M094_down_GIS-Q0-51_operating_time_s,5.01387000201493,5.01387000201493,0,1e-08,s,PASS,0.14*TMS/((Isecondary/(pickupPrimary/CT))^0.02-1)
+M094_up_REMOTE-GRID-boundary_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M095_down_GEN-51N_trip_enabled,0,0,0,0,boolean,PASS,Isecondary <= pickup/CT implies no finite SI trip
+M095_up_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M096_down_GSUT-HV-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time
+M096_up_GIS-Q0-51_finite_time_present,0,0,0,0,boolean,PASS,No represented current/CT side has no finite relay operating time

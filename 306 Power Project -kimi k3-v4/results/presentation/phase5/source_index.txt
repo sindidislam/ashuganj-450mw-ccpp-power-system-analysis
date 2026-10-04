@@ -1,0 +1,6 @@
+Original evidence (read, never copied in full):
+results/phase5_protection_v2/phase5_relay_settings.csv
+results/phase5_protection_v2/phase5_coordination_matrix.csv
+results/phase5_protection_v2/phase5_breaker_duty.csv
+results/phase5_protection_v2/phase5_trip_logic.csv
+results/phase5_protection_v2/phase5_parameter_values.csv

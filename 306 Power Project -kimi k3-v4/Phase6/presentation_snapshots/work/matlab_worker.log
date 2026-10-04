@@ -1,0 +1,311 @@
+PRESENTATION_WORKER_READY 24.1.0.2537033 (R2024a)
+BASELINE_RUN_PASS final_t=0.3
+PORTS PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator L=[] R=[427.000122070312 428.000122070312 429.000122070312]
+PORTS PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Generator Breaker L=[694.000122070312 695.000122070312 696.000122070312] R=[697.000122070312 698.000122070312 699.000122070312]
+PORTS PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid L=[709.000122070312 710.000122070312 711.000122070312] R=[]
+PORTS PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard L=[1556.00012207031 1557.00012207031 1558.00012207031] R=[1559.00012207031 1560.00012207031 1561.00012207031 1562.00012207031 1563.00012207031 1564.00012207031]
+PORTS PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transformer L=[1688.00012207031 1689.00012207031 1690.00012207031] R=[1691.00012207031 1692.00012207031 1693.00012207031]
+PORTS PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Transmission Line L=[1816.00012207031 1817.00012207031 1818.00012207031] R=[1819.00012207031 1820.00012207031 1821.00012207031]
+PRESENTATION_JOB_FINISHED job01_baseline.m success=1
+Index exceeds the number of array elements. Index must not exceed 1.
+
+Error in phase6_presentation_busbars>insert (line 112)
+ add_line(parent,anchorPorts(k),bp.LConn(k),'autorouting','on');
+
+Error in phase6_presentation_busbars (line 6)
+insert(mdl,'B01 Generator 22 kV bus',[mdl '/Generator'],'RConn', ...
+
+Error in job02_busbars (line 4)
+phase6_presentation_busbars(mdl);
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in run_presentation_worker (line 15)
+  try,evalin('base',sprintf('run(''%s'')',strrep(path,'''','''''')));status.success=true;
+PRESENTATION_JOB_FINISHED job02_busbars.m success=0
+BUS_PORT PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B01 Generator 22 kV bus/A1 1 Left
+BUS_PORT PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B01 Generator 22 kV bus/B1 2 Right
+BUS_PORT PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B01 Generator 22 kV bus/C1 3 Right
+BUS_PORT PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B01 Generator 22 kV bus/A2 4 Right
+BUS_PORT PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B01 Generator 22 kV bus/B2 5 Right
+BUS_PORT PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B01 Generator 22 kV bus/C2 6 Right
+      Inport: []
+     Outport: []
+      Enable: []
+     Trigger: []
+       State: []
+       LConn: 2.1030e+03
+       RConn: [2.1100e+03 2.1170e+03 2.1060e+03 2.1130e+03 2.1200e+03]
+    Ifaction: []
+       Reset: []
+       Event: []
+
+PORT_INITDONE
+PRESENTATION_JOB_FINISHED job03_probe_ports.m success=1
+Out of memory. The likely cause is an infinite recursion within the program.
+
+Error in unique (line 103)
+    [varargout{1:nlhs}] = uniqueR2012a(varargin{:},true,true,false);
+PRESENTATION_JOB_FINISHED job04_busbars_retry.m success=0
+DIAG_LOADED 1
+[Warning: find_system option "RegExp" was supplied after a Simulink parameter name and will be treated as a parameter. find_system options
+must appear before other parameter names in the argument list. For details, see the <a href="matlab:doc find_system">find_system
+documentation</a>.] 
+[> In job05_diagnose (line 4)
+In run (line 112)
+In run_presentation_worker (line 15)] 
+GEN_LINE 11006 parent=-1 children=[]
+GEN_LINE 7742 parent=-1 children=[]
+GEN_LINE 7743 parent=-1 children=[]
+DIAG_DONE
+PRESENTATION_JOB_FINISHED job05_diagnose.m success=1
+LOCATE_BEFORE_HELPER
+LOCATE_ERROR Out of memory. The likely cause is an infinite recursion within the program.
+  67639x1 struct array with fields:
+
+    file
+    name
+    line
+
+Out of memory. The likely cause is an infinite recursion within the program.
+
+Error in unique (line 103)
+    [varargout{1:nlhs}] = uniqueR2012a(varargin{:},true,true,false);
+PRESENTATION_JOB_FINISHED job06_locate.m success=0
+STACK unique:103 C:\Program Files\MATLAB\R2024a\toolbox\matlab\ops\unique.m
+STACK allEndpoints:129 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK allEndpoints:128 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK insert:89 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK phase6_presentation_busbars:8 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\scripts\phase6_presentation_busbars.m
+STACK job06_locate:4 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\presentation_snapshots\work\job06_locate.m
+STACK run:112 C:\Program Files\MATLAB\R2024a\toolbox\matlab\lang\run.m
+STACK run_presentation_worker:15 C:\Users\sindi\Downloads\306 Power Project -kimi k3\306 Power Project -kimi k3-v4\Phase6\presentation_snapshots\run_presentation_worker.m
+PRESENTATION_JOB_FINISHED job07_stack.m success=1
+Error using assert
+Invalid bus net.
+
+Error in phase6_presentation_busbars>insert (line 90)
+ assert(ismember(anchorPorts(k),endpoints{k})&&numel(endpoints{k})>=2,'Phase6:BusNet','Invalid bus net.');
+
+Error in phase6_presentation_busbars (line 8)
+insert(mdl,'B02 Unit 22 kV bus',[mdl '/Generator Breaker'],'RConn', ...
+
+Error in job02_busbars (line 4)
+phase6_presentation_busbars(mdl);
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in job08_busbars_retry (line 4)
+run(fullfile(out,'work','job02_busbars.m'));
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in run_presentation_worker (line 15)
+  try,evalin('base',sprintf('run(''%s'')',strrep(path,'''','''''')));status.success=true;
+PRESENTATION_JOB_FINISHED job08_busbars_retry.m success=0
+ANCHOR 697 LINE 7746
+                   Name: [1x1 struct]
+                    Tag: [1x1 struct]
+            Description: [1x1 struct]
+                   Type: [1x1 struct]
+                 Parent: [1x1 struct]
+                 Handle: [1x1 struct]
+        HiliteAncestors: [1x1 struct]
+        RequirementInfo: [1x1 struct]
+            SegmentType: [1x1 struct]
+          SrcPortHandle: [1x1 struct]
+         SrcBlockHandle: [1x1 struct]
+          DstPortHandle: [1x1 struct]
+         DstBlockHandle: [1x1 struct]
+                 Points: [1x1 struct]
+             LineParent: [1x1 struct]
+           LineChildren: [1x1 struct]
+    SignalNameFromLabel: [1x1 struct]
+              Connected: [1x1 struct]
+               FontName: [1x1 struct]
+               FontSize: [1x1 struct]
+             FontWeight: [1x1 struct]
+              FontAngle: [1x1 struct]
+               Selected: [1x1 struct]
+
+NETLINE 11623 parent=-1 children=[] src=10681.0020751953 dst=696.000366210938
+NETLINE 7743 parent=-1 children=[] src=429.00048828125 dst=5969.00256347656
+NETLINE 11620 parent=-1 children=[] src=10678.0020751953 dst=695.000366210938
+NETLINE 7742 parent=-1 children=[] src=428.00048828125 dst=2523.01037597656
+NETLINE 11617 parent=-1 children=[] src=5996.00256347656 dst=694.000366210938
+NETLINE 11049 parent=-1 children=[] src=427.00048828125 dst=2511.01013183594
+NETLINE 7782 parent=-1 children=[] src=807.000366210938 dst=788.000366210938
+NETLINE 7781 parent=-1 children=[] src=806.000366210938 dst=786.000366210938
+NETLINE 7780 parent=-1 children=[] src=805.000366210938 dst=5155.00146484375
+NETLINE 7779 parent=-1 children=[] src=804.000366210938 dst=423.00048828125
+NETLINE 7778 parent=-1 children=[] src=803.000366210938 dst=419.00048828125
+NETLINE 7777 parent=-1 children=[] src=802.000366210938 dst=5157.00134277344
+NETLINE 7776 parent=-1 children=[] src=801.000366210938 dst=415.00048828125
+NETLINE 7775 parent=-1 children=[] src=800.000366210938 dst=301.006958007812
+NETLINE 7774 parent=-1 children=[] src=799.000366210938 dst=417.00048828125
+NETLINE 7773 parent=-1 children=[] src=798.000366210938 dst=299.007934570312
+NETLINE 7772 parent=-1 children=[] src=797.000366210938 dst=784.000366210938
+NETLINE 7771 parent=-1 children=[] src=796.000366210938 dst=376.000610351562
+NETLINE 7770 parent=-1 children=[] src=795.000366210938 dst=5454.00122070312
+NETLINE 7769 parent=-1 children=[] src=794.000366210938 dst=421.00048828125
+NETLINE 7768 parent=-1 children=[] src=793.000366210938 dst=705.000366210938
+NETLINE 7767 parent=-1 children=[] src=792.000366210938 dst=707.000366210938
+NETLINE 7766 parent=-1 children=[] src=791.000366210938 dst=701.000366210938
+NETLINE 7765 parent=-1 children=[] src=790.000366210938 dst=703.000366210938
+NETLINE 7764 parent=-1 children=[] src=5203.00109863281 dst=160.000610351562
+NETLINE 7763 parent=-1 children=[] src=5202.00109863281 dst=159.000610351562
+NETLINE 7762 parent=-1 children=[] src=5201.00109863281 dst=158.000610351562
+NETLINE 7761 parent=-1 children=[] src=5461.00134277344 dst=711.000366210938
+NETLINE 7760 parent=-1 children=[] src=5460.00134277344 dst=710.000366210938
+NETLINE 7759 parent=-1 children=[] src=5459.00134277344 dst=709.000366210938
+NETLINE 7758 parent=-1 children=[] src=5200.00109863281 dst=5458.00134277344
+NETLINE 7757 parent=-1 children=[] src=5199.00109863281 dst=5457.00134277344
+NETLINE 7756 parent=-1 children=[] src=5198.00122070312 dst=5456.00134277344
+NETLINE 7755 parent=-1 children=[] src=5329.00134277344 dst=5197.00134277344
+NETLINE 7754 parent=-1 children=[] src=5328.00122070312 dst=5196.00170898438
+NETLINE 7753 parent=-1 children=[] src=5327.00109863281 dst=5195.00170898438
+NETLINE 7751 parent=-1 children=[7751.00134277344;7752.00085449219;7750.00109863281] src=699.000366210938 dst=-1
+NETLINE 7752 parent=-1 children=[] src=-1 dst=-1
+NETLINE 7750 parent=-1 children=[] src=-1 dst=-1
+NETLINE 7748 parent=-1 children=[] src=-1 dst=-1
+NETLINE 7749 parent=-1 children=[7748.00134277344;7749.00085449219;7747.00109863281] src=698.000366210938 dst=-1
+NETLINE 7747 parent=-1 children=[] src=-1 dst=-1
+NETLINE 7745 parent=-1 children=[] src=-1 dst=-1
+NETLINE 7746 parent=-1 children=[7745.00122070312;7746.00085449219;7744.00134277344] src=697.000366210938 dst=-1
+NETLINE 7744 parent=-1 children=[] src=-1 dst=-1
+NETLINE 7740 parent=-1 children=[] src=425.00048828125 dst=693.000366210938
+ENDPOINT Generator Breaker 694 line=11617
+ENDPOINT Generator Breaker 695 line=11620
+ENDPOINT Generator Breaker 696 line=11623
+ENDPOINT Generator Breaker 697 line=7746
+ENDPOINT Generator Breaker 698 line=7749
+ENDPOINT Generator Breaker 699 line=7751
+ENDPOINT Transformer 5327 line=7753
+ENDPOINT Transformer 5328 line=7754
+ENDPOINT Transformer 5329 line=7755
+ENDPOINT Transformer 5330 line=7744
+ENDPOINT Transformer 5331 line=7747
+ENDPOINT Transformer 5332 line=7750
+ENDPOINT Auxiliaries 155.001 line=7745
+ENDPOINT Auxiliaries 156.001 line=7748
+ENDPOINT Auxiliaries 157.001 line=7752
+ENDPOINT Auxiliaries 158.001 line=7762
+ENDPOINT Auxiliaries 159.001 line=7763
+ENDPOINT Auxiliaries 160.001 line=7764
+PRESENTATION_JOB_FINISHED job09_connection_api.m success=1
+Error using assert
+Invalid bus net.
+
+Error in phase6_presentation_busbars>insert (line 90)
+ assert(ismember(anchorPorts(k),endpoints{k})&&numel(endpoints{k})>=2,'Phase6:BusNet','Invalid bus net.');
+
+Error in phase6_presentation_busbars (line 12)
+insert([mdl '/Grid'],'B04 PGCB 230 kV bus',[mdl '/Grid/Grid CT and VT'],'LConn', ...
+
+Error in job02_busbars (line 4)
+phase6_presentation_busbars(mdl);
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in job10_busbars_retry (line 4)
+run(fullfile(out,'work','job02_busbars.m'));
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in run_presentation_worker (line 15)
+  try,evalin('base',sprintf('run(''%s'')',strrep(path,'''','''''')));status.success=true;
+PRESENTATION_JOB_FINISHED job10_busbars_retry.m success=0
+[Warning: Invalid arguments passed to 'patch' drawing command in block 'PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B01 Generator 22 kV bus'.
+Arguments must be double.] 
+[Warning: Invalid arguments passed to 'patch' drawing command in block 'PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B02 Unit 22 kV bus'.
+Arguments must be double.] 
+[Warning: Invalid arguments passed to 'patch' drawing command in block 'PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B01 Generator 22 kV bus'.
+Arguments must be double.] 
+[Warning: Invalid arguments passed to 'patch' drawing command in block 'PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/B02 Unit 22 kV bus'.
+Arguments must be double.] 
+[Warning: Invalid arguments passed to 'patch' drawing command in block 'PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Switchyard/B03 GIS 230 kV
+bus'. Arguments must be double.] 
+[Warning: Invalid arguments passed to 'patch' drawing command in block 'PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Auxiliaries/B05 Auxiliary 6.6
+kV bus'. Arguments must be double.] 
+[Warning: Invalid arguments passed to 'patch' drawing command in block 'PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP/Grid/B04 PGCB 230 kV bus'.
+Arguments must be double.] 
+BUSBAR_PASS delta=0
+PRESENTATION_JOB_FINISHED job11_busbars_retry.m success=1
+SNAPSHOT_INVENTORY systems=24 components=429 total=453
+SNAPSHOT_PROGRESS 20/453
+SNAPSHOT_PROGRESS 40/453
+SNAPSHOT_PROGRESS 60/453
+SNAPSHOT_PROGRESS 80/453
+SNAPSHOT_PROGRESS 100/453
+SNAPSHOT_PROGRESS 120/453
+SNAPSHOT_PROGRESS 140/453
+SNAPSHOT_PROGRESS 160/453
+SNAPSHOT_PROGRESS 180/453
+SNAPSHOT_PROGRESS 200/453
+SNAPSHOT_PROGRESS 220/453
+SNAPSHOT_PROGRESS 240/453
+SNAPSHOT_PROGRESS 260/453
+SNAPSHOT_PROGRESS 280/453
+SNAPSHOT_PROGRESS 300/453
+SNAPSHOT_PROGRESS 320/453
+SNAPSHOT_PROGRESS 340/453
+SNAPSHOT_PROGRESS 360/453
+SNAPSHOT_PROGRESS 380/453
+SNAPSHOT_PROGRESS 400/453
+SNAPSHOT_PROGRESS 420/453
+SNAPSHOT_PROGRESS 440/453
+SNAPSHOT_PROGRESS 453/453
+ALL_SNAPSHOTS_PASS 453
+PRESENTATION_JOB_FINISHED job12_export.m success=1
+FINAL_MODEL_PASS delta=0 overlaps=0
+PRESENTATION_JOB_FINISHED job13_final_model.m success=1
+FINAL_OVERVIEW_POLISHED
+PRESENTATION_JOB_FINISHED job14_polish.m success=1
+SNAPSHOT_INVENTORY systems=24 components=429 total=453
+SNAPSHOT_PROGRESS 20/453
+SNAPSHOT_PROGRESS 40/453
+SNAPSHOT_PROGRESS 60/453
+SNAPSHOT_PROGRESS 80/453
+SNAPSHOT_PROGRESS 100/453
+SNAPSHOT_PROGRESS 120/453
+SNAPSHOT_PROGRESS 140/453
+SNAPSHOT_PROGRESS 160/453
+SNAPSHOT_PROGRESS 180/453
+SNAPSHOT_PROGRESS 200/453
+SNAPSHOT_PROGRESS 220/453
+SNAPSHOT_PROGRESS 240/453
+SNAPSHOT_PROGRESS 260/453
+SNAPSHOT_PROGRESS 280/453
+SNAPSHOT_PROGRESS 300/453
+SNAPSHOT_PROGRESS 320/453
+SNAPSHOT_PROGRESS 340/453
+SNAPSHOT_PROGRESS 360/453
+SNAPSHOT_PROGRESS 380/453
+SNAPSHOT_PROGRESS 400/453
+SNAPSHOT_PROGRESS 420/453
+SNAPSHOT_PROGRESS 440/453
+SNAPSHOT_PROGRESS 453/453
+ALL_SNAPSHOTS_PASS 453
+PRESENTATION_JOB_FINISHED job15_clean_components.m success=1

@@ -1,0 +1,15 @@
+Quantity,Unit,Reference,Measured,Absolute_tolerance,Basis,Absolute_error,Relative_error,Status,Window_start_s,Window_end_s
+Generator active power,MW,360,360.00527548751,1,Measured generator terminal,0.00527548751040285,1.46541319733413e-05,PASS,0.5,0.6
+Generator reactive power,MVAr,27.832638,27.6168641637398,0.5,Measured generator terminal,0.215773836260219,0.00775254707298025,PASS,0.5,0.6
+Generator voltage,kV,22,21.9999583557689,0.1,Line-to-line RMS,4.16442310573473e-05,1.89291959351578e-06,PASS,0.5,0.6
+Generator current,kA,9.47574313278445,9.47547053577921,0.05,Reference current derived from frozen P/Q/V,0.000272597005235298,2.87678761882178e-05,PASS,0.5,0.6
+230 kV bus voltage,kV,229.760477,229.758156158286,0.25,Line-to-line RMS,0.0023208417136118,1.0101135512579e-05,PASS,0.5,0.6
+Auxiliary bus voltage,kV,6.605999,6.60570869226365,0.02,Line-to-line RMS,0.000290307736351636,4.39460763393449e-05,PASS,0.5,0.6
+Remote grid terminal voltage,kV,229.731274,229.7287879439,0.25,Before grid impedance,0.00248605609974106,1.08215832196232e-05,PASS,0.5,0.6
+Grid source active power,MW,345.207254,345.184797036915,1,Derived from measured V/I and selected grid impedance,0.0224569630854603,6.50535665900587e-05,PASS,0.5,0.6
+Grid source reactive power,MVAr,-26.267474,-26.4823732595637,0.5,Derived at ideal source; excludes series grid impedance consumption,0.214899259563708,0.00818119243455645,PASS,0.5,0.6
+Grid current,kA,0.86905067531947,0.869036160895605,0.01,Reference derived at 230 kV source,1.45144238650197e-05,1.67014700951519e-05,PASS,0.5,0.6
+Generator angle,deg,-22.7815,-22.7815952667235,0.2,Relative to reconstructed grid source phase A,9.52667235409876e-05,4.18175816083171e-06,PASS,0.5,0.6
+230 kV bus angle,deg,1.0482,1.04819113314487,0.2,Relative to reconstructed grid source phase A,8.86685512813123e-06,8.45912528919217e-06,PASS,0.5,0.6
+Auxiliary angle,deg,3.7773,3.75751600063908,0.2,Relative to reconstructed grid source phase A,0.0197839993609228,0.00523760341008731,PASS,0.5,0.6
+Frequency,Hz,50,50.0000294974585,0.02,Rotor electrical frequency,2.94974585202112e-05,5.89949170404225e-07,PASS,0.5,0.6

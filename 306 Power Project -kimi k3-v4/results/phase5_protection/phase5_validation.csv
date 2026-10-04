@@ -1,0 +1,17 @@
+leg,pass,residual,note,provenance,scope
+R0,1,0,"F3-LLL-OUT 50.5308851865 kA (d 0, tol 1e-6); F1-LG-OUT 0.00727200442799 kA (d 0, tol 1e-9)",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V1,1,3.33333333157881e-08,"12019A d 3.3e-08; 7.272A d 3e-10; 50.53kA d 2.1e-08; live Isec/Iprim==1/15000 max-dev 0",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V2,1,0,"GEN-51 15023.75 A (d 0); GEN-51N 5.0000 A; GIS-Q0-51 1043.947982 A (1.2xFL_anchor); sec-consistency d 0",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V3,1,0.00398700753838632,"F3-LLL t 0.5701 s (<10 s); EF t 9.3060 s (d 0.0040 vs 9.31); below-pickup Inf",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V4,1,2.95199444695551e-10,"7.272 A -> 0.0004848 A-sec (d 3e-10); margin 1.4544 (~1.45); tEF 9.308 s; phase-branch 8414.12 A vs I0 2.42400 A vs sec 0.0004848 A distinguished",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V5,1,0.216251781610761,"SI closed-form ok; M<=1 Inf; EI(10) 0.08081 s < SI(10) 0.29706 s (gap 0.21625 s); monotonic",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V6,1,0,"DT trip/Inf/equality ok; DT routing error ok; inverse t 0.5701 s (never 0.05 s shortcut)",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V7,1,0,"0.8/0.4 -> 0.4000 s PASS; tight 0.1 FAIL; boundary 0.3 PASS (CTI 0.3 s)",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V8,1,0,"10-col schema, no time/margin cols; 40 duty rows NOT DETERMINABLE; one NOTE row 50.5309 kA +1.06% ESTIMATED (never PASS/FAIL); Q0 only; no IEC",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V9,1,2.27200442799167,"IminPhase 43758.86 A vs GEN-51 15023.75 A (margin 28735.11 A); F1-LG 7.27200 A vs GEN-51N 5.00 A (margin 2.27200 A)",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V10,1,0,"max duty 74.4265 kA on F1 LLL LF360_GAT_IN (grid infeed, d 0 vs import legs; NOT DETERMINABLE w/o rating)",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V11,1,8.88178419700125e-16,"16k == 15k x 15/16 max-dev 8.9e-16 (tol 1e-12); fixed dial never-faster; scope SENSITIVITY",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V12,1,0,"CT tag mismatch errors enforced; LEGACY fencing on 60 sens rows; provenance/scope non-empty on import(40)/duty(41)/coord(96)/registry(7)",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V13,1,0,"Q0 breaker / Q1,Q2,Q9 disconnectors / Q51,Q52,Q8 earthing; breaker_ref Q0-only; F1/F2 pairs 16; grid NO-PAIR 24 explicit",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V14,1,0,"import 40 rows / 40 combos; coord covers all 40 combos (missing 0); verdict domain closed; reasons non-empty",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY
+V15,1,8.88178419700125e-16,"GEN-51N F1-LG 7.27200443 A == 3xI0 (d 8.9e-16); I0 0.00242400147600 kA (d 3.5e-18); never 9xI0; 3I0 tags",DERIVED:phase5_validate-live-run-R0-V1-V15,PRIMARY

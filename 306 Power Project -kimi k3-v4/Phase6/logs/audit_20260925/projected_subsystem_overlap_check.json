@@ -1,0 +1,36 @@
+{
+  "model": "Phase6/PHASE6_ASHUGANJ_CCPP_CLOSED_LOOP_TRIP.slx",
+  "overrides": {
+    "Generator fault": [
+      310,
+      540,
+      370,
+      595
+    ],
+    "Generator fault measurement": [
+      310,
+      335,
+      370,
+      390
+    ],
+    "Generator fault measurement voltage": [
+      300,
+      265,
+      420,
+      285
+    ],
+    "Generator fault measurement current": [
+      300,
+      300,
+      420,
+      320
+    ],
+    "LineRemote command": [
+      980,
+      355,
+      1110,
+      380
+    ]
+  },
+  "overlaps": []
+}

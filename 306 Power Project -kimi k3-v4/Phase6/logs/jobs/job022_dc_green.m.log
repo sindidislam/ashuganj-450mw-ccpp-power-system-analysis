@@ -1,0 +1,14 @@
+Error using assert
+Assertion failed.
+
+Error in test_phase6_dc (line 47)
+assert(~Y.dcHealthy && Y.lowVoltage && Y.tripUnavailable && Y.unservedPower_W==2400);
+
+Error in job022_dc_green (line 4)
+test_phase6_dc;
+
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+
+Error in phase6_session_worker (line 21)
+            evalin('base',sprintf('run(''%s'')',strrep(file,'''','''''')));
