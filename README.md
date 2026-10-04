@@ -74,6 +74,9 @@ Developed for **EEE 306: Power System I Laboratory**, Department of Electrical a
   - **Md. Mahadi Jaman**, Part-Time Lecturer, Department of Electrical and Electronic Engineering (EEE), BUET
 - **Institution**: Department of Electrical and Electronic Engineering (EEE), **Bangladesh University of Engineering and Technology (BUET)**, Dhaka-1000, Bangladesh.
 
+### Secondary Contributor & GitHub Collaborator
+- **Gogetsu-hoz** ([@Gogetsu-hoz](https://github.com/Gogetsu-hoz)) — *Secondary Contributor & Technical Reviewer*
+
 ---
 
 ## Executive Summary & Plant Specifications
@@ -278,6 +281,7 @@ This repository includes a suite of standalone, publication-grade interactive HT
 - **Rajib Khan** (Student ID: 2206152) — *Network Modeling & Data Verification*
 - **Iftekhar-E-Islam** (Student ID: 2206153) — *Simulink Dynamic Model & Relay Logic*
 - **Abu Mohammed Ibn Julker Nahin** (Student ID: 2206155) — *Breaker Duty & Station DC System*
+- **Secondary Contributor & Reviewer**: **Gogetsu-hoz** ([@Gogetsu-hoz](https://github.com/Gogetsu-hoz))
 Supervised by **Md. Kamrul Hasan** (Lecturer, BUET EEE) and **Md. Mahadi Jaman** (Part-Time Lecturer, BUET EEE).
 
 ### Q3: What international engineering standards and methodologies are followed?
