@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="PROJECT_DEMO_VIDEO_COVER_PHOTO.jpg" alt="Ashuganj 450 MW Combined Cycle Power Plant (South) Power System Analysis and Protection Coordination - BUET EEE 306 - S M Sindid Islam Mahodi" width="100%" />
+<a href="https://www.youtube.com/watch?v=PSo1Ih-CXqg" target="_blank" title="Click to Watch the Complete Video Demonstration on YouTube">
+  <img src="PROJECT_DEMO_VIDEO_COVER_PHOTO.jpg" alt="Ashuganj 450 MW Combined Cycle Power Plant (South) Power System Analysis and Protection Coordination - BUET EEE 306 - S M Sindid Islam Mahodi" width="100%" />
+</a>
 
 # Ashuganj 450 MW Combined Cycle Power Plant (South) — Power System Analysis, IEC 60909 Fault Calculations & Protection Coordination
 
@@ -8,12 +10,19 @@
 
 *BUET EEE 306: Power System I Laboratory Final Project | Lead Author: S. M. Sindid Islam Mahodi et al.*
 
+[![Watch on YouTube](https://img.shields.io/badge/YouTube-Video%20Demonstration-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=PSo1Ih-CXqg)
 [![MATLAB](https://img.shields.io/badge/MATLAB-R2024a%2B-blue.svg?logo=mathworks&logoColor=white)](https://www.mathworks.com/products/matlab.html)
 [![Simulink](https://img.shields.io/badge/Simulink-Simscape%20Electrical-orange.svg?logo=mathworks&logoColor=white)](https://www.mathworks.com/products/simulink.html)
 [![BUET EEE](https://img.shields.io/badge/Institution-BUET%20EEE-green.svg)](https://eee.buet.ac.bd/)
 [![Standards](https://img.shields.io/badge/Standards-IEC%2060909%20%7C%20IEEE%20242%20%7C%20IEEE%20C37-lightgrey.svg)](https://standards.ieee.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Academic Citation](https://img.shields.io/badge/Citation-CITATION.cff-informational.svg)](CITATION.cff)
+
+<p align="center" style="margin-top: 15px;">
+  <a href="https://www.youtube.com/watch?v=PSo1Ih-CXqg" target="_blank" style="font-size: 1.15em; font-weight: bold; color: #dc2626; text-decoration: none;">
+    ▶️ Click Here to Watch the Complete Video Demonstration on YouTube (https://www.youtube.com/watch?v=PSo1Ih-CXqg)
+  </a>
+</p>
 
 </div>
 
@@ -35,6 +44,7 @@ Developed for **EEE 306: Power System I Laboratory**, Department of Electrical a
   - [3. Circuit Breaker Duty & Switchgear Assessment](#3-circuit-breaker-duty--switchgear-assessment)
   - [4. Protection Coordination & Relay Grading Schemes](#4-protection-coordination--relay-grading-schemes)
   - [5. Simulink Dynamic Simulation & Transient Stability](#5-simulink-dynamic-simulation--transient-stability)
+- [Video Demonstration & Defense Walkthrough](#video-demonstration--defense-walkthrough)
 - [Interactive HTML Documentation & Engineering Manuals](#interactive-html-documentation--engineering-manuals)
 - [Repository Directory Structure](#repository-directory-structure)
 - [Quick Start Guide: Running the MATLAB Simulation](#quick-start-guide-running-the-matlab-simulation)
@@ -155,6 +165,23 @@ Comprehensive fault analysis evaluated across four fault topologies: Three-Phase
 
 ---
 
+## Video Demonstration & Defense Walkthrough
+
+A comprehensive video walkthrough demonstrating the full power system analysis, mathematical derivations, parameter verifications, IEC 60909 fault calculations, protective relay coordination, and closed-loop MATLAB/Simulink dynamic simulations is available on YouTube:
+
+<div align="center">
+
+[![Ashuganj South 450 MW CCPP Demonstration Video](https://img.youtube.com/vi/PSo1Ih-CXqg/maxresdefault.jpg)](https://www.youtube.com/watch?v=PSo1Ih-CXqg "Ashuganj 450 MW CCPP Demonstration Video - Click to Watch on YouTube")
+
+**[▶️ Click to Watch the Demonstration Video on YouTube (https://www.youtube.com/watch?v=PSo1Ih-CXqg)](https://www.youtube.com/watch?v=PSo1Ih-CXqg)**
+
+</div>
+
+> [!TIP]
+> Follow along with the slide-by-slide spoken script, teleprompter text, and teacher viva defense questions in the interactive [`PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html`](PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html) portal.
+
+---
+
 ## Interactive HTML Documentation & Engineering Manuals
 
 This repository includes a suite of standalone, publication-grade interactive HTML engineering manuals. Open any file in modern web browsers:
@@ -166,7 +193,7 @@ This repository includes a suite of standalone, publication-grade interactive HT
 | **Relays & Settings Manual** | [`PROTECTION_RELAYS_AND_SETTINGS_MANUAL.html`](PROTECTION_RELAYS_AND_SETTINGS_MANUAL.html) | Interactive relay setting tables, CT/VT ratios, pickup calculations, and TCC plots. |
 | **Project Assumptions Manual** | [`PROJECT_ASSUMPTIONS_MANUAL.html`](PROJECT_ASSUMPTIONS_MANUAL.html) | Master parameters audit, IEEE standards traceability, and engineering justification. |
 | **Results & Findings Manual** | [`PROJECT_RESULTS_AND_FINDINGS.html`](PROJECT_RESULTS_AND_FINDINGS.html) | Full numerical summaries, fault currents, voltage profiles, and contingency analyses. |
-| **Presentation & Defense Portal** | [`PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html`](PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html) | Slide-by-slide presentation script, defense preparation guide, and technical Q&A. |
+| **Presentation & Defense Portal** | [`PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html`](PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html) | Embedded demonstration video ([YouTube: PSo1Ih-CXqg](https://www.youtube.com/watch?v=PSo1Ih-CXqg)), slide-by-slide presentation script, defense preparation guide, and technical Q&A. |
 | **Video Cover Studio** | [`VIDEO_COVER_STUDIO.html`](VIDEO_COVER_STUDIO.html) | Broadcast-quality presentation title cards and project cover photo studio. |
 | **Phase 4 Fault Analysis Manual** | [`Phase 4 Docs/FAULT_ANALYSIS_MANUAL.html`](Phase%204%20Docs/FAULT_ANALYSIS_MANUAL.html) | Detailed sequence network diagrams, impedance matrices, and IEC 60909 derivations. |
 | **Phase 5 Protection Manual** | [`Phase 5 Docs/PROTECTION_SETTINGS_MANUAL.html`](Phase%205%20Docs/PROTECTION_SETTINGS_MANUAL.html) | Secondary relay grading, coordinating time intervals, and zone selectivity. |
@@ -271,13 +298,13 @@ Supervised by **Md. Kamrul Hasan** (Lecturer, BUET EEE) and **Md. Mahadi Jaman**
 ### Q6: How does the Simulink closed-loop dynamic simulation model function?
 **A:** The model is built in **Simscape Electrical Specialized Power Systems (SPS)**. It implements the synchronous machine, exciter, governor, GSUT, transmission lines, and the 230 kV GIS yard. A 3-phase fault is injected at $t = 0.5\text{ s}$. Measurement blocks stream instantaneous three-phase currents to custom relay logic blocks (Zone 1 Distance & Instantaneous Overcurrent 50), which issue a trip command at **27 ms**. The circuit breaker mechanically parts contacts and quenches arcs at **87 ms** (within the 5-cycle requirement), showing full post-fault transient stability recovery.
 
-### Q7: Where can I access the interactive engineering documentation?
-**A:** The repository includes 8 standalone HTML interactive engineering manuals:
+### Q7: Where can I watch the demonstration video and access the interactive documentation?
+**A:** The complete project walkthrough video is available on YouTube at [https://www.youtube.com/watch?v=PSo1Ih-CXqg](https://www.youtube.com/watch?v=PSo1Ih-CXqg) and embedded directly into [`PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html`](PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html). Additionally, this repository provides 8 standalone interactive HTML engineering manuals:
 - [`PROJECT_REPORT_WRITING_MANUAL.html`](PROJECT_REPORT_WRITING_MANUAL.html) — Academic report writing guide and blueprint.
 - [`PROTECTION_RELAYS_AND_SETTINGS_MANUAL.html`](PROTECTION_RELAYS_AND_SETTINGS_MANUAL.html) — Protection relays, CT/VT ratios, and trip curves.
 - [`PROJECT_ASSUMPTIONS_MANUAL.html`](PROJECT_ASSUMPTIONS_MANUAL.html) — Full engineering assumptions, IEEE/IEC standards traceability.
 - [`PROJECT_RESULTS_AND_FINDINGS.html`](PROJECT_RESULTS_AND_FINDINGS.html) — Complete numerical findings, fault logs, and power flow tables.
-- [`PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html`](PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html) — Presentation script, defense prep, and Q&A.
+- [`PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html`](PRESENTATION_VIDEO_SCRIPT_AND_DEFENSE.html) — Video player, teleprompter speech script, defense prep, and Q&A.
 - [`VIDEO_COVER_STUDIO.html`](VIDEO_COVER_STUDIO.html) — High-resolution title cards and project cover artwork.
 
 ---
