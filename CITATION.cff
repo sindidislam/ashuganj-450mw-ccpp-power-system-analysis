@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this project, models, simulation codebase, or documentation in academic work, please cite it as below."
+authors:
+  - family-names: "Mahodi"
+    given-names: "S. M. Sindid Islam"
+    affiliation: "Department of Electrical and Electronic Engineering, Bangladesh University of Engineering and Technology (BUET)"
+  - family-names: "Talukder"
+    given-names: "Sasshata"
+    affiliation: "Department of Electrical and Electronic Engineering, Bangladesh University of Engineering and Technology (BUET)"
+  - family-names: "Khan"
+    given-names: "Rajib"
+    affiliation: "Department of Electrical and Electronic Engineering, Bangladesh University of Engineering and Technology (BUET)"
+  - family-names: "Islam"
+    given-names: "Iftekhar-E"
+    affiliation: "Department of Electrical and Electronic Engineering, Bangladesh University of Engineering and Technology (BUET)"
+  - family-names: "Nahin"
+    given-names: "Abu Mohammed Ibn Julker"
+    affiliation: "Department of Electrical and Electronic Engineering, Bangladesh University of Engineering and Technology (BUET)"
+title: "Ashuganj 450 MW Combined Cycle Power Plant (South) — Power System Analysis, IEC 60909 Fault Calculations, Protection Coordination & Dynamic Stability Simulation"
+version: 1.0.0
+date-released: 2026-10-04
+url: "https://github.com/sindidislam/ashuganj-450mw-ccpp-power-system-analysis"
+repository-code: "https://github.com/sindidislam/ashuganj-450mw-ccpp-power-system-analysis"
+license: MIT
+keywords:
+  - "Ashuganj 450 MW CCPP"
+  - "Power System Analysis"
+  - "BUET EEE 306"
+  - "S. M. Sindid Islam Mahodi"
+  - "IEC 60909"
+  - "Fault Analysis"
+  - "Protection Coordination"
+  - "MATLAB"
+  - "Simulink"
+  - "Simscape Electrical"
+  - "Combined Cycle Power Plant"
+  - "Electrical Engineering"
