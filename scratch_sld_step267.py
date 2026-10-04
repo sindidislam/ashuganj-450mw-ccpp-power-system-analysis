@@ -2,10 +2,10 @@ python -c "
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
-p4_dir = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\306 Power Project -kimi k3-v4\docs\phase4\snapshots')
+p4_dir = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\Simulation_Workspace\docs\phase4\snapshots')
 p4_ext = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\Phase 4 Docs\snapshots')
 
-sld_src = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\306 Power Project -kimi k3-v4\Phase6\logs\audit_20260925\source_sld.png')
+sld_src = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\Simulation_Workspace\Phase6\logs\audit_20260925\source_sld.png')
 im = Image.open(sld_src).convert('RGB')
 W, H = im.size
 d = ImageDraw.Draw(im)

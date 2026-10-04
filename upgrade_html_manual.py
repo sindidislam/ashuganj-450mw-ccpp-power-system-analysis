@@ -4,7 +4,7 @@ from pathlib import Path
 def upgrade_html_typography():
     base_dir = Path(r"c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f")
     p4_ext_html = base_dir / "Phase 4 Docs" / "FAULT_ANALYSIS_MANUAL.html"
-    p4_int_html = base_dir / "306 Power Project -kimi k3-v4" / "docs" / "phase4" / "FAULT_ANALYSIS_MANUAL.html"
+    p4_int_html = base_dir / "Simulation_Workspace" / "docs" / "phase4" / "FAULT_ANALYSIS_MANUAL.html"
 
     content = p4_ext_html.read_text(encoding="utf-8")
 

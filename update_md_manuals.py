@@ -3,7 +3,7 @@ from pathlib import Path
 def update_markdown_manuals():
     base_dir = Path(r"c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f")
     p4_ext_md = base_dir / "Phase 4 Docs" / "FAULT_ANALYSIS_MANUAL.md"
-    p4_int_md = base_dir / "306 Power Project -kimi k3-v4" / "docs" / "phase4" / "FAULT_ANALYSIS_MANUAL.md"
+    p4_int_md = base_dir / "Simulation_Workspace" / "docs" / "phase4" / "FAULT_ANALYSIS_MANUAL.md"
 
     md_block = """
 ### 3.2b Master SLD High-Definition Close-Up Crops (1:1 Native Resolution)

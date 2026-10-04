@@ -117,9 +117,9 @@ ch3_addition = '''      <!-- SECTION 3.4: ASSUMPTIONS MATRIX -->
 target_ch3_end = '''      <div class="guide-box guide-src">
         <div class="guide-header">📂 Where to Get the Data for Chapter 3:</div>
         <ul class="manual-list">
-          <li>Transmission line data: <span class="file-chip">306 Power Project -kimi k3-v4/matlab/data/ashuganj_lines.m</span>.</li>
-          <li>Generator electrical data: <span class="file-chip">306 Power Project -kimi k3-v4/matlab/data/ashuganj_generators.m</span>.</li>
-          <li>Transformer ratings: <span class="file-chip">306 Power Project -kimi k3-v4/matlab/data/ashuganj_transformers.m</span>.</li>
+          <li>Transmission line data: <span class="file-chip">Simulation_Workspace/matlab/data/ashuganj_lines.m</span>.</li>
+          <li>Generator electrical data: <span class="file-chip">Simulation_Workspace/matlab/data/ashuganj_generators.m</span>.</li>
+          <li>Transformer ratings: <span class="file-chip">Simulation_Workspace/matlab/data/ashuganj_transformers.m</span>.</li>
         </ul>
       </div>
     </section>'''

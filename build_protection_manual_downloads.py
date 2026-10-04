@@ -4,7 +4,7 @@ from pathlib import Path
 def generate_protection_manual():
     downloads_path = Path(r"C:\Users\Sindid\Downloads\PROTECTION_RELAYS_AND_SETTINGS_MANUAL.html")
     workspace_path1 = Path(r"c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\PROTECTION_RELAYS_AND_SETTINGS_MANUAL.html")
-    workspace_path2 = Path(r"c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\306 Power Project -kimi k3-v4\docs\PROTECTION_RELAYS_AND_SETTINGS_MANUAL.html")
+    workspace_path2 = Path(r"c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\Simulation_Workspace\docs\PROTECTION_RELAYS_AND_SETTINGS_MANUAL.html")
     workspace_path2.parent.mkdir(parents=True, exist_ok=True)
 
     html = """<!DOCTYPE html>

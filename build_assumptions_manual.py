@@ -5,10 +5,10 @@ from pathlib import Path
 
 def build_assumptions_manual():
     base_dir = Path(r"c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f")
-    cat_file = base_dir / "306 Power Project -kimi k3-v4" / "docs" / "validation" / "rev31_phase2" / "task-2-assumption-catalog.csv"
+    cat_file = base_dir / "Simulation_Workspace" / "docs" / "validation" / "rev31_phase2" / "task-2-assumption-catalog.csv"
     
     out_ext = base_dir / "PROJECT_ASSUMPTIONS_MANUAL.html"
-    out_int = base_dir / "306 Power Project -kimi k3-v4" / "docs" / "PROJECT_ASSUMPTIONS_MANUAL.html"
+    out_int = base_dir / "Simulation_Workspace" / "docs" / "PROJECT_ASSUMPTIONS_MANUAL.html"
     out_int.parent.mkdir(parents=True, exist_ok=True)
 
     catalog_rows = []

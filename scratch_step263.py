@@ -3,13 +3,13 @@ import os, shutil
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
-p4_dir = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\306 Power Project -kimi k3-v4\docs\phase4\snapshots')
+p4_dir = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\Simulation_Workspace\docs\phase4\snapshots')
 p4_ext = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\Phase 4 Docs\snapshots')
 p4_dir.mkdir(parents=True, exist_ok=True)
 p4_ext.mkdir(parents=True, exist_ok=True)
 
 # 1. Copy individual fault block snapshots
-snap_src = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\306 Power Project -kimi k3-v4\Phase6\presentation_snapshots\annotated')
+snap_src = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\Simulation_Workspace\Phase6\presentation_snapshots\annotated')
 fault_copies = {
     '087_Generator_fault.png': 'F1_generator_fault_block.png',
     '401_LV_connection_fault.png': 'F2_transformer_LV_fault_block.png',
@@ -25,7 +25,7 @@ for s, d in fault_copies.items():
         print('Copied', d)
 
 # 2. Let's create simulink_fault_locations_marked.png from 000_Plant_overview.png
-top_src = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\306 Power Project -kimi k3-v4\docs\phase5\snapshots\000_Plant_overview.png')
+top_src = Path(r'c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f\Simulation_Workspace\docs\phase5\snapshots\000_Plant_overview.png')
 if top_src.exists():
     im = Image.open(top_src).convert('RGB')
     W, H = im.size

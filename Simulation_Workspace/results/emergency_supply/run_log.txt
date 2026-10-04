@@ -1,0 +1,4 @@
+run_emergency_supply_study 2026-09-25 19:03:34
+root C:\Users\sindi\Downloads\Simulation_Workspace\Simulation_Workspace
+Sbase 100 MVA Paux 14.00 MW Qaux 8.6764 MVAr
+Ssc 19918.6 MVA Zgrid 2.6558 ohm

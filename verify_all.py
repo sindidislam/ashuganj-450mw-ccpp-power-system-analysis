@@ -4,7 +4,7 @@ def run_checks():
     base = Path(r"c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f")
     dirs = [
         base / "Phase 4 Docs",
-        base / "306 Power Project -kimi k3-v4" / "docs" / "phase4"
+        base / "Simulation_Workspace" / "docs" / "phase4"
     ]
 
     images = [

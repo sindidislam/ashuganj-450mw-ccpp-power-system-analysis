@@ -530,7 +530,7 @@ ul.manual-list li {
           <li><b>Figure 1.1: Master Single Line Diagram (SLD) of Ashuganj South 450 MW CCPP.</b><br>
           <i>Source file:</i> <span class="file-chip">Phase 4 Docs/snapshots/sld_fault_locations_marked.png</span> or <span class="file-chip">Phase 5 Docs/snapshots/000_Plant_overview.png</span>.</li>
           <li><b>Figure 1.2: Plant Power Train Architecture (Generator → GCB → GSUT → 230 kV GIS Switchyard).</b><br>
-          <i>Source file:</i> Take the overview diagram from <span class="file-chip">306 Power Project -kimi k3-v4/Ashuganj_South_Presentation_and_Viva.html</span> (Slide: <i>The plant electrical power path</i>) or use the block diagram from Chapter 1 of <span class="file-chip">PROJECT_RESULTS_AND_FINDINGS.html</span>.</li>
+          <i>Source file:</i> Take the overview diagram from <span class="file-chip">Simulation_Workspace/Ashuganj_South_Presentation_and_Viva.html</span> (Slide: <i>The plant electrical power path</i>) or use the block diagram from Chapter 1 of <span class="file-chip">PROJECT_RESULTS_AND_FINDINGS.html</span>.</li>
         </ul>
       </div>
 
@@ -1129,9 +1129,9 @@ ul.manual-list li {
       <div class="guide-box guide-src">
         <div class="guide-header">📂 Where to Get the Data for Chapter 3:</div>
         <ul class="manual-list">
-          <li>Transmission line data: <span class="file-chip">306 Power Project -kimi k3-v4/matlab/data/ashuganj_lines.m</span>.</li>
-          <li>Generator electrical data: <span class="file-chip">306 Power Project -kimi k3-v4/matlab/data/ashuganj_generators.m</span>.</li>
-          <li>Transformer ratings: <span class="file-chip">306 Power Project -kimi k3-v4/matlab/data/ashuganj_transformers.m</span>.</li>
+          <li>Transmission line data: <span class="file-chip">Simulation_Workspace/matlab/data/ashuganj_lines.m</span>.</li>
+          <li>Generator electrical data: <span class="file-chip">Simulation_Workspace/matlab/data/ashuganj_generators.m</span>.</li>
+          <li>Transformer ratings: <span class="file-chip">Simulation_Workspace/matlab/data/ashuganj_transformers.m</span>.</li>
         </ul>
       </div>
     </section>
@@ -1146,13 +1146,13 @@ ul.manual-list li {
         <div class="guide-header">🖼️ What Graphs & Plots to Include in Chapter 4:</div>
         <ul class="manual-list">
           <li><b>Figure 4.1: Transformer Loading Comparison Graph across Cooling Stages.</b><br>
-          <i>Source file:</i> <span class="file-chip">306 Power Project -kimi k3-v4/results/plots/transformer_loading.png</span>.<br>
+          <i>Source file:</i> <span class="file-chip">Simulation_Workspace/results/plots/transformer_loading.png</span>.<br>
           <i>What it displays:</i> Bar chart comparing percentage loading of GSUT (355/460/515 MVA), UAT (19/25 MVA), and GAT (19/25 MVA) across all four cases (LF1 to LF4).</li>
           <li><b>Figure 4.2: Plant Busbar Voltage Profile Graph.</b><br>
-          <i>Source file:</i> <span class="file-chip">306 Power Project -kimi k3-v4/results/plots/bus_voltage_profile.png</span>.<br>
+          <i>Source file:</i> <span class="file-chip">Simulation_Workspace/results/plots/bus_voltage_profile.png</span>.<br>
           <i>What it displays:</i> Voltage profile across 230 kV Switchyard, 22 kV Generator Bus, and 6.6 kV Auxiliary Busbar.</li>
           <li><b>Figure 4.3: Power Flow Balance & Export Diagram.</b><br>
-          <i>Source file:</i> <span class="file-chip">306 Power Project -kimi k3-v4/results/plots/power_balance.png</span> and <span class="file-chip">306 Power Project -kimi k3-v4/results/plots/line_loading.png</span>.</li>
+          <i>Source file:</i> <span class="file-chip">Simulation_Workspace/results/plots/power_balance.png</span> and <span class="file-chip">Simulation_Workspace/results/plots/line_loading.png</span>.</li>
         </ul>
       </div>
 
@@ -1238,8 +1238,8 @@ ul.manual-list li {
       <div class="guide-box guide-src">
         <div class="guide-header">📂 Where to Get the Data for Chapter 4:</div>
         <ul class="manual-list">
-          <li>Primary 360 MW system summary: <span class="file-chip">306 Power Project -kimi k3-v4/results/phase3_loadflow/phase3_system_summary.csv</span>.</li>
-          <li>Full load flow numbers & loss audit: <span class="file-chip">306 Power Project -kimi k3-v4/results/reports/load_flow_report.md</span> (Section 5, 6, 7).</li>
+          <li>Primary 360 MW system summary: <span class="file-chip">Simulation_Workspace/results/phase3_loadflow/phase3_system_summary.csv</span>.</li>
+          <li>Full load flow numbers & loss audit: <span class="file-chip">Simulation_Workspace/results/reports/load_flow_report.md</span> (Section 5, 6, 7).</li>
           <li>Power balance reconstruction: <span class="file-chip">results/phase2_loadflow/phase2_power_balance.csv</span>.</li>
         </ul>
       </div>

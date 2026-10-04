@@ -4,7 +4,7 @@ from pathlib import Path
 def create_results_and_findings_html():
     base_dir = Path(r"c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f")
     out_file1 = base_dir / "PROJECT_RESULTS_AND_FINDINGS.html"
-    out_file2 = base_dir / "306 Power Project -kimi k3-v4" / "docs" / "PROJECT_RESULTS_AND_FINDINGS.html"
+    out_file2 = base_dir / "Simulation_Workspace" / "docs" / "PROJECT_RESULTS_AND_FINDINGS.html"
     out_file2.parent.mkdir(parents=True, exist_ok=True)
 
     html_content = """<!DOCTYPE html>

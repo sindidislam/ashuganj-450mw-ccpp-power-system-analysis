@@ -1,0 +1,71 @@
+{
+  "physical_png": "C:\\Users\\Sindid\\OneDrive\\Desktop\\MouseWithoutBorders\\306 Power Project -ekkebare f\\Simulation_Workspace\\tmp\\phase5_final_audit\\artifact_test_dc5c358f-3d25-4b54-ba5b-ad0a897408ab\\plots\\tcc_physical.png",
+  "study_png": "C:\\Users\\Sindid\\OneDrive\\Desktop\\MouseWithoutBorders\\306 Power Project -ekkebare f\\Simulation_Workspace\\tmp\\phase5_final_audit\\artifact_test_dc5c358f-3d25-4b54-ba5b-ad0a897408ab\\plots\\tcc_study.png",
+  "physical_title": "Phase-5 physical-device study: GEN DT comparator and 87G threshold",
+  "study_title": "Phase-5 study TCC | TMS: GEN-51 0.10 | GSUT-51 0.55 | Q0-51 0.80",
+  "physical_labels": [
+    "GEN DT comparator | CT 15000/1 | Is 1.717e+04 A (1.145 A secondary)",
+    "DT comparator 3.00 s - study assumption",
+    "GEN 87G pickup band 0.20pu approx 2403.8 A-prim (no curve invented)"
+  ],
+  "study_labels": [
+    "GEN-51 | ANSI 51 OC | CT 15000/1 | Is 1.717e+04 A-prim (1.145 A-sec) | TMS 0.1 | SI",
+    "GSUT-HV-51 | ANSI 51 OC | CT 1600/1 | Is 1380 A-prim (0.8625 A-sec) | TMS 0.55 | SI",
+    "GIS-Q0-51 | ANSI 51 OC | CT 1600/1 | Is 1500 A-prim (0.9375 A-sec) | TMS 0.8 | SI"
+  ],
+  "physical_foot": [
+    "Study proxies; installed settings unverified",
+    "87G threshold only; 45 ms detection proxy; high-set OFF"
+  ],
+  "study_foot": [
+    "All currents referred to 230 kV; Q0 conditional transformer-bay mapping",
+    "IEC Standard Inverse study settings; CTI = 0.30 s criterion"
+  ],
+  "dt_Is_prim": 17171,
+  "dt_Is_sec": 1.1447333333333334,
+  "tdef_s": 3,
+  "dt_label": "GEN DT comparator | CT 15000/1 | Is 1.717e+04 A (1.145 A secondary)",
+  "tdef_label": "DT comparator 3.00 s - study assumption",
+  "dt_vline_style": "-",
+  "dt_hline_style": "--",
+  "pickup_87G_A": 2403.8,
+  "pickup_87G_pu": 0.2,
+  "study_settings": [
+    {
+      "device_id": "GEN-51",
+      "pickup_prim": 17170.8,
+      "pickup_sec": 1.14472,
+      "TMS": 0.1,
+      "curve": "SI",
+      "ct": 15000,
+      "voltage_kV": 22,
+      "plot_pickup_A": 1642.4243478260869
+    },
+    {
+      "device_id": "GSUT-HV-51",
+      "pickup_prim": 1380,
+      "pickup_sec": 0.8625,
+      "TMS": 0.55,
+      "curve": "SI",
+      "ct": 1600,
+      "voltage_kV": 230,
+      "plot_pickup_A": 1380
+    },
+    {
+      "device_id": "GIS-Q0-51",
+      "pickup_prim": 1500,
+      "pickup_sec": 0.9375,
+      "TMS": 0.8,
+      "curve": "SI",
+      "ct": 1600,
+      "voltage_kV": 230,
+      "plot_pickup_A": 1500
+    }
+  ],
+  "study_times": [
+    1.0029027020046872,
+    5.51596486102578,
+    8.0232216160374978
+  ],
+  "reference_voltage_kV": 230
+}

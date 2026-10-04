@@ -12,16 +12,9 @@ Developed for **EEE 306: Power System I Laboratory**, Department of Electrical a
 
 ---
 
-## 👤 Project Lead & Principal Contributor
+## 👥 Authors & Contributors (Group 03, Section C-1)
 
-**S M Sindid Islam Mahodi** (Student ID: **2206147**)
-- **Principal Author & System Architect**: Fault Analysis & Symmetrical Components Derivations, Comprehensive Network Impedance Modeling, Breaker Duty & Withstand Assessment, Simulink Dynamic Relay Clearing Integration, and Master Project Archival & Documentation.
-- **Department**: Department of Electrical and Electronic Engineering (EEE)
-- **Institution**: Bangladesh University of Engineering and Technology (BUET), Dhaka, Bangladesh
-- **GitHub**: [@sindidislam](https://github.com/sindidislam)
-
-### Project Contributors & Group Members (Group 03, Section C-1)
-1. **S M Sindid Islam Mahodi** (Student ID: **2206147**) — *Lead Author, Fault Analysis & Symmetrical Components*
+1. **S. M. Sindid Islam Mahodi** (Student ID: **2206147**) — *Fault Analysis & Symmetrical Components*
 2. **Sasshata Talukder** (Student ID: **2206136**) — *Power Flow & Protection Coordination*
 3. **Rajib Khan** (Student ID: **2206152**) — *Network Modeling & Data Verification*
 4. **Iftekhar-E-Islam** (Student ID: **2206153**) — *Simulink Dynamic Model & Relay Logic*
@@ -32,7 +25,7 @@ Developed for **EEE 306: Power System I Laboratory**, Department of Electrical a
 - **Course Instructors**:
   - **Md. Kamrul Hasan**, Lecturer, Department of EEE, BUET
   - **Md. Mahadi Jaman**, Part-Time Lecturer, Department of EEE, BUET
-- **Institution**: Bangladesh University of Engineering and Technology (BUET)
+- **Institution**: Department of Electrical and Electronic Engineering (EEE), Bangladesh University of Engineering and Technology (BUET)
 
 ---
 
@@ -161,7 +154,7 @@ This repository includes a suite of standalone, publication-grade interactive HT
 │   └── FAULT_ANALYSIS_MANUAL.html
 ├── Phase 5 Docs/                                       <- Phase 5 Protection Coordination Manual
 │   └── PROTECTION_SETTINGS_MANUAL.html
-├── 306 Power Project -kimi k3-v4/                      <- Complete MATLAB / Simulink / PSAF Workspace
+├── Simulation_Workspace/                      <- Complete MATLAB / Simulink / PSAF Workspace
 │   ├── RUN_ME.m                                        <- One-command Master Simulation Runner
 │   ├── RUN_EMERGENCY_SUPPLY.m                          <- Station DC & Emergency Power Simulation
 │   ├── simulink/                                       <- Simulink Models & Subsystem Blocks
@@ -190,7 +183,7 @@ This repository includes a suite of standalone, publication-grade interactive HT
    ```
 2. Open MATLAB and navigate into the project workspace:
    ```matlab
-   cd('306 Power Project -kimi k3-v4')
+   cd('Simulation_Workspace')
    ```
 3. Run the automated environment self-check:
    ```matlab

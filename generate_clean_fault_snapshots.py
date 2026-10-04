@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 def generate_all_presentation_fault_visuals():
     base_dir = Path(r"c:\Users\Sindid\OneDrive\Desktop\MouseWithoutBorders\306 Power Project -ekkebare f")
     p4_ext = base_dir / "Phase 4 Docs" / "snapshots"
-    p4_int = base_dir / "306 Power Project -kimi k3-v4" / "docs" / "phase4" / "snapshots"
+    p4_int = base_dir / "Simulation_Workspace" / "docs" / "phase4" / "snapshots"
     p4_ext.mkdir(parents=True, exist_ok=True)
     p4_int.mkdir(parents=True, exist_ok=True)
 
@@ -16,7 +16,7 @@ def generate_all_presentation_fault_visuals():
     # =========================================================================
     # 1. TOP-LEVEL SIMULINK DYNAMIC MODEL (3753 x 2689) — ULTRA PRESENTATION GRADE
     # =========================================================================
-    sim_src = base_dir / "306 Power Project -kimi k3-v4" / "Phase6" / "presentation_snapshots" / "raw" / "000_Plant_overview.png"
+    sim_src = base_dir / "Simulation_Workspace" / "Phase6" / "presentation_snapshots" / "raw" / "000_Plant_overview.png"
     im_sim = Image.open(sim_src).convert("RGB")
     W1, H1 = im_sim.size
     d1 = ImageDraw.Draw(im_sim)
@@ -152,7 +152,7 @@ def generate_all_presentation_fault_visuals():
     # =========================================================================
     # 2. MASTER OEM SLD DIAGRAM (2263 x 1600) — EXTRA-LARGE PRESENTATION GRADE
     # =========================================================================
-    sld_src = base_dir / "306 Power Project -kimi k3-v4" / "Phase6" / "logs" / "audit_20260925" / "source_sld.png"
+    sld_src = base_dir / "Simulation_Workspace" / "Phase6" / "logs" / "audit_20260925" / "source_sld.png"
     im_sld = Image.open(sld_src).convert("RGB")
     W2, H2 = im_sld.size
     d2 = ImageDraw.Draw(im_sld)
